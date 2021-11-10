@@ -2,7 +2,7 @@ import Head from 'next/head'
 import 'bootstrap/dist/css/bootstrap.css';
 import Image from 'next/image'
 import photo from '../public/images/omar.png'
-import envelope from '../public/images/envelope.svg'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
@@ -15,22 +15,22 @@ export default function Home() {
         <meta name="description" content="UI/UX Design developer front-end developer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+     
           <div className="container">
   
           <div className="index__details">
               <div className="row align-items-center">
-                <div className="col col-lg-5">
+                <div className=" col-lg-5 col-sm-12"   data-aos="fade-right" data-aos-duration="1000">
              
                 <Image
                 alt="MyImage"
                 src={photo}
-                      />
+              />
                 </div>
-                <div className="col col-lg-7">
+                <div className=" col-lg-7 col-sm-12"   data-aos="fade-left"  data-aos-duration="1000" >
               <div className="title">
-             <div className="myname d-flex align-items-center">
-             OMAR <span className="m-2 cusomspan  ">MOKHTAR</span>
+             <div className="myname d-flex align-items-center" >
+             OMAR <span className="m-2 cusomspan ">MOKHTAR</span>
                </div>
 
                 <span className="">
@@ -50,7 +50,11 @@ Over the past 10 years, I've designed digital experiences (mobile, web, dashboar
                   <a href="https://www.behance.net/Omar_Mokhtar" title="behance">  <FontAwesomeIcon icon={['fab', 'behance']} /></a>
                   <a href="https://github.com/omarmok" title="github">  <FontAwesomeIcon icon={['fab', 'github']} /></a>
                   <a href="https://www.linkedin.com/in/omarmokhtar22/" title="linkedin">  <FontAwesomeIcon icon={['fab', 'linkedin']} /></a>
-                  <a href="mailto:sal_fagomy22@hotmail.com" title="envelope">      <Image alt="MyImage" src={envelope} class="envelopeimage" /></a>
+                  <a href="mailto:sal_fagomy22@hotmail.com" title="envelope">  
+
+                <img src="/images/envelope.svg"/>
+      
+      </a>
                   <a href="https://twitter.com/al_fagomy22" title="twitter">  <FontAwesomeIcon icon={['fab', 'twitter']} /></a>
                     </div>
 
@@ -58,8 +62,8 @@ Over the past 10 years, I've designed digital experiences (mobile, web, dashboar
                 </div>
                
               <div className="d-flex">
-                    <button className="btn mt-3 mx-2">DOWNLOAD PORTFOLIO</button>
-                    <button className="btn outlinebtn mt-3">Projects</button>
+                    <button className="btn mt-3 mx-2"> Projects</button>
+                    <button className="btn outlinebtn mt-3"> DOWNLOAD PORTFOLIO</button>
                     
                 </div>
 
@@ -70,6 +74,8 @@ Over the past 10 years, I've designed digital experiences (mobile, web, dashboar
 
           
           </div>
+
+        
     </main>
   )
 }
