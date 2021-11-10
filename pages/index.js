@@ -1,6 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import photo from '../public/images/omar.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
+
 export default function Home() {
   return (
     <main >
@@ -11,10 +15,11 @@ export default function Home() {
       </Head>
 
           <div className="container">
-
+  
           <div className="index__details">
               <div className="row">
                 <div className="col col-lg-3">
+                <FontAwesomeIcon icon={['fab', 'twitter']} />
                 <Image
                 alt="MyImage"
                 src={photo}
