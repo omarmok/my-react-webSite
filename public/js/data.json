@@ -1,0 +1,76 @@
+{
+
+
+	"Experience": [
+
+		{
+			"id": 1,
+            "date":"2021 – Present",
+			"jobtitle": "UI/UX Designer ",
+			"companyname": "Human Rights In Saudia Arabia (HRC) Freelancer",
+			"url": "https://hrc.gov.sa/",
+			"role": " I was the UX/UI Lead in a team of 4 and we completed this project over the course of 5 months. I was in charge of coming up with ideas for re-designing the layout and for improving the overall user experience using sketching, wireframing and Prototyping.Moreover,I was involved with the development team,as we used HTML,VUE js and Javascript to rebuild all pages."
+
+		},
+        {
+			"id": 2,
+            "date":"Feb 2019 – Present",
+			"jobtitle": "UI/UX Designer ",
+			"companyname": "National Housing Company (NHC)",
+			"url": "https://nhc.sa/",
+			"role": " UI/UX Designer wireframing and front-end web development (HTML, CSS,  JS, vuejs )Creating Ui kits design solutions for companysolutions for both web Working closely with analysist ,developers and QA testers ensuring that the product is developed according to experience and design specifications."
+
+		},
+		{
+			"id": 3,
+            "date":"Mar 2016 – Feb 2019",
+			"jobtitle": "Frontend Developer",
+			"companyname": "Al-Majma’ah University",
+			"url": "https://www.mu.edu.sa/ar",
+			"role": "UI/UX Designer wireframing and front-end web development (HTML, CSS,  JS) Graphic Designer for e-portal unit.understand students and emploies needs to create some solutions to help themWorking closely with analysist ,developers and QA testers ensuring that the product is developed according stakeholders Requiements.communicating daily with stakeholders( Deans, ) on new product ideas, and improve the oldest products"
+
+		},
+		{
+			"id": 4,
+            "date":"Nov 2013 – Feb 2016",
+			"jobtitle": "Ui Designer ",
+			"companyname": "SURE International Technology - SURE",
+			"url": "https://www.sure.com.sa/en/",
+			"role": " Interface Designer (HTML, CSS) Work in the design team for some government agencies and universities, including the National Guard, Shaqra University, and the Food and Drug Authority "
+
+		},
+		{
+			"id": 5,
+            "date":"May 2012 – 2013",
+			"jobtitle": "Ui/UX Designer-Developer ",
+			"companyname": "Jazan University",
+			"url": "https://www.jazanu.edu.sa/ar",
+			"role": "UI/UX Designer wireframing and front-end web development (HTML, CSS,  JS) Graphic Designer for e-portal unit.understand students and emploies needs to create some solutions to help themWorking closely with analysist ,developers and QA testers ensuring that the product is developed according stakeholders Requiements.communicating daily with stakeholders( Deans, ) on new product ideas, and improve the oldest products"
+
+		}
+
+	],
+
+
+
+
+	"projects": [
+
+		{
+			"id": 1,
+			"name": "student portal",
+			"image": "./images/students.jpg",
+			"url": "http://omarmokhtar.com/SU/index.html",
+			"readmore": "http://omarmokhtar.com"
+
+		},
+		{
+			"id": 12,
+			"name": "student portal",
+			"image": "./images/students.jpg",
+			"url": "http://omarmokhtar.com/SU/index.html",
+			"readmore": "http://omarmokhtar.com"
+
+		}
+	]
+}

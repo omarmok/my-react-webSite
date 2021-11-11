@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import AOS from "aos";
+import axios from "axios";
 import "aos/dist/aos.css";
 import 'bootstrap/dist/css/bootstrap.css'
 import { library } from '@fortawesome/fontawesome-svg-core'

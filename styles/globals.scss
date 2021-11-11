@@ -168,3 +168,78 @@ main{
   }
 }
 
+
+.mainpagetitle{
+  font-weight: 800;
+  color:#2437ac;
+  font-size: 60px;
+  margin-bottom: 80px;
+
+}
+.page__container{
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 40px;
+ 
+  .section__title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &--maintitle{
+      font-size: 30px;
+      font-weight: 800;
+    }
+  }
+}
+
+  .mycard{
+    padding: 40px;
+    margin-top: 30px;
+    flex-direction: row;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    &:before{
+      content: "";
+      background: #f2494c;
+      width: 82px;
+      height: 50px;
+      position: absolute;
+      top: -22px;
+      right: -60px;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+}
+      &__details{
+        font-size: 20px;
+        padding: 0;
+        margin-bottom: 12px;
+        border-bottom: 1px solid #f1f1f1;
+        padding-bottom: 15px;
+      &--date{
+        color:$secondColor;
+        font-weight: 700;
+        font-size: 20px;
+      }
+      &--jobtitle{
+      font-weight: 800;
+      margin-bottom: 5px;
+      }
+      &--companyname{
+        font-weight: 400;
+        font-size: 12px;
+        }
+
+
+      }
+
+      .role{
+        line-height: 1.9;
+      }
+
+  }
+
+  
