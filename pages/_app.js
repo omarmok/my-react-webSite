@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap");
-    import("aos/dist/aos.js");
+
     AOS.init({
       easing: "ease-out-cubic",
       once: true,

@@ -21,26 +21,17 @@ export default function Home() {
           <div className="index__details">
               <div className="row align-items-center">
                 <div className=" col-lg-5 col-sm-12"   data-aos="fade-right" data-aos-duration="2000">
-             
-                <Image
-                alt="MyImage"
-                src={photo}
-              />
+                   <Image  alt="MyImage"  src={photo}/>
                 </div>
                 <div className=" col-lg-7 col-sm-12"   data-aos="fade-left"  data-aos-duration="2000" >
               <div className="title">
-             <div className="myname d-flex align-items-center" >
-             OMAR <span className="m-2 cusomspan ">MOKHTAR</span>
-               </div>
-
+             <div className="myname d-flex align-items-center" >  OMAR <span className="m-2 cusomspan ">MOKHTAR</span></div>
                 <span className="">
                   UI/UX Designer
                 </span>
-
               </div>
 
               <div className="mt-3 d-flex align-items-center discraption">
-
                 <p>
                 I am an experienced UI/User Experience Designer.
 Over the past 10 years, I've designed digital experiences (mobile, web, dashboards, and more) across a variety of organizations, minstiies, and universities.

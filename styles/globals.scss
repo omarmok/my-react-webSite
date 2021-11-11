@@ -1,5 +1,6 @@
 
-$mainColor:#221afb;
+$mainColor:#3b3970;
+$secondColor:#f2494c;
 
 html,
 body {
@@ -25,23 +26,32 @@ a {
 .navBg{
   background-color: #ffffff;
 }
+
+.navbar {
+  width:73%;
+  margin:0 auto;
+}
 .navbar-brand{
-  font-weight: 800;
+  font-weight: 600;
   font-family: raleway-semibold,raleway,sans-serif;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .navbar-nav .nav-link {
   color: #000;
   font-weight: 600;
-  font-size: 20px;
+  font-size:14px;
+  font-family: raleway-semibold,raleway,sans-serif;
 }
 
 .navbar-nav .active .nav-link{
-  color:$mainColor;
+color:  $secondColor;
 
+}
+.navtitle{
+  color:  $secondColor;
 }
 
 .btn{
@@ -67,15 +77,16 @@ a {
     border: 2px solid #000;
     color: #000;
     &:hover{
-      background: $mainColor;
-      border: 2px solid $mainColor;
+      background:$secondColor;
+      border: 2px solid $secondColor;
       color: #fff;
     }
 }
 
 main{
   background: rgb(243,247,255);
-  background: linear-gradient(270deg, rgba(243,247,255,1) 68%, rgba(34,26,251,1) 68%);
+  background: linear-gradient(
+    270deg, #f7f7f7 68%, #3b3970 68%);
   padding: 40px 0;
   height: 70vh;
   .index__details{
@@ -100,11 +111,12 @@ main{
           letter-spacing: 0.15em;
           font-size: 40px;
           color: #fff;
+          padding-left: 5px;
           &:after{
             content: "";
             width: 275px;
-            height: 61px;
-            background-color: #221afb;
+            height:50px;
+            background-color: $secondColor;
             position: absolute;
             top: 5px;
             right: -17px;
