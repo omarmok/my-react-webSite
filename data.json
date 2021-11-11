@@ -54,23 +54,66 @@
 
 
 
-	"projects": [
+	"Certifications": [
 
 		{
 			"id": 1,
-			"name": "student portal",
-			"image": "./images/students.jpg",
-			"url": "http://omarmokhtar.com/SU/index.html",
-			"readmore": "http://omarmokhtar.com"
+            "Issued":" Jan 2021",
+			"info": "Creating a Design System with Adobe XD"
 
 		},
 		{
-			"id": 12,
-			"name": "student portal",
-			"image": "./images/students.jpg",
-			"url": "http://omarmokhtar.com/SU/index.html",
-			"readmore": "http://omarmokhtar.com"
+			"id": 2,
+            "Issued":"Aug 2020",
+			"info": "Customer Experience: Journey Mapping"
+		
+
+		},
+		{
+			"id": 3,
+            "Issued":"Aug 2020",
+			"info": "Git Essential Training: The Basics"
+		
+
+		},
+		{
+			"id": 4,
+            "Issued":"Aug 2020",
+			"info": "Learning Adobe XD"
+		
+
+		},
+		{
+			"id": 5,
+            "Issued":"Aug 2020",
+			"info": "Learning webpack 4"
+		
+		
+
+		},
+		{
+			"id": 6,
+            "Issued":"may 2020",
+			"info": "UX Foundations: Interaction Design"
+	
+		
+
+		},
+		{
+			"id": 7,
+            "Issued":"Apr 2020",
+			"info": "Interaction Design: Structure"
 
 		}
+		,
+		{
+			"id": 8,
+            "Issued ":"Apr 2020",
+			"info": "Sass Essential Training"
+		
+
+		}
+
+		
 	]
 }

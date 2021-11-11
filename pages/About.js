@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Head from 'next/head'
 import { render } from 'react-dom';
 import axios from 'axios';
+import Certifications from '../components/Certifications';
 
 
 class About extends Component{
@@ -16,11 +17,13 @@ class About extends Component{
   }
   componentDidMount = () =>{
     axios.get('https://api.npoint.io/ba35b22a6f908f637bc8').then( res => { this.setState ({Experience :res.data.Experience})})
+  
   }
+
+
 
   render(){
     const {Experience}= this.state;
-    
     const Experiencelist = Experience.map( ( ExperienceItem) =>{
 
       return(
@@ -37,6 +40,7 @@ class About extends Component{
         </div>
       )
 
+      
 
     })
   return(
@@ -60,6 +64,27 @@ class About extends Component{
          </div>
           { Experiencelist}
         
+
+          <div className="section__title mt-5">
+           <div className="section__title--maintitle" data-aos="fade-right" data-aos-duration="1000">Education</div>
+         </div>
+
+         <div className=" mycard"  data-aos="fade-up" data-aos-duration="2000">
+         <div className="mycard__details w-100 d-flex align-items-center  justify-content-between">
+            <div className="mycard__details--jobtitle d-flex align-items-center ">  <img src="/images/azhar.png" className="mx-3"/>
+              <div className=" ">
+              Bachelor of Physical
+                  
+                  <div className="d-block mycard__details--companyname">  Al-Azhar University</div>
+              </div>
+            </div>
+            <div className="mycard__details--date"> 2004-2009</div>
+
+        </div>
+         </div>
+         
+         <Certifications/>
+
            </div>
 
     </div>

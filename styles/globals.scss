@@ -196,7 +196,8 @@ main{
     padding: 40px;
     margin-top: 30px;
     flex-direction: row;
-    background-color: #fff;
+    box-shadow: 10px 10px 20px 0 #edf0f5, -10px -10px 20px 0 #f6f9ff;
+    background-color: #ffffff;
     position: relative;
     overflow: hidden;
     &:before{
@@ -217,7 +218,6 @@ main{
         font-size: 20px;
         padding: 0;
         margin-bottom: 12px;
-        border-bottom: 1px solid #f1f1f1;
         padding-bottom: 15px;
       &--date{
         color:$secondColor;
@@ -243,3 +243,20 @@ main{
   }
 
   
+
+  .Certificationsimage{
+    width: 100px;
+  }
+
+  .Certificationscard{
+   
+    .mycard__details--jobtitle{
+      font-weight: 500;
+      margin-bottom: 0;
+      font-size: 15px;
+    }
+
+    &:before{
+      background: #2437ac;
+    }
+  }
