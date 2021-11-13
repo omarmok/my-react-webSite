@@ -9,11 +9,19 @@ export default function Home() {
   return (
     <main >
       <Head>
-        <title>my-app</title>
+        <title>Omar Mokhtar</title>
         <meta name="description" content="UI/UX Design developer front-end developer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
      
+      <div class="loader">
+		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js">
+		</script> 
+         <lottie-player class="loada" src="https://assets9.lottiefiles.com/packages/lf20_EchaWV.json" background="transparent" speed="1"  loop="" autoplay=""></lottie-player>
+
+	</div>
+
+
           <div className="container">
 
           <div className="index__details">
@@ -35,7 +43,7 @@ export default function Home() {
 Over the past 10 years, I've designed digital experiences (mobile, web, dashboards, and more) across a variety of organizations, minstiies, and universities.
                 </p>
 
-                  <div className="socialIcon">
+                  <div className="socialIcon" >
                   <a href="https://www.behance.net/Omar_Mokhtar" title="behance">  <FontAwesomeIcon icon={['fab', 'behance']} /></a>
                   <a href="https://github.com/omarmok" title="github">  <FontAwesomeIcon icon={['fab', 'github']} /></a>
                   <a href="https://www.linkedin.com/in/omarmokhtar22/" title="linkedin">  <FontAwesomeIcon icon={['fab', 'linkedin']} /></a>
@@ -51,8 +59,7 @@ Over the past 10 years, I've designed digital experiences (mobile, web, dashboar
                 </div>
                
               <div className="d-flex">
-                    <button className="btn mt-3 mx-2"> Projects</button>
-                    <button className="btn outlinebtn mt-3"> DOWNLOAD PORTFOLIO</button>
+                    <button className="btn mt-3 mx-2"> DOWNLOAD PORTFOLIO</button>
                     
                 </div>
 
