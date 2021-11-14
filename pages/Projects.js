@@ -25,20 +25,19 @@ class Projects extends Component{
     const Projectslist = Projects.map( ( ProjectsItem) =>{
 
       return(
-
             <div class="col-4 col-lg-4 " data-aos="fade-up" data-aos-duration="2000"  key={ProjectsItem.key}>
             <div class="portfolio-item">
                 <div class="portfolio-img"><img class="img-fluid" src="http://omarmokhtar.com/assets/img/portfolio/students.jpg" /></div>
                 <div class="portfolio-text">
-                    <a href="">{ProjectsItem.info}</a>
+                  {ProjectsItem.info}
                     <p>{ProjectsItem.Issued}</p>
                 </div>
                 <div class="portfolio-links">
-                    <a href="">  
-                    
+                  <a href={ProjectsItem.url}  >  
                     <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-                    
                     </a>
+
+              
                 </div>
             </div>
             </div>
