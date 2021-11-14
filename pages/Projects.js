@@ -55,9 +55,11 @@ class Projects extends Component{
 
    
     <div>
-           <Head>
-             <title>Projects</title> 
-           </Head>
+              <Head>
+                <title>Omar Mokhtar-Projects</title>
+                <meta name="description" content="UI/UX Design developer front-end developer" />
+                <link rel="icon" href="../public/favicon.ico" />
+      </Head>
            <div className="container">
            
            <div className="page__container project">
@@ -67,7 +69,8 @@ class Projects extends Component{
             </div>
           <div className="project__description">
           <p>
-            I am constantly striving to improve my techniques and expand my skill set.
+          I always look forward to my techniques and expanding my skill set.
+
             <br/>
 Each of my projects - individual or collaborative - has provided me with some experience to help me in this area.
 <br/>

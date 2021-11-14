@@ -7,6 +7,7 @@ import Head from 'next/head'
 import { render } from 'react-dom';
 import axios from 'axios';
 import Certifications from '../components/Certifications';
+import Tools from '../components/Tools';
 
 
 class About extends Component{
@@ -50,8 +51,9 @@ class About extends Component{
            <Head>
              <title>About</title> 
            </Head>
+      
            <div className="container">
-           
+       
            <div className="page__container">
 
            <div className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
@@ -85,6 +87,10 @@ class About extends Component{
          
          <Certifications/>
 
+         <div className="section__title mt-5">
+           <div className="section__title--maintitle" data-aos="fade-right" data-aos-duration="1000">Skills</div>
+         </div>
+         <Tools  />
            </div>
 
     </div>

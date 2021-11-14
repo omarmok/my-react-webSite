@@ -89,7 +89,6 @@
   
   .portfolio-item .portfolio-text a {
     color: #000;
-    font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-size: 1.2rem;
     display: inline-block;
@@ -131,5 +130,5 @@
   
   .portfolio-item .portfolio-links a:hover {
   
-    box-shadow: 0 0 0 10px rgb(157 154 255), 0 0 0 20px #cfceff;
+    box-shadow: 0 0 0 10px rgba(157, 154, 255,0), 0 0 0 20px #cfceff;
   }
