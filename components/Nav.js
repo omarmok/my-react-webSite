@@ -23,7 +23,7 @@ const Nav = () => {
                                 <a href="/Projects" className="nav-link" >Projects</a>
                                 </li>
                                 <li className="nav-item">
-                                <a href="/contact" className="nav-link" >Contact</a>
+                                <a href="/ContactForm" className="nav-link" >Contact</a>
                                 </li>
                             </ul>
                     </div>
