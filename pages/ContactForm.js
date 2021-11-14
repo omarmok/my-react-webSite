@@ -1,4 +1,5 @@
 import emailjs from "emailjs-com";
+import Head from 'next/head'
 
 export default function ContactUs() {
 
@@ -16,27 +17,59 @@ export default function ContactUs() {
 
     return(
         <div>
-            <div className="container">
-            <form onSubmit={sendEmail}>
-                    <div className="row pt-5 mx-auto">
-                        <div className="col-8 form-group mx-auto">
-                            <input type="text" className="form-control" placeholder="Name" name="name"/>
-                        </div>
-                        <div className="col-8 form-group pt-2 mx-auto">
-                            <input type="email" className="form-control" placeholder="Email Address" name="email"/>
-                        </div>
-                        <div className="col-8 form-group pt-2 mx-auto">
+             <Head>
+             <title> Contact</title> 
+           </Head>
+
+           <div className="container">
+           
+           <div className="page__container">
+
+           <div className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
+           Contact
+            </div>
+
+            <form onSubmit={sendEmail} className="bg-white p-5 contact">
+
+                <div className="d-flex align-items-center justify-content-between w-100">
+                    
+                <div className="form-group w-100 m-2 mt-3 mb-5">
+                                <label>
+                                    Name <span className="requierd">*</span>
+                                    </label>
+                 <input type="text" className="form-control"  name="name"/>
+                </div>
+
+
+                <div className="form-group w-100 m-2 mt-3 mb-5">
+                                <label>
+                                Email Address<span className="requierd">*</span>
+                                    </label>
+                                            <input type="email" className="form-control"  name="email"/>
+                </div>
+
+                    </div>
+                        <div className=" form-group m-2 mt-3 mb-5">
+                        <label>
+                        Subject<span className="requierd">*</span>
+                         </label>
                             <input type="text" className="form-control" placeholder="Subject" name="subject"/>
                         </div>
-                        <div className="col-8 form-group pt-2 mx-auto">
-                            <textarea className="form-control" id="" cols="30" rows="8" placeholder="Your message" name="message"></textarea>
+                        <div className=" form-group m-2 mt-3 mb-5">
+                        <label>
+                        Your message<span className="requierd">*</span>
+                         </label>
+                            <textarea className="form-control" id="" cols="30" rows="8"  name="message"></textarea>
                         </div>
-                        <div className="col-8 pt-3 mx-auto">
+                        <div className="pt-3 mx-auto m-2">
                             <input type="submit" className="btn btn-info" value="Send Message"></input>
                         </div>
-                    </div>
                 </form>
-            </div>
+
+
+</div></div>
+
+          
         </div>
     )
 }

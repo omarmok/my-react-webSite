@@ -261,3 +261,41 @@ main{
       background: #2437ac;
     }
   }
+
+
+  .contact{
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+
+    &::before{
+      content: "";
+      background: #f2494c;
+      width: 82px;
+      height: 50px;
+      position: absolute;
+      top: -22px;
+      right: -60px;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+    }
+    label{
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+  
+    .requierd{
+      color:$secondColor;
+      font-size: 24px;
+    }
+   
+    @media (max-width: 968px) {
+      .d-flex {
+        flex-direction: column;
+      }
+
+     }
+  }
