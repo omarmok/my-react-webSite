@@ -1,5 +1,5 @@
 @import "_about.scss";
-$mainColor:#2437ac;
+$mainColor:#120ce8;
 $secondColor:#f2494c;
 
 html,
@@ -8,7 +8,7 @@ body {
   margin: 0;
 
     font-family: 'Raleway', sans-serif;
-    background: #f3f7ff;
+    background: #f6f5fa;
 }
 
 a {
@@ -91,7 +91,7 @@ color:  $secondColor;
 }
 main{
   background: rgb(243,247,255);
-  background: linear-gradient(270deg, rgba(243,247,255,1) 68%, rgba(36,55,172,1) 68%);
+  background: linear-gradient(270deg, rgba(243,247,255,1) 68%, $mainColor 68%);
   padding: 40px 0;
   // height: 60vh;
   flex-grow: 1;
@@ -124,7 +124,7 @@ main{
           content: "";
           width: 275px;
           height:50px;
-          background-color: $secondColor;
+          background-color:#000;
           position: absolute;
           top: 5px;
           right: -17px;
@@ -172,7 +172,7 @@ main{
 
 .mainpagetitle{
   font-weight: 800;
-  color:#2437ac;
+  color:$mainColor;
   font-size: 60px;
   margin-bottom: 80px;
 
@@ -221,7 +221,7 @@ main{
         margin-bottom: 12px;
         padding-bottom: 15px;
       &--date{
-        color:$secondColor;
+        color:$mainColor;
         font-weight: 700;
         font-size: 20px;
       }
