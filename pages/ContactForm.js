@@ -29,7 +29,7 @@ export default function ContactUs() {
            Contact
             </div>
 
-            <form onSubmit={sendEmail} className="bg-white p-5 contact">
+            <form onSubmit={sendEmail} className="bg-white p-5 contact" data-aos="fade-up" data-aos-duration="2000">
 
                 <div className="d-flex align-items-center justify-content-between w-100">
                     
