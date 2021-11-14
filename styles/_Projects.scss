@@ -1,4 +1,15 @@
 
+
+.project{
+.mainpagetitle{
+  margin-bottom:0;
+}
+  &__description{
+    font-size: 20px;
+    margin-bottom: 70px;
+  }
+}
+
 .portfolio-item {
     border-radius: 5px;
     margin-bottom: 30px;
@@ -113,12 +124,12 @@
     text-align: center;
     color: #fff;
     display: inline-block;
-    background: orange;
+    background: #120ce8;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
   }
   
   .portfolio-item .portfolio-links a:hover {
   
-            box-shadow:0 0 0 10px rgb(255 87 34 / 36%), 0 0 0 20px rgb(243 208 197);
+    box-shadow: 0 0 0 10px rgb(157 154 255), 0 0 0 20px #cfceff;
   }

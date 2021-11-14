@@ -1,9 +1,8 @@
 import Head from 'next/head'
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css'
 import Image from 'next/image'
 import photo from '../public/images/omar.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { FaTwitter,FaBehance,FaGithub,FaEnvelope,FaLinkedin } from 'react-icons/fa';
 
 export default function Home() {
   return (
@@ -40,19 +39,16 @@ export default function Home() {
               <div className="mt-3 d-flex align-items-center discraption">
                 <p>
                 I am an experienced UI/User Experience Designer.
-Over the past 10 years, I've designed digital experiences (mobile, web, dashboards, and more) across a variety of organizations, minstiies, and universities.
+Over the past 10 years, I've designed digital experiences mobile, web, dashboards, and more across a variety of organizations, minstiies, and universities.
                 </p>
 
                   <div className="socialIcon" >
-                  <a href="https://www.behance.net/Omar_Mokhtar" title="behance">  <FontAwesomeIcon icon={['fab', 'behance']} /></a>
-                  <a href="https://github.com/omarmok" title="github">  <FontAwesomeIcon icon={['fab', 'github']} /></a>
-                  <a href="https://www.linkedin.com/in/omarmokhtar22/" title="linkedin">  <FontAwesomeIcon icon={['fab', 'linkedin']} /></a>
-                  <a href="mailto:sal_fagomy22@hotmail.com" title="envelope">  
-
-                <img src="/images/envelope.svg"/>
-      
-      </a>
-                  <a href="https://twitter.com/al_fagomy22" title="twitter">  <FontAwesomeIcon icon={['fab', 'twitter']} /></a>
+                  <a href="https://www.behance.net/Omar_Mokhtar" title="twitter">  <FaBehance /></a>
+                  <a href="https://github.com/omarmok" title="twitter">  <FaGithub /></a>
+                  <a href="https://www.linkedin.com/in/omarmokhtar22/" title="linkedin">  <FaLinkedin /></a>
+                  <a href="https://twitter.com/al_fagomy22" title="twitter">  <FaTwitter /></a>
+                  <a href="mailto:al_fagomy22@hotmail.com" >  <FaEnvelope /></a>
+ 
                     </div>
 
 

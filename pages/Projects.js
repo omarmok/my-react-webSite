@@ -2,10 +2,9 @@
 import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Head from 'next/head'
-import { render } from 'react-dom';
 import axios from 'axios';
-import Certifications from '../components/Certifications';
 
 
 class Projects extends Component{
@@ -35,9 +34,10 @@ class Projects extends Component{
                     <p>{ProjectsItem.Issued}</p>
                 </div>
                 <div class="portfolio-links">
-                    <a href="">
+                    <a href="">  
                     
-                    <FontAwesomeIcon icon={['fas', 'right']} />
+                    <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
+                    
                     </a>
                 </div>
             </div>
@@ -57,11 +57,20 @@ class Projects extends Component{
            </Head>
            <div className="container">
            
-           <div className="page__container">
+           <div className="page__container project">
 
            <div className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
            Projects
             </div>
+          <div className="project__description">
+          <p>
+            I am constantly striving to improve my techniques and expand my skill set.
+            <br/>
+Each of my projects - individual or collaborative - has provided me with some experience to help me in this area.
+<br/>
+I have some experiences that I was able to apply some of them in projects, and there are others that I know about some things that I could not work with, because the work environment in which I worked depended on other technologies,Which made me work the same way the environment depends.
+            </p>
+          </div>
 
          <div className="section__title mb-5">
            <div className="section__title--maintitle" data-aos="fade-right" data-aos-duration="1000">Projects</div>

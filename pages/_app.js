@@ -3,13 +3,14 @@ import AOS from "aos";
 import axios from "axios";
 import "aos/dist/aos.css";
 import 'bootstrap/dist/css/bootstrap.css'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab,fas } from '@fortawesome/free-brands-svg-icons'
+import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
+import { config } from "@fortawesome/fontawesome-svg-core";
 import { AnimatePresence } from "framer-motion";
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 import '../styles/globals.scss'
 import Layouts from '../components/Layouts'
-library.add(fab, faCheckSquare, faCoffee)
+config.autoAddCss = false;
+
 function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
