@@ -16,7 +16,7 @@ class About extends Component{
     Experience :[]
   }
   componentDidMount = () =>{
-    axios.get('https://api.npoint.io/ba35b22a6f908f637bc8').then( res => { this.setState ({Experience :res.data.Experience})})
+    axios.get('https://api.npoint.io/902de4cb6e393d3d08fd').then( res => { this.setState ({Experience :res.data.Experience})})
   
   }
 

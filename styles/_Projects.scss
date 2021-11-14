@@ -1,0 +1,124 @@
+
+.portfolio-item {
+    border-radius: 5px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  
+  .portfolio-item:hover {
+    -webkit-box-shadow: 0 23px 49px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 23px 49px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .portfolio-item:hover .portfolio-img:after {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+  }
+  
+  .portfolio-item:hover .portfolio-links {
+    top: 40px;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .portfolio-item:hover .portfolio-text {
+    bottom: 30px;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .portfolio-item .portfolio-img {
+    border-radius: 5px;
+  }
+  
+  .portfolio-item .portfolio-img:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-radius: 5px;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    -webkit-transform-origin: 100% 0;
+            transform-origin: 100% 0;
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+    transition: -webkit-transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+    background: #fff;
+    opacity: 1;
+  }
+  
+  .portfolio-item .portfolio-img img {
+    border-radius: 5px;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  
+  .portfolio-item .portfolio-text {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding-left: 30px;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .portfolio-item .portfolio-text a {
+    color: #000;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-bottom: 0px;
+    -webkit-transition: color 0.25s ease;
+    transition: color 0.25s ease;
+  }
+  
+  .portfolio-item .portfolio-text a:hover {
+    color: #064be0;
+  }
+  
+  .portfolio-item .portfolio-text p {
+    opacity: 0.8;
+  }
+  
+  .portfolio-item .portfolio-links {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .portfolio-item .portfolio-links a {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    display: inline-block;
+    background: orange;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  
+  .portfolio-item .portfolio-links a:hover {
+  
+            box-shadow:0 0 0 10px rgb(255 87 34 / 36%), 0 0 0 20px rgb(243 208 197);
+  }

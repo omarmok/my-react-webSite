@@ -104,13 +104,23 @@
             "Issued":"Apr 2020",
 			"info": "Interaction Design: Structure"
 
-		}
-		,
+		},
 		{
 			"id": 8,
-            "Issued ":"Apr 2020",
+            "Issued":"Apr 2020",
 			"info": "Sass Essential Training"
+
+		}
+
 		
+	],
+	"Projects": [
+
+		{
+			"id": 1,
+            "Issued":" may 2021 - oct 2021",
+			"info": "Majmaah University Student Portal",
+			"url":"https://www.mu.edu.sa/ar"
 
 		}
 
