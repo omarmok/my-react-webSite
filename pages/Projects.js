@@ -14,7 +14,7 @@ class Projects extends Component{
     Projects :[]
   }
   componentDidMount = () =>{
-    axios.get('https://api.npoint.io/902de4cb6e393d3d08fd').then( res => { this.setState ({Projects :res.data.Projects})})
+    axios.get('https://api.npoint.io/ba35b22a6f908f637bc8').then( res => { this.setState ({Projects :res.data.Projects})})
   
   }
 
@@ -25,17 +25,21 @@ class Projects extends Component{
     const Projectslist = Projects.map( ( ProjectsItem) =>{
 
       return(
-            <div class="col-4 col-lg-4 " data-aos="fade-up" data-aos-duration="2000"  key={ProjectsItem.key}>
+            <div class="col-4 col-lg-4 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
             <div class="portfolio-item">
                 <div class="portfolio-img"><img class="img-fluid" src="http://omarmokhtar.com/assets/img/portfolio/students.jpg" /></div>
                 <div class="portfolio-text">
-                  {ProjectsItem.info}
-                    <p>{ProjectsItem.Issued}</p>
+                <div className="mycard__details--date">
+                {ProjectsItem.Issued}
+                </div>
+                    <div className="mycard__details--jobtitle">
+               
+                    {ProjectsItem.info}
+                    
+                    </div>
                 </div>
                 <div class="portfolio-links">
-                  <a href={ProjectsItem.url}  >  
-                    <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-                    </a>
+                  <a href={ProjectsItem.url} >   <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon> </a>
 
               
                 </div>
@@ -75,7 +79,10 @@ I have some experiences that I was able to apply some of them in projects, and t
            <div className="section__title--maintitle" data-aos="fade-right" data-aos-duration="1000">Projects</div>
            <a href="https://www.linkedin.com/in/omarmokhtar22/" className="btn section__title--btn"  data-aos="fade-left" data-aos-duration="1000">Find more @ linkedin</a>
          </div>
-          { Projectslist}
+      <div className="row">
+
+      { Projectslist}
+      </div>
         
 
       
