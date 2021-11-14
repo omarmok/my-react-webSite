@@ -42,12 +42,12 @@ a {
 
 .navbar-nav .nav-link {
   color: #000;
-  font-weight: 600;
+  font-weight: 500;
   font-size:14px;
   font-family: raleway-semibold,raleway,sans-serif;
 }
 
-.navbar-nav .active .nav-link{
+.navbar-nav .active {
 color:  $secondColor;
 
 }
@@ -285,7 +285,7 @@ main{
       -o-transform: rotate(45deg);
     }
     label{
-      font-weight: 600;
+      font-weight: 500;
       margin-bottom: 10px;
     }
   

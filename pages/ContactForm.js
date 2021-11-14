@@ -18,7 +18,7 @@ export default function ContactUs() {
     return(
         <div>
              <Head>
-             <title> Contact</title> 
+             <title>Omar Mokhtar-Contact</title>
            </Head>
 
            <div className="container">
@@ -62,7 +62,7 @@ export default function ContactUs() {
                             <textarea className="form-control" id="" cols="30" rows="8"  name="message"></textarea>
                         </div>
                         <div className="pt-3 mx-auto m-2">
-                            <input type="submit" className="btn btn-info" value="Send Message"></input>
+                            <input type="submit" className="btn " value="Send Message"></input>
                         </div>
                 </form>
 

@@ -49,7 +49,7 @@ class About extends Component{
    
     <div>
            <Head>
-             <title>About</title> 
+             <title>Omar Mokhtar-About</title>
            </Head>
       
            <div className="container">
