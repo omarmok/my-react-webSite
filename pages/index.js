@@ -22,7 +22,7 @@ export default function Home() {
           <div className="index__details">
               <div className="row align-items-center">
                 <div className=" col-lg-5 col-sm-12"   data-aos="fade-right" data-aos-duration="2000">
-                   {/* <Image  alt="MyImage"  src={photo}/> */}
+                   <Image  alt="MyImage"  src={photo}/>
                 </div>
                 <div className=" col-lg-7 col-sm-12"   data-aos="fade-left"  data-aos-duration="2000" >
               <div className="title">
