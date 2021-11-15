@@ -10,6 +10,36 @@
   }
 }
 
+.caseStudy{
+  padding: 15px;
+  background: #fff;
+  display: flex;
+  justify-content: stretch;
+  &__img{
+    width: 50%;
+    flex: 1 1 0px;
+    height: auto;
+    .img-fluid{
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__description{
+    padding: 15px;
+    margin-left: 15px;
+    flex: 1 1 0px;
+    .title{
+     color:#120ce8;
+     font-weight: 600;
+     font-size: 30px;
+     margin-bottom: 10px;
+    }
+    span{
+      font-weight: 800;
+    }
+  }
+}
+
 .portfolio-item {
     border-radius: 5px;
     margin-bottom: 30px;

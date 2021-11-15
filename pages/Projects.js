@@ -81,6 +81,43 @@ I have some experiences that I was able to apply some of them in projects, and t
          <div className="section__title mb-5">
            <div className="section__title--maintitle" data-aos="fade-right" data-aos-duration="1000">Projects</div>
          </div>
+         <div className="row">
+           <div className="col-12">
+             <div className="caseStudy m-5 mx-0">
+                <div className="caseStudy__img">
+                <img class="img-fluid" src="http://omarmokhtar.com/assets/img/portfolio/students.jpg" />
+                </div>             
+             <div className="caseStudy__description">
+
+               <div className="title">
+               Internal Student Portal
+                 </div>
+                <p>
+                    Portals have become an urgent necessity in the field of education and higher education:
+                      From this standpoint, <span>MAJMAAH UNIVERSITY</span> suggested establishing an internal portal for students, characterized by the following:
+                      <br />
+                      Single sign-on
+                      <br />
+                      Providing more than 15 services
+                      <br />
+                      View the news and events announced by the university
+                      <br />
+                      Quick access: Submit applications across the various systems of the university and collect them in one place.
+                      <br />
+                      Review their classes and exam schedules.
+                      <br />
+
+                  </p>
+
+<button className="btn">UX/UI Case Study</button>
+
+             </div>
+             
+             
+             </div>
+           </div>
+
+         </div>
       <div className="row">
 
       { Projectslist}
