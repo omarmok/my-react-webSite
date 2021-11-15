@@ -1,6 +1,6 @@
 import emailjs from "emailjs-com";
 import Head from 'next/head'
-
+import Loader from '../components/Loader';
 export default function ContactUs() {
 
     function sendEmail(e) {
@@ -20,7 +20,7 @@ export default function ContactUs() {
              <Head>
              <title>Omar Mokhtar-Contact</title>
            </Head>
-
+           <Loader/>
            <div className="container">
            
            <div className="page__container">

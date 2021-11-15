@@ -8,6 +8,7 @@ import { render } from 'react-dom';
 import axios from 'axios';
 import Certifications from '../components/Certifications';
 import Tools from '../components/Tools';
+import Loader from '../components/Loader';
 
 
 class About extends Component{
@@ -17,7 +18,7 @@ class About extends Component{
     Experience :[]
   }
   componentDidMount = () =>{
-    axios.get('https://api.npoint.io/902de4cb6e393d3d08fd').then( res => { this.setState ({Experience :res.data.Experience})})
+    axios.get('https://api.npoint.io/ba35b22a6f908f637bc8').then( res => { this.setState ({Experience :res.data.Experience})})
   
   }
 
@@ -52,6 +53,9 @@ class About extends Component{
              <title>Omar Mokhtar-About</title>
            </Head>
       
+           <Loader/>
+
+
            <div className="container">
        
            <div className="page__container">
@@ -62,7 +66,12 @@ class About extends Component{
 
          <div className="section__title">
            <div className="section__title--maintitle" data-aos="fade-right" data-aos-duration="1000">Experience</div>
-           <div className="btn section__title--btn" download data-aos="fade-left" data-aos-duration="1000">DOWNLOAD RESUME</div>
+           <div  data-aos="fade-left" data-aos-duration="1000">
+
+
+                <a href="https://omarmokhtar.com/myResume.pdf" target="_blank" className="btn section__title--btn"  download>DOWNLOAD RESUME</a>
+
+           </div>
          </div>
           { Experiencelist}
         

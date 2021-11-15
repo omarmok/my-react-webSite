@@ -4,6 +4,7 @@ import Image from 'next/image'
 import photo from '../public/images/omar.png'
 import { FaTwitter,FaBehance,FaGithub,FaEnvelope,FaLinkedin } from 'react-icons/fa';
 
+import Loader from '../components/Loader';
 export default function Home() {
   return (
     <main >
@@ -13,13 +14,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
      
-      <div class="loader">
-		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js">
-		</script> 
-         <lottie-player class="loada" src="https://assets9.lottiefiles.com/packages/lf20_EchaWV.json" background="transparent" speed="1"  loop="" autoplay=""></lottie-player>
-
-	</div>
-
+   
+      <Loader/>
 
           <div className="container">
 

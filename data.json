@@ -115,51 +115,49 @@
 		
 	],
 	"Projects": [
-
-		{
-			"id": 1,
-            "Issued":" may 2021 - oct 2021",
-			"info": "Majmaah University Student Portal",
-			"url":"http://omarmokhtar.com/SU/index.html"
-
-		},
 		{
 			"id": 2,
             "Issued":" aug 2021 -  Present",
 			"info": "Human Rights In Saudia Arabia (HRC)",
-			"url":"https://hrc.gov.sa/"
+			"url":"https://hrc.gov.sa/",
+			"image":"https://omarmokhtar.com/forjeson/hrc.png"
 
 		},
 		{
 			"id": 3,
             "Issued":"Apr 2019 – Present",
 			"info": "Saudi Real Estate Arbitration Center",
-			"url":"https://reac.sa/"
+			"url":"https://reac.sa/",
+			"image":"https://omarmokhtar.com/forjeson/reac.png"
 
 		},{
 			"id": 4,
             "Issued":" Mar 2019 – Present",
 			"info": "Mullak",
-			"url":"https://mullak.housing.gov.sa/"
+			"url":"https://mullak.housing.gov.sa/",
+			"image":"https://omarmokhtar.com/forjeson/mullak.png"
 
 		},{
 			"id": 5,
             "Issued":" Mar 2019 – Present",
 			"info": "idlelands",
-			"url":"https://idlelands-services.housing.gov.sa/Account/Login"
+			"url":"https://idlelands-services.housing.gov.sa/Account/Login",
+			"image":"https://omarmokhtar.com/forjeson/idland.png"
 
 		}
 		,{
 			"id": 6,
             "Issued":" Feb 2019 – Present",
 			"info": "Developmental Housing",
-			"url":"https://tanmawi.housing.sa/"
+			"url":"https://tanmawi.housing.sa/",
+			"image":"https://omarmokhtar.com/forjeson/tanmaei.png"
 
 		},{
 			"id": 7,
             "Issued":" Aug 2019 – Sep 2020",
 			"info": "Majmaah University Portal",
-			"url":"https://www.mu.edu.sa/ar"
+			"url":"https://www.mu.edu.sa/ar",
+			"image":"https://omarmokhtar.com/forjeson/mjmaahun.png"
 
 		}
 

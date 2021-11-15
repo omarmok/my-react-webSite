@@ -7,8 +7,9 @@ import Head from 'next/head'
 import axios from 'axios'
 import Link from "next/link"
 import CaseStudy from './CaseStudy';
-
-
+import Image from 'next/image'
+import casstudymain from '../public/images/casstudymain.png'
+import Loader from '../components/Loader';
 class Projects extends Component{
 
   state ={
@@ -29,7 +30,9 @@ class Projects extends Component{
       return(
             <div class="col-4 col-lg-4 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
             <div class="portfolio-item">
-                <div class="portfolio-img"><img class="img-fluid" src="http://omarmokhtar.com/assets/img/portfolio/students.jpg" /></div>
+                <div class="portfolio-img">
+                  <img class="img-fluid" src={ProjectsItem.image} />
+                  </div>
                 <div class="portfolio-text">
                 <div className="mycard__details--date">
                 {ProjectsItem.Issued}
@@ -62,6 +65,7 @@ class Projects extends Component{
                 <meta name="description" content="UI/UX Design developer front-end developer" />
                 <link rel="icon" href="../public/favicon.ico" />
       </Head>
+      <Loader/>
            <div className="container">
            
            <div className="page__container project">
@@ -84,7 +88,10 @@ I have some experiences that I was able to apply some of them in projects, and t
            <div className="col-12">
              <div className="caseStudy m-5 mx-0" data-aos="fade-right" data-aos-duration="2000">
                 <div className="caseStudy__img">
-                <img class="img-fluid" src="http://omarmokhtar.com/assets/img/portfolio/students.jpg" />
+               
+                <Image  class="img-fluid" alt="MyImage"  src={casstudymain} />
+        
+               
                 </div>             
              <div className="caseStudy__description">
 
