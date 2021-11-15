@@ -2,9 +2,11 @@
 import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import Head from 'next/head'
-import axios from 'axios';
+import axios from 'axios'
+import Link from "next/link"
+import CaseStudy from './CaseStudy';
 
 
 class Projects extends Component{
@@ -78,19 +80,16 @@ I have some experiences that I was able to apply some of them in projects, and t
             </p>
           </div>
 
-         <div className="section__title mb-5">
-           <div className="section__title--maintitle" data-aos="fade-right" data-aos-duration="1000">Projects</div>
-         </div>
          <div className="row">
            <div className="col-12">
-             <div className="caseStudy m-5 mx-0">
+             <div className="caseStudy m-5 mx-0" data-aos="fade-right" data-aos-duration="2000">
                 <div className="caseStudy__img">
                 <img class="img-fluid" src="http://omarmokhtar.com/assets/img/portfolio/students.jpg" />
                 </div>             
              <div className="caseStudy__description">
 
                <div className="title">
-               Internal Student Portal
+               Student Internal Portal
                  </div>
                 <p>
                     Portals have become an urgent necessity in the field of education and higher education:
@@ -109,7 +108,9 @@ I have some experiences that I was able to apply some of them in projects, and t
 
                   </p>
 
-<button className="btn">UX/UI Case Study</button>
+                   <Link href="./CaseStudy">
+                      <a className="btn d-inline-block">Case Study UI/UX</a>
+                    </Link>
 
              </div>
              
