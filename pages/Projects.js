@@ -28,7 +28,7 @@ class Projects extends Component{
     const Projectslist = Projects.map( ( ProjectsItem) =>{
 
       return(
-            <div class="col-4 col-lg-4 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
+            <div class="col-12 col-lg-4 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
             <div class="portfolio-item">
                 <div class="portfolio-img">
                   <img class="img-fluid" src={ProjectsItem.image} />
@@ -131,7 +131,7 @@ I have some experiences that I was able to apply some of them in projects, and t
       { Projectslist}
       </div>
           <div className="row">
-          <div className="col-3 mr-auto mt-4">      <a href="https://www.linkedin.com/in/omarmokhtar22/" className="btn section__title--btn"  data-aos="fade-left" data-aos-duration="1000">Find more @ linkedin</a>
+          <div className=" mr-auto my-4 ">      <a href="https://www.linkedin.com/in/omarmokhtar22/" className="btn section__title--btn d-inline-block"  data-aos="fade-left" data-aos-duration="1000">Find more @ linkedin</a>
           </div>
           </div>
 

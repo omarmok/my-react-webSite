@@ -375,3 +375,27 @@ main{
       visibility:hidden;
   }
 }
+
+p{
+  font-size: 14px;
+}
+
+
+@media (max-width: 968px) {
+  .navbar{
+    width: 100%;
+    flex-direction: column;
+  }
+  .brand{
+    flex-direction: column;
+  }
+  
+  .navbar-nav{
+    flex-direction: row;
+    width: 100%;
+  }
+  .caseStudy{
+    flex-direction: column;
+  }  
+
+ }

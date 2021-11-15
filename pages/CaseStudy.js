@@ -2,7 +2,9 @@ import Head from 'next/head'
 import Link from "next/link"
 import Image from 'next/image'
 import case1 from '../public/images/case1.png'
-import Loader from '../components/Loader';
+import Persona from '../public/images/Persona.png'
+import color from '../public/images/color.png'
+import Loader from '../components/Loader'
 const CaseStudy = () => {
     return(
 
@@ -29,17 +31,30 @@ const CaseStudy = () => {
               <h3 className="fw-bold">My Role</h3>
 
                 <p>
-                I was the   UX Designer   UI Designer  UI Developer  in a team of 6 and we completed this project over the course of 10 weeks.  I was in  competitives benchmarking analysis and user research. I was also responsible for coming up with ideas for re-designing the layout, information architecture , and for improving the overall user experience using sketching, wireframing and Prototyping.
+                I was the UX Designer UI Designer UI Developer in a team of 6 and we completed this project over the course of 10 weeks.
+<br/>
+ I was in competitives analysis and user research.
+<br/>
+ I was also responsible for coming up with ideas for designing the layout, and for improving the overall user experience using sketching, wireframing and Prototyping. 
+<br/>
+Moreover, I was involved with the development team, as we used HTML and Javascript to build portal . 
 
-                Moreover, I was involved with the development team, as we used HTML and Javascript to build portal .
+<br/>
+Working closely with analysist ,developers and QA testers ensuring that the product is developed according to experience and design specifications.
 
-                Working closely with analysist ,developers and QA testers ensuring that the product is developed according to experience and design specifications.
                 </p>
+                <Image  alt="MyImage"  src={Persona} />
+                <Image  alt="MyImage"  src={color} />
 
+        
+        <Link href="/Projects">
+              <a className="btn d-inline-block me-2 my-2">Back to Projects</a>
+              
+        </Link>
 
+        <Link href="http://omarmokhtar.com/SU/index.html">
+              <a className="btn outlinebtn  d-inline-block me-2 my-2">Check website</a>
 
-          <Link href="http://omarmokhtar.com/SU/index.html">
-              <a className="btn d-inline-block">Details</a>
         </Link>
 
           </div>
