@@ -30,8 +30,8 @@ class About extends Component{
 
       return(
         
-        <div className=" mycard"  data-aos="fade-up" data-aos-duration="2000">
-        <div className="mycard__details" key={ExperienceItem.key}>
+        <div className=" mycard"  data-aos="fade-up" data-aos-duration="2000" key={ExperienceItem.key}>
+        <div className="mycard__details" >
             <div className="mycard__details--date">{ExperienceItem.date}</div>
             <div className="mycard__details--jobtitle">{ExperienceItem.jobtitle}</div>
             <div className="mycard__details--companyname"> {ExperienceItem.companyname}</div>
@@ -69,7 +69,7 @@ class About extends Component{
            <div  data-aos="fade-left" data-aos-duration="1000">
 
 
-                <a href="https://omarmokhtar.com/myResume.pdf" target="_blank" className="btn section__title--btn"  download>DOWNLOAD RESUME</a>
+                <a href="https://omarmokhtar.com/myResume.pdf"  className="btn section__title--btn"  download>DOWNLOAD RESUME</a>
 
            </div>
          </div>

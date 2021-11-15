@@ -33,10 +33,14 @@ export default function Home() {
               </div>
 
               <div className="mt-3 d-flex align-items-center discraption">
-                <p>
-                I am an experienced UI/User Experience Designer.
-Over the past 10 years, I've designed digital experiences mobile, web, dashboards, and more across a variety of organizations, minstiies, and universities.
+               
+              <p>
+                I am an experienced UI/User Experience Designer Over the past 10 years
+<br/>
+ I have designed digital experiences mobile web dashboards and more across a variety of organizations minstiies and universities
                 </p>
+
+
 
                   <div className="socialIcon" >
                   <a href="https://www.behance.net/Omar_Mokhtar" title="twitter">  <FaBehance /></a>

@@ -28,12 +28,12 @@ class Projects extends Component{
     const Projectslist = Projects.map( ( ProjectsItem) =>{
 
       return(
-            <div class="col-12 col-lg-4 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
-            <div class="portfolio-item">
-                <div class="portfolio-img">
-                  <img class="img-fluid" src={ProjectsItem.image} />
+            <div className="col-12 col-lg-4 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
+            <div className="portfolio-item">
+                <div className="portfolio-img">
+                  <img className="img-fluid" src={ProjectsItem.image} />
                   </div>
-                <div class="portfolio-text">
+                <div className="portfolio-text">
                 <div className="mycard__details--date">
                 {ProjectsItem.Issued}
                 </div>
@@ -43,7 +43,7 @@ class Projects extends Component{
                     
                     </div>
                 </div>
-                <div class="portfolio-links">
+                <div className="portfolio-links">
                   <a href={ProjectsItem.url} >   <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon> </a>
 
               

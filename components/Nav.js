@@ -9,7 +9,18 @@ const Nav = () => {
         <div className="navBg">
         <div className="container">
                 <nav className="navbar navbar navbar-expand-lg  px-3 d-flex justify-content-between">
-              <div className="d-flex align-items-center brand">  <a href="/" className="navbar-brand" >Omar Mokhtar  </a>
+              <div className="d-flex align-items-center brand">
+
+                  <Link href="/">
+                <a
+                  className="navbar-brand"
+                >
+               Omar Mokhtar 
+                </a>
+              </Link>
+
+
+
                 <div className="navtitle"><span className="mx-2">|</span>UI/UX Designer</div></div>
                 {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
