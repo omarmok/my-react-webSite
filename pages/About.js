@@ -1,6 +1,6 @@
 
 import { Component } from 'react';
-
+import Image from 'next/image'
 import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Head from 'next/head'
@@ -9,6 +9,7 @@ import axios from 'axios';
 import Certifications from '../components/Certifications';
 import Tools from '../components/Tools';
 import Loader from '../components/Loader';
+import azhar from '../public/images/azhar.png'
 
 
 class About extends Component{
@@ -82,7 +83,10 @@ class About extends Component{
 
          <div className=" mycard"  data-aos="fade-up" data-aos-duration="2000">
          <div className="mycard__details w-100 d-flex align-items-center  justify-content-between">
-            <div className="mycard__details--jobtitle d-flex align-items-center ">  <img src="/images/azhar.png" className="mx-3"/>
+            <div className="mycard__details--jobtitle d-flex align-items-center "> 
+            
+                     <Image  alt="MyImage" className="mx-3"  src={azhar} />
+
               <div className=" ">
               Bachelor of Physical
                   

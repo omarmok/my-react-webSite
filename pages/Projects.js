@@ -31,7 +31,7 @@ class Projects extends Component{
             <div className="col-12 col-lg-4 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
             <div className="portfolio-item">
                 <div className="portfolio-img">
-                  <img className="img-fluid" src={ProjectsItem.image} />
+                  <Image className="img-fluid" src={ProjectsItem.image} alt="test" />
                   </div>
                 <div className="portfolio-text">
                 <div className="mycard__details--date">

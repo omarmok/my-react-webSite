@@ -1,5 +1,5 @@
 import { Component } from 'react';
-
+import Image from 'next/image'
 import axios from 'axios';
 
 class Certifications extends Component{
@@ -26,7 +26,9 @@ class Certifications extends Component{
                 <div className="mycard__details--date">{CertificationsItem.Issued}</div>
                 <div className="mycard__details--jobtitle">{CertificationsItem.info}</div>
               </div>
-                <div className="Certificationsimage"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png" className="w-100" alt=""/></div>
+                <div className="Certificationsimage">
+                <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png" className="w-100" alt=""/>
+                </div>
     
             </div>
           
