@@ -118,7 +118,7 @@
 		{
 			"id": 2,
             "Issued":" aug 2021 -  Present",
-			"info": "Human Rights In Saudia Arabia (HRC)",
+			"info": "Human Rights In Saudia Arabia (HRC) -Under Development",
 			"url":"https://hrc.gov.sa/",
 			"image":"https://omarmokhtar.com/forjeson/hrc.png"
 
@@ -158,6 +158,46 @@
 			"info": "Majmaah University Portal",
 			"url":"https://www.mu.edu.sa/ar",
 			"image":"https://omarmokhtar.com/forjeson/mjmaahun.png"
+
+		}
+		,{
+			"id": 8,
+            "Issued":" may 2020 – Sep 2020",
+			"info": "Majmaah Charity",
+			"url":"https://qm.org.sa/",
+			"image":"https://omarmokhtar.com/forjeson/qm.jpg"
+
+		}
+		,{
+			"id": 9,
+            "Issued":" Aug 2021 – Present",
+			"info": "REPORTS  ",
+			"url":"https://omarmok.github.io/dashboard/",
+			"image":"https://omarmokhtar.com/forjeson/REPORTS.png"
+
+		}
+		,{
+			"id": 10,
+            "Issued":" Aug 2014 – Sep 2015",
+			"info": "Shaqraa University Portal",
+			"url":"https://www.su.edu.sa/ar",
+			"image":"https://omarmokhtar.com/forjeson/shaqraa.jpg"
+
+		}
+		,{
+			"id": 12,
+            "Issued":" jun 2016 – Sep 2017",
+			"info": "MU GREATINS CARD  ",
+			"url":"https://card.mu.edu.sa/",
+			"image":"https://omarmokhtar.com/forjeson/cards.jpg"
+
+		}
+		,{
+			"id": 13,
+            "Issued":" Oct 2017 – Sep 2018",
+			"info": "Deanship of Information Technology  ",
+			"url":"https://omarmok.github.io/testDean/",
+			"image":"https://omarmokhtar.com/forjeson/dean.png"
 
 		}
 

@@ -6,7 +6,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import Head from 'next/head'
 import axios from 'axios'
 import Link from "next/link"
-import CaseStudy from './CaseStudy';
+import CaseStudy from './CaseStudy'
 import Image from 'next/image'
 import casstudymain from '../public/images/casstudymain.png'
 import Loader from '../components/Loader';

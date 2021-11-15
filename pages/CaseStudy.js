@@ -4,6 +4,7 @@ import Image from 'next/image'
 import case1 from '../public/images/case1.png'
 import Persona from '../public/images/Persona.png'
 import color from '../public/images/color.png'
+import screenshoot from '../public/images/screenshoot.png'
 import Loader from '../components/Loader'
 const CaseStudy = () => {
     return(
@@ -45,8 +46,7 @@ Working closely with analysist ,developers and QA testers ensuring that the prod
                 </p>
                 <Image  alt="MyImage"  src={Persona} />
                 <Image  alt="MyImage"  src={color} />
-
-        
+                <Image  alt="MyImage"  src={screenshoot} />
         <Link href="/Projects">
               <a className="btn d-inline-block me-2 my-2">Back to Projects</a>
               
