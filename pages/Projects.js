@@ -80,13 +80,15 @@ I have some experiences that I was able to apply some of them in projects, and t
 
          <div className="section__title mb-5">
            <div className="section__title--maintitle" data-aos="fade-right" data-aos-duration="1000">Projects</div>
-           <a href="https://www.linkedin.com/in/omarmokhtar22/" className="btn section__title--btn"  data-aos="fade-left" data-aos-duration="1000">Find more @ linkedin</a>
          </div>
       <div className="row">
 
       { Projectslist}
       </div>
-        
+          <div className="row">
+          <div className="col-3 mr-auto mt-4">      <a href="https://www.linkedin.com/in/omarmokhtar22/" className="btn section__title--btn"  data-aos="fade-left" data-aos-duration="1000">Find more @ linkedin</a>
+          </div>
+          </div>
 
       
 

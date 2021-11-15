@@ -41,8 +41,9 @@ class Certifications extends Component{
    
             <div>
                
-                 <div className="section__title mt-5">
-                   <div className="section__title--maintitle" data-aos="fade-right" data-aos-duration="2000">Certifications</div>
+                 <div className="section__title mt-5 flex-column align-items-start" data-aos="fade-right" data-aos-duration="2000">
+                   <div className="section__title--maintitle" >Certifications</div>
+                   <p> I usually prefer use investment self learning to improve my experiences</p>
                  </div>
                   { Certificationslist}
 

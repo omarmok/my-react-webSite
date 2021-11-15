@@ -16,7 +16,7 @@ const Tools = () => {
 
 
         
-        <div className="Tools mb-5">
+        <div className="Tools mb-5" data-aos="fade-left" data-aos-duration="2000">
       
 
         <div className="skillscateg">
