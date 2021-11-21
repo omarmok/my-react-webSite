@@ -4,4 +4,5 @@ module.exports = {
     loader: 'imgix',
     path: ['http://omarmokhtar.com/forjeson/']
   },
+  
 }

@@ -20,7 +20,7 @@ const Tools = () => {
       
 
         <div className="skillscateg">
-              <Image  alt="MyImage"  src="../public/images/html.png" width={50} height={50} />
+              <Image  alt="MyImage"  src="public/images/html.png" width={50} height={50} />
         </div>
         <div className="skillscateg">
         {/* <Image  alt="MyImage"  src={css}/> */}
