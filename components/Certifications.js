@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import Image from 'next/image'
 import axios from 'axios';
-
+import linkedin from '../public/images/LinkedIn_Logo.svg.png'
 class Certifications extends Component{
     state ={
 
@@ -27,7 +27,8 @@ class Certifications extends Component{
                 <div className="mycard__details--jobtitle">{CertificationsItem.info}</div>
               </div>
                 <div className="Certificationsimage">
-                <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png" className="w-100" alt=""/>
+                {/* <Image  src={linkedin} className="w-100" alt=""/> */}
+                <Image  alt="MyImage"  src="../public/images/LinkedIn_Logo.svg.png" width={500} height={150} layout='responsive' />
                 </div>
     
             </div>

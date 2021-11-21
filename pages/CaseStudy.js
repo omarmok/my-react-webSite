@@ -27,7 +27,9 @@ const CaseStudy = () => {
               Student Internal Portal
             </div>
           <div className="casestudyContainer" data-aos="fade-up" data-aos-duration="2000">
-          <Image  alt="MyImage"  src={case1} />
+          {/* <Image  alt="MyImage"  src={case1}  width={300} height={200} layout="responsive" /> */}
+          <Image  alt="MyImage"  src="../public/images/case1.png" width={900} height={450} layout='responsive' objectFit='contain' />
+
         
               <h3 className="fw-bold">My Role</h3>
 
@@ -44,9 +46,11 @@ Moreover, I was involved with the development team, as we used HTML and Javascri
 Working closely with analysist ,developers and QA testers ensuring that the product is developed according to experience and design specifications.
 
                 </p>
-                <Image  alt="MyImage"  src={Persona} />
-                <Image  alt="MyImage"  src={color} />
-                <Image  alt="MyImage"  src={screenshoot} />
+         
+                <Image  alt="MyImage"  src="../public/images/Persona.png" width={900} height={350} layout='responsive' objectFit='contain' />
+                <Image  alt="MyImage"  src="../public/images/color.png" width={900} height={500} layout='responsive' objectFit='contain' />
+                <Image  alt="MyImage"  src="../public/images/screenshoot.png" width={900} height={1500} layout='responsive' objectFit='contain' />
+        
         <Link href="/Projects">
               <a className="btn d-inline-block me-2 my-2">Back to Projects</a>
               

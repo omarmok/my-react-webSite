@@ -22,7 +22,8 @@ export default function Home() {
           <div className="index__details">
               <div className="row align-items-center">
                 <div className=" col-lg-5 col-sm-12"   data-aos="fade-right" data-aos-duration="2000">
-                   <Image  alt="MyImage"  src={photo}/>
+                   {/* <Image  alt="MyImage"  src={photo}/> */}
+                   <Image  alt="MyImage"  src="../public/images/omar.png" width={600} height={600}  layout="responsive" objectFit='cover' />
                 </div>
                 <div className=" col-lg-7 col-sm-12"   data-aos="fade-left"  data-aos-duration="2000" >
               <div className="title">
@@ -55,7 +56,7 @@ export default function Home() {
                 </div>
                
               <div className="d-flex">
-                    <button className="btn mt-3 mx-2"> DOWNLOAD PORTFOLIO</button>
+                    <button className="btn mt-3 mx-2 homebtn"> DOWNLOAD PORTFOLIO</button>
                     
                 </div>
 

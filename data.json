@@ -1,206 +1,165 @@
 {
-
-
-	"Experience": [
-
-		{
-			"id": 1,
-            "date":"2021 – Present",
-			"jobtitle": "UI/UX Designer ",
-			"companyname": "Human Rights In Saudia Arabia (HRC) Freelancer",
-			"url": "https://hrc.gov.sa/",
-			"role": " I was the UX/UI Lead in a team of 4 and we completed this project over the course of 5 months. I was in charge of coming up with ideas for re-designing the layout and for improving the overall user experience using sketching, wireframing and Prototyping.Moreover,I was involved with the development team,as we used HTML,VUE js and Javascript to rebuild all pages."
-
-		},
-        {
-			"id": 2,
-            "date":"Feb 2019 – Present",
-			"jobtitle": "UI/UX Designer ",
-			"companyname": "National Housing Company (NHC)",
-			"url": "https://nhc.sa/",
-			"role": " UI/UX Designer wireframing and front-end web development (HTML, CSS,  JS, vuejs )Creating Ui kits design solutions for companysolutions for both web Working closely with analysist ,developers and QA testers ensuring that the product is developed according to experience and design specifications."
-
-		},
-		{
-			"id": 3,
-            "date":"Mar 2016 – Feb 2019",
-			"jobtitle": "Frontend Developer",
-			"companyname": "Al-Majma’ah University",
-			"url": "https://www.mu.edu.sa/ar",
-			"role": "UI/UX Designer wireframing and front-end web development (HTML, CSS,  JS) Graphic Designer for e-portal unit.understand students and emploies needs to create some solutions to help themWorking closely with analysist ,developers and QA testers ensuring that the product is developed according stakeholders Requiements.communicating daily with stakeholders( Deans, ) on new product ideas, and improve the oldest products"
-
-		},
-		{
-			"id": 4,
-            "date":"Nov 2013 – Feb 2016",
-			"jobtitle": "Ui Designer ",
-			"companyname": "SURE International Technology - SURE",
-			"url": "https://www.sure.com.sa/en/",
-			"role": " Interface Designer (HTML, CSS) Work in the design team for some government agencies and universities, including the National Guard, Shaqra University, and the Food and Drug Authority "
-
-		},
-		{
-			"id": 5,
-            "date":"May 2012 – 2013",
-			"jobtitle": "Ui/UX Designer-Developer ",
-			"companyname": "Jazan University",
-			"url": "https://www.jazanu.edu.sa/ar",
-			"role": "UI/UX Designer wireframing and front-end web development (HTML, CSS,  JS) Graphic Designer for e-portal unit.understand students and emploies needs to create some solutions to help themWorking closely with analysist ,developers and QA testers ensuring that the product is developed according stakeholders Requiements.communicating daily with stakeholders( Deans, ) on new product ideas, and improve the oldest products"
-
-		}
-
-	],
-
-
-
-
-	"Certifications": [
-
-		{
-			"id": 1,
-            "Issued":" Jan 2021",
-			"info": "Creating a Design System with Adobe XD"
-
-		},
-		{
-			"id": 2,
-            "Issued":"Aug 2020",
-			"info": "Customer Experience: Journey Mapping"
-		
-
-		},
-		{
-			"id": 3,
-            "Issued":"Aug 2020",
-			"info": "Git Essential Training: The Basics"
-		
-
-		},
-		{
-			"id": 4,
-            "Issued":"Aug 2020",
-			"info": "Learning Adobe XD"
-		
-
-		},
-		{
-			"id": 5,
-            "Issued":"Aug 2020",
-			"info": "Learning webpack 4"
-		
-		
-
-		},
-		{
-			"id": 6,
-            "Issued":"may 2020",
-			"info": "UX Foundations: Interaction Design"
-	
-		
-
-		},
-		{
-			"id": 7,
-            "Issued":"Apr 2020",
-			"info": "Interaction Design: Structure"
-
-		},
-		{
-			"id": 8,
-            "Issued":"Apr 2020",
-			"info": "Sass Essential Training"
-
-		}
-
-		
-	],
 	"Projects": [
-		{
-			"id": 2,
-            "Issued":" aug 2021 -  Present",
-			"info": "Human Rights In Saudia Arabia (HRC) -Under Development",
-			"url":"https://hrc.gov.sa/",
-			"image":"https://omarmokhtar.com/forjeson/hrc.png"
-
-		},
-		{
-			"id": 3,
-            "Issued":"Apr 2019 – Present",
-			"info": "Saudi Real Estate Arbitration Center",
-			"url":"https://reac.sa/",
-			"image":"https://omarmokhtar.com/forjeson/reac.png"
-
-		},{
-			"id": 4,
-            "Issued":" Mar 2019 – Present",
-			"info": "Mullak",
-			"url":"https://mullak.housing.gov.sa/",
-			"image":"https://omarmokhtar.com/forjeson/mullak.png"
-
-		},{
-			"id": 5,
-            "Issued":" Mar 2019 – Present",
-			"info": "idlelands",
-			"url":"https://idlelands-services.housing.gov.sa/Account/Login",
-			"image":"https://omarmokhtar.com/forjeson/idland.png"
-
-		}
-		,{
-			"id": 6,
-            "Issued":" Feb 2019 – Present",
-			"info": "Developmental Housing",
-			"url":"https://tanmawi.housing.sa/",
-			"image":"https://omarmokhtar.com/forjeson/tanmaei.png"
-
-		},{
-			"id": 7,
-            "Issued":" Aug 2019 – Sep 2020",
-			"info": "Majmaah University Portal",
-			"url":"https://www.mu.edu.sa/ar",
-			"image":"https://omarmokhtar.com/forjeson/mjmaahun.png"
-
-		}
-		,{
-			"id": 8,
-            "Issued":" may 2020 – Sep 2020",
-			"info": "Majmaah Charity",
-			"url":"https://qm.org.sa/",
-			"image":"https://omarmokhtar.com/forjeson/qm.jpg"
-
-		}
-		,{
-			"id": 9,
-            "Issued":" Aug 2021 – Present",
-			"info": "REPORTS  ",
-			"url":"https://omarmok.github.io/dashboard/",
-			"image":"https://omarmokhtar.com/forjeson/REPORTS.png"
-
-		}
-		,{
-			"id": 10,
-            "Issued":" Aug 2014 – Sep 2015",
-			"info": "Shaqraa University Portal",
-			"url":"https://www.su.edu.sa/ar",
-			"image":"https://omarmokhtar.com/forjeson/shaqraa.jpg"
-
-		}
-		,{
-			"id": 12,
-            "Issued":" jun 2016 – Sep 2017",
-			"info": "MU GREATINS CARD  ",
-			"url":"https://card.mu.edu.sa/",
-			"image":"https://omarmokhtar.com/forjeson/cards.jpg"
-
-		}
-		,{
-			"id": 13,
-            "Issued":" Oct 2017 – Sep 2018",
-			"info": "Deanship of Information Technology  ",
-			"url":"https://omarmok.github.io/testDean/",
-			"image":"https://omarmokhtar.com/forjeson/dean.png"
-
-		}
-
-		
+	{
+	"id": 2,
+	"url": "https://hrc.gov.sa/",
+	"info": "Human Rights In Saudia Arabia (HRC) -Under Development",
+	"image": "hrc.png",
+	"Issued": " aug 2021 -  Present"
+	},
+	{
+	"id": 3,
+	"url": "https://reac.sa/",
+	"info": "Saudi Real Estate Arbitration Center",
+	"image": "reac.png",
+	"Issued": "Apr 2019 – Present"
+	},
+	{
+	"id": 4,
+	"url": "https://mullak.housing.gov.sa/",
+	"info": "Mullak",
+	"image": "mullak.png",
+	"Issued": " Mar 2019 – Present"
+	},
+	{
+	"id": 5,
+	"url": "https://idlelands-services.housing.gov.sa/Account/Login",
+	"info": "idlelands",
+	"image": "idland.png",
+	"Issued": " Mar 2019 – Present"
+	},
+	{
+	"id": 6,
+	"url": "https://tanmawi.housing.sa/",
+	"info": "Developmental Housing",
+	"image": "tanmaei.png",
+	"Issued": " Feb 2019 – Present"
+	},
+	{
+	"id": 7,
+	"url": "https://www.mu.edu.sa/ar",
+	"info": "Majmaah University Portal",
+	"image": "mjmaahun.png",
+	"Issued": " Aug 2019 – Sep 2020"
+	},
+	{
+	"id": 8,
+	"url": "https://qm.org.sa/",
+	"info": "Majmaah Charity",
+	"image": "qm.jpg",
+	"Issued": " may 2020 – Sep 2020"
+	},
+	{
+	"id": 9,
+	"url": "https://omarmok.github.io/dashboard/",
+	"info": "REPORTS  ",
+	"image": "REPORTS.png",
+	"Issued": " Aug 2021 – Present"
+	},
+	{
+	"id": 10,
+	"url": "https://www.su.edu.sa/ar",
+	"info": "Shaqraa University Portal",
+	"image": "shaqraa.jpg",
+	"Issued": " Aug 2014 – Sep 2015"
+	},
+	{
+	"id": 12,
+	"url": "https://card.mu.edu.sa/",
+	"info": "MU GREATINS CARD  ",
+	"image": "cards.jpg",
+	"Issued": " jun 2016 – Sep 2017"
+	},
+	{
+	"id": 13,
+	"url": "https://omarmok.github.io/testDean/",
+	"info": "Deanship of Information Technology  ",
+	"image": "dean.png",
+	"Issued": " Oct 2017 – Sep 2018"
+	}
+	],
+	"Experience": [
+	{
+	"id": 1,
+	"url": "https://hrc.gov.sa/",
+	"date": "2021 – Present",
+	"role": " I was the UX/UI Lead in a team of 4 and we completed this project over the course of 5 months. I was in charge of coming up with ideas for re-designing the layout and for improving the overall user experience using sketching, wireframing and Prototyping.Moreover,I was involved with the development team,as we used HTML,VUE js and Javascript to rebuild all pages.",
+	"jobtitle": "UI/UX Designer ",
+	"companyname": "Human Rights In Saudia Arabia (HRC) Freelancer"
+	},
+	{
+	"id": 2,
+	"url": "https://nhc.sa/",
+	"date": "Feb 2019 – Present",
+	"role": " UI/UX Designer wireframing and front-end web development (HTML, CSS,  JS, vuejs )Creating Ui kits design solutions for companysolutions for both web Working closely with analysist ,developers and QA testers ensuring that the product is developed according to experience and design specifications.",
+	"jobtitle": "UI/UX Designer ",
+	"companyname": "National Housing Company (NHC)"
+	},
+	{
+	"id": 3,
+	"url": "https://www.mu.edu.sa/ar",
+	"date": "Mar 2016 – Feb 2019",
+	"role": "UI/UX Designer wireframing and front-end web development (HTML, CSS,  JS) Graphic Designer for e-portal unit.understand students and emploies needs to create some solutions to help themWorking closely with analysist ,developers and QA testers ensuring that the product is developed according stakeholders Requiements.communicating daily with stakeholders( Deans, ) on new product ideas, and improve the oldest products",
+	"jobtitle": "Frontend Developer",
+	"companyname": "Al-Majma’ah University"
+	},
+	{
+	"id": 4,
+	"url": "https://www.sure.com.sa/en/",
+	"date": "Nov 2013 – Feb 2016",
+	"role": " Interface Designer (HTML, CSS) Work in the design team for some government agencies and universities, including the National Guard, Shaqra University, and the Food and Drug Authority ",
+	"jobtitle": "Ui Designer ",
+	"companyname": "SURE International Technology - SURE"
+	},
+	{
+	"id": 5,
+	"url": "https://www.jazanu.edu.sa/ar",
+	"date": "May 2012 – 2013",
+	"role": "UI/UX Designer wireframing and front-end web development (HTML, CSS,  JS) Graphic Designer for e-portal unit.understand students and emploies needs to create some solutions to help themWorking closely with analysist ,developers and QA testers ensuring that the product is developed according stakeholders Requiements.communicating daily with stakeholders( Deans, ) on new product ideas, and improve the oldest products",
+	"jobtitle": "Ui/UX Designer-Developer ",
+	"companyname": "Jazan University"
+	}
+	],
+	"Certifications": [
+	{
+	"id": 1,
+	"info": "Creating a Design System with Adobe XD",
+	"Issued": " Jan 2021"
+	},
+	{
+	"id": 2,
+	"info": "Customer Experience: Journey Mapping",
+	"Issued": "Aug 2020"
+	},
+	{
+	"id": 3,
+	"info": "Git Essential Training: The Basics",
+	"Issued": "Aug 2020"
+	},
+	{
+	"id": 4,
+	"info": "Learning Adobe XD",
+	"Issued": "Aug 2020"
+	},
+	{
+	"id": 5,
+	"info": "Learning webpack 4",
+	"Issued": "Aug 2020"
+	},
+	{
+	"id": 6,
+	"info": "UX Foundations: Interaction Design",
+	"Issued": "may 2020"
+	},
+	{
+	"id": 7,
+	"info": "Interaction Design: Structure",
+	"Issued": "Apr 2020"
+	},
+	{
+	"id": 8,
+	"info": "Sass Essential Training",
+	"Issued": "Apr 2020"
+	}
 	]
-}
+	}

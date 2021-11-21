@@ -3,13 +3,14 @@ import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import useSWR from 'swr'
 import Head from 'next/head'
 import axios from 'axios'
 import Link from "next/link"
-import CaseStudy from './CaseStudy'
 import Image from 'next/image'
+import CaseStudy from './CaseStudy'
 import casstudymain from '../public/images/casstudymain.png'
-import Loader from '../components/Loader';
+import Loader from '../components/Loader'
 class Projects extends Component{
 
   state ={
@@ -17,7 +18,7 @@ class Projects extends Component{
     Projects :[]
   }
   componentDidMount = () =>{
-    axios.get('https://api.npoint.io/ba35b22a6f908f637bc8').then( res => { this.setState ({Projects :res.data.Projects})})
+    axios.get('https://api.npoint.io/777bba75c802dcadc73b').then( res => { this.setState ({Projects :res.data.Projects})})
   
   }
 
@@ -31,7 +32,7 @@ class Projects extends Component{
             <div className="col-12 col-lg-4 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
             <div className="portfolio-item">
                 <div className="portfolio-img">
-                  <Image className="img-fluid" src={ProjectsItem.image} alt="test" />
+                  <Image className="img-fluid" src={ProjectsItem.image} alt="test"  width={300} height={200} layout="responsive"/>
                   </div>
                 <div className="portfolio-text">
                 <div className="mycard__details--date">
@@ -67,7 +68,7 @@ class Projects extends Component{
       </Head>
       <Loader/>
            <div className="container">
-           
+    
            <div className="page__container project">
 
            <div className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
@@ -89,9 +90,10 @@ I have some experiences that I was able to apply some of them in projects, and t
              <div className="caseStudy m-5 mx-0" data-aos="fade-right" data-aos-duration="2000">
                 <div className="caseStudy__img">
                
-                <Image  class="img-fluid" alt="MyImage"  src={casstudymain} />
+                {/* <img src="../images/casstudymain.png" alt="my image" className="img-fluid" /> */}
         
-               
+                <Image  alt="MyImage"  src="../public/images/casstudymain.png" width={500} height={500} layout="responsive" />
+
                 </div>             
              <div className="caseStudy__description">
 

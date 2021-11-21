@@ -26,7 +26,7 @@ const Nav = () => {
                 <span className="navbar-toggler-icon"></span>
                 </button> */}
 
-                <div className="" >
+                <div className="navbg-container" >
                 <ul className="navbar-nav ">
                 <li className="nav-item">
               <Link href="/">

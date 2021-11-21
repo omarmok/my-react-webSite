@@ -147,7 +147,11 @@ main{
       font-size:14px;
     }
     .socialIcon{
-   
+      display: flex;
+      flex-direction: column;
+      @media (max-width: 968px) {
+        flex-direction: row;
+      }
       svg{
         width: 20px;
         height: 20px ;
@@ -388,14 +392,73 @@ p{
   }
   .brand{
     flex-direction: column;
+    .navbar-brand{
+      margin: 0;
+    }
   }
-  
+  .navbg-container{
+    width: 100%;
+  }
   .navbar-nav{
     flex-direction: row;
     width: 100%;
+    justify-content: space-between;
   }
   .caseStudy{
     flex-direction: column;
   }  
+
+
+  .index__details{
+    width: 100%;
+    .title{
+      font-size: 14px !important;
+      color:#000;
+    
+      .cusomspan{
+        font-size: 14px !important;
+        color:#000 !important;
+        font-weight: 800  !important;
+      }
+      .cusomspan:after{
+        display: none;
+      }
+    }
+    .discraption{
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .homebtn{
+      margin: 0 auto !important;
+      margin-top: 20px !important;
+    }
+  }
+
+  .page__container{
+    width: 100%;
+    .mainpagetitle{
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .section__title{
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    .section__title--maintitle{
+      font-size: 16px;
+    }
+  }
+  .mycard__details{
+    flex-direction: column;
+    font-size: 14px;
+  }
+  .mycard__details--jobtitle{
+    flex-direction: column;
+  }
+  .Tools{
+    align-items: center;
+    justify-content: center;
+  }
 
  }
