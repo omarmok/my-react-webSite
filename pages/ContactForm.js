@@ -19,7 +19,6 @@ export default function ContactUs() {
         <div>
              <Head>
              <title>Omar Mokhtar-Contact</title>
-             <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
            </Head>
            <Loader/>
            <div className="container">

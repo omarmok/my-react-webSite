@@ -52,7 +52,6 @@ class About extends Component{
     <div>
            <Head>
              <title>Omar Mokhtar-About</title>
-             <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
            </Head>
       
            <Loader/>

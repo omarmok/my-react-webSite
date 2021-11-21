@@ -12,7 +12,6 @@ export default function Home() {
         <title>Omar Mokhtar</title>
         <meta name="description" content="UI/UX Design developer front-end developer" />
         <link rel="icon" href="/favicon.ico" />
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
       </Head>
      
    
