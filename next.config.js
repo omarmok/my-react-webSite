@@ -14,16 +14,9 @@ module.exports = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: ' img-src http://omarmokhtar.com',
+            value: '',
           },
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
+          
         ],
       },
     
