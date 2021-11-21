@@ -5,7 +5,7 @@ module.exports = {
   reactStrictMode: true,
   images: {
     loader: 'imgix',
-    path: ['https://omarmokhtar.com/forjeson/']
+    path: ['http://omarmokhtar.com/forjeson/']
   },
   async headers() {
     return [
@@ -14,7 +14,7 @@ module.exports = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: 'nosniff',
+            value: 'default-src http://omarmokhtar.com/forjeson/',
           },
           {
             key: 'X-Frame-Options',
