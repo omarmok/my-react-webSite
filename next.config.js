@@ -5,7 +5,7 @@ module.exports = {
   reactStrictMode: true,
   images: {
     loader: 'imgix',
-    path: ['http://omarmokhtar.com/forjeson/']
+    path: ['https://omarmokhtar.com/forjeson/']
   },
   async headers() {
     return [
@@ -14,7 +14,7 @@ module.exports = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value:"img-src * 'self' data: http://omarmokhtar.com; ",
+            value:"img-src * 'self' data: https://omarmokhtar.com; ",
           },
           
         ],
