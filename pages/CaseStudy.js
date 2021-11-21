@@ -17,6 +17,7 @@ const CaseStudy = () => {
                 <title>Omar Mokhtar-Case Study</title>
                 <meta name="description" content="UI/UX Design developer front-end developer" />
                 <link rel="icon" href="../public/favicon.ico" />
+                <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
         </Head>
         <Loader/>
         <div className="container">
