@@ -14,7 +14,7 @@ module.exports = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value:"default-src 'self'; 'http://omarmokhtar.com'; img-src 'self' *.http://omarmokhtar.com; script-src 'self'",
+            value:"img-src 'self' *http://omarmokhtar.com; ",
            
           },
           
