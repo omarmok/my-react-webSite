@@ -14,7 +14,7 @@ module.exports = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value:"img-src 'self' https://omarmokhtar.com/forjeson/; ",
+            value:"img-src * data: https://omarmokhtar.com/forjeson/; ",
           },
           
         ],
