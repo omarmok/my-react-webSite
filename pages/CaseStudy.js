@@ -26,7 +26,7 @@ const CaseStudy = () => {
               Student Internal Portal
             </div>
           <div className="casestudyContainer" data-aos="fade-up" data-aos-duration="2000">
-          <Image  alt="MyImage"  src={case1}  width={300} height={200} layout="responsive" />
+          <Image  alt="MyImage"  src={case1}  layout="responsive" />
           {/* <Image  alt="MyImage"  src="../public/images/case1.png" width={900} height={450} layout='responsive' objectFit='contain' /> */}
 
         
