@@ -127,6 +127,10 @@ I have some experiences that I was able to apply some of them in projects, and t
            </div>
 
          </div>
+
+         <div className="section__title mt-3 mb-3">
+           <div className="section__title--maintitle" data-aos="fade-right" data-aos-duration="1000">More Projects</div>
+         </div>
       <div className="row">
 
       { Projectslist}
