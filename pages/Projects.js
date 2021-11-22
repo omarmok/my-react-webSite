@@ -45,7 +45,7 @@ class Projects extends Component{
                     </div>
                 </div>
                 <div className="portfolio-links">
-                  <a href={ProjectsItem.url} target="_blank" >   <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon> </a>
+                  <a href={ProjectsItem.url} target="_blank"  rel="noreferrer">   <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon> </a>
 
               
                 </div>
