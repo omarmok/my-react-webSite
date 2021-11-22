@@ -1,8 +1,8 @@
 @import "_about";
 @import "_Projects";
 
-$mainColor:#120ce8;
-$secondColor:#f2494c;
+$mainColor:#221afb;
+$secondColor:#221afb;
 
 html,
 body {
@@ -209,17 +209,13 @@ main{
     overflow: hidden;
     &:before{
       content: "";
-      background: #f2494c;
-      width: 82px;
-      height: 50px;
+      background: $mainColor;
+      width: 145px;
+      height: 55px;
       position: absolute;
-      top: -22px;
-      right: -60px;
-      transform: rotate(45deg);
-      -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      -o-transform: rotate(45deg);
+      top: 44px;
+      right: -130px;
+
 }
       &__details{
         font-size: 20px;
@@ -264,7 +260,7 @@ main{
     }
 
     &:before{
-      background: #2437ac;
+      display: none;
     }
   }
 
@@ -274,20 +270,7 @@ main{
     position: relative;
     margin-bottom: 10px;
 
-    &::before{
-      content: "";
-      background: #f2494c;
-      width: 82px;
-      height: 50px;
-      position: absolute;
-      top: -22px;
-      right: -60px;
-      transform: rotate(45deg);
-      -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      -o-transform: rotate(45deg);
-    }
+ 
     label{
       font-weight: 500;
       margin-bottom: 10px;
@@ -385,6 +368,7 @@ p{
 }
 
 
+
 @media (max-width: 968px) {
   .navbar{
     width: 100%;
@@ -462,3 +446,4 @@ p{
   }
 
  }
+
