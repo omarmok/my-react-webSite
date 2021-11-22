@@ -18,7 +18,7 @@ class Projects extends Component{
     Projects :[]
   }
   componentDidMount = () =>{
-    axios.get('https://api.npoint.io/777bba75c802dcadc73b').then( res => { this.setState ({Projects :res.data.Projects})})
+    axios.get('https://api.npoint.io/ba35b22a6f908f637bc8').then( res => { this.setState ({Projects :res.data.Projects})})
   
   }
 
@@ -63,9 +63,8 @@ class Projects extends Component{
     <div>
               <Head>
                 <title>Omar Mokhtar-Projects</title>
-                <meta name="description" content="UI/UX Design developer front-end developer" />
-                <link rel="icon" href="../public/favicon.ico" />
-      </Head>
+       
+                </Head>
       <Loader/>
            <div className="container">
     
@@ -92,7 +91,7 @@ I have some experiences that I was able to apply some of them in projects, and t
                
                 {/* <img src="../images/casstudymain.png" alt="my image" className="img-fluid" /> */}
         
-                <Image  alt="MyImage"  src="../public/images/casstudymain.png" width={500} height={500} layout="responsive" />
+                <Image  alt="MyImage"  src={casstudymain}layout="responsive" />
 
                 </div>             
              <div className="caseStudy__description">

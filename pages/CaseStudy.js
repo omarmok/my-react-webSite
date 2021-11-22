@@ -15,8 +15,6 @@ const CaseStudy = () => {
          
          <Head>
                 <title>Omar Mokhtar-Case Study</title>
-                <meta name="description" content="UI/UX Design developer front-end developer" />
-                <link rel="icon" href="../public/favicon.ico" />
           
         </Head>
         <Loader/>
@@ -28,8 +26,8 @@ const CaseStudy = () => {
               Student Internal Portal
             </div>
           <div className="casestudyContainer" data-aos="fade-up" data-aos-duration="2000">
-          {/* <Image  alt="MyImage"  src={case1}  width={300} height={200} layout="responsive" /> */}
-          <Image  alt="MyImage"  src="../public/images/case1.png" width={900} height={450} layout='responsive' objectFit='contain' />
+          <Image  alt="MyImage"  src={case1}  width={300} height={200} layout="responsive" />
+          {/* <Image  alt="MyImage"  src="../public/images/case1.png" width={900} height={450} layout='responsive' objectFit='contain' /> */}
 
         
               <h3 className="fw-bold">My Role</h3>
@@ -48,9 +46,12 @@ Working closely with analysist ,developers and QA testers ensuring that the prod
 
                 </p>
          
-                <Image  alt="MyImage"  src="../public/images/Persona.png" width={900} height={350} layout='responsive' objectFit='contain' />
-                <Image  alt="MyImage"  src="../public/images/color.png" width={900} height={500} layout='responsive' objectFit='contain' />
-                <Image  alt="MyImage"  src="../public/images/screenshoot.png" width={900} height={1500} layout='responsive' objectFit='contain' />
+                {/* <Image  alt="MyImage"  src="../public/images/Persona.png" width={900} height={350} layout='responsive' objectFit='contain' /> */}
+                <Image  alt="MyImage"  src={Persona}  width={900} height={350} layout="responsive" />
+                <Image  alt="MyImage"  src={color}  width={900} height={500} layout="responsive" />
+                <Image  alt="MyImage"  src={screenshoot}  width={900} height={1500} layout="responsive" />
+                {/* <Image  alt="MyImage"  src="../public/images/color.png" width={900} height={500} layout='responsive' objectFit='contain' />
+                <Image  alt="MyImage"  src="../public/images/screenshoot.png" width={900} height={1500} layout='responsive' objectFit='contain' /> */}
         
         <Link href="/Projects">
               <a className="btn d-inline-block me-2 my-2">Back to Projects</a>

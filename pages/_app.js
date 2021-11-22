@@ -26,9 +26,14 @@ function MyApp({ Component, pageProps }) {
 
             <>
 
-              <Head>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-              </Head>
+            <Head> 
+             <meta charSet="UTF-8" />
+              <title>Omar Mokhtar</title>
+              <meta name="description" content="UI/UX Design developer front-end developer" />
+              <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
+              <link rel="icon" href="/favicon.ico" />
+            </Head>
             <Layouts>
                         <Component {...pageProps} />
                     </Layouts>

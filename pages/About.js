@@ -85,8 +85,8 @@ class About extends Component{
          <div className="mycard__details w-100 d-flex align-items-center  justify-content-between">
             <div className="mycard__details--jobtitle d-flex align-items-center "> 
             
-                     {/* <Image  alt="MyImage"   src={azhar} /> */}
-                     <Image  alt="MyImage"  src="../public/images/azhar.png" width={150} height={150}  objectFit='cover'  />
+                     <Image  alt="MyImage"   src={azhar} />
+                     {/* <Image  alt="MyImage"  src="../public/images/azhar.png" width={150} height={150}  objectFit='cover'  /> */}
 
 
               <div className=" ">
