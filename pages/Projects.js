@@ -132,7 +132,8 @@ I have some experiences that I was able to apply some of them in projects, and t
       { Projectslist}
       </div>
           <div className="row">
-          <div className=" mr-auto my-4 ">      <a href="https://www.linkedin.com/in/omarmokhtar22/" className="btn section__title--btn d-inline-block"  data-aos="fade-left" data-aos-duration="1000">Find more @ linkedin</a>
+          <div className=" mr-auto my-4 ">    
+            <a href="https://www.linkedin.com/in/omarmokhtar22/" className="btn section__title--btn d-inline-block"  data-aos="fade-left" data-aos-duration="1000">Find more @ linkedin</a>
           </div>
           </div>
 

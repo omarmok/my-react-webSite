@@ -54,8 +54,7 @@ export default function Home() {
                 </div>
                
               <div className="d-flex">
-                    <button className="btn mt-3 mx-2 homebtn"> DOWNLOAD PORTFOLIO</button>
-                    
+                    <a href="https://omarmokhtar.com/myResume.pdf"  className="btn section__title--btn btn mt-3 mx-2 homebtn"  download>DOWNLOAD RESUME</a>
                 </div>
 
                 </div>
