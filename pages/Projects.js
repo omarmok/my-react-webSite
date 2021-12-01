@@ -3,7 +3,6 @@ import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
-import useSWR from 'swr'
 import Head from 'next/head'
 import axios from 'axios'
 import Link from "next/link"

@@ -364,12 +364,16 @@ main{
 }
 
 p{
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .Persona{
 
   .walidInfo{
+    background: #fcfcfc;
+    padding: 15px;
+    border-top: 5px solid #251dfb;
+    margin-bottom: 30px;
 
    &__name{
      font-weight: 900;
@@ -377,11 +381,17 @@ p{
      font-size: 20px;
    }
    &__Image{
- 
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border-radius: 50%;
+    height: 174px;
+    background: #fcfcfc;
+    overflow: hidden;
    }
    &__Details{
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     justify-content: space-between;
    
 
@@ -395,14 +405,11 @@ p{
   
   }
   }
-.Problems{
-
-}
 
 ul{
   list-style-type: square;
   li{
-    font-size: 12px;
+    font-size: 16px;
     margin-bottom: 10px;
     text-align: left;
   }
