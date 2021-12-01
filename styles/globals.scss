@@ -143,9 +143,7 @@ main{
     }
   }
   .discraption{
-    p{
-      font-size:14px;
-    }
+  
     .socialIcon{
       display: flex;
       flex-direction: column;
@@ -256,7 +254,6 @@ main{
     .mycard__details--jobtitle{
       font-weight: 500;
       margin-bottom: 0;
-      font-size: 15px;
     }
 
     &:before{
@@ -416,7 +413,21 @@ ul{
 }
 
 }
-
+.whatsapp{
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  text-align: center;
+  p{
+    color:$mainColor;
+  }
+  .whimage{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+}
 @media (max-width: 968px) {
   .navbar{
     width: 100%;

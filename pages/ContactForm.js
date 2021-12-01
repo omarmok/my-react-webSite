@@ -1,5 +1,7 @@
 import emailjs from "emailjs-com";
 import Head from 'next/head'
+import Image from 'next/image'
+import whatsapp from '../public/images/whatsapp.png'
 import Loader from '../components/Loader';
 export default function ContactUs() {
 
@@ -66,8 +68,17 @@ export default function ContactUs() {
                         </div>
                 </form>
 
-
-</div></div>
+                    <div className="whatsapp">
+                        <p>Contact me via WhatsApp</p>
+                                <div className="whimage">
+                                <Image  alt="MyImage"  src={whatsapp}  layout="responsive" />
+                                </div>
+                    </div>
+              
+              
+              
+                </div>
+                </div>
 
           
         </div>
