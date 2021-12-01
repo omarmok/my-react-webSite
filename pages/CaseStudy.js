@@ -49,7 +49,7 @@ const CaseStudy = () => {
 
                           <div className="Persona mt-5">
                               <h3 className="fw-bold">Persona</h3>
-                            <p>I created a character after I conducted a research by a member of the Deanship of Information Technology team through their experience in solving students' problems</p>
+                            <p>I created a character after I conducted a research by a member of the Deanship of Information Technology team through their experience in solving students problems</p>
                         
                   <div className="row">
                           
