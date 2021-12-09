@@ -33,7 +33,7 @@ const CaseStudy = () => {
               <h3 className="fw-bold">My Role</h3>
 
                 <p>
-                I was the UX Designer UI Designer UI Developer in a team of 6 and we completed this project over the course of 10 weeks.
+                I was the UX Designer UI Designer UI Developer in a team of 6 and we completed this project over 10 weeks.
                   <br/>
                   I was in competitives analysis and user research.
                   <br/>
@@ -49,7 +49,7 @@ const CaseStudy = () => {
 
                           <div className="Persona mt-5">
                               <h3 className="fw-bold">Persona</h3>
-                            <p>I created a character after I conducted a research by a member of the Deanship of Information Technology team through their experience in solving students problems</p>
+                            <p>I have created a character after I conducted a research by a member of the Deanship of Information Technology team through their experience in solving students problems</p>
                         
                   <div className="row">
                           

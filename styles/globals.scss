@@ -481,15 +481,16 @@ ul{
   .page__container{
     width: 100%;
     .mainpagetitle{
-      font-size: 18px;
+      font-size: 40px;
       margin-bottom: 10px;
     }
     .section__title{
       align-items: flex-start;
-      flex-direction: column;
+      flex-direction: column-reverse;
     }
     .section__title--maintitle{
       font-size: 16px;
+      margin-top: 20px;
     }
   }
   .mycard__details{
@@ -498,10 +499,12 @@ ul{
   }
   .mycard__details--jobtitle{
     flex-direction: column;
+    justify-content: end !important;
+    align-items: flex-start !important;
   }
   .Tools{
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
 
  }
