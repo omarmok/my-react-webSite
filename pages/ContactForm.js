@@ -71,7 +71,7 @@ export default function ContactUs() {
                     <div className="whatsapp">
                         <p>Contact me via WhatsApp</p>
                                 <div className="whimage">
-                                <a  href="http://wa.me/966535468309" target="_blank">     <Image  alt="MyImage"  src={whatsapp}  layout="responsive" /></a>
+                                <a  href="http://wa.me/966535468309" >     <Image  alt="MyImage"  src={whatsapp}  layout="responsive" /></a>
                                 </div>
                     </div>
               
