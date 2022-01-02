@@ -8,13 +8,12 @@ html,
 body {
   padding: 0;
   margin: 0;
-
    font-family: 'Poppins', sans-serif;
     background: #f6f5fa;
 }
 
 a {
-  color: inherit;
+  color: $mainColor;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
 }
@@ -93,7 +92,7 @@ color:  $secondColor;
 }
 main{
   background: rgb(243,247,255);
-  background: linear-gradient(270deg, rgba(243,247,255,1) 68%, $mainColor 68%);
+  background: linear-gradient(270deg, #f6f5fa 68%, $mainColor 68%);
   padding: 40px 0;
   // height: 60vh;
   flex-grow: 1;
