@@ -13,7 +13,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: inherit  !important;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
 }
@@ -54,21 +54,22 @@ color:  $secondColor;
 }
 
 .btn{
-  background: $mainColor;
-  border: 2px solid $mainColor;
-  color: #fff;
-  font-weight: 600;
-  border-radius: 78px;
-  font-size: 14px;
-  letter-spacing: 1px;
-  height: 39px;
-  display: flex;
+  background: $mainColor !important;
+  border: 2px solid $mainColor !important;
+  color: #fff  !important;
+  font-weight: 600 !important;
+  border-radius: 78px !important;
+  font-size: 14px !important;
+  letter-spacing: 1px !important;
+  height: 40px !important;
+  display: flex !important;
   align-items: center;
   justify-content: center;
-  &:hover{
-    background: transparent;
-    border: 2px solid $mainColor;
-    color: $mainColor;
+  &:hover
+{
+    background: transparent  !important;
+    border: 2px solid $mainColor  !important;
+    color: $mainColor  !important;
   }
 }
 
