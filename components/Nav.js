@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { useRouter } from 'next/dist/client/router'
 import { route } from 'next/dist/server/router'
+import Image from 'next/image'
+import mylogo from '../public/images/mylogo.png'
 
 const Nav = () => {
     const router = useRouter()
@@ -15,13 +17,13 @@ const Nav = () => {
                 <a
                   className="navbar-brand"
                 >
-               Omar Mokhtar 
+               <Image  alt="MyImage"  src={mylogo}/>
                 </a>
               </Link>
 
 
 
-                <div className="navtitle"><span className="mx-2">|</span>UI/UX Designer</div></div>
+                <div className="navtitle">UI/UX Designer</div></div>
                 {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button> */}

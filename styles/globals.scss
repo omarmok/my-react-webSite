@@ -36,6 +36,8 @@ a {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   font-size: 20px;
+  width: 40px;
+  margin: 0;
 }
 
 .navbar-nav .nav-link {
@@ -50,7 +52,8 @@ color:  $secondColor;
 
 }
 .navtitle{
-  color:  $secondColor;
+  color: #000000;
+  margin-left: 5px;
 }
 
 .btn{
@@ -102,7 +105,7 @@ main{
 .index__details{
   background: #fff;
   padding: 15px;
-  width: 70%;
+  width:80%;
   margin: 0 auto;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
   .title{
