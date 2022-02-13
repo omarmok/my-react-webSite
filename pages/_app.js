@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { hotjar } from 'react-hotjar'
+
 import Head from 'next/head'
 import AOS from "aos";
 import axios from "axios";
@@ -12,6 +14,9 @@ import Layouts from '../components/Layouts'
 config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    hotjar.initialize(1978942, 1)
+  }, []);
 
   useEffect(() => {
 
@@ -20,7 +25,12 @@ function MyApp({ Component, pageProps }) {
       once: true,
       offset: 50,
     });
+
+    
   }, []);
+
+
+
   return (
 
 
@@ -33,6 +43,7 @@ function MyApp({ Component, pageProps }) {
               <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
               <link rel="icon" href="/favicon.ico" />
+           
             </Head>
             <Layouts>
                         <Component {...pageProps} />
