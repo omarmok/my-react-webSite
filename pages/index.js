@@ -19,11 +19,11 @@ export default function Home() {
 
           <div className="index__details">
               <div className="row align-items-center">
-                <div className=" col-lg-5 col-sm-12"   data-aos="fade-right" data-aos-duration="2000">
+                <div className=" col-lg-5 col-sm-12"   >
                    <Image  alt="MyImage"  src={photo}/>
                    {/* <Image  alt="MyImage"  src="../public/images/omar.png" width={600} height={600}  layout="responsive" objectFit='cover' /> */}
                 </div>
-                <div className=" col-lg-7 col-sm-12"   data-aos="fade-left"  data-aos-duration="2000" >
+                <div className=" col-lg-7 col-sm-12"   >
               <div className="title">
              <div className="myname d-flex align-items-center" >  OMAR <span className="m-2 cusomspan ">MOKHTAR</span></div>
                 <span className="">
