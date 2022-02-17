@@ -2,7 +2,7 @@
 import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
 import Head from 'next/head'
 import axios from 'axios'
 import Link from "next/link"
@@ -17,7 +17,7 @@ class Projects extends Component{
     Projects :[]
   }
   componentDidMount = () =>{
-    axios.get('https://api.npoint.io/ba35b22a6f908f637bc8').then( res => { this.setState ({Projects :res.data.Projects})})
+    axios.get('https://api.npoint.io/4bea642ad96af6d223a2').then( res => { this.setState ({Projects :res.data.Projects})})
   
   }
 
@@ -44,7 +44,7 @@ class Projects extends Component{
                     </div>
                 </div>
                 <div className="portfolio-links">
-                  <a href={ProjectsItem.url} target="_blank"  rel="noreferrer">   <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon> </a>
+                  <a href={ProjectsItem.url} target="_blank"  rel="noreferrer">   <FontAwesomeIcon icon={faExternalLinkAlt}></FontAwesomeIcon> </a>
 
               
                 </div>
@@ -136,7 +136,7 @@ I have some experiences that I was able to apply some of them in projects, and t
       </div>
           <div className="row">
           <div className=" mr-auto my-4 ">    
-            <a href="https://www.linkedin.com/in/omarmokhtar22/" className="btn section__title--btn d-inline-block"  data-aos="fade-left" data-aos-duration="1000">Find more @ linkedin</a>
+            <a href="https://www.linkedin.com/in/omarmokhtar22/" className="btn section__title--btn d-inline-block more_btn_project"  data-aos="fade-left" data-aos-duration="1000">Find more @ linkedin</a>
           </div>
           </div>
 

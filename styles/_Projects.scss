@@ -127,6 +127,10 @@
     transition: color 0.25s ease;
   }
   
+  .portfolio-item .portfolio-links svg{
+    filter: brightness(0) invert(1);
+    -webkit-filter: brightness(0) invert(1);
+}
   .portfolio-item .portfolio-text a:hover {
     color: #064be0;
   }
