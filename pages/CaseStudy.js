@@ -238,22 +238,22 @@ const CaseStudy = () => {
                 {/* <Image  alt="MyImage"  src="../public/images/color.png" width={900} height={500} layout='responsive' objectFit='contain' />
                 <Image  alt="MyImage"  src="../public/images/screenshoot.png" width={900} height={1500} layout='responsive' objectFit='contain' /> */}
 
-<div className="row mt-3 mb-3">
+    <div className="row mt-3 mb-3">
 
-  <div class="col">        
-        <Link href="/Projects">
-              <a className="btn d-inline-block me-2 my-2">Back to Projects</a>
-              
-        </Link>
+      <div className="col">        
+            <Link href="/Projects">
+                  <a className="btn d-inline-block me-2 my-2">Back to Projects</a>
+                  
+            </Link>
 
-     </div>
-        <div class="col">        
+        </div>
+            <div className="col">        
   
         <Link href="http://omarmokhtar.com/SU/index.html">
               <a className="btn outlinebtn  d-inline-block me-2 my-2">Check website</a>
 
         </Link></div>
-</div>
+           </div>
 
           </div>
          
