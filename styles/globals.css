@@ -59,6 +59,21 @@
   overflow: hidden;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  background: #fff;
+  padding: 15px;
+}
+
+.portfolio-item .mycard__details--date {
+  color: #0000ff;
+  font-weight: 700;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.portfolio-item .mycard__details--jobtitle {
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 20px;
 }
 
 .portfolio-item:hover {
@@ -74,9 +89,10 @@
 }
 
 .portfolio-item:hover .portfolio-links {
-  top: 40px;
+  top: 36%;
   opacity: 1;
   visibility: visible;
+  right: 40%;
 }
 
 .portfolio-item:hover .portfolio-text {
@@ -87,6 +103,11 @@
 
 .portfolio-item .portfolio-img {
   border-radius: 5px;
+}
+
+.portfolio-item .portfolio-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .portfolio-item .portfolio-img:after {
@@ -154,8 +175,8 @@
 
 .portfolio-item .portfolio-links {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 0;
+  right: 40%;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all 0.5s ease-in-out;
@@ -163,16 +184,21 @@
 }
 
 .portfolio-item .portfolio-links a {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  line-height: 50px;
+  line-height: 106px;
   text-align: center;
   color: #fff;
   display: inline-block;
   background: #120ce8;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+.portfolio-item .portfolio-links a svg {
+  width: 30px;
+  height: 30px;
 }
 
 .portfolio-item .portfolio-links a:hover {

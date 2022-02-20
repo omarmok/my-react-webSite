@@ -17,7 +17,7 @@ class Projects extends Component{
     Projects :[]
   }
   componentDidMount = () =>{
-    axios.get('https://api.npoint.io/4bea642ad96af6d223a2').then( res => { this.setState ({Projects :res.data.Projects})})
+    axios.get('https://api.npoint.io/596f0ab975c1d196fb18').then( res => { this.setState ({Projects :res.data.Projects})})
   
   }
 
@@ -28,21 +28,20 @@ class Projects extends Component{
     const Projectslist = Projects.map( ( ProjectsItem) =>{
 
       return(
-            <div className="col-12 col-lg-4 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
+            <div className="col-12 col-lg-6 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
             <div className="portfolio-item">
                 <div className="portfolio-img">
                   <Image className="img-fluid" src={ProjectsItem.image} alt="test"  width={300} height={200} layout="responsive"/>
-                  </div>
-                <div className="portfolio-text">
-                <div className="mycard__details--date">
+                  <div className="mycard__details--date">
                 {ProjectsItem.Issued}
                 </div>
-                    <div className="mycard__details--jobtitle">
+                  <div className="mycard__details--jobtitle">
                
                     {ProjectsItem.info}
                     
                     </div>
-                </div>
+                  </div>
+            
                 <div className="portfolio-links">
                   <a href={ProjectsItem.url} target="_blank"  rel="noreferrer">   <FontAwesomeIcon icon={faExternalLinkAlt}></FontAwesomeIcon> </a>
 
@@ -85,7 +84,7 @@ I have some experiences that I was able to apply some of them in projects, and t
 
          <div className="row">
            <div className="col-12">
-             <div className="caseStudy m-5 mx-0" data-aos="fade-right" data-aos-duration="2000">
+             <div className="caseStudy m-1 mx-0" data-aos="fade-right" data-aos-duration="2000">
                 <div className="caseStudy__img">
                
                 {/* <img src="../images/casstudymain.png" alt="my image" className="img-fluid" /> */}
