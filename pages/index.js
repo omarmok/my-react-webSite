@@ -34,10 +34,12 @@ export default function Home() {
               <div className="mt-3 d-flex align-items-center discraption">
                
               <p>
-                I am an experienced UI/User Experience Designer Over the past 10 years
-<br/>
- I have designed digital experiences mobile web dashboards and more across a variety of organizations minstiies and universities
-                </p>
+              I am an experienced UI/User Experience Designer Over the past 10 years
+              <br/>
+              I have designed digital experiences mobile web dashboards and more across a variety of organizations minstiies and universities.
+              <br/><br/>
+              I am responsible for coming up with ideas to redesign the layout and to improve the overall user experience using drawing, wireframe and prototyping, moreover, I share with the development team rebuild all pages.
+              </p>
 
 
 
