@@ -15,7 +15,7 @@ config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    hotjar.initialize(1978942, 1)
+    hotjar.initialize(1978942, 6)
   }, []);
 
   useEffect(() => {
