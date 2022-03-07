@@ -43,8 +43,8 @@ export default function Home() {
 
 
                   <div className="socialIcon" >
-                  <a href="https://www.behance.net/Omar_Mokhtar" title="twitter">  <FaBehance /></a>
-                  <a href="https://github.com/omarmok" title="twitter">  <FaGithub /></a>
+                  <a href="https://www.behance.net/Omar_Mokhtar" title="behance">  <FaBehance /></a>
+                  <a href="https://github.com/omarmok" title="github">  <FaGithub /></a>
                   <a href="https://www.linkedin.com/in/omarmokhtar22/" title="linkedin">  <FaLinkedin /></a>
                   <a href="https://twitter.com/al_fagomy22" title="twitter">  <FaTwitter /></a>
                   <a href="mailto:al_fagomy22@hotmail.com" >  <FaEnvelope /></a>
