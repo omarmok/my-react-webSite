@@ -249,8 +249,8 @@ const CaseStudy = () => {
         </div>
             <div className="col">        
   
-        <Link href="http://omarmokhtar.com/SU/index.html">
-              <a className="btn outlinebtn  d-inline-block me-2 my-2">Check website</a>
+        <Link href="https://omarmok.github.io/studentCode/">
+              <a className="btn outlinebtn  d-inline-block me-2 my-2" target="_blank">Check website</a>
 
         </Link></div>
            </div>
