@@ -18,7 +18,7 @@ export default function Home() {
           <div className="container">
 
           <div className="index__details">
-              <div className="row align-items-center">
+              <div className="row">
                 <div className=" col-lg-5 col-sm-12"   >
                    <Image  alt="MyImage"  src={photo}/>
                    {/* <Image  alt="MyImage"  src="../public/images/omar.png" width={600} height={600}  layout="responsive" objectFit='cover' /> */}
