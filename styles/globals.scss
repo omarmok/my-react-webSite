@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap');
 
 
-$mainColor:#6868ac;
-$secondColor:#6868ac;
+$mainColor:#005eb8 ;
+$secondColor:#005eb8 ;
 @import "_Projects";
 html,
 body {
   padding: 0;
   margin: 0;
    font-family: 'Poppins', sans-serif;
-    background: #f6f5fa !important;
+    background: #e5eef8 !important;
 }
 
 a {
@@ -86,7 +86,7 @@ color:  $secondColor;
 }
 main{
   background: rgb(243,247,255);
-  background: linear-gradient(270deg, #f6f5fa 68%, $mainColor 68%);
+  background: linear-gradient(270deg, #e5eef8 68%, $mainColor 68%);
   padding: 40px 0;
   // height: 60vh;
   flex-grow: 1;
@@ -195,7 +195,7 @@ main{
     padding: 40px;
     margin-top: 30px;
     flex-direction: row;
-    box-shadow: 10px 10px 20px 0 #edf0f5, -10px -10px 20px 0 #f6f9ff;
+    box-shadow: 10px 10px 20px 0 #e5eef8, -10px -10px 20px 0 #e6f0fa;
     background-color: #ffffff;
     position: relative;
     overflow: hidden;
@@ -215,7 +215,7 @@ main{
         margin-bottom: 12px;
         padding-bottom: 15px;
       &--date{
-        color: #6868ac;
+        color: $mainColor;
         font-weight: 500;
         font-size: 14px;
       }
@@ -290,7 +290,7 @@ main{
           padding: 15px;
           margin-top: 30px;
           background: #fff;
-          box-shadow:  20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+          box-shadow: 10px 10px 20px 0 #cfdae5, -10px -10px 20px 0 #eaf3fc;
           display: flex;
           align-items: center;
           width: 130px;
