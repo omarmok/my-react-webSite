@@ -420,6 +420,18 @@ p {
   }
 }
 @media (max-width: 968px) {
+  main{
+    background: linear-gradient(0deg,#e5eef8 68%,#221afb 0);
+    .home-image{
+      span{
+        width: 100% !important;
+        img{
+          object-fit: cover;
+        }
+      }
+    }
+
+  }
   .navbar {
     width: 100%;
     flex-direction: column;

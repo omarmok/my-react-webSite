@@ -19,7 +19,7 @@ export default function Home() {
 
           <div className="index__details">
               <div className="row">
-                <div className=" col-lg-5 col-sm-12"   >
+                <div className=" col-lg-5 col-sm-12 home-image"   >
                    <Image  alt="MyImage"  src={photo}/>
                    {/* <Image  alt="MyImage"  src="../public/images/omar.png" width={600} height={600}  layout="responsive" objectFit='cover' /> */}
                 </div>
