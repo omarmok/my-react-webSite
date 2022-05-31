@@ -8,7 +8,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background: #e5eef8 !important;
+  background: #f9fbfd !important;
 }
 
 a {
@@ -58,14 +58,15 @@ a {
   border: 2px solid $mainColor !important;
   color: #fff !important;
   font-weight: 600 !important;
-  border-radius: 78px !important;
+  border-radius: 5px !important;
   font-size: 14px !important;
   letter-spacing: 1px !important;
   height: 40px !important;
   display: flex !important;
   align-items: center;
   justify-content: center;
-  &:hover {
+  &:hover 
+{
     background: transparent !important;
     border: 2px solid $mainColor !important;
     color: $mainColor !important;
@@ -80,7 +81,7 @@ a {
 }
 main {
   background: rgb(243, 247, 255);
-  background: linear-gradient(270deg, #e5eef8 68%, $mainColor 68%);
+  background: linear-gradient(270deg, #f9fbfd 68%, $mainColor 68%);
   padding: 40px 0;
   // height: 60vh;
   flex-grow: 1;
@@ -91,9 +92,7 @@ main {
   padding: 15px;
   width: 80%;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+
   border-radius: -8px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   .title {
@@ -186,7 +185,7 @@ main {
   padding: 40px;
   margin-top: 30px;
   flex-direction: row;
-  box-shadow: 10px 10px 20px 0 #e5eef8, -10px -10px 20px 0 #e6f0fa;
+  box-shadow: 10px 10px 20px 0 #e7eef5, -10px -10px 20px 0 #f9fcff;
   background-color: #ffffff;
   position: relative;
   overflow: hidden;

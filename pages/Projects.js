@@ -115,7 +115,7 @@ I have some experiences that I was able to apply some of them in projects, and t
                   </p>
 
                    <Link href="./CaseStudy">
-                      <a className="btn d-inline-block">Case Study UI/UX</a>
+                      <a className="btn d-inline-block">Case Study</a>
                     </Link>
 
              </div>
