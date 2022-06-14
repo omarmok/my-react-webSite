@@ -68,9 +68,9 @@ class Projects extends Component{
     
            <div className="page__container project">
 
-           <div className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
+           <h1 className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
            Projects
-            </div>
+            </h1>
           <div className="project__description">
           <p>
           I always look forward to my techniques and expanding my skill set.

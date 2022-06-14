@@ -61,9 +61,9 @@ class About extends Component{
        
            <div className="page__container">
 
-           <div className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
+           <h1 className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
             About Me
-            </div>
+            </h1>
 
          <div className="section__title">
            <div className="section__title--maintitle" data-aos="fade-right" data-aos-duration="1000">Experience</div>

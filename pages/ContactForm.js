@@ -27,9 +27,9 @@ export default function ContactUs() {
            
            <div className="page__container">
 
-           <div className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
+           <h1 className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
            Contact
-            </div>
+            </h1>
 
             <form onSubmit={sendEmail} className="bg-white p-5 contact" data-aos="fade-up" data-aos-duration="2000">
 
