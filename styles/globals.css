@@ -711,12 +711,6 @@ p {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .brand {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
   .brand .navbar-brand {
     margin: 0;
   }
@@ -724,10 +718,10 @@ p {
     width: 100%;
   }
   .navbar-nav {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
     width: 100%;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;

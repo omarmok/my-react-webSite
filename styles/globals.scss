@@ -436,7 +436,7 @@ p {
     flex-direction: column;
   }
   .brand {
-    flex-direction: column;
+
     .navbar-brand {
       margin: 0;
     }
@@ -445,7 +445,7 @@ p {
     width: 100%;
   }
   .navbar-nav {
-    flex-direction: row;
+    flex-direction: row !important;
     width: 100%;
     justify-content: space-between;
   }
