@@ -5,7 +5,7 @@
 
 .project__description {
   font-size: 20px;
-  margin-bottom: 70px;
+  margin-bottom: 30px;
 }
 
 .caseStudy {
@@ -42,7 +42,7 @@
 }
 
 .caseStudy__description .title {
-  color: #6868ac;
+  color: #221afb;
   font-weight: 600;
   font-size: 30px;
   margin-bottom: 10px;
@@ -210,20 +210,20 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #f6f5fa !important;
+  font-family: "Poppins", sans-serif;
+  background: #f9fbfd !important;
 }
 
 a {
-  color: inherit  !important;
+  color: inherit !important;
   text-decoration: none;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .navBg {
@@ -251,7 +251,7 @@ a {
 }
 
 .navbar-nav .active {
-  color: #6868ac;
+  color: #221afb;
 }
 
 .navtitle {
@@ -260,11 +260,11 @@ a {
 }
 
 .btn {
-  background: #6868ac !important;
-  border: 2px solid #6868ac !important;
-  color: #fff  !important;
+  background: #221afb !important;
+  border: 2px solid #221afb !important;
+  color: #fff !important;
   font-weight: 600 !important;
-  border-radius: 78px !important;
+  border-radius: 5px !important;
   font-size: 14px !important;
   letter-spacing: 1px !important;
   height: 40px !important;
@@ -280,9 +280,9 @@ a {
 }
 
 .btn:hover {
-  background: transparent  !important;
-  border: 2px solid #6868ac !important;
-  color: #6868ac !important;
+  background: transparent !important;
+  border: 2px solid #221afb !important;
+  color: #221afb !important;
 }
 
 .wrapper {
@@ -301,8 +301,8 @@ a {
 
 main {
   background: #f3f7ff;
-  background: -webkit-gradient(linear, right top, left top, color-stop(68%, #f6f5fa), color-stop(68%, #6868ac));
-  background: linear-gradient(270deg, #f6f5fa 68%, #6868ac 68%);
+  background: -webkit-gradient(linear, right top, left top, color-stop(68%, #f9fbfd), color-stop(68%, #221afb));
+  background: linear-gradient(270deg, #f9fbfd 68%, #221afb 68%);
   padding: 40px 0;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -314,8 +314,8 @@ main {
   padding: 15px;
   width: 80%;
   margin: 0 auto;
-  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border-radius: -8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .index__details .title {
@@ -332,24 +332,11 @@ main {
   font-weight: 600;
   letter-spacing: 0.15em;
   font-size: 30px;
-  color: #fff;
   padding-left: 5px;
-}
-
-.index__details .title .myname .cusomspan:after {
-  content: "";
-  width: 275px;
-  height: 50px;
-  background-color: #6868ac;
-  position: absolute;
-  top: 5px;
-  right: -17px;
-  z-index: -1;
 }
 
 .index__details .title span {
   display: block;
-  color: #6868ac;
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 0;
@@ -378,7 +365,7 @@ main {
   width: 20px;
   height: 20px;
   margin: 5px;
-  fill: #6868ac;
+  fill: #221afb;
 }
 
 .index__details .discraption .socialIcon img {
@@ -399,7 +386,7 @@ main {
 
 .mainpagetitle {
   font-weight: 800;
-  color: #6868ac;
+  color: #221afb;
   font-size: 60px;
   margin-bottom: 80px;
 }
@@ -434,8 +421,8 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-shadow: 10px 10px 20px 0 #edf0f5, -10px -10px 20px 0 #f6f9ff;
-          box-shadow: 10px 10px 20px 0 #edf0f5, -10px -10px 20px 0 #f6f9ff;
+  -webkit-box-shadow: 10px 10px 20px 0 #e7eef5, -10px -10px 20px 0 #f9fcff;
+          box-shadow: 10px 10px 20px 0 #e7eef5, -10px -10px 20px 0 #f9fcff;
   background-color: #ffffff;
   position: relative;
   overflow: hidden;
@@ -443,7 +430,7 @@ main {
 
 .mycard:before {
   content: "";
-  background: #6868ac;
+  background: #221afb;
   width: 145px;
   height: 55px;
   position: absolute;
@@ -459,13 +446,13 @@ main {
 }
 
 .mycard__details--date {
-  color: #0000ff;
-  font-weight: 700;
-  font-size: 20px;
+  color: #221afb;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .mycard__details--jobtitle {
-  font-weight: 800;
+  font-weight: 500;
   margin-bottom: 5px;
 }
 
@@ -503,7 +490,7 @@ main {
 }
 
 .contact .requierd {
-  color: #6868ac;
+  color: #221afb;
   font-size: 24px;
 }
 
@@ -533,8 +520,8 @@ main {
   padding: 15px;
   margin-top: 30px;
   background: #fff;
-  -webkit-box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
-          box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+  -webkit-box-shadow: 10px 10px 20px 0 #cfdae5, -10px -10px 20px 0 #eaf3fc;
+          box-shadow: 10px 10px 20px 0 #cfdae5, -10px -10px 20px 0 #eaf3fc;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -560,8 +547,8 @@ main {
   padding: 15px;
   margin-top: 30px;
   background: #fff;
-  -webkit-box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
-          box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+  -webkit-box-shadow: 10px 10px 20px 0 #e5eef8, -10px -10px 20px 0 #e6f0fa;
+          box-shadow: 10px 10px 20px 0 #e5eef8, -10px -10px 20px 0 #e6f0fa;
 }
 
 .more_btn_project {
@@ -577,7 +564,7 @@ main {
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   -webkit-animation: cssAnimation 0s ease-in 1s forwards;
-  background: #6868ac;
+  background: #221afb;
   position: absolute;
   z-index: 9999999;
   top: 0;
@@ -695,7 +682,7 @@ p {
 }
 
 .whatsapp p {
-  color: #6868ac;
+  color: #221afb;
 }
 
 .whatsapp .whimage {
@@ -706,6 +693,17 @@ p {
 }
 
 @media (max-width: 968px) {
+  main {
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(68%, #e5eef8), color-stop(0, #221afb));
+    background: linear-gradient(0deg, #e5eef8 68%, #221afb 0);
+  }
+  main .home-image span {
+    width: 100% !important;
+  }
+  main .home-image span img {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
   .navbar {
     width: 100%;
     -webkit-box-orient: vertical;
@@ -751,7 +749,7 @@ p {
   .index__details .title .cusomspan {
     font-size: 20px !important;
     color: #000 !important;
-    font-weight: 800  !important;
+    font-weight: 800 !important;
   }
   .index__details .title .cusomspan:after {
     display: none;
@@ -834,8 +832,8 @@ p {
 }
 
 .outlinebtn:hover {
-  background: #6868ac !important;
-  border: 2px solid #6868ac !important;
+  background: #221afb !important;
+  border: 2px solid #221afb !important;
   color: #fff !important;
 }
 /*# sourceMappingURL=globals.css.map */
