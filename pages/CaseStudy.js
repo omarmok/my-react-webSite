@@ -1,17 +1,8 @@
 import Head from 'next/head'
 import Link from "next/link"
 import Image from 'next/image'
-import case1 from '../public/images/case1.png'
-import walidInfo from '../public/images/walidInfo.png'
-import color from '../public/images/color.png'
-import CompetitiveAnalysis from '../public/images/CompetitiveAnalysis.png'
-import EMP from '../public/images/EMP.png'
-import define from '../public/images/define.png'
-import ideate from '../public/images/ideate.png'
-import proto from '../public/images/proto.png'
-import test from '../public/images/test.png'
-import prototype from '../public/images/prototype.png'
-import screenshoot from '../public/images/screenshoot.png'
+import case1 from '../public/images/casestudy.png'
+
 import Loader from '../components/Loader'
 const CaseStudy = () => {
     return(
@@ -35,9 +26,9 @@ const CaseStudy = () => {
           <div className="casestudyContainer" data-aos="fade-up" data-aos-duration="2000">
           <Image  alt="MyImage"  src={case1}  layout="responsive" />
           <br/>
-          <h3 className="fw-bold">My Role</h3>
+          {/* <h3 className="fw-bold">My Role</h3> */}
 
-        <p>
+        {/* <p>
         I was the UX Designer UI Designer UI Developer in a team of 6 and we completed this project over 10 weeks.
           <br/>
           I was in competitives analysis and user research.
@@ -50,10 +41,10 @@ const CaseStudy = () => {
           Working closely with analysist ,developers and QA testers ensuring that the product is developed according to experience and design specifications.
 
                     </p>
-                    <br/>
+                    <br/> */}
           {/* <Image  alt="MyImage"  src="../public/images/case1.png" width={900} height={450} layout='responsive' objectFit='contain' /> */}
 
-          <h3 className="fw-bold ">Process</h3>
+          {/* <h3 className="fw-bold ">Process</h3>
 
           <div className='row'>
 
@@ -230,11 +221,11 @@ const CaseStudy = () => {
                   </div>
 
                   </div>
-                  <Image  alt="MyImage"  src={prototype}  layout="responsive" />
+                  <Image  alt="MyImage"  src={prototype}  layout="responsive" /> */}
 
                 {/* <Image  alt="MyImage"  src="../public/images/Persona.png" width={900} height={350} layout='responsive' objectFit='contain' /> */}
-                <Image  alt="MyImage"  src={color}  width={900} height={500} layout="responsive" />
-                <Image  alt="MyImage"  src={screenshoot}  width={900} height={1500} layout="responsive" />
+                {/* <Image  alt="MyImage"  src={color}  width={900} height={500} layout="responsive" />
+                <Image  alt="MyImage"  src={screenshoot}  width={900} height={1500} layout="responsive" /> */}
                 {/* <Image  alt="MyImage"  src="../public/images/color.png" width={900} height={500} layout='responsive' objectFit='contain' />
                 <Image  alt="MyImage"  src="../public/images/screenshoot.png" width={900} height={1500} layout='responsive' objectFit='contain' /> */}
 
