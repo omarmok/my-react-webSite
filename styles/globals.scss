@@ -38,15 +38,31 @@ a {
   width: 40px;
   margin: 0 !important;
 }
-
+.nav-item {
+  margin: 0 10px;
+}
 .navbar-nav .nav-link {
   color: #000;
   font-weight: 500;
   font-size: 14px;
+
+  padding-right: 0 !important;
+  padding-left: 0  !important;
 }
 
 .navbar-nav .active {
-  color: $secondColor;
+  color: $secondColor !important;
+  position: relative;
+  &::after{
+    content: "";
+    background: #ff9800;
+    width: 12px;
+    height: 3px;
+    position: absolute;
+    bottom: 5px;
+    border-radius: 15px;
+    left: 0;
+  }
 }
 .navtitle {
   color: #000000;
