@@ -254,6 +254,7 @@ main {
     background-color: transparent;
     color: $secondColor !important;
     box-shadow: inset 0 0 0 1px $secondColor;
+    text-decoration: none !important;
     border-radius: 25px;
     padding: 5px 15px;
     font-size: 14px;
@@ -523,7 +524,7 @@ p {
     }
   }
   .mycard__details {
-    flex-direction: column;
+    flex-direction: column-reverse;
     font-size: 14px;
     align-items: start !important;
   }
@@ -533,8 +534,18 @@ p {
     align-items: flex-start !important;
   }
   .Certificationsimage {
-    width: 50px;
+   
     margin-top: 4px;
+    span{
+      height: 40px !important;
+      img{
+        height: 50px !important;
+      }
+      .linkedin{
+        height: 30px !important;
+      }
+    }
+ 
   }
   .Tools {
     align-items: center;
