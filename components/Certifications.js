@@ -1,14 +1,16 @@
 import { Component } from 'react';
 import Image from 'next/image'
 import axios from 'axios';
-import linkedin from '../public/images/LinkedIn_Logo.svg.png'
+import linkedin from '../public/images/LinkedIn_Logo.svg.png';
+import { FaExternalLinkSquareAlt } from 'react-icons/fa';
+import Link from 'next/link';
 class Certifications extends Component{
     state ={
 
         Certifications :[]
       }
       componentDidMount = () =>{
-        axios.get('https://api.npoint.io/ba35b22a6f908f637bc8').then( res => { this.setState ({Certifications :res.data.Certifications})})
+        axios.get('https://api.npoint.io/f044462db60009650e0f').then( res => { this.setState ({Certifications :res.data.Certifications})})
       
       }
     
@@ -25,11 +27,16 @@ class Certifications extends Component{
               <div>
                 <div className="mycard__details--date">{CertificationsItem.Issued}</div>
                 <div className="mycard__details--jobtitle">{CertificationsItem.info}</div>
+                <a  href={CertificationsItem.url}  className="mycard__details--url" title='Show credential ' >Show credential  <FaExternalLinkSquareAlt /> </a>
+
               </div>
                 <div className="Certificationsimage">
-                <Image  src={linkedin} width={500} height={110} layout='responsive' alt=""/>
+                {/* <Image  src={linkedin} width={500} height={110} layout='responsive' alt=""/> */}
+                <Image src={CertificationsItem.image} alt="course image"  width={100} height={100} layout='fixed' className={CertificationsItem.st} />
                 {/* <Image  alt="MyImage"  src="../public/images/LinkedIn_Logo.svg.png" width={500} height={150} layout='responsive' /> */}
                 </div>
+
+                
     
             </div>
           

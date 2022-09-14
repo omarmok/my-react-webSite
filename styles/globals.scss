@@ -214,6 +214,7 @@ main {
     top: 44px;
     right: -130px;
   }
+
   &__details {
     font-size: 20px;
     padding: 0;
@@ -234,6 +235,7 @@ main {
     }
   }
 
+ 
   .role {
     line-height: 1.9;
   }
@@ -246,7 +248,17 @@ main {
 .Certificationscard {
   .mycard__details--jobtitle {
     font-weight: 500;
-    margin-bottom: 0;
+    margin-bottom: 10px;
+  }
+  .mycard__details--url{
+    background-color: transparent;
+    color: $secondColor !important;
+    box-shadow: inset 0 0 0 1px $secondColor;
+    border-radius: 25px;
+    padding: 5px 15px;
+    font-size: 14px;
+ 
+
   }
 
   &:before {
@@ -544,4 +556,19 @@ p {
     border: 2px solid $secondColor !important;
     color: #fff !important;
   }
+}
+
+
+.bakkah{
+  min-width: 60% !important;
+  max-width: 100% !important;
+  min-height: 70% !important;
+  max-height: 100% !important;
+}
+
+.linkedin{
+  min-width: 100% !important;
+  max-width: 100% !important;
+  min-height: 30% !important;
+  max-height: 100% !important;
 }
