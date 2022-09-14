@@ -220,6 +220,10 @@ main {
     padding: 0;
     margin-bottom: 12px;
     padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     &--date {
       color: $mainColor;
       font-weight: 500;

@@ -23,7 +23,7 @@ class Certifications extends Component{
           return(
             
             <div className=" mycard p-3 Certificationscard"  data-aos="fade-up" data-aos-duration="2000" key={CertificationsItem.key}>
-            <div className="mycard__details d-flex justify-content-between align-items-center m-0 p-0" >
+            <div className="mycard__details  m-0 p-0" >
               <div>
                 <div className="mycard__details--date">{CertificationsItem.Issued}</div>
                 <div className="mycard__details--jobtitle">{CertificationsItem.info}</div>
