@@ -32,7 +32,7 @@ class About extends Component{
       return(
         
         <div className=" mycard"  data-aos="fade-up" data-aos-duration="2000" key={ExperienceItem.key}>
-        <div className="mycard__details" >
+        <div className="mycard__details  flex-column  align-items-start" >
             <div className="mycard__details--date">{ExperienceItem.date}</div>
             <div className="mycard__details--jobtitle">{ExperienceItem.jobtitle}</div>
             <div className="mycard__details--companyname"> {ExperienceItem.companyname}</div>
@@ -80,7 +80,7 @@ class About extends Component{
          </div>
 
          <div className=" mycard"  data-aos="fade-up" data-aos-duration="2000">
-         <div className="mycard__details w-100 d-flex align-items-center  justify-content-between">
+         <div className="mycard__details w-100 d-flex align-items-center  justify-content-between p-0 m-0">
             <div className="mycard__details--jobtitle d-flex align-items-center "> 
             
                      <Image  alt="MyImage"   src={azhar} />
