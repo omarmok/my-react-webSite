@@ -10,7 +10,7 @@ class Certifications extends Component{
         Certifications :[]
       }
       componentDidMount = () =>{
-        axios.get('https://api.npoint.io/f044462db60009650e0f').then( res => { this.setState ({Certifications :res.data.Certifications})})
+        axios.get('https://api.npoint.io/d473e0190f55afc6875b').then( res => { this.setState ({Certifications :res.data.Certifications})})
       
       }
     
