@@ -74,11 +74,10 @@ class Projects extends Component{
           <div className="project__description">
           <p>
           I always look forward to my techniques and expanding my skill set.
-
-            <br/>
+          <br/>
 Each of my projects - individual or collaborative - has provided me with some experience to help me in this area.
 <br/>
-I have some experiences that I was able to apply some of them in projects, and there are others that I know about some things that I could not work with, because the work environment in which I worked depended on other technologies,Which made me work the same way the environment depends.
+I have some experiences that I was able to apply some of them in projects, and there are others that I know about some things that I could not work with because the work environment in which I worked depended on other technologies, Which made me work the same way the environment counts.
             </p>
           </div>
 

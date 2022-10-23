@@ -17,7 +17,6 @@ export default function Home() {
       <Loader/>
 
           <div className="container">
-
           <div className="index__details">
               <div className="row">
                 <div className=" col-lg-4 col-sm-12 home-image"   >
@@ -40,15 +39,15 @@ export default function Home() {
                 <Image  alt="MyImage"  src={googleimage}/>
                   Google Certified</a>
               </div>
-
               <div className="mt-3 d-flex align-items-center discraption">
                
-              <p>
-              I am an experienced UI/User Experience Designer Over the past 10 years           
-                 <br/>
-              I have designed digital experiences mobile and web dashboards and more across a variety of organizations minstiies and universities.   
-                         <br/>
-              I am responsible for coming up with ideas to redesign the layout and to improve the overall user experience using drawing, wireframe prototyping, and High-fidelity prototyping , moreover, I Working closely with analysist ,developers and QA testers ensuring that the product is developed according to experience and design specifications.              </p>
+            <p>
+              I am an experienced UI/User Experience Designer Over the past 10 years
+                <br/>
+                I have designed digital experiences mobile and web dashboards and more across various organizations ministries and universities.
+                <br/>
+                I am responsible for coming up with ideas to redesign the layout and to improve the overall user experience using drawing, wireframe prototyping, and High-fidelity prototyping, moreover, I Work closely with analysts, developers, and QA testers ensuring that the product is developed according to experience and design specifications.
+            </p>
 
 
 
