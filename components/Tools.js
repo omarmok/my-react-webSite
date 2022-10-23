@@ -10,6 +10,8 @@ import adobexd from '../public/images/adobexd.png'
 import illustratour from '../public/images/illustratour.png'
 import photoshop from '../public/images/photoshop.svg'
 import zeplin from '../public/images/zeplin.png'
+import figma from '../public/images/figma.png'
+import miro from '../public/images/miro.png'
 
 const Tools = () => {
     return(
@@ -18,8 +20,35 @@ const Tools = () => {
         
         <div className="Tools mb-5" data-aos="fade-left" data-aos-duration="2000">
       
+      <div className="skillscateg">
+        <Image  alt="MyImage"  src={adobexd}/>
+        {/* <Image  alt="MyImage"  src="../public/images/adobexd.png" width={50} height={50} /> */}
+        </div>
+        <div className="skillscateg">
+                            
+        <Image  alt="MyImage"  src={figma}/>
+        {/* <Image  alt="MyImage"  src="../public/images/photoshop.svg" width={50} height={50} /> */}
+        </div>
+
+                    <div className="skillscateg">
+                            
+        <Image  alt="MyImage"  src={miro}/>
+        {/* <Image  alt="MyImage"  src="../public/images/photoshop.svg" width={50} height={50} /> */}
+        </div>           
 
         <div className="skillscateg">
+            <Image  alt="MyImage"  src={zeplin}/>
+            {/* <Image  alt="MyImage"  src="../public/images/zeplin.png" width={50} height={50} /> */}
+            </div>
+            <div className="skillscateg">
+                <Image  alt="MyImage"  src={illustratour}/>
+                {/* <Image  alt="MyImage"  src="../public/images/illustratour.png" width={50} height={50}  /> */}
+                </div>
+            <div className="skillscateg">
+              <Image  alt="MyImage"  src={photoshop}/>
+              {/* <Image  alt="MyImage"  src="../public/images/photoshop.svg" width={50} height={50} /> */}
+              </div>
+            <div className="skillscateg">
               <Image  alt="MyImage"  src={html}/>
               {/* <Image  alt="MyImage"  src="public/images/html.png" width={50} height={50} /> */}
         </div>
@@ -52,25 +81,9 @@ const Tools = () => {
        <Image  alt="MyImage"  src={gulpjs}/>
        {/* <Image  alt="MyImage"  src="../public/images/gulpjs.png" width={50} height={50}  objectFit='contain' /> */}
         </div>
-        <div className="skillscateg">
-        <Image  alt="MyImage"  src={adobexd}/>
-        {/* <Image  alt="MyImage"  src="../public/images/adobexd.png" width={50} height={50} /> */}
-        </div>
-
-        <div className="skillscateg">
-            <Image  alt="MyImage"  src={zeplin}/>
-            {/* <Image  alt="MyImage"  src="../public/images/zeplin.png" width={50} height={50} /> */}
-            </div>
-        <div className="skillscateg">
-  
-                <Image  alt="MyImage"  src={illustratour}/>
-                {/* <Image  alt="MyImage"  src="../public/images/illustratour.png" width={50} height={50}  /> */}
-                </div>
-                <div className="skillscateg">
-                            
-                            <Image  alt="MyImage"  src={photoshop}/>
-                            {/* <Image  alt="MyImage"  src="../public/images/photoshop.svg" width={50} height={50} /> */}
-                            </div>
+       
+       
+                       
          
 
         </div>
