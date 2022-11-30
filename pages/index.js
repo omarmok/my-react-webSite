@@ -19,15 +19,21 @@ export default function Home() {
           <div className="container">
           <div className="index__details">
               <div className="row">
-                <div className=" col-lg-4 col-sm-12 home-image"   >
-                  <div className='overlay'></div>
-                   <Image  alt="MyImage"  src={photo}/>
-                   {/* <Image  alt="MyImage"  src="../public/images/omar.png" width={600} height={600}  layout="responsive" objectFit='cover' /> */}
-               
-                   <div className="d-flex downloadresume">
-                    <a href="https://drive.google.com/file/d/1qmohDM5_31jg8aHfUuOBOALO2uuv9faK/view?usp=sharing"  className="btn section__title--btn btn mt-3 mx-2 homebtn"  download> <FaDownload  /> DOWNLOAD RESUME  </a>
+                <div className=" col-lg-4 col-sm-12 "   >
+             
+                <div className="home-image">
+
+                <div className='overlay'></div>
+                                  <Image  alt="MyImage"   src={photo}/>
+                                  {/* <Image  alt="MyImage"  src="../public/images/omar.png" width={600} height={600}  layout="responsive" objectFit='cover' /> */}
+                              
+                                  <div className="d-flex downloadresume">
+                                    <a href="https://drive.google.com/file/d/1qmohDM5_31jg8aHfUuOBOALO2uuv9faK/view?usp=sharing"  className="btn section__title--btn btn mt-3 mx-2 homebtn"  download> <FaDownload  /> DOWNLOAD RESUME  </a>
+                                </div>
+                              
+
                 </div>
-               
+
                 </div>
                 <div className=" col-lg-8 col-sm-12"   >
               <div className="title">

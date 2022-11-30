@@ -457,17 +457,20 @@ p {
 
 .home-image{
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #221afb;
   .overlay{
-    width: 93%;
+    width: 100%;
     height: 100%;
     background: linear-gradient(180deg, rgba(249, 251, 253,0) 48%, #221afb 88%);
     position: absolute;
     z-index: 99;
   }
   .downloadresume{
-    position: absolute;
-    bottom: 10px;
-    left: 20%;
+    margin-bottom: 20px;
     z-index: 100;
    a{
    svg{
