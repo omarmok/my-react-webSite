@@ -36,7 +36,7 @@
     "sass-loader": "^12.3.0",
     "styled-component": "^2.8.0",
     "swr": "^1.0.1",
-    "webpack": "^5.72.1"
+    "webpack": "^5.76.0"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
