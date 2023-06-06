@@ -10,7 +10,7 @@ class Certifications extends Component{
         Certifications :[]
       }
       componentDidMount = () =>{
-        axios.get('https://api.npoint.io/d473e0190f55afc6875b').then( res => { this.setState ({Certifications :res.data.Certifications})})
+        axios.get('https://api.npoint.io/6f0dae3cb9f69ee07ee5').then( res => { this.setState ({Certifications :res.data.Certifications})})
       
       }
     
@@ -27,7 +27,7 @@ class Certifications extends Component{
               <div>
                 <div className="mycard__details--date">{CertificationsItem.Issued}</div>
                 <div className="mycard__details--jobtitle">{CertificationsItem.info}</div>
-                <a  href={CertificationsItem.url}  className="mycard__details--url" title='Show credential ' >Show credential  <FaExternalLinkSquareAlt /> </a>
+                <a  href={CertificationsItem.url}  className="mycard__details--url" title='Show credential ' rel="noopener noreferrer" target="_blank" >Show credential  <FaExternalLinkSquareAlt /> </a>
 
               </div>
                 <div className="Certificationsimage">
