@@ -39,7 +39,7 @@ export default function Home() {
               <div className="title">
              <div className="myname d-flex align-items-center" >  Omar <span className="m-2 cusomspan ">Mokhtar</span></div>
                 <span className="">
-                  UI/UX Designer
+                User Experience Engineer at Confidential Government !
                 </span>
                 <a href="https://www.coursera.org/account/accomplishments/professional-cert/7HGU76DTMDGG" title="Google UX Design Professional Certificate" className='googlecertificated'>
                 <Image  alt="MyImage"  src={googleimage}/>
