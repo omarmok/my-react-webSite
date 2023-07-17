@@ -37,8 +37,8 @@ export default function Home() {
                 </div>
                 <div className=" col-lg-8 col-sm-12"   >
               <div className="title">
-             <div className="myname d-flex align-items-center" >  Omar <span className="m-2 cusomspan ">Mokhtar</span></div>
-                <span className="">
+             <div className="myname d-flex align-items-center" >  Omar <span className="cusomspan ">Mokhtar</span></div>
+                <span className="mb-3">
                 User Experience Engineer at Confidential Government !
                 </span>
                 <a href="https://www.coursera.org/account/accomplishments/professional-cert/7HGU76DTMDGG" title="Google UX Design Professional Certificate" className='googlecertificated'>

@@ -293,6 +293,7 @@ main {
   font-weight: 600;
   letter-spacing: 0;
   font-size: 30px;
+  line-height: 1;
 }
 .index__details .title .myname .cusomspan {
   display: inline-block;
