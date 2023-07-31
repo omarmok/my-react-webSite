@@ -28,7 +28,7 @@ export default function Home() {
                                   {/* <Image  alt="MyImage"  src="../public/images/omar.png" width={600} height={600}  layout="responsive" objectFit='cover' /> */}
                               
                                   <div className="d-flex downloadresume">
-                                    <a href="https://drive.google.com/file/d/1qmohDM5_31jg8aHfUuOBOALO2uuv9faK/view?usp=sharing"  className="btn section__title--btn btn mt-3 mx-2 homebtn"  download> <FaDownload  /> DOWNLOAD RESUME  </a>
+                                    <a href="https://drive.google.com/file/d/19Qjc6nAYpO-J2CL4UYPafvi9z9Y7Pxaf/view"  className="btn section__title--btn btn mt-3 mx-2 homebtn" target="_blank" rel="noopener noreferrer"  > <FaDownload  /> DOWNLOAD RESUME  </a>
                                 </div>
                               
 
@@ -41,7 +41,7 @@ export default function Home() {
                 <span className="mb-3">
                 User Experience Engineer at Confidential Government !
                 </span>
-                <a href="https://www.coursera.org/account/accomplishments/professional-cert/7HGU76DTMDGG" title="Google UX Design Professional Certificate" className='googlecertificated'>
+                <a href="https://www.coursera.org/account/accomplishments/professional-cert/7HGU76DTMDGG" title="Google UX Design Professional Certificate"  target="_blank" rel="noopener noreferrer" className='googlecertificated'>
                 <Image  alt="MyImage"  src={googleimage}/>
                   Google Certified</a>
               </div>

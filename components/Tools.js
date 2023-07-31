@@ -19,21 +19,23 @@ const Tools = () => {
 
         
         <div className="Tools mb-5" data-aos="fade-left" data-aos-duration="2000">
+            <div className="skillscateg">
+                            
+                            <Image  alt="MyImage"  src={figma}/>
+                            {/* <Image  alt="MyImage"  src="../public/images/photoshop.svg" width={50} height={50} /> */}
+                            </div>
+
       
-      <div className="skillscateg">
-        <Image  alt="MyImage"  src={adobexd}/>
-        {/* <Image  alt="MyImage"  src="../public/images/adobexd.png" width={50} height={50} /> */}
-        </div>
+          <div className="skillscateg">
+            <Image  alt="MyImage"  src={adobexd}/>
+            {/* <Image  alt="MyImage"  src="../public/images/adobexd.png" width={50} height={50} /> */}
+            </div>
+          
+
         <div className="skillscateg">
                             
-        <Image  alt="MyImage"  src={figma}/>
-        {/* <Image  alt="MyImage"  src="../public/images/photoshop.svg" width={50} height={50} /> */}
-        </div>
-
-                    <div className="skillscateg">
-                            
-        <Image  alt="MyImage"  src={miro}/>
-        {/* <Image  alt="MyImage"  src="../public/images/photoshop.svg" width={50} height={50} /> */}
+            <Image  alt="MyImage"  src={miro}/>
+            {/* <Image  alt="MyImage"  src="../public/images/photoshop.svg" width={50} height={50} /> */}
         </div>           
 
         <div className="skillscateg">

@@ -10,7 +10,7 @@ import Certifications from '../components/Certifications';
 import Tools from '../components/Tools';
 import Loader from '../components/Loader';
 import azhar from '../public/images/azhar.png'
-
+import { FaDownload } from 'react-icons/fa';
 
 class About extends Component{
 
@@ -68,7 +68,7 @@ class About extends Component{
          <div className="section__title">
            <div className="section__title--maintitle" data-aos="fade-right" data-aos-duration="1000">Experience</div>
            <div  data-aos="fade-left" data-aos-duration="1000">
-                <a href="https://drive.google.com/file/d/1qmohDM5_31jg8aHfUuOBOALO2uuv9faK/view?usp=sharing"  className="btn section__title--btn"  download>DOWNLOAD RESUME</a>
+                <a href="https://drive.google.com/file/d/19Qjc6nAYpO-J2CL4UYPafvi9z9Y7Pxaf/view"  target="_blank" rel="noopener noreferrer"  className="btn section__title--btn btn mt-3 mx-2 homebtn"  download> <FaDownload className='me-1'  />DOWNLOAD RESUME</a>
 
            </div>
          </div>
