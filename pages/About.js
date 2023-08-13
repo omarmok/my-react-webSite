@@ -68,7 +68,7 @@ class About extends Component{
          <div className="section__title">
            <div className="section__title--maintitle" data-aos="fade-right" data-aos-duration="1000">Experience</div>
            <div  data-aos="fade-left" data-aos-duration="1000">
-                <a href="https://drive.google.com/file/d/19Qjc6nAYpO-J2CL4UYPafvi9z9Y7Pxaf/view"  target="_blank" rel="noopener noreferrer"  className="btn section__title--btn btn mt-3 mx-2 homebtn"  download> <FaDownload className='me-1'  />DOWNLOAD RESUME</a>
+                <a href="https://drive.google.com/file/d/1h2G61LIlwnHWcgW_5gVbaEP0YswOez6O/view?usp=sharing"  target="_blank" rel="noopener noreferrer"  className="btn section__title--btn btn mt-3 mx-2 homebtn"  download> <FaDownload className='me-1'  />DOWNLOAD RESUME</a>
 
            </div>
          </div>

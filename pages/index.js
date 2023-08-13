@@ -28,7 +28,7 @@ export default function Home() {
                                   {/* <Image  alt="MyImage"  src="../public/images/omar.png" width={600} height={600}  layout="responsive" objectFit='cover' /> */}
                               
                                   <div className="d-flex downloadresume">
-                                    <a href="https://drive.google.com/file/d/19Qjc6nAYpO-J2CL4UYPafvi9z9Y7Pxaf/view"  className="btn section__title--btn btn mt-3 mx-2 homebtn" target="_blank" rel="noopener noreferrer"  > <FaDownload  /> DOWNLOAD RESUME  </a>
+                                    <a href="https://drive.google.com/file/d/1h2G61LIlwnHWcgW_5gVbaEP0YswOez6O/view?usp=sharing"  className="btn section__title--btn btn mt-3 mx-2 homebtn" target="_blank" rel="noopener noreferrer"  > <FaDownload  /> DOWNLOAD RESUME  </a>
                                 </div>
                               
 
