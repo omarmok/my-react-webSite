@@ -313,7 +313,7 @@ main {
     box-shadow: 10px 10px 20px 0 #cfdae5, -10px -10px 20px 0 #eaf3fc;
     display: flex;
     align-items: center;
-    width: 130px;
+    width: 18%;
     justify-content: center;
 
     border-radius: 10px;
@@ -591,6 +591,9 @@ p {
   .Tools {
     align-items: center;
     justify-content: space-between;
+    .skillscateg{
+      width: 32%;
+    }
   }
 
   .btn {

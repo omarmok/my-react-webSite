@@ -31,17 +31,6 @@ const Tools = () => {
             {/* <Image  alt="MyImage"  src="../public/images/adobexd.png" width={50} height={50} /> */}
             </div>
           
-
-        <div className="skillscateg">
-                            
-            <Image  alt="MyImage"  src={miro}/>
-            {/* <Image  alt="MyImage"  src="../public/images/photoshop.svg" width={50} height={50} /> */}
-        </div>           
-
-        <div className="skillscateg">
-            <Image  alt="MyImage"  src={zeplin}/>
-            {/* <Image  alt="MyImage"  src="../public/images/zeplin.png" width={50} height={50} /> */}
-            </div>
             <div className="skillscateg">
                 <Image  alt="MyImage"  src={illustratour}/>
                 {/* <Image  alt="MyImage"  src="../public/images/illustratour.png" width={50} height={50}  /> */}
@@ -73,11 +62,7 @@ const Tools = () => {
        {/* <Image  alt="MyImage"  src="../public/images/nextjs.png" width={50} height={50} /> */}
         </div>
     
-        <div className="skillscateg">
-  
-       <Image  alt="MyImage"  src={vuejs}/>
-       {/* <Image  alt="MyImage"  src="../public/images/vuejs.png" width={50} height={50} /> */}
-        </div>
+       
         <div className="skillscateg">
        
        <Image  alt="MyImage"  src={gulpjs}/>
