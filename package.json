@@ -5,7 +5,9 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
@@ -22,7 +24,7 @@
     "framer-motion": "^5.2.1",
     "next": "^13.4.19",
     "next-images": "^1.8.2",
-    "next-optimized-images": "^1.4.2",
+    "next-optimized-images": "^2.0.1",
     "next-strict-csp": "^1.0.1",
     "react": "17.0.2",
     "react-bootstrap": "^2.0.2",
@@ -35,7 +37,8 @@
     "sass": "^1.66.1",
     "styled-component": "^2.8.0",
     "swr": "^1.0.1",
-    "webpack": "^5.72.1"
+    "webpack": "^5.72.1",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -46,5 +49,6 @@
     "npm": "^9.8.1",
     "postcss": "^8.3.11",
     "postcss-loader": "^6.2.0"
-  }
+  },
+  "snyk": true
 }
