@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { useRouter } from 'next/dist/client/router'
-import { route } from 'next/dist/server/router'
+// import { route } from 'next/dist/server/router'
 import Image from 'next/image'
 import mylogo from '../public/images/mylogo.png'
 
@@ -13,12 +13,12 @@ const Nav = () => {
                 <nav className="navbar navbar navbar-expand-lg  px-3 d-flex justify-content-between">
               <div className="d-flex align-items-center brand">
 
-                  <Link href="/">
-                <a
-                  className="navbar-brand"
-                >
+                  <Link href="/"  className="navbar-brand">
+         
+                 
+             
                <Image  alt="MyImage"  src={mylogo}/>
-                </a>
+           
               </Link>
 
 
@@ -31,54 +31,46 @@ const Nav = () => {
                 <div className="navbg-container" >
                 <ul className="navbar-nav ">
                 <li className="nav-item">
-              <Link href="/">
-                <a
-                  className={
+              <Link href="/"  className={
                     "nav-link " + `${router.pathname === "/" ? "active" : ""}`
                   }
-                  aria-current="page"
-                >
+                  aria-current="page">
+                
                   Home
-                </a>
+         
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/About">
-                <a
-                  className={
+              <Link href="/About" className={
                     "nav-link " +
                     `${router.pathname === "/About" ? "active" : ""}`
-                  }
-                >
+                  }>
+               
                   About
-                </a>
+           
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link href="/Projects">
-                <a
-                  className={
+              <Link href="/Projects"  className={
                     "nav-link " +
                     `${router.pathname === "/Projects" ? "active" : ""}`
-                  }
-                >
+                  }>
+                
                   Projects
-                </a>
+              
               </Link>
             </li>
 
 
             <li className="nav-item">
-              <Link href="/ContactForm">
-                <a
-                  className={
+              <Link href="/ContactForm" className={
                     "nav-link " +
                     `${router.pathname === "/ContactForm" ? "active" : ""}`
-                  }
-                >
+                  }>
+             
                   Contact
-                </a>
+          
               </Link>
             </li>
 

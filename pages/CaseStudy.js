@@ -232,16 +232,16 @@ const CaseStudy = () => {
     <div className="row mt-3 mb-3">
 
       <div className="col">        
-            <Link href="/Projects">
-                  <a className="btn d-inline-block me-2 my-2">Back to Projects</a>
+            <Link href="/Projects"  className="btn d-inline-block me-2 my-2">
+                Back to Projects
                   
             </Link>
 
         </div>
             <div className="col">        
   
-        <Link href="https://omarmok.github.io/studentCode/">
-              <a className="btn outlinebtn  d-inline-block me-2 my-2" target="_blank">Check website</a>
+        <Link href="https://omarmok.github.io/studentCode/" className="btn outlinebtn  d-inline-block me-2 my-2">
+             Check website
 
         </Link></div>
            </div>

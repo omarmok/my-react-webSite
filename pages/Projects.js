@@ -113,8 +113,8 @@ I have some experiences that I was able to apply some of them in projects, and t
 
                   </p>
 
-                   <Link href="./CaseStudy">
-                      <a className="btn d-inline-block">Case Study</a>
+                   <Link href="./CaseStudy" className="btn d-inline-block">
+                      Case Study
                     </Link>
 
              </div>
