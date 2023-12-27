@@ -40,7 +40,7 @@ const Nav = () => {
          
               </Link>
             </li>
-            {/* <li className="nav-item">
+            <li className="nav-item">
               <Link href="/About" className={
                     "nav-link " +
                     `${router.pathname === "/About" ? "active" : ""}`
@@ -49,7 +49,7 @@ const Nav = () => {
                   About
            
               </Link>
-            </li> */}
+            </li>
 
             <li className="nav-item">
               <Link href="/Projects"  className={
