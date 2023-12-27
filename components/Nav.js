@@ -13,7 +13,7 @@ const Nav = () => {
                 <nav className="navbar navbar navbar-expand-lg  px-3 d-flex justify-content-between">
               <div className="d-flex align-items-center brand">
 
-                  <Link href="/"  className="navbar-brand">
+                  <Link href="/"  passHref  className="navbar-brand">
          
                  
              
@@ -31,7 +31,7 @@ const Nav = () => {
                 <div className="navbg-container" >
                 <ul className="navbar-nav ">
                 <li className="nav-item">
-              <Link href="/"  className={
+              <Link href="/" passHref  className={
                     "nav-link " + `${router.pathname === "/" ? "active" : ""}`
                   }
                   aria-current="page">
@@ -41,7 +41,7 @@ const Nav = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/About" className={
+              <Link href="/About" passHref className={
                     "nav-link " +
                     `${router.pathname === "/About" ? "active" : ""}`
                   }>
@@ -52,7 +52,7 @@ const Nav = () => {
             </li>
 
             <li className="nav-item">
-              <Link href="/Projects"  className={
+              <Link href="/Projects" passHref  className={
                     "nav-link " +
                     `${router.pathname === "/Projects" ? "active" : ""}`
                   }>
@@ -64,7 +64,7 @@ const Nav = () => {
 
 
             <li className="nav-item">
-              <Link href="/ContactForm" className={
+              <Link href="/ContactForm" passHref className={
                     "nav-link " +
                     `${router.pathname === "/ContactForm" ? "active" : ""}`
                   }>
