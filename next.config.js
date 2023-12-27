@@ -1,25 +1,13 @@
-
-const securityHeaders = []
-
-module.exports = {
+const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['i.postimg.cc'],
+    unoptimized: true,
   },
-  // async headers() {
-  //   return [
-  //     {
-  //       source: '/(.*)',
-  //       headers: [
-  //         {
-  //           key: 'Content-Security-Policy',
-  //           value:"img-src * data: https://omarmokhtar.com/forjeson/; ",
-  //         },
-          
-  //       ],
-  //     },
-    
-  //   ]
-  // },
-  
-}
+
+  output: 'export',
+};
+
+module.exports = nextConfig;
+
+
