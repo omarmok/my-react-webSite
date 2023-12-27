@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,22 +14,30 @@ function About() {
   const [experience, setExperience] = useState([]);
 
   useEffect(() => {
-    axios.get('https://api.npoint.io/8e1204c7ff27fd1a6c68')
-      .then(res => {
-        setExperience(res.data.Experience);
-      });
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://api.npoint.io/8e1204c7ff27fd1a6c68');
+        setExperience(response.data.Experience);
+      } catch (error) {
+        console.error('Error fetching experience data:', error);
+      }
+    };
+
+    fetchData();
   }, []);
 
-  const Experiencelist = experience.map(ExperienceItem => (
-    <div className="mycard" data-aos="fade-up" data-aos-duration="2000" key={ExperienceItem.key}>
-      <div className="mycard__details flex-column align-items-start">
-        <div className="mycard__details--date">{ExperienceItem.date}</div>
-        <div className="mycard__details--jobtitle">{ExperienceItem.jobtitle}</div>
-        <div className="mycard__details--companyname">{ExperienceItem.companyname}</div>
+  const renderExperienceList = () => {
+    return experience.map((experienceItem) => (
+      <div className="mycard" data-aos="fade-up" data-aos-duration="2000" key={experienceItem.key}>
+        <div className="mycard__details flex-column align-items-start">
+          <div className="mycard__details--date">{experienceItem.date}</div>
+          <div className="mycard__details--jobtitle">{experienceItem.jobtitle}</div>
+          <div className="mycard__details--companyname">{experienceItem.companyname}</div>
+        </div>
+        <div className="role">{experienceItem.role}</div>
       </div>
-      <div className="role">{ExperienceItem.role}</div>
-    </div>
-  ));
+    ));
+  };
 
   return (
     <div>
@@ -42,9 +50,8 @@ function About() {
           <h1 className="mainpagetitle" data-aos="fade-in" data-aos-duration="500">
             About Me
           </h1>
+          {renderExperienceList()}
           {/* Other parts of your JSX content */}
-          {Experiencelist}
-          {/* ... */}
         </div>
       </div>
     </div>
