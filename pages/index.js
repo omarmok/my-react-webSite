@@ -15,7 +15,7 @@ export default function Home() {
      
    
       <Loader/>
-rrrrrrrrrrrrr
+
           <div className="container">
           <div className="index__details">
               <div className="row">
