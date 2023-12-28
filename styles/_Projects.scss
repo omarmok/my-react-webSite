@@ -176,7 +176,7 @@
     text-align: center;
     color: #fff;
     display: inline-block;
-    background: #120ce8;
+    background: #ff9800;
     transition: all 0.5s ease;
     svg{
       width: 30px;
@@ -185,6 +185,5 @@
   }
   
   .portfolio-item .portfolio-links a:hover {
-  
-    box-shadow: 0 0 0 10px rgba(157, 154, 255,0), 0 0 0 20px #cfceff;
+    box-shadow: 0 0 0 10px rgba(157, 154, 255, 0), 0 0 0 20px rgb(255 152 0 / 10%);
   }

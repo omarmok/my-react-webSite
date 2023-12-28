@@ -9,6 +9,7 @@ const nextConfig = {
     domains: ['i.postimg.cc'],
     unoptimized: true,
   },
+  
  
   output: 'export',
 };
