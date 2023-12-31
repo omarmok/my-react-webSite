@@ -158,9 +158,16 @@ main {
     }
   }
   .discraption {
+    p{
+      line-height: 1.5;
+      margin-bottom: 5px;
+    }
     .socialIcon {
       display: flex;
       flex-direction: column;
+      background: rgb(0 54 126 / 6%);
+      padding-block: 10px;
+      border-radius: 30px;
       @media (max-width: 968px) {
         flex-direction: row;
       }

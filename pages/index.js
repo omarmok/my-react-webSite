@@ -60,13 +60,13 @@ export default function Home() {
 
                    <div className='d-flex align-items-center flex-column'>
 
-                   <p className='mb-0'>
+                   <p>
                     With over 14 years of dedicated experience as a UI/User Experience Designer, I&apos;ve specialized in crafting compelling digital experiences, mobile interfaces, and dynamic web dashboards. Throughout my career, I&apos;ve had the privilege to contribute my expertise across diverse sectors including renowned organizations, government ministries, and esteemed academic institutions.
                   </p>
-                  <p className='mb-0'>
+                  <p >
                     My approach extends beyond conceptualization—I take the helm in leading comprehensive redesign initiatives, transforming user experiences by seamlessly translating ideas into tangible solutions. From initial ideation to the final execution, my process involves meticulous sketching, precise wireframing, and crafting high-fidelity prototypes.
                   </p>
-                  <p className='mb-0'>
+                  <p>
                     Collaboration is at the heart of my workflow. I actively engage with analysts, developers, and QA testers, fostering a symbiotic relationship that ensures a smooth transition from design blueprint to user-friendly, functional products aligned precisely with project specifications.
                   </p>
 
