@@ -120,7 +120,7 @@ export default function Home() {
                     <a href="https://twitter.com/al_fagomy22" title="Twitter" data-bs-toggle="tooltip" data-bs-placement="top" >
                       <FaTwitter />
                     </a>
-                    <a href="mailto:al_fagomy22@hotmail.com"  title="Email" data-bs-toggle="tooltip" data-bs-placement="top" title="Behance">
+                    <a href="mailto:al_fagomy22@hotmail.com"  title="Email" data-bs-toggle="tooltip" data-bs-placement="top" >
                       <FaEnvelope />
                     </a>
                   </div>
