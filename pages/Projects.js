@@ -1,66 +1,73 @@
-
-import { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
-import Head from 'next/head'
-import axios from 'axios'
-import Link from "next/link"
-import Image from 'next/image'
-import CaseStudy from './CaseStudy'
-import casstudymain from '../public/images/casstudymain.png'
-import Loader from '../components/Loader'
-
-class Projects extends Component{
-
-  
-
-  state ={
-
-    Projects :[]
-  }
-  componentDidMount = () =>{
-    axios.get('https://api.npoint.io/8e1204c7ff27fd1a6c68').then( res => { this.setState ({Projects :res.data.Projects})})
-  
-  }
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import Head from 'next/head';
+import axios from 'axios';
+import Link from 'next/link';
+import Image from 'next/image';
+import casstudymain from '../public/images/casstudymain.png';
+import Loader from '../components/Loader';
 
 
+const Projects = () => {
+  const [Projects, setProjects] = useState([]);
 
-  render(){
-    const {Projects}= this.state;
-    const Projectslist = Projects.map( ( ProjectsItem) =>{
+  useEffect(() => {
+    axios.get('https://api.npoint.io/8e1204c7ff27fd1a6c68').then((res) => {
+      setProjects(res.data.Projects);
+    });
+    
+    // Load Bootstrap's tooltip script dynamically
+    const loadBootstrapTooltipScript = () => {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js';
+      script.async = true;
+      document.body.appendChild(script);
+    };
 
-      return(
-            <div className="col-12 col-lg-6 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
-            <div className="portfolio-item">
-                <div className="portfolio-img">
-                  <Image className="img-fluid" src={ProjectsItem.image} alt="test"  width={300} height={200} layout="responsive"/>
-                  <div className="mycard__details--date">
-                {ProjectsItem.Issued}
-                </div>
-                  <div className="mycard__details--jobtitle">
-               
-                    {ProjectsItem.info}
-                    
-                    </div>
-                  </div>
-            
-                <div className="portfolio-links">
-                  <a href={ProjectsItem.url} target="_blank"  rel="noreferrer">   <FontAwesomeIcon icon={faExternalLinkAlt}></FontAwesomeIcon> </a>
+    // Initialize Bootstrap tooltips once the script has loaded
+    const initializeTooltips = () => {
+      if (typeof window !== 'undefined' && typeof window.bootstrap !== 'undefined') {
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.forEach((tooltipTriggerEl) => {
+          new window.bootstrap.Tooltip(tooltipTriggerEl);
+        });
+      }
+    };
 
+    // Load script and initialize tooltips
+    loadBootstrapTooltipScript();
+    initializeTooltips();
+  }, []);
+
+  const Projectslist = Projects.map((ProjectsItem) => {
+    return (
+      <div className="col-12 col-lg-6 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
+      <div className="portfolio-item">
+          <div className="portfolio-img">
+            <Image className="img-fluid" src={ProjectsItem.image} alt="test"  width={300} height={200} layout="responsive"/>
+            <div className="mycard__details--date">
+          {ProjectsItem.Issued}
+          </div>
+            <div className="mycard__details--jobtitle">
+         
+              {ProjectsItem.info}
               
-                </div>
+              </div>
             </div>
-            </div>
-
-      )
-
       
+          <div className="portfolio-links">
+            <a href={ProjectsItem.url} target="_blank"  rel="noreferrer">   <FontAwesomeIcon icon={faExternalLinkAlt}></FontAwesomeIcon> </a>
 
-    })
-  return(
+        
+          </div>
+      </div>
+      </div>
+    );
+  });
 
-   
+  return (
     <div>
               <Head>
                 <title>Omar Mokhtar-Work</title>
@@ -74,7 +81,10 @@ class Projects extends Component{
            <h1 className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
            Work
             </h1>
-          <div className="project__description">
+          <div className="project__description" data-bs-toggle="tooltip" data-bs-placement="top"  title="أنا دائمًا متحمس لتعلم تقنيات جديدة وتوسيع مهاراتي.
+كل مشروع عملت عليه، سواء بمفردي أو مع الآخرين، علمني شيئًا ذا قيمة.
+في بعض الأحيان، استخدمت هذه الدروس بشكل مباشر في عملي. وفي أحيان أخرى، كانت التقنيات المستخدمة في مكان العمل تحد مما يمكنني تطبيقه.
+لقد أثر التكيف مع هذه الأدوات على طريقة عملي، ولكنه حفزني أيضًا على استكشاف المزيد خارج تلك الحدود.">
             
     
          <p>
@@ -103,7 +113,7 @@ class Projects extends Component{
                <div className="title">
                Student Internal Portal
                  </div>
-                <p>
+                <p  data-bs-toggle="tooltip" data-bs-placement="top" title='أصبحت البوابات الإلكترونية ضرورة ملحة في مجال التعليم والتعليم العالي: ومن هذا المنطلق اقترحت جامعة المجمعة إنشاء بوابة داخلية للطلاب تتميز بما يلي: الدخول الموحد تقديم أكثر من 15 خدمة الاطلاع على الأخبار والفعاليات التي أعلن عنها الوصول السريع للجامعة: تقديم الطلبات عبر أنظمة الجامعة المختلفة وجمعها في مكان واحد. مراجعة دروسهم وجداول الامتحانات.'>
                     Portals have become an urgent necessity in the field of education and higher education:
                       From this standpoint, <span>MAJMAAH UNIVERSITY</span> suggested establishing an internal portal for students, characterized by the following:
                   
@@ -151,8 +161,7 @@ class Projects extends Component{
 
     </div>
     </div>
-)
-}
-   
-}
-export default Projects
+  );
+};
+
+export default Projects;

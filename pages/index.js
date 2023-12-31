@@ -1,13 +1,37 @@
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import 'bootstrap/dist/css/bootstrap.css';
 import Image from 'next/image';
 import photo from '../public/images/omar.png';
 import googleimage from '../public/images/google.png';
 import { FaTwitter, FaBehance, FaGithub, FaEnvelope, FaLinkedin, FaDownload } from 'react-icons/fa';
-
 import Loader from '../components/Loader';
 
 export default function Home() {
+  useEffect(() => {
+    // Load Bootstrap's tooltip script dynamically
+    const loadBootstrapTooltipScript = () => {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js';
+      script.async = true;
+      document.body.appendChild(script);
+    };
+
+    // Initialize Bootstrap tooltips once the script has loaded
+    const initializeTooltips = () => {
+      if (typeof window !== 'undefined' && typeof window.bootstrap !== 'undefined') {
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.forEach((tooltipTriggerEl) => {
+          new window.bootstrap.Tooltip(tooltipTriggerEl);
+        });
+      }
+    };
+
+    // Load script and initialize tooltips
+    loadBootstrapTooltipScript();
+    initializeTooltips();
+  }, []);
+
   return (
     <main>
       <Head>
@@ -15,6 +39,10 @@ export default function Home() {
       </Head>
 
       <Loader />
+
+ 
+
+
 
       <div className="container">
         <div className="index__details">
@@ -58,15 +86,21 @@ export default function Home() {
                 </div>
                 <div className="mt-3 d-flex align-items-center discraption">
 
-                   <div className='d-flex align-items-center flex-column'>
+                   <div className='d-flex align-items-center flex-column'  >
 
-                   <p>
+                   <p data-bs-toggle="tooltip" data-bs-placement="top" title="
+                   مع أكثر من 14 عامًا من الخبرة المخصصة كمصمم واجهة المستخدم/تجربة المستخدم، فقد تخصصت في صياغة تجارب رقمية مقنعة وواجهات متنقلة ولوحات تحكم ويب ديناميكية. طوال مسيرتي المهنية، كان لي شرف المساهمة بخبرتي في قطاعات متنوعة بما في ذلك المنظمات الشهيرة والوزارات الحكومية والمؤسسات الأكاديمية المرموقة.
+ ">
                     With over 14 years of dedicated experience as a UI/User Experience Designer, I&apos;ve specialized in crafting compelling digital experiences, mobile interfaces, and dynamic web dashboards. Throughout my career, I&apos;ve had the privilege to contribute my expertise across diverse sectors including renowned organizations, government ministries, and esteemed academic institutions.
                   </p>
-                  <p >
+                  <p data-bs-toggle="tooltip" data-bs-placement="top" title="
+ويمتد نهجي إلى ما هو أبعد من مجرد التصور - فأنا أتولى قيادة مبادرات إعادة التصميم الشاملة، وتحويل تجارب المستخدم من خلال ترجمة الأفكار بسلاسة إلى حلول ملموسة. بدءًا من التفكير الأولي وحتى التنفيذ النهائي، تتضمن عمليتي رسمًا تخطيطيًا دقيقًا وإطارًا سلكيًا دقيقًا وصياغة نماذج أولية عالية الدقة. ">
                     My approach extends beyond conceptualization—I take the helm in leading comprehensive redesign initiatives, transforming user experiences by seamlessly translating ideas into tangible solutions. From initial ideation to the final execution, my process involves meticulous sketching, precise wireframing, and crafting high-fidelity prototypes.
                   </p>
-                  <p>
+                  <p data-bs-toggle="tooltip" data-bs-placement="top" title="
+التعاون هو جوهر سير العمل الخاص بي. أشارك بنشاط مع المحللين والمطورين ومختبري ضمان الجودة، مما يعزز العلاقة التكافلية التي تضمن الانتقال السلس من مخطط التصميم إلى المنتجات الوظيفية سهلة الاستخدام والتي تتماشى بدقة مع مواصفات المشروع.
+">
+  
                     Collaboration is at the heart of my workflow. I actively engage with analysts, developers, and QA testers, fostering a symbiotic relationship that ensures a smooth transition from design blueprint to user-friendly, functional products aligned precisely with project specifications.
                   </p>
 
@@ -74,19 +108,19 @@ export default function Home() {
                
 
                   <div className="socialIcon">
-                    <a href="https://www.behance.net/Omar_Mokhtar" title="Behance" >
+                    <a href="https://www.behance.net/Omar_Mokhtar" data-bs-toggle="tooltip" data-bs-placement="top"  title="Behance" >
                       <FaBehance />
                     </a>
-                    <a href="https://github.com/omarmok" title="GitHub"  >
+                    <a href="https://github.com/omarmok" title="GitHub"  data-bs-toggle="tooltip" data-bs-placement="top" >
                       <FaGithub />
                     </a>
-                    <a href="https://www.linkedin.com/in/omarmokhtar22/" title="LinkedIn" >
+                    <a href="https://www.linkedin.com/in/omarmokhtar22/" title="LinkedIn" data-bs-toggle="tooltip" data-bs-placement="top" >
                       <FaLinkedin />
                     </a>
-                    <a href="https://twitter.com/al_fagomy22" title="Twitter" >
+                    <a href="https://twitter.com/al_fagomy22" title="Twitter" data-bs-toggle="tooltip" data-bs-placement="top" >
                       <FaTwitter />
                     </a>
-                    <a href="mailto:al_fagomy22@hotmail.com"  title="Email">
+                    <a href="mailto:al_fagomy22@hotmail.com"  title="Email" data-bs-toggle="tooltip" data-bs-placement="top" title="Behance">
                       <FaEnvelope />
                     </a>
                   </div>
@@ -96,6 +130,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+
     </main>
   );
 }
