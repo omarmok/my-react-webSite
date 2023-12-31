@@ -46,7 +46,7 @@ const Nav = () => {
                     `${router.pathname === "/About" ? "active" : ""}`
                   }>
                
-                  About
+               Experience
            
               </Link>
             </li>
@@ -57,7 +57,7 @@ const Nav = () => {
                     `${router.pathname === "/Projects" ? "active" : ""}`
                   }>
                 
-                  Projects
+                Work
               
               </Link>
             </li>

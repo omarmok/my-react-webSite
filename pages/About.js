@@ -42,13 +42,13 @@ function About() {
   return (
     <div>
       <Head>
-        <title>Omar Mokhtar-About</title>
+        <title>Omar Mokhtar-Experience</title>
       </Head>
       <Loader />
       <div className="container">
         <div className="page__container">
           <h1 className="d-flex justify-content-between mainpagetitle mb-3 aos-init aos-animate" data-aos="fade-in" data-aos-duration="500">
-            About Me
+          Experience
 
             <div className="d-flex downloadresume"><a href="https://drive.google.com/file/d/1h2G61LIlwnHWcgW_5gVbaEP0YswOez6O/view?usp=sharing" className="btn section__title--btn btn mt-3 mx-2 homebtn" target="_blank" rel="noopener noreferrer"> DOWNLOAD RESUME</a></div>
           </h1>

@@ -10,7 +10,10 @@ import Image from 'next/image'
 import CaseStudy from './CaseStudy'
 import casstudymain from '../public/images/casstudymain.png'
 import Loader from '../components/Loader'
+
 class Projects extends Component{
+
+  
 
   state ={
 
@@ -60,7 +63,7 @@ class Projects extends Component{
    
     <div>
               <Head>
-                <title>Omar Mokhtar-Projects</title>
+                <title>Omar Mokhtar-Work</title>
        
                 </Head>
       <Loader/>
@@ -69,15 +72,19 @@ class Projects extends Component{
            <div className="page__container project">
 
            <h1 className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
-           Projects
+           Work
             </h1>
           <div className="project__description">
-          <p>
-          I always look forward to my techniques and expanding my skill set.
-          <br/>
-Each of my projects - individual or collaborative - has provided me with some experience to help me in this area.
-<br/>
-I have some experiences that I was able to apply some of them in projects, and there are others that I know about some things that I could not work with because the work environment in which I worked depended on other technologies, Which made me work the same way the environment counts.
+            
+    
+         <p>
+          I'm always excited about learning new techniques and expanding my skills.
+          <br></br>
+           Every project I've worked on, whether alone or with others, has taught me something valuable.
+           <br></br>
+            Sometimes, I've used these lessons directly in my work. Other times, the technologies used in the workplace limited what I could apply.
+            <br></br>
+           Adapting to these tools influenced how I worked, but it also motivated me to explore more beyond those limits.
             </p>
           </div>
 
