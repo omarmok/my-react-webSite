@@ -78,12 +78,12 @@ class Projects extends Component{
             
     
          <p>
-          I'm always excited about learning new techniques and expanding my skills.
-          <br></br>
-           Every project I've worked on, whether alone or with others, has taught me something valuable.
-           <br></br>
-            Sometimes, I've used these lessons directly in my work. Other times, the technologies used in the workplace limited what I could apply.
-            <br></br>
+          I&apos;m always excited about learning new techniques and expanding my skills.
+          <br />
+           Every project I&apos;ve worked on, whether alone or with others, has taught me something valuable.
+           <br />
+            Sometimes, I&apos;ve used these lessons directly in my work. Other times, the technologies used in the workplace limited what I could apply.
+            <br />
            Adapting to these tools influenced how I worked, but it also motivated me to explore more beyond those limits.
             </p>
           </div>
@@ -106,17 +106,17 @@ class Projects extends Component{
                 <p>
                     Portals have become an urgent necessity in the field of education and higher education:
                       From this standpoint, <span>MAJMAAH UNIVERSITY</span> suggested establishing an internal portal for students, characterized by the following:
-                      <br />
+                  
                       Single sign-on
-                      <br />
+                     
                       Providing more than 15 services
-                      <br />
+                  
                       View the news and events announced by the university
-                      <br />
+                     
                       Quick access: Submit applications across the various systems of the university and collect them in one place.
-                      <br />
+                 
                       Review their classes and exam schedules.
-                      <br />
+               
 
                   </p>
 

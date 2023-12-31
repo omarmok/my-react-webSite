@@ -57,15 +57,15 @@ export default function Home() {
                   </a>
                 </div>
                 <div className="mt-3 d-flex align-items-center discraption">
-                  <p>
-                    Within <strong>14+</strong> years as a UI/User Experience Designer, I've Designed digital experiences, mobile interfaces, and web dashboards.
-                    <br></br>
-                    My work spans different fields like organizations, ministries, and academic institutions.
-                    <br></br>
-                    Beyond ideas, I lead redesigns, improving user experiences by drawing, and creating wireframes, and high-quality prototypes.
-                    <br></br>
-                    Working closely with analysts, developers, and QA testers, I ensure designs turn into user-friendly products as per the specs.
-                  </p>
+                <p>
+    With over 14 years of dedicated experience as a UI/User Experience Designer, I&apos;ve specialized in crafting compelling digital experiences, mobile interfaces, and dynamic web dashboards. Throughout my career, I&apos;ve had the privilege to contribute my expertise across diverse sectors including renowned organizations, government ministries, and esteemed academic institutions.
+  </p>
+  <p>
+    My approach extends beyond conceptualization—I take the helm in leading comprehensive redesign initiatives, transforming user experiences by seamlessly translating ideas into tangible solutions. From initial ideation to the final execution, my process involves meticulous sketching, precise wireframing, and crafting high-fidelity prototypes.
+  </p>
+  <p>
+    Collaboration is at the heart of my workflow. I actively engage with analysts, developers, and QA testers, fostering a symbiotic relationship that ensures a smooth transition from design blueprint to user-friendly, functional products aligned precisely with project specifications.
+  </p>
                   <div className="socialIcon">
                     <a href="https://www.behance.net/Omar_Mokhtar" title="Behance" >
                       <FaBehance />
@@ -73,7 +73,7 @@ export default function Home() {
                     <a href="https://github.com/omarmok" title="GitHub"  >
                       <FaGithub />
                     </a>
-                    <a href="https://www.linkedin.com/in/omarmokhtar22/" title="LinkedIn"  title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/omarmokhtar22/" title="LinkedIn" >
                       <FaLinkedin />
                     </a>
                     <a href="https://twitter.com/al_fagomy22" title="Twitter" >
