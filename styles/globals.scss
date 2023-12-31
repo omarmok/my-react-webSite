@@ -48,15 +48,14 @@ a {
 }
 .navbar-nav .nav-link {
   color: #000;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
-
   padding-right: 0 !important;
   padding-left: 0  !important;
 }
 
 .navbar-nav .active {
-  color: #ff9800 !important;
+  color: $mainColor !important;
   position: relative;
   &::after{
     content: "";
