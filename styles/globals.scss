@@ -666,11 +666,13 @@ p {
     letter-spacing: 0;
     text-decoration: underline;
     display: flex;
-  img{
-    min-width: 15px !important;
-    max-width: 15px!important;
-    min-height: 15px!important;
-    max-height: 15px !important;
-    margin-right: 3px !important;
-  }
+    align-items: center;
+    gap: 5px;
+  // img{
+  //   min-width: 15px !important;
+  //   max-width: 15px!important;
+  //   min-height: 15px!important;
+  //   max-height: 15px !important;
+  //   margin-right: 3px !important;
+  // }
 }
