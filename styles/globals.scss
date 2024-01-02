@@ -8,7 +8,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background: #f9fbfd !important;
+  background: #f8fbff !important;
 }
 
 a {
@@ -106,8 +106,8 @@ a {
   align-items: stretch;
 }
 main {
-  background: rgb(243, 247, 255);
-  background: linear-gradient(270deg, #f9fbfd 68%, $mainColor 68%);
+  background: #f8fbff;
+  background: linear-gradient(270deg, #f8fbff 68%, $mainColor 68%);
   padding: 40px 0;
   // height: 60vh;
   flex-grow: 1;
