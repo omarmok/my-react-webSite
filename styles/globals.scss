@@ -123,7 +123,7 @@ main {
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   -o-border-radius: 0;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
   border-radius: 18px;
   .title{
     font-weight: 600;
