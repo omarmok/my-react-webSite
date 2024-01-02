@@ -170,12 +170,20 @@ main {
     .socialIcon {
       display: flex;
       flex-direction: column;
-      background: rgba(0,54,126,.06);
- 
-      border-radius: 30px;
+      background: #f2f8ff;
+      border-radius: 7px;
       margin-left: 12px;
+      a{
+        border-bottom: 1px solid #e2ecf7;
+      }
       @media (max-width: 968px) {
         flex-direction: row;
+        a{
+          a{
+            border-bottom:none;
+          }
+          border-left: 1px solid #e2ecf7;
+        }
       }
       svg {
         width: 20px;

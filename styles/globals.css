@@ -13,6 +13,7 @@
   display: flex;
   justify-content: stretch;
   border-radius: 8px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
 }
 .caseStudy__img {
   width: 50%;
@@ -46,7 +47,7 @@
   overflow: hidden;
   transition: all 0.5s ease;
   background: #fff;
-  box-shadow: 0px 5px 35px 0px rgba(0, 27, 175, 0.05);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
   padding: 15px;
 }
 .portfolio-item .mycard__details--date {
@@ -62,7 +63,7 @@
 }
 
 .portfolio-item:hover {
-  box-shadow: 0 23px 49px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 23px 49px 0 rgb(232, 241, 251);
 }
 
 .portfolio-item:hover .portfolio-img:after {
@@ -194,17 +195,18 @@ a {
   font-family: "Poppins", sans-serif;
 }
 
-.navBg {
-  background-color: #ffffff;
-}
-
 .navbar {
   width: 82%;
   margin: 0 auto;
+  background: white;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
 }
 .navbar img {
-  height: 50px;
-  width: 40px;
+  height: 40px;
+  width: 30px;
   margin-right: 30px;
 }
 
@@ -261,6 +263,7 @@ a {
   display: flex !important;
   align-items: center;
   justify-content: center;
+  text-wrap: nowrap;
 }
 .btn:hover {
   background: transparent !important;
@@ -292,8 +295,8 @@ main {
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   -o-border-radius: 0;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 18px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
 }
 .index__details .title {
   font-weight: 600;
@@ -325,13 +328,22 @@ main {
 .index__details .discraption .socialIcon {
   display: flex;
   flex-direction: column;
-  background: rgba(0, 54, 126, 0.06);
-  border-radius: 30px;
+  background: #f2f8ff;
+  border-radius: 7px;
   margin-left: 12px;
+}
+.index__details .discraption .socialIcon a {
+  border-bottom: 1px solid #e2ecf7;
 }
 @media (max-width: 968px) {
   .index__details .discraption .socialIcon {
     flex-direction: row;
+  }
+  .index__details .discraption .socialIcon a {
+    border-left: 1px solid #e2ecf7;
+  }
+  .index__details .discraption .socialIcon a a {
+    border-bottom: none;
   }
 }
 .index__details .discraption .socialIcon svg {
@@ -380,7 +392,7 @@ main {
   padding: 40px;
   margin-top: 30px;
   flex-direction: row;
-  box-shadow: 10px 10px 20px 0 #e7eef5, -10px -10px 20px 0 #f9fcff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
   background-color: #ffffff;
   position: relative;
   overflow: hidden;
@@ -472,7 +484,7 @@ main {
   padding: 15px;
   margin-top: 30px;
   background: #fff;
-  box-shadow: 10px 10px 20px 0 #cfdae5, -10px -10px 20px 0 #eaf3fc;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   width: 18%;
@@ -642,7 +654,7 @@ p {
 
 @media (max-width: 968px) {
   main {
-    background: linear-gradient(0deg, #e5eef8 68%, #221afb 0);
+    background: linear-gradient(0deg, #e5eef8 68%, #00367e 0);
   }
   main .home-image span {
     width: 100% !important;
@@ -783,11 +795,6 @@ p {
   letter-spacing: 0;
   text-decoration: underline;
   display: flex;
-}
-.googlecertificated img {
-  min-width: 15px !important;
-  max-width: 15px !important;
-  min-height: 15px !important;
-  max-height: 15px !important;
-  margin-right: 3px !important;
+  align-items: center;
+  gap: 5px;
 }/*# sourceMappingURL=globals.css.map */
