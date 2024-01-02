@@ -22,16 +22,21 @@ a {
   font-family: "Poppins", sans-serif;
 }
 
-.navBg {
-  background-color: #ffffff;
-}
+// .navBg {
+//   background-color: #ffffff;
+// }
 
 .navbar {
   width: 82%;
   margin: 0 auto;
+  background: white;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
   img{
-    height: 50px;
-    width: 40px;
+    height: 40px;
+    width: 30px;
     margin-right: 30px;
   }
 }
@@ -220,7 +225,7 @@ main {
   padding: 40px;
   margin-top: 30px;
   flex-direction: row;
-  box-shadow: 10px 10px 20px 0 #e7eef5, -10px -10px 20px 0 #f9fcff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
   background-color: #ffffff;
   position: relative;
   overflow: hidden;
