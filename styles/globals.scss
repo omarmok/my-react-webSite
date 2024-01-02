@@ -2,13 +2,14 @@
 
 $mainColor: #00367e;
 $secondColor: #00367e;
+$bgcolor:#f4f9ff;
 @import "_Projects";
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background: #f8fbff !important;
+  background: $bgcolor !important;
 }
 
 a {
@@ -106,8 +107,8 @@ a {
   align-items: stretch;
 }
 main {
-  background: #f8fbff;
-  background: linear-gradient(270deg, #f8fbff 68%, $mainColor 68%);
+  background: $bgcolor;
+  background: linear-gradient(270deg, $bgcolor 68%, $mainColor 68%);
   padding: 40px 0;
   // height: 60vh;
   flex-grow: 1;
@@ -315,9 +316,10 @@ main {
   overflow: hidden;
   position: relative;
   margin-bottom: 10px;
-
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+  border-radius: 4px;
   label {
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 10px;
   }
 

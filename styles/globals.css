@@ -181,7 +181,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background: #f8fbff !important;
+  background: #f4f9ff !important;
 }
 
 a {
@@ -279,8 +279,8 @@ a {
 }
 
 main {
-  background: #f8fbff;
-  background: linear-gradient(270deg, #f8fbff 68%, #00367e 68%);
+  background: #f4f9ff;
+  background: linear-gradient(270deg, #f4f9ff 68%, #00367e 68%);
   padding: 40px 0;
   flex-grow: 1;
 }
@@ -464,9 +464,11 @@ main {
   overflow: hidden;
   position: relative;
   margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
 }
 .contact label {
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 10px;
 }
 .contact .requierd {
