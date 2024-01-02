@@ -175,6 +175,12 @@ main {
       margin-left: 12px;
       a{
         border-bottom: 1px solid #e2ecf7;
+        &:hover{
+          background: $mainColor;
+          svg{
+            fill: #fff;
+          }
+        }
       }
       @media (max-width: 968px) {
         flex-direction: row;

@@ -335,6 +335,12 @@ main {
 .index__details .discraption .socialIcon a {
   border-bottom: 1px solid #e2ecf7;
 }
+.index__details .discraption .socialIcon a:hover {
+  background: #00367e;
+}
+.index__details .discraption .socialIcon a:hover svg {
+  fill: #fff;
+}
 @media (max-width: 968px) {
   .index__details .discraption .socialIcon {
     flex-direction: row;
