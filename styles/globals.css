@@ -620,6 +620,8 @@ p {
 }
 .whatsapp p {
   color: #00367e;
+  font-weight: 600;
+  margin-bottom: 0;
 }
 .whatsapp .whimage {
   width: 100px;
