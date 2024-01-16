@@ -598,7 +598,7 @@ p {
     width: 100%;
     .mainpagetitle {
       font-size: 40px;
-      margin-bottom: 10px;
+      flex-direction: column;
     }
     .section__title {
       align-items: flex-start;
