@@ -129,9 +129,9 @@ main {
   box-shadow: 0 1px 3px rgba(0,0,0,.05);
   border-radius: 8px;
   .title{
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0;
-    font-size: 30px;
+    font-size: clamp(3rem, 20vw, 2rem);
     line-height: 1;
     .myname {
       .cusomspan {
@@ -139,9 +139,9 @@ main {
         position: relative;
         overflow: hidden;
         z-index: 2;
-        font-weight: 600;
+        font-weight: 700;
         letter-spacing: 0;
-        font-size: 30px;
+        // font-size: clamp(2rem, 20vw, 3.6rem);
         line-height: 1;
         // color: #fff;
         padding-left: 5px;
@@ -573,14 +573,6 @@ p {
   .index__details {
     width: 100%;
     .title {
-      font-size: 20px !important;
-      color: #000;
-
-      .cusomspan {
-        font-size: 20px !important;
-        color: #000 !important;
-        font-weight: 800 !important;
-      }
       .cusomspan:after {
         display: none;
       }

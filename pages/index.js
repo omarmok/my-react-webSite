@@ -69,7 +69,7 @@ export default function Home() {
               <div className='h-100 d-flex flex-column justify-content-center'>
                 <div className="title">
                   <div className="myname d-flex align-items-center">
-                    Omar <span className="cusomspan">Mokhtar</span>
+                    Omar Mokhtar
                   </div>
                   <span className="mb-3">User Experience Engineer at Confidential Government!</span>
                   <a
