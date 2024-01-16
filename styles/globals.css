@@ -264,8 +264,8 @@ a {
   align-items: center;
   justify-content: center;
   text-wrap: nowrap;
-  padding: 20px 10px;
-  line-height: 2;
+  padding: 10px;
+  line-height: 0;
 }
 .btn:hover {
   background: transparent !important;
@@ -719,7 +719,7 @@ p {
   }
   .page__container .mainpagetitle {
     font-size: 40px;
-    margin-bottom: 10px;
+    flex-direction: column;
   }
   .page__container .section__title {
     align-items: flex-start;
