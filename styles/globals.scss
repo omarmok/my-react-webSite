@@ -695,3 +695,19 @@ p {
   //   margin-right: 3px !important;
   // }
 }
+
+.whatsapp-button {
+  background-color: #25d366;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  bottom: 50px;
+  height: 50px;
+  left: 20px;
+  padding: 6px;
+  position: fixed;
+  width: 50px;
+  z-index: 101;
+}
