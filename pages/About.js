@@ -16,7 +16,7 @@ function About() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://api.npoint.io/8e1204c7ff27fd1a6c68');
+        const response = await axios.get('https://api.npoint.io/6f0dae3cb9f69ee07ee5');
         setExperience(response.data.Experience);
       } catch (error) {
         console.error('Error fetching experience data:', error);

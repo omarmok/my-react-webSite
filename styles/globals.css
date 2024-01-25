@@ -301,9 +301,9 @@ main {
   border-radius: 8px;
 }
 .index__details .title {
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0;
-  font-size: 30px;
+  font-size: clamp(3rem, 20vw, 2rem);
   line-height: 1;
 }
 .index__details .title .myname .cusomspan {
@@ -311,9 +311,8 @@ main {
   position: relative;
   overflow: hidden;
   z-index: 2;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0;
-  font-size: 30px;
   line-height: 1;
   padding-left: 5px;
 }
@@ -339,6 +338,7 @@ main {
 }
 .index__details .discraption .socialIcon a:hover {
   background: #00367e;
+  border-radius: 6px;
 }
 .index__details .discraption .socialIcon a:hover svg {
   fill: #fff;
@@ -417,8 +417,6 @@ main {
 }
 .mycard__details {
   font-size: 20px;
-  padding: 0;
-  padding-bottom: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -438,11 +436,6 @@ main {
 }
 .mycard .role {
   line-height: 1.9;
-}
-
-.Certificationsimage {
-  width: 100px;
-  height: 40px;
 }
 
 .Certificationscard .mycard__details--jobtitle {
@@ -696,15 +689,6 @@ p {
   .index__details {
     width: 100%;
   }
-  .index__details .title {
-    font-size: 20px !important;
-    color: #000;
-  }
-  .index__details .title .cusomspan {
-    font-size: 20px !important;
-    color: #000 !important;
-    font-weight: 800 !important;
-  }
   .index__details .title .cusomspan:after {
     display: none;
   }
@@ -735,6 +719,7 @@ p {
     flex-direction: column-reverse;
     font-size: 14px;
     align-items: start !important;
+    gap: 10px;
   }
   .mycard__details--jobtitle {
     flex-direction: column;
@@ -779,25 +764,9 @@ p {
   color: #fff !important;
 }
 
-.bakkah {
-  min-width: 60% !important;
-  max-width: 100% !important;
-  min-height: 60% !important;
-  max-height: 100% !important;
-}
-
 .linkedin {
-  min-width: 100% !important;
-  max-width: 100% !important;
-  min-height: 30% !important;
-  max-height: 100% !important;
-}
-
-.google {
-  min-width: 60% !important;
-  max-width: 100% !important;
-  min-height: 60% !important;
-  max-height: 100% !important;
+  width: 100px;
+  height: 30px;
 }
 
 .googlecertificated {
@@ -809,4 +778,20 @@ p {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.whatsapp-button {
+  background-color: #25d366;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  bottom: 50px;
+  height: 50px;
+  right: 20px;
+  padding: 6px;
+  position: fixed;
+  width: 50px;
+  z-index: 101;
 }/*# sourceMappingURL=globals.css.map */

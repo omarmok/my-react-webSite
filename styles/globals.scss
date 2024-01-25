@@ -260,9 +260,6 @@ main {
 
   &__details {
     font-size: 20px;
-    padding: 0;
-    // margin-bottom: 12px;
-    padding-bottom: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -289,8 +286,8 @@ main {
 }
 
 .Certificationsimage {
-  width: 100px;
-  height: 40px;
+  // width: 100px;
+  // height: 40px;
 }
 
 .Certificationscard {
@@ -608,6 +605,7 @@ p {
     flex-direction: column-reverse;
     font-size: 14px;
     align-items: start !important;
+    gap: 10px;
   }
   .mycard__details--jobtitle {
     flex-direction: column;
@@ -658,25 +656,23 @@ p {
 
 
 .bakkah{
-  min-width: 60% !important;
-  max-width: 100% !important;
-  min-height: 60% !important;
-  max-height: 100% !important;
+  // min-width: 60% !important;
+  // max-width: 100% !important;
+  // min-height: 60% !important;
+  // max-height: 100% !important;
 }
 
 .linkedin{
-  min-width: 100% !important;
-  max-width: 100% !important;
-  min-height: 30% !important;
-  max-height: 100% !important;
+  width: 100px;
+  height: 30px;
 }
 
-.google{
-  min-width: 60% !important;
-  max-width: 100% !important;
-  min-height: 60% !important;
-  max-height: 100% !important;
-}
+// .google{
+//   min-width: 60% !important;
+//   max-width: 100% !important;
+//   min-height: 60% !important;
+//   max-height: 100% !important;
+// }
 
 .googlecertificated{
     color: $mainColor !important;
@@ -687,13 +683,6 @@ p {
     display: flex;
     align-items: center;
     gap: 5px;
-  // img{
-  //   min-width: 15px !important;
-  //   max-width: 15px!important;
-  //   min-height: 15px!important;
-  //   max-height: 15px !important;
-  //   margin-right: 3px !important;
-  // }
 }
 
 .whatsapp-button {
@@ -705,7 +694,7 @@ p {
   -o-border-radius: 50%;
   bottom: 50px;
   height: 50px;
-  left: 20px;
+  right: 20px;
   padding: 6px;
   position: fixed;
   width: 50px;
