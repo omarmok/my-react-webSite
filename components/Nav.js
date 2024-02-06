@@ -10,18 +10,11 @@ const Nav = () => {
     return(
         <div className="navBg">
         <div className="container">
-                <nav className="navbar navbar navbar-expand-lg  px-3 d-flex justify-content-between">
-              <div className="d-flex align-items-center brand">
-
-                  <Link href="/"  passHref  className="navbar-brand">
-         
-                 
-             
-               <Image  alt="MyImage"  src={mylogo}/>
-           
-              </Link>
-
-
+                <nav className="navbar navbar navbar-expand-lg  p-3 d-flex justify-content-between">
+              <div className="d-flex align-items-center brand" data-aos="fade-right" data-aos-duration="2000" >
+                  <Link href="/"  passHref  className="navbar-brand"  >
+                  <Image  alt="MyImage"  src={mylogo}/>
+                 </Link>
 
                 <div className="navtitle">UI/UX Designer</div></div>
                 {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +27,7 @@ const Nav = () => {
               <Link href="/" passHref  className={
                     "nav-link " + `${router.pathname === "/" ? "active" : ""}`
                   }
-                  aria-current="page">
+                  aria-current="page"  data-aos="fade-down" data-aos-duration="1000"   data-aos-delay="100">
                 
                   Home
          
@@ -44,7 +37,7 @@ const Nav = () => {
               <Link href="/About" passHref className={
                     "nav-link " +
                     `${router.pathname === "/About" ? "active" : ""}`
-                  }>
+                  } data-aos="fade-down" data-aos-duration="1000"   data-aos-delay="300">
                
                Experience
            
@@ -55,7 +48,7 @@ const Nav = () => {
               <Link href="/Projects" passHref  className={
                     "nav-link " +
                     `${router.pathname === "/Projects" ? "active" : ""}`
-                  }>
+                  }  data-aos="fade-down" data-aos-duration="1000"   data-aos-delay="400">
                 
                 Work
               
@@ -67,7 +60,7 @@ const Nav = () => {
               <Link href="/ContactForm" passHref className={
                     "nav-link " +
                     `${router.pathname === "/ContactForm" ? "active" : ""}`
-                  }>
+                  }  data-aos="fade-down" data-aos-duration="1000"   data-aos-delay="500">
              
                   Contact
           

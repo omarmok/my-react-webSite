@@ -43,11 +43,11 @@ export default function Home() {
       <div className="container">
         <div className="index__details">
           <div className="row">
-            <div className="col-lg-4 col-sm-12">
+            <div className="col-lg-4 col-sm-12" >
               <div className="home-image">
                 <div className='overlay'></div>
-                <Image alt="MyImage" src={photo} />
-                <div className="d-flex downloadresume">
+                <Image alt="MyImage" src={photo}/>
+                <div className="d-flex downloadresume" data-aos="fade-down" data-aos-duration="2000" >
                   <a
                     href="https://drive.google.com/file/d/1bDCPs7nSuhpRPNRJAshZelEn_WKj7vkU/view?usp=sharing"
                     className="btn section__title--btn btn mt-3 mx-2 homebtn"
@@ -64,17 +64,17 @@ export default function Home() {
             <div className="col-lg-8 col-sm-12">
               <div className='h-100 d-flex flex-column justify-content-center'>
                 <div className="title">
-                  <div className="myname d-flex align-items-center">
+                  <div className="myname d-flex align-items-center" data-aos="fade-up" data-aos-duration="2000" >
                     Omar Mokhtar
                   </div>
-                  <span className="mb-3">User Experience Engineer at Confidential Government!</span>
+                  <span className="mb-3" data-aos="fade-up" data-aos-duration="3000" >User Experience Engineer at Confidential Government!</span>
                   <a
                     href="https://www.coursera.org/account/accomplishments/professional-cert/7HGU76DTMDGG"
                     title="Google UX Design Professional Certificate"
                     target="_blank"
                     rel="noopener noreferrer"
                     className='googlecertificated'
-               
+                    data-aos="fade-up" data-aos-duration="3000"   data-aos-delay="50"
                   >
                     {/* <Image alt="Google Certified" src={googleimage} /> */}
 
@@ -85,7 +85,7 @@ export default function Home() {
                 </div>
                 <div className="mt-3 d-flex align-items-center discraption">
 
-                   <div className='d-flex align-items-center flex-column'  >
+                   <div className='d-flex align-items-center flex-column' d >
 
                    <p data-bs-toggle="tooltip" data-bs-placement="top" title="مع أكثر من 14 عامًا من الخبرة كمصمم UI/UX، فأنا متخصص في التجارب الرقمية وواجهات الأجهزة المحمولة ولوحات معلومات الويب .">
                   
