@@ -226,7 +226,7 @@ a {
 .navbar-nav .nav-link {
   color: #000;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   padding-right: 0 !important;
   padding-left: 0 !important;
 }
@@ -247,8 +247,10 @@ a {
 }
 
 .navtitle {
-  color: #000000;
+  color: #00367e;
   margin-left: 5px;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .btn {

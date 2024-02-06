@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { hotjar } from 'react-hotjar';
 
+
 import Head from 'next/head';
 import AOS from "aos";
 import axios from "axios";
