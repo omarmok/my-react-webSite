@@ -1,4 +1,4 @@
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Nav from './Nav'
 import Footer from './Footer'
 const Layouts = ({ children }) => {

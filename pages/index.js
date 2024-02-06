@@ -64,17 +64,17 @@ export default function Home() {
             <div className="col-lg-8 col-sm-12">
               <div className='h-100 d-flex flex-column justify-content-center'>
                 <div className="title">
-                  <div className="myname d-flex align-items-center" data-aos="fade-up" data-aos-duration="2000" >
+                  <div className="myname d-flex align-items-center" >
                     Omar Mokhtar
                   </div>
-                  <span className="mb-3" data-aos="fade-up" data-aos-duration="3000" >User Experience Engineer at Confidential Government!</span>
+                  <span className="mb-3"  >User Experience Engineer at Confidential Government!</span>
                   <a
                     href="https://www.coursera.org/account/accomplishments/professional-cert/7HGU76DTMDGG"
                     title="Google UX Design Professional Certificate"
                     target="_blank"
                     rel="noopener noreferrer"
                     className='googlecertificated'
-                    data-aos="fade-up" data-aos-duration="3000"   data-aos-delay="50"
+                
                   >
                     {/* <Image alt="Google Certified" src={googleimage} /> */}
 

@@ -27,7 +27,7 @@ const Nav = () => {
               <Link href="/" passHref  className={
                     "nav-link " + `${router.pathname === "/" ? "active" : ""}`
                   }
-                  aria-current="page"  data-aos="fade-down" data-aos-duration="1000"   data-aos-delay="100">
+                  aria-current="page"  data-aos="fade-down" data-aos-duration="1000"   data-aos-delay="200">
                 
                   Home
          
