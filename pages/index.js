@@ -67,14 +67,13 @@ export default function Home() {
                   <div className="myname d-flex align-items-center" >
                     Omar Mokhtar
                   </div>
-                  <span className="mb-3"  >User Experience Engineer at Confidential Government!</span>
+                  <span className="mb-3">UX Design Lead @ Confidential Government!</span>
                   <a
                     href="https://www.coursera.org/account/accomplishments/professional-cert/7HGU76DTMDGG"
                     title="Google UX Design Professional Certificate"
                     target="_blank"
                     rel="noopener noreferrer"
                     className='googlecertificated'
-                
                   >
                     {/* <Image alt="Google Certified" src={googleimage} /> */}
 

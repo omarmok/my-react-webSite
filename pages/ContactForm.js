@@ -24,9 +24,7 @@ export default function ContactUs() {
            </Head>
            <Loader/>
            <div className="container">
-           
-           <div className="page__container">
-
+            <div className="page__container">
            <h1 className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
            Contact
             </h1>
