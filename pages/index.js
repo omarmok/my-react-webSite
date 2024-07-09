@@ -86,9 +86,9 @@ export default function Home() {
 
                    <div className='d-flex align-items-center flex-column' d >
 
-                   <p data-bs-toggle="tooltip" data-bs-placement="top" title="مع أكثر من 14 عامًا من الخبرة كمصمم UI/UX، فأنا متخصص في التجارب الرقمية وواجهات الأجهزة المحمولة ولوحات معلومات الويب .">
+                   <p data-bs-toggle="tooltip" data-bs-placement="top" title="مع أكثر من 17 عامًا من الخبرة كمصمم UI/UX، فأنا متخصص في التجارب الرقمية وواجهات الأجهزة المحمولة ولوحات معلومات الويب .">
                   
-                    With over 14 years of experience as a UI/UX designer, I specialize in digital experiences, mobile interfaces, and dynamic web dashboards.
+                    With over 17 years of experience as a UI/UX designer, I specialize in digital experiences, mobile interfaces, and dynamic web dashboards.
                  
                   </p>
                   <p data-bs-toggle="tooltip" data-bs-placement="top" title="طوال مسيرتي المهنية، عملت في قطاعات تشمل منظمات مشهورة ووزارات حكومية ومؤسسات أكاديمية مرموقة. ">
