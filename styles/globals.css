@@ -673,6 +673,10 @@ p {
   .navbar {
     width: 100%;
     flex-direction: column;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    margin-top: 0 !important;
   }
   .brand .navbar-brand {
     margin: 0;
