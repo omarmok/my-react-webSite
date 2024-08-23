@@ -171,6 +171,8 @@ main {
     p{
       line-height: 1.5;
       margin-bottom: 5px;
+      -webkit-user-select: none;
+      user-select: none;
     }
     .socialIcon {
       display: flex;
@@ -284,6 +286,8 @@ main {
  
   .role {
     line-height: 1.9;
+    -webkit-user-select: none; /* Safari */
+    user-select: none;
   }
 }
 
