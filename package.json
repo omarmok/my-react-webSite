@@ -23,6 +23,7 @@
     "emailjs-com": "^3.2.0",
     "framer-motion": "^5.2.1",
     "next": "^14.0.4",
+    "next-google-fonts": "^2.2.0",
     "next-images": "^1.8.2",
     "next-optimized-images": "^2.0.2",
     "next-strict-csp": "^1.0.1",
