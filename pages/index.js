@@ -56,7 +56,7 @@ export default function Home() {
                  
                     title="Download Resume"
                   >
-                    <FaDownload /> DOWNLOAD RESUME
+                    <FaDownload /> Download Resume 
                   </a>
                 </div>
               </div>
@@ -65,7 +65,7 @@ export default function Home() {
               <div className='h-100 d-flex flex-column justify-content-center'>
                 <div className="title">
                   <div className="myname d-flex align-items-center" >
-                    Omar Mokhtar
+                  OMAR MOKHTAR
                   </div>
                   <span className="mb-3">UX Design Lead @ Confidential Government!</span>
                   <a

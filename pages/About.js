@@ -50,7 +50,7 @@ function About() {
           <h1 className="d-flex justify-content-between mainpagetitle mb-3 aos-init aos-animate" data-aos="fade-in" data-aos-duration="500">
           Experience
 
-            <div className="d-flex downloadresume"><a href="https://drive.google.com/file/d/1bDCPs7nSuhpRPNRJAshZelEn_WKj7vkU/view?usp=sharing" className="btn section__title--btn btn mt-3 mx-2 homebtn" target="_blank" rel="noopener noreferrer"> DOWNLOAD RESUME</a></div>
+            <div className="d-flex downloadresume"><a href="https://drive.google.com/file/d/1bDCPs7nSuhpRPNRJAshZelEn_WKj7vkU/view?usp=sharing" className="btn section__title--btn btn mt-3 mx-2 homebtn" target="_blank" rel="noopener noreferrer"> Download Resume </a></div>
           </h1>
           {renderExperienceList()}
           {/* Render the Tools component */}
