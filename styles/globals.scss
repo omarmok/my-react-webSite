@@ -528,10 +528,10 @@ p {
    svg{
     margin-right: 5px;
    }
-    &:hover{
-      color:#fff !important;
-      border-color: #fff !important;
-    }
+    // &:hover{
+    //   color:#fff !important;
+    //   border-color: #fff !important;
+    // }
    }
   }
 }
@@ -590,6 +590,7 @@ p {
     .homebtn {
       margin: 0 auto !important;
       margin-top: 20px !important;
+      border:1px solid #fff !important;
     }
   }
 
@@ -699,4 +700,14 @@ p {
   position: fixed;
   width: 50px;
   z-index: 101;
+}
+
+.homebtn {
+  border:1px solid #fff !important;
+  &:hover{
+    background: #fff !important;
+    color:#00367e !important;
+
+
+  }
 }
