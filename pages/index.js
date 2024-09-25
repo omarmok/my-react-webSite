@@ -64,7 +64,7 @@ export default function Home() {
             <div className="col-lg-8 col-sm-12">
               <div className='h-100 d-flex flex-column justify-content-center'>
                 <div className="title">
-                  <div className="myname d-flex align-items-center" >
+                  <div className="myname d-flex align-items-center fw-bold" >
                   OMAR MOKHTAR
                   </div>
                   <span className="mb-3">UX Design Lead @ Confidential Government!</span>
