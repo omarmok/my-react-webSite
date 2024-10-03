@@ -195,6 +195,12 @@ a {
   font-weight: 400;
 }
 
+.navBg {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
 .navbar {
   width: 82%;
   margin: 0 auto;
@@ -503,10 +509,6 @@ main {
   width: 18%;
   justify-content: center;
   border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
 }
 .Tools .skillscateg img {
   height: 60px !important;
@@ -525,12 +527,8 @@ main {
 }
 
 .fadeoutt {
-  /*Firefox*/
-  /*SafariandChrome*/
-  /*Opera*/
   animation: cssAnimation 0s ease-in 1s forwards;
   animation-fill-mode: forwards;
-  -webkit-animation: cssAnimation 0s ease-in 1s forwards;
   background: #00367e;
   position: absolute;
   z-index: 9999999;
@@ -797,10 +795,6 @@ p {
 .whatsapp-button {
   background-color: #25d366;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
   bottom: 50px;
   height: 50px;
   right: 20px;
