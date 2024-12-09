@@ -450,6 +450,7 @@ main {
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none;
        user-select: none;
+  white-space: break-spaces;
 }
 
 .Certificationscard .mycard__details--jobtitle {

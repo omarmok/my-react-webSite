@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Image from 'next/image';
 import photo from '../public/images/omar.png';
 
-import { FaTwitter, FaBehance, FaGithub, FaEnvelope, FaLinkedin, FaDownload } from 'react-icons/fa';
+import {  FaBehance, FaGithub, FaEnvelope, FaLinkedin, FaDownload } from 'react-icons/fa';
 import Loader from '../components/Loader';
 
 export default function Home() {
@@ -113,9 +113,7 @@ I work closely with analysts, developers, and QA testers to ensure our designs s
                     <a href="https://www.linkedin.com/in/omarmokhtar22/" title="LinkedIn" data-bs-toggle="tooltip" data-bs-placement="top" >
                       <FaLinkedin />
                     </a>
-                    <a href="https://twitter.com/al_fagomy22" title="Twitter" data-bs-toggle="tooltip" data-bs-placement="top" >
-                      <FaTwitter />
-                    </a>
+                   
                     <a href="mailto:al_fagomy22@hotmail.com"  title="Email" data-bs-toggle="tooltip" data-bs-placement="top" >
                       <FaEnvelope />
                     </a>
