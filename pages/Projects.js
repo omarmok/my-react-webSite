@@ -14,7 +14,7 @@ const Projects = () => {
   const [Projects, setProjects] = useState([]);
 
   useEffect(() => {
-    axios.get('https://api.npoint.io/16e3d8319949e6753d67').then((res) => {
+    axios.get('https://api.npoint.io/6f0dae3cb9f69ee07ee5').then((res) => {
       setProjects(res.data.Projects);
     });
     

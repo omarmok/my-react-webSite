@@ -49,7 +49,7 @@ export default function Home() {
                 <Image alt="MyImage" src={photo}/>
                 <div className="d-flex downloadresume" data-aos="fade-down" data-aos-duration="2000" >
                   <a
-                    href="https://drive.google.com/file/d/1bDCPs7nSuhpRPNRJAshZelEn_WKj7vkU/view?usp=sharing"
+                    href="https://drive.google.com/file/d/1OUFTx0mAgvXiS2FmSHFPwekYrRvniFjh/view"
                     className="btn mt-3 mx-2 homebtn"
                     target="_blank"
                     rel="noopener noreferrer"
