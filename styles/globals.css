@@ -30,7 +30,7 @@
   flex: 1 1 0px;
 }
 .caseStudy__description .title {
-  color: #00367e;
+  color: #3d60de;
   font-weight: 600;
   font-size: 30px;
   margin-bottom: 10px;
@@ -163,7 +163,7 @@
   text-align: center;
   color: #fff;
   display: inline-block;
-  background: #ff9800;
+  background: #ff4363;
   transition: all 0.5s ease;
 }
 .portfolio-item .portfolio-links a svg {
@@ -238,12 +238,12 @@ a {
 }
 
 .navbar-nav .active {
-  color: #00367e !important;
+  color: #3d60de !important;
   position: relative;
 }
 .navbar-nav .active::after {
   content: "";
-  background: #ff9800;
+  background: #ff4363;
   width: 12px;
   height: 3px;
   position: absolute;
@@ -253,31 +253,31 @@ a {
 }
 
 .navtitle {
-  color: #00367e;
+  color: #3d60de;
   margin-left: 5px;
   font-weight: 600;
   font-size: 16px;
 }
 
 .btn {
-  background: #00367e !important;
-  border: 2px solid #00367e !important;
+  background: #ff4363 !important;
+  border: 2px solid #ff4363 !important;
   color: #fff !important;
   font-weight: 600 !important;
-  border-radius: 5px !important;
+  border-radius: 45px !important;
   font-size: 14px !important;
   letter-spacing: 1px !important;
-  height: 40px !important;
+  height: 50px !important;
   display: flex !important;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 20px;
   line-height: 0;
 }
 .btn:hover {
   background: transparent !important;
-  border: 2px solid #00367e !important;
-  color: #00367e !important;
+  border: 2px solid #3d60de !important;
+  color: #3d60de !important;
 }
 
 .wrapper {
@@ -289,7 +289,7 @@ a {
 
 main {
   background: #f4f9ff;
-  background: linear-gradient(270deg, #f4f9ff 68%, #00367e 68%);
+  background: linear-gradient(270deg, #f4f9ff 68%, #3d60de 68%);
   padding: 40px 0;
   flex-grow: 1;
 }
@@ -347,7 +347,7 @@ main {
   border-bottom: 1px solid #e2ecf7;
 }
 .index__details .discraption .socialIcon a:hover {
-  background: #00367e;
+  background: #3d60de;
   border-radius: 6px;
 }
 .index__details .discraption .socialIcon a:hover svg {
@@ -368,7 +368,7 @@ main {
   width: 20px;
   height: 20px;
   margin: 5px;
-  fill: #00367e;
+  fill: #3d60de;
 }
 .index__details .discraption .socialIcon img {
   width: 20px;
@@ -386,7 +386,7 @@ main {
 
 .mainpagetitle {
   font-weight: 800;
-  color: #00367e;
+  color: #3d60de;
   font-size: 60px;
   margin-bottom: 30px;
 }
@@ -418,7 +418,7 @@ main {
 }
 .mycard:before {
   content: "";
-  background: #00367e;
+  background: #3d60de;
   width: 145px;
   height: 55px;
   position: absolute;
@@ -432,7 +432,7 @@ main {
   align-items: center;
 }
 .mycard__details--date {
-  color: #ff8800;
+  color: #ff4363;
   font-weight: 500;
   font-size: 14px;
 }
@@ -455,7 +455,7 @@ main {
 
 .Certificationscard .mycard__details--jobtitle {
   font-weight: 500;
-  margin-bottom: 0;
+  margin: 5px 0;
   font-size: 16px;
 }
 .Certificationscard .mycard__details--url {
@@ -463,8 +463,8 @@ main {
   color: #00367e !important;
   box-shadow: inset 0 0 0 1px #00367e;
   text-decoration: none !important;
-  border-radius: 5px;
-  padding: 5px 15px;
+  border-radius: 45px;
+  padding: 10px 15px;
   font-size: 14px;
   font-weight: 600;
 }
@@ -484,7 +484,7 @@ main {
   margin-bottom: 10px;
 }
 .contact .requierd {
-  color: #00367e;
+  color: #3d60de;
   font-size: 24px;
 }
 @media (max-width: 968px) {
@@ -530,7 +530,7 @@ main {
 .fadeoutt {
   animation: cssAnimation 0s ease-in 1s forwards;
   animation-fill-mode: forwards;
-  background: #00367e;
+  background: #3d60de;
   position: absolute;
   z-index: 9999999;
   top: 0;
@@ -624,7 +624,7 @@ p {
   text-align: center;
 }
 .whatsapp p {
-  color: #00367e;
+  color: #3d60de;
   font-weight: 600;
   margin-bottom: 0;
 }
@@ -641,13 +641,13 @@ p {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: #00367e;
+  background: #3d60de;
   border-radius: 10px;
 }
 .home-image .overlay {
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(249, 251, 253, 0) 48%, #00367e 88%);
+  background: linear-gradient(180deg, rgba(249, 251, 253, 0) 48%, #3d60de 88%);
   position: absolute;
   z-index: 99;
   border-radius: 10px;
@@ -660,6 +660,8 @@ p {
 .home-image .downloadresume {
   margin-bottom: 20px;
   z-index: 100;
+  position: absolute;
+  bottom: 0;
 }
 .home-image .downloadresume a svg {
   margin-right: 5px;
@@ -667,7 +669,7 @@ p {
 
 @media (max-width: 968px) {
   main {
-    background: linear-gradient(0deg, #e5eef8 68%, #00367e 0);
+    background: linear-gradient(0deg, #e5eef8 68%, #3d60de 0);
   }
   main .home-image span {
     width: 100% !important;
@@ -711,7 +713,6 @@ p {
   .index__details .homebtn {
     margin: 0 auto !important;
     margin-top: 20px !important;
-    border: 1px solid #fff !important;
   }
   .page__container {
     width: 100%;
@@ -772,8 +773,8 @@ p {
   color: #000 !important;
 }
 .outlinebtn:hover {
-  background: #00367e !important;
-  border: 2px solid #00367e !important;
+  background: #3d60de !important;
+  border: 2px solid #3d60de !important;
   color: #fff !important;
 }
 
@@ -783,7 +784,7 @@ p {
 }
 
 .googlecertificated {
-  color: #00367e !important;
+  color: #3d60de !important;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0;
@@ -805,10 +806,7 @@ p {
   z-index: 101;
 }
 
-.homebtn {
-  border: 1px solid #fff !important;
-}
 .homebtn:hover {
   background: #fff !important;
-  color: #00367e !important;
+  color: #3d60de !important;
 }/*# sourceMappingURL=globals.css.map */

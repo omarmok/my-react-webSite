@@ -17,7 +17,11 @@ function About() {
     const fetchData = async () => {
       try {
         const response = await axios.get('https://api.npoint.io/6f0dae3cb9f69ee07ee5');
-        setExperience(response.data.Experience);
+        if (response.data && response.data.Experience) {
+          setExperience(response.data.Experience);
+        } else {
+          console.error("Invalid API response structure:", response.data);
+        }
       } catch (error) {
         console.error('Error fetching experience data:', error);
       }
@@ -27,8 +31,13 @@ function About() {
   }, []);
 
   const renderExperienceList = () => {
-    return experience.map((experienceItem) => (
-      <div className="mycard" data-aos="fade-up" data-aos-duration="2000" key={experienceItem.key}>
+    return experience.map((experienceItem, index) => (
+      <div 
+        className="mycard" 
+        data-aos="fade-up" 
+        data-aos-duration="2000" 
+        key={experienceItem.id || index} // ✅ Using unique ID if available, otherwise fallback to index
+      >
         <div className="mycard__details flex-column align-items-start">
           <div className="mycard__details--date">{experienceItem.date}</div>
           <div className="mycard__details--jobtitle">{experienceItem.jobtitle}</div>
@@ -42,21 +51,36 @@ function About() {
   return (
     <div>
       <Head>
-        <title>Omar Mokhtar-Experience</title>
+        <title>Omar Mokhtar - Experience</title>
       </Head>
+      
       <Loader />
+      
       <div className="container">
         <div className="page__container">
-          <h1 className="d-flex justify-content-between mainpagetitle mb-3 aos-init aos-animate" data-aos="fade-in" data-aos-duration="500">
-          Experience
-
-            <div className="d-flex downloadresume"><a href="https://drive.google.com/file/d/1OUFTx0mAgvXiS2FmSHFPwekYrRvniFjh/view" className="btn section__title--btn  mt-3  homebtn" target="_blank" rel="noopener noreferrer"> Download Resume </a></div>
+          <h1 
+            className="d-flex justify-content-between mainpagetitle mb-3 aos-init aos-animate" 
+            data-aos="fade-in" 
+            data-aos-duration="500"
+          >
+            Experience
+            <div className="d-flex downloadresume">
+              <a 
+                href="https://drive.google.com/file/d/1OUFTx0mAgvXiS2FmSHFPwekYrRvniFjh/view" 
+                className="btn section__title--btn mt-3 homebtn" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Download Resume <FaDownload />
+              </a>
+            </div>
           </h1>
-          {renderExperienceList()}
-          {/* Render the Tools component */}
+
+          {experience.length > 0 ? renderExperienceList() : <p>Loading experience...</p>}
+          
+          {/* Render Certifications & Tools components */}
           <Certifications />
           <Tools />
-          {/* Other parts of your JSX content */}
         </div>
       </div>
     </div>
