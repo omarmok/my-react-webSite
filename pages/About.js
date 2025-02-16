@@ -71,7 +71,8 @@ function About() {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                Download Resume <FaDownload />
+                <FaDownload />
+                Download Resume 
               </a>
             </div>
           </h1>
