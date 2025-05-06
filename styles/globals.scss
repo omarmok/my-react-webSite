@@ -742,6 +742,7 @@ p {
       position: fixed;
       bottom: 80px;
       height: 50px;
+      z-index: 9999999;
 }
 
 .audio-button:hover {
