@@ -90,7 +90,7 @@ function MyApp({ Component, pageProps }) {
           }}
         >
           <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
-          {isPlaying ? "إيقاف الصوت" : "استمع إلى نبذة عني "}
+          {isPlaying ? " Stop" : "Listen to My Summary"}
         </button>
 
         {/* مشغل الصوت (مخفي) */}
