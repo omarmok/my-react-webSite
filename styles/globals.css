@@ -822,7 +822,6 @@ p {
   border-radius: 0 10px 10px 0;
   cursor: pointer;
   font-weight: 700;
-  width: 50px;
   transition: width 0.3s ease;
   position: fixed;
   bottom: 80px;
@@ -831,17 +830,6 @@ p {
 
 .audio-button:hover {
   width: 250px;
-}
-
-.audio-button-text {
-  visibility: hidden; /* Hide the text by default */
-  opacity: 0; /* Make it fully transparent */
-  transition: opacity 0.3s ease; /* Smooth transition for opacity */
-}
-
-.audio-button:hover .audio-button-text {
-  visibility: visible; /* Make the text visible on hover */
-  opacity: 1; /* Make the text fully opaque */
 }
 
 .audio-button-stop {
@@ -854,7 +842,6 @@ p {
   border-radius: 0 10px 10px 0;
   cursor: pointer;
   font-weight: 700;
-  width: 50px;
   transition: width 0.3s ease;
   position: fixed;
   bottom: 80px;
