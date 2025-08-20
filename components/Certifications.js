@@ -7,7 +7,7 @@ const Certifications = () => {
   const [certifications, setCertifications] = useState([]);
 
   useEffect(() => {
-    axios.get('https://api.npoint.io/8e1204c7ff27fd1a6c68')
+    axios.get('https://api.npoint.io/ba35b22a6f908f637bc8')
       .then((res) => {
         setCertifications(res.data.Certifications);
       })
@@ -28,7 +28,7 @@ const Certifications = () => {
           className="mycard p-3 Certificationscard" 
           data-aos="fade-up" 
           data-aos-duration="2000" 
-          key={certificationItem.id || index} // Using id if available, otherwise fallback to index
+          key={certificationItem.id || index} 
         >
           <div className="mycard__details m-0 p-0">
             <div>

@@ -41,10 +41,10 @@ function MyApp({ Component, pageProps }) {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
-        setButtonColor('#25D366'); // إعادة اللون الافتراضي بعد التوقف
+        setButtonColor('#25D366'); 
       } else {
         audioRef.current.play();
-        setButtonColor('#FF5733'); // تغيير اللون أثناء التشغيل
+        setButtonColor('#FF5733');
       }
       setIsPlaying(!isPlaying);
     }

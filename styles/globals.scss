@@ -91,8 +91,8 @@ a {
 }
 
 .btn {
-  background: #ff4363 !important;
-  border: 2px solid #ff4363 !important;
+  background: #3d60de !important;
+  border: 2px solid #3d60de !important;
   color: #fff !important;
   font-weight: 600 !important;
   border-radius: 45px !important;
@@ -104,6 +104,7 @@ a {
   justify-content: center;
   padding: 20px;
   line-height: 0;
+  gap:10px;
   &:hover 
 {
     background: transparent !important;
@@ -279,12 +280,12 @@ main {
     align-items: center;
 
     &--date {
-      color: #ff4363;
+      color: #8c8c8c;
       font-weight: 500;
       font-size: 14px;
     }
     &--jobtitle {
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 5px;
     }
     &--companyname {
@@ -307,9 +308,9 @@ main {
 
 .Certificationscard {
   .mycard__details--jobtitle {
-    font-weight: 500;
+    font-weight: 600;
     margin: 5px 0;
-    font-size: 16px;
+    font-size: 20px;
 
   }
   .mycard__details--url{
@@ -782,4 +783,9 @@ p {
 
 .audio-button-stop:hover {
     width: 100px;
+}
+
+img.Design.System.Bootcamp {
+    width: 140px;
+    height: 80px;
 }
