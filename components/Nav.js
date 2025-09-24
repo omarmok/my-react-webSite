@@ -39,7 +39,7 @@ const Nav = () => {
                     `${router.pathname === "/About" ? "active" : ""}`
                   } data-aos="fade-down" data-aos-duration="1000"   data-aos-delay="300">
                
-               Experience
+               About
            
               </Link>
             </li>

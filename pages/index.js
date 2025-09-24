@@ -16,7 +16,6 @@ export default function Home() {
       document.body.appendChild(script);
     };
 
-    // Initialize Bootstrap tooltips once the script has loaded
     const initializeTooltips = () => {
       if (typeof window !== 'undefined' && typeof window.bootstrap !== 'undefined') {
         const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -26,7 +25,6 @@ export default function Home() {
       }
     };
 
-    // Load script and initialize tooltips
     loadBootstrapTooltipScript();
     initializeTooltips();
   }, []);

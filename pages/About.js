@@ -58,7 +58,7 @@ function About() {
             data-aos="fade-in" 
             data-aos-duration="500"
           >
-            Experience
+            About
             <div className="d-flex downloadresume">
               <a 
                 href="https://drive.google.com/file/d/1OUFTx0mAgvXiS2FmSHFPwekYrRvniFjh/view" 
