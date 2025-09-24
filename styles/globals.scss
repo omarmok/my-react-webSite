@@ -389,7 +389,7 @@ main {
   box-shadow: 10px 10px 20px 0 #e5eef8, -10px -10px 20px 0 #e6f0fa;
 }
 .more_btn_project {
-  width: 200px;
+  width: 210px;
 }
 
 .fadeoutt {
@@ -789,4 +789,21 @@ p {
 img.Design.System.Bootcamp {
     width: 140px;
     height: 80px;
+}
+
+// Blog styles
+.blog-list {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 16px;
+}
+
+.conclusion-list {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 16px;
+}
+
+.blog-content {
+  font-size: 16px;
 }

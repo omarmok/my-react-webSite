@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://omarmokhtar.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Block access to admin areas (if any)
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /api/
+
+# Allow important directories
+Allow: /images/
+Allow: /styles/

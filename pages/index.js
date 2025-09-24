@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Head from 'next/head';
 import 'bootstrap/dist/css/bootstrap.css';
 import Image from 'next/image';
 import photo from '../public/images/omar.png';
@@ -34,10 +33,6 @@ export default function Home() {
 
   return (
     <main>
-      <Head>
-        <title>Omar Mokhtar - Home Page</title>
-      </Head>
-
       <Loader />
 
       <div className="container">

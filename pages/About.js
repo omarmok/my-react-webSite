@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Head from 'next/head';
 import axios from 'axios';
 import Certifications from '../components/Certifications';
 import Tools from '../components/Tools';
@@ -50,15 +49,11 @@ function About() {
 
   return (
     <div>
-      <Head>
-        <title>Omar Mokhtar - Experience</title>
-      </Head>
-      
       <Loader />
       
       <div className="container">
         <div className="page__container">
-          <h1 
+          <div 
             className="d-flex justify-content-between mainpagetitle mb-3 aos-init aos-animate" 
             data-aos="fade-in" 
             data-aos-duration="500"
@@ -75,14 +70,34 @@ function About() {
                 Download Resume 
               </a>
             </div>
-          </h1>
+          </div>
 
+       
           {experience.length > 0 ? renderExperienceList() : <p>Loading experience...</p>}
-          
+
+
+
           {/* Render Certifications & Tools components */}
           <Certifications />
+
           <Tools />
+
+       <div className="mt-5  section__title--maintitle">  You can find more about me in this video</div>
+        <div className='mb-3  mycard aos-init aos-animate findMore'>
+      
+            <iframe
+              width="100%"
+              height="500"
+              src="https://www.youtube.com/embed/ISFsa-OOy0s?si=5WmsmNtYxwecNOq2"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
+
+
       </div>
     </div>
   );

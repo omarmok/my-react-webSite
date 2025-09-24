@@ -12,7 +12,7 @@ const Tools = () => {
     return(
 
         <div className="section__title d-flex flex-column mb-5 aos-animate" data-aos="fade-left" data-aos-duration="2000">
-               <div className="section__title--maintitle d-flex justify-content-start  mt-5 w-100">Skills</div>
+               <div className="section__title--maintitle d-flex justify-content-start  mt-5 w-100">Tools</div>
           <div className='Tools'>
 
           <div className="skillscateg">

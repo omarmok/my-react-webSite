@@ -46,7 +46,7 @@ const Projects = () => {
       <div className="col-12 col-lg-6 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
       <div className="portfolio-item">
           <div className="portfolio-img">
-            <Image className="img-fluid" src={ProjectsItem.image} alt="test"  width={300} height={200} layout="responsive"/>
+            <Image className="img-fluid" src={ProjectsItem.image} alt="test"  width={300} height={200} layout="responsive" />
             <div className="mycard__details--date">
           {ProjectsItem.Issued}
           </div>

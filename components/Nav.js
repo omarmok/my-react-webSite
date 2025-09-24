@@ -57,10 +57,21 @@ const Nav = () => {
 
 
             <li className="nav-item">
+              <Link href="/Blog" passHref className={
+                    "nav-link " +
+                    `${router.pathname === "/Blog" ? "active" : ""}`
+                  }  data-aos="fade-down" data-aos-duration="1000"   data-aos-delay="500">
+             
+                  Blog
+          
+              </Link>
+            </li>
+
+            <li className="nav-item">
               <Link href="/ContactForm" passHref className={
                     "nav-link " +
                     `${router.pathname === "/ContactForm" ? "active" : ""}`
-                  }  data-aos="fade-down" data-aos-duration="1000"   data-aos-delay="500">
+                  }  data-aos="fade-down" data-aos-duration="1000"   data-aos-delay="600">
              
                   Contact
           

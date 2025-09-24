@@ -3,12 +3,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build ",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "export": "next build && next export"
+    "lint": "next lint"
   },
   "dependencies": {
+    "next": "13.5.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "framer-motion": "^10.0.0",
+    "three": "^0.156.0",
+    "@react-three/fiber": "^9.3.0",
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
@@ -21,14 +26,9 @@
     "axios": "^1.6.3",
     "crypto-js": "^4.1.1",
     "emailjs-com": "^3.2.0",
-    "framer-motion": "^5.2.1",
-    "next": "^14.0.4",
     "next-google-fonts": "^2.2.0",
     "next-images": "^1.8.2",
-    "next-optimized-images": "^2.0.2",
-    "next-strict-csp": "^1.0.1",
     "react-bootstrap": "^2.0.2",
-    "react-dom": "^18.2.0",
     "react-fontawesome": "^1.7.1",
     "react-hook-form": "^7.19.5",
     "react-hotjar": "^5.0.0",
@@ -38,8 +38,7 @@
     "sass-loader": "^12.3.0",
     "sharp": "^0.33.1",
     "styled-component": "^2.8.0",
-    "swr": "^1.0.1",
-    "webpack": "^5.76.0"
+    "swr": "^1.0.1"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -54,7 +53,6 @@
     "eslint-config-next": "12.0.3",
     "eslint-config-prettier": "^9.1.0",
     "postcss": "^8.3.11",
-    "postcss-loader": "^6.2.0",
-    "react": "^18.2.0"
+    "postcss-loader": "^6.2.0"
   }
 }

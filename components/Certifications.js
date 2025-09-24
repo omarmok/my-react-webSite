@@ -58,14 +58,6 @@ const Certifications = () => {
         </div>
       ))}
 
-      <div className="mt-4 d-inline-block">
-        <a 
-          href="https://www.linkedin.com/in/omarmokhtar22/" 
-          className="btn outlinebtn"
-        >
-          Linkedin For More
-        </a>
-      </div>
     </div>
   );
 };
