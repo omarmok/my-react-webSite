@@ -40,17 +40,19 @@ const Certifications = () => {
                 title="Show credential" 
                 rel="noopener noreferrer" 
                 target="_blank"
+                aria-label={`View credential: ${certificationItem.info || ""}`}
               >
-                Show credential <FaExternalLinkSquareAlt />
+                Show credential <FaExternalLinkSquareAlt aria-hidden="true" focusable="false" />
               </a>
             </div>
             <div className="Certificationsimage">
               <Image 
                 src={certificationItem.image} 
-                alt="course image" 
-                width={50} 
-                height={50} 
-                layout="fixed" 
+                alt={certificationItem.info || 'Certification logo'} 
+                width={60} 
+                height={60} 
+                sizes="60px" 
+                quality={65}
                 className={certificationItem.st} 
               />
             </div>

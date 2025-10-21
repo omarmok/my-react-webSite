@@ -1,10 +1,16 @@
-import emailjs from "emailjs-com";
-import Head from 'next/head'
-import Image from 'next/image'
-import whatsapp from '../public/images/whatsapp.png'
+import { useEffect } from 'react';
+import emailjs from '@emailjs/browser';
+import Head from 'next/head';
+import Image from 'next/image';
 import Loader from '../components/Loader';
+import whatsapp from '../public/images/whatsapp.avif';
 
 export default function ContactUs() {
+    useEffect(() => {
+        emailjs.init({
+            publicKey: 'user_FqpqgfibDaKCa9ntDdSum',
+        });
+    }, []);
 
     function sendEmail(e) {
         e.preventDefault();
@@ -14,7 +20,7 @@ export default function ContactUs() {
             'service_a7ig5vj',      // Service ID
             'template_5mipgzv',     // Template ID
             e.target,               // النموذج
-            'user_FqpqgfibDaKCa9ntDdSum' // User ID
+            'user_FqpqgfibDaKCa9ntDdSum' // Public key
         )
         .then((result) => {
             console.log("SUCCESS:", result.text);
@@ -71,15 +77,28 @@ export default function ContactUs() {
                         </div>
 
                         <div className="pt-3 mx-auto m-2">
-                            <input type="submit" className="btn" value="Send Message"/>
+                            <input
+                                type="submit"
+                                className="btn"
+                                aria-label="Send message through contact form"
+                                value="Send Message"
+                            />
                         </div>
                     </form>
 
                     <div className="whatsapp">
                         <p>Contact me via WhatsApp</p>
                         <div className="whimage">
-                            <a href="http://wa.me/966535468309">
-                                <Image alt="WhatsApp" src={whatsapp} layout="responsive"/>
+                            <a href="http://wa.me/966535468309" aria-label="Open WhatsApp chat with Omar Mokhtar">
+                                <Image
+                                    alt="WhatsApp"
+                                    src={whatsapp}
+                                    width={160}
+                                    height={160}
+                                    sizes="160px"
+                                    style={{ width: '100%', height: 'auto' }}
+                                    quality={70}
+                                />
                             </a>
                         </div>
                     </div>

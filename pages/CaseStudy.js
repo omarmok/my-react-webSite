@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from "next/link"
 import Image from 'next/image'
-import case1 from '../public/images/casestudy.png'
+import case1 from '../public/images/casestudy.avif'
 
 import Loader from '../components/Loader'
 const CaseStudy = () => {
@@ -24,7 +24,14 @@ const CaseStudy = () => {
               Student Internal Portal
             </div>
           <div className="casestudyContainer" data-aos="fade-up" data-aos-duration="2000">
-          <Image  alt="MyImage"  src={case1}  layout="responsive" />
+          <Image
+            alt="Case study hero graphic"
+            src={case1}
+            priority
+            quality={75}
+            sizes="(min-width: 992px) 75vw, 100vw"
+            style={{ height: 'auto', width: '100%' }}
+          />
           <br/>
           {/* <h3 className="fw-bold">My Role</h3> */}
 
@@ -137,8 +144,13 @@ const CaseStudy = () => {
                   <div className="walidInfo">
                   <div className="walidInfo__name">Walid ALolah</div>
                   <div className="walidInfo__Image">
-                  <Image  alt="MyImage"  src={walidInfo}  layout="responsive" />
-
+                  <Image
+                    alt="Persona illustration"
+                    src={walidInfo}
+                    quality={75}
+                    sizes="(min-width: 992px) 50vw, 100vw"
+                    style={{ width: '100%', height: 'auto' }}
+                  />
                   </div>
                   <div className=" d-flex walidInfo__Details">
                   <div className="info">
@@ -232,7 +244,7 @@ const CaseStudy = () => {
     <div className="row mt-3 mb-3">
 
       <div className="col">        
-            <Link href="/Projects"  className="btn d-inline-block me-2 my-2">
+            <Link href="/Projects"  className="btn d-inline-block me-2 my-2" aria-label="Back to the projects page">
                 Back to Projects
                   
             </Link>
@@ -240,7 +252,7 @@ const CaseStudy = () => {
         </div>
             <div className="col">        
   
-        <Link href="https://omarmok.github.io/studentCode/" className="btn outlinebtn  d-inline-block me-2 my-2">
+        <Link href="https://omarmok.github.io/studentCode/" className="btn outlinebtn  d-inline-block me-2 my-2" aria-label="View the student portal live prototype">
              Check website
 
         </Link></div>

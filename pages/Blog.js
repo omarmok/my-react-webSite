@@ -20,13 +20,15 @@ function Blog() {
                 width={800} 
                 height={400}
                 className="hero-image"
+                quality={70}
+                sizes="(min-width: 1200px) 60vw, (min-width: 768px) 80vw, 100vw"
+                priority={false}
                 style={{ 
                   objectFit: 'cover',
                   borderRadius: '8px',
                   width: '100%',
                   height: 'auto'
                 }}
-                unoptimized
               />
             </div>
             
@@ -35,7 +37,7 @@ function Blog() {
               <h2 className="blog-title">Pity, Empathy, and Sympathy: Important Terms in User Experience</h2>
               <div className="d-flex align-items-center">
                 <Image 
-                  src="/images/omar.png" 
+                  src="/images/omar.avif" 
                   alt="Omar Mokhtar" 
                   width={40} 
                   height={40}
@@ -107,6 +109,7 @@ function Blog() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="btn btn-outline-primary"
+                  aria-label="Read the original LinkedIn post about empathy levels in UX"
                 >
                   Read Original LinkedIn Post
                 </a>
@@ -123,6 +126,8 @@ function Blog() {
                 width={800} 
                 height={400}
                 className="hero-image"
+                quality={70}
+                sizes="(min-width: 1200px) 60vw, (min-width: 768px) 80vw, 100vw"
                 style={{ 
                   objectFit: 'cover',
                   borderRadius: '8px',
@@ -137,7 +142,7 @@ function Blog() {
               <h2 className="blog-title">SVG in Web Development: Three Methods Compared</h2>
               <div className="d-flex align-items-center">
                 <Image 
-                  src="/images/omar.png" 
+                  src="/images/omar.avif" 
                   alt="Omar Mokhtar" 
                   width={40} 
                   height={40}
@@ -208,6 +213,7 @@ function Blog() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="btn btn-outline-primary"
+                  aria-label="Read the original LinkedIn post comparing SVG methods"
                 >
                   Read Original LinkedIn Post
                 </a>

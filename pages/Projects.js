@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import Head from 'next/head';
 import axios from 'axios';
 import Link from 'next/link';
 import Image from 'next/image';
-import casstudymain from '../public/images/casstudymain.png';
+import casstudymain from '../public/images/casstudymain.avif';
 import Loader from '../components/Loader';
 
 
@@ -14,31 +13,63 @@ const Projects = () => {
   const [Projects, setProjects] = useState([]);
 
   useEffect(() => {
+    let isCancelled = false;
     axios.get('https://api.npoint.io/6f0dae3cb9f69ee07ee5').then((res) => {
-      setProjects(res.data.Projects);
-    });
-    
-    // Load Bootstrap's tooltip script dynamically
-    const loadBootstrapTooltipScript = () => {
-      const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js';
-      script.async = true;
-      document.body.appendChild(script);
-    };
-
-    // Initialize Bootstrap tooltips once the script has loaded
-    const initializeTooltips = () => {
-      if (typeof window !== 'undefined' && typeof window.bootstrap !== 'undefined') {
-        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        tooltipTriggerList.forEach((tooltipTriggerEl) => {
-          new window.bootstrap.Tooltip(tooltipTriggerEl);
-        });
+      if (!isCancelled) {
+        setProjects(res.data.Projects);
       }
+    });
+
+    return () => {
+      isCancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    let cleanup = () => {};
+
+    const enableTooltips = async () => {
+      if (!document.querySelector('[data-bs-toggle="tooltip"]')) {
+        return;
+      }
+      const bootstrap = await import('bootstrap/dist/js/bootstrap.bundle.min.js');
+      const Tooltip = bootstrap.Tooltip || bootstrap.default?.Tooltip;
+      if (!Tooltip) {
+        return;
+      }
+      const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      const tooltipInstances = tooltipTriggerList.map((tooltipTriggerEl) => new Tooltip(tooltipTriggerEl));
+      cleanup = () => {
+        tooltipInstances.forEach((instance) => {
+          if (typeof instance.dispose === 'function') {
+            instance.dispose();
+          }
+        });
+      };
     };
 
-    // Load script and initialize tooltips
-    loadBootstrapTooltipScript();
-    initializeTooltips();
+    const scheduleTooltips = () => {
+      void enableTooltips();
+    };
+
+    let idleId;
+    let timeoutId;
+
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      idleId = window.requestIdleCallback(scheduleTooltips);
+    } else {
+      timeoutId = window.setTimeout(scheduleTooltips, 200);
+    }
+
+    return () => {
+      if (typeof window !== 'undefined' && idleId !== undefined && 'cancelIdleCallback' in window) {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
+      cleanup();
+    };
   }, []);
 
   const Projectslist = Projects.map((ProjectsItem) => {
@@ -46,7 +77,16 @@ const Projects = () => {
       <div className="col-12 col-lg-6 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
       <div className="portfolio-item">
           <div className="portfolio-img">
-            <Image className="img-fluid" src={ProjectsItem.image} alt="test"  width={300} height={200} layout="responsive" />
+            <Image
+              className="img-fluid"
+              src={ProjectsItem.image}
+              alt={ProjectsItem.title || "Project thumbnail"}
+              width={300}
+              height={200}
+              sizes="(min-width: 992px) 25vw, 50vw"
+              quality={70}
+              style={{ height: 'auto', width: '100%' }}
+            />
             <div className="mycard__details--date">
           {ProjectsItem.Issued}
           </div>
@@ -58,7 +98,14 @@ const Projects = () => {
             </div>
       
           <div className="portfolio-links">
-            <a href={ProjectsItem.url} target="_blank"  rel="noreferrer">   <FontAwesomeIcon icon={faExternalLinkAlt}></FontAwesomeIcon> </a>
+            <a
+              href={ProjectsItem.url}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={ProjectsItem.title ? `Open ${ProjectsItem.title} project details in new tab` : 'Open project details in new tab'}
+            >
+              <FontAwesomeIcon icon={faExternalLinkAlt} aria-hidden="true" focusable="false" />
+            </a>
 
         
           </div>
@@ -105,7 +152,13 @@ const Projects = () => {
                
                 {/* <img src="../images/casstudymain.png" alt="my image" className="img-fluid" /> */}
         
-                <Image  alt="MyImage"  src={casstudymain}layout="responsive" />
+                <Image
+                  alt="Case study cover"
+                  src={casstudymain}
+                  sizes="(min-width: 992px) 50vw, 100vw"
+                  quality={75}
+                  style={{ height: 'auto', width: '100%' }}
+                />
 
                 </div>             
              <div className="caseStudy__description">
@@ -130,7 +183,7 @@ const Projects = () => {
 
                   </p>
 
-                   <Link href="./CaseStudy" className="btn d-inline-block">
+                   <Link href="./CaseStudy" className="btn d-inline-block" aria-label="Read the full case study for the student internal portal">
                       Case Study
                     </Link>
 
@@ -151,7 +204,7 @@ const Projects = () => {
       </div>
           <div className="row">
           <div className=" mr-auto my-4 ">    
-            <a href="https://www.linkedin.com/in/omarmokhtar22/" className="btn section__title--btn d-inline-block more_btn_project"  data-aos="fade-left" data-aos-duration="1000">Find more @ linkedin</a>
+            <a href="https://www.linkedin.com/in/omarmokhtar22/" className="btn section__title--btn d-inline-block more_btn_project"  data-aos="fade-left" data-aos-duration="1000" aria-label="Visit Omar Mokhtar LinkedIn profile for more projects">Find more @ linkedin</a>
           </div>
           </div>
 

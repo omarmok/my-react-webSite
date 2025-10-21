@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import Certifications from '../components/Certifications';
@@ -65,6 +64,7 @@ function About() {
                 className="btn section__title--btn mt-3 homebtn" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="Download Omar Mokhtar resume from Google Drive"
               >
                 <FaDownload />
                 Download Resume 

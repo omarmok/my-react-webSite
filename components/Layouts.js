@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Nav from './Nav'
 import Footer from './Footer'
 
-const Layouts = ({ children }) => {
+const Layouts = ({ children, fontClass = '' }) => {
     const router = useRouter();
     
     // Get page-specific title and description based on current route
@@ -90,7 +90,7 @@ const Layouts = ({ children }) => {
     const { title, description, keywords, canonical, ogImage, structuredData } = getPageMeta();
     
     return(
-      <div className="wrapper " >
+      <div className={`wrapper ${fontClass}`}>
         <Head>
           {/* Basic Meta Tags */}
           <title>{title}</title>
@@ -133,13 +133,7 @@ const Layouts = ({ children }) => {
           
           {/* Performance & Security */}
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          
-          {/* Fonts */}
-          <link
-              href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap"
-              rel="stylesheet"
-            />
-          
+
           {/* Structured Data */}
           {structuredData && (
             <script

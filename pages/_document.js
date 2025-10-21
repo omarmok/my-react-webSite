@@ -4,8 +4,12 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link
+          rel="preload"
+          href="/images/omar.avif"
+          as="image"
+        />
+        <link rel="preload" href="/summary.mp3" as="audio" type="audio/mpeg" />
       </Head>
       <body>
         <Main />

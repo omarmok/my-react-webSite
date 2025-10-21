@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
@@ -20,11 +21,9 @@
     "aos": "^2.3.4",
     "axios": "^1.6.3",
     "crypto-js": "^4.1.1",
-    "emailjs-com": "^3.2.0",
     "framer-motion": "^10.0.0",
     "next": "13.5.4",
-    "next-google-fonts": "^2.2.0",
-    "next-images": "^1.8.2",
+    "next-sitemap": "^4.2.3",
     "react": "^18.3.1",
     "react-bootstrap": "^2.0.2",
     "react-dom": "^18.3.1",

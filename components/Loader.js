@@ -1,22 +1,8 @@
-import Script from 'next/script'
+const Loader = () => (
+  <div className="loader fadeoutt" role="status" aria-live="polite">
+    <span className="loader__spinner" aria-hidden="true" />
+    <span className="visually-hidden">Loading…</span>
+  </div>
+);
 
-const Loader = () => {
-    return(
-
-
-        
-        <div >
-     
-     <div className="loader fadeoutt">
-
-
-        <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></Script>
-
-         <lottie-player className="loada" src="https://assets9.lottiefiles.com/packages/lf20_EchaWV.json" background="transparent" speed="1"  loop="" autoplay=""></lottie-player>
-
-    	</div>
-        </div>
-
-    )
-}
-export default Loader
+export default Loader;

@@ -1,19 +1,25 @@
 import Link from "next/link"
 import { useRouter } from 'next/dist/client/router'
-// import { route } from 'next/dist/server/router'
 import Image from 'next/image'
-import mylogo from '../public/images/mylogo.png'
+import mylogo from '../public/images/mylogo.avif'
 
 const Nav = () => {
     const router = useRouter()
-    console.log(router);
     return(
         <div className="navBg">
         <div className="container">
                 <nav className="navbar navbar navbar-expand-lg  p-3 d-flex justify-content-between">
               <div className="d-flex align-items-center brand" data-aos="fade-right" data-aos-duration="2000" >
                   <Link href="/"  passHref  className="navbar-brand"  >
-                  <Image  alt="MyImage"  src={mylogo}/>
+                  <Image
+                    alt="Omar Mokhtar personal logo"
+                    src={mylogo}
+                    width={64}
+                    height={64}
+                    sizes="64px"
+                    quality={70}
+                    priority
+                  />
                  </Link>
 
                 <div className="navtitle">UI/UX Designer</div></div>

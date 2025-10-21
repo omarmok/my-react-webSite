@@ -1,45 +1,73 @@
 import React, { useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
 import Image from 'next/image';
-import photo from '../public/images/omar.png';
+import photo from '../public/images/omar.avif';
 
 import {  FaBehance, FaGithub, FaEnvelope, FaLinkedin, FaDownload } from 'react-icons/fa';
-import Loader from '../components/Loader';
+
 
 export default function Home() {
   useEffect(() => {
-    // Load Bootstrap's tooltip script dynamically
-    const loadBootstrapTooltipScript = () => {
-      const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js';
-      script.async = true;
-      document.body.appendChild(script);
-    };
+    let cleanup = () => {};
 
-    const initializeTooltips = () => {
-      if (typeof window !== 'undefined' && typeof window.bootstrap !== 'undefined') {
-        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        tooltipTriggerList.forEach((tooltipTriggerEl) => {
-          new window.bootstrap.Tooltip(tooltipTriggerEl);
-        });
+    const enableTooltips = async () => {
+      if (!document.querySelector('[data-bs-toggle="tooltip"]')) {
+        return;
       }
+      const bootstrap = await import('bootstrap/dist/js/bootstrap.bundle.min.js');
+      const Tooltip = bootstrap.Tooltip || bootstrap.default?.Tooltip;
+      if (!Tooltip) {
+        return;
+      }
+      const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      const tooltipInstances = tooltipTriggerList.map((tooltipTriggerEl) => new Tooltip(tooltipTriggerEl));
+      cleanup = () => {
+        tooltipInstances.forEach((instance) => {
+          if (typeof instance.dispose === 'function') {
+            instance.dispose();
+          }
+        });
+      };
     };
 
-    loadBootstrapTooltipScript();
-    initializeTooltips();
+    const scheduleTooltips = () => {
+      void enableTooltips();
+    };
+
+    let idleId;
+    let timeoutId;
+
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      idleId = window.requestIdleCallback(scheduleTooltips);
+    } else {
+      timeoutId = window.setTimeout(scheduleTooltips, 200);
+    }
+
+    return () => {
+      if (typeof window !== 'undefined' && idleId !== undefined && 'cancelIdleCallback' in window) {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
+      cleanup();
+    };
   }, []);
 
   return (
     <main>
-      <Loader />
-
       <div className="container">
         <div className="index__details">
           <div className="row">
             <div className="col-lg-4 col-sm-12" >
               <div className="home-image">
                 <div className='overlay'></div>
-                <Image alt="MyImage" src={photo}/>
+                <Image
+                  alt="Portrait of Omar Mokhtar"
+                  src={photo}
+                  priority
+                  quality={75}
+                  sizes="(min-width: 1200px) 25vw, (min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw"
+                />
                 <div className="d-flex downloadresume" data-aos="fade-down" data-aos-duration="2000" >
                   <a
                     href="https://drive.google.com/file/d/1OUFTx0mAgvXiS2FmSHFPwekYrRvniFjh/view"
@@ -48,7 +76,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                  
                     title="Download Resume"
-                  >
+                   aria-label="Download Omar Mokhtar resume from Google Drive">
                     <FaDownload /> Download Resume 
                   </a>
                 </div>
@@ -97,18 +125,42 @@ I work closely with analysts, developers, and QA testers to ensure our designs s
                
 
                   <div className="socialIcon">
-                    <a href="https://www.behance.net/Omar_Mokhtar" data-bs-toggle="tooltip" data-bs-placement="top"  title="Behance" >
-                      <FaBehance />
+                    <a
+                      href="https://www.behance.net/Omar_Mokhtar"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      title="Behance"
+                      aria-label="Visit Omar Mokhtar on Behance"
+                    >
+                      <FaBehance aria-hidden="true" focusable="false" />
                     </a>
-                    <a href="https://github.com/omarmok" title="GitHub"  data-bs-toggle="tooltip" data-bs-placement="top" >
-                      <FaGithub />
+                    <a
+                      href="https://github.com/omarmok"
+                      title="GitHub"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      aria-label="Visit Omar Mokhtar on GitHub"
+                    >
+                      <FaGithub aria-hidden="true" focusable="false" />
                     </a>
-                    <a href="https://www.linkedin.com/in/omarmokhtar22/" title="LinkedIn" data-bs-toggle="tooltip" data-bs-placement="top" >
-                      <FaLinkedin />
+                    <a
+                      href="https://www.linkedin.com/in/omarmokhtar22/"
+                      title="LinkedIn"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      aria-label="Visit Omar Mokhtar on LinkedIn"
+                    >
+                      <FaLinkedin aria-hidden="true" focusable="false" />
                     </a>
                    
-                    <a href="mailto:al_fagomy22@hotmail.com"  title="Email" data-bs-toggle="tooltip" data-bs-placement="top" >
-                      <FaEnvelope />
+                    <a
+                      href="mailto:al_fagomy22@hotmail.com"
+                      title="Email"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      aria-label="Send an email to Omar Mokhtar"
+                    >
+                      <FaEnvelope aria-hidden="true" focusable="false" />
                     </a>
                   </div>
                 </div>
