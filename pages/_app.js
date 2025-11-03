@@ -4,24 +4,17 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
-import { IBM_Plex_Sans_Arabic } from 'next/font/google';
 import Script from 'next/script';
 import '../styles/globals.scss';
 import Layouts from '../components/Layouts';
 config.autoAddCss = false;
 
-const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
-  subsets: ['latin', 'arabic'],
-  weight: ['100', '200', '300', '400', '500', '600', '700'],
-  display: 'swap',
-});
-
 function MyApp({ Component, pageProps }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const hotjarId = process.env.NEXT_PUBLIC_HOTJAR_ID;
-  const hotjarVersion = process.env.NEXT_PUBLIC_HOTJAR_VERSION || '6';
-  const enableHotjar = process.env.NODE_ENV === 'production' && Boolean(hotjarId);
+  const hotjarId = Number(process.env.NEXT_PUBLIC_HOTJAR_ID);
+  const hotjarVersion = Number(process.env.NEXT_PUBLIC_HOTJAR_VERSION) || 6;
+  const enableHotjar = process.env.NODE_ENV === 'production' && Number.isFinite(hotjarId);
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -87,12 +80,14 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Layouts fontClass={ibmPlexSansArabic.className}>
+      <Layouts fontClass="font-ibm-plex-sans-arabic">
       {enableHotjar && (
         <Script
-          id="hotjar"
-          strategy="lazyOnload"
-          src={`https://static.hotjar.com/c/hotjar-${hotjarId}.js?sv=${hotjarVersion}`}
+          id="hotjar-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};h._hjSettings={hjid:${hotjarId},hjsv:${hotjarVersion}};a=o.getElementsByTagName('head')[0];r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r);})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
+          }}
         />
       )}
       <a

@@ -195,6 +195,10 @@ a {
   font-weight: 400;
 }
 
+.font-ibm-plex-sans-arabic {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+
 .navBg {
   position: sticky;
   top: 0;
@@ -526,7 +530,7 @@ main {
 }
 
 .more_btn_project {
-  width: 200px;
+  width: 210px;
 }
 
 .loader {
@@ -554,7 +558,6 @@ main {
     transform: rotate(360deg);
   }
 }
-
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -892,4 +895,20 @@ p {
 img.Design.System.Bootcamp {
   width: 140px;
   height: 80px;
+}
+
+.blog-list {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 16px;
+}
+
+.conclusion-list {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 16px;
+}
+
+.blog-content {
+  font-size: 16px;
 }/*# sourceMappingURL=globals.css.map */
