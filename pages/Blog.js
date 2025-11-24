@@ -15,7 +15,7 @@ function Blog() {
             {/* Hero Image */}
             <div className="hero-image-container mb-4">
               <Image 
-                src="https://media.licdn.com/dms/image/v2/D4D22AQGWAY1SdL26HQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1728454736633?e=1761782400&v=beta&t=1GuJoAU-KSH5lyQxPDd5lKK-9CORvSzQVwwfPWZXO6I" 
+                src="https://s3.eu-north-1.amazonaws.com/cdn-site.mediaplanet.com/app/uploads/sites/105/2021/09/08000229/MainImage_A9-888x500.jpg" 
                 alt="Pity, Empathy, and Sympathy in UX Design - Understanding user experience design principles and emotional responses in design thinking" 
                 width={800} 
                 height={400}
@@ -121,7 +121,7 @@ function Blog() {
             {/* Hero Image */}
             <div className="hero-image-container mb-4">
               <Image 
-                src="https://media.licdn.com/dms/image/v2/D5622AQG1UXVrxuuI1A/feedshare-shrink_800/feedshare-shrink_800/0/1721287617244?e=1761782400&v=beta&t=M79pmurkWssOqDQ9WiNKlLTkGZu1ne2Kh2EnjO2JCYE" 
+                src="https://www.adobe.com/creativecloud/file-types/image/vector/media_1c840d54c0c6d35eb38bebd13dec2f908cf9a275e.png?width=2000&format=webply&optimize=medium" 
                 alt="SVG in Web Development - Three methods comparison for scalable vector graphics implementation in modern web projects" 
                 width={800} 
                 height={400}

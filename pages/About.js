@@ -60,7 +60,7 @@ function About() {
             About
             <div className="d-flex downloadresume">
               <a 
-                href="https://drive.google.com/file/d/1OUFTx0mAgvXiS2FmSHFPwekYrRvniFjh/view" 
+                href="https://drive.google.com/file/d/1FdxcD3kPWXA-lyKWJLV3M8aLV6G1FGXo/view" 
                 className="btn section__title--btn mt-3 homebtn" 
                 target="_blank" 
                 rel="noopener noreferrer"
