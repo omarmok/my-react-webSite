@@ -70,7 +70,7 @@ export default function Home() {
                 />
                 <div className="d-flex downloadresume" data-aos="fade-down" data-aos-duration="2000" >
                   <a
-                    href="https://drive.google.com/file/d/1OUFTx0mAgvXiS2FmSHFPwekYrRvniFjh/view"
+                    href="https://drive.google.com/file/d/1FdxcD3kPWXA-lyKWJLV3M8aLV6G1FGXo/view"
                     className="btn mt-3 mx-2 homebtn"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -154,7 +154,7 @@ I work closely with analysts, developers, and QA testers to ensure our designs s
                     </a>
                    
                     <a
-                      href="mailto:al_fagomy22@hotmail.com"
+                      href="mailto:omarmokhtarayed@hotmail.com"
                       title="Email"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
