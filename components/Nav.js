@@ -18,7 +18,7 @@ const Nav = () => {
                     height={64}
                     sizes="64px"
                     quality={70}
-                    priority
+                    loading="eager"
                   />
                  </Link>
 

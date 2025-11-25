@@ -64,7 +64,7 @@ export default function Home() {
                 <Image
                   alt="Portrait of Omar Mokhtar"
                   src={photo}
-                  priority
+                  loading="eager"
                   quality={75}
                   sizes="(min-width: 1200px) 25vw, (min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw"
                 />

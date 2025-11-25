@@ -27,7 +27,7 @@ const CaseStudy = () => {
           <Image
             alt="Case study hero graphic"
             src={case1}
-            priority
+            loading="eager"
             quality={75}
             sizes="(min-width: 992px) 75vw, 100vw"
             style={{ height: 'auto', width: '100%' }}
