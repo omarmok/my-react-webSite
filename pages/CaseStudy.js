@@ -1,7 +1,5 @@
 import Head from 'next/head'
 import Link from "next/link"
-import Image from 'next/image'
-import case1 from '../public/images/casestudy.avif'
 
 import Loader from '../components/Loader'
 const CaseStudy = () => {
@@ -20,19 +18,30 @@ const CaseStudy = () => {
 
         <div className="page__container project">
 
-            <div className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
+            {/* <div className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
               Student Internal Portal
+            </div> */}
+          <div
+            className="casestudyContainer"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            style={{ padding: 0, marginTop: 0, background: 'transparent', boxShadow: 'none' }}
+          >
+            <div style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)' }}>
+              <iframe
+                src="https://crane-palm-14859740.figma.site/"
+                title="Case study Figma embed"
+                style={{
+                  border: 0,
+                  width: '100vw',
+                  height: '100vh',
+                  display: 'block',
+                }}
+                loading="lazy"
+                allowFullScreen
+              />
             </div>
-          <div className="casestudyContainer" data-aos="fade-up" data-aos-duration="2000">
-          <Image
-            alt="Case study hero graphic"
-            src={case1}
-            loading="eager"
-            quality={75}
-            sizes="(min-width: 992px) 75vw, 100vw"
-            style={{ height: 'auto', width: '100%' }}
-          />
-          <br/>
+          
           {/* <h3 className="fw-bold">My Role</h3> */}
 
         {/* <p>
