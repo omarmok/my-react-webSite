@@ -1,20 +1,7 @@
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import axios from 'axios';
 import { FaExternalLinkSquareAlt } from 'react-icons/fa';
 
-const Certifications = () => {
-  const [certifications, setCertifications] = useState([]);
-
-  useEffect(() => {
-    axios.get('https://api.npoint.io/ba35b22a6f908f637bc8')
-      .then((res) => {
-        setCertifications(res.data.Certifications);
-      })
-      .catch((error) => {
-        console.error('Error fetching certifications data:', error);
-      });
-  }, []);
+const Certifications = ({ certifications = [] }) => {
 
   return (
     <div>

@@ -11,7 +11,7 @@ import Layouts from '../components/Layouts';
 config.autoAddCss = false;
 
 const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
-  weight: ['100', '200', '300', '400', '500', '600', '700'],
+  weight: ['400', '500', '700'],
   subsets: ['latin', 'arabic'],
   display: 'swap',
 });

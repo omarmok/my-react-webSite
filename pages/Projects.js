@@ -1,29 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import Head from 'next/head';
-import axios from 'axios';
 import Link from 'next/link';
 import Image from 'next/image';
+import siteData from '../data.json';
 import casstudymain from '../public/images/casstudymain.avif';
 import Loader from '../components/Loader';
 
 
-const Projects = () => {
-  const [Projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    let isCancelled = false;
-    axios.get('https://api.npoint.io/6f0dae3cb9f69ee07ee5').then((res) => {
-      if (!isCancelled) {
-        setProjects(res.data.Projects);
-      }
-    });
-
-    return () => {
-      isCancelled = true;
-    };
-  }, []);
+const Projects = ({ projects = [] }) => {
 
   useEffect(() => {
     let cleanup = () => {};
@@ -72,7 +58,7 @@ const Projects = () => {
     };
   }, []);
 
-  const Projectslist = Projects.map((ProjectsItem) => {
+  const Projectslist = projects.map((ProjectsItem) => {
     return (
       <div className="col-12 col-lg-6 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
       <div className="portfolio-item">
@@ -218,3 +204,14 @@ const Projects = () => {
 };
 
 export default Projects;
+
+export async function getStaticProps() {
+  const projects = Array.isArray(siteData?.Projects) ? siteData.Projects : [];
+
+  return {
+    props: {
+      projects,
+    },
+    revalidate: 3600,
+  };
+}

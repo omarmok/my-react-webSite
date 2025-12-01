@@ -1,32 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
+import React from 'react';
 import Certifications from '../components/Certifications';
 import Tools from '../components/Tools';
 import Loader from '../components/Loader';
-import azhar from '../public/images/azhar.png';
 import { FaDownload } from 'react-icons/fa';
+import siteData from '../data.json';
 
-function About() {
-  const [experience, setExperience] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://api.npoint.io/6f0dae3cb9f69ee07ee5');
-        if (response.data && response.data.Experience) {
-          setExperience(response.data.Experience);
-        } else {
-          console.error("Invalid API response structure:", response.data);
-        }
-      } catch (error) {
-        console.error('Error fetching experience data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
+function About({ experience = [], certifications = [] }) {
 
   const renderExperienceList = () => {
     return experience.map((experienceItem, index) => (
@@ -73,12 +52,12 @@ function About() {
           </div>
 
        
-          {experience.length > 0 ? renderExperienceList() : <p>Loading experience...</p>}
+          {experience.length > 0 ? renderExperienceList() : <p>Experience data is currently unavailable.</p>}
 
 
 
           {/* Render Certifications & Tools components */}
-          <Certifications />
+          <Certifications certifications={certifications} />
 
           <Tools />
 
@@ -106,3 +85,16 @@ function About() {
 }
 
 export default About;
+
+export async function getStaticProps() {
+  const experience = Array.isArray(siteData?.Experience) ? siteData.Experience : [];
+  const certifications = Array.isArray(siteData?.Certifications) ? siteData.Certifications : [];
+
+  return {
+    props: {
+      experience,
+      certifications,
+    },
+    revalidate: 3600,
+  };
+}
