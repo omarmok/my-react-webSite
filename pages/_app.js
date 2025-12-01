@@ -5,16 +5,12 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import Script from 'next/script';
-import { IBM_Plex_Sans_Arabic } from 'next/font/google';
 import '../styles/globals.scss';
 import Layouts from '../components/Layouts';
 config.autoAddCss = false;
 
-const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
-  weight: ['400', '500', '700'],
-  subsets: ['latin', 'arabic'],
-  display: 'swap',
-});
+// Fallback font class to avoid build-time Google Fonts fetch in restricted environments
+const ibmPlexSansArabic = { className: 'font-ibm-plex-sans-arabic' };
 
 function MyApp({ Component, pageProps }) {
   const audioRef = useRef(null);
