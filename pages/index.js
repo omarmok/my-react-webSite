@@ -65,8 +65,10 @@ export default function Home() {
                   alt="Portrait of Omar Mokhtar"
                   src={photo}
                   loading="eager"
-                  quality={75}
-                  sizes="(min-width: 1200px) 25vw, (min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  priority
+                  quality={70}
+                  sizes="(min-width: 1400px) 320px, (min-width: 1200px) 280px, (min-width: 992px) 260px, (min-width: 768px) 360px, 88vw"
+                  style={{ width: '100%', height: 'auto', maxWidth: 360 }}
                 />
                 <div className="d-flex downloadresume" data-aos="fade-down" data-aos-duration="2000" >
                   <a

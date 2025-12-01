@@ -14,12 +14,6 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
-        <link
-          rel="preload"
-          href="/images/omar.avif"
-          as="image"
-        />
-        <link rel="preload" href="/summary.mp3" as="audio" type="audio/mpeg" />
         {enableHotjar && (
           <script
             id="hotjar-init"

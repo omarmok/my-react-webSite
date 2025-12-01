@@ -89,7 +89,12 @@ export default function ContactUs() {
                     <div className="whatsapp">
                         <p>Contact me via WhatsApp</p>
                         <div className="whimage">
-                            <a href="http://wa.me/966535468309" aria-label="Open WhatsApp chat with Omar Mokhtar">
+                            <a
+                              href="https://wa.me/966535468309"
+                              aria-label="Open WhatsApp chat with Omar Mokhtar"
+                              rel="noreferrer noopener"
+                              target="_blank"
+                            >
                                 <Image
                                     alt="WhatsApp"
                                     src={whatsapp}

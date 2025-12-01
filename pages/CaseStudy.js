@@ -1,46 +1,86 @@
 import Head from 'next/head'
 import Link from "next/link"
+import { useState } from 'react'
 
 import Loader from '../components/Loader'
+
 const CaseStudy = () => {
-    return(
+  const [showEmbed, setShowEmbed] = useState(false)
+  const figmaUrl = 'https://crane-palm-14859740.figma.site/'
 
+  return(
+
+    
       
+      <div >
+       
+       <Head>
+              <title>Omar Mokhtar-Case Study</title>
         
-        <div >
-         
-         <Head>
-                <title>Omar Mokhtar-Case Study</title>
-          
-        </Head>
-        <Loader/>
-        <div className="container">
+      </Head>
+      <Loader/>
+      <div className="container">
 
-        <div className="page__container project">
+      <div className="page__container project">
 
-            {/* <div className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
-              Student Internal Portal
-            </div> */}
-          <div
-            className="casestudyContainer"
-            data-aos="fade-up"
-            data-aos-duration="2000"
-            style={{ padding: 0, marginTop: 0, background: 'transparent', boxShadow: 'none' }}
-          >
-            <div style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)' }}>
-              <iframe
-                src="https://crane-palm-14859740.figma.site/"
-                title="Case study Figma embed"
-                style={{
-                  border: 0,
-                  width: '100vw',
-                  height: '100vh',
-                  display: 'block',
-                }}
-                loading="lazy"
-                allowFullScreen
-              />
+          {/* <div className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
+            Student Internal Portal
+          </div> */}
+        <div
+          className="casestudyContainer"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+          style={{ padding: 0, marginTop: 0, background: 'transparent', boxShadow: 'none' }}
+        >
+          <div className="p-4 mb-4 text-center bg-light" style={{ borderRadius: 16 }}>
+            <h1 className="fw-bold mb-2">Case Study</h1>
+            <p className="mb-3">
+              To keep the page lightweight, the interactive Figma file only loads when you ask for it.
+            </p>
+            <div className="d-flex justify-content-center flex-wrap gap-2">
+              <Link
+                href={figmaUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="btn outlinebtn"
+                aria-label="Open the case study in a new tab"
+              >
+                Open full case study
+              </Link>
+              <button
+                type="button"
+                className="btn d-inline-block"
+                onClick={() => setShowEmbed(true)}
+                disabled={showEmbed}
+                aria-pressed={showEmbed}
+              >
+                {showEmbed ? 'Inline preview loaded' : 'Preview inline'}
+              </button>
             </div>
+          </div>
+          {showEmbed && (
+            <div style={{ width: '100%', maxWidth: 1400, margin: '0 auto' }}>
+              <div style={{ position: 'relative', paddingTop: '65%', borderRadius: 12, overflow: 'hidden', boxShadow: '0 12px 30px rgba(0,0,0,0.08)' }}>
+                <iframe
+                  src={figmaUrl}
+                  title="Case study Figma embed"
+                  style={{
+                    border: 0,
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    display: 'block',
+                  }}
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          )}
+        
           
           {/* <h3 className="fw-bold">My Role</h3> */}
 

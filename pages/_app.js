@@ -21,6 +21,7 @@ function MyApp({ Component, pageProps }) {
     let aosModule;
     let idleId;
     let timeoutId;
+    let mutationObserver;
 
     const loadAOS = async () => {
       const [{ default: AOS }] = await Promise.all([
@@ -48,6 +49,29 @@ function MyApp({ Component, pageProps }) {
       timeoutId = window.setTimeout(scheduleAOS, 200);
     }
 
+    // Normalize accessibility attributes on injected widgets
+    const normalizeInjectedWidgets = () => {
+      document
+        .querySelectorAll('.chat-gpt-query-model button, .chat-gpt-query-model-wrapper button')
+        .forEach((btn) => {
+          if (!btn.getAttribute('aria-label')) {
+            btn.setAttribute('aria-label', 'Toggle translator panel');
+          }
+          if (!btn.getAttribute('type')) {
+            btn.setAttribute('type', 'button');
+          }
+        });
+
+      const tabbableWrapper = document.querySelector('.chat-gpt-query-model-wrapper[tabindex]');
+      if (tabbableWrapper && tabbableWrapper.tabIndex > 0) {
+        tabbableWrapper.tabIndex = 0;
+      }
+    };
+
+    normalizeInjectedWidgets();
+    mutationObserver = new MutationObserver(normalizeInjectedWidgets);
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
     return () => {
       mounted = false;
       if (typeof window !== 'undefined' && idleId && 'cancelIdleCallback' in window) {
@@ -55,6 +79,9 @@ function MyApp({ Component, pageProps }) {
       }
       if (timeoutId) {
         window.clearTimeout(timeoutId);
+      }
+      if (mutationObserver) {
+        mutationObserver.disconnect();
       }
       if (aosModule?.refreshHard) {
         aosModule.refreshHard();
@@ -78,9 +105,9 @@ function MyApp({ Component, pageProps }) {
     <>
       <Layouts fontClass="font-ibm-plex-sans-arabic">
       <a
-        href="http://wa.me/+966535468309"
+        href="https://wa.me/+966535468309"
         target="_blank"
-        rel="noreferrer"
+        rel="noreferrer noopener"
         aria-label="Open WhatsApp chat with Omar Mokhtar"
       >
         <svg

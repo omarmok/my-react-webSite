@@ -101,7 +101,7 @@ const Projects = () => {
             <a
               href={ProjectsItem.url}
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
               aria-label={ProjectsItem.title ? `Open ${ProjectsItem.title} project details in new tab` : 'Open project details in new tab'}
             >
               <FontAwesomeIcon icon={faExternalLinkAlt} aria-hidden="true" focusable="false" />

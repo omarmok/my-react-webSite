@@ -14,10 +14,11 @@ const Nav = () => {
                   <Image
                     alt="Omar Mokhtar personal logo"
                     src={mylogo}
-                    width={64}
-                    height={64}
-                    sizes="64px"
+                    width={48}
+                    height={48}
+                    sizes="(min-width: 992px) 48px, 40px"
                     quality={70}
+                    style={{ width: '100%', height: 'auto', maxWidth: 48 }}
                     loading="eager"
                   />
                  </Link>
