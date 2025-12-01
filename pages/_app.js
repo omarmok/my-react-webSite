@@ -4,13 +4,24 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
+import Script from 'next/script';
+import { IBM_Plex_Sans_Arabic } from 'next/font/google';
 import '../styles/globals.scss';
 import Layouts from '../components/Layouts';
 config.autoAddCss = false;
 
+const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
+  weight: ['100', '200', '300', '400', '500', '600', '700'],
+  subsets: ['latin', 'arabic'],
+  display: 'swap',
+});
+
 function MyApp({ Component, pageProps }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const enableHotjar = true;
+  const hotjarId = 1978942;
+  const hotjarVersion = 6;
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -103,7 +114,16 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Layouts fontClass="font-ibm-plex-sans-arabic">
+      <Layouts fontClass={`${ibmPlexSansArabic.className} font-ibm-plex-sans-arabic`}>
+      {enableHotjar && (
+        <Script
+          id="hotjar-init"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `(function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};h._hjSettings={hjid:${hotjarId},hjsv:${hotjarVersion}};a=o.getElementsByTagName('head')[0];r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r);})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
+          }}
+        />
+      )}
       <a
         href="https://wa.me/+966535468309"
         target="_blank"
