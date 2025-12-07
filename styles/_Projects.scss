@@ -1,7 +1,6 @@
 
-
-
-
+// Fix: modern @use to avoid Sass @import deprecation and ensure variables resolve.
+@use './variables' as *;
 
 .project{
     .mainpagetitle{

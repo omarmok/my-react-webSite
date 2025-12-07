@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 import Head from 'next/head';
 import Image from 'next/image';
 import Loader from '../components/Loader';
-import whatsapp from '../public/images/whatsapp.avif';
+import whatsapp from '../public/images/whatsapp.png';
 
 export default function ContactUs() {
     useEffect(() => {

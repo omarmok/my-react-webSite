@@ -55,7 +55,7 @@
 - **Keyword Focus**: 
   - Primary: "UX Designer Saudi Arabia"
   - Secondary: "UI/UX Design Tips", "Design Thinking"
-  - Long-tail: "How to improve user experience in government websites"
+  - Long-tail: "How to improve user experience "
 
 #### Content Ideas
 1. **Design Process Articles**

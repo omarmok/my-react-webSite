@@ -1,0 +1,8 @@
+// Fix: provide shared theme tokens so @use './variables' resolves without errors.
+$primary-color: #0f172a;
+$secondary-color: #0ea5e9;
+$mainColor: #3d60de;
+$secondColor: #3d60de;
+$bgcolor: #f4f9ff;
+$border-radius-base: 12px;
+$font-family-base: system-ui, -apple-system, "Segoe UI", sans-serif;

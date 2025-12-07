@@ -1,320 +1,80 @@
 import Head from 'next/head'
-import Link from "next/link"
-import { useState } from 'react'
+import Link from 'next/link'
 
 import Loader from '../components/Loader'
 
 const CaseStudy = () => {
-  const [showEmbed, setShowEmbed] = useState(false)
   const figmaUrl = 'https://crane-palm-14859740.figma.site/'
 
-  return(
-
-    
-      
-      <div >
-       
-       <Head>
-              <title>Omar Mokhtar-Case Study</title>
-        
+  return (
+    <div className='page-container '>
+      <Head>
+        <title>Omar Mokhtar-Case Study</title>
       </Head>
-      <Loader/>
+
+      {/* لو عندك لودر ثابت خليه زي ما هو */}
+      <Loader />
+
       <div className="container">
 
-      <div className="page__container project">
+        <section className="my-4">
+          <div
+            style={{
+              width: '100%',
+              height: '100vh',       
+              borderRadius: 0,
+              overflow: 'hidden',
+              background: '#000',
+              position: 'relative',
+            }}
+          >
+            <iframe
+              title="Figma case study"
+              src={figmaUrl}
+              style={{
+                border: 'none',
+                width: '100%',
+                height: '100%',
+                display: 'block',
+              }}
+              loading="lazy"
+              allowFullScreen
+            />
+          </div>
+        </section>
 
-          {/* <div className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
-            Student Internal Portal
-          </div> */}
-        <div
-          className="casestudyContainer"
-          data-aos="fade-up"
-          data-aos-duration="2000"
-          style={{ padding: 0, marginTop: 0, background: 'transparent', boxShadow: 'none' }}
-        >
-          <div className="p-4 mb-4 text-center bg-light" style={{ borderRadius: 16 }}>
-            <h1 className="fw-bold mb-2">Case Study</h1>
-            <p className="mb-3">
-              To keep the page lightweight, the interactive Figma file only loads when you ask for it.
-            </p>
-            <div className="d-flex justify-content-center flex-wrap gap-2">
-              <Link
-                href={figmaUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="btn outlinebtn"
-                aria-label="Open the case study in a new tab"
-              >
-                Open full case study
-              </Link>
-              <button
-                type="button"
-                className="btn d-inline-block"
-                onClick={() => setShowEmbed(true)}
-                disabled={showEmbed}
-                aria-pressed={showEmbed}
-              >
-                {showEmbed ? 'Inline preview loaded' : 'Preview inline'}
-              </button>
+        <div className="project">
+          <div
+            className="casestudyContainer"
+            style={{ padding: 0, marginTop: 0, background: 'transparent', boxShadow: 'none' }}
+          >
+            <div className="row mt-3 mb-3">
+              <div className="col">
+                <Link
+                  href="/Projects"
+                  className="btn d-inline-block me-2 my-2"
+                  aria-label="Back to the projects page"
+                >
+                  Back to Projects
+                </Link>
+              </div>
+
+              <div className="col">
+                <Link
+                  href="https://omarmok.github.io/studentCode/"
+                  className="btn outlinebtn d-inline-block me-2 my-2"
+                  aria-label="View the student portal live prototype"
+                >
+                  Check website
+                </Link>
+              </div>
             </div>
           </div>
-          {showEmbed && (
-            <div style={{ width: '100%', maxWidth: 1400, margin: '0 auto' }}>
-              <div style={{ position: 'relative', paddingTop: '65%', borderRadius: 12, overflow: 'hidden', boxShadow: '0 12px 30px rgba(0,0,0,0.08)' }}>
-                <iframe
-                  src={figmaUrl}
-                  title="Case study Figma embed"
-                  style={{
-                    border: 0,
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    display: 'block',
-                  }}
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          )}
-        
-          
-          {/* <h3 className="fw-bold">My Role</h3> */}
-
-        {/* <p>
-        I was the UX Designer UI Designer UI Developer in a team of 6 and we completed this project over 10 weeks.
-          <br/>
-          I was in competitives analysis and user research.
-          <br/>
-          I was also responsible for coming up with ideas for designing the layout, and for improving the overall user experience using sketching, wireframing and Prototyping. 
-          <br/>
-          Moreover, I was involved with the development team, as we used HTML and Javascript to build portal . 
-
-          <br/>
-          Working closely with analysist ,developers and QA testers ensuring that the product is developed according to experience and design specifications.
-
-                    </p>
-                    <br/> */}
-          {/* <Image  alt="MyImage"  src="../public/images/case1.png" width={900} height={450} layout='responsive' objectFit='contain' /> */}
-
-          {/* <h3 className="fw-bold ">Process</h3>
-
-          <div className='row'>
-
-            <div className='col-lg-4 col-sm-12'>
-              <div className='processcat p-3 bg-white'>
-
-              <Image  alt="MyImage"  src={EMP}  />
-
-                    <p>
-                    Communicate with users in order to understand their problems and needs in general through workshops and direct meetings and through various call centers
-
-                    </p>
-              </div>
-            </div>
-
-
-            <div className='col-lg-4 col-sm-12'>
-              <div className='processcat p-3 bg-white'>
-
-              <Image  alt="MyImage"  src={define}   />
-
-                    <p>
-                    After collecting information from students, studying competitors and studying the current situation, we determine what is required to start the next stage                    </p>
-              </div>
-            </div>
-
-
-            <div className='col-lg-4 col-sm-12'>
-              <div className='processcat p-3 bg-white'>
-
-              <Image  alt="MyImage"  src={ideate}   />
-
-                    <p>
-                    Gather all the previous information brainstorming meetings with teammates to come up with a set of ideas that help us solve this problem
-                    </p>
-              </div>
-            </div>
-
-
-            <div className='col-lg-4 col-sm-12'>
-              <div className='processcat p-3 bg-white'>
-
-              <Image  alt="MyImage"  src={proto}   />
-
-                    <p>
-                    Selecting the best ideas from the thinking stage and providing prototypes for some ideas To clarify the idea of the solution that we will do
-                    </p>
-              </div>
-            </div>
-
-
-            <div className='col-lg-4 col-sm-12'>
-              <div className='processcat p-3 bg-white'>
-
-              <Image  alt="MyImage"  src={test}   />
-
-                    <p>
-                    Present prototypes to a group of education students on their opinions about it and record their comments to have final result to move on                    </p>
-              </div>
-            </div>
-
-
-
-
-
-
-          </div>
-
-            <div className='Competitive'>
-              
-
-            <h3 className="fw-bold ">Competitive Analysis</h3>
-
-            <p>Competitive analysis involves identifying your direct and indirect competitors using research to reveal their strengths and weaknesses in relation to your own.</p>
-                <div className='kpishint'>
-                *all kpis based on one page
-                </div>
-                <Image className='mt-1'  alt="MyImage"  src={CompetitiveAnalysis}   />
-            </div>
-        
-
-                          <div className="Persona mt-5">
-                              <h3 className="fw-bold">Persona</h3>
-                            <p>I have created a character after I conducted a research by a member of the Deanship of Information Technology team through their experience in solving students problems</p>
-                        
-                  <div className="row">
-                          
-                  <div className="col col-lg-6 mx-auto mt-5">
-
-                  <div className="walidInfo">
-                  <div className="walidInfo__name">Walid ALolah</div>
-                  <div className="walidInfo__Image">
-                  <Image
-                    alt="Persona illustration"
-                    src={walidInfo}
-                    quality={75}
-                    sizes="(min-width: 992px) 50vw, 100vw"
-                    style={{ width: '100%', height: 'auto' }}
-                  />
-                  </div>
-                  <div className=" d-flex walidInfo__Details">
-                  <div className="info">
-                    <span>Age</span>
-                    20
-                  </div>
-                  <div className="info">
-                    <span>Education</span>
-                    Faculty of Dentistry at Al Zulfi
-                  </div>
-                  <div className="info">
-                    <span>Location</span>
-                    Al Zulfi
-                  </div>
-
-                  </div>
-
-
-                  </div>
-
-                  </div>
-
-
-
-                  </div>
-
-
-                  <div className="row">
-                  <div className="col-sm-12 col-lg-6 mt-3  ">
-                  <div className="Problems">
-                  <div className="walidInfo__name">Problems</div>
-
-                  <ul>
-                  <li>
-                  When requesting each service, each service must be entered separately in more than 15 services provided by the university, which requires entering 15 times according to the services.
-                  </li>
-                  <li>
-                  Difficulty recognizing the study schedule and examination schedule
-                  The lack of detailed information about each service to know the importance or how to benefit from the service.                </li>
-
-
-                  <li>
-
-                  To follow up on each application, the student must review the application in his portal.                </li>
-
-                  <li>
-                  Unfamiliarity with the activities, advertisements or services provided by the entity.
-                  </li>
-
-                  </ul>
-                  </div>
-
-                  </div>
-
-                  <div className="col-sm-12 col-lg-6 mt-3  ">
-                  <div className="Problems">
-                  <div className="walidInfo__name">Goals</div>
-
-                  <ul>
-                  <li>
-                  Enabling the student to use the service through the unified portal and not to go to the service site itself and follow the progress of the application through the portal.
-                  </li>
-                  <li>
-                  Availability of an area screen for the study schedule and exams.        
-                  </li>
-
-
-                  <li>
-
-                  Provide a screen for advertisements and events of the entity for each student separately.               </li>
-
-                  <li>
-                  Availability of a screen for university activities in general.  </li>
-                  <li>
-                  Provide phone numbers of interest to the student. </li>
-                  </ul>
-                  </div>
-
-                  </div>
-                  </div>
-
-                  </div>
-                  <Image  alt="MyImage"  src={prototype}  layout="responsive" /> */}
-
-                {/* <Image  alt="MyImage"  src="../public/images/Persona.png" width={900} height={350} layout='responsive' objectFit='contain' /> */}
-                {/* <Image  alt="MyImage"  src={color}  width={900} height={500} layout="responsive" />
-                <Image  alt="MyImage"  src={screenshoot}  width={900} height={1500} layout="responsive" /> */}
-                {/* <Image  alt="MyImage"  src="../public/images/color.png" width={900} height={500} layout='responsive' objectFit='contain' />
-                <Image  alt="MyImage"  src="../public/images/screenshoot.png" width={900} height={1500} layout='responsive' objectFit='contain' /> */}
-
-    <div className="row mt-3 mb-3">
-
-      <div className="col">        
-            <Link href="/Projects"  className="btn d-inline-block me-2 my-2" aria-label="Back to the projects page">
-                Back to Projects
-                  
-            </Link>
-
-        </div>
-            <div className="col">        
-  
-        <Link href="https://omarmok.github.io/studentCode/" className="btn outlinebtn  d-inline-block me-2 my-2" aria-label="View the student portal live prototype">
-             Check website
-
-        </Link></div>
-           </div>
-
-          </div>
-         
-            </div>
         </div>
 
-
-        </div>
-
-    )
+      </div>
+    </div>
+  )
 }
+
 export default CaseStudy

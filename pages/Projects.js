@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import siteData from '../data.json';
-import casstudymain from '../public/images/casstudymain.avif';
+import casstudymain from '../public/images/casstudymain.png';
 import Loader from '../components/Loader';
 
 

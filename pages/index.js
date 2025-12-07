@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import photo from '../public/images/omar.avif';
+import photo from '../public/images/omar.png';
 
 import {  FaBehance, FaGithub, FaEnvelope, FaLinkedin, FaDownload } from 'react-icons/fa';
 
@@ -172,7 +172,6 @@ I work closely with analysts, developers, and QA testers to ensure our designs s
           </div>
         </div>
       </div>
-
 
     </main>
   );

@@ -22,7 +22,7 @@
     "axios": "^1.6.3",
     "crypto-js": "^4.1.1",
     "framer-motion": "^10.0.0",
-    "next": "13.5.4",
+    "next": "^16.0.7",
     "next-sitemap": "^4.2.3",
     "react": "^18.3.1",
     "react-bootstrap": "^2.0.2",
@@ -35,7 +35,7 @@
     "sass": "^1.66.1",
     "sass-loader": "^12.3.0",
     "sharp": "^0.33.1",
-    "styled-component": "^2.8.0",
+    "styled-components": "^6.1.13",
     "swr": "^1.0.1",
     "three": "^0.156.0"
   },

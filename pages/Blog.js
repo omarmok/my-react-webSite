@@ -37,7 +37,7 @@ function Blog() {
               <h2 className="blog-title">Pity, Empathy, and Sympathy: Important Terms in User Experience</h2>
               <div className="d-flex align-items-center">
                 <Image 
-                  src="/images/omar.avif" 
+                  src="/images/omar.png" 
                   alt="Omar Mokhtar" 
                   width={40} 
                   height={40}
@@ -142,7 +142,7 @@ function Blog() {
               <h2 className="blog-title">SVG in Web Development: Three Methods Compared</h2>
               <div className="d-flex align-items-center">
                 <Image 
-                  src="/images/omar.avif" 
+                  src="/images/omar.png" 
                   alt="Omar Mokhtar" 
                   width={40} 
                   height={40}

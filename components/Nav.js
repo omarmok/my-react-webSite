@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useRouter } from 'next/dist/client/router'
 import Image from 'next/image'
-import mylogo from '../public/images/mylogo.avif'
+import mylogo from '../public/images/mylogo.png'
 
 const Nav = () => {
     const router = useRouter()
