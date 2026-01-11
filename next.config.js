@@ -1,24 +1,21 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  turbopack: {
-    root: __dirname,
-  },
+const path = require('path');
 
+const nextConfig = {
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**',   
+        hostname: '**',
       },
       {
         protocol: 'http',
-        hostname: '**',   
+        hostname: '**',
       },
     ],
-
-
-    qualities: [70, 75],
+    qualities: [65, 70, 75],
   },
+  outputFileTracingRoot: path.join(__dirname),
 };
 
 module.exports = nextConfig;

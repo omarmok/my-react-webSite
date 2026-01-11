@@ -107,7 +107,7 @@ export default function Home() {
                 </div>
                 <div className="mt-3 d-flex align-items-center discraption">
 
-                   <div className='d-flex align-items-center flex-column' d >
+                   <div className='d-flex align-items-center flex-column'>
 
                    <p data-bs-toggle="tooltip" data-bs-placement="top" title="مع أكثر من 17 عامًا من الخبرة كمصمم UI/UX، فأنا متخصص في التجارب الرقمية وواجهات الأجهزة المحمولة ولوحات معلومات الويب .">
                   
