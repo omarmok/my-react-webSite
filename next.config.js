@@ -2,6 +2,10 @@
 const path = require('path');
 
 const nextConfig = {
+  experimental: {
+    turbopackFileSystemCacheForDev: false,
+    turbopackFileSystemCacheForBuild: false,
+  },
   images: {
     remotePatterns: [
       {

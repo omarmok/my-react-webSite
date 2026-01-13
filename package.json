@@ -3,16 +3,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "predev": "npm run clean:next && npm run check:next-version",
-    "build": "next build",
-    "prebuild": "npm run clean:next && npm run check:next-version",
+    "build": "next build --webpack",
     "start": "next start",
-    "prestart": "npm run check:next-version",
     "lint": "next lint",
-    "test": "echo \"No automated tests are defined for this project.\"",
-    "pretest": "npm run clean:next && npm run check:next-version",
-    "check:next-version": "node scripts/check-next-version.js",
-    "clean:next": "node scripts/clean-next.js"
+    "clean:next": "node scripts/clean-next.js",
+    "clean": "npm run clean:next",
+    "predev": "npm run clean:next",
+    "prebuild": "npm run clean:next",
+    "test": "echo \"No automated tests are defined for this project.\""
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -29,11 +27,11 @@
     "axios": "^1.6.3",
     "crypto-js": "^4.1.1",
     "framer-motion": "^10.0.0",
-    "next": "^16.1.1",
+    "next": "16.1.1",
     "next-sitemap": "^4.2.3",
-    "react": "^18.3.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-bootstrap": "^2.0.2",
-    "react-dom": "^18.3.1",
     "react-hook-form": "^7.19.5",
     "react-hotjar": "^5.0.0",
     "react-icons": "^4.3.1",
@@ -46,6 +44,7 @@
     "three": "^0.156.0"
   },
   "devDependencies": {
+    "rimraf": "^5.0.5",
     "@fullhuman/postcss-purgecss": "^7.0.2",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.3.1",
@@ -59,5 +58,8 @@
     "eslint-config-prettier": "^9.1.0",
     "postcss": "^8.3.11",
     "postcss-loader": "^6.2.0"
+  },
+  "engines": {
+    "node": ">=20.9.0"
   }
 }

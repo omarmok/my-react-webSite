@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { useRouter } from 'next/dist/client/router'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 import mylogo from '../public/images/mylogo.png'
 

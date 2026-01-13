@@ -58,9 +58,13 @@ const Projects = ({ projects = [] }) => {
     };
   }, []);
 
-  const Projectslist = projects.map((ProjectsItem) => {
+  const Projectslist = projects.map((ProjectsItem, index) => {
     return (
-      <div className="col-12 col-lg-6 " data-aos="fade-up" data-aos-duration="3000"  key={ProjectsItem.key}>
+      <div
+        className="col-12 col-lg-6 "
+        data-aos="fade-up"
+        data-aos-duration="3000"
+        key={ProjectsItem.id ?? ProjectsItem.url ?? index}>
       <div className="portfolio-item">
           <div className="portfolio-img">
             <Image
