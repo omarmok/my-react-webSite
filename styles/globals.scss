@@ -173,10 +173,11 @@ main {
     }
     span {
       display: block;
-      // color: $secondColor;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 400;
       letter-spacing: 0;
+      margin-top: 10px;
+      color: #625f5f;
     }
   }
   .discraption {
@@ -389,7 +390,9 @@ main {
   padding: 15px;
   margin-top: 30px;
   background: #fff;
-  box-shadow: 10px 10px 20px 0 #e5eef8, -10px -10px 20px 0 #e6f0fa;
+  box-shadow:
+    10px 10px 20px 0 #e5eef8,
+    -10px -10px 20px 0 #e6f0fa;
 }
 .more_btn_project {
   width: 210px;
@@ -474,7 +477,9 @@ p {
 
 .processcat {
   margin-top: 20px;
-  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+  box-shadow:
+    20px 20px 60px #d9d9d9,
+    -20px -20px 60px #ffffff;
   img {
     width: 100px !important;
   }
