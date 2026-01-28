@@ -31,6 +31,7 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
 
   return (
     <div className={`wrapper ${fontClass}`}>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Head>
         {/* Basic Meta Tags */}
         <title>{title}</title>
@@ -108,7 +109,9 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
         />
       </Head>
       <Nav onToggleLanguage={onToggleLanguage} />
-      {children}
+      <div id="main-content" role="main">
+        {children}
+      </div>
       <Footer />
       <Analytics />
     </div>

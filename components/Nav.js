@@ -70,7 +70,8 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
               type="button"
               className="btn lang-btn"
               onClick={onToggleLanguage}
-              aria-label={t("nav.languageToggleAria")}>
+              aria-label={t("nav.languageToggleAria")}
+              aria-pressed={language === "ar"}>
               <svg
                 width="24"
                 height="24"

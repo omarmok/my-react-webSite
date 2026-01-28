@@ -501,13 +501,13 @@ export const translations = {
         coverAlt: "Case study cover",
       },
       caseStudyExternal: {
-        text: "Check website",
-        aria: "View the student portal live prototype",
+        text: "View live prototype",
+        aria: "Open the student portal live prototype in a new tab",
       },
       moreProjectsTitle: "More Projects",
       linkedInButton: {
-        text: "Find more @ linkedin",
-        aria: "Visit Omar Mokhtar LinkedIn profile for more projects",
+        text: "View more on LinkedIn",
+        aria: "Open Omar Mokhtar LinkedIn profile for additional projects",
       },
       projectLinkAria: "Open {{project}} project details in new tab",
     },
@@ -891,8 +891,8 @@ export const translations = {
         coverAlt: "غلاف دراسة الحالة",
       },
       caseStudyExternal: {
-        text: "تفقّد الموقع",
-        aria: "عرض النموذج الحي لبوابة الطالب الداخلية",
+        text: "عرض النموذج المباشر",
+        aria: "فتح النموذج المباشر لبوابة الطالب الداخلية في تبويب جديد",
       },
       moreProjectsTitle: "مشاريع إضافية",
       linkedInButton: {

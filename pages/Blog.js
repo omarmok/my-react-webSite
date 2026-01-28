@@ -151,7 +151,7 @@ const Blog = () => {
                     rel="noopener noreferrer"
                     className="btn btn-outline-primary"
                     aria-label={post.ctaAria}>
-                    {post.ctaText}
+                    {post.ctaText || t("blog.ctaText")}
                   </a>
                 </div>
               </div>

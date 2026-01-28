@@ -6,18 +6,25 @@
     margin-bottom: 0;
   }
   &__description {
-    font-size: 20px;
-    margin-bottom: 30px;
+    font-size: 18px;
+    margin-bottom: 24px;
+    line-height: 1.65;
+    max-width: 78ch;
+    color: #111827;
+    p {
+      margin-bottom: 10px;
+    }
   }
 }
 
 .caseStudy {
-  padding: 15px;
+  padding: 18px;
   background: #fff;
   display: flex;
   justify-content: stretch;
-  border-radius: 8px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0px 12px 28px rgba(15, 23, 42, 0.06);
+  gap: 16px;
   &__img {
     width: 50%;
     flex: 1 1 0px;
@@ -28,14 +35,14 @@
     }
   }
   &__description {
-    padding: 15px;
-    margin-left: 15px;
+    padding: 10px;
+    margin-left: 0;
     flex: 1 1 0px;
     .title {
       color: $mainColor;
       font-weight: 600;
-      font-size: 30px;
-      margin-bottom: 10px;
+      font-size: 28px;
+      margin-bottom: 12px;
     }
     span {
       font-weight: 600;
@@ -51,13 +58,16 @@
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   background: #fff;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
-  padding: 15px;
+  box-shadow: 0px 10px 24px rgba(15, 23, 42, 0.06);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   .mycard__details--date {
     color: #6b47f5;
     font-weight: 700;
     font-size: 12px;
-    margin-top: 20px;
+    margin-top: 12px;
   }
   .mycard__details--jobtitle {
     font-weight: 500;
@@ -160,12 +170,11 @@
 }
 
 .portfolio-item .portfolio-links {
-  position: absolute;
-  top: 0;
-  right: 40%;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s ease-in-out;
+  position: static;
+  opacity: 1;
+  visibility: visible;
+  margin-top: 8px;
+  display: inline-flex;
 }
 
 .portfolio-item .portfolio-links a {
@@ -177,7 +186,7 @@
   color: #fff;
   display: inline-block;
   background: #ff4363;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
   svg {
     width: 30px;
     height: 30px;
@@ -186,4 +195,25 @@
 
 .portfolio-item .portfolio-links a:hover {
   box-shadow: 0 0 0 10px rgba(157, 154, 255, 0), 0 0 0 20px rgb(255 152 0 / 10%);
+}
+
+@media (max-width: 991px) {
+  .caseStudy {
+    flex-direction: column;
+    &__img {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .project__description {
+    font-size: 16px;
+  }
+  .caseStudy__description .title {
+    font-size: 24px;
+  }
+  .portfolio-item {
+    padding: 14px;
+  }
 }

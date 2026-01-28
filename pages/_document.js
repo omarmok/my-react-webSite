@@ -1,11 +1,12 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from "next/document";
+import { ibmPlexSansArabic } from "../src/fonts";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="en" className={ibmPlexSansArabic.variable}>
       <Head>
       </Head>
-      <body>
+      <body className={ibmPlexSansArabic.className}>
         <Main />
         <NextScript />
       </body>

@@ -8,9 +8,8 @@ import Script from 'next/script';
 import '../styles/globals.scss';
 import Layouts from '../components/Layouts';
 import { TranslationProvider, useTranslation } from '../src/i18n/useTranslation';
+import { ibmPlexSansArabic } from "../src/fonts";
 config.autoAddCss = false;
-
-const ibmPlexSansArabic = { className: 'font-ibm-plex-sans-arabic' };
 
 const WhatsAppLink = () => {
   const { t } = useTranslation();
@@ -194,7 +193,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <TranslationProvider language={language}>
       <Layouts
-        fontClass={`${ibmPlexSansArabic.className} font-ibm-plex-sans-arabic`}
+        fontClass={`${ibmPlexSansArabic.className} ${ibmPlexSansArabic.variable} font-ibm-plex-sans-arabic`}
         onToggleLanguage={toggleLanguage}
       >
         {enableHotjar && (
