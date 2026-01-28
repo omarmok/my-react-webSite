@@ -2,31 +2,250 @@ import siteData from "../../data.json";
 
 const baseUrl = "https://omarmokhtar.com";
 
-const arabicCertificationTitles = {
-  1: "شهادة جوجل المهنية في تصميم تجربة المستخدم",
-  2: "شهادة PMI-ACP في إدارة المشاريع الرشيقة",
-  3: "إنشاء نظام تصميم باستخدام Adobe XD",
-  4: "تجربة العميل: رسم خريطة الرحلة",
-  5: "أساسيات Git",
-  6: "تعلم Adobe XD",
-  7: "تعلم Webpack 4",
-  8: "أساسيات تجربة المستخدم: تصميم التفاعل",
-  9: "تصميم التفاعل: البنية",
-  10: "أساسيات Sass",
+const sourceProjects = Array.isArray(siteData?.Projects)
+  ? siteData.Projects
+  : [];
+const sourceExperience = Array.isArray(siteData?.Experience)
+  ? siteData.Experience
+  : [];
+const sourceCertifications = Array.isArray(siteData?.certifications)
+  ? siteData.certifications
+  : Array.isArray(siteData?.Certifications)
+  ? siteData.Certifications
+  : [];
+
+const projectTranslations = {
+  en: {
+    1: {
+      info: "Human Rights In Saudia Arabia (HRC) -Under Development",
+      Issued: "Aug 2021 - Present",
+    },
+    2: {
+      info: "Deanship of Information Technology",
+      Issued: "Oct 2017 - Sep 2018",
+    },
+    3: { info: "Mullak", Issued: "Mar 2019 - Present" },
+    4: { info: "Idlelands", Issued: "Mar 2019 - Present" },
+    5: { info: "Majmaah University Portal", Issued: "Aug 2019 - Sep 2020" },
+    6: { info: "Majmaah Charity", Issued: "May 2020 - Sep 2020" },
+    7: { info: "MU Greetings Card", Issued: "Jun 2016 - Sep 2017" },
+  },
+  ar: {
+    1: {
+      info: "هيئة حقوق الإنسان في السعودية (HRC) - قيد التطوير",
+      Issued: "أغسطس 2021 – الآن",
+    },
+    2: {
+      info: "عمادة تقنية المعلومات",
+      Issued: "أكتوبر 2017 – سبتمبر 2018",
+    },
+    3: { info: "مولّاك", Issued: "مارس 2019 – الآن" },
+    4: { info: "أيديلاندز", Issued: "مارس 2019 – الآن" },
+    5: {
+      info: "بوابة جامعة المجمعة",
+      Issued: "أغسطس 2019 – سبتمبر 2020",
+    },
+    6: {
+      info: "جمعية المجمعة الخيرية",
+      Issued: "مايو 2020 – سبتمبر 2020",
+    },
+    7: {
+      info: "بطاقة تهاني جامعة المجمعة",
+      Issued: "يونيو 2016 – سبتمبر 2017",
+    },
+  },
 };
 
-const arabicCertifications = (() => {
-  const sourceCertifications = Array.isArray(siteData.certifications)
-    ? siteData.certifications
-    : Array.isArray(siteData.Certifications)
-    ? siteData.Certifications
-    : [];
+const experienceTranslations = {
+  en: {
+    1: {
+      date: "Sep 2025 - Present",
+      jobtitle: "UX & DesignOps Lead",
+      companyname: "Confidential Government",
+      role: `As a UX & DesignOps Lead, I drive and optimize the end-to-end user experience across enterprise platforms and mobile applications by defining UX processes, standards, and design governance. I lead the creation and evolution of a scalable Design System, ensuring consistency, accessibility, and alignment across all digital products.
 
-  return sourceCertifications.map((certification) => ({
-    ...certification,
-    info: arabicCertificationTitles[certification.id] ?? certification.info,
+I work closely with business analysts, product owners, developers, and QA teams to translate complex requirements into clear, executable design artifacts and specifications. I actively support the delivery lifecycle through design reviews, development handoff, UX quality assurance, and UAT validation to ensure accurate implementation aligned with UX intent.
+
+Additionally, I collaborate with the development team in rebuilding and optimizing platform interfaces using HTML, CSS, and JavaScript, ensuring technical feasibility, design fidelity, and high-quality production delivery.`,
+    },
+    2: {
+      date: "Jan 2025 - Sep 2025",
+      jobtitle: "UX Design Lead",
+      companyname: "Confidential Government",
+      role: `As a UI/UX Design Lead, I worked to improve the user experience process for both the platforms and mobile app. I contributed to building the Design System for these platforms and worked closely with business analysts, developers, and QA testers to ensure the product was developed according to UX and UI specifications.
+
+Additionally, I collaborated with the development team in rebuilding key pages using HTML, CSS, and JavaScript to ensure design fidelity and implementation quality.`,
+    },
+    3: {
+      date: "Feb 2019 - Dec 2022",
+      jobtitle: "UI/UX Designer",
+      companyname: "National Housing Company (NHC)",
+      role: "UI/UX Designer focused on wireframing, prototyping, and front-end web development (HTML, CSS, JavaScript, Vue.js). Built UI kits and design solutions for web platforms, and collaborated closely with analysts, developers, and QA testers to ensure the product was developed according to UX and UI specifications.",
+    },
+    4: {
+      date: "2021 - 2022",
+      jobtitle: "UI/UX Designer",
+      companyname: "Human Rights In Saudia Arabia (HRC) Freelancer",
+      role: `Led UX/UI efforts within a team of 4 to deliver the project over 5 months. Responsible for redesigning layouts and improving overall user experience using sketching, wireframing, and prototyping.
+
+Collaborated with the development team to rebuild pages using HTML, Vue.js, and JavaScript.`,
+    },
+    5: {
+      date: "Mar 2016 - Feb 2019",
+      jobtitle: "UI/UX Engineer",
+      companyname: "Al-Majma’ah University",
+      role: "UI/UX Designer with front-end web development experience (HTML, CSS, JavaScript) and graphic design for the e-portal unit. Translated student and employee needs into digital solutions, collaborated with analysts, developers, and QA testers, and communicated daily with stakeholders (e.g., deans) on new product ideas and continuous improvement of existing systems.",
+    },
+    6: {
+      date: "Nov 2013 - Feb 2016",
+      jobtitle: "UI Designer",
+      companyname: "SURE International Technology - SURE",
+      role: "Interface Designer (HTML, CSS). Worked within the design team to deliver solutions for government agencies and universities, including the National Guard, Shaqra University, and the Food and Drug Authority.",
+    },
+    7: {
+      date: "May 2012 - 2013",
+      jobtitle: "UI/UX Designer-Developer",
+      companyname: "Jazan University",
+      role: "UI/UX Designer with wireframing and front-end web development (HTML, CSS, JavaScript) and graphic design for the e-portal unit. Identified student and employee needs, collaborated with analysts, developers, and QA testers to ensure requirements were met, and communicated with stakeholders on product enhancements and new ideas.",
+    },
+  },
+  ar: {
+    1: {
+      date: "سبتمبر 2025 – الآن",
+      jobtitle: "قائد تجربة المستخدم وعمليات التصميم",
+      companyname: "جهة حكومية",
+      role: `بصفتي قائد تجربة المستخدم وعمليات التصميم، أقود تحسين تجربة المستخدم الشاملة عبر المنصات المؤسسية وتطبيقات الجوال من خلال وضع عمليات، معايير، وحوكمة UX. أقود إنشاء وتطوير نظام تصميم قابل للتوسع يضمن الاتساق وقابلية الوصول والتوافق عبر جميع المنتجات الرقمية.
+
+أتعاون عن قرب مع محللي الأعمال ومالكي المنتجات والمطورين وفرق ضمان الجودة لتحويل المتطلبات المعقدة إلى مخرجات تصميمية واضحة وقابلة للتنفيذ. أدعم دورة التسليم عبر مراجعات التصميم، وتسليم التطوير، وضمان جودة UX، واختبارات القبول للتأكد من تنفيذ دقيق يتماشى مع نية التصميم.
+
+كما أتعاون مع فريق التطوير في إعادة بناء وتحسين واجهات المنصة باستخدام HTML وCSS وJavaScript لضمان الجدوى التقنية، ودقة التصميم، وجودة التسليم.`,
+    },
+    2: {
+      date: "يناير 2025 – سبتمبر 2025",
+      jobtitle: "قائد تصميم تجربة المستخدم",
+      companyname: "جهة حكومية",
+      role: `بصفتي قائد تصميم تجربة المستخدم، عملت على تحسين عملية UX للمنصة والتطبيق. شاركت في بناء نظام التصميم وعملت مع محللي الأعمال والمطورين وضمان الجودة لضمان تطوير المنتج وفق مواصفات تجربة وواجهة المستخدم.
+
+كما تعاونت مع فريق التطوير في إعادة بناء الصفحات الأساسية باستخدام HTML وCSS وJavaScript لضمان تطابق التصميم وجودة التنفيذ.`,
+    },
+    3: {
+      date: "فبراير 2019 – ديسمبر 2022",
+      jobtitle: "مصمم واجهات وتجربة المستخدم",
+      companyname: "الشركة الوطنية للإسكان (NHC)",
+      role: "مصمم واجهات وتجربة المستخدم يركز على رسم الهياكل السلكية، النمذجة الأولية، وتطوير الواجهة الأمامية (HTML، CSS، JavaScript، Vue.js). أنشأت مجموعات واجهات وحلول تصميمية للمنصات، وتعاونت بشكل وثيق مع المحللين والمطورين وضمان الجودة لضمان التطوير وفق مواصفات UX وUI.",
+    },
+    4: {
+      date: "2021 – 2022",
+      jobtitle: "مصمم واجهات وتجربة المستخدم",
+      companyname: "هيئة حقوق الإنسان في السعودية (عمل حر)",
+      role: `قدت جهود UX/UI ضمن فريق مكوّن من 4 أفراد وأنجزنا المشروع خلال 5 أشهر. توليت إعادة تصميم التخطيطات وتحسين تجربة المستخدم عبر الرسومات السريعة، والهياكل السلكية، والنماذج الأولية.
+
+تعاونت مع فريق التطوير لإعادة بناء الصفحات باستخدام HTML وVue.js وJavaScript.`,
+    },
+    5: {
+      date: "مارس 2016 – فبراير 2019",
+      jobtitle: "مهندس واجهات وتجربة المستخدم",
+      companyname: "جامعة المجمعة",
+      role: "مصمم واجهات وتجربة المستخدم مع خبرة في تطوير الواجهة الأمامية (HTML، CSS، JavaScript) وتصميم الجرافيك لوحدة البوابة الإلكترونية. ترجمت احتياجات الطلاب والموظفين إلى حلول رقمية، وتعاونت مع المحللين والمطورين وضمان الجودة، وتواصلت يوميًا مع أصحاب المصلحة (مثل العمداء) حول الأفكار الجديدة والتحسين المستمر للأنظمة.",
+    },
+    6: {
+      date: "نوفمبر 2013 – فبراير 2016",
+      jobtitle: "مصمم واجهات",
+      companyname: "شركة شور العالمية للتقنية (SURE)",
+      role: "مصمم واجهات (HTML، CSS) عملت ضمن فريق التصميم لتقديم حلول لجهات حكومية وجامعات، بما في ذلك الحرس الوطني وجامعة شقراء وهيئة الغذاء والدواء.",
+    },
+    7: {
+      date: "مايو 2012 – 2013",
+      jobtitle: "مصمم ومطور واجهات وتجربة المستخدم",
+      companyname: "جامعة جازان",
+      role: "مصمم ومطور واجهات وتجربة المستخدم يعمل على رسم الهياكل السلكية وتطوير الواجهة الأمامية (HTML، CSS، JavaScript) وتصميم الجرافيك لوحدة البوابة الإلكترونية. حددت احتياجات الطلاب والموظفين، وتعاونت مع المحللين والمطورين وضمان الجودة لضمان تلبية المتطلبات، وتواصلت مع أصحاب المصلحة لتحسين المنتجات والأفكار الجديدة.",
+    },
+  },
+};
+
+const certificationTranslations = {
+  en: {
+    1: {
+      info: "Design System Bootcamp",
+      Issued: "Issued Aug 8, 2025 · No Expiration Date",
+    },
+    2: {
+      info: "Google UX Design Professional Certificate",
+      Issued: "Issued Aug 2022 · No Expiration Date",
+    },
+    3: { info: "PMI-ACP", Issued: "Issued Sep 2022 · No Expiration Date" },
+    4: {
+      info: "Creating a Design System with Adobe XD",
+      Issued: "Jan 2021",
+    },
+    5: {
+      info: "Customer Experience: Journey Mapping",
+      Issued: "Aug 2020",
+    },
+    6: {
+      info: "Git Essential Training: The Basics",
+      Issued: "Aug 2020",
+    },
+    7: { info: "Learning Adobe XD", Issued: "Aug 2020" },
+    8: { info: "Learning webpack 4", Issued: "Aug 2020" },
+    9: { info: "UX Foundations: Interaction Design", Issued: "May 2020" },
+    10: { info: "Interaction Design: Structure", Issued: "Apr 2020" },
+    11: { info: "Sass Essential Training", Issued: "Apr 2020" },
+  },
+  ar: {
+    1: {
+      info: "معسكر نظام التصميم",
+      Issued: "صادرة في 8 أغسطس 2025 · بدون تاريخ انتهاء",
+    },
+    2: {
+      info: "شهادة جوجل المهنية في تصميم تجربة المستخدم",
+      Issued: "صادرة في أغسطس 2022 · بدون تاريخ انتهاء",
+    },
+    3: { info: "شهادة PMI-ACP", Issued: "صادرة في سبتمبر 2022 · بدون تاريخ انتهاء" },
+    4: {
+      info: "إنشاء نظام تصميم باستخدام Adobe XD",
+      Issued: "يناير 2021",
+    },
+    5: {
+      info: "تجربة العميل: رسم رحلة العميل",
+      Issued: "أغسطس 2020",
+    },
+    6: {
+      info: "تدريب أساسيات Git: الأساسيات",
+      Issued: "أغسطس 2020",
+    },
+    7: { info: "تعلّم Adobe XD", Issued: "أغسطس 2020" },
+    8: { info: "تعلّم Webpack 4", Issued: "أغسطس 2020" },
+    9: { info: "أساسيات تجربة المستخدم: تصميم التفاعل", Issued: "مايو 2020" },
+    10: { info: "تصميم التفاعل: الهيكلة", Issued: "أبريل 2020" },
+    11: { info: "تدريب أساسيات Sass", Issued: "أبريل 2020" },
+  },
+};
+
+const localizeCollection = (source = [], translationsById = {}) =>
+  (Array.isArray(source) ? source : []).map((item) => ({
+    ...item,
+    ...(translationsById[item?.id] ?? {}),
   }));
-})();
+
+const localizedData = {
+  en: {
+    projects: localizeCollection(sourceProjects, projectTranslations.en),
+    experience: localizeCollection(sourceExperience, experienceTranslations.en),
+    certifications: localizeCollection(
+      sourceCertifications,
+      certificationTranslations.en
+    ),
+  },
+  ar: {
+    projects: localizeCollection(sourceProjects, projectTranslations.ar),
+    experience: localizeCollection(sourceExperience, experienceTranslations.ar),
+    certifications: localizeCollection(
+      sourceCertifications,
+      certificationTranslations.ar
+    ),
+  },
+};
 
 export const translations = {
   en: {
@@ -255,13 +474,13 @@ export const translations = {
     projects: {
       title: "Work",
       description: [
-        "I\'m always excited about learning new techniques and expanding my skills.",
-        "Every project I\'ve worked on, whether alone or with others, has taught me something valuable.",
-        "Sometimes, I\'ve used these lessons directly in my work. Other times, the technologies used in the workplace limited what I could apply.",
+        "I'm always excited about learning new techniques and expanding my skills.",
+        "Every project I've worked on, whether alone or with others, has taught me something valuable.",
+        "Sometimes, I've used these lessons directly in my work. Other times, the technologies used in the workplace limited what I could apply.",
         "Adapting to these tools influenced how I worked, but it also motivated me to explore more beyond those limits.",
       ],
       descriptionTooltip:
-        "I\'m always excited about learning new techniques and expanding my skills. Every project I\'ve worked on, whether alone or with others, has taught me something valuable. Sometimes, I\'ve used these lessons directly in my work. Other times, the technologies used in the workplace limited what I could apply. Adapting to these tools influenced how I worked, but it also motivated me to explore more beyond those limits.",
+        "I'm always excited about learning new techniques and expanding my skills. Every project I've worked on, whether alone or with others, has taught me something valuable. Sometimes, I've used these lessons directly in my work. Other times, the technologies used in the workplace limited what I could apply. Adapting to these tools influenced how I worked, but it also motivated me to explore more beyond those limits.",
       caseStudy: {
         title: "Student Internal Portal",
         intro:
@@ -418,11 +637,7 @@ export const translations = {
         language: "English",
       },
     },
-    data: {
-      experience: siteData.Experience,
-      projects: siteData.Projects,
-      certifications: arabicCertifications,
-    },
+    data: localizedData.en,
   },
   ar: {
     nav: {
@@ -811,146 +1026,6 @@ export const translations = {
         language: "Arabic",
       },
     },
-    data: {
-      experience: [
-        {
-          id: 1,
-          url: "...",
-          date: "أغسطس 2025 – الآن",
-          role: "أتولى قيادة تجربة المستخدم وعمليات التصميم عبر المنصة الإلكترونية وتطبيق الجوال، وأقود استراتيجية تجربة المستخدم وتدفقات الخدمة ومواصفات الواجهات بينما أدير عمليات DesignOps وحوكمتها. أعمل على بناء وتوسيع نظام التصميم للمنصة والتطبيق (الرموز، والمكونات، والأنماط، والتوثيق) لضمان الاتساق وسهولة الوصول. أؤسس مسارات العمل التصميمية، ومراسم المراجعة، ومعايير التسليم مع محللي الأعمال والمطورين وضمان الجودة لمواءمة المتطلبات، وتقليل إعادة العمل، وتسريع التسليم. أساند التنفيذ من خلال التوضيحات، والتحقق من قبول المستخدم، وضمان الجودة التصميمية. تعاونت مع فريق الهندسة لإعادة بناء صفحات رئيسية باستخدام HTML وCSS وJavaScript، مما أضمن تنفيذًا دقيقًا وتحسّنًا قابلًا للقياس في قابلية الاستخدام.",
-          jobtitle: "قائد تجربة المستخدم وعمليات التصميم",
-          companyname: "Confidential Government",
-        },
-        {
-          id: 2,
-          url: "...",
-          date: "يناير 2023 – أغسطس 2025",
-          role: "مهندس تصميم تجربة المستخدم وواجهة المستخدم يعمل على تحسين عملية تجربة المستخدم في المنصة والتطبيق. أنشأت نظام تصميم للمنصة والتطبيق، وأتعاون مع محللي الأعمال والمطورين ومختبري ضمان الجودة لضمان تطوير المنتج وفق تجربة المستخدم والمواصفات التصميمية. كما شاركت فريق التطوير في إعادة بناء جميع الصفحات باستخدام HTML وCSS وJavaScript.",
-          jobtitle: "مهندس تصميم تجربة المستخدم وواجهة المستخدم",
-          companyname: "Confidential Government",
-        },
-        {
-          id: 3,
-          url: "https://hrc.gov.sa/",
-          date: "2021 – 2022",
-          role: "كنت قائد UX/UI ضمن فريق مكون من أربعة، وأكملنا المشروع خلال خمسة أشهر. كنت مسؤولًا عن ابتكار أفكار لإعادة تصميم التخطيط وتحسين تجربة المستخدم عبر الرسومات السريعة، والهياكل السلكية، والنماذج الأولية. كما شاركت فريق التطوير الذي استخدم HTML وVUE.js وJavaScript لإعادة بناء جميع الصفحات.",
-          jobtitle: "مصمم واجهات وتجربة المستخدم",
-          companyname:
-            "هيئة حقوق الإنسان في المملكة العربية السعودية (متعاون مستقل)",
-        },
-        {
-          id: 4,
-          url: "https://nhc.sa/",
-          date: "فبراير 2019 – ديسمبر 2022",
-          role: "مصمم واجهات وتجربة المستخدم مسؤول عن رسم الهياكل السلكية وتطوير الواجهة الأمامية (HTML، CSS، JS، Vue.js). قدمت مجموعات واجهات (UI kits) وحلول تصميمية لكل من منصات الشركة. تعاونت عن قرب مع المحللين والمطورين ومختبري ضمان الجودة لضمان تطوير المنتج وفق تجربة المستخدم والمواصفات التصميمية.",
-          jobtitle: "مصمم واجهات وتجربة المستخدم",
-          companyname: "الشركة الوطنية للإسكان (NHC)",
-        },
-        {
-          id: 5,
-          url: "https://www.mu.edu.sa/ar",
-          date: "مارس 2016 – فبراير 2019",
-          role: "مصمم واجهات وتجربة المستخدم مطور واجهات أمامية، عملت أيضًا كمصمم جرافيك في وحدة البوابة الإلكترونية. فهمت احتياجات الطلاب والموظفين لصياغة حلول داعمة، وتواصلت يوميًا مع المحللين والمطورين ومختبري الجودة لضمان تطابق التطوير مع متطلبات أصحاب المصلحة. ناقشت أفكارًا جديدة مع العمداء لتحسين المنتجات القديمة.",
-          jobtitle: "مطوِّر أمامي",
-          companyname: "جامعة المجمعة",
-        },
-        {
-          id: 6,
-          url: "https://www.sure.com.sa/en/",
-          date: "نوفمبر 2013 – فبراير 2016",
-          role: "مصمم واجهات (HTML، CSS). عملت في فريق التصميم لمؤسسات حكومية وجامعات منها الحرس الوطني وجامعة شقراء وهيئة الغذاء والدواء.",
-          jobtitle: "مصمم واجهات",
-          companyname: "شركة شور العالمية للتقنية (SURE)",
-        },
-        {
-          id: 7,
-          url: "https://www.jazanu.edu.sa/ar",
-          date: "مايو 2012 – 2013",
-          role: "مصمم ومطور واجهات وتجربة المستخدم يعمل على رسم الهياكل السلكية وتطوير الواجهة الأمامية (HTML، CSS، JS). عملت كمصمم جرافيك في وحدة البوابة الإلكترونية، وشاركت في فهم احتياجات الطلاب والمستخدمين لصنع حلول مستدامة. تعاونت مع المحللين والمطورين ومختبري الجودة وتواصلت مع أصحاب المصلحة لتحسين المنتجات القائمة.",
-          jobtitle: "مصمم ومطور واجهات وتجربة المستخدم",
-          companyname: "جامعة جازان",
-        },
-      ],
-      projects: [
-        {
-          id: 2,
-          url: "https://hrc.gov.sa/",
-          info: "حقوق الإنسان في السعودية (HRC) - تحت التطوير",
-          image: "https://i.postimg.cc/ZKGcBc7c/hrc.png",
-          Issued: "أغسطس 2021 – الآن",
-        },
-        {
-          id: 3,
-          url: "https://reac.sa/",
-          info: "مركز التحكيم العقاري السعودي",
-          image: "https://i.postimg.cc/pdZYSt2G/reac.png",
-          Issued: "أبريل 2019 – الآن",
-        },
-        {
-          id: 4,
-          url: "https://mullak.housing.gov.sa/",
-          info: "مولّاك",
-          image: "https://i.postimg.cc/9XSPKbhh/mullak.png",
-          Issued: "مارس 2019 – الآن",
-        },
-        {
-          id: 5,
-          url: "https://idlelands-services.housing.gov.sa/Account/Login",
-          info: "أيديلاندز",
-          image: "https://i.postimg.cc/5NYg2G3y/idland.png",
-          Issued: "مارس 2019 – الآن",
-        },
-        {
-          id: 6,
-          url: "https://tanmawi.housing.sa/",
-          info: "الإسكان التنموي",
-          image: "https://i.postimg.cc/Y0J1Fr39/tanmaei.png",
-          Issued: "فبراير 2019 – الآن",
-        },
-        {
-          id: 7,
-          url: "https://www.mu.edu.sa/ar",
-          info: "بوابة جامعة المجمعة",
-          image: "https://i.postimg.cc/9QyBG7sj/mjmaahun.png",
-          Issued: "أغسطس 2019 – سبتمبر 2020",
-        },
-        {
-          id: 8,
-          url: "https://qm.org.sa/",
-          info: "جمعية المجمعة الخيرية",
-          image: "https://i.postimg.cc/9fVY1fjw/qm.jpg",
-          Issued: "مايو 2020 – سبتمبر 2020",
-        },
-        {
-          id: 9,
-          url: "https://omarmok.github.io/dashboard/",
-          info: "التقارير",
-          image: "https://i.postimg.cc/Kzp7Zr3t/REPORTS.png",
-          Issued: "أغسطس 2021 – الآن",
-        },
-        {
-          id: 10,
-          url: "https://card.mu.edu.sa/",
-          info: "بطاقة MU GREATINS",
-          image: "https://i.postimg.cc/HWP3HHbF/cards.jpg",
-          Issued: "يونيو 2016 – سبتمبر 2017",
-        },
-        {
-          id: 11,
-          url: "https://omarmok.github.io/testDean/",
-          info: "عمادة تقنية المعلومات",
-          image: "https://i.postimg.cc/MKQ0SB6j/dean.png",
-          Issued: "أكتوبر 2017 – سبتمبر 2018",
-        },
-        {
-          id: 12,
-          url: "https://www.su.edu.sa/ar",
-          info: "بوابة جامعة شقراء",
-          image: "https://i.postimg.cc/3RxC5bNK/shaqraa.jpg",
-          Issued: "أغسطس 2014 – سبتمبر 2015",
-        },
-      ],
-      certifications: arabicCertifications,
-    },
+    data: localizedData.ar,
   },
 };

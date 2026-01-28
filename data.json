@@ -5,128 +5,144 @@
       "url": "https://hrc.gov.sa/",
       "info": "Human Rights In Saudia Arabia (HRC) -Under Development",
       "image": "https://i.postimg.cc/ZKGcBc7c/hrc.png",
-      "Issued": " aug 2021 -  Present"
+      "Issued": "Aug 2021 - Present"
     },
     {
       "id": 2,
       "url": "https://omarmok.github.io/testDean/",
-      "info": "Deanship of Information Technology  ",
+      "info": "Deanship of Information Technology",
       "image": "https://i.postimg.cc/MKQ0SB6j/dean.png",
-      "Issued": " Oct 2017 – Sep 2018"
-    },
-    {
-      "id": 4,
-      "url": "https://idlelands-services.housing.gov.sa/Account/Login",
-      "info": "idlelands",
-      "image": "https://i.postimg.cc/5NYg2G3y/idland.png",
-      "Issued": " Mar 2019 – Present"
+      "Issued": "Oct 2017 - Sep 2018"
     },
     {
       "id": 3,
       "url": "https://mullak-services.housing.gov.sa/Account/Login?ReturnUrl=%2F",
       "info": "Mullak",
       "image": "https://i.postimg.cc/9XSPKbhh/mullak.png",
-      "Issued": " Mar 2019 – Present"
+      "Issued": "Mar 2019 - Present"
     },
     {
-      "id": 6,
+      "id": 4,
+      "url": "https://idlelands-services.housing.gov.sa/Account/Login",
+      "info": "Idlelands",
+      "image": "https://i.postimg.cc/5NYg2G3y/idland.png",
+      "Issued": "Mar 2019 - Present"
+    },
+    {
+      "id": 5,
       "url": "https://www.mu.edu.sa/ar",
       "info": "Majmaah University Portal",
       "image": "https://i.postimg.cc/9QyBG7sj/mjmaahun.png",
-      "Issued": " Aug 2019 – Sep 2020"
+      "Issued": "Aug 2019 - Sep 2020"
     },
     {
-      "id": 7,
+      "id": 6,
       "url": "https://qm.org.sa/",
       "info": "Majmaah Charity",
       "image": "https://i.postimg.cc/9fVY1fjw/qm.jpg",
-      "Issued": " may 2020 – Sep 2020"
+      "Issued": "May 2020 - Sep 2020"
     },
     {
-      "id": 8,
+      "id": 7,
       "url": "https://card.mu.edu.sa/",
-      "info": "MU GREATINS CARD  ",
+      "info": "MU Greetings Card",
       "image": "https://i.postimg.cc/HWP3HHbF/cards.jpg",
-      "Issued": " jun 2016 – Sep 2017"
+      "Issued": "Jun 2016 - Sep 2017"
     }
   ],
   "Experience": [
     {
       "id": 1,
       "url": "...",
-      "date": "Jan 2023 – Present",
-      "role": " As a UI/UX Design Lead, Im working to  improve the user experience process for both the platforms and mobile app. \nI am responsible for creating a Design System for these platforms and working closely with business analysts, developers, and QA testers to ensure the product is developed according to experience and design specifications. \nAdditionally, I collaborated with the development team in rebuilding all pages using HTML, CSS, and Javascript.",
-      "jobtitle": "UX Design Lead ",
-      "companyname": "Confidential Government "
+      "date": "Sep 2025 - Present",
+      "jobtitle": "UX & DesignOps Lead",
+      "companyname": "Confidential Government",
+      "role": "As a UX & DesignOps Lead, I drive and optimize the end-to-end user experience across enterprise platforms and mobile applications by defining UX processes, standards, and design governance. I lead the creation and evolution of a scalable Design System, ensuring consistency, accessibility, and alignment across all digital products.\n\nI work closely with business analysts, product owners, developers, and QA teams to translate complex requirements into clear, executable design artifacts and specifications. I actively support the delivery lifecycle through design reviews, development handoff, UX quality assurance, and UAT validation to ensure accurate implementation aligned with UX intent.\n\nAdditionally, I collaborate with the development team in rebuilding and optimizing platform interfaces using HTML, CSS, and JavaScript, ensuring technical feasibility, design fidelity, and high-quality production delivery."
     },
     {
       "id": 2,
-      "url": "https://hrc.gov.sa/",
-      "date": "2021 – 2022",
-      "role": " I was the UX/UI Lead in a team of 4 and we completed this project over the course of 5 months.\n I was in charge of coming up with ideas for re-designing the layout and for improving the overall user experience using sketching, wireframing and Prototyping.\nMoreover,I was involved with the development team,as we used HTML,VUE js and Javascript to rebuild all pages.",
-      "jobtitle": "UI/UX Designer ",
-      "companyname": "Human Rights In Saudia Arabia (HRC) Freelancer"
+      "url": "...",
+      "date": "Jan 2025 - Sep 2025",
+      "jobtitle": "UX Design Lead",
+      "companyname": "Confidential Government",
+      "role": "As a UI/UX Design Lead, I worked to improve the user experience process for both the platforms and mobile app. I contributed to building the Design System for these platforms and worked closely with business analysts, developers, and QA testers to ensure the product was developed according to UX and UI specifications.\n\nAdditionally, I collaborated with the development team in rebuilding key pages using HTML, CSS, and JavaScript to ensure design fidelity and implementation quality."
     },
     {
       "id": 3,
       "url": "https://nhc.sa/",
-      "date": "Feb 2019 – Dec 2022",
-      "role": " UI/UX Designer wireframing and front-end web development (HTML, CSS,  JS, vuejs ).\nCreating Ui kits design solutions for companysolutions for both web Working closely with analysist ,developers and QA testers ensuring that the product is developed according to experience and design specifications.",
-      "jobtitle": "UI/UX Designer ",
-      "companyname": "National Housing Company (NHC)"
+      "date": "Feb 2019 - Dec 2022",
+      "jobtitle": "UI/UX Designer",
+      "companyname": "National Housing Company (NHC)",
+      "role": "UI/UX Designer focused on wireframing, prototyping, and front-end web development (HTML, CSS, JavaScript, Vue.js). Built UI kits and design solutions for web platforms, and collaborated closely with analysts, developers, and QA testers to ensure the product was developed according to UX and UI specifications."
     },
     {
       "id": 4,
-      "url": "https://www.mu.edu.sa/ar",
-      "date": "Mar 2016 – Feb 2019",
-      "role": "UI/UX Designer wireframing and front-end web development (HTML, CSS,  JS) Graphic Designer for e-portal unit.understand students and emploies needs to create some solutions to help themWorking closely with analysist ,developers and QA testers ensuring that the product is developed according stakeholders Requiements.\ncommunicating daily with stakeholders( Deans, ) on new product ideas, and improve the oldest products",
-      "jobtitle": "UI/UX Engineer",
-      "companyname": "Al-Majma’ah University"
+      "url": "https://hrc.gov.sa/",
+      "date": "2021 - 2022",
+      "jobtitle": "UI/UX Designer",
+      "companyname": "Human Rights In Saudia Arabia (HRC) Freelancer",
+      "role": "Led UX/UI efforts within a team of 4 to deliver the project over 5 months. Responsible for redesigning layouts and improving overall user experience using sketching, wireframing, and prototyping.\n\nCollaborated with the development team to rebuild pages using HTML, Vue.js, and JavaScript."
     },
     {
       "id": 5,
-      "url": "https://www.sure.com.sa/en/",
-      "date": "Nov 2013 – Feb 2016",
-      "role": " Interface Designer (HTML, CSS) Work in the design team for some government agencies and universities, including the National Guard, Shaqra University, and the Food and Drug Authority ",
-      "jobtitle": "Ui Designer ",
-      "companyname": "SURE International Technology - SURE"
+      "url": "https://www.mu.edu.sa/ar",
+      "date": "Mar 2016 - Feb 2019",
+      "jobtitle": "UI/UX Engineer",
+      "companyname": "Al-Majma’ah University",
+      "role": "UI/UX Designer with front-end web development experience (HTML, CSS, JavaScript) and graphic design for the e-portal unit. Translated student and employee needs into digital solutions, collaborated with analysts, developers, and QA testers, and communicated daily with stakeholders (e.g., deans) on new product ideas and continuous improvement of existing systems."
     },
     {
       "id": 6,
+      "url": "https://www.sure.com.sa/en/",
+      "date": "Nov 2013 - Feb 2016",
+      "jobtitle": "UI Designer",
+      "companyname": "SURE International Technology - SURE",
+      "role": "Interface Designer (HTML, CSS). Worked within the design team to deliver solutions for government agencies and universities, including the National Guard, Shaqra University, and the Food and Drug Authority."
+    },
+    {
+      "id": 7,
       "url": "https://www.jazanu.edu.sa/ar",
-      "date": "May 2012 – 2013",
-      "role": "UI/UX Designer wireframing and front-end web development (HTML, CSS,  JS) Graphic Designer for e-portal unit.\nunderstand students and emploies needs to create some solutions to help themWorking closely with analysist ,developers and QA testers ensuring that the product is developed according stakeholders Requiements.communicating daily with stakeholders( Deans, ) on new product ideas, and improve the oldest products",
-      "jobtitle": "Ui/UX Designer-Developer ",
-      "companyname": "Jazan University"
+      "date": "May 2012 - 2013",
+      "jobtitle": "UI/UX Designer-Developer",
+      "companyname": "Jazan University",
+      "role": "UI/UX Designer with wireframing and front-end web development (HTML, CSS, JavaScript) and graphic design for the e-portal unit. Identified student and employee needs, collaborated with analysts, developers, and QA testers to ensure requirements were met, and communicated with stakeholders on product enhancements and new ideas."
     }
   ],
   "Certifications": [
     {
       "id": 1,
+      "st": "Maven",
+      "url": "https://maven.com/wrap-up/927a7e2a",
+      "info": "Design System Bootcamp",
+      "image": "https://user-assets.maven.com/certificates/06702cede37d48aaf66ff954af40008a6cd5a2c0.png",
+      "Issued": "Issued Aug 8, 2025 · No Expiration Date"
+    },
+    {
+      "id": 2,
       "st": "google",
       "url": "https://www.coursera.org/account/accomplishments/professional-cert/7HGU76DTMDGG",
       "info": "Google UX Design Professional Certificate",
       "image": "data:image/png;base64,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",
-      "Issued": " Issued Aug 2022 · No Expiration Date"
+      "Issued": "Issued Aug 2022 · No Expiration Date"
     },
     {
-      "id": 2,
+      "id": 3,
       "st": "bakkah",
       "url": "https://drive.google.com/file/d/1FTciTBgetpHvuJagvBqG0tRA572_r3TR/view",
       "info": "PMI-ACP",
       "image": "https://i.postimg.cc/Wz4fRT8L/logo.webp",
-      "Issued": " Issued Sep 2022 · No Expiration Date"
+      "Issued": "Issued Sep 2022 · No Expiration Date"
     },
     {
-      "id": 3,
+      "id": 4,
       "st": "linkedin",
       "url": "https://www.linkedin.com/in/omarmokhtar22/",
       "info": "Creating a Design System with Adobe XD",
       "image": "https://i.postimg.cc/j2G68bkh/Linked-In-Logo-svg.png",
-      "Issued": " Jan 2021"
+      "Issued": "Jan 2021"
     },
     {
-      "id": 4,
+      "id": 5,
       "st": "linkedin",
       "url": "https://www.linkedin.com/in/omarmokhtar22/",
       "info": "Customer Experience: Journey Mapping",
@@ -134,7 +150,7 @@
       "Issued": "Aug 2020"
     },
     {
-      "id": 5,
+      "id": 6,
       "st": "linkedin",
       "url": "https://www.linkedin.com/in/omarmokhtar22/",
       "info": "Git Essential Training: The Basics",
@@ -142,7 +158,7 @@
       "Issued": "Aug 2020"
     },
     {
-      "id": 6,
+      "id": 7,
       "st": "linkedin",
       "url": "https://www.linkedin.com/in/omarmokhtar22/",
       "info": "Learning Adobe XD",
@@ -150,7 +166,7 @@
       "Issued": "Aug 2020"
     },
     {
-      "id": 7,
+      "id": 8,
       "st": "linkedin",
       "url": "https://www.linkedin.com/in/omarmokhtar22/",
       "info": "Learning webpack 4",
@@ -158,15 +174,15 @@
       "Issued": "Aug 2020"
     },
     {
-      "id": 8,
+      "id": 9,
       "st": "linkedin",
       "url": "https://www.linkedin.com/in/omarmokhtar22/",
       "info": "UX Foundations: Interaction Design",
       "image": "https://i.postimg.cc/j2G68bkh/Linked-In-Logo-svg.png",
-      "Issued": "may 2020"
+      "Issued": "May 2020"
     },
     {
-      "id": 9,
+      "id": 10,
       "st": "linkedin",
       "url": "https://www.linkedin.com/in/omarmokhtar22/",
       "info": "Interaction Design: Structure",
@@ -174,7 +190,7 @@
       "Issued": "Apr 2020"
     },
     {
-      "id": 10,
+      "id": 11,
       "st": "linkedin",
       "url": "https://www.linkedin.com/in/omarmokhtar22/",
       "info": "Sass Essential Training",
