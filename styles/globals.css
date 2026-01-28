@@ -230,8 +230,60 @@ a {
   margin: 0 !important;
 }
 
+.navbg-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.rtl-navbar {
+  flex-direction: row-reverse !important;
+}
+
+.rtl-navbar .brand {
+  order: 2;
+}
+
+.rtl-navbar .navbg-container {
+  order: 1;
+}
+
+.rtl-navbar .navbar-nav {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.rtl-navbar .nav-item {
+  margin-inline: 0 10px;
+}
+
+.rtl-container {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+.rtl-container .navbar-nav {
+  flex-direction: row-reverse;
+}
+
+.rtl-container .nav-link {
+  text-align: right;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
 .nav-item {
-  margin: 0 10px;
+  margin: 0;
+  margin-inline: 10px;
 }
 
 .navbar-nav .nav-link {
@@ -259,9 +311,41 @@ a {
 
 .navtitle {
   color: #6b47f5;
-  margin-left: 5px;
+  margin-inline-start: 5px;
   font-weight: 600;
   font-size: 16px;
+}
+
+html[dir=rtl],
+html.rtl {
+  direction: rtl;
+}
+
+html[dir=rtl] body,
+html.rtl body {
+  direction: rtl;
+}
+
+html[dir=rtl] .navbar,
+html.rtl .navbar {
+  flex-direction: row-reverse;
+}
+
+html[dir=rtl] .navbg-container,
+html.rtl .navbg-container {
+  flex-direction: row;
+}
+
+html[dir=rtl] .navbar-nav,
+html.rtl .navbar-nav {
+  direction: rtl;
+  flex-direction: row;
+}
+
+html[dir=rtl] .navtitle,
+html.rtl .navtitle {
+  margin-inline-start: 0;
+  margin-inline-end: 5px;
 }
 
 .btn {
@@ -292,6 +376,38 @@ a {
 
 .btn-warning {
   display: inline-flex !important;
+}
+
+.btn.lang-btn {
+  background: #f59e0b;
+  border-color: #f59e0b;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn.lang-btn:hover {
+  background: #d97706;
+  border-color: #d97706;
+}
+
+.btn.lang-btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.45);
+}
+
+.btn.lang-btn:active {
+  transform: translateY(1px);
 }
 
 .wrapper {
@@ -883,6 +999,7 @@ p {
   bottom: 80px;
   height: 50px;
   z-index: 9999999;
+  left: 0;
 }
 
 .audio-button:hover {

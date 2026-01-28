@@ -9,6 +9,7 @@ import {
   FaLinkedin,
   FaDownload,
 } from "react-icons/fa";
+import { useTranslation } from "../src/i18n/useTranslation";
 
 export default function Home() {
   useEffect(() => {
@@ -67,6 +68,9 @@ export default function Home() {
     };
   }, []);
 
+  const { dictionary } = useTranslation();
+  const { hero, paragraphs, social, imageAlt } = dictionary.home;
+
   return (
     <main>
       <div className="container">
@@ -76,7 +80,7 @@ export default function Home() {
               <div className="home-image">
                 <div className="overlay"></div>
                 <Image
-                  alt="Portrait of Omar Mokhtar"
+                  alt={imageAlt}
                   src={photo}
                   loading="eager"
                   priority
@@ -93,9 +97,9 @@ export default function Home() {
                     className="btn mt-3 mx-2 homebtn"
                     target="_blank"
                     rel="noopener noreferrer"
-                    title="Download Resume"
-                    aria-label="Download Omar Mokhtar resume from Google Drive">
-                    <FaDownload /> Download Resume
+                    title={hero.downloadTitle}
+                    aria-label={hero.downloadTitle}>
+                    <FaDownload /> {hero.downloadButton}
                   </a>
                 </div>
               </div>
@@ -106,16 +110,13 @@ export default function Home() {
                   <div className="myname d-flex align-items-center fw-bold">
                     Omar Mokhtar
                   </div>
-                  <span className="mb-3">
-                    UX & DesignOps Lead @ Confidential Government!
-                  </span>
+                  <span className="mb-3">{hero.role}</span>
                   <a
                     href="https://www.coursera.org/account/accomplishments/professional-cert/7HGU76DTMDGG"
-                    title="Google UX Design Professional Certificate"
+                    title={hero.certificationTitle}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="googlecertificated">
-                    {/* <Image alt="Google Certified" src={googleimage} /> */}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       height="24"
@@ -139,47 +140,20 @@ export default function Home() {
                       />
                       <path d="M1 1h22v22H1z" fill="none" />
                     </svg>
-                    Google Professional UX Certified
+                    {hero.certificationBadge}
                   </a>
                 </div>
                 <div className="mt-3 d-flex align-items-center discraption">
                   <div className="d-flex align-items-center flex-column">
-                    <p
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      title="مع أكثر من 17 عامًا من الخبرة كمصمم UI/UX، فأنا متخصص في التجارب الرقمية وواجهات الأجهزة المحمولة ولوحات معلومات الويب .">
-                      With over 17 years of experience as a UI/UX designer, I
-                      specialize in digital experiences, mobile interfaces, and
-                      dynamic web dashboards.
-                    </p>
-                    <p
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      title="طوال مسيرتي المهنية، عملت في قطاعات تشمل منظمات مشهورة ووزارات حكومية ومؤسسات أكاديمية مرموقة. ">
-                      Throughout my career, I have worked in sectors including
-                      renowned organizations, government ministries, and
-                      prestigious academic institutions.{" "}
-                    </p>
-                    <p
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      title="أتولى قيادة مبادرات إعادة التصميم الشاملة، وتحويل تجارب المستخدم من خلال ترجمة الأفكار بسلاسة إلى حلول ملموسة، بدءًا من التفكير الأولي وحتى التنفيذ النهائي، وتتضمن عمليتي رسمًا دقيقًا، وإطارًا شبكيًا دقيقًا، وصياغة نماذج أولية عالية الدقة.">
-                      I take the helm in leading comprehensive redesign
-                      initiatives, transforming user experiences by seamlessly
-                      translating ideas into tangible solutions From initial
-                      ideation to the final execution, my process involves
-                      meticulous sketching, precise wireframing, and crafting
-                      high-fidelity prototypes.{" "}
-                    </p>
-
-                    <p
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      title="أعمل بشكل وثيق مع المحللين والمطورين ومختبري ضمان الجودة للتأكد من أن تصميماتنا تصبح منتجات سهلة الاستخدام وتتوافق تمامًا مع أهداف المشروع.">
-                      I work closely with analysts, developers, and QA testers
-                      to ensure our designs smoothly become user-friendly
-                      products that match project goals perfectly.
-                    </p>
+                    {paragraphs.map((paragraph, index) => (
+                      <p
+                        key={`${paragraph.text ?? "paragraph"}-${index}`}
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title={paragraph.tooltip}>
+                        {paragraph.text}
+                      </p>
+                    ))}
                   </div>
 
                   <div className="socialIcon">
@@ -187,33 +161,33 @@ export default function Home() {
                       href="https://www.behance.net/Omar_Mokhtar"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
-                      title="Behance"
-                      aria-label="Visit Omar Mokhtar on Behance">
+                      title={social.behance}
+                      aria-label={social.behance}>
                       <FaBehance aria-hidden="true" focusable="false" />
                     </a>
                     <a
                       href="https://github.com/omarmok"
-                      title="GitHub"
+                      title={social.github}
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
-                      aria-label="Visit Omar Mokhtar on GitHub">
+                      aria-label={social.github}>
                       <FaGithub aria-hidden="true" focusable="false" />
                     </a>
                     <a
                       href="https://www.linkedin.com/in/omarmokhtar22/"
-                      title="LinkedIn"
+                      title={social.linkedin}
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
-                      aria-label="Visit Omar Mokhtar on LinkedIn">
+                      aria-label={social.linkedin}>
                       <FaLinkedin aria-hidden="true" focusable="false" />
                     </a>
 
                     <a
                       href="mailto:omarmokhtarayed@hotmail.com"
-                      title="Email"
+                      title={social.email}
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
-                      aria-label="Send an email to Omar Mokhtar">
+                      aria-label={social.email}>
                       <FaEnvelope aria-hidden="true" focusable="false" />
                     </a>
                   </div>

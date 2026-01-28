@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import Head from 'next/head';
-import Link from 'next/link';
-import Image from 'next/image';
-import siteData from '../data.json';
-import casstudymain from '../public/images/casstudymain.png';
-import Loader from '../components/Loader';
-
+import React, { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
+import Image from "next/image";
+import Loader from "../components/Loader";
+import siteData from "../data.json";
+import casstudymain from "../public/images/casstudymain.png";
+import { useTranslation } from "../src/i18n/useTranslation";
 
 const Projects = ({ projects = [] }) => {
+  const { dictionary, t } = useTranslation();
+  const projectMeta = dictionary.projects;
+  const projectItems = dictionary.data.projects ?? projects;
 
   useEffect(() => {
     let cleanup = () => {};
@@ -18,16 +20,20 @@ const Projects = ({ projects = [] }) => {
       if (!document.querySelector('[data-bs-toggle="tooltip"]')) {
         return;
       }
-      const bootstrap = await import('bootstrap/dist/js/bootstrap.bundle.min.js');
+      const bootstrap = await import("bootstrap/dist/js/bootstrap.bundle.min.js");
       const Tooltip = bootstrap.Tooltip || bootstrap.default?.Tooltip;
       if (!Tooltip) {
         return;
       }
-      const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-      const tooltipInstances = tooltipTriggerList.map((tooltipTriggerEl) => new Tooltip(tooltipTriggerEl));
+      const tooltipTriggerList = Array.from(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]'),
+      );
+      const tooltipInstances = tooltipTriggerList.map(
+        (tooltipTriggerEl) => new Tooltip(tooltipTriggerEl),
+      );
       cleanup = () => {
         tooltipInstances.forEach((instance) => {
-          if (typeof instance.dispose === 'function') {
+          if (typeof instance.dispose === "function") {
             instance.dispose();
           }
         });
@@ -41,14 +47,18 @@ const Projects = ({ projects = [] }) => {
     let idleId;
     let timeoutId;
 
-    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
       idleId = window.requestIdleCallback(scheduleTooltips);
     } else {
       timeoutId = window.setTimeout(scheduleTooltips, 200);
     }
 
     return () => {
-      if (typeof window !== 'undefined' && idleId !== undefined && 'cancelIdleCallback' in window) {
+      if (
+        typeof window !== "undefined" &&
+        idleId !== undefined &&
+        "cancelIdleCallback" in window
+      ) {
         window.cancelIdleCallback(idleId);
       }
       if (timeoutId) {
@@ -58,14 +68,14 @@ const Projects = ({ projects = [] }) => {
     };
   }, []);
 
-  const Projectslist = projects.map((ProjectsItem, index) => {
+  const Projectslist = projectItems.map((ProjectsItem, index) => {
     return (
       <div
         className="col-12 col-lg-6 "
         data-aos="fade-up"
         data-aos-duration="3000"
         key={ProjectsItem.id ?? ProjectsItem.url ?? index}>
-      <div className="portfolio-item">
+        <div className="portfolio-item">
           <div className="portfolio-img">
             <Image
               className="img-fluid"
@@ -75,136 +85,134 @@ const Projects = ({ projects = [] }) => {
               height={200}
               sizes="(min-width: 992px) 25vw, 50vw"
               quality={70}
-              style={{ height: 'auto', width: '100%' }}
+              style={{ height: "auto", width: "100%" }}
             />
             <div className="mycard__details--date">
-          {ProjectsItem.Issued}
-          </div>
-            <div className="mycard__details--jobtitle">
-         
-              {ProjectsItem.info}
-              
-              </div>
+              {ProjectsItem.Issued}
             </div>
-      
+            <div className="mycard__details--jobtitle">
+              {ProjectsItem.info}
+            </div>
+          </div>
+
           <div className="portfolio-links">
             <a
               href={ProjectsItem.url}
               target="_blank"
               rel="noreferrer noopener"
-              aria-label={ProjectsItem.title ? `Open ${ProjectsItem.title} project details in new tab` : 'Open project details in new tab'}
-            >
+              aria-label={t("projects.projectLinkAria", {
+                project: ProjectsItem.info,
+              })}>
               <FontAwesomeIcon icon={faExternalLinkAlt} aria-hidden="true" focusable="false" />
             </a>
-
-        
           </div>
-      </div>
+        </div>
       </div>
     );
   });
 
   return (
     <div>
-              <Head>
-                <title>Omar Mokhtar-Work</title>
-       
-                </Head>
-      <Loader/>
-           <div className="container">
-    
-           <div className="page__container project">
-
-           <h1 className="mainpagetitle"  data-aos="fade-in" data-aos-duration="500">
-           Work
-            </h1>
-          <div className="project__description" data-bs-toggle="tooltip" data-bs-placement="top"  title="أنا دائمًا متحمس لتعلم تقنيات جديدة وتوسيع مهاراتي.
-كل مشروع عملت عليه، سواء بمفردي أو مع الآخرين، علمني شيئًا ذا قيمة.
-في بعض الأحيان، استخدمت هذه الدروس بشكل مباشر في عملي. وفي أحيان أخرى، كانت التقنيات المستخدمة في مكان العمل تحد مما يمكنني تطبيقه.
-لقد أثر التكيف مع هذه الأدوات على طريقة عملي، ولكنه حفزني أيضًا على استكشاف المزيد خارج تلك الحدود.">
-            
-    
-         <p>
-          I&apos;m always excited about learning new techniques and expanding my skills.
-          <br />
-           Every project I&apos;ve worked on, whether alone or with others, has taught me something valuable.
-           <br />
-            Sometimes, I&apos;ve used these lessons directly in my work. Other times, the technologies used in the workplace limited what I could apply.
-            <br />
-           Adapting to these tools influenced how I worked, but it also motivated me to explore more beyond those limits.
-            </p>
+      <Loader />
+      <div className="container">
+        <div className="page__container project">
+          <h1
+            className="mainpagetitle"
+            data-aos="fade-in"
+            data-aos-duration="500">
+            {projectMeta.title}
+          </h1>
+          <div
+            className="project__description"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title={projectMeta.descriptionTooltip}>
+            {projectMeta.description.map((line, index) => (
+              <p key={`project-desc-${index}`}>
+                {line}
+                <br />
+              </p>
+            ))}
           </div>
 
-         <div className="row">
-           <div className="col-12">
-             <div className="caseStudy m-1 mx-0" data-aos="fade-right" data-aos-duration="2000">
-                <div className="caseStudy__img">
-               
-                {/* <img src="../images/casstudymain.png" alt="my image" className="img-fluid" /> */}
-        
-                <Image
-                  alt="Case study cover"
-                  src={casstudymain}
-                  sizes="(min-width: 992px) 50vw, 100vw"
-                  quality={75}
-                  style={{ height: 'auto', width: '100%' }}
-                />
-
-                </div>             
-             <div className="caseStudy__description">
-
-               <div className="title">
-               Student Internal Portal
-                 </div>
-                <p  data-bs-toggle="tooltip" data-bs-placement="top" title='أصبحت البوابات الإلكترونية ضرورة ملحة في مجال التعليم والتعليم العالي: ومن هذا المنطلق اقترحت جامعة المجمعة إنشاء بوابة داخلية للطلاب تتميز بما يلي: الدخول الموحد تقديم أكثر من 15 خدمة الاطلاع على الأخبار والفعاليات التي أعلن عنها الوصول السريع للجامعة: تقديم الطلبات عبر أنظمة الجامعة المختلفة وجمعها في مكان واحد. مراجعة دروسهم وجداول الامتحانات.'>
-                    Portals have become an urgent necessity in the field of education and higher education:
-                      From this standpoint, <span>MAJMAAH UNIVERSITY</span> suggested establishing an internal portal for students, characterized by the following:
-                  
-                      Single sign-on
-                     
-                      Providing more than 15 services
-                  
-                      View the news and events announced by the university
-                     
-                      Quick access: Submit applications across the various systems of the university and collect them in one place.
-                 
-                      Review their classes and exam schedules.
-               
-
-                  </p>
-
-                   <Link href="./CaseStudy" className="btn  btn-warning" aria-label="Read the full case study for the student internal portal">
-                                         Case Study
-
-                   <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="external-link-alt" className="svg-inline--fa fa-external-link-alt fa-w-16 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg>
-                    </Link>
-
-             </div>
-             
-             
-             </div>
-           </div>
-
-         </div>
-
-         <div className="section__title mt-3 mb-3">
-           <div className="section__title--maintitle" data-aos="fade-right" data-aos-duration="1000">More Projects</div>
-         </div>
-      <div className="row">
-
-      { Projectslist}
-      </div>
           <div className="row">
-          <div className=" mr-auto my-4 ">    
-            <a href="https://www.linkedin.com/in/omarmokhtar22/" className="btn section__title--btn d-inline-block more_btn_project"  data-aos="fade-left" data-aos-duration="1000" aria-label="Visit Omar Mokhtar LinkedIn profile for more projects">Find more @ linkedin</a>
+            <div className="col-12">
+              <div
+                className="caseStudy m-1 mx-0"
+                data-aos="fade-right"
+                data-aos-duration="2000">
+                <div className="caseStudy__img">
+                  <Image
+                    alt={projectMeta.caseStudy.coverAlt}
+                    src={casstudymain}
+                    sizes="(min-width: 992px) 50vw, 100vw"
+                    quality={75}
+                    style={{ height: "auto", width: "100%" }}
+                  />
+                </div>
+                <div className="caseStudy__description">
+                  <div className="title">{projectMeta.caseStudy.title}</div>
+                  <p
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title={projectMeta.caseStudy.tooltip}>
+                    {projectMeta.caseStudy.intro}
+                  </p>
+                  <ul className="blog-list">
+                    {projectMeta.caseStudy.features.map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
+                  </ul>
+                  <p>{projectMeta.caseStudy.closing}</p>
+
+                  <Link
+                    href="./CaseStudy"
+                    className="btn btn-warning"
+                    aria-label={projectMeta.caseStudy.buttonAria}>
+                    {projectMeta.caseStudy.button}{" "}
+
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="external-link-alt"
+                      className="svg-inline--fa fa-external-link-alt fa-w-16 "
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512">
+                      <path
+                        fill="currentColor"
+                        d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path>
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <div className="section__title mt-3 mb-3">
+            <div
+              className="section__title--maintitle"
+              data-aos="fade-right"
+              data-aos-duration="1000">
+              {projectMeta.moreProjectsTitle}
+            </div>
           </div>
-
-      
-
-           </div>
-
-    </div>
+          <div className="row">{Projectslist}</div>
+          <div className="row">
+            <div className="mr-auto my-4 ">
+              <a
+                href="https://www.linkedin.com/in/omarmokhtar22/"
+                className="btn section__title--btn d-inline-block more_btn_project"
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                aria-label={projectMeta.linkedInButton.aria}>
+                {projectMeta.linkedInButton.text}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

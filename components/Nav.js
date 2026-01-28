@@ -1,99 +1,95 @@
-import Link from "next/link"
-import { useRouter } from 'next/router'
-import Image from 'next/image'
-import mylogo from '../public/images/mylogo.png'
+import Link from "next/link";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import mylogo from "../public/images/mylogo.png";
+import { useTranslation } from "../src/i18n/useTranslation";
 
-const Nav = () => {
-    const router = useRouter()
-    return(
-        <div className="navBg">
-        <div className="container">
-                <nav className="navbar navbar navbar-expand-lg  p-3 d-flex justify-content-between">
-              <div className="d-flex align-items-center brand" data-aos="fade-right" data-aos-duration="2000" >
-                  <Link href="/"  passHref  className="navbar-brand"  >
-                  <Image
-                    alt="Omar Mokhtar personal logo"
-                    src={mylogo}
-                    width={48}
-                    height={48}
-                    sizes="(min-width: 992px) 48px, 40px"
-                    quality={70}
-                    style={{ width: '100%', height: 'auto', maxWidth: 48 }}
-                    loading="eager"
-                  />
-                 </Link>
+const navLinks = [
+  { key: "home", href: "/", delay: 200 },
+  { key: "about", href: "/About", delay: 300 },
+  { key: "work", href: "/Projects", delay: 400 },
+  { key: "blog", href: "/Blog", delay: 500 },
+  { key: "contact", href: "/ContactForm", delay: 600 },
+];
 
-                <div className="navtitle">UI/UX Designer</div></div>
-                {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-                </button> */}
+const Nav = ({ onToggleLanguage = () => {} }) => {
+  const router = useRouter();
+  const { language, t } = useTranslation();
+  const buttonLabel =
+    t("nav.languageToggleButton") ||
+    (language === "en" ? "العربية" : "English");
 
-                <div className="navbg-container" >
-                <ul className="navbar-nav ">
-                <li className="nav-item">
-              <Link href="/" passHref  className={
-                    "nav-link " + `${router.pathname === "/" ? "active" : ""}`
-                  }
-                  aria-current="page"  data-aos="fade-down" data-aos-duration="1000"   data-aos-delay="200">
-                
-                  Home
-         
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/About" passHref className={
-                    "nav-link " +
-                    `${router.pathname === "/About" ? "active" : ""}`
-                  } data-aos="fade-down" data-aos-duration="1000"   data-aos-delay="300">
-               
-               About
-           
-              </Link>
-            </li>
+  return (
+    <div className="navBg">
+      <div className="container">
+        <nav
+          className={`navbar navbar-expand-lg p-3 d-flex justify-content-between ${
+            language === "ar" ? "rtl-navbar" : ""
+          }`}
+          dir={language === "ar" ? "rtl" : "ltr"}>
+          <div
+            className="d-flex align-items-center brand"
+            data-aos="fade-right"
+            data-aos-duration="2000">
+            <Link href="/" passHref className="navbar-brand">
+              <Image
+                alt={t("nav.logoAlt")}
+                src={mylogo}
+                width={48}
+                height={48}
+                sizes="(min-width: 992px) 48px, 40px"
+                quality={70}
+                style={{ width: "100%", height: "auto", maxWidth: 48 }}
+                loading="eager"
+              />
+            </Link>
+            <div className="navtitle">{t("nav.brand")}</div>
+          </div>
 
-            <li className="nav-item">
-              <Link href="/Projects" passHref  className={
-                    "nav-link " +
-                    `${router.pathname === "/Projects" ? "active" : ""}`
-                  }  data-aos="fade-down" data-aos-duration="1000"   data-aos-delay="400">
-                
-                Work
-              
-              </Link>
-            </li>
-
-
-            <li className="nav-item">
-              <Link href="/Blog" passHref className={
-                    "nav-link " +
-                    `${router.pathname === "/Blog" ? "active" : ""}`
-                  }  data-aos="fade-down" data-aos-duration="1000"   data-aos-delay="500">
-             
-                  Blog
-          
-              </Link>
-            </li>
-
-            <li className="nav-item">
-              <Link href="/ContactForm" passHref className={
-                    "nav-link " +
-                    `${router.pathname === "/ContactForm" ? "active" : ""}`
-                  }  data-aos="fade-down" data-aos-duration="1000"   data-aos-delay="600">
-             
-                  Contact
-          
-              </Link>
-            </li>
-
-
-
-
-                            </ul>
-                    </div>
-                </nav>
-        </div>
-        </div>
-
-    )
-}
-export default Nav
+          <div
+            className={`navbg-container ${language === "ar" ? "rtl-container" : ""}`}>
+            <ul className="navbar-nav">
+              {navLinks.map((link) => (
+                <li className="nav-item" key={link.key}>
+                  <Link
+                    href={link.href}
+                    passHref
+                    className={`nav-link ${router.pathname === link.href ? "active" : ""}`}
+                    aria-current={
+                      router.pathname === link.href ? "page" : undefined
+                    }
+                    data-aos="fade-down"
+                    data-aos-duration="1000"
+                    data-aos-delay={link.delay}>
+                    {t(`nav.links.${link.key}`)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <button
+              type="button"
+              className="btn lang-btn"
+              onClick={onToggleLanguage}
+              aria-label={t("nav.languageToggleAria")}>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                focusable="false">
+                <path
+                  d="M12.0576 1.75C14.2479 1.74999 15.9683 1.75012 17.3115 1.93066C18.6882 2.11575 19.7805 2.50313 20.6387 3.36133C21.4969 4.21953 21.8842 5.31182 22.0693 6.68848C22.2499 8.03174 22.25 9.75212 22.25 11.9424V12.0576C22.25 14.2479 22.2499 15.9683 22.0693 17.3115C21.8842 18.6882 21.4969 19.7805 20.6387 20.6387C19.7805 21.4969 18.6882 21.8842 17.3115 22.0693C15.9683 22.2499 14.2479 22.25 12.0576 22.25H11.9424C9.75212 22.25 8.03174 22.2499 6.68848 22.0693C5.31182 21.8842 4.21953 21.4969 3.36133 20.6387C2.50313 19.7805 2.11575 18.6882 1.93066 17.3115C1.75012 15.9683 1.74999 14.2479 1.75 12.0576V11.9424C1.74999 9.75213 1.75012 8.03174 1.93066 6.68848C2.11575 5.31182 2.50313 4.21953 3.36133 3.36133C4.21953 2.50313 5.31182 2.11575 6.68848 1.93066C8.03174 1.75012 9.75213 1.74999 11.9424 1.75H12.0576ZM12 3.25C9.73963 3.25 8.1196 3.25137 6.8877 3.41699C5.67747 3.57972 4.9549 3.88885 4.42188 4.42188C3.88885 4.9549 3.57972 5.67747 3.41699 6.8877C3.25137 8.1196 3.25 9.73963 3.25 12C3.25 14.2604 3.25137 15.8804 3.41699 17.1123C3.57972 18.3225 3.88885 19.0451 4.42188 19.5781C4.9549 20.1111 5.67747 20.4203 6.8877 20.583C8.1196 20.7486 9.73963 20.75 12 20.75C14.2604 20.75 15.8804 20.7486 17.1123 20.583C18.3225 20.4203 19.0451 20.1111 19.5781 19.5781C20.1111 19.0451 20.4203 18.3225 20.583 17.1123C20.7486 15.8804 20.75 14.2604 20.75 12C20.75 9.73963 20.7486 8.1196 20.583 6.8877C20.4203 5.67747 20.1111 4.9549 19.5781 4.42188C19.0451 3.88885 18.3225 3.57972 17.1123 3.41699C15.8804 3.25137 14.2604 3.25 12 3.25ZM11.5 6.25C11.9142 6.25 12.25 6.58579 12.25 7V7.62891H17C17.4141 7.62891 17.7498 7.96488 17.75 8.37891C17.75 8.79312 17.4142 9.12891 17 9.12891H15.0537C14.5145 10.7297 13.6125 12.2286 12.5986 13.5645L14.0762 15.1006C14.3633 15.3991 14.3541 15.874 14.0557 16.1611C13.7571 16.4483 13.2823 16.4391 12.9951 16.1406L11.6475 14.7393C10.7276 15.8079 9.76355 16.758 8.90039 17.5518C8.59552 17.8321 8.1212 17.8126 7.84082 17.5078C7.56057 17.203 7.58024 16.7287 7.88477 16.4482C8.76141 15.6421 9.72982 14.6832 10.6357 13.6143C10.4072 13.3273 10.1707 13.0162 9.9541 12.7158C9.61732 12.2488 9.28875 11.7553 9.12695 11.4082C8.95198 11.0328 9.11484 10.5861 9.49023 10.4111C9.86567 10.2362 10.3123 10.399 10.4873 10.7744C10.5828 10.9791 10.8331 11.3704 11.1709 11.8389C11.3064 12.0268 11.4494 12.2193 11.5928 12.4053C12.355 11.368 13.0108 10.2651 13.457 9.12891H7C6.58579 9.12891 6.25 8.79312 6.25 8.37891C6.25022 7.96488 6.58592 7.62891 7 7.62891H10.75V7C10.75 6.58579 11.0858 6.25 11.5 6.25Z"
+                  fill="#ffffff"
+                />
+              </svg>
+              {buttonLabel}
+            </button>
+          </div>
+        </nav>
+      </div>
+    </div>
+  );
+};
+export default Nav;

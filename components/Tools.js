@@ -3,16 +3,20 @@ import html from '../public/images/html.png'
 import css from '../public/images/css.png'
 import js from '../public/images/js.png'
 import nextjs from '../public/images/nextjs.png'
+import { useTranslation } from '../src/i18n/useTranslation'
 
 
 
 
 
 const Tools = () => {
+  const { t } = useTranslation()
     return(
 
         <div className="section__title d-flex flex-column mb-5 aos-animate" data-aos="fade-left" data-aos-duration="2000">
-               <div className="section__title--maintitle d-flex justify-content-start  mt-5 w-100">Tools</div>
+               <div className="section__title--maintitle d-flex justify-content-start  mt-5 w-100">
+                 {t('tools.title')}
+               </div>
           <div className='Tools'>
 
           <div className="skillscateg">
