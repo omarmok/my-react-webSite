@@ -261,6 +261,11 @@ export const translations = {
       logoAlt: "Omar Mokhtar personal logo",
       languageToggleButton: "العربية",
       languageToggleAria: "Switch language to Arabic",
+      mobileMenu: {
+        label: "Main navigation",
+        open: "Open menu",
+        close: "Close menu",
+      },
     },
     footer: {
       madeWithLove: "Made with ❤️ from scratch by © OMAR MOKHTAR",
@@ -652,6 +657,11 @@ export const translations = {
       logoAlt: "شعار عمر مختار الشخصي",
       languageToggleButton: "English",
       languageToggleAria: "التبديل إلى اللغة الإنجليزية",
+      mobileMenu: {
+        label: "القائمة الرئيسية",
+        open: "افتح القائمة",
+        close: "أغلق القائمة",
+      },
     },
     footer: {
       madeWithLove: "صُنع بحب من الصفر بواسطة © عمر مختار",
