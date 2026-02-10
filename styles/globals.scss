@@ -54,7 +54,10 @@ html[lang="ar"] body,
 html[dir="rtl"] body,
 html[lang="ar"] *,
 html[dir="rtl"] * {
-  font-family: var(--font-ibm-plex-sans-arabic, var(--fallback-arabic-font)) !important;
+  font-family: var(
+    --font-ibm-plex-sans-arabic,
+    var(--fallback-arabic-font)
+  ) !important;
 }
 
 .nav-shell {
@@ -74,7 +77,9 @@ html[dir="rtl"] * {
   border-bottom: 1px solid var(--nav-border-color);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  transition: background-color 0.25s ease, border-color 0.25s ease,
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
     box-shadow 0.25s ease;
   isolation: isolate;
 }
@@ -172,7 +177,9 @@ body.mobile-menu-open main {
   bottom: 0;
   right: 0;
   transform: translateX(105%);
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
   opacity: 0;
   pointer-events: none;
   z-index: var(--mobile-panel-z);
@@ -215,10 +222,6 @@ body.mobile-menu-open main {
   gap: 16px;
   flex-wrap: wrap;
 }
-.rtl-navbar {
-  flex-direction: row-reverse !important;
-}
-
 .rtl-navbar .brand {
   order: 2;
 }
@@ -237,16 +240,20 @@ body.mobile-menu-open main {
 }
 
 .rtl-container {
-  flex-direction: row-reverse;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .rtl-container .navbar-nav {
   flex-direction: row-reverse;
+  order: 1;
 }
 
 .rtl-container .nav-link {
   text-align: right;
+}
+.rtl-container .lang-btn {
+  order: 2;
 }
 .navbar-nav {
   display: flex;
@@ -269,7 +276,10 @@ body.mobile-menu-open main {
   padding: 12px 12px !important;
   min-height: 44px;
   border-radius: 8px;
-  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
   &:hover {
     color: $mainColor;
     background-color: rgba(107, 71, 245, 0.08);
@@ -323,12 +333,12 @@ html.rtl body {
 
 html[dir="rtl"] .navbar,
 html.rtl .navbar {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 html[dir="rtl"] .navbg-container,
 html.rtl .navbg-container {
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 
 html[dir="rtl"] .navbar-nav,
@@ -494,7 +504,9 @@ main {
         align-items: center;
         justify-content: center;
         min-height: 44px;
-        transition: background-color 0.2s ease, transform 0.15s ease;
+        transition:
+          background-color 0.2s ease,
+          transform 0.15s ease;
         &:hover {
           background: $mainColor;
           border-radius: 6px;
@@ -679,7 +691,9 @@ main {
     justify-content: center;
     min-height: 92px;
     border-radius: 12px;
-    transition: transform 0.15s ease, box-shadow 0.2s ease;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.2s ease;
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0px 14px 28px rgba(15, 23, 42, 0.08);
@@ -962,7 +976,9 @@ p {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
-    transition: transform 0.25s ease, opacity 0.25s ease;
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
   }
   .navbar__mobile.is-open {
     transform: translateX(0);
@@ -1185,7 +1201,9 @@ p {
   border-radius: 8px;
   z-index: 10000;
   transform: translateY(-150%);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   text-decoration: none;
 }
 

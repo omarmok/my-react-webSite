@@ -11,8 +11,8 @@ const sourceExperience = Array.isArray(siteData?.Experience)
 const sourceCertifications = Array.isArray(siteData?.certifications)
   ? siteData.certifications
   : Array.isArray(siteData?.Certifications)
-  ? siteData.Certifications
-  : [];
+    ? siteData.Certifications
+    : [];
 
 const projectTranslations = {
   en: {
@@ -59,7 +59,7 @@ const projectTranslations = {
 const experienceTranslations = {
   en: {
     1: {
-      date: "Sep 2025 - Present",
+      date: "July 2025 - Present",
       jobtitle: "UX & DesignOps Lead",
       companyname: "Confidential Government",
       role: `As a UX & DesignOps Lead, I drive and optimize the end-to-end user experience across enterprise platforms and mobile applications by defining UX processes, standards, and design governance. I lead the creation and evolution of a scalable Design System, ensuring consistency, accessibility, and alignment across all digital products.
@@ -69,10 +69,10 @@ I work closely with business analysts, product owners, developers, and QA teams 
 Additionally, I collaborate with the development team in rebuilding and optimizing platform interfaces using HTML, CSS, and JavaScript, ensuring technical feasibility, design fidelity, and high-quality production delivery.`,
     },
     2: {
-      date: "Jan 2025 - Sep 2025",
-      jobtitle: "UX Design Lead",
+      date: "Jan 2025 - July 2025",
+      jobtitle: "UI/UX Design ",
       companyname: "Confidential Government",
-      role: `As a UI/UX Design Lead, I worked to improve the user experience process for both the platforms and mobile app. I contributed to building the Design System for these platforms and worked closely with business analysts, developers, and QA testers to ensure the product was developed according to UX and UI specifications.
+      role: `As a UI/UX Design , I worked to improve the user experience process for both the platforms and mobile app. I contributed to building the Design System for these platforms and worked closely with business analysts, developers, and QA testers to ensure the product was developed according to UX and UI specifications.
 
 Additionally, I collaborated with the development team in rebuilding key pages using HTML, CSS, and JavaScript to ensure design fidelity and implementation quality.`,
     },
@@ -111,7 +111,7 @@ Collaborated with the development team to rebuild pages using HTML, Vue.js, and 
   },
   ar: {
     1: {
-      date: "سبتمبر 2025 – الآن",
+      date: "يوليو 2025 – الآن",
       jobtitle: "قائد تجربة المستخدم وعمليات التصميم",
       companyname: "جهة حكومية",
       role: `بصفتي قائد تجربة المستخدم وعمليات التصميم، أقود تحسين تجربة المستخدم الشاملة عبر المنصات المؤسسية وتطبيقات الجوال من خلال وضع عمليات، معايير، وحوكمة UX. أقود إنشاء وتطوير نظام تصميم قابل للتوسع يضمن الاتساق وقابلية الوصول والتوافق عبر جميع المنتجات الرقمية.
@@ -121,10 +121,10 @@ Collaborated with the development team to rebuild pages using HTML, Vue.js, and 
 كما أتعاون مع فريق التطوير في إعادة بناء وتحسين واجهات المنصة باستخدام HTML وCSS وJavaScript لضمان الجدوى التقنية، ودقة التصميم، وجودة التسليم.`,
     },
     2: {
-      date: "يناير 2025 – سبتمبر 2025",
-      jobtitle: "قائد تصميم تجربة المستخدم",
+      date: "يناير 2023 – يوليو 2025",
+      jobtitle: "مصمم واجهات وتجربة  المستخدم",
       companyname: "جهة حكومية",
-      role: `بصفتي قائد تصميم تجربة المستخدم، عملت على تحسين عملية UX للمنصة والتطبيق. شاركت في بناء نظام التصميم وعملت مع محللي الأعمال والمطورين وضمان الجودة لضمان تطوير المنتج وفق مواصفات تجربة وواجهة المستخدم.
+      role: `بصفتي    مصمم واجهات وتجربة مستخدم عملت على تحسين عملية UX للمنصة والتطبيق. شاركت في بناء نظام التصميم وعملت مع محللي الأعمال والمطورين وضمان الجودة لضمان تطوير المنتج وفق مواصفات تجربة وواجهة المستخدم.
 
 كما تعاونت مع فريق التطوير في إعادة بناء الصفحات الأساسية باستخدام HTML وCSS وJavaScript لضمان تطابق التصميم وجودة التنفيذ.`,
     },
@@ -201,7 +201,10 @@ const certificationTranslations = {
       info: "شهادة جوجل المهنية في تصميم تجربة المستخدم",
       Issued: "صادرة في أغسطس 2022 · بدون تاريخ انتهاء",
     },
-    3: { info: "شهادة PMI-ACP", Issued: "صادرة في سبتمبر 2022 · بدون تاريخ انتهاء" },
+    3: {
+      info: "شهادة PMI-ACP",
+      Issued: "صادرة في سبتمبر 2022 · بدون تاريخ انتهاء",
+    },
     4: {
       info: "إنشاء نظام تصميم باستخدام Adobe XD",
       Issued: "يناير 2021",
@@ -234,7 +237,7 @@ const localizedData = {
     experience: localizeCollection(sourceExperience, experienceTranslations.en),
     certifications: localizeCollection(
       sourceCertifications,
-      certificationTranslations.en
+      certificationTranslations.en,
     ),
   },
   ar: {
@@ -242,7 +245,7 @@ const localizedData = {
     experience: localizeCollection(sourceExperience, experienceTranslations.ar),
     certifications: localizeCollection(
       sourceCertifications,
-      certificationTranslations.ar
+      certificationTranslations.ar,
     ),
   },
 };
