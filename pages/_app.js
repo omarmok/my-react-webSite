@@ -4,11 +4,11 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
-import Script from 'next/script';
 import '../styles/globals.scss';
 import Layouts from '../components/Layouts';
 import { TranslationProvider, useTranslation } from '../src/i18n/useTranslation';
 import { ibmPlexSansArabic } from "../src/fonts";
+import { initHotjar } from "../lib/analytics/hotjar";
 config.autoAddCss = false;
 
 const WhatsAppLink = () => {
@@ -62,9 +62,12 @@ function MyApp({ Component, pageProps }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [language, setLanguage] = useState('en');
-  const enableHotjar = true;
   const hotjarId = 1978942;
   const hotjarVersion = 6;
+
+  useEffect(() => {
+    initHotjar({ id: hotjarId, version: hotjarVersion });
+  }, []);
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -196,15 +199,6 @@ function MyApp({ Component, pageProps }) {
         fontClass={`${ibmPlexSansArabic.className} ${ibmPlexSansArabic.variable} font-ibm-plex-sans-arabic`}
         onToggleLanguage={toggleLanguage}
       >
-        {enableHotjar && (
-          <Script
-            id="hotjar-init"
-            strategy="lazyOnload"
-            dangerouslySetInnerHTML={{
-              __html: `(function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};h._hjSettings={hjid:${hotjarId},hjsv:${hotjarVersion}};a=o.getElementsByTagName('head')[0];r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r);})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
-            }}
-          />
-        )}
         <WhatsAppLink />
 
         <AudioToggleButton isPlaying={isPlaying} onClick={playAudio} />

@@ -115,11 +115,19 @@ const Blog = () => {
 
                 {post.conclusion && (
                   <ul className="conclusion-list">
-                    {post.conclusion.map((entry) => (
-                      <li key={entry.term} className="mb-3">
-                        <strong>{entry.term}</strong> {entry.detail}
-                      </li>
-                    ))}
+                    {post.conclusion.map((entry, index) => {
+                      const keyBase =
+                        typeof entry === "string" ? entry : entry?.term;
+                      const key = keyBase
+                        ? `${post.id}-conclusion-${keyBase}`
+                        : `${post.id}-conclusion-${index}`;
+
+                      return (
+                        <li key={key} className="mb-3">
+                          <strong>{entry.term}</strong> {entry.detail}
+                        </li>
+                      );
+                    })}
                   </ul>
                 )}
 

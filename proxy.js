@@ -8,6 +8,9 @@ const rateLimitStore = globalThis.__nextRateLimitStore || new Map();
 globalThis.__nextRateLimitStore = rateLimitStore;
 
 const getClientIp = (request) => {
+  if (typeof request.ip === 'string' && request.ip) {
+    return request.ip;
+  }
   const forwarded = request.headers.get('x-forwarded-for');
   if (forwarded) {
     return forwarded.split(',')[0].trim();
@@ -15,6 +18,10 @@ const getClientIp = (request) => {
   const cf = request.headers.get('cf-connecting-ip');
   if (cf) {
     return cf;
+  }
+  const realIp = request.headers.get('x-real-ip');
+  if (realIp) {
+    return realIp;
   }
   return 'unknown';
 };
@@ -41,6 +48,9 @@ export function proxy(request) {
   }
 
   const ip = getClientIp(request);
+  if (ip === 'unknown') {
+    return NextResponse.next();
+  }
   const now = Date.now();
   const entry = rateLimitStore.get(ip) ?? { count: 0, start: now };
 
@@ -64,5 +74,5 @@ export function proxy(request) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|favicon.ico).*)'],
+  matcher: ['/_next/image'],
 };
