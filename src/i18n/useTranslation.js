@@ -2,6 +2,7 @@ import { createContext, useContext, useMemo } from 'react';
 import { translations } from './translations';
 
 const defaultLanguage = 'en';
+const experienceStartYear = 2008;
 const TranslationContext = createContext({
   language: defaultLanguage,
   dictionary: translations[defaultLanguage],
@@ -26,24 +27,54 @@ const interpolate = (value, vars) => {
   if (typeof value !== 'string' || !vars) {
     return value;
   }
-  return value.replace(/{{\s*(\w+)\s*}}/g, (_, key) =>
-    Object.prototype.hasOwnProperty.call(vars, key) ? vars[key] : _
+  const replaceVar = (match, key) =>
+    Object.prototype.hasOwnProperty.call(vars, key) ? String(vars[key]) : match;
+
+  return value
+    .replace(/{{\s*(\w+)\s*}}/g, replaceVar)
+    .replace(/{(?!{)\s*(\w+)\s*}(?!})/g, replaceVar);
+};
+
+const getYearsFromStartYear = (startYear, now = new Date()) => {
+  const currentYear = now.getUTCFullYear();
+  return Math.max(0, currentYear - startYear);
+};
+
+const interpolateTree = (value, vars) => {
+  if (typeof value === 'string') {
+    return interpolate(value, vars);
+  }
+  if (Array.isArray(value)) {
+    return value.map((item) => interpolateTree(item, vars));
+  }
+  if (!value || typeof value !== 'object') {
+    return value;
+  }
+  return Object.fromEntries(
+    Object.entries(value).map(([key, child]) => [key, interpolateTree(child, vars)])
   );
 };
 
 export const TranslationProvider = ({ language = defaultLanguage, children }) => {
-  const dictionary = translations[language] || translations[defaultLanguage];
+  const baseDictionary = translations[language] || translations[defaultLanguage];
+  const years = getYearsFromStartYear(experienceStartYear);
+  const globalVars = useMemo(() => ({ years }), [years]);
+  const dictionary = useMemo(
+    () => interpolateTree(baseDictionary, globalVars),
+    [baseDictionary, globalVars]
+  );
 
   const t = useMemo(
     () => (path, vars) => {
+      const mergedVars = vars ? { ...globalVars, ...vars } : globalVars;
       const currentValue = getNestedValue(dictionary, path);
       if (typeof currentValue === 'string') {
-        return interpolate(currentValue, vars);
+        return interpolate(currentValue, mergedVars);
       }
 
       const fallbackValue = getNestedValue(translations[defaultLanguage], path);
       if (typeof fallbackValue === 'string') {
-        return interpolate(fallbackValue, vars);
+        return interpolate(fallbackValue, mergedVars);
       }
 
       if (currentValue !== undefined) {
@@ -52,7 +83,7 @@ export const TranslationProvider = ({ language = defaultLanguage, children }) =>
 
       return path;
     },
-    [dictionary]
+    [dictionary, globalVars]
   );
 
   return (

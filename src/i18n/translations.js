@@ -294,9 +294,9 @@ export const translations = {
       },
       paragraphs: [
         {
-          text: "With over 17 years of experience as a UI/UX designer, I specialize in digital experiences, mobile interfaces, and dynamic web dashboards.",
+          text: "With over {years} years of experience as a UI/UX designer, I specialize in digital experiences, mobile interfaces, and dynamic web dashboards.",
           tooltip:
-            "With over 17 years of experience as a UI/UX designer, I specialize in digital experiences, mobile interfaces, and dynamic web dashboards.",
+            "With over {years} years of experience as a UI/UX designer, I specialize in digital experiences, mobile interfaces, and dynamic web dashboards.",
         },
         {
           text: "Throughout my career, I have worked in sectors including renowned organizations, government ministries, and prestigious academic institutions.",
@@ -545,9 +545,9 @@ export const translations = {
     },
     meta: {
       "/": {
-        title: "Omar Mokhtar - UX Design Lead | 17+ Years Experience",
+        title: "Omar Mokhtar - UX Design Lead | {years}+ Years Experience",
         description:
-          "Omar Mokhtar is a UX Design Lead with 17+ years of experience in digital experiences, mobile interfaces, and web dashboards. Google Professional UX Certified.",
+          "Omar Mokhtar is a UX Design Lead with over {years} years of experience in digital experiences, mobile interfaces, and web dashboards. Google Professional UX Certified.",
         keywords:
           "UX Designer, UI Designer, User Experience, Mobile Design, Web Dashboards, Saudi Arabia, Government Projects",
         canonical: baseUrl,
@@ -560,7 +560,7 @@ export const translations = {
           name: "عمر مختار",
           jobTitle: "UX Design Lead",
           description:
-            "UX Design Lead with 17+ years of experience in digital experiences, mobile interfaces, and web dashboards",
+            "UX Design Lead with over {years} years of experience in digital experiences, mobile interfaces, and web dashboards",
           url: baseUrl,
           image: `${baseUrl}/images/omar.png`,
           sameAs: [
@@ -581,7 +581,7 @@ export const translations = {
       "/About": {
         title: "Experience & Career - Omar Mokhtar | UX Design Lead",
         description:
-          "Professional experience and career journey of Omar Mokhtar, UX Design Lead. View certifications, skills, and 17+ years of design expertise.",
+          "Professional experience and career journey of Omar Mokhtar, UX Design Lead. View certifications, skills, and over {years} years of design expertise.",
         keywords:
           "UX Designer Experience, Career Journey, Design Certifications, UI/UX Skills, Professional Portfolio",
         canonical: `${baseUrl}/About`,
@@ -637,7 +637,7 @@ export const translations = {
       default: {
         title: "Omar Mokhtar - UX Design Lead",
         description:
-          "UI/UX Designer with 17+ years of experience in digital experiences and mobile interfaces",
+          "UI/UX Designer with over {years} years of experience in digital experiences and mobile interfaces",
         keywords: "UX Designer, UI Designer, User Experience",
         canonical: baseUrl,
         ogImage: `${baseUrl}/images/omar.png`,
@@ -690,9 +690,9 @@ export const translations = {
       },
       paragraphs: [
         {
-          text: "أمتلك أكثر من 17 عامًا من الخبرة كمصمم واجهات وتجربة مستخدم، أتخصص في التجارب الرقمية والواجهات المحمولة ولوحات المعلومات الديناميكية.",
+          text: "أمتلك أكثر من {years} سنة من الخبرة كمصمم واجهات وتجربة مستخدم، أتخصص في التجارب الرقمية والواجهات المحمولة ولوحات المعلومات الديناميكية.",
           tooltip:
-            "أمتلك أكثر من 17 عامًا من الخبرة كمصمم واجهات وتجربة مستخدم، أتخصص في التجارب الرقمية والواجهات المحمولة ولوحات المعلومات الديناميكية.",
+            "أمتلك أكثر من {years} سنة من الخبرة كمصمم واجهات وتجربة مستخدم، أتخصص في التجارب الرقمية والواجهات المحمولة ولوحات المعلومات الديناميكية.",
         },
         {
           text: "طوال مسيرتي المهنية، عملت مع مؤسسات مشهورة ووزارات حكومية ومؤسسات أكاديمية مرموقة.",
@@ -940,9 +940,9 @@ export const translations = {
     },
     meta: {
       "/": {
-        title: "عمر مختار - قائد تصميم تجربة المستخدم | خبرة أكثر من 17 عامًا",
+        title: "عمر مختار - قائد تصميم تجربة المستخدم | خبرة أكثر من {years} سنة",
         description:
-          "عمر مختار قائد تصميم تجربة المستخدم بخبرة تزيد عن 17 عامًا في التجارب الرقمية والواجهات المحمولة ولوحات المعلومات. معتمد من جوجل في تصميم تجربة المستخدم.",
+          "عمر مختار قائد تصميم تجربة المستخدم بخبرة تزيد عن {years} سنة في التجارب الرقمية والواجهات المحمولة ولوحات المعلومات. معتمد من جوجل في تصميم تجربة المستخدم.",
         keywords:
           "مصمم تجربة المستخدم, مصمم واجهات المستخدم, تجربة المستخدم, تصميم المحمول, لوحات المعلومات, السعودية, مشاريع حكومية",
         canonical: baseUrl,
@@ -955,7 +955,7 @@ export const translations = {
           name: "عمر مختار",
           jobTitle: "UX Design Lead",
           description:
-            "قائد تصميم تجربة المستخدم بخبرة أكثر من 17 عامًا في التجارب الرقمية والواجهات المحمولة ولوحات المعلومات",
+            "قائد تصميم تجربة المستخدم بخبرة أكثر من {years} سنة في التجارب الرقمية والواجهات المحمولة ولوحات المعلومات",
           url: baseUrl,
           image: `${baseUrl}/images/omar.png`,
           sameAs: [
@@ -976,7 +976,7 @@ export const translations = {
       "/About": {
         title: "الخبرة والمسار المهني - عمر مختار | قائد تصميم تجربة المستخدم",
         description:
-          "مسار الخبرة المهنية لعمر مختار، قائد تصميم تجربة المستخدم. اكتشف الشهادات والمهارات وتجربة التصميم التي تمتد لأكثر من 17 عامًا.",
+          "مسار الخبرة المهنية لعمر مختار، قائد تصميم تجربة المستخدم. اكتشف الشهادات والمهارات وتجربة التصميم التي تمتد لأكثر من {years} سنة.",
         keywords:
           "خبرة مصمم UX, المسار المهني, شهادات التصميم, مهارات UI/UX, الملف المهني",
         canonical: `${baseUrl}/About`,
@@ -1031,7 +1031,7 @@ export const translations = {
       default: {
         title: "عمر مختار - قائد تصميم تجربة المستخدم",
         description:
-          "مصمم واجهات وتجربة المستخدم بخبرة أكثر من 17 عامًا في التجارب الرقمية والواجهات المحمولة.",
+          "مصمم واجهات وتجربة المستخدم بخبرة أكثر من {years} سنة في التجارب الرقمية والواجهات المحمولة.",
         keywords: "مصمم UX, مصمم واجهات المستخدم, تجربة المستخدم",
         canonical: baseUrl,
         ogImage: `${baseUrl}/images/omar.png`,

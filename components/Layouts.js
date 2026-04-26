@@ -29,6 +29,8 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
     structuredData,
   } = pageMeta;
 
+  const jsonLd = (data) => JSON.stringify(data).replace(/</g, "\\u003c");
+
   return (
     <div className={`wrapper ${fontClass}`}>
       <a href="#main-content" className="skip-link">Skip to main content</a>
@@ -85,7 +87,7 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
         {structuredData && (
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+            dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }}
           />
         )}
 
@@ -93,7 +95,7 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
+            __html: jsonLd({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Omar Mokhtar",
