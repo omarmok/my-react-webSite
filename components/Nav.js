@@ -9,11 +9,11 @@ const SCROLL_THRESHOLD = 48;
 const MOBILE_NAV_ID = "mobileNav";
 
 const navLinks = [
-  { key: "home", href: "/", delay: 200 },
-  { key: "about", href: "/About", delay: 300 },
-  { key: "work", href: "/Projects", delay: 400 },
-  { key: "blog", href: "/Blog", delay: 500 },
-  { key: "contact", href: "/ContactForm", delay: 600 },
+  { key: "home", href: "/" },
+  { key: "about", href: "/About" },
+  { key: "work", href: "/Projects" },
+  { key: "blog", href: "/Blog" },
+  { key: "contact", href: "/ContactForm" },
 ];
 
 const menuIcon = (
@@ -33,7 +33,12 @@ const menuIcon = (
 );
 
 const closeIcon = (
-  <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    focusable="false">
     <path
       d="M18 6L6 18M6 6l12 12"
       stroke="currentColor"
@@ -114,8 +119,7 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
     }
 
     if (isMenuOpen) {
-      const firstFocusable =
-        mobileNavRef.current?.querySelector("a, button");
+      const firstFocusable = mobileNavRef.current?.querySelector("a, button");
       firstFocusable?.focus();
     } else {
       toggleButtonRef.current?.focus();
@@ -202,11 +206,10 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
   );
 
   const navBgClassName = `navBg ${navIsSolid || isMenuOpen ? "navBg--solid" : "navBg--glass"}`;
-  const mobileMenuLabel =
-    t("nav.mobileMenu.label") ?? "Main navigation";
+  const mobileMenuLabel = t("nav.mobileMenu.label") ?? "Main navigation";
   const toggleLabel = isMenuOpen
-    ? t("nav.mobileMenu.close") ?? "Close menu"
-    : t("nav.mobileMenu.open") ?? "Open menu";
+    ? (t("nav.mobileMenu.close") ?? "Close menu")
+    : (t("nav.mobileMenu.open") ?? "Open menu");
 
   const desktopNavLinksSection = (
     <div
