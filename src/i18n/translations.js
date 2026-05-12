@@ -17,7 +17,7 @@ const sourceCertifications = Array.isArray(siteData?.certifications)
 const projectTranslations = {
   en: {
     1: {
-      info: "Human Rights In Saudia Arabia (HRC) -Under Development",
+      info: "Human Rights Commission (HRC) — Saudi Arabia",
       Issued: "Aug 2021 - Present",
     },
     2: {
@@ -32,7 +32,7 @@ const projectTranslations = {
   },
   ar: {
     1: {
-      info: "هيئة حقوق الإنسان في السعودية (HRC) - قيد التطوير",
+      info: "هيئة حقوق الإنسان (HRC) — المملكة العربية السعودية",
       Issued: "أغسطس 2021 – الآن",
     },
     2: {
@@ -62,51 +62,51 @@ const experienceTranslations = {
       date: "July 2025 - Present",
       jobtitle: "UX & DesignOps Lead",
       companyname: "Confidential Government",
-      role: `As a UX & DesignOps Lead, I drive and optimize the end-to-end user experience across enterprise platforms and mobile applications by defining UX processes, standards, and design governance. I lead the creation and evolution of a scalable Design System, ensuring consistency, accessibility, and alignment across all digital products.
+      role: `Lead UX and DesignOps across a large-scale government enterprise platform, setting standards for UX processes, design governance, and system-wide consistency. Responsible for the creation and ongoing evolution of a scalable design system — ensuring accessibility and alignment across all digital products.
 
-I work closely with business analysts, product owners, developers, and QA teams to translate complex requirements into clear, executable design artifacts and specifications. I actively support the delivery lifecycle through design reviews, development handoff, UX quality assurance, and UAT validation to ensure accurate implementation aligned with UX intent.
+Work closely with product owners, business analysts, developers, and QA to translate complex requirements into clear, actionable design specifications. Oversee the full delivery cycle through design reviews, handoff, UX quality assurance, and UAT validation.
 
-Additionally, I collaborate with the development team in rebuilding and optimizing platform interfaces using HTML, CSS, and JavaScript, ensuring technical feasibility, design fidelity, and high-quality production delivery.`,
+Collaborate directly with the development team on front-end implementation using HTML, CSS, and JavaScript — bridging design intent with production-quality delivery.`,
     },
     2: {
       date: "Jan 2025 - July 2025",
-      jobtitle: "UI/UX Design ",
+      jobtitle: "UI/UX Designer",
       companyname: "Confidential Government",
-      role: `As a UI/UX Design , I worked to improve the user experience process for both the platforms and mobile app. I contributed to building the Design System for these platforms and worked closely with business analysts, developers, and QA testers to ensure the product was developed according to UX and UI specifications.
+      role: `Contributed to the UX improvement process for an enterprise platform and companion mobile application. Built core components of the platform's design system and collaborated with business analysts, developers, and QA to ensure accurate implementation of UX and UI specifications.
 
-Additionally, I collaborated with the development team in rebuilding key pages using HTML, CSS, and JavaScript to ensure design fidelity and implementation quality.`,
+Worked alongside the development team on page rebuilds using HTML, CSS, and JavaScript to maintain design fidelity across key interfaces.`,
     },
     3: {
       date: "Feb 2019 - Dec 2022",
       jobtitle: "UI/UX Designer",
       companyname: "National Housing Company (NHC)",
-      role: "UI/UX Designer focused on wireframing, prototyping, and front-end web development (HTML, CSS, JavaScript, Vue.js). Built UI kits and design solutions for web platforms, and collaborated closely with analysts, developers, and QA testers to ensure the product was developed according to UX and UI specifications.",
+      role: "Designed wireframes, prototypes, and UI kits for web platforms serving national housing stakeholders. Delivered front-end implementation in HTML, CSS, JavaScript, and Vue.js. Collaborated with analysts, developers, and QA throughout the delivery lifecycle to ensure specifications were met with accuracy.",
     },
     4: {
       date: "2021 - 2022",
       jobtitle: "UI/UX Designer",
-      companyname: "Human Rights In Saudia Arabia (HRC) Freelancer",
-      role: `Led UX/UI efforts within a team of 4 to deliver the project over 5 months. Responsible for redesigning layouts and improving overall user experience using sketching, wireframing, and prototyping.
+      companyname: "Human Rights Commission (HRC) — Freelance",
+      role: `Led UX and UI efforts within a four-person team to redesign the Human Rights Commission's public platform over five months. Accountable for layout redesign, experience improvement, and prototyping — from early sketches through high-fidelity deliverables.
 
-Collaborated with the development team to rebuild pages using HTML, Vue.js, and JavaScript.`,
+Collaborated with the development team on page rebuilds using HTML, Vue.js, and JavaScript.`,
     },
     5: {
       date: "Mar 2016 - Feb 2019",
       jobtitle: "UI/UX Engineer",
       companyname: "Al-Majma’ah University",
-      role: "UI/UX Designer with front-end web development experience (HTML, CSS, JavaScript) and graphic design for the e-portal unit. Translated student and employee needs into digital solutions, collaborated with analysts, developers, and QA testers, and communicated daily with stakeholders (e.g., deans) on new product ideas and continuous improvement of existing systems.",
+      role: "UI/UX designer and front-end developer for the university's e-portal unit. Translated student and staff needs into digital solutions, collaborated with analysts, developers, and QA throughout the project lifecycle, and maintained regular communication with academic stakeholders on product improvements and new requirements.",
     },
     6: {
       date: "Nov 2013 - Feb 2016",
       jobtitle: "UI Designer",
       companyname: "SURE International Technology - SURE",
-      role: "Interface Designer (HTML, CSS). Worked within the design team to deliver solutions for government agencies and universities, including the National Guard, Shaqra University, and the Food and Drug Authority.",
+      role: "Interface designer delivering digital solutions for government agencies and educational institutions — including the National Guard, Shaqra University, and the Saudi Food and Drug Authority. Worked within a collaborative design team across front-end implementation using HTML and CSS.",
     },
     7: {
       date: "May 2012 - 2013",
       jobtitle: "UI/UX Designer-Developer",
       companyname: "Jazan University",
-      role: "UI/UX Designer with wireframing and front-end web development (HTML, CSS, JavaScript) and graphic design for the e-portal unit. Identified student and employee needs, collaborated with analysts, developers, and QA testers to ensure requirements were met, and communicated with stakeholders on product enhancements and new ideas.",
+      role: "UI/UX designer and front-end developer for the university's e-portal unit. Gathered student and staff requirements, collaborated with analysts, developers, and QA to ensure delivery met specifications, and engaged stakeholders on product enhancements and new feature requests.",
     },
   },
   ar: {
@@ -122,9 +122,9 @@ Collaborated with the development team to rebuild pages using HTML, Vue.js, and 
     },
     2: {
       date: "يناير 2023 – يوليو 2025",
-      jobtitle: "مصمم واجهات وتجربة  المستخدم",
+      jobtitle: "مصمم واجهات وتجربة المستخدم",
       companyname: "جهة حكومية",
-      role: `بصفتي    مصمم واجهات وتجربة مستخدم عملت على تحسين عملية UX للمنصة والتطبيق. شاركت في بناء نظام التصميم وعملت مع محللي الأعمال والمطورين وضمان الجودة لضمان تطوير المنتج وفق مواصفات تجربة وواجهة المستخدم.
+      role: `شاركت في تحسين تجربة المستخدم لمنصة مؤسسية وتطبيق جوال مرافق. ساهمت في بناء مكونات أساسية لنظام التصميم، وتعاونت مع محللي الأعمال والمطورين وضمان الجودة لضمان تطوير المنتج وفق مواصفات تجربة وواجهة المستخدم.
 
 كما تعاونت مع فريق التطوير في إعادة بناء الصفحات الأساسية باستخدام HTML وCSS وJavaScript لضمان تطابق التصميم وجودة التنفيذ.`,
     },
@@ -260,7 +260,7 @@ export const translations = {
         blog: "Blog",
         contact: "Contact",
       },
-      brand: "UI/UX Designer",
+      brand: "UX Design Lead",
       logoAlt: "Omar Mokhtar personal logo",
       languageToggleButton: "العربية",
       languageToggleAria: "Switch language to Arabic",
@@ -271,7 +271,7 @@ export const translations = {
       },
     },
     footer: {
-      madeWithLove: "Made with ❤️ from scratch by © OMAR MOKHTAR",
+      madeWithLove: "© Omar Mokhtar — Designed and built from scratch",
       ariaLabel: "Visit Omar Mokhtar personal website",
     },
     loader: {
@@ -286,7 +286,7 @@ export const translations = {
     },
     home: {
       hero: {
-        role: "UX & DesignOps Lead @ Confidential Government!",
+        role: "UX & DesignOps Lead — Confidential Government",
         certificationBadge: "Google Professional UX Certified",
         certificationTitle: "Google UX Design Professional Certificate",
         downloadButton: "Download Resume",
@@ -294,24 +294,14 @@ export const translations = {
       },
       paragraphs: [
         {
-          text: "With over {years} years of experience as a UI/UX designer, I specialize in digital experiences, mobile interfaces, and dynamic web dashboards.",
+          text: "14 years of UX practice across government, education, and national housing — specializing in enterprise platforms, design systems, and product delivery.",
           tooltip:
-            "With over {years} years of experience as a UI/UX designer, I specialize in digital experiences, mobile interfaces, and dynamic web dashboards.",
+            "14 years of UX practice across government, education, and national housing — specializing in enterprise platforms, design systems, and product delivery.",
         },
         {
-          text: "Throughout my career, I have worked in sectors including renowned organizations, government ministries, and prestigious academic institutions.",
+          text: "I lead UX strategy and design governance, build scalable design systems, and work across the full delivery lifecycle — from discovery to production handoff — in close collaboration with product, engineering, and business teams.",
           tooltip:
-            "Throughout my career, I have worked in sectors including renowned organizations, government ministries, and prestigious academic institutions.",
-        },
-        {
-          text: "I take the helm in leading comprehensive redesign initiatives, transforming user experiences by seamlessly translating ideas into tangible solutions. From initial ideation to the final execution, my process involves meticulous sketching, precise wireframing, and crafting high-fidelity prototypes.",
-          tooltip:
-            "I take the helm in leading comprehensive redesign initiatives, transforming user experiences by seamlessly translating ideas into tangible solutions. From initial ideation to the final execution, my process involves meticulous sketching, precise wireframing, and crafting high-fidelity prototypes.",
-        },
-        {
-          text: "I work closely with analysts, developers, and QA testers to ensure our designs smoothly become user-friendly products that match project goals perfectly.",
-          tooltip:
-            "I work closely with analysts, developers, and QA testers to ensure our designs smoothly become user-friendly products that match project goals perfectly.",
+            "I lead UX strategy and design governance, build scalable design systems, and work across the full delivery lifecycle — from discovery to production handoff — in close collaboration with product, engineering, and business teams.",
         },
       ],
       social: {
@@ -326,13 +316,13 @@ export const translations = {
       title: "About",
       downloadButton: "Download Resume",
       downloadTitle: "Download Omar Mokhtar resume from Google Drive",
-      videoLink: "You can find more about me in this video",
+      videoLink: "Watch a brief overview of my background and approach.",
       emptyExperience: "Experience data is currently unavailable.",
     },
     certifications: {
       title: "Certifications",
       description:
-        "I usually prefer investing in self-learning to improve my experiences.",
+        "Ongoing professional development across UX practice, design systems, agile methodology, and front-end implementation.",
       showCredential: "Show credential",
       showCredentialTitle: "Show credential",
       emptyState:
@@ -482,19 +472,17 @@ export const translations = {
     projects: {
       title: "Work",
       description: [
-        "I'm always excited about learning new techniques and expanding my skills.",
-        "Every project I've worked on, whether alone or with others, has taught me something valuable.",
-        "Sometimes, I've used these lessons directly in my work. Other times, the technologies used in the workplace limited what I could apply.",
-        "Adapting to these tools influenced how I worked, but it also motivated me to explore more beyond those limits.",
+        "Each project brought distinct constraints — from national government platforms to university portals — requiring systems thinking, stakeholder alignment, and delivery focus.",
+        "Across every engagement, the goal was consistent: coherent, accessible, and production-ready design that holds up in real-world conditions.",
       ],
       descriptionTooltip:
-        "I'm always excited about learning new techniques and expanding my skills. Every project I've worked on, whether alone or with others, has taught me something valuable. Sometimes, I've used these lessons directly in my work. Other times, the technologies used in the workplace limited what I could apply. Adapting to these tools influenced how I worked, but it also motivated me to explore more beyond those limits.",
+        "Each project brought distinct constraints — from national government platforms to university portals — requiring systems thinking, stakeholder alignment, and delivery focus. Across every engagement, the goal was consistent: coherent, accessible, and production-ready design that holds up in real-world conditions.",
       caseStudy: {
         title: "Student Internal Portal",
         intro:
-          "Portals have become an urgent necessity in the field of education and higher education: From this standpoint, MAJMAAH UNIVERSITY suggested establishing an internal portal for students, characterized by the following:",
+          "Majmaah University set out to consolidate fragmented student services into a single, unified portal. The challenge was designing an experience that reduced friction across a wide range of academic workflows for thousands of daily users.",
         tooltip:
-          "Portals have become an urgent necessity in the field of education and higher education: From this standpoint, MAJMAAH UNIVERSITY suggested establishing an internal portal for students, characterized by the following:",
+          "Majmaah University set out to consolidate fragmented student services into a single, unified portal. The challenge was designing an experience that reduced friction across a wide range of academic workflows for thousands of daily users.",
         features: [
           "Single sign-on",
           "Providing more than 15 services",
@@ -503,7 +491,7 @@ export const translations = {
           "Review their classes and exam schedules.",
         ],
         closing:
-          "The portal centralizes critical student services so requests, announcements, and schedules are easy to reach from a single place.",
+          "The portal consolidated critical student services into a single, accessible entry point — replacing multiple disconnected systems with a coherent and scalable experience.",
         button: "Case Study",
         buttonAria: "Read the full case study for the student internal portal",
         coverAlt: "Case study cover",
@@ -537,7 +525,7 @@ export const translations = {
         submitButton: "Send Message",
         submitAria: "Send message through contact form",
       },
-      whatsapp: "Contact me via WhatsApp",
+      whatsapp: "Reach me directly on WhatsApp.",
       whatsappAria: "Open WhatsApp chat with Omar Mokhtar",
       successAlert: "✅ Message sent successfully!",
       failureAlert:
@@ -545,9 +533,9 @@ export const translations = {
     },
     meta: {
       "/": {
-        title: "Omar Mokhtar - UX Design Lead | {years}+ Years Experience",
+        title: "Omar Mokhtar - UX Design Lead | 14+ Years Experience",
         description:
-          "Omar Mokhtar is a UX Design Lead with over {years} years of experience in digital experiences, mobile interfaces, and web dashboards. Google Professional UX Certified.",
+          "Omar Mokhtar is a UX Design Lead with over 14 years of experience in enterprise platforms, design systems, and government digital products. Google Professional UX Certified.",
         keywords:
           "UX Designer, UI Designer, User Experience, Mobile Design, Web Dashboards, Saudi Arabia, Government Projects",
         canonical: baseUrl,
@@ -560,7 +548,7 @@ export const translations = {
           name: "عمر مختار",
           jobTitle: "UX Design Lead",
           description:
-            "UX Design Lead with over {years} years of experience in digital experiences, mobile interfaces, and web dashboards",
+            "UX Design Lead with over 14 years of experience in enterprise platforms, design systems, and government digital products",
           url: baseUrl,
           image: `${baseUrl}/images/omar.png`,
           sameAs: [
@@ -581,7 +569,7 @@ export const translations = {
       "/About": {
         title: "Experience & Career - Omar Mokhtar | UX Design Lead",
         description:
-          "Professional experience and career journey of Omar Mokhtar, UX Design Lead. View certifications, skills, and over {years} years of design expertise.",
+          "Professional experience and career journey of Omar Mokhtar, UX Design Lead. View certifications, skills, and over 14 years of design expertise across government, education, and enterprise sectors.",
         keywords:
           "UX Designer Experience, Career Journey, Design Certifications, UI/UX Skills, Professional Portfolio",
         canonical: `${baseUrl}/About`,
@@ -604,7 +592,7 @@ export const translations = {
         title:
           "UX/UI Design Portfolio - Omar Mokhtar | Case Studies & Projects",
         description:
-          "Portfolio of UI/UX design projects and case studies by Omar Mokhtar. Government projects, web applications, and mobile interfaces.",
+          "Selected UX work by Omar Mokhtar — enterprise government platforms, design systems, web applications, and academic portals.",
         keywords:
           "UX Portfolio, UI Design Projects, Case Studies, Government Projects, Web Applications, Mobile Design",
         canonical: `${baseUrl}/Projects`,
@@ -615,7 +603,7 @@ export const translations = {
       "/ContactForm": {
         title: "Contact Omar Mokhtar | UX Design Lead | Get In Touch",
         description:
-          "Get in touch with Omar Mokhtar, UX Design Lead for collaboration, consultation, and design inquiries. Available for freelance and project work.",
+          "Get in touch with Omar Mokhtar for UX collaboration, design systems consultation, or enterprise product design inquiries.",
         keywords:
           "Contact UX Designer, Design Consultation, Freelance UX Designer, Design Services, Collaboration",
         canonical: `${baseUrl}/ContactForm`,
@@ -637,7 +625,7 @@ export const translations = {
       default: {
         title: "Omar Mokhtar - UX Design Lead",
         description:
-          "UI/UX Designer with over {years} years of experience in digital experiences and mobile interfaces",
+          "UX Design Lead with over 14 years of experience in enterprise platforms, design systems, and government digital products",
         keywords: "UX Designer, UI Designer, User Experience",
         canonical: baseUrl,
         ogImage: `${baseUrl}/images/omar.png`,
@@ -656,7 +644,7 @@ export const translations = {
         blog: "المدونة",
         contact: "تواصل",
       },
-      brand: "UI/UX Designer",
+      brand: "UX Design Lead",
       logoAlt: "شعار عمر مختار الشخصي",
       languageToggleButton: "English",
       languageToggleAria: "التبديل إلى اللغة الإنجليزية",
@@ -667,7 +655,7 @@ export const translations = {
       },
     },
     footer: {
-      madeWithLove: "صُنع بحب من الصفر بواسطة © عمر مختار",
+      madeWithLove: "© عمر مختار — مُصمَّم ومطوَّر من الصفر",
       ariaLabel: "زيارة موقع عمر مختار الشخصي",
     },
     loader: {
@@ -682,7 +670,7 @@ export const translations = {
     },
     home: {
       hero: {
-        role: "قائد تجربة المستخدم وعمليات التصميم في جهة حكومية",
+        role: "قائد تجربة المستخدم وعمليات التصميم — جهة حكومية",
         certificationBadge: "معتمد من جوجل في تصميم تجربة المستخدم",
         certificationTitle: "شهادة جوجل في تصميم تجربة المستخدم",
         downloadButton: "تحميل السيرة الذاتية",
@@ -690,24 +678,14 @@ export const translations = {
       },
       paragraphs: [
         {
-          text: "أمتلك أكثر من {years} سنة من الخبرة كمصمم واجهات وتجربة مستخدم، أتخصص في التجارب الرقمية والواجهات المحمولة ولوحات المعلومات الديناميكية.",
+          text: "14 عامًا من الممارسة في تجربة المستخدم — عبر قطاعات حكومية وتعليمية وإسكانية، مع تخصص في المنصات المؤسسية ونظم التصميم وتسليم المنتجات.",
           tooltip:
-            "أمتلك أكثر من {years} سنة من الخبرة كمصمم واجهات وتجربة مستخدم، أتخصص في التجارب الرقمية والواجهات المحمولة ولوحات المعلومات الديناميكية.",
+            "14 عامًا من الممارسة في تجربة المستخدم — عبر قطاعات حكومية وتعليمية وإسكانية، مع تخصص في المنصات المؤسسية ونظم التصميم وتسليم المنتجات.",
         },
         {
-          text: "طوال مسيرتي المهنية، عملت مع مؤسسات مشهورة ووزارات حكومية ومؤسسات أكاديمية مرموقة.",
+          text: "أقود استراتيجية تجربة المستخدم وحوكمة التصميم، وأبني أنظمة تصميم قابلة للتوسع، وأعمل عبر دورة التسليم الكاملة — من الاكتشاف حتى التسليم للتطوير — بالتعاون مع فرق المنتج والهندسة والأعمال.",
           tooltip:
-            "طوال مسيرتي المهنية، عملت مع مؤسسات مشهورة ووزارات حكومية ومؤسسات أكاديمية مرموقة.",
-        },
-        {
-          text: "أتولى قيادة مبادرات إعادة تصميم شاملة، وأحوّل الأفكار إلى حلول ملموسة بدءًا من التفكير الأولي وحتى التنفيذ، مع الاعتماد على الرسم السريع والهياكل السلكية الدقيقة والنماذج الأولية عالية الجودة.",
-          tooltip:
-            "أتولى قيادة مبادرات إعادة تصميم شاملة، وأحوّل الأفكار إلى حلول ملموسة بدءًا من التفكير الأولي وحتى التنفيذ، مع الاعتماد على الرسم السريع والهياكل السلكية الدقيقة والنماذج الأولية عالية الجودة.",
-        },
-        {
-          text: "أتعاون مع المحللين والمطورين ومختبري ضمان الجودة لضمان أن تتحول تصميماتنا إلى منتجات سهلة الاستخدام ومتوافقة تمامًا مع أهداف المشروع.",
-          tooltip:
-            "أتعاون مع المحللين والمطورين ومختبري ضمان الجودة لضمان أن تتحول تصميماتنا إلى منتجات سهلة الاستخدام ومتوافقة تمامًا مع أهداف المشروع.",
+            "أقود استراتيجية تجربة المستخدم وحوكمة التصميم، وأبني أنظمة تصميم قابلة للتوسع، وأعمل عبر دورة التسليم الكاملة — من الاكتشاف حتى التسليم للتطوير — بالتعاون مع فرق المنتج والهندسة والأعمال.",
         },
       ],
       social: {
@@ -722,12 +700,12 @@ export const translations = {
       title: "من أنا",
       downloadButton: "تحميل السيرة الذاتية",
       downloadTitle: "تحميل سيرة عمر مختار الذاتية من Google Drive",
-      videoLink: "يمكنك معرفة المزيد عني من خلال هذا الفيديو",
+      videoLink: "للاطلاع على نبذة موجزة عن خلفيتي وأسلوب عملي، يمكنك مشاهدة هذا الفيديو.",
       emptyExperience: "بيانات الخبرة غير متوفرة حاليًا.",
     },
     certifications: {
       title: "الشهادات",
-      description: "أفضل الاستثمار في التعلم الذاتي لتعزيز خبراتي.",
+      description: "تطوير مهني مستمر في ممارسة تجربة المستخدم ونظم التصميم والمنهجيات الرشيقة وتطوير الواجهات الأمامية.",
       showCredential: "عرض الشهادة",
       showCredentialTitle: "عرض الشهادة",
       emptyState: "سيتم عرض الشهادات هنا حال توفر بيانات جديدة.",
@@ -877,17 +855,15 @@ export const translations = {
     projects: {
       title: "الأعمال",
       description: [
-        "أنا متحمس دائمًا لتعلم تقنيات جديدة وتوسيع مهاراتي.",
-        "كل مشروع عملت عليه، سواء منفردًا أو مع فرق، علمني شيئًا ذا قيمة.",
-        "أحيانًا أطبق هذه الدروس مباشرة، وأحيانًا تقيّدني التقنيات المستخدمة في بيئة العمل.",
-        "تأثر أسلوبي بهذه الأدوات، لكنه شجعني أيضًا على استكشاف ما هو أبعد من تلك الحدود.",
+        "كل مشروع جاء بمتطلبات مختلفة — من منصات حكومية على المستوى الوطني إلى بوابات جامعية — مما استوجب التفكير المنظومي، والتوافق مع أصحاب المصلحة، والتركيز على التسليم.",
+        "في كل تعاون، كان الهدف ثابتًا: تصميم متسق وشامل وجاهز للإنتاج يصمد في ظروف العمل الفعلية.",
       ],
       descriptionTooltip:
-        "أنا متحمس دائمًا لتعلم تقنيات جديدة وتوسيع مهاراتي. كل مشروع عملت عليه، سواء منفردًا أو مع فرق، علمني شيئًا ذا قيمة. أحيانًا أطبق هذه الدروس مباشرة، وأحيانًا تقيّدني التقنيات المستخدمة في بيئة العمل. تأثر أسلوبي بهذه الأدوات، لكنه شجعني أيضًا على استكشاف ما هو أبعد من تلك الحدود.",
+        "كل مشروع جاء بمتطلبات مختلفة — من منصات حكومية على المستوى الوطني إلى بوابات جامعية — مما استوجب التفكير المنظومي، والتوافق مع أصحاب المصلحة، والتركيز على التسليم. في كل تعاون، كان الهدف ثابتًا: تصميم متسق وشامل وجاهز للإنتاج يصمد في ظروف العمل الفعلية.",
       caseStudy: {
         title: "بوابة الطالب الداخلية",
         intro:
-          "أصبحت البوابات الرقمية ضرورة ملحة في التعليم العالي. من هذا المنطلق، اقترحت جامعة المجمعة إنشاء بوابة داخلية للطلاب تتميز بما يلي:",
+          "أدركت جامعة المجمعة الحاجة إلى توحيد خدمات الطلاب المتفرقة في بوابة واحدة متكاملة. كان التحدي تصميم تجربة تقلل من التعقيد عبر مجموعة واسعة من المهام الأكاديمية اليومية لآلاف المستخدمين.",
         tooltip:
           "أصبحت البوابات الإلكترونية ضرورة ملحة في مجال التعليم والتعليم العالي: ومن هذا المنطلق اقترحت جامعة المجمعة إنشاء بوابة داخلية للطلاب تتميز بما يلي: الدخول الموحد تقديم أكثر من 15 خدمة الاطلاع على الأخبار والفعاليات التي أعلن عنها الوصول السريع للجامعة: تقديم الطلبات عبر أنظمة الجامعة المختلفة وجمعها في مكان واحد. مراجعة دروسهم وجداول الامتحانات.",
         features: [
@@ -898,7 +874,7 @@ export const translations = {
           "مراجعة الدروس وجداول الامتحانات.",
         ],
         closing:
-          "تجمع البوابة الخدمات المهمة للطلاب في مكان واحد حتى يسهل عليهم متابعة الطلبات والإعلانات والجداول.",
+          "وحّدت البوابة الخدمات الطلابية الأساسية في نقطة وصول واحدة — بديلًا عن أنظمة متفرقة، وتجربة أكثر اتساقًا وقابلية للتوسع.",
         button: "دراسة حالة",
         buttonAria: "قراءة دراسة الحالة الكاملة لبوابة الطالب الداخلية",
         coverAlt: "غلاف دراسة الحالة",
@@ -932,7 +908,7 @@ export const translations = {
         submitButton: "إرسال الرسالة",
         submitAria: "إرسال رسالة عبر نموذج التواصل",
       },
-      whatsapp: "تواصل معي عبر واتساب",
+      whatsapp: "تواصل معي مباشرة عبر واتساب.",
       whatsappAria: "افتح محادثة واتساب مع عمر مختار",
       successAlert: "✅ تم إرسال الرسالة بنجاح!",
       failureAlert:
@@ -940,9 +916,10 @@ export const translations = {
     },
     meta: {
       "/": {
-        title: "عمر مختار - قائد تصميم تجربة المستخدم | خبرة أكثر من {years} سنة",
+        title:
+          "عمر مختار - قائد تصميم تجربة المستخدم | 14+ سنة خبرة",
         description:
-          "عمر مختار قائد تصميم تجربة المستخدم بخبرة تزيد عن {years} سنة في التجارب الرقمية والواجهات المحمولة ولوحات المعلومات. معتمد من جوجل في تصميم تجربة المستخدم.",
+          "عمر مختار قائد تجربة المستخدم بخبرة تزيد عن 14 سنة في المنصات المؤسسية ونظم التصميم والمنتجات الحكومية الرقمية. معتمد من جوجل في تصميم تجربة المستخدم.",
         keywords:
           "مصمم تجربة المستخدم, مصمم واجهات المستخدم, تجربة المستخدم, تصميم المحمول, لوحات المعلومات, السعودية, مشاريع حكومية",
         canonical: baseUrl,
@@ -955,7 +932,7 @@ export const translations = {
           name: "عمر مختار",
           jobTitle: "UX Design Lead",
           description:
-            "قائد تصميم تجربة المستخدم بخبرة أكثر من {years} سنة في التجارب الرقمية والواجهات المحمولة ولوحات المعلومات",
+            "قائد تجربة المستخدم بخبرة أكثر من 14 سنة في المنصات المؤسسية ونظم التصميم والمنتجات الحكومية الرقمية",
           url: baseUrl,
           image: `${baseUrl}/images/omar.png`,
           sameAs: [
@@ -976,7 +953,7 @@ export const translations = {
       "/About": {
         title: "الخبرة والمسار المهني - عمر مختار | قائد تصميم تجربة المستخدم",
         description:
-          "مسار الخبرة المهنية لعمر مختار، قائد تصميم تجربة المستخدم. اكتشف الشهادات والمهارات وتجربة التصميم التي تمتد لأكثر من {years} سنة.",
+          "مسار الخبرة المهنية لعمر مختار، قائد تجربة المستخدم. اكتشف الشهادات والمهارات وتجربة التصميم الممتدة لأكثر من 14 سنة في قطاعات حكومية وتعليمية ومؤسسية.",
         keywords:
           "خبرة مصمم UX, المسار المهني, شهادات التصميم, مهارات UI/UX, الملف المهني",
         canonical: `${baseUrl}/About`,
@@ -1031,7 +1008,7 @@ export const translations = {
       default: {
         title: "عمر مختار - قائد تصميم تجربة المستخدم",
         description:
-          "مصمم واجهات وتجربة المستخدم بخبرة أكثر من {years} سنة في التجارب الرقمية والواجهات المحمولة.",
+          "قائد تجربة المستخدم بخبرة أكثر من 14 سنة في المنصات المؤسسية ونظم التصميم والمنتجات الحكومية الرقمية.",
         keywords: "مصمم UX, مصمم واجهات المستخدم, تجربة المستخدم",
         canonical: baseUrl,
         ogImage: `${baseUrl}/images/omar.png`,

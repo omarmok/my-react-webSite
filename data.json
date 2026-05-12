@@ -3,7 +3,7 @@
     {
       "id": 1,
       "url": "https://hrc.gov.sa/",
-      "info": "Human Rights In Saudia Arabia (HRC) -Under Development",
+      "info": "Human Rights Commission (HRC) — Saudi Arabia",
       "image": "https://i.postimg.cc/ZKGcBc7c/hrc.png",
       "Issued": "Aug 2021 - Present"
     },
@@ -63,7 +63,7 @@
       "id": 2,
       "url": "...",
       "date": "Jan 2023 - Sep 2025",
-      "jobtitle": "UX Design ",
+      "jobtitle": "UI/UX Designer",
       "companyname": "Confidential Government",
       "role": "As a UI/UX Design , I worked to improve the user experience process for both the platforms and mobile app. I contributed to building the Design System for these platforms and worked closely with business analysts, developers, and QA testers to ensure the product was developed according to UX and UI specifications.\n\nAdditionally, I collaborated with the development team in rebuilding key pages using HTML, CSS, and JavaScript to ensure design fidelity and implementation quality."
     },
@@ -80,7 +80,7 @@
       "url": "https://hrc.gov.sa/",
       "date": "2021 - 2022",
       "jobtitle": "UI/UX Designer",
-      "companyname": "Human Rights In Saudia Arabia (HRC) Freelancer",
+      "companyname": "Human Rights Commission (HRC) — Freelance",
       "role": "Led UX/UI efforts within a team of 4 to deliver the project over 5 months. Responsible for redesigning layouts and improving overall user experience using sketching, wireframing, and prototyping.\n\nCollaborated with the development team to rebuild pages using HTML, Vue.js, and JavaScript."
     },
     {
