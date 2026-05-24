@@ -265,10 +265,11 @@ html[dir=rtl] * {
 .navBg {
   position: sticky;
   top: 0;
-  z-index: var(--nav-z);
+  z-index: 9999;
   width: 100%;
   left: 0;
   right: 0;
+  margin: 0;
   padding: 0;
   background-color: var(--nav-bg-glass);
   border-bottom: 1px solid var(--nav-border-color);
@@ -387,11 +388,10 @@ body.mobile-menu-open main {
 
 .navbar {
   width: min(1120px, 100% - 32px);
-  margin: 16px auto 20px;
+  margin: 0 auto;
   background: rgba(255, 255, 255, 0.98);
   border-radius: 12px;
   padding: 12px 20px;
-  box-shadow: 0px 6px 18px rgba(15, 23, 42, 0.06);
 }
 .navbar img {
   height: auto;
@@ -435,16 +435,21 @@ body.mobile-menu-open main {
 }
 
 .rtl-container {
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: flex-start;
 }
 
 .rtl-container .navbar-nav {
   flex-direction: row-reverse;
+  order: 1;
 }
 
 .rtl-container .nav-link {
   text-align: right;
+}
+
+.rtl-container .lang-btn {
+  order: 2;
 }
 
 .navbar-nav {
@@ -1070,8 +1075,6 @@ p {
     width: calc(100% - 24px);
     flex-direction: row;
     align-items: center;
-    position: sticky;
-    top: 0;
     margin-top: 0 !important;
     padding: 10px 14px;
   }

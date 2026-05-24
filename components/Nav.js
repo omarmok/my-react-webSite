@@ -12,6 +12,7 @@ const navLinks = [
   { key: "home", href: "/" },
   { key: "about", href: "/About" },
   { key: "work", href: "/Projects" },
+  { key: "caseStudy", href: "/CaseStudy" },
   { key: "blog", href: "/Blog" },
   { key: "contact", href: "/ContactForm" },
 ];
@@ -273,7 +274,7 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
   );
 
   return (
-    <div className={`nav-shell ${isMenuOpen ? "is-menu-open" : ""}`}>
+    <>
       <div className={navBgClassName}>
         <div className="container">
           <nav
@@ -296,24 +297,26 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
         </div>
       </div>
 
-      <div
-        className={`navbar__backdrop ${isMenuOpen ? "is-open" : ""}`}
-        onClick={closeMenu}
-        aria-hidden="true"
-      />
+      <div className={`nav-shell ${isMenuOpen ? "is-menu-open" : ""}`}>
+        <div
+          className={`navbar__backdrop ${isMenuOpen ? "is-open" : ""}`}
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
 
-      <nav
-        id={MOBILE_NAV_ID}
-        ref={mobileNavRef}
-        className={`navbar__mobile ${isMenuOpen ? "is-open" : ""}`}
-        role="dialog"
-        aria-modal="true"
-        aria-hidden={!isMenuOpen}
-        aria-label={mobileMenuLabel}
-        dir={language === "ar" ? "rtl" : "ltr"}>
-        {renderNavLinks(true)}
-      </nav>
-    </div>
+        <nav
+          id={MOBILE_NAV_ID}
+          ref={mobileNavRef}
+          className={`navbar__mobile ${isMenuOpen ? "is-open" : ""}`}
+          role="dialog"
+          aria-modal="true"
+          aria-hidden={!isMenuOpen}
+          aria-label={mobileMenuLabel}
+          dir={language === "ar" ? "rtl" : "ltr"}>
+          {renderNavLinks(true)}
+        </nav>
+      </div>
+    </>
   );
 };
 

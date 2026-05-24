@@ -257,6 +257,7 @@ export const translations = {
         home: "Home",
         about: "About",
         work: "Work",
+        caseStudy: "Case Study",
         blog: "Blog",
         contact: "Contact",
       },
@@ -513,6 +514,200 @@ export const translations = {
       backAria: "Back to the projects page",
       checkWebsite: "Check website",
       checkWebsiteAria: "View the student portal live prototype",
+      hero: {
+        title: "Majmaah University Student Portal",
+        subtitle:
+          "A unified Arabic student portal — consolidating academic services, schedule access, and university systems into a single daily dashboard.",
+        tags: ["UX Case Study", "University Portal", "RTL"],
+        meta: [
+          { label: "Role", value: "UX/UI Engineer" },
+          { label: "Timeline", value: "Aug 2019 – Sep 2020" },
+          { label: "University", value: "Majmaah University, KSA" },
+        ],
+        imageAlt: "Majmaah University Student Portal dashboard",
+      },
+      overview: {
+        label: "Overview",
+        h2: "What this project was about",
+        body1:
+          "Majmaah University students were managing their academic lives across several disconnected systems — a separate login for Blackboard, another for exam booking, another for the library — with no central place to see their schedule or access services quickly.",
+        body2:
+          "This portal was designed to change that. The goal was one authenticated dashboard where a student could check their timetable, reach any university system, review personal and academic information, and handle administrative tasks — without switching between multiple sites or re-entering credentials.",
+        body3:
+          "I was responsible for the UX design and front-end implementation. The visual direction was deliberately kept soft and approachable — a teal and warm-orange palette, rounded cards, generous spacing — to avoid the heavy institutional feeling that government-facing systems tend to carry. Students spend real daily time in this portal, and it needed to feel like a useful tool rather than a formal system.",
+        sidebarTitle: "What the portal covers",
+        bullets: [
+          "Academic schedule — interactive, time-based, clickable",
+          "Quick access to all university systems in one panel",
+          "Exam booking and university applications",
+          "Announcements, events, and news",
+          "Personal and academic information via modal overlays",
+          "Important contacts and a feedback form",
+          "Single sign-on — one session for everything",
+        ],
+      },
+      problem: {
+        label: "The Problem",
+        h2: "What needed to change",
+        intro:
+          "The starting point was clear: students were doing too much work just to complete routine academic tasks. The friction wasn't in any single system — it was in the space between them.",
+        cards: [
+          {
+            title: "Disconnected university systems",
+            body: "Blackboard, the library, exam booking, and transportation required separate logins and separate navigation. Every routine task started with a context switch.",
+          },
+          {
+            title: "No central place for the schedule",
+            body: "The timetable — the most-checked piece of information in a student's day — required several steps to reach and wasn't connected to any other service.",
+          },
+          {
+            title: "No mobile-friendly experience",
+            body: "Students are constantly on their phones, especially between classes. The existing systems weren't built for small screens or touch interaction.",
+          },
+          {
+            title: "No visual priority in information",
+            body: "Critical tasks and passive content appeared at the same visual weight. Exam deadlines looked identical to general university news.",
+          },
+        ],
+      },
+      persona: {
+        label: "Student Persona",
+        h2: "Who I was designing for",
+        intro:
+          "Every decision in the portal traces back to a clear picture of who actually uses it and when. The profile below represents the typical daily pattern the design was built around.",
+        name: "فيصل — Faisal",
+        age: "21 · Computer Science · 3rd year",
+        desc: "Faisal uses his phone for almost everything. He checks his schedule first thing in the morning, usually before getting out of bed. Between classes he quickly looks up exam dates or checks his GPA. He doesn't browse — he arrives at the portal with a specific task and wants it done in under a minute.",
+        needsHeading: "What he needs",
+        needs: [
+          "See today's schedule without navigating into a sub-section",
+          "Access Blackboard without a separate login",
+          "Check his GPA and academic standing quickly",
+          "Know his exam date without opening another system",
+          "Submit an application without visiting the registrar",
+        ],
+        slowedHeading: "What slowed him down before",
+        slowed: [
+          "Seven separate systems, all with different logins",
+          "The schedule lived inside the academic system, several clicks in",
+          "Important announcements looked the same as general news",
+          "Nothing worked properly on his phone",
+          "No single place to find contact numbers or submit feedback",
+        ],
+      },
+      uxDecisions: {
+        label: "UX Decisions",
+        h2: "How the portal was designed to work",
+        intro:
+          "Each decision below addresses a specific aspect of how students interact with academic services daily — from how the schedule is structured to how information surfaces without requiring navigation.",
+        items: [
+          {
+            title: "The schedule was built as a real time-based grid",
+            body: "Rather than displaying courses as a plain list, the schedule was implemented as a positioned time grid — courses appear as cards placed vertically according to their actual start and end times, across a five-day week view. Students can see duration, gaps between classes, and day structure at a glance. Color coding differentiates courses visually without requiring labels. The cards use soft rounded corners and consistent padding, keeping the grid readable without feeling like a spreadsheet.",
+          },
+          {
+            title:
+              "Clicking a course opens a modal that animates from the event itself",
+            body: "When a student taps on a course card, the detail modal opens with a smooth animation that originates from the card position — on desktop, it scales from the event; on mobile, it slides up. This spatial relationship makes the interaction feel connected rather than disjointed. Course details — instructor, room, absences, and monthly grades — are all inside the modal. Pressing ESC or tapping the backdrop closes it and returns the student to exactly where they were in the schedule.",
+          },
+          {
+            title:
+              "Personal and academic information surface from a profile card",
+            body: "A persistent student card in the sidebar holds two clearly labelled buttons — one for personal information, one for academic standing. Personal details (student ID, college, balance) and academic details (GPA, level, hall, warnings, advisor) each open as separate modals. Students who need their student ID for a form, or want to check their GPA quickly, get that in one tap from the same card they see every time they open the portal. No navigation to a profile page required.",
+          },
+          {
+            title:
+              "All university systems were consolidated into one access panel",
+            body: "Seven university systems — Blackboard, the digital library, transportation, exam booking, the academic system, email, and committees — are presented as a visual grid of icon-and-label cards. Each card uses a subtle neumorphic shadow that depresses on hover, giving tactile feedback on both mouse and touch. Students see all available systems at the same level, scan to what they need, and tap once. The session is already authenticated — no separate login, no context switching to a different tab.",
+          },
+          {
+            title: "RTL was the primary layout direction, not an adaptation",
+            body: "The portal is built for Arabic-speaking students and Arabic is set as the foundational layout direction — direction:rtl at the body level, not applied section by section. The 29LT Bukra font handles Arabic script at all weights with proper readability at small sizes. Carousels are configured with rtl:true so slide order and swipe direction both behave correctly. Navigation, modal positioning, and reading flow all follow Arabic convention naturally rather than being mirrored from an LTR version.",
+          },
+          {
+            title:
+              "Announcements, events, and news are surfaced on the dashboard",
+            body: "University announcements, upcoming events, and news are all visible from the main dashboard without requiring navigation to a dedicated section. Each is presented in a contained panel, visually separated from the schedule and systems areas by clear section spacing. The separation keeps the page organized even as content density increases — students can scan down the page and recognize which zone they are in without reading headers.",
+          },
+          {
+            title:
+              "Contacts and feedback are accessible at the end of one scroll",
+            body: "Important university contact numbers are grouped in collapsible sections — students can expand the category they need (IT support, academic advising) without seeing every number at once. The feedback form sits directly below with a short, welcoming Arabic prompt. No navigation, no separate page — a student with a question or suggestion can submit it from the same session without breaking their workflow.",
+          },
+          {
+            title: "Mobile behavior was built in from the start",
+            body: "The schedule switches from a side-by-side day grid to a vertically stacked layout on small screens, keeping course information legible without horizontal scrolling. Scroll-triggered animations (AOS) are disabled below 800px to reduce frame cost on mobile devices. System cards and course cards are sized for touch — large enough to tap accurately without precision targeting. The layout uses a consistent grid that reflows cleanly at the main breakpoints rather than collapsing awkwardly.",
+          },
+        ],
+      },
+      features: {
+        label: "Key Features",
+        h2: "What the portal includes",
+        intro:
+          "The portal covers the full range of daily student needs — academic, administrative, and informational — in a single authenticated session. Features are grouped by context on the dashboard, so students can reach what they need by scanning down the page rather than navigating through menus.",
+        items: [
+          {
+            icon: "🗓️",
+            name: "Academic Schedule",
+            note: "Time-based grid, color-coded courses, clickable cards with modal detail",
+          },
+          {
+            icon: "👤",
+            name: "Personal Information",
+            note: "Modal overlay — student ID, college, scholarship balance",
+          },
+          {
+            icon: "🎓",
+            name: "Academic Information",
+            note: "Modal overlay — GPA, level, hall, warnings, academic advisor",
+          },
+          {
+            icon: "📚",
+            name: "Blackboard",
+            note: "One tap from the systems panel — authenticated session",
+          },
+          {
+            icon: "🏛️",
+            name: "Digital Library",
+            note: "Direct access to research databases and academic resources",
+          },
+          {
+            icon: "🚌",
+            name: "University Transportation",
+            note: "Bus routes and schedule information",
+          },
+          {
+            icon: "📝",
+            name: "Exam Booking",
+            note: "Reserve exam seats without leaving the portal",
+          },
+          {
+            icon: "📋",
+            name: "University Applications",
+            note: "Submit administrative requests from the dashboard",
+          },
+          {
+            icon: "📢",
+            name: "Announcements",
+            note: "University-wide notices surfaced on the main dashboard",
+          },
+          {
+            icon: "🎉",
+            name: "Events & Activities",
+            note: "Upcoming campus events and academic calendar",
+          },
+          {
+            icon: "☎️",
+            name: "Important Contacts",
+            note: "Collapsible groups — IT, advising, admin — always reachable",
+          },
+          {
+            icon: "💬",
+            name: "Feedback",
+            note: "Simple form at the bottom — no navigation, no separate page",
+          },
+        ],
+      },
     },
     contact: {
       title: "Contact",
@@ -641,6 +836,7 @@ export const translations = {
         home: "الرئيسية",
         about: "من أنا",
         work: "الأعمال",
+        caseStudy: "دراسة حالة",
         blog: "المدونة",
         contact: "تواصل",
       },
@@ -700,12 +896,14 @@ export const translations = {
       title: "من أنا",
       downloadButton: "تحميل السيرة الذاتية",
       downloadTitle: "تحميل سيرة عمر مختار الذاتية من Google Drive",
-      videoLink: "للاطلاع على نبذة موجزة عن خلفيتي وأسلوب عملي، يمكنك مشاهدة هذا الفيديو.",
+      videoLink:
+        "للاطلاع على نبذة موجزة عن خلفيتي وأسلوب عملي، يمكنك مشاهدة هذا الفيديو.",
       emptyExperience: "بيانات الخبرة غير متوفرة حاليًا.",
     },
     certifications: {
       title: "الشهادات",
-      description: "تطوير مهني مستمر في ممارسة تجربة المستخدم ونظم التصميم والمنهجيات الرشيقة وتطوير الواجهات الأمامية.",
+      description:
+        "تطوير مهني مستمر في ممارسة تجربة المستخدم ونظم التصميم والمنهجيات الرشيقة وتطوير الواجهات الأمامية.",
       showCredential: "عرض الشهادة",
       showCredentialTitle: "عرض الشهادة",
       emptyState: "سيتم عرض الشهادات هنا حال توفر بيانات جديدة.",
@@ -896,6 +1094,199 @@ export const translations = {
       backAria: "الرجوع إلى صفحة المشاريع",
       checkWebsite: "تفقّد الموقع",
       checkWebsiteAria: "عرض النموذج الحي لبوابة الطالب الداخلية",
+      hero: {
+        title: "بوابة طلاب جامعة المجمعة",
+        subtitle:
+          "بوابة أكاديمية موحدة باللغة العربية — تجمع الخدمات الطلابية والجدول الدراسي وأنظمة الجامعة في لوحة تحكم واحدة للاستخدام اليومي.",
+        tags: ["دراسة حالة UX", "بوابة جامعية", "RTL"],
+        meta: [
+          { label: "الدور", value: "مهندس UX/UI" },
+          { label: "المدة", value: "أغسطس 2019 – سبتمبر 2020" },
+          {
+            label: "الجامعة",
+            value: "جامعة المجمعة، المملكة العربية السعودية",
+          },
+          { label: "المنصة", value: "ويب · عربي RTL" },
+        ],
+        imageAlt: "لوحة تحكم بوابة طلاب جامعة المجمعة",
+      },
+      overview: {
+        label: "نظرة عامة",
+        h2: "عن ماذا كان هذا المشروع؟",
+        body1:
+          "كان طلاب جامعة المجمعة يديرون حياتهم الأكاديمية عبر أنظمة متفرقة — دخول منفصل لـ Blackboard، وآخر لحجز الاختبارات، وثالث للمكتبة — دون وجود مكان مركزي يتيح لهم الاطلاع على جدولهم أو الوصول إلى الخدمات بسهولة.",
+        body2:
+          "جاءت هذه البوابة لتُغيّر ذلك. الهدف كان إنشاء لوحة تحكم موحدة يدخل إليها الطالب مرة واحدة، فيجد جدوله الدراسي، ويصل إلى أي نظام جامعي، ويراجع معلوماته الشخصية والأكاديمية، وينجز مهامه الإدارية — كل ذلك دون التنقل بين مواقع مختلفة أو إعادة إدخال بياناته.",
+        body3:
+          "تولّيت تصميم تجربة المستخدم وتطوير الواجهة الأمامية. كان التوجه البصري مقصودًا في اعتماد اللمسة الناعمة والمريحة — لوحة ألوان مؤلفة من الأخضر المزرق والبرتقالي الدافئ، وبطاقات ذات زوايا مستديرة، ومسافات واسعة — للابتعاد عن الطابع المؤسسي الثقيل الذي تحمله الأنظمة الحكومية عادةً. الطالب يقضي وقتًا حقيقيًا يوميًا في هذه البوابة، وكان من الضروري أن تشعره بأنها أداة مفيدة لا نظامًا رسميًا.",
+        sidebarTitle: "ما تغطيه البوابة",
+        bullets: [
+          "الجدول الدراسي — تفاعلي، مبني على الوقت الفعلي، قابل للضغط",
+          "وصول سريع لجميع أنظمة الجامعة في لوحة واحدة",
+          "حجز الاختبارات والطلبات الجامعية",
+          "الإعلانات والفعاليات والأخبار",
+          "المعلومات الشخصية والأكاديمية عبر نوافذ تفاعلية",
+          "جهات الاتصال الهامة ونموذج الملاحظات",
+          "دخول موحد — جلسة واحدة لكل شيء",
+        ],
+      },
+      problem: {
+        label: "المشكلة",
+        h2: "ما الذي كان بحاجة إلى تغيير",
+        intro:
+          "كانت نقطة البداية واضحة: الطلاب كانوا يبذلون جهدًا كبيرًا لإنجاز مهام أكاديمية روتينية. لم تكن المشكلة في نظام بعينه — بل كانت في الفراغ بين هذه الأنظمة.",
+        cards: [
+          {
+            title: "أنظمة جامعية متشتتة",
+            body: "Blackboard، والمكتبة، وحجز الاختبارات، والنقل الجامعي — كل منها يتطلب دخولًا منفصلاً وتنقلًا مستقلاً. كل مهمة روتينية كانت تبدأ بتحويل السياق والبحث عن الرابط الصحيح.",
+          },
+          {
+            title: "الجدول الدراسي بعيد عن متناول اليد",
+            body: "الجدول الدراسي — أكثر المعلومات التي يراجعها الطالب يوميًا — كان يتطلب عدة خطوات للوصول إليه، دون أي ربط بالخدمات الأخرى.",
+          },
+          {
+            title: "لا تجربة متوافقة مع الجوال",
+            body: "الطلاب يستخدمون هواتفهم باستمرار، خاصةً بين المحاضرات. الأنظمة القائمة لم تكن مصممة للشاشات الصغيرة أو اللمس.",
+          },
+          {
+            title: "لا أولوية بصرية في عرض المعلومات",
+            body: "المهام الحرجة والمحتوى العادي ظهرا بنفس الوزن البصري. مواعيد الاختبارات كانت تبدو مطابقة لأخبار الجامعة العامة.",
+          },
+        ],
+      },
+      persona: {
+        label: "شخصية الطالب",
+        h2: "من كنت أصمّم له؟",
+        intro:
+          "كل قرار في البوابة يعود إلى صورة واضحة عمن يستخدمها فعلًا، ومتى. الملف أدناه يمثّل النمط اليومي الذي بُني التصميم حوله.",
+        name: "فيصل — Faisal",
+        age: "٢١ · علوم الحاسب · السنة الثالثة",
+        desc: "يعتمد فيصل على هاتفه في كل شيء تقريبًا. يطّلع على جدوله الدراسي أول شيء في الصباح — في الغالب قبل أن يغادر السرير. في الفترات بين المحاضرات يبحث سريعًا عن مواعيد الاختبارات أو يتحقق من معدله. لا يتصفح البوابة — يفتحها وهو يعرف بالضبط ما يريده، ويريد إنجازه في أقل من دقيقة.",
+        needsHeading: "ما يحتاجه",
+        needs: [
+          "الاطلاع على جدول اليوم دون التنقل إلى قسم فرعي",
+          "الدخول إلى Blackboard دون تسجيل دخول منفصل",
+          "التحقق من معدله التراكمي ومستواه الأكاديمي بسرعة",
+          "معرفة موعد اختباره دون فتح نظام آخر",
+          "تقديم طلب دون زيارة مبنى شؤون الطلاب",
+        ],
+        slowedHeading: "ما كان يعيق مساره قبلًا",
+        slowed: [
+          "سبعة أنظمة منفصلة، كل منها ببياناته الخاصة",
+          "الجدول الدراسي مخبأ داخل النظام الأكاديمي بعد عدة نقرات",
+          "الإعلانات الهامة تبدو مطابقة للأخبار العادية",
+          "لا شيء يعمل بشكل جيد على الجوال",
+          "لا مكان موحد للعثور على أرقام التواصل أو تقديم ملاحظة",
+        ],
+      },
+      uxDecisions: {
+        label: "قرارات UX",
+        h2: "كيف صُمِّمت البوابة لتعمل",
+        intro:
+          "كل قرار أدناه يعالج جانبًا محددًا من طريقة تفاعل الطلاب مع الخدمات الأكاديمية يوميًا — بدءًا من بنية الجدول وصولًا إلى كيفية ظهور المعلومات دون الحاجة إلى التنقل.",
+        items: [
+          {
+            title: "الجدول بُني كشبكة زمنية حقيقية",
+            body: "بدلًا من عرض المقررات كقائمة نصية، صُمِّم الجدول كشبكة زمنية مرئية — تظهر فيها المقررات كبطاقات موضوعة رأسيًا بحسب أوقات البداية والنهاية الفعلية، عبر أسبوع مكوّن من خمسة أيام. يستطيع الطالب بنظرة واحدة معرفة مدة المحاضرة، والفترات بين المقررات، وهيكل يومه بالكامل. الألوان تُميّز بين المقررات بصريًا دون الحاجة إلى توضيحات نصية، والبطاقات ذات زوايا ناعمة وتباعد متسق تجعل الشبكة مقروءة دون أن تبدو جداول بيانات.",
+          },
+          {
+            title: "الضغط على مقرر يفتح نافذة تنبثق من مكانه مباشرة",
+            body: "حين يضغط الطالب على بطاقة مقرر، تفتح النافذة التفصيلية بحركة سلسة تنبع من موضع البطاقة نفسه — على الكمبيوتر تتمدد من المقرر، وعلى الجوال تنزلق من الأسفل. هذه العلاقة المكانية تجعل التفاعل طبيعيًا غير مقطوع. تفاصيل المقرر — الأستاذ، القاعة، الغيابات، الدرجات الشهرية — كلها داخل النافذة. الضغط على ESC أو خارج النافذة يغلقها ويعيد الطالب إلى نفس موضعه في الجدول تمامًا.",
+          },
+          {
+            title: "بطاقة الملف الشخصي تتيح الوصول الفوري للمعلومات",
+            body: "بطاقة الطالب الدائمة في الشريط الجانبي تحمل زرّين واضحي التسمية — زر للمعلومات الشخصية وآخر للوضع الأكاديمي. التفاصيل الشخصية (الرقم الجامعي، الكلية، الرصيد) والتفاصيل الأكاديمية (المعدل، المستوى، القاعة، الإنذارات، المشرف) تفتح كل منها في نافذة منفصلة. الطالب الذي يحتاج رقمه الجامعي لتعبئة نموذج، أو يريد التحقق من معدله، يجده بنقرة واحدة من البطاقة ذاتها التي تظهر له في كل زيارة — دون الذهاب إلى صفحة ملف شخصي.",
+          },
+          {
+            title: "جميع أنظمة الجامعة في لوحة وصول واحدة",
+            body: "سبعة أنظمة جامعية — Blackboard، والمكتبة الرقمية، والنقل الجامعي، وحجز الاختبارات، والنظام الأكاديمي، والبريد الجامعي، واللجان — تظهر كشبكة بصرية من بطاقات أيقونة ونص. كل بطاقة تحمل ظلًا ناعمًا يبدو كأنه منبثق من السطح ويعكس الاتجاه عند التحويم، ما يمنح إحساسًا ملموسًا بالتفاعل. الطالب يرى جميع الأنظمة المتاحة في مستوى واحد، يتعرف على ما يحتاجه، ويضغط مرة واحدة فيدخل مباشرة — الجلسة مفعّلة بالفعل، لا حاجة لتسجيل دخول جديد ولا للتبديل بين التبويبات.",
+          },
+          {
+            title: "اتجاه RTL كان الأساس، لا مجرد تعديل",
+            body: "البوابة مبنية لطلاب ناطقين بالعربية، والعربية هي الاتجاه الأساسي للتصميم — direction:rtl على مستوى الصفحة كاملة، لا قسمًا قسمًا. خط 29LT Bukra يتولى قراءة النص العربي بجميع الأوزان بوضوح مريح حتى في الأحجام الصغيرة. الكاروسيلات مُهيأة بـ rtl:true حتى يكون ترتيب الشرائح واتجاه السحب كما يتوقعه المستخدم. التنقل، ومواضع النوافذ، وتسلسل القراءة — كلها تسير بالاتجاه العربي الطبيعي، لا كانعكاس لنسخة LTR.",
+          },
+          {
+            title: "الإعلانات والفعاليات والأخبار مرئية من لوحة التحكم مباشرة",
+            body: "إعلانات الجامعة، والفعاليات القادمة، والأخبار — كلها ظاهرة من الصفحة الرئيسية دون الحاجة للتنقل إلى قسم مخصص. كل منها في لوحة محتواة، مفصولة بمسافة بصرية واضحة عن قسم الجدول وقسم الأنظمة. هذا الفصل يحافظ على نظام الصفحة حتى حين يزداد المحتوى — الطالب يمرر للأسفل ويشعر أنه يتنقل بين مناطق مرتبة دون الحاجة لقراءة العناوين.",
+          },
+          {
+            title: "جهات الاتصال والملاحظات في متناول اليد بتمرير واحد",
+            body: "أرقام التواصل الهامة مُجمَّعة في أقسام قابلة للطي — يفتح الطالب الفئة التي يحتاجها (الدعم التقني، الإرشاد الأكاديمي) دون أن يُغرق بجميع الأرقام دفعة واحدة. نموذج الملاحظات يقع مباشرة تحته مع نص ترحيبي بالعربية. لا تنقل، لا صفحة منفصلة — الطالب الذي لديه سؤال أو اقتراح يقدّمه من نفس الجلسة دون قطع مساره.",
+          },
+          {
+            title: "تجربة الجوال مدروسة منذ البداية",
+            body: "الجدول ينتقل من شبكة أيام متجاورة إلى تخطيط عمودي متراكم على الشاشات الصغيرة، مما يُبقي معلومات المقررات مقروءة دون الحاجة للتمرير الأفقي. حركات الدخول التدريجي (AOS) مُعطّلة دون عرض 800 بكسل لتقليل الحمل على أجهزة الجوال. بطاقات الأنظمة وبطاقات المقررات مُصممة بحجم يناسب اللمس — واسعة بما يكفي للضغط بدقة دون الحاجة لتحديد دقيق. التخطيط يُعيد ترتيب نفسه بسلاسة عند نقاط الكسر الرئيسية بدلًا من الانهيار المفاجئ.",
+          },
+        ],
+      },
+      features: {
+        label: "المميزات الرئيسية",
+        h2: "ما تشمله البوابة",
+        intro:
+          "تغطي البوابة النطاق الكامل لاحتياجات الطالب اليومية — أكاديميًا وإداريًا ومعلوماتيًا — في جلسة موحدة. المميزات مُجمَّعة حسب السياق في لوحة التحكم، حتى يصل الطالب لما يحتاجه بالتمرير للأسفل لا بالتنقل عبر القوائم.",
+        items: [
+          {
+            icon: "🗓️",
+            name: "الجدول الدراسي",
+            note: "شبكة زمنية مرئية، مقررات ملونة، بطاقات قابلة للضغط مع تفاصيل في نافذة تفاعلية",
+          },
+          {
+            icon: "👤",
+            name: "المعلومات الشخصية",
+            note: "نافذة تفاعلية — الرقم الجامعي، الكلية، الرصيد الدراسي",
+          },
+          {
+            icon: "🎓",
+            name: "المعلومات الأكاديمية",
+            note: "نافذة تفاعلية — المعدل التراكمي، المستوى، القاعة، الإنذارات، المشرف الأكاديمي",
+          },
+          {
+            icon: "📚",
+            name: "Blackboard",
+            note: "نقرة واحدة من لوحة الأنظمة — جلسة مفعّلة بالفعل",
+          },
+          {
+            icon: "🏛️",
+            name: "المكتبة الرقمية",
+            note: "وصول مباشر للقواعد البحثية والمصادر الأكاديمية",
+          },
+          {
+            icon: "🚌",
+            name: "النقل الجامعي",
+            note: "خطوط الحافلات ومعلومات المواعيد",
+          },
+          {
+            icon: "📝",
+            name: "حجز الاختبارات",
+            note: "حجز مقعد الاختبار دون مغادرة البوابة",
+          },
+          {
+            icon: "📋",
+            name: "الطلبات الجامعية",
+            note: "تقديم الطلبات الإدارية من لوحة التحكم مباشرة",
+          },
+          {
+            icon: "📢",
+            name: "الإعلانات",
+            note: "إعلانات الجامعة ظاهرة في لوحة التحكم الرئيسية",
+          },
+          {
+            icon: "🎉",
+            name: "الفعاليات والأنشطة",
+            note: "الفعاليات القادمة والتقويم الأكاديمي",
+          },
+          {
+            icon: "☎️",
+            name: "جهات الاتصال الهامة",
+            note: "مجموعات قابلة للطي — تقنية المعلومات، الإرشاد، الإدارة — في متناول اليد دائمًا",
+          },
+          {
+            icon: "💬",
+            name: "الملاحظات",
+            note: "نموذج بسيط في الأسفل — لا تنقل، لا صفحة منفصلة",
+          },
+        ],
+      },
     },
     contact: {
       title: "تواصل",
@@ -916,8 +1307,7 @@ export const translations = {
     },
     meta: {
       "/": {
-        title:
-          "عمر مختار - قائد تصميم تجربة المستخدم | 14+ سنة خبرة",
+        title: "عمر مختار - قائد تصميم تجربة المستخدم | 14+ سنة خبرة",
         description:
           "عمر مختار قائد تجربة المستخدم بخبرة تزيد عن 14 سنة في المنصات المؤسسية ونظم التصميم والمنتجات الحكومية الرقمية. معتمد من جوجل في تصميم تجربة المستخدم.",
         keywords:
