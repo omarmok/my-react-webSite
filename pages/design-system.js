@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import Loader from "../components/Loader";
 import { useTranslation } from "../src/i18n/useTranslation";
+import whatsappIcon from "../public/images/whatsapp.png";
 
 const REDIRECT_URL = "/PS-Design/DesignSystemDocumentation/index.html";
 const WHATSAPP_URL = "https://wa.me/+966535468309";
@@ -120,7 +122,7 @@ const DesignSystemPage = () => {
           window.history.replaceState(
             { source: "design-system-login" },
             "",
-            "/"
+            "/",
           );
         }
         window.location.assign(REDIRECT_URL);
@@ -439,22 +441,14 @@ const DesignSystemPage = () => {
               color: purple,
               textDecoration: "none",
             }}>
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+            <Image
+              src={whatsappIcon}
+              alt=""
               aria-hidden="true"
-              focusable="false">
-              <path
-                fill="#25D366"
-                d="M12 2a10 10 0 0 0-8.73 14.88L2 22l5.27-1.23A10 10 0 1 0 12 2z"
-              />
-              <path
-                fill="#fff"
-                d="M17.61 14.84c-.23-.11-1.33-.65-1.53-.72-.2-.08-.35-.12-.5.12-.15.23-.58.72-.71.86-.13.15-.27.17-.5.06-.23-.12-.97-.35-1.85-1.12-.69-.61-1.15-1.36-1.29-1.59-.13-.23-.01-.35.1-.46.1-.1.23-.27.35-.4.12-.13.15-.23.23-.38.08-.15.04-.29-.02-.4-.06-.12-.5-1.21-.69-1.66-.18-.43-.37-.38-.5-.39l-.43-.01c-.15 0-.4.06-.61.29-.21.23-.8.78-.8 1.9 0 1.12.82 2.2.94 2.35.12.15 1.61 2.46 3.9 3.45.54.24.97.38 1.29.49.54.17 1.03.15 1.42.09.43-.06 1.33-.54 1.52-1.06.19-.52.19-.97.13-1.06-.06-.09-.21-.15-.44-.26z"
-              />
-            </svg>
+              width={60}
+              height={60}
+              style={{ flexShrink: 0 }}
+            />
             {language === "ar"
               ? "التواصل عبر واتساب"
               : "Contact me on WhatsApp"}
