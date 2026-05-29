@@ -1,0 +1,528 @@
+@use '../helpers' as *;
+.Deathmanagment {
+
+
+    .deceasedList {
+
+        .highpriority, .primaryprioroty, .defualtprioroty, .infoprioroty, .regpriority, .mediumpriority {
+            max-width: fit-content;
+        }
+
+        .highpriority {
+            background: $Error-500;
+            border: 1px solid $Error-400;
+            color: $white-100;
+        }
+
+        .regpriority {
+            background: $Primary-500;
+            border: 1px solid $Primary-400;
+            color: $white-100;
+        }
+    }
+
+
+
+    .DeceasedDetails {
+        .stutus {
+            display: none
+        }
+
+        .actionIcon {
+            display: none
+        }
+
+        .detailsiconu {
+            display: block
+        }
+
+        .newIms--inquiryDs--card {
+            padding: 0;
+        }
+    }
+
+    .sectionActions {
+        .defualt {
+            display: flex;
+            align-items: center;
+            padding: $padding-10 $padding-16;
+            gap: $gap-4;
+            width: 200px;
+            height: 55px;
+            /*  background: $Brown-25;
+            border: 1px solid #C69C66;*/
+            background: $Brown-25;
+            border: 1px solid $Brown-100;
+            border-radius: $Radius-8;
+            cursor: pointer;
+
+            .Agancyimg {
+                width: 34px;
+                height: 34px;
+                border-radius: $Radius-100;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: $white-100;
+
+                svg {
+                    fill: $Brown-700;
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+
+            span {
+                color: $Brown-700;
+                font-weight: 600;
+            }
+        }
+
+        .currant {
+            background: $Primary-500;
+            border: 1px solid $Primary-300;
+            border-radius: $Radius-8;
+
+            .Agancyimg {
+                background: $white-100;
+
+                svg {
+                    fill: $Primary-500;
+                }
+            }
+
+            span {
+                color: $Primary-25;
+            }
+        }
+
+
+        .complated {
+            background: $Primary-50;
+            border: 1px solid $Primary-100;
+            border-radius: $Radius-8;
+            position: relative;
+
+            .Agancyimg {
+                background: $Primary-500;
+
+                svg {
+                    fill: $white-100;
+                }
+            }
+
+            span {
+                color: $Primary-500;
+            }
+
+            .checkedico {
+                position: absolute;
+                left: 10px;
+                top: 5px;
+            }
+        }
+
+
+        .disabled {
+            background: $Neutral-50 !important;
+            border: 1px solid $Neutral-200 !important;
+            border-radius: $Radius-8 !important;
+            cursor: not-allowed;
+
+            .Agancyimg {
+                background: $white-100;
+
+                svg {
+                    fill: $Neutral-500;
+                }
+            }
+
+            span {
+                color: $Neutral-500;
+            }
+        }
+    }
+
+    .actioncontent {
+        border-radius: $Radius-6;
+        box-shadow: 0px 8px 30px rgb(181 181 181 / 27%);
+        padding: $padding-14;
+        background: $white-100;
+
+        .encodeding {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            gap: $gap-10;
+
+            .Qrstyle {
+                width: 520px;
+                height: 80px;
+            }
+
+            h6 {
+                font-weight: 600;
+            }
+
+            span {
+                color: $Brown-500;
+                font-size: 34px;
+                font-weight: 600;
+            }
+        }
+
+        .searchfields {
+            .form-group {
+                display: flex;
+            }
+        }
+    }
+
+    .deceased-general-desc-template {
+        .scroll-container {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 10px;
+        }
+
+        .card {
+            /*           width: 80px;*/
+            height: 120px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+
+            .card:hover {
+                background-color: #0F7043;
+                color: white;
+                cursor: pointer;
+
+                .card-title {
+                    color: white;
+                }
+            }
+
+        .active-card {
+            background-color: #0F7043;
+            color: white;
+
+            .card-title {
+                color: white;
+            }
+        }
+
+        .active-card-skin {
+            .color-option {
+                border: 1px solid $Primary-500;
+                background: $Primary-100;
+                color: $Primary-500;
+            }
+        }
+
+        .card-title {
+            @include font-md-500;
+            color: gray;
+        }
+
+        .card-number {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .card-range {
+            @include font-md-500;
+        }
+
+        .color-option {
+            padding: 6px;
+            text-align: center;
+            border: 1px solid #ccc;
+            cursor: pointer; /* Make it look clickable */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+            @include font-sm-500;
+            font-weight: 600 !important;
+            border-radius: 6px;
+            width: 140px;
+        }
+
+            .color-option:hover {
+                background-color: #f0f0f0; /* Light gray on hover */
+            }
+
+        .color-box {
+            height: 50px;
+            width: 50px;
+            margin: 0 auto 5px;
+            border: 1px solid #000;
+            border-radius: 6px;
+        }
+        /* Specific colors - you can customize these */
+        .color-box-1 {
+            background-color: #E7E4E4;
+        }
+        /* ??? ???? (Unclear/Light Gray) */
+        .color-box-2 {
+            background-color: #989090;
+        }
+        /* ???? (Black) */
+        .color-box-3 {
+            background-color: #000000;
+        }
+        /* ???? (Wheatish/Brown) - Example color */
+        .color-box-4 {
+            background-color: #B18864;
+        }
+        /* ???? (Brown/Tan) - Example color */
+        .color-box-5 {
+            background-color: #FFFFFF;
+        }
+        /* ???? (other) - Example color */
+        .color-box-6 {
+            background-color: #FFFFFF;
+        }
+    }
+
+    .clothesitem {
+        border-radius: $Radius-8;
+        background: $white-100;
+        box-shadow: 0px 5px 35px 0px rgba(0, 27, 175, 0.05);
+        border: 1px solid $Neutral-200;
+        padding: $padding-10;
+        position: relative;
+        margin: 0;
+        cursor: pointer;
+
+        .form-check-input {
+            position: absolute;
+            right: 30px;
+            top: 15px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .form-check-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 0;
+        }
+    }
+}
+
+.DeceasedFe {
+
+    .personsearch {
+        box-shadow: 0px 8px 30px rgb(231 234 237);
+        border-radius: 8px;
+
+        .radioin {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+
+
+    .searchfields {
+        background: transparent;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 8px;
+
+        .form-group {
+            display: flex;
+        }
+    }
+}
+
+
+
+.hands-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+
+}
+
+
+.finger {
+    fill: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.finger:hover {
+    fill: green;
+}
+
+.doneFinger {
+    fill: green;
+}
+
+.hand {
+    display: inline-block;
+}
+
+.deceasedbody {
+    display: flex;
+    height: 70vh;
+    background-color: #ffffff;
+    flex-direction: column;
+    position: relative;
+
+
+    .mainsketch {
+        display: flex;
+        flex: 1;
+        flex-direction: row-reverse;
+        width: 100%;
+    }
+
+    #whiteboard-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 80%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #whiteboard {
+        flex: 1;
+        background-color: #ffffff;
+        overflow: hidden;
+        border: 1px solid #a5a5a5;
+        position: relative;
+        background-color: #ffffff;
+        background-image: url("./../images/whiteboard/deceased.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        box-shadow: 0px 5px 35px 0px rgb(82 82 82 / 12%);
+        border-radius: 6px;
+    }
+
+    #itemstoslelect {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        flex-direction: column;
+    }
+
+    .itemstoslelect-item {
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
+    .draggable {
+        position: absolute;
+        cursor: grab;
+        width: 25px;
+        height: 25px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .action-btn {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include font-sm-500;
+        cursor: pointer;
+    }
+
+    .delete-btn {
+        background-color: #dc3545;
+        top: -10px;
+        right: -10px;
+    }
+
+    .add-description-btn {
+        background-color: green;
+        top: -10px;
+        left: -10px;
+        display: none;
+    }
+
+    .description-box {
+        position: absolute;
+        top: 50px;
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 350px;
+        display: none;
+    }
+
+    .description-box textarea {
+        width: 100%;
+        height: 60px;
+    }
+
+    .draggable .action-btn,
+    .draggable .add-description-btn {
+        display: none;
+    }
+    /* Show action buttons on hover of the item */
+    .draggable:hover .action-btn,
+    .draggable:hover .add-description-btn {
+        display: block;
+    }
+    /* New styles for the Legend */
+    #legend {
+        padding: $padding-10;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: start;
+        background: $Info-25;
+        border-radius: $Radius-6;
+        border: 1px solid $Info-200;
+
+        h6 {
+            @include font-md-500;
+            color: $Info-700;
+        }
+    }
+
+
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: $gap-4;
+    }
+
+    .legend-icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    .legend-label {
+        font-size: 10px;
+        font-weight: bold;
+        color: #444;
+    }
+}

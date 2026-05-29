@@ -1,0 +1,313 @@
+@use '../helpers' as *;
+#Accedentsketch {
+    display: flex;
+    height: 70vh;
+    flex-direction: column;
+}
+
+
+.mainsketch {
+    display: flex;
+    flex: 1;
+    flex-direction: row-reverse;
+}
+
+#whiteboard-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 80%;
+    position: relative;
+    overflow: hidden;
+}
+
+#whiteboard {
+    flex: 1;
+    background-color: #ffffff;
+    overflow: hidden;
+    border: 2px solid #444;
+    position: relative;
+}
+
+#itemstoslelect {
+    width: 30%;
+    height: 450px;
+    background-color: #f1f1f1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 10px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    flex-wrap: wrap;
+}
+
+.itemstoslelect-item {
+    width: 170px;
+    height: 120px;
+    cursor: grab;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: inherit;
+    background-position: center;
+}
+
+.draggable {
+    position: absolute;
+    cursor: grab;
+    width: 100px;
+    height: 220px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.action-btn {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include font-sm-500;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    top: -10px;
+    right: -10px;
+}
+
+.rotate-btn {
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #45a049;
+}
+
+.actionbuttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.previewimage {
+    margin-top: 20px;
+    width: 500px;
+    height: 300px;
+    border: 2px solid #444;
+    background-color: #f4f4f9;
+    position: relative;
+}
+
+    .previewimage img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+.download-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .download-btn:hover {
+        background-color: #0056b3;
+    }
+
+.delete-preview-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .delete-preview-btn:hover {
+        opacity: 0.8;
+    }
+
+.draggable.straight-road {
+    height: 500px;
+    min-width: 300px;
+    z-index: 1;
+    background-size: contain;
+}
+
+.countainbg {
+    width: 50px;
+    height: 100px;
+    background-size: contain;
+    z-index: 2 !important;
+}
+
+.no-save {
+    display: none !important;
+}
+
+
+#myCanvas {
+    cursor: crosshair;
+    height:50vh !important;
+    width: 100% !important;
+    border: 1px solid #d2d2d2;
+    margin-top: 10px;
+}
+
+#controls {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+#savedImageContainer {
+    display: flex;
+    gap: 10px;
+}
+
+#savedImage {
+    border: 4px solid #ebebeb;
+    border-radius: 8px;
+}
+
+.eraser-circle {
+    position: absolute;
+    border: 2px solid red;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+
+.incedentFirstStep {
+    .attachedfilesfiles {
+        display: flex;
+        flex-direction: column;
+
+        .files {
+            gap: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            border: 0.2px solid #acddc7;
+            border-radius: 10px;
+            padding:10px;
+
+            .attatched {
+                width: auto;
+                gap: 40px;
+                background: #f5faf8 !important;
+                border: 1px solid #7bddb1 !important;
+                padding: 0 10px;
+                margin: 0 !important;
+
+                .imagetypbg {
+                    background: #daede6;
+
+                    svg {
+                        fill: #25935F;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.AccidentParties {
+    padding: $padding-14;
+    margin: 15px;
+    background: #fff;
+    box-shadow: 0px 5px 35px 0px rgba(0, 27, 175, 0.05);
+
+    .tab-content {
+        border: 1px solid #25935F;
+        border-radius: 6px;
+        padding: $padding-14;
+    }
+
+    .personsTab {
+        padding: $padding-14;
+        width: 20%;
+        background: #f8f6f2;
+
+        .nav-link {
+            width: 100%;
+            background: #fff;
+            color: #464646;
+            height: 50px;
+            text-align: right;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            svg {
+                fill: #464646;
+            }
+
+            .totalparties {
+                background: #5e4646;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 30px;
+                height: 30px;
+                border-radius: 5px;
+                color: #ffffff;
+            }
+        }
+
+        .active {
+            background: #A38766 !important;
+            color: #fff;
+
+            svg {
+                fill: #fff;
+            }
+        }
+    }
+}
+
+
+.respnsiplitypercentage {
+    display: flex;
+    gap: 10px;
+
+    .responsibilityRatiobutton {
+        display: inline-block;
+        padding: 14px;
+        border-radius: 6px;
+        @include font-lg-500;
+        font-weight: bold !important;
+        text-align: center;
+        cursor: pointer;
+        box-shadow: none;
+        background: rgba(13, 52, 143, 0.06);
+        color: rgb(0, 0, 0);
+        border: 1px dashed rgb(224, 229, 241);
+    }
+
+    .responsibilityRatiobutton.active {
+        background-color: #25935F;
+        color: white;
+        border: 1px solid #24ab6e;
+    }
+}

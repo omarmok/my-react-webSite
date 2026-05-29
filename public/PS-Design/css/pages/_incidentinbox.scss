@@ -1,0 +1,378 @@
+@use '../helpers' as *;
+.incidentinbox {
+
+    .tabcontent {
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 100%;
+        gap: 9px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .card {
+            padding: 8px;
+            border-radius: 14px;
+            width: 32.9%;
+
+            .action {
+                width: 100%;
+                margin: 0 auto;
+
+                .btn {
+                    width: 100%;
+                    display: flex;
+                    flex: 1 1 calc(26% - 4px);
+                }
+            }
+
+            @media only screen and (max-width: 1760px) {
+                /* width: 100%;*/
+
+                .action {
+                    width: 90%;
+                }
+            }
+
+            @media only screen and (max-width: 1750px) {
+                /*    width: 100%;*/
+
+                .action {
+                    width: 100%;
+                }
+            }
+
+            @media only screen and (max-width: 1000px) {
+                width: 100%;
+
+                .action {
+                    width: 100%;
+                }
+            }
+
+            .card-title {
+                background: $Neutral-25;
+                padding: $padding-14;
+                border-radius: 10px 10px 0 0;
+                margin: 0;
+                flex-direction: column;
+                align-items: flex-start !important;
+
+
+                .icon-service {
+                    border-radius: 6px;
+                    background: $white-100;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    font-weight: 600;
+                    padding: $padding-6;
+                    min-width: 80px;
+                    border: 1px solid #e9f5f0;
+                    margin: 0 0 10px 10px;
+
+                    span {
+                        text-align: center;
+                    }
+
+                    svg {
+                        fill: $Primary-500;
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+
+                .level {
+                    font-size: 10px;
+                }
+
+                .mediumpriority {
+                    background: rgba(252, 242, 232, 1);
+                    color: rgba(231, 139, 47, 1) !important;
+                }
+            }
+
+            .card-body {
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .highpriority, .Returned, .UnderProgress, .primaryprioroty, .defualtprioroty, .infoprioroty, .regpriority, .mediumpriority {
+                    margin: 0 !important;
+                }
+
+                .casenumber {
+                    @include font-md-500;
+                }
+
+                .date {
+                    svg {
+                        fill: #838b9d;
+                        height: 16px;
+                    }
+                }
+
+                .income {
+                    color: rgb(0 0 0 / 40%);
+                }
+
+                .SecurityClassification {
+                    @include font-lg-500;
+                    margin: 0;
+                    border: 1px solid #e8ecf2;
+                    background: $Neutral-50;
+                    padding: 7px 10px;
+                    line-height: 1.8;
+                    border-radius: 6px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    cursor: pointer;
+                }
+
+                .defualtprioroty {
+                    font-size: 10px;
+                }
+
+                .action {
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+
+                    .btn {
+                        flex-direction: column;
+                        height: auto;
+                        width: 60%;
+                        padding: 5px 10px;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .card50 {
+            width: 49%;
+        }
+
+        .card100 {
+            width: 100%;
+            transition: all 0.2s ease;
+
+            .action {
+                .btn {
+                    flex: 1;
+                }
+            }
+
+            .SecurityClassification {
+                word-wrap: break-word;
+                white-space: normal !important;
+            }
+        }
+    }
+
+    .dstable {
+        display: none;
+    }
+
+    #ImsRecordsDetailsModal {
+        z-index: 1000000;
+
+        .btn-close {
+            position: absolute;
+            left: -48px;
+            background: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border-radius: 25px;
+            padding: 0;
+
+            .rightDetails {
+                padding: 10px;
+                border-radius: 8px;
+                border: 1px solid #C6C6DC;
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                z-index: 1020;
+
+                .top {
+                    padding: 14px;
+                    border: 1px solid #C0D6ED;
+                    background: rgba(241, 247, 255, 0.4);
+                    border-radius: 8px;
+                    gap: 14px;
+                    display: flex;
+                    flex-direction: column;
+
+                    .casenumber {
+                        background: #fff;
+                        box-shadow: 0px 1px 4px 0px rgb(0 27 175 / 9%);
+                        padding: 8px;
+                        font-size: 10px;
+                        font-weight: 600;
+                        border-radius: 5px;
+
+                        span {
+                            @include font-lg-500;
+                            line-height: 1;
+                        }
+
+                        .sourcename {
+                            font-size: 10px;
+                        }
+                    }
+
+                    .casestutus {
+                        flex-direction: column;
+
+                        .mediumpriority {
+                            background: rgba(252, 242, 232, 1);
+                            color: rgba(231, 139, 47, 1) !important;
+                        }
+                    }
+
+                    .casedetails {
+                        .block {
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                            border-bottom: 1px solid #e2e9ef;
+                            padding: 10px 0;
+
+                            svg {
+                                height: 16px;
+                            }
+
+                            &:last-child {
+                                border-bottom: none;
+                            }
+
+                            span {
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+
+                .casetext {
+                    p {
+                        margin: 0;
+                        background: #F8F9FA;
+                        border: 1px solid #EAEEF2;
+                        padding: $padding-14;
+                        @include font-sm-500;
+                        line-height: 2.3;
+                        text-align: justify;
+                    }
+                }
+            }
+
+            .leftDetails {
+                .mainAction {
+                    background: #fff;
+                    padding: $padding-14;
+                    box-shadow: 0px 5px 35px 0px rgba(0, 27, 175, 0.05);
+                    position: -webkit-sticky;
+                    position: sticky;
+                    top: 0;
+                    z-index: 1020;
+                }
+
+                nav {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+.kolonaamntimeline {
+    .caseTimeline {
+        top: 0;
+        width: 100%;
+        position: relative;
+
+        .content-date {
+            gap: $gap-10;
+        }
+
+        .bg-Date-currant {
+            .content-block {
+                background: $white-100 !important;
+                border: 1px solid $Primary-400;
+
+                .conttitle {
+                    background: $Primary-50 !important;
+                    color: $Primary-600 !important;
+                }
+            }
+        }
+    }
+}
+
+.kolonaAmnDetails {
+    newIms--inquiryDs--card {
+        gap: $gap-4;
+    }
+
+    .newIms--inquiryDs--card--top {
+        background: $Neutral-25;
+        gap: $gap-4;
+    }
+
+    .newIms--inquiryDs--card--body {
+        .maindetails {
+            .form-group {
+                border: 1px solid $Neutral-100;
+                padding: $padding-8;
+                border-radius: $Radius-8;
+
+                label {
+                    @include font-lg-600;
+                    color: $Primary-600 !important;
+                }
+            }
+        }
+    }
+
+    .newIms--inquiryDs--card--top--customACtion .actionIcon {
+        background: $white-100;
+        border: 1px solid $Neutral-600;
+    }
+
+    .new-custommap {
+        padding: $padding-16 !important;
+        background: red;
+
+        .new-custommap--title {
+            background: $white-100 !important;
+
+            svg {
+                display: none;
+            }
+
+            h4 {
+                @include font-lg-600;
+                color: $Neutral-800 !important;
+            }
+        }
+
+        .incomingIncidents--container--card {
+            padding: $padding-0;
+            border: none;
+        }
+
+        .maindetails {
+            label {
+                @include font-lg-600;
+                color: $Primary-600 !important;
+            }
+        }
+    }
+}

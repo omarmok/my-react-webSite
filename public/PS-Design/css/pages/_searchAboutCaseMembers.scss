@@ -1,0 +1,16 @@
+@use '../helpers' as *;
+.searchAboutCaseMembers .person nav {
+  background: transparent;
+  padding: 0;
+}
+.searchAboutCaseMembers .person .nav-tabs .nav-link {
+  @include font-sm-500;
+}
+.searchAboutCaseMembers .person .nav-tabs .nav-link.active {
+  color: #9f8544 !important;
+  border: 1px solid #f8f6f2 !important;
+  border-radius: 10px 10px 0 0;
+  padding: $padding-14;
+
+  background-color: #f8f6f2 !important;
+}

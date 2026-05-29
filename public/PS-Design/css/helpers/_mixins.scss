@@ -1,0 +1,394 @@
+@use 'sass:map';
+@use './variables' as *;
+
+
+@mixin font-xs-400 {
+    font-size: 0.625rem !important;
+    font-weight: 400 !important;
+}
+@mixin font-xs-500 {
+    font-size: 0.625rem !important;
+    font-weight: 500 !important;
+}
+@mixin font-xs-600 {
+    font-size: 0.625rem !important;
+    font-weight: 600 !important;
+}
+@mixin font-xs-700 {
+    font-size: 0.625rem !important;
+    font-weight: 700 !important;
+}
+
+@mixin font-sm-400 {
+    font-size: 0.75rem !important;
+    font-weight: 400 !important;
+}
+@mixin font-sm-500 {
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+}
+@mixin font-sm-600 {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+}
+@mixin font-sm-700 {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+}
+
+@mixin font-md-400 {
+    font-size: 0.875rem !important;
+    font-weight: 400 !important;
+}
+@mixin font-md-500 {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+}
+@mixin font-md-600 {
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+}
+@mixin font-md-700 {
+    font-size: 0.875rem !important;
+    font-weight: 700 !important;
+}
+
+@mixin font-lg-400 {
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+}
+@mixin font-lg-500 {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+}
+@mixin font-lg-600 {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+}
+@mixin font-lg-700 {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+}
+
+@mixin font-xl-400 {
+    font-size: 1.25rem !important;
+    font-weight: 400 !important;
+}
+@mixin font-xl-500 {
+    font-size: 1.25rem !important;
+    font-weight: 500 !important;
+}
+@mixin font-xl-600 {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+}
+@mixin font-xl-700 {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+}
+
+@mixin font-2xl-400 {
+    font-size: 1.5rem !important;
+    font-weight: 400 !important;
+}
+@mixin font-2xl-500 {
+    font-size: 1.5rem !important;
+    font-weight: 500 !important;
+}
+@mixin font-2xl-600 {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+}
+@mixin font-2xl-700 {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+}
+
+@mixin font-3xl-400 {
+    font-size: 1.875rem !important;
+    font-weight: 400 !important;
+}
+@mixin font-3xl-500 {
+    font-size: 1.875rem !important;
+    font-weight: 500 !important;
+}
+@mixin font-3xl-600 {
+    font-size: 1.875rem !important;
+    font-weight: 600 !important;
+}
+@mixin font-3xl-700 {
+    font-size: 1.875rem !important;
+    font-weight: 700 !important;
+}
+
+@mixin font-4xl-400 {
+    font-size: 2.25rem !important;
+    font-weight: 400 !important;
+}
+@mixin font-4xl-500 {
+    font-size: 2.25rem !important;
+    font-weight: 500 !important;
+}
+@mixin font-4xl-600 {
+    font-size: 2.25rem !important;
+    font-weight: 600 !important;
+}
+@mixin font-4xl-700 {
+    font-size: 2.25rem !important;
+    font-weight: 700 !important;
+}
+
+@mixin font-5xl-400 {
+    font-size: 3rem !important;
+    font-weight: 400 !important;
+}
+@mixin font-5xl-500 {
+    font-size: 3rem !important;
+    font-weight: 500 !important;
+}
+@mixin font-5xl-600 {
+    font-size: 3rem !important;
+    font-weight: 600 !important;
+}
+@mixin font-5xl-700 {
+    font-size: 3rem !important;
+    font-weight: 700 !important;
+}
+
+@mixin font-6xl-400 {
+    font-size: 3.75rem !important;
+    font-weight: 400 !important;
+}
+@mixin font-6xl-500 {
+    font-size: 3.75rem !important;
+    font-weight: 500 !important;
+}
+@mixin font-6xl-600 {
+    font-size: 3.75rem !important;
+    font-weight: 600 !important;
+}
+@mixin font-6xl-700 {
+    font-size: 3.75rem !important;
+    font-weight: 700 !important;
+}
+
+@mixin font-7xl-400 {
+    font-size: 4.5rem !important;
+    font-weight: 400 !important;
+}
+@mixin font-7xl-500 {
+    font-size: 4.5rem !important;
+    font-weight: 500 !important;
+}
+@mixin font-7xl-600 {
+    font-size: 4.5rem !important;
+    font-weight: 600 !important;
+}
+@mixin font-7xl-700 {
+    font-size: 4.5rem !important;
+    font-weight: 700 !important;
+}
+
+
+
+
+@mixin maiShadow {
+    background: #f3f6f9;
+    box-shadow: 13px 13px 20px #d2dae6, -13px -13px 20px #fdfdfd;
+}
+
+@mixin shadow-soft {
+    background: #ecf0f3;
+    box-shadow: 10px 10px 20px 0 #d1d9e6, -10px -10px 20px 0 #fff;
+}
+
+@mixin titleShadow {
+    box-shadow: inset 8px 8px 8px #e6e9ef, inset -8px -8px 8px #ecf0f3;
+}
+
+@mixin bottomshadow {
+    box-shadow: 13px 13px 20px #d2dae6, -13px -13px 20px #fdfdfd;
+}
+
+@mixin pagetitle {
+    @include font-2xl-500;
+    font-weight: bold !important;
+}
+
+@mixin titles {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+@mixin boldfont-18 {
+    @include font-xl-500;
+    font-weight: bold !important;
+}
+
+@mixin boldfont-16 {
+    @include font-lg-500;
+    font-weight: bold !important;
+}
+
+@mixin boldfont {
+    @include font-md-500;
+    font-weight: bold !important;
+}
+
+@mixin meduimfont-16 {
+    @include font-lg-500;
+    font-weight: 600 !important;
+}
+
+
+@mixin meduimfont-14 {
+    @include font-md-500;
+    font-weight: 600 !important;
+}
+
+@mixin meduimfont {
+    @include font-sm-500;
+    font-weight: bold !important;
+}
+
+@mixin smallfont {
+    font-size: 10px;
+    font-weight: bold;
+}
+
+@mixin x-smallfont {
+    font-size: 8px;
+    font-weight: bold;
+}
+
+@mixin meduimfont-reg-18 {
+    @include font-xl-500;
+
+}
+
+@mixin meduimfont-reg-14 {
+    @include font-md-500;
+
+}
+
+@mixin meduimfont-reg-12 {
+    @include font-sm-500;
+
+}
+
+@mixin smallfont-reg-10 {
+    font-size: 10px;
+    font-weight: 500;
+}
+
+@mixin x-smallfont-reg-8 {
+    font-size: 8px;
+    font-weight: 500;
+}
+
+@mixin mainbtn {
+    color: #fff;
+    font-weight: 600;
+
+    &:hover {
+        background: red;
+        color: #fff;
+    }
+}
+
+
+
+
+@mixin secondbtn {
+    color: #fff;
+    font-weight: 600;
+
+    &:hover {
+        background: red;
+        color: #fff;
+    }
+}
+
+
+// buttonStyles
+
+
+@mixin buttonStyles {
+    border-radius: var(--btn-radius, $Radius-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--btn-height, 44px); // default matches WCAG touch target
+    min-height: var(--btn-height, 44px);
+    white-space: nowrap;
+    text-align: center;
+    box-shadow: none;
+    cursor: pointer !important;
+    padding-inline: var(--btn-px, $padding-16);
+    padding-block: 0;
+    gap: var(--btn-gap, $gap-2);
+    font-size: var(--btn-font-size, 1rem);
+    font-weight: 500;
+    line-height: 1.5;
+    text-decoration: none;
+    vertical-align: middle;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    img {
+        margin-left: 5px;
+    }
+
+    svg {
+        height: var(--btn-icon-size);
+        width: var(--btn-icon-size);
+    }
+}
+@mixin moi-btn-size-vars {
+  --btn-height: 44px;
+  --btn-px: 16px;
+  --btn-font-size: 16px;
+  --btn-radius: 6px;
+  --btn-gap: 4px;
+  --btn-icon-size: 24px;
+
+  @each $name, $props in $moi-btn-sizes {
+    /* Stronger selectors to win the cascade */
+    &[data-size='#{$name}'],
+    &.btn[data-size='#{$name}'],
+    &[class*='moi-btn--'][data-size='#{$name}'] {
+      --btn-height: #{map.get($props, height)};
+      --btn-px: #{map.get($props, px)};
+      --btn-font-size: #{map.get($props, font)};
+      --btn-radius: #{map.get($props, radius)};
+      --btn-gap: #{map.get($props, gap)};
+      --btn-icon-size: #{map.get($props, icon)};
+    }
+  }
+}
+
+
+
+
+$font-sizes: ( xs: 0.625rem, sm: 0.75rem, md: 0.875rem, lg: 1rem, xl: 1.25rem, "2xl": 1.5rem, "3xl": 1.875rem, "4xl": 2.25rem, "5xl": 3rem, "6xl": 3.75rem, "7xl": 4.5rem );
+
+$font-weights: (400, 500, 600, 700);
+
+$typography-utilities-generated: false !default;
+
+@if $typography-utilities-generated == false {
+    $typography-utilities-generated: true !global;
+
+    .fs-14 {
+        @include font-md-500;
+    }
+
+    @each $name, $size in $font-sizes {
+        @each $weight in $font-weights {
+            .font-#{$name}-#{$weight} {
+                font-size: $size !important;
+                font-weight: $weight !important;
+            }
+        }
+    }
+}

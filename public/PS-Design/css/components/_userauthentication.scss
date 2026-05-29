@@ -1,0 +1,208 @@
+@use '../helpers' as *;
+.gap-10 {
+  gap: 10px;
+}
+
+.userauthentication {
+  h4 {
+    @include boldfont;
+    background: #f8f6f2;
+    padding: 10px;
+    display: inline-block;
+    margin: 0;
+    border-radius: 10px 10px 0 0;
+    color: $Brown-500;
+    margin-right: 10px;
+  }
+
+  .personImage {
+    height: 60px !important;
+    width: 60px !important;
+    cursor: zoom-in;
+  }
+
+  .zoomimage {
+    background: #ffffff;
+    right: 5%;
+    top: 50%;
+  }
+
+  .gap-10 {
+    gap: 10px;
+  }
+
+  &--userblock {
+    width: 32.5%;
+    background: #fff;
+    gap: 10px;
+    display: flex;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 68px 0 rgba(174, 175, 175, 0.17);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #e7dfdc;
+
+    &--personalDetails {
+      display: flex;
+      gap: 0 !important;
+
+      &__photo {
+        margin-left: 10px;
+      }
+
+      &__name {
+        @include meduimfont;
+      }
+
+      &__id {
+        @include meduimfont;
+        color: #929191;
+      }
+
+      &__role {
+        @include smallfont;
+        padding: 5px 10px;
+        background: #f8f6f2;
+        display: flex;
+        border-radius: 4px;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.3;
+        width: fit-content;
+        color: $Brown-500;
+      }
+    }
+
+    &--actions {
+      display: flex;
+      gap: 10px;
+    }
+  }
+
+  .userauthenticAtionactionBg {
+    background: transparent;
+    border: 1px solid #fff;
+    @include smallfont;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    border-radius: 6px;
+    flex-direction: column;
+    /*width: 140px;*/
+    /*   height: 80px;*/
+    position: relative;
+    overflow: hidden;
+
+    img {
+      height: 24px;
+    }
+
+    &:hover {
+      background: $Primary-500;
+
+      img {
+        filter: brightness(0) invert(1);
+      }
+
+      span {
+        color: #fff;
+      }
+    }
+
+    .file-button {
+      height: 80px;
+      width: 140px;
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+
+      img {
+        position: absolute;
+        right: 38%;
+        top: 20%;
+      }
+    }
+  }
+
+  .userauthenticAtionactionDisabeld {
+    @extend .userauthenticAtionactionBg;
+    background: transparent;
+    cursor: not-allowed;
+
+    img {
+      opacity: 0.3;
+    }
+
+    span {
+      color: #d1d9e1;
+    }
+
+    &:hover {
+      background: #f8f9fa;
+      cursor: not-allowed;
+
+      img {
+        opacity: 0.3;
+        filter: brightness(0) invert(0);
+      }
+
+      span {
+        color: #d1d9e1;
+      }
+    }
+  }
+
+  .userauthenticAtionactionsuccess {
+    @extend .userauthenticAtionactionBg;
+    background: transparent;
+
+    &:hover {
+      background: transparent;
+
+      img {
+        filter: none;
+      }
+
+      span {
+        color: #000;
+      }
+    }
+  }
+}
+
+.personauth {
+  background: rgb(242 255 252);
+  box-shadow: none;
+  border: 1px solid rgb(221 246 240);
+  margin-bottom: 20px;
+
+  .userauthenticAtionactionBg {
+    background: transparent;
+    border: none;
+  }
+
+  .userauthentication--userblock--personalDetails__role {
+    color: #ffffff;
+    background: #0d8f75;
+  }
+
+  .userauthentication--userblock--personalDetails__id {
+    color: #0d8f75;
+  }
+}
+
+.personinline {
+  display: flex;
+  gap: 10px;
+
+  .mt-3 {
+    width: 100%;
+  }
+
+  .userauthentication--userblock {
+    width: 100%;
+  }
+}

@@ -1,0 +1,88 @@
+@use "../helpers" as *;
+
+.moi-radial-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.moi-radial-stepper__content {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $gap-10;
+  min-width: 0;
+}
+
+.moi-radial-stepper__title {
+  margin: 0;
+  @include font-xl-700;
+  line-height: 1.2;
+  color: $Neutral-950;
+}
+
+.moi-radial-stepper__desc {
+  margin: 0;
+  @include font-lg-500;
+  line-height: 1.5;
+  color: $Neutral-600;
+  & .moi-radial-stepper__step-name {
+    @include font-lg-600;
+    color: $Lavender-700;
+  }
+}
+
+.moi-radial-stepper__ring {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  flex: 0 0 70px;
+}
+
+.moi-ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-45deg);
+}
+
+.moi-ring__track,
+.moi-ring__progress {
+  fill: none;
+  stroke-width: 14px;
+  stroke-linecap: round;
+}
+
+.moi-ring__track {
+  stroke: $Neutral-200;
+}
+
+.moi-ring__progress {
+  stroke: $Primary-500;
+  --r: 46;
+  --c: calc(2 * 3.1415926535 * var(--r));
+  stroke-dasharray: var(--c);
+  stroke-dashoffset: calc(var(--c) * (1 - (var(--current) / var(--total))));
+  transition: stroke-dashoffset var(--tran-04);
+}
+
+.moi-ring__label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $Neutral-700;
+}
+
+.moi-ring__num {
+  @include font-lg-700;
+  line-height: 1;
+  color: $Neutral-900;
+}
+
+.moi-ring__word {
+  @include font-lg-600;
+  line-height: 1;
+  color: $Neutral-700;
+}

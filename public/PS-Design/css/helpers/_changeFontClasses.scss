@@ -1,0 +1,7 @@
+﻿@use "./mixins" as *;
+@use "./variables" as *;
+
+.cairo {
+  font-family: "IBMPlexSansArabic", sans-serif !important;
+  @include font-md-500;
+}

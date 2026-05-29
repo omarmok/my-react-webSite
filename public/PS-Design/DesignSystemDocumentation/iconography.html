@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iconography | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .docs-sidebar {}
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .section {
+      margin-top: 32px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .usage-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .usage-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .usage-card h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .usage-card ul {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 6px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+    }
+
+    .icon-grid .text-muted {
+      color: #000 !important;
+    }
+
+    .icon-card {
+      border: 1px dashed #e5e7eb;
+      border-radius: 12px;
+      padding: 12px;
+      background: #f9fafb;
+      display: grid;
+      gap: 6px;
+      justify-items: center;
+      text-align: center;
+      color: #111827;
+    }
+
+    .icon-frame {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+    }
+
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .sidebar-nav a.is-active {
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+    }
+
+    .lang-toggle {
+      margin-top: 12px;
+      width: 100%;
+      background: #fff;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #cbd5f5;
+      box-shadow: 0 14px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .lang-toggle svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar-card {
+        position: static;
+      }
+    }
+  
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+
+  </style>
+  <link href="./css/ds-site-nav.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="الرموز المرتبطة">Related tokens</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" class="is-active" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+        </nav>
+      </div>
+
+    </aside>
+
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><svg width="24"
+            height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.05469 1.25C9.42218 1.24998 10.5247 1.24968 11.3916 1.36621C12.2917 1.48723 13.0495 1.74672 13.6514 2.34863C14.2533 2.95055 14.5128 3.70829 14.6338 4.6084C14.7503 5.47534 14.75 6.57782 14.75 7.94531V9.25488C15.1235 9.25143 15.5218 9.24999 15.9453 9.25H16.0547C17.4222 9.24998 18.5247 9.24968 19.3916 9.36621C20.2917 9.48723 21.0495 9.74672 21.6514 10.3486C22.2533 10.9505 22.5128 11.7083 22.6338 12.6084C22.7503 13.4753 22.75 14.5778 22.75 15.9453V16.0547C22.75 17.4222 22.7503 18.5247 22.6338 19.3916C22.5128 20.2917 22.2533 21.0495 21.6514 21.6514C21.0495 22.2533 20.2917 22.5128 19.3916 22.6338C18.5247 22.7503 17.4222 22.75 16.0547 22.75H15.9453C14.5778 22.75 13.4753 22.7503 12.6084 22.6338C11.7083 22.5128 10.9505 22.2533 10.3486 21.6514C9.74672 21.0495 9.48723 20.2917 9.36621 19.3916C9.24968 18.5247 9.24998 17.4222 9.25 16.0547V15.9453C9.24999 15.5218 9.25143 15.1235 9.25488 14.75H7.94531C6.57782 14.75 5.47534 14.7503 4.6084 14.6338C3.70829 14.5128 2.95055 14.2533 2.34863 13.6514C1.74672 13.0495 1.48723 12.2917 1.36621 11.3916C1.24968 10.5247 1.24998 9.42218 1.25 8.05469V7.94531C1.24998 6.57782 1.24968 5.47534 1.36621 4.6084C1.48723 3.70829 1.74672 2.95055 2.34863 2.34863C2.95055 1.74672 3.70829 1.48723 4.6084 1.36621C5.47534 1.24968 6.57782 1.24998 7.94531 1.25H8.05469ZM16 10.75C14.5648 10.75 13.5639 10.752 12.8086 10.8535C12.0748 10.9522 11.6859 11.1324 11.4092 11.4092C11.1324 11.6859 10.9522 12.0748 10.8535 12.8086C10.752 13.5639 10.75 14.5648 10.75 16C10.75 17.4352 10.752 18.4361 10.8535 19.1914C10.9522 19.9252 11.1324 20.3141 11.4092 20.5908C11.6859 20.8676 12.0748 21.0478 12.8086 21.1465C13.5639 21.248 14.5648 21.25 16 21.25C17.4352 21.25 18.4361 21.248 19.1914 21.1465C19.9252 21.0478 20.3141 20.8676 20.5908 20.5908C20.8676 20.3141 21.0478 19.9252 21.1465 19.1914C21.248 18.4361 21.25 17.4352 21.25 16C21.25 14.5648 21.248 13.5639 21.1465 12.8086C21.0478 12.0748 20.8676 11.6859 20.5908 11.4092C20.3141 11.1324 19.9252 10.9522 19.1914 10.8535C18.4361 10.752 17.4352 10.75 16 10.75ZM4 15.75C4.41421 15.75 4.75 16.0858 4.75 16.5C4.75 17.2178 4.75071 17.7 4.78809 18.0674C4.82419 18.4221 4.88849 18.5859 4.96094 18.6943C5.05212 18.8308 5.16921 18.9479 5.30566 19.0391C5.4141 19.1115 5.57788 19.1758 5.93262 19.2119C6.30002 19.2493 6.78216 19.25 7.5 19.25C7.91421 19.25 8.25 19.5858 8.25 20C8.25 20.4142 7.91421 20.75 7.5 20.75H7.46191C6.79245 20.75 6.23354 20.7501 5.78125 20.7041C5.30783 20.6559 4.86862 20.5507 4.47266 20.2861C4.17238 20.0855 3.9145 19.8276 3.71387 19.5273C3.44934 19.1314 3.34406 18.6922 3.2959 18.2188C3.24991 17.7665 3.24998 17.2075 3.25 16.5381C3.25 16.5254 3.25 16.5127 3.25 16.5C3.25 16.0858 3.58579 15.75 4 15.75ZM16 12.25C16.3028 12.25 16.5759 12.4324 16.6924 12.7119L19.1924 18.7119C19.3514 19.0941 19.1711 19.533 18.7891 19.6924C18.4067 19.8517 17.9669 19.6704 17.8076 19.2881L17.167 17.75H14.834L14.1924 19.2881C14.0331 19.6704 13.5942 19.8516 13.2119 19.6924C12.8297 19.5331 12.6486 19.0942 12.8076 18.7119L15.3076 12.7119C15.424 12.4325 15.6973 12.2501 16 12.25Z"
+              fill="currentColor"></path>
+          </svg><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.9975 3.25C11.624 3.25 11.2774 3.41565 11.0172 3.57252C10.7364 3.7418 10.4464 3.96944 10.1638 4.21918C9.59669 4.72018 8.98771 5.37387 8.43684 6.00823C7.88274 6.64633 7.37253 7.28222 7.00175 7.75725C6.81606 7.99516 6.66462 8.19364 6.55931 8.33304C6.50664 8.40276 6.46547 8.45776 6.43727 8.49558L6.40489 8.53915L6.39633 8.55071L6.39337 8.55472C6.14771 8.88822 6.2186 9.35816 6.5521 9.60382C6.88559 9.84947 7.35507 9.77828 7.60074 9.44481L7.61015 9.43209L7.63992 9.39204C7.66632 9.35662 7.70557 9.3042 7.75618 9.2372C7.85743 9.10317 8.00402 8.91102 8.1842 8.68019C8.54517 8.21772 9.03806 7.60363 9.56942 6.99173C10.104 6.37611 10.6628 5.77981 11.1569 5.34331C11.1882 5.3157 11.2189 5.28899 11.249 5.26316L11.249 20C11.249 20.4142 11.5848 20.75 11.999 20.75C12.4132 20.75 12.749 20.4142 12.749 20L12.749 5.2657C12.7782 5.29073 12.808 5.31661 12.8382 5.34331C13.3323 5.77981 13.8911 6.37611 14.4257 6.99173C14.957 7.60363 15.4499 8.21772 15.8109 8.68019C15.9911 8.91102 16.1377 9.10317 16.2389 9.2372C16.2895 9.30419 16.3288 9.35662 16.3552 9.39204L16.3849 9.43209L16.3943 9.44481C16.64 9.77828 17.1095 9.84947 17.443 9.60382C17.7765 9.35816 17.8474 8.88822 17.6017 8.55472L17.5988 8.55071L17.5902 8.53915L17.5578 8.49558C17.5296 8.45776 17.4884 8.40276 17.4358 8.33304C17.3305 8.19363 17.179 7.99516 16.9933 7.75725C16.6226 7.28222 16.1123 6.64633 15.5582 6.00823C15.0074 5.37387 14.3984 4.72018 13.8313 4.21918C13.5486 3.96944 13.2587 3.7418 12.9779 3.57252C12.7192 3.4166 12.3753 3.25199 12.0043 3.25002"
+              fill="white"></path>
+          </svg><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span>
+        </button>
+      </div>
+
+
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="الأساسيات / الأيقونات">Foundations / Iconography</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="الأيقونات">Iconography</h1>
+
+        <p class="text-muted mb-4" data-i18n
+          data-ar="يعتمد نظام أيقونات PS Design على سجل مشترك، وموّجه ينسخ الرموز في وقت التشغيل، ومجموعة واحدة من مساعدات SCSS التي تحافظ على الأداء والتناسق وسهولة الوصول.">
+          The PS Design iconography system relies on a shared registry, a loader that clones glyphs at runtime, and a
+          single set of SCSS helpers that preserve performance, consistency, and accessibility.
+        </p>
+
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="المكوّن: الأيقونات"
+              data-en="Component: Iconography">
+          المكوّن: الأيقونات
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="الإصدار: قيد التحديث"
+              data-en="Version: TBD">
+          الإصدار: قيد التحديث
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="آخر تحديث: 28 يناير 2026"
+              data-en="Last updated: January 28, 2026">
+          آخر تحديث: 28 يناير 2026
+        </span>
+      </div>
+
+
+      <div class="mt-3">
+        <a class="btn moi-btn--Info--outline d-inline-flex align-items-center gap-2"
+          href="https://www.figma.com/design/g9NEd4Fu0GjMnObCIVxVKL/Icons---Platforms-Code--Community-?t=mKbuts31vJ3OrIga-0"
+          target="_blank" rel="noreferrer">
+          <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+            <path d="M9 12c0-3.314 2.686-6 6-6h9v12h-9c-3.314 0-6-2.686-6-6Z" fill="#F24E1E" />
+            <path d="M24 6h9c3.314 0 6 2.686 6 6s-2.686 6-6 6h-9V6Z" fill="#FF7262" />
+            <path d="M9 24c0-3.314 2.686-6 6-6h9v12h-9c-3.314 0-6-2.686-6-6Z" fill="#A259FF" />
+            <path d="M9 36c0-3.314 2.686-6 6-6h9v6c0 3.314-2.686 6-6 6s-6-2.686-6-6Z" fill="#0ACF83" />
+            <path d="M24 18h9c3.314 0 6 2.686 6 6s-2.686 6-6 6h-9V18Z" fill="#1ABCFE" />
+          </svg>
+          <span data-i18n data-ar="تحميل مكتبة الأيقونات (Figma)">Download the icon library (Figma)</span>
+        </a>
+      </div>
+
+      <section class="section" id="token-mapping">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="رسم خرائط الرموز">Token mapping</h2>
+          <p class="section-note" data-i18n
+            data-ar="الأسماء الموجودة في <code>icons.svg</code> تُستخدم مباشرة في <code>data-icon</code>، ويقرأ icon.js هذا السجل ويحقن الرموز داخل العناصر.">
+            Names declared in <code>icons.svg</code> are reused directly in <code>data-icon</code>; icon.js reads the
+            registry and injects the glyphs.
+          </p>
+          <div class="table-responsive">
+            <table class="docs-table" style="direction:ltr;">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Meaning</th>
+                  <th>Color token</th>
+                  <th>Helper</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>car</code></td>
+                  <td>Vehicle action</td>
+                  <td><code>.Primary-600</code></td>
+                  <td><code>.icon icon-2xl</code></td>
+                </tr>
+                <tr>
+                  <td><code>search</code></td>
+                  <td>Search affordance</td>
+                  <td><code>.Info-600</code></td>
+                  <td><code>.icon icon-xl icon--muted</code></td>
+                </tr>
+                <tr>
+                  <td><code>next-arrow</code></td>
+                  <td>Directional cue</td>
+                  <td><code>.Neutral-700</code></td>
+                  <td><code>.icon icon-md icon--end</code></td>
+                </tr>
+                <tr>
+                  <td><code>close</code></td>
+                  <td>Dismiss or cancel</td>
+                  <td><code>.Error-600</code></td>
+                  <td><code>.icon icon-sm icon--muted</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="overview">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2>
+          <p class="section-note" data-i18n
+            data-ar="توثق PS Design الآن نظام أيقونات واحد يمتد من السجل إلى مراحل التنسيق.">PS Design now documents one
+            icon system that stretches from registry through styling.</p>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="السجل">Registry</h4>
+              <p data-i18n
+                data-ar="تحتفظ جميع الرموز داخل <code>icons.svg</code> كـ <code>&lt;svg&gt;</code> مضمّنة تحافظ على <code>viewBox</code> الأصلي وتزيل <code>width</code>/<code>height</code> والألوان الثابتة، ويحمل كل إدخال اسمًا وصفيًا بصيغة kebab-case في <code>data-icon</code> فريدًا عالميًا.">
+                All glyphs live inside <code>icons.svg</code> as inline <code>&lt;svg&gt;</code> tags that keep their
+                original <code>viewBox</code> and drop <code>width</code>/<code>height</code> and hardcoded colors. Each
+                entry
+                carries a descriptive, kebab-case <code>data-icon</code> that is globally unique.
+              </p>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="المحمّل">Loader</h4>
+              <p data-i18n
+                data-ar="<code>icon.js</code> يجلب السجل مرة واحدة، ويجد <code>#svg-registry</code> المخفي، ويسجّل كل رمز في خريطة. عندما يحتوي DOM على <code>[data-icon]</code>، ينسخ المحمّل القالب المطابق (<code>cloneNode(true)</code>) ويلصقه مباشرة؛ لا حاجة إلى مراجع <code>&lt;use&gt;</code> أو استيراد يدوي.">
+                <code>icon.js</code> fetches the registry once, finds the hidden <code>#svg-registry</code>, and
+                registers
+                every glyph in a map. When the DOM contains <code>[data-icon]</code>, the loader clones the matching
+                template
+                (<code>cloneNode(true)</code>) and injects it directly; no <code>&lt;use&gt;</code> references or manual
+                imports are needed.
+              </p>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="التنسيق">Styling</h4>
+              <p data-i18n
+                data-ar="<code>icon.scss</code> (المُجمّع في <code>main.css</code>) يحدد <code>.icon</code> الأساسي، والحجم الافتراضي (1.25rem)، ومساعدات الحجم مثل <code>.icon-2xl</code>، والألوان الدلالية مثل <code>.Primary-600</code>، ومساعدات المسافة التي تحافظ على محاذاة الرموز.">
+                <code>icon.scss</code> (compiled into <code>main.css</code>) sets the base <code>.icon</code>, default
+                size
+                (1.25rem), sizing helpers such as <code>.icon-2xl</code>, semantic colors like
+                <code>.Primary-600</code>,
+                and spacing helpers that keep glyphs aligned.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="usage-rules">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="استعمل <code>data-icon</code> مع العناصر الفارغة ولا تلصق معظم SVG داخل العلامة.">
+              Use <code>data-icon</code> on empty hosts; avoid pasting inline SVGs.</li>
+            <li data-i18n data-ar="أعطِ لكل رمز اسمًا فريدًا في <code>icons.svg</code>، ولا تُكرر اسمًا موجودًا.">
+              Assign unique registry names in <code>icons.svg</code>; do not duplicate identifiers.</li>
+            <li data-i18n
+              data-ar="قم بدمج فئات الحجم واللون (مثل <code>.icon-2xl</code> و<code>.Primary-600</code>) بدلًا من تعديل العنصر المضيف.">
+              Combine size and color helpers (e.g., <code>.icon-2xl</code> + <code>.Primary-600</code>) instead of
+              tweaking the host.</li>
+            <li data-i18n
+              data-ar="تأكد من أن الأيقونات المزخرفة تحصل على <code>aria-hidden=&quot;true&quot;</code> والنص المسمى موجود.">
+              Decorative icons get <code>aria-hidden="true"</code>; provide the text label elsewhere.</li>
+            <li data-i18n
+              data-ar="ابقَ على اطلاع بـ <code>icons.svg</code> و<code>icon.js</code> لضمان تحميل المحمل للرموز الجديدة.">
+              Keep icons.svg and icon.js in sync so the loader can pull new glyphs.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="adding">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إضافة أيقونة جديدة">Adding a new icon</h2>
+          <p class="section-note" data-i18n data-ar="اتبع هذه الخطوات قبل الإشارة إلى رمز جديد في واجهة المستخدم.">
+            Follow these steps before referencing a new glyph in the UI.</p>
+          <ol>
+            <li data-i18n
+              data-ar="أضف <code>&lt;svg&gt;</code> مضمنًا داخل <code>icons.svg</code> تحت حاوية السجل المخفي.">Add an
+              inline <code>&lt;svg&gt;</code> to <code>icons.svg</code> under the hidden registry container.</li>
+            <li data-i18n
+              data-ar="احتفظ بـ <code>viewBox</code> الأصلي، وأزل <code>width</code>/<code>height</code>، واحذف خصائص الملء أو الضربات ليتم التحكم بها عبر <code>currentColor</code>.">
+              Keep the original <code>viewBox</code>, remove any <code>width</code>/<code>height</code>, and strip fill
+              or
+              stroke attributes so <code>currentColor</code> can control them.</li>
+            <li data-i18n
+              data-ar="امنح الرمز قيمة فريدة وصفية بصيغة kebab-case في <code>data-icon</code> وحافظ على ثبات هذا الاسم.">
+              Give the glyph a unique, descriptive kebab-case value in <code>data-icon</code> and keep that name stable.
+            </li>
+            <li data-i18n
+              data-ar="لا تضع هذه SVG مباشرة في صفحات أخرى؛ اعتمد على المحمّل لاستنساخها حيثما كانت مطلوبة.">Do not
+              place this SVG directly in other pages; rely on the loader to clone it wherever it is needed.</li>
+          </ol>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;div id="svg-registry" aria-hidden="true" style="display:none"&gt;
+  &lt;svg data-icon="weather-storm" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"&gt;
+    &lt;path d="M6 12h12v6a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3z"/&gt;
+  &lt;/svg&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="anatomy">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2>
+          <p class="section-note" data-i18n
+            data-ar="يكرر كل مكون نفس العلامة الفارغة، ويقوم icon.js بملئها عند التشغيل.">Every component copies the
+            same empty markup; icon.js fills it in at runtime.</p>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="العلامة الرسمية">Canonical markup</h4>
+              <div class="code-block">
+                <pre><code class="language-html">&lt;span class="icon icon-2xl Primary-600" data-icon="car"&gt;&lt;/span&gt;</code></pre>
+              </div>
+              <p data-i18n
+                data-ar="تشكل <code>&lt;span&gt;</code> الفارغة عنصرًا احتياطيًا خفيفًا يحل icon.js محله بـ SVG المستنسخ.">
+                The blank <code>&lt;span&gt;</code> is a lightweight placeholder that icon.js replaces with the cloned
+                SVG.</p>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="العنصر المضيف">Host element</h4>
+              <p data-i18n
+                data-ar="<code>&lt;span&gt;</code> يحافظ على توافق التعليمة في السطر، ويحتفظ بارتفاع السطر، ويسمح للمحمّل بإزالة العنصر الاحتياطي قبل إلحاق الرمز.">
+                <code>&lt;span&gt;</code> keeps the markup inline-friendly, preserves line height, and lets the loader
+                remove the
+                placeholder before appending the glyph.
+              </p>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="الفئة الأساسية <code>.icon</code>"><code>.icon</code> base class</h4>
+              <p data-i18n
+                data-ar="يضع CSS التوسيط بـ inline-flex، والحجم الافتراضي 1.25rem، و<code>color: currentColor</code> ليورث الرمز ألوان التدرج.">
+                The CSS sets inline-flex centering, a 1.25rem default size, and <code>color: currentColor</code> so the
+                glyph
+                inherits tint tokens.</p>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="مساعد الحجم">Size helper</h4>
+              <p data-i18n
+                data-ar="<code>.icon-2xl</code> (وأخواته) يعيد تحديد <code>width</code>/<code>height</code> إلى قيم rem ثابتة، ويستمر المحمّل في ترك SVG عند <code>1em</code> لضمان الحجم المتوقع.">
+                <code>.icon-2xl</code> (and its siblings) override the width/height to fixed rem values; the loader
+                keeps the SVG
+                at <code>1em</code> so sizing remains predictable.
+              </p>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="مساعد اللون">Color helper</h4>
+              <p data-i18n
+                data-ar="تحدد الرموز مثل <code>.Primary-600</code> أو <code>.icon--muted</code> أو <code>.icon--primary</code> <code>currentColor</code> لكي لا تضبط المجموعات لون الملء داخل SVG.">
+                Tokens such as <code>.Primary-600</code>, <code>.icon--muted</code>, or <code>.icon--primary</code> set
+                <code>currentColor</code> so you never hardcode fills inside the SVG.
+              </p>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="الخاصية <code>data-icon</code>"><code>data-icon</code></h4>
+              <p data-i18n
+                data-ar="يتطابق اسم الخاصية مع إدخال السجل، ويحذّر icon.js عند عدم العثور على قالب في <code>icons.svg</code>.">
+                The attribute name matches the registry entry; icon.js warns when it cannot find a template in
+                <code>icons.svg</code>.
+              </p>
+            </div>
+          </div>
+          <p class="section-note" data-i18n
+            data-ar="أثناء التشغيل، يفحص icon.js <code>[data-icon]</code>، ينسخ القالب بـ <code>cloneNode(true)</code>، يفرغ الـ span، ويُلصق SVG. لا تبقى مراجع <code>&lt;use&gt;</code> في الصفحة.">
+            At runtime icon.js scans <code>[data-icon]</code>, clones the template with <code>cloneNode(true)</code>,
+            clears the span, and appends the SVG. No <code>&lt;use&gt;</code> references survive in the page.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="svg-usage">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="أمثلة الاستخدام">Usage examples</h2>
+          <div class="usage-grid d-flex flex-column gap-3">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="أيقونة مضمنة أساسية">Basic inline icon</h4>
+              <p data-i18n data-ar="النمط الافتراضي لرمز مستقل.">The default pattern for a standalone glyph.</p>
+              <div class="code-block">
+                <pre><code class="language-html">&lt;span class="icon icon-2xl Primary-600" data-icon="car"&gt;&lt;/span&gt;</code></pre>
+              </div>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="أيقونة زر">Button icon</h4>
+              <p data-i18n data-ar="اجمع الرمز مع نص مرئي؛ ويظل العنصر زخرفيًا مع <code>aria-hidden</code>.">Pair the
+                glyph with visible text; the icon stays decorative with <code>aria-hidden</code>.</p>
+              <div class="code-block">
+                <pre><code class="language-html">&lt;button class="btn moi-btn--Primary d-inline-flex align-items-center gap-2"&gt;
+  &lt;span class="icon icon-2xl Primary-600 icon--start" data-icon="car" aria-hidden="true"&gt;&lt;/span&gt;
+  Drive
+&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="أيقونة تسمية">Label icon</h4>
+              <p data-i18n data-ar="ضع الرمز قبل نص التسمية حتى يطابق المؤشر المرئي الاسم المسموح به.">Place the glyph
+                before label text so the visual cue matches the accessible name.</p>
+              <div class="code-block">
+                <pre><code class="language-html">&lt;label class="d-flex align-items-center gap-2" for="destination"&gt;
+  &lt;span class="icon icon-2xl Primary-600 icon--start" data-icon="car" aria-hidden="true"&gt;&lt;/span&gt;
+  Destination
+&lt;/label&gt;</code></pre>
+              </div>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="عنصر قائمة">List item</h4>
+              <p data-i18n data-ar="يمكن لعناصر القائمة استخدام مساعدات المسافة للحصول على تباعد ثابت.">List entries can
+                adopt the helper classes for consistent spacing.</p>
+              <div class="code-block">
+                <pre><code class="language-html">&lt;li class="d-flex align-items-center gap-2"&gt;
+  &lt;span class="icon icon-2xl Primary-600 icon--start" data-icon="car" aria-hidden="true"&gt;&lt;/span&gt;
+  Vehicle status
+&lt;/li&gt;</code></pre>
+              </div>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="أيقونة زخرفية">Decorative icon</h4>
+              <p data-i18n data-ar="أبقِ الرمز بدون اتجاه أمام قارئات الشاشة عندما يكون زخرفيًا بحتًا.">Keep the glyph
+                untilted from screen readers when it is purely decorative.</p>
+              <div class="code-block">
+                <pre><code class="language-html">&lt;span class="icon icon-2xl Primary-600" data-icon="car" aria-hidden="true"&gt;&lt;/span&gt;</code></pre>
+              </div>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="لون دلالي">Semantic color</h4>
+              <p data-i18n data-ar="أضف تسمية قابلة للوصول للعُنصر المضيف عندما يحمل الرمز معنىً ممتدًا.">Give the host
+                an accessible label when the icon itself carries meaning.</p>
+              <div class="code-block">
+                <pre><code class="language-html">&lt;span role="img" aria-label="Vehicle" class="icon icon-2xl Primary-600" data-icon="car"&gt;&lt;/span&gt;</code></pre>
+              </div>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="محاذاة البداية/النهاية">Start/end alignment</h4>
+              <p data-i18n
+                data-ar="<code>.icon--start</code> و <code>.icon--end</code> تضيفان فجوة داخلية دون الحاجة إلى علامات إضافية.">
+                <code>.icon--start</code> and <code>.icon--end</code> insert inline gap without extra markup.
+              </p>
+              <div class="code-block">
+                <pre><code class="language-html">&lt;div class="d-flex align-items-center gap-2"&gt;
+  &lt;span class="icon icon-2xl Primary-600 icon--start" data-icon="car" aria-hidden="true"&gt;&lt;/span&gt;
+  Inline label
+  &lt;span class="icon icon-2xl Primary-600 icon--end" data-icon="car" aria-hidden="true"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="accessibility">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="سهولة الوصول">Accessibility</h2>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="الرموز الزخرفية">Decorative icons</h4>
+              <ul>
+                <li data-i18n data-ar="أضف <code>aria-hidden=&quot;true&quot;</code> عندما يكون الرمز زخرفيًا فقط.">Add
+                  <code>aria-hidden="true"</code> when the glyph is purely decorative.
+                </li>
+                <li data-i18n data-ar="اترك العنصر المضيف فارغًا حتى يتمكن المحمّل من إدراج SVG.">Keep the host element
+                  empty so the loader can inject the SVG.</li>
+                <li data-i18n data-ar="قدّم نصًا مرئيًا في مكان آخر ليحمل المعنى عندما تخفي الرمز.">Provide visible text
+                  elsewhere to carry the meaning when you hide the icon.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="الرموز المعنوية">Meaningful icons</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="استخدم <code>role=&quot;img&quot;</code> مع <code>aria-label</code> أو اقترن الرمز بنص قريب.">
+                  Use <code>role="img"</code> plus <code>aria-label</code> or pair the icon with nearby text.</li>
+                <li data-i18n data-ar="تجنّب تكرار SVG؛ icon.js هو المصدر الوحيد للشكل.">Avoid duplicating the SVG;
+                  icon.js is the single source of the shape.</li>
+                <li data-i18n data-ar="ادمج اللون مع النص أو الشارات حتى يبقى المعنى دون الاعتماد على الصبغة.">Combine
+                  color with text or badges so meaning survives even without tint.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="designops-governance">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="حوكمة DesignOps — الأيقونات">DesignOps Governance — Iconography
+          </h2>
+          <p class="section-note" data-i18n data-ar="تحافظ الحوكمة على توافق كل رمز مع السجل والمحمّل ومساعدات SCSS.">
+            Governance keeps every glyph aligned to the registry, loader, and SCSS helpers.</p>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="أفضل الممارسات">Best practices</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="أضف الرمز دائمًا في <code>icons.svg</code> قبل الرجوع إليه عبر <code>data-icon</code>.">
+                  Always add the glyph to <code>icons.svg</code> before referencing it with <code>data-icon</code>.
+                </li>
+                <li data-i18n
+                  data-ar="تعيش العلاقة بين الرمز والتسمية والحاوية في واجهة المستخدم؛ لا تنسخ SVG داخل المكوّنات.">
+                  Relationships between icon, label, and container live in the UI; do not copy SVGs into components.
+                </li>
+                <li data-i18n
+                  data-ar="حافظ على وضوح الأسماء (مثلاً: <code>action/search</code>، <code>status/success</code>) وتميّزها.">
+                  Keep names clear (e.g., <code>action/search</code>, <code>status/success</code>) and unique.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="افعل / لا تفعل">Do / Don't</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="<strong>افعل</strong> اعتمد على <code>data-icon</code> مع فئات المساعدة للألوان والحجم.">
+                  <strong>Do</strong> rely on <code>data-icon</code> plus helper classes for color and size.
+                </li>
+                <li data-i18n
+                  data-ar="<strong>افعل</strong> أعد استخدام الرموز مثل <code>.Primary-600</code> أو <code>.icon--muted</code> للحالات.">
+                  <strong>Do</strong> reuse tokens such as <code>.Primary-600</code> or <code>.icon--muted</code> for
+                  states.
+                </li>
+                <li data-i18n
+                  data-ar="<strong>لا تفعل</strong> ألصق <code>&lt;svg&gt;</code> خامًا أو استخدم <code>&lt;img&gt;</code> لهذه الرموز.">
+                  <strong>Don’t</strong> paste raw <code>&lt;svg&gt;</code> or use <code>&lt;img&gt;</code> for these
+                  glyphs.
+                </li>
+                <li data-i18n
+                  data-ar="<strong>لا تفعل</strong> حدد ملء أو ضربات داخل السجل؛ دع <code>currentColor</code> يتولى المهمة.">
+                  <strong>Don’t</strong> hardcode fills or strokes inside the registry; let <code>currentColor</code> do
+                  the work.
+                </li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="استكشاف الأخطاء">Troubleshooting</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="الرمز لا يظهر؟ تأكد من أن <code>icons.svg</code> متاح و<code>icon.js</code> محمّل قبل العلامات.">
+                  Icon not showing? Confirm <code>icons.svg</code> is reachable and <code>icon.js</code> is loaded
+                  before the markup.</li>
+                <li data-i18n
+                  data-ar="تحذّر وحدة التحكم من اسم مفقود؟ راجع الأخطاء الإملائية في <code>data-icon</code> وإدخالات السجل.">
+                  Console warns about missing icon name? Check for typos in <code>data-icon</code> and registry entries.
+                </li>
+                <li data-i18n
+                  data-ar="الحجم غير صحيح؟ طبّق مساعد حجم مثل <code>.icon-2xl</code> أو أزل CSS المتضارب من العنصر المضيف.">
+                  Size wrong? Apply a sizing helper such as <code>.icon-2xl</code> or remove conflicting CSS from the
+                  host.</li>
+                <li data-i18n data-ar="رمز جديد لا يزال قديمًا؟ امسح التخزين المؤقت ليجلب المحمّل السجل المحدّث.">New
+                  glyph still stale? Clear the cache so the loader fetches the updated registry.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="icon-helper-scss">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="التنسيق والسمات">Styling &amp; theming</h2>
+          <p class="section-note" data-i18n
+            data-ar="تأتي فئات المساعدة من <code>icon.scss</code> (المجمّع في <code>main.css</code>).">The helper
+            classes come from <code>icon.scss</code> (compiled into <code>main.css</code>).</p>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="الحجم">Sizing</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="<code>.icon</code> يفرض التوسيط بـ inline-flex، و<code>line-height</code>، وحجمًا افتراضيًا 1.25rem.">
+                  <code>.icon</code> enforces inline-flex centering, <code>line-height</code>, and a 1.25rem default
+                  size.
+                </li>
+                <li data-i18n
+                  data-ar="استخدم المقياس من <code>.icon-sm</code> إلى <code>.icon-4xl</code> للحفاظ على أحجام متوقعة.">
+                  Use the scale from <code>.icon-sm</code> through <code>.icon-4xl</code> to keep sizes predictable.
+                </li>
+                <li data-i18n
+                  data-ar="<code>.icon--start</code>/.icon--end تضيف هوامش داخلية حتى تصطف الرموز دون غلاف إضافي.">
+                  <code>.icon--start</code>/.icon--end add inline margins so glyphs align without extra wrappers.
+                </li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="اللون والحالات">Color &amp; states</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="تُحرك الرموز الدلالية (<code>.Primary-600</code>، <code>.icon--muted</code>، <code>.icon--primary</code>) <code>currentColor</code>.">
+                  Semantic tokens (<code>.Primary-600</code>, <code>.icon--muted</code>, <code>.icon--primary</code>)
+                  drive <code>currentColor</code>.</li>
+                <li data-i18n
+                  data-ar="تأتي حالات التحويم والتركيز والتعطيل من فئات المكونات التي تبدّل هذه الرموز؛ يبقى SVG دون تغيير.">
+                  Hover, focus, and disabled states come from the component classes that toggle these tokens; the SVG
+                  stays untouched.</li>
+                <li data-i18n
+                  data-ar="يحافظ مساعد <code>.icon--stroke</code> الاختياري على ترك الملء فارغًا ويطبّق خطوطًا عبر <code>currentColor</code>.">
+                  The optional <code>.icon--stroke</code> helper keeps the fill unset and applies stroked lines via
+                  <code>currentColor</code>.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="rtl-notes">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="ملاحظات RTL">RTL notes</h2>
+          <p class="section-note" data-i18n
+            data-ar="تظل رمزيات الأيقونات محفوظة بينما يعتني <code>.icon--start</code> و<code>.icon--end</code> بالمسافة الرأسية المناسبة عند قلب الاتجاه.">
+            Glyph meanings stay constant while <code>.icon--start</code> and <code>.icon--end</code> handle inline
+            spacing when the direction flips.
+          </p>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="لا تنقل الرموز؛ بدلًا من ذلك، استخدم مساعدة المحاذاة للاتجاه.">Do not move the icons
+              themselves; use inline helpers for direction-aware alignment.</li>
+            <li data-i18n data-ar="تظل ألوان الرموز بنفس الرمز في RTL وLTR؛ لا حاجة لتغيير الفئات الدلالية.">Icons keep
+              the same color tokens in RTL and LTR; no token swap required.</li>
+            <li data-i18n data-ar="تأكد من أن الأيقونات ضمن أزرار/روابط تقرأ في نفس التسلسل في كلا الاتجاهين.">Ensure
+              icons inside buttons/links remain in the same reading order across directions.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="references">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="مصادر المراجع">Reference sources</h2>
+          <ul class="usage-card" style="list-style:none; padding-left:0;">
+            <li data-i18n
+              data-ar="السجل: يحتوي <code>icons.svg</code> على رموز SVG المضمّنة وأسماء <code>data-icon</code> الخاصة بها.">
+              Registry: <code>icons.svg</code> contains the inline SVG glyphs and their <code>data-icon</code> names.
+            </li>
+            <li data-i18n
+              data-ar="المحمّل: يجلب <code>icon.js</code> السجل، ويسجّل القوالب، ويستنسخها عند توفير <code>data-icon</code> في DOM.">
+              Loader: <code>icon.js</code> fetches the registry, registers templates, and clones them wherever the DOM
+              supplies <code>data-icon</code>.</li>
+            <li data-i18n
+              data-ar="الأنماط: يعرّف <code>css/main.css</code> (المُجمّع من <code>icon.scss</code>) <code>.icon</code>، ومساعدات الحجم، والألوان الدلالية، ومرافق المسافة.">
+              Styles: <code>css/main.css</code> (compiled from <code>icon.scss</code>) defines <code>.icon</code>, size
+              helpers, semantic colors, and spacing utilities.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+  <script src="./js/top-actions.js"></script>
+  <script src="./js/ds-site-nav.js"></script>
+  <script src="./js/watermark.js"></script>
+</body>
+
+</html>

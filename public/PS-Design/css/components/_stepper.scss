@@ -1,0 +1,167 @@
+@use "../helpers" as *;
+
+.steps {
+  background: $white-100;
+  box-shadow: 0 5px 35px 0 rgba(0, 27, 175, 0.05);
+  margin-bottom: $padding-14;
+  padding: $padding-14;
+  width: 100%;
+
+  li {
+    position: relative;
+    margin-left: $padding-12;
+
+    &::after {
+      content: "";
+      background: url("./../images/arrow-left-title.svg");
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      left: -17px;
+      top: 25%;
+    }
+
+    &:last-child::after {
+      background: none;
+    }
+  }
+}
+
+.wizerd__item {
+  display: flex;
+  align-items: center;
+  gap: $gap-8;
+  padding: $padding-6 $padding-12;
+  margin: 0 $padding-12 !important;
+  border-radius: $radius-sm;
+  text-decoration: none !important;
+  font-weight: 600;
+  color: $Neutral-600 !important;
+  background: $Neutral-50;
+  border: 1px solid $Neutral-200 !important;
+  box-shadow: none !important;
+
+  .wizerdImage {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px dashed $Neutral-300 !important;
+    color: $Neutral-600 !important;
+    background: $white-100;
+    line-height: 1;
+    @include font-md-600;
+  }
+
+  &--Currant {
+    color: $Lavender-700 !important;
+    background: $Lavender-50;
+    border: 1px dashed $Lavender-200 !important;
+
+    .wizerdImage {
+      color: $Lavender-700 !important;
+      border-color: $Lavender-700 !important;
+    }
+  }
+
+  &--Complated {
+    color: $Primary-900 !important;
+    background: $Primary-50;
+    border: 1px solid $Primary-200 !important;
+
+    .wizerdImage {
+      color: $white-100 !important;
+      border: 1px dashed $Primary-500 !important;
+      background: $white-100;
+      padding: $padding-2;
+
+      svg {
+        width: 20px;
+        height: 20px;
+        fill: $white-100;
+      }
+    }
+  }
+}
+
+.wizard > .steps .wizerdImage {
+  background: $white-100;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px dashed $Primary-500;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+  box-shadow: 0 3px 8px 4px rgba(239, 241, 249, 1);
+  transition: 0.2s ease;
+}
+
+.wizard > .steps .current .wizerdImage {
+  border-color: $Primary-500;
+  box-shadow: none;
+}
+
+.wizard > .steps .done .wizerdImage {
+  background: $Primary-500;
+  border-color: $Primary-500;
+  color: $white-100;
+
+  img {
+    filter: brightness(0) invert(1);
+  }
+}
+
+.wizard > .steps .disabled img {
+  height: 18px;
+}
+
+.wizard > .actions > ul {
+  width: 100%;
+}
+
+.wizard > .content .block-content {
+  color: $Neutral-900;
+  font-weight: 600;
+  @include font-md-500;
+  margin-bottom: 15px;
+
+  span {
+    color: $Neutral-500;
+  }
+}
+
+.stepsNumber {
+  flex: 1 1 0;
+  font-weight: 600;
+  display: flex;
+  gap: $gap-6;
+  align-items: center;
+  justify-content: flex-end;
+
+  span {
+    background: $Gold-600;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    text-align: center;
+    border-radius: 50%;
+    color: $white-100;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.steeper__footer {
+  background: $white-100;
+  border-top: 1px solid $Neutral-200;
+  padding: $padding-16 $padding-14;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $gap-12;
+}

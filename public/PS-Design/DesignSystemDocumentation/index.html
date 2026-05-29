@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System Introduction | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
+  <link href="../css/docs-intro.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+      --primary: #1c8354;
+      --ink: #0b1c13;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-7: 32px;
+      --space-8: 48px;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.07);
+      --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.12);
+      --shadow-lg: 0 24px 48px rgba(15, 23, 42, 0.16);
+      --max-text: 80ch;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: var(--space-7) var(--space-6) calc(var(--space-8) + var(--space-4));
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: var(--space-6);
+      align-items: start;
+    }
+
+    .docs-sidebar {
+
+      z-index: 2;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sidebar-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius-sm);
+      padding: var(--space-3) var(--space-4);
+      font-weight: 700;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+      border-color: var(--primary);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 2px rgba(28, 131, 84, 0.2);
+    }
+
+    .sidebar-nav a.is-active {
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+    }
+
+    .sidebar-nav a.is-active::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-inline-start: 4px solid var(--primary);
+      border-radius: var(--radius-sm);
+      mix-blend-mode: screen;
+    }
+
+    .lang-toggle {
+      margin-top: 12px;
+      width: 100%;
+      background: #fff;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius-md);
+      padding: var(--space-3) var(--space-4);
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #cbd5f5;
+      box-shadow: 0 14px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .lang-toggle svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .hero {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      height: 600px;
+      min-height: 340px;
+      width: 100%;
+      overflow: hidden;
+      background: url("../images/thumbnail.jpg") center/cover no-repeat;
+      color: #fff;
+      box-shadow: var(--shadow-lg);
+    }
+
+
+
+    .hero-content {
+      position: relative;
+      max-width: 700px;
+      display: grid;
+      gap: var(--space-3);
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0;
+      max-width: 72ch;
+    }
+
+    .hero-note {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: var(--space-3);
+    }
+
+    .hero-actions a {
+      padding: 12px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: var(--primary);
+      box-shadow: 0 14px 30px rgba(255, 255, 255, 0.22);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #fff;
+      backdrop-filter: blur(4px);
+    }
+
+    .section {
+      margin-top: var(--space-7);
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .section-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: var(--space-2);
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: var(--space-4);
+      max-width: 75ch;
+    }
+
+    .pillar-grid {
+      display: grid;
+      gap: var(--space-3);
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .pillar-card {
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius-sm);
+      padding: var(--space-4);
+      background: #f9fafb;
+      display: grid;
+      gap: 8px;
+    }
+
+    .pillar-card h3 {
+      font-size: 1rem;
+      margin: 0;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-3);
+    }
+
+    .link-card {
+      border: 1px dashed #d1d5db;
+      border-radius: var(--radius-sm);
+      padding: var(--space-4);
+      background: #fff;
+      display: grid;
+      gap: 6px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .link-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .link-card:focus-visible {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(28, 131, 84, 0.2);
+      outline: none;
+    }
+
+    .link-card small {
+      color: var(--muted);
+    }
+
+    .timeline {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .timeline-item {
+      background: #fff;
+      border-radius: var(--radius-sm);
+      border: 1px solid #e5e7eb;
+      padding: var(--space-4);
+      display: grid;
+      gap: 6px;
+      position: relative;
+    }
+
+    .timeline-item strong {
+      color: #0f172a;
+    }
+
+    .quick-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .quick-badges span {
+      border: 1px solid #d1d5db;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 600;
+      background: #f9fafb;
+      color: #1f2937;
+    }
+
+    /* RTL adjustments */
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .page-layout {
+      direction: rtl;
+    }
+
+    html[dir="rtl"] .sidebar-nav a {
+      text-align: right;
+    }
+
+    html[dir="rtl"] .sidebar-nav a.is-active::after {
+      border-left: 0;
+      border-right: 4px solid var(--primary);
+    }
+
+    html[dir="rtl"] .hero-content {
+      text-align: right;
+      align-items: flex-end;
+    }
+
+    html[dir="rtl"] .hero-actions {
+      justify-content: flex-end;
+    }
+
+    html[dir="rtl"] @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+
+      .hero {
+        padding: var(--space-6);
+        min-height: 300px;
+      }
+    }
+
+    .page-content {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .toc-card {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .toc-list {
+      display: grid;
+      gap: var(--space-2);
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .toc-list a {
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 700;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-sm);
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      transition: border-color 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .toc-list a:hover,
+    .toc-list a:focus-visible {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(28, 131, 84, 0.15);
+      outline: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 2px rgba(28, 131, 84, 0.2);
+    }
+
+    .content-width {
+      max-width: var(--max-text);
+    }
+
+    .systems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-3);
+      margin-top: var(--space-3);
+    }
+
+    .system-card {
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius-sm);
+      padding: var(--space-3);
+      background: #f9fafb;
+      display: grid;
+      gap: var(--space-2);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+      transition: border-color 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .system-card:hover,
+    .system-card:focus-visible {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+      outline: none;
+    }
+
+    .system-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .architecture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-3);
+      margin-top: var(--space-3);
+    }
+
+    .arch-card {
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius-sm);
+      padding: var(--space-4);
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      gap: var(--space-2);
+      transition: box-shadow 0.12s ease, transform 0.12s ease;
+    }
+
+    .arch-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .arch-title {
+      font-weight: 800;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    .arch-note {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .arch-list {
+      margin: 0;
+      padding-left: var(--space-4);
+      color: var(--ink);
+      display: grid;
+      gap: var(--space-2);
+    }
+
+    .implementation-callout {
+      margin-top: var(--space-4);
+      padding: var(--space-4);
+      border: 1px dashed #cbd5e1;
+      border-radius: var(--radius-sm);
+      background: #f8fbf9;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.04);
+      color: var(--ink);
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  </style>
+  <link href="./css/ds-site-nav.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" class="is-active" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+        </nav>
+      </div>
+
+    </aside>
+
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><svg width="24"
+            height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.05469 1.25C9.42218 1.24998 10.5247 1.24968 11.3916 1.36621C12.2917 1.48723 13.0495 1.74672 13.6514 2.34863C14.2533 2.95055 14.5128 3.70829 14.6338 4.6084C14.7503 5.47534 14.75 6.57782 14.75 7.94531V9.25488C15.1235 9.25143 15.5218 9.24999 15.9453 9.25H16.0547C17.4222 9.24998 18.5247 9.24968 19.3916 9.36621C20.2917 9.48723 21.0495 9.74672 21.6514 10.3486C22.2533 10.9505 22.5128 11.7083 22.6338 12.6084C22.7503 13.4753 22.75 14.5778 22.75 15.9453V16.0547C22.75 17.4222 22.7503 18.5247 22.6338 19.3916C22.5128 20.2917 22.2533 21.0495 21.6514 21.6514C21.0495 22.2533 20.2917 22.5128 19.3916 22.6338C18.5247 22.7503 17.4222 22.75 16.0547 22.75H15.9453C14.5778 22.75 13.4753 22.7503 12.6084 22.6338C11.7083 22.5128 10.9505 22.2533 10.3486 21.6514C9.74672 21.0495 9.48723 20.2917 9.36621 19.3916C9.24968 18.5247 9.24998 17.4222 9.25 16.0547V15.9453C9.24999 15.5218 9.25143 15.1235 9.25488 14.75H7.94531C6.57782 14.75 5.47534 14.7503 4.6084 14.6338C3.70829 14.5128 2.95055 14.2533 2.34863 13.6514C1.74672 13.0495 1.48723 12.2917 1.36621 11.3916C1.24968 10.5247 1.24998 9.42218 1.25 8.05469V7.94531C1.24998 6.57782 1.24968 5.47534 1.36621 4.6084C1.48723 3.70829 1.74672 2.95055 2.34863 2.34863C2.95055 1.74672 3.70829 1.48723 4.6084 1.36621C5.47534 1.24968 6.57782 1.24998 7.94531 1.25H8.05469ZM16 10.75C14.5648 10.75 13.5639 10.752 12.8086 10.8535C12.0748 10.9522 11.6859 11.1324 11.4092 11.4092C11.1324 11.6859 10.9522 12.0748 10.8535 12.8086C10.752 13.5639 10.75 14.5648 10.75 16C10.75 17.4352 10.752 18.4361 10.8535 19.1914C10.9522 19.9252 11.1324 20.3141 11.4092 20.5908C11.6859 20.8676 12.0748 21.0478 12.8086 21.1465C13.5639 21.248 14.5648 21.25 16 21.25C17.4352 21.25 18.4361 21.248 19.1914 21.1465C19.9252 21.0478 20.3141 20.8676 20.5908 20.5908C20.8676 20.3141 21.0478 19.9252 21.1465 19.1914C21.248 18.4361 21.25 17.4352 21.25 16C21.25 14.5648 21.248 13.5639 21.1465 12.8086C21.0478 12.0748 20.8676 11.6859 20.5908 11.4092C20.3141 11.1324 19.9252 10.9522 19.1914 10.8535C18.4361 10.752 17.4352 10.75 16 10.75ZM4 15.75C4.41421 15.75 4.75 16.0858 4.75 16.5C4.75 17.2178 4.75071 17.7 4.78809 18.0674C4.82419 18.4221 4.88849 18.5859 4.96094 18.6943C5.05212 18.8308 5.16921 18.9479 5.30566 19.0391C5.4141 19.1115 5.57788 19.1758 5.93262 19.2119C6.30002 19.2493 6.78216 19.25 7.5 19.25C7.91421 19.25 8.25 19.5858 8.25 20C8.25 20.4142 7.91421 20.75 7.5 20.75H7.46191C6.79245 20.75 6.23354 20.7501 5.78125 20.7041C5.30783 20.6559 4.86862 20.5507 4.47266 20.2861C4.17238 20.0855 3.9145 19.8276 3.71387 19.5273C3.44934 19.1314 3.34406 18.6922 3.2959 18.2188C3.24991 17.7665 3.24998 17.2075 3.25 16.5381C3.25 16.5254 3.25 16.5127 3.25 16.5C3.25 16.0858 3.58579 15.75 4 15.75ZM16 12.25C16.3028 12.25 16.5759 12.4324 16.6924 12.7119L19.1924 18.7119C19.3514 19.0941 19.1711 19.533 18.7891 19.6924C18.4067 19.8517 17.9669 19.6704 17.8076 19.2881L17.167 17.75H14.834L14.1924 19.2881C14.0331 19.6704 13.5942 19.8516 13.2119 19.6924C12.8297 19.5331 12.6486 19.0942 12.8076 18.7119L15.3076 12.7119C15.424 12.4325 15.6973 12.2501 16 12.25Z"
+              fill="currentColor"></path>
+          </svg><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.9975 3.25C11.624 3.25 11.2774 3.41565 11.0172 3.57252C10.7364 3.7418 10.4464 3.96944 10.1638 4.21918C9.59669 4.72018 8.98771 5.37387 8.43684 6.00823C7.88274 6.64633 7.37253 7.28222 7.00175 7.75725C6.81606 7.99516 6.66462 8.19364 6.55931 8.33304C6.50664 8.40276 6.46547 8.45776 6.43727 8.49558L6.40489 8.53915L6.39633 8.55071L6.39337 8.55472C6.14771 8.88822 6.2186 9.35816 6.5521 9.60382C6.88559 9.84947 7.35507 9.77828 7.60074 9.44481L7.61015 9.43209L7.63992 9.39204C7.66632 9.35662 7.70557 9.3042 7.75618 9.2372C7.85743 9.10317 8.00402 8.91102 8.1842 8.68019C8.54517 8.21772 9.03806 7.60363 9.56942 6.99173C10.104 6.37611 10.6628 5.77981 11.1569 5.34331C11.1882 5.3157 11.2189 5.28899 11.249 5.26316L11.249 20C11.249 20.4142 11.5848 20.75 11.999 20.75C12.4132 20.75 12.749 20.4142 12.749 20L12.749 5.2657C12.7782 5.29073 12.808 5.31661 12.8382 5.34331C13.3323 5.77981 13.8911 6.37611 14.4257 6.99173C14.957 7.60363 15.4499 8.21772 15.8109 8.68019C15.9911 8.91102 16.1377 9.10317 16.2389 9.2372C16.2895 9.30419 16.3288 9.35662 16.3552 9.39204L16.3849 9.43209L16.3943 9.44481C16.64 9.77828 17.1095 9.84947 17.443 9.60382C17.7765 9.35816 17.8474 8.88822 17.6017 8.55472L17.5988 8.55071L17.5902 8.53915L17.5578 8.49558C17.5296 8.45776 17.4884 8.40276 17.4358 8.33304C17.3305 8.19363 17.179 7.99516 16.9933 7.75725C16.6226 7.28222 16.1123 6.64633 15.5582 6.00823C15.0074 5.37387 14.3984 4.72018 13.8313 4.21918C13.5486 3.96944 13.2587 3.7418 12.9779 3.57252C12.7192 3.4166 12.3753 3.25199 12.0043 3.25002"
+              fill="white"></path>
+          </svg><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span>
+        </button>
+      </div>
+
+
+      <header class="hero" aria-label="Design system hero image with introduction">
+
+      </header>
+
+
+      <section class="section" id="overview">
+        <div class="section-card">
+          <div class="hero-badge" data-i18n data-ar="نظام تصميم أمن">AMN Design System</div>
+          <h1 class="section-title mt-3" data-i18n data-ar="المقدمة">Introduction</h1>
+          <div class="metadata-row">
+            <span class="metadata-pill" data-i18n data-ar="المكوّن: المقدمة" data-en="Component: Introduction">
+              المكوّن: المقدمة
+            </span>
+
+            <span class="metadata-pill" data-i18n data-ar="الإصدار: قيد التحديث" data-en="Version: TBD">
+              الإصدار: قيد التحديث
+            </span>
+
+            <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 28 يناير 2026"
+              data-en="Last updated: January 28, 2026">
+              آخر تحديث: 28 يناير 2026
+            </span>
+          </div>
+
+          <p class="section-note" data-i18n
+            data-ar="نظام تصميم أمن هو المصدر الرسمي المعتمد والمبني على SCSS لجميع منتجات الأمن الحكومية تحت مظلة أمن. يوحّد اللغة البصرية وأنماط التفاعل ومعايير الوصول لضباط الأمن، المحققين، الفرق التشغيلية، والجهات الشريكة.">
+            The AMN Design System is the official, SCSS-driven source of truth for all government security products
+            under the AMN umbrella. It unifies visual language, interaction patterns, and accessibility standards for
+            security officers, investigators, operational teams, and partner entities.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="components">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n="" data-ar="المكونات" data-en="Components">المكونات</h2>
+          <p class="section-note" data-i18n=""
+            data-ar="استكشف مكتبة المكونات المتاحة، كل منها موثق بالكامل للاستخدام والتخصيص." data-en="
+            Explore the library of available components, each fully documented for usage and customization.
+          ">استكشف مكتبة المكونات المتاحة، كل منها موثق بالكامل للاستخدام والتخصيص.</p>
+          <div class="link-grid">
+            <a href="./ColorSystem.html" class="link-card">
+              <strong data-i18n="" data-ar="نظام الألوان" data-en="Color System">نظام الألوان</strong>
+              <small data-i18n="" data-ar="اللوحة، الاستخدام، رموز SCSS" data-en="Palette, usage, SCSS tokens">اللوحة،
+                الاستخدام، رموز SCSS</small>
+            </a>
+            <a href="./typography.html" class="link-card">
+              <strong data-i18n="" data-ar="الطباعة" data-en="Typography">الطباعة</strong>
+              <small data-i18n="" data-ar="المقاييس، الأوزان، فئات CSS" data-en="Scales, weights, CSS classes">المقاييس،
+                الأوزان، فئات CSS</small>
+            </a>
+            <a href="./iconography.html" class="link-card">
+              <strong data-i18n="" data-ar="الأيقونات" data-en="Iconography">الأيقونات</strong>
+              <small data-i18n="" data-ar="مكتبة الأيقونات، الاستخدام، الوصول"
+                data-en="Icon library, usage, accessibility">مكتبة الأيقونات، الاستخدام، الوصول</small>
+            </a>
+            <a href="./radius.html" class="link-card">
+              <strong data-i18n="" data-ar="نصف القطر" data-en="Radius">نصف القطر</strong>
+              <small data-i18n="" data-ar="قيم الانحناء، الاستخدام" data-en="Curvature values, usage">قيم الانحناء،
+                الاستخدام</small>
+            </a>
+            <a href="./shadows.html" class="link-card">
+              <strong data-i18n="" data-ar="الظلال" data-en="Shadows">الظلال</strong>
+              <small data-i18n="" data-ar="أنماط الظلال، الاستخدام" data-en="Shadow styles, usage">أنماط الظلال،
+                الاستخدام</small>
+            </a>
+            <a href="./spacing.html" class="link-card">
+              <strong data-i18n="" data-ar="التباعد" data-en="Spacing">التباعد</strong>
+              <small data-i18n="" data-ar="مقاييس التباعد، فئات المساعد"
+                data-en="Spacing scales, utility classes">مقاييس التباعد، فئات المساعد</small>
+            </a>
+            <a href="./buttons.html" class="link-card">
+              <strong data-i18n="" data-ar="الأزرار" data-en="Buttons">الأزرار</strong>
+              <small data-i18n="" data-ar="الأنواع، الحالات، إمكانية الوصول"
+                data-en="Variants, states, accessibility">الأنواع، الحالات، إمكانية الوصول</small>
+            </a>
+            <a href="./layout.html" class="link-card">
+              <strong data-i18n="" data-ar="الهيكل العام" data-en="Layout">الهيكل العام</strong>
+              <small data-i18n="" data-ar="الشبكات، التخطيطات، الاستجابة"
+                data-en="Grids, layouts, responsiveness">الشبكات، التخطيطات، الاستجابة</small>
+            </a>
+            <a href="./alert.html" class="link-card">
+              <strong data-i18n="" data-ar="التنبيهات" data-en="Alerts">التنبيهات</strong>
+              <small data-i18n="" data-ar="الأنواع، الاستخدام، إمكانية الوصول"
+                data-en="Types, usage, accessibility">الأنواع، الاستخدام، إمكانية الوصول</small>
+            </a>
+            <a href="./tags.html" class="link-card">
+              <strong data-i18n="" data-ar="الوسوم" data-en="Tags">الوسوم</strong>
+              <small data-i18n="" data-ar="الأنواع، الاستخدام، التفاعل" data-en="Variants, usage, interaction">الأنواع،
+                الاستخدام، التفاعل</small>
+            </a>
+            <a href="./text-fields.html" class="link-card">
+              <strong data-i18n="" data-ar="حقول النص" data-en="Text Fields">حقول النص</strong>
+              <small data-i18n="" data-ar="الأنواع، الحالات، القوائم المنسدلة"
+                data-en="Types, states, dropdowns">الأنواع، الحالات، القوائم المنسدلة</small>
+            </a>
+            <a href="./stepper.html" class="link-card">
+              <strong data-i18n="" data-ar="شريط التقدم" data-en="Stepper">شريط التقدم</strong>
+              <small data-i18n="" data-ar="الخطوات، التقدم، التنقل" data-en="Steps, progress, navigation">الخطوات،
+                التقدم، التنقل</small>
+            </a>
+            <a href="./card.html" class="link-card">
+              <strong data-i18n="" data-ar="البطاقة" data-en="Card">كارد</strong>
+              <small data-i18n="" data-ar="الوحدات، الحالات، الإجراءات" data-en="Containers, states, actions">الوحدات،
+                الحالات، الإجراءات</small>
+            </a>
+            <a href="./personcard.html" class="link-card">
+              <strong data-i18n="" data-ar="بطاقة الشخص" data-en="Person Card">بطاقة الشخص</strong>
+              <small data-i18n="" data-ar="العرض، البيانات، الإجراءات" data-en="Display, data, actions">العرض، البيانات،
+                الإجراءات</small>
+            </a>
+            <a href="./Entity.html" class="link-card">
+              <strong data-i18n="" data-ar="كارت المنشأة" data-en="Entity Card">كارت المنشأة</strong>
+              <small data-i18n="" data-ar="العرض، البيانات، الإجراءات" data-en="Display, data, actions">العرض، البيانات،
+                الإجراءات</small>
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section" id="scope">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="نطاق المنصة والتغطية">Platform Scope and Coverage</h2>
+          <p class="section-note" data-i18n data-ar="أمن منصة متعددة الأنظمة؛ هذا النظام يحكم كل واجهة مستخدم ضمنها.">
+            AMN is a multi-system platform; this system governs every UI delivered within it.</p>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="يضمن نظام التصميم الاتساق عبر سياقات تشغيلية مختلفة—إدارية، تحقيقية، ميدانية، وخدمات مشتركة.">The
+              Design System ensures consistency across divergent operational contexts—administrative, investigative,
+              field, and shared services.</li>
+            <li data-i18n data-ar="يجب أن تستهلك جميع منتجات أمن نفس مكتبة الرموز والمكونات لمنع التباين.">All AMN
+              products must consume the same token and component library to prevent drift.</li>
+          </ul>
+          <div class="systems-grid" aria-label="Systems covered">
+            <div class="system-card">
+              <span class="system-label" data-i18n data-ar="نظام">System</span>
+              <strong data-i18n data-ar="إدارة المستخدمين">User Managements</strong>
+            </div>
+            <div class="system-card">
+              <span class="system-label" data-i18n data-ar="نظام">System</span>
+              <strong data-i18n data-ar="القضايا">Violation Cases</strong>
+            </div>
+            <div class="system-card">
+              <span class="system-label" data-i18n data-ar="نظام">System</span>
+              <strong data-i18n data-ar="المخالفات">Violation</strong>
+            </div>
+            <div class="system-card">
+              <span class="system-label" data-i18n data-ar="نظام">System</span>
+              <strong data-i18n data-ar="الحالات الأمنيه">IMS</strong>
+            </div>
+            <div class="system-card">
+              <span class="system-label" data-i18n data-ar="نظام">System</span>
+              <strong data-i18n data-ar="أمن تحري">Security Investigation</strong>
+            </div>
+            <div class="system-card">
+              <span class="system-label" data-i18n data-ar="نظام">System</span>
+              <strong data-i18n data-ar="أمين">Ameen</strong>
+            </div>
+            <div class="system-card">
+              <span class="system-label" data-i18n data-ar="نظام">System</span>
+              <strong data-i18n data-ar="الوفيات">Death Management</strong>
+            </div>
+            <div class="system-card">
+              <span class="system-label" data-i18n data-ar="نظام">System</span>
+              <strong data-i18n data-ar="الحوادث المروية">Traffic Accidents</strong>
+            </div>
+            <div class="system-card">
+              <span class="system-label" data-i18n data-ar="نظام">System</span>
+              <strong data-i18n data-ar="المخالفات المرورية">Traffic Violation</strong>
+            </div>
+            <div class="system-card">
+              <span class="system-label" data-i18n data-ar="نظام">System</span>
+              <strong data-i18n data-ar="الخدمات المشتركة">Shared Services</strong>
+            </div>
+            <div class="system-card">
+              <span class="system-label" data-i18n data-ar="نظام">System</span>
+              <strong data-i18n data-ar="كلنا أمن">Kolona AMN</strong>
+            </div>
+            <div class="system-card">
+              <span class="system-label" data-i18n data-ar="نظام">System</span>
+              <strong data-i18n data-ar=" التصاريح الأمنية">Permits </strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="philosophy">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="الفلسفة التصميمية">Design Philosophy</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="الثقة والسلطة: يجب أن تعكس الواجهات موثوقية مؤسسية للقرارات الحساسة.">Trust and
+              authority: interfaces must communicate institutional reliability for high-stakes decisions.</li>
+            <li data-i18n data-ar="الوضوح تحت الضغط: تفضيل تخطيطات قابلة للمسح مع تسميات صريحة وضوابط متوقعة.">Clarity
+              under pressure: layouts favor scannability, explicit labels, and predictable controls.</li>
+            <li data-i18n data-ar="منع الأخطاء: إعدادات افتراضية دفاعية، تأكيد للإجراءات المدمرة، ورسائل حالة واضحة.">
+              Error prevention: defensive defaults, confirmation for destructive actions, and clear state messaging.
+            </li>
+            <li data-i18n data-ar="التوقعية: سلوكيات متطابقة عبر جميع أنظمة أمن لتقليل التدريب والمخاطر التشغيلية.">
+              Predictability: identical behaviors across all AMN systems to reduce training and operational risk.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="scss-source">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="المصدر الواحد للحقيقة (SCSS أولاً)">Single Source of Truth
+            (SCSS-First)</h2>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="يتم تعريف وإصدار الرموز (الألوان، التباعد، الطباعة، الزوايا، الظلال، الحركة) في SCSS.">Tokens
+              (color, spacing, typography, radius, shadows, motion) are defined and versioned in SCSS.</li>
+            <li data-i18n data-ar="المتغيرات والـ mixins تفرض تطبيقًا متسقًا وتجاوزات آمنة لـ RTL والكثافة والحالات.">
+              Variables and mixins enforce consistent application and safe overrides for RTL, density, and states.</li>
+            <li data-i18n data-ar="الانتشار: تحديثات الرموز في SCSS تنتقل بأمان عبر CSS المترجم لجميع الأنظمة التابعة.">
+              Propagation: updates to SCSS tokens cascade safely through compiled CSS across all dependent systems.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="architecture">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="معمارية نظام التصميم">Design System Architecture</h2>
+          <div class="architecture-grid">
+            <div class="arch-card">
+              <h3 class="arch-title" data-i18n data-ar="الرموز">Tokens</h3>
+              <p class="arch-note" data-i18n data-ar="تحدد القيم الأساسية للهوية البصرية والحركة عبر جميع واجهات أمن.">
+                Defines the core visual primitives and motion values used across AMN surfaces.</p>
+              <ul class="arch-list">
+                <li data-i18n data-ar="الرموز: الألوان، سلم الطباعة، التباعد، الزوايا، الظلال، منحنيات وأزمنة الحركة.">
+                  Tokens: colors, typography scale, spacing, radius, shadows, motion curves/durations.</li>
+              </ul>
+            </div>
+            <div class="arch-card">
+              <h3 class="arch-title" data-i18n data-ar="الأسس">Foundations</h3>
+              <p class="arch-note" data-i18n data-ar="تضع قواعد الشبكة، الطباعة، وإمكانية الوصول لضمان تجربة موحدة.">
+                Establishes layout, type, and accessibility rules for a unified experience.</p>
+              <ul class="arch-list">
+                <li data-i18n data-ar="الأسس: قواعد الشبكة والتخطيط، تسلسل الطباعة، متطلبات الوصول (متوافقة مع WCAG).">
+                  Foundations: grid and layout rules, typography hierarchy, accessibility requirements (WCAG-aligned).
+                </li>
+              </ul>
+            </div>
+            <div class="arch-card">
+              <h3 class="arch-title" data-i18n data-ar="المكونات">Components</h3>
+              <p class="arch-note" data-i18n data-ar="توفر عناصر تفاعلية جاهزة للمهام التشغيلية الحساسة.">Provides
+                reusable controls and patterns for operational workflows.</p>
+              <ul class="arch-list">
+                <li data-i18n
+                  data-ar="المكونات: الأزرار، حقول الإدخال، التنبيهات، الجداول، النوافذ المنبثقة، مؤشرات الحالة، لافتات حالات النظام.">
+                  Components: buttons, form controls, alerts, tables, modals, status indicators, system-state banners.
+                </li>
+              </ul>
+            </div>
+            <div class="arch-card">
+              <h3 class="arch-title" data-i18n data-ar="الأدوات">Utilities</h3>
+              <p class="arch-note" data-i18n data-ar="تقدم مساعدين للتباعد والحالات والاستجابة ودعم RTL ضمن طبقة SCSS.">
+                Delivers helper classes and mixins for spacing, states, responsiveness, and RTL.</p>
+              <ul class="arch-list">
+                <li data-i18n data-ar="الأدوات: مساعدين للتباعد، الطباعة، الحالات، الاستجابة، ودعم RTL.">Utilities:
+                  helpers for spacing, typography, states, responsiveness, and RTL.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="implementation-callout">
+            <strong data-i18n data-ar="التنفيذ">Implementation</strong>
+            <p class="mb-0" data-i18n
+              data-ar="بنية SCSS: مجلدات مخصصة للرموز والـ mixins والأدوات وأجزاء المكونات تُترجم إلى main.css.">SCSS
+              structure: dedicated folders for tokens, mixins, utilities, and component partials compiled into
+              <code>main.css</code>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="workflow">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="تدفق العمل بين التصميم والتطوير">Design ↔ Development Workflow
+          </h2>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="تكافؤ Figma وSCSS: كل رمز في ملفات التصميم يقابله متغير SCSS؛ الرموز الجديدة تتطلب موافقة التصميم والكود.">
+              Figma-to-SCSS parity: every token in design files maps to SCSS variables; new tokens require design and
+              code approval.</li>
+            <li data-i18n
+              data-ar="إصدار النسخ: إصدارات دلالية مع سجلات تغيير لكل نظام؛ التطبيقات تثبت الإصدارات وتحدث ضمن نوافذ مضبوطة.">
+              Versioning: semantic releases with change logs per system; consuming apps pin versions and upgrade through
+              controlled windows.</li>
+            <li data-i18n data-ar="التغييرات الكاسرة: تُقدَّم بفترات إهمال وملاحظات ترحيل؛ تُفرض عبر مراجعات الطلبات.">
+              Breaking changes: introduced only with deprecation periods and migration notes; enforced by pull-request
+              checks.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="standards">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="معايير واجهة وتجربة المستخدم لأمن">UI/UX Standards for AMN</h2>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="إمكانية الوصول: تباين متوافق مع WCAG، وضوح التركيز، دعم لوحة المفاتيح، ورسائل خطأ واضحة.">
+              Accessibility: WCAG-aligned contrast, focus visibility, keyboard support, and clear error messaging.</li>
+            <li data-i18n
+              data-ar="الاستجابة: التخطيطات تتكيف مع الشاشات التشغيلية والأجهزة اللوحية؛ العروض الكثيفة تحافظ على القراءة.">
+              Responsiveness: layouts adapt to operational screens and tablets; dense data views maintain readability.
+            </li>
+            <li data-i18n data-ar="الحالات: أنماط موحدة لحالات النجاح، التحذير، الخطأ، والحرجة عبر جميع المكونات.">
+              States: consistent patterns for success, warning, error, and critical states across all components.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="governance">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="الحوكمة والملكية">Governance and Ownership</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="الملكية: فريق نظام التصميم يملك الرموز والمكونات وإيقاع الإصدارات.">Ownership: Design
+              System team owns tokens, components, and release cadence.</li>
+            <li data-i18n data-ar="المراجعات: مراجعة تصميم وكود إلزامية لأي تغيير في رمز أو مكون.">Reviews: mandatory
+              design and code review for any token or component change.</li>
+            <li data-i18n
+              data-ar="المساهمات: فرق الأنظمة تقدم مقترحات مدعومة بأدلة استخدام؛ الموافقات مطلوبة قبل الدمج.">
+              Contributions: system teams submit proposals with usage evidence; approvals required before merge.</li>
+            <li data-i18n data-ar="الحدود: التعديلات المخصصة خارج طبقة SCSS محظورة ما لم يتم اعتمادها رسميًا.">
+              Boundaries: custom overrides outside the SCSS layer are prohibited unless formally approved.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="usage">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إرشادات الاستخدام">Usage Guidelines</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="اعتماد إلزامي: جميع أنظمة أمن تستهلك الرموز والمكونات المشتركة؛ لا يُسمح بالتباين.">
+              Mandatory adoption: all AMN systems consume the shared tokens and components; divergence is not permitted.
+            </li>
+            <li data-i18n data-ar="الحلول المخصصة: مسموحة فقط عند الموافقة وإعادتها إلى نظام التصميم لإعادة الاستخدام.">
+              Custom solutions: only allowed when approved and back-ported into the Design System for reuse.</li>
+            <li data-i18n data-ar="الطلبات: الرموز/المكونات الجديدة تمر بمسار طلب رسمي → مراجعة → تنفيذ → إصدار.">
+              Requests: new tokens/components follow a formal request → review → implementation → release path.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+  <script src="./js/top-actions.js"></script>
+  <script src="./js/ds-site-nav.js"></script>
+  <script src="./js/watermark.js"></script>
+</body>
+
+</html>

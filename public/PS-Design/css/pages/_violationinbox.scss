@@ -1,0 +1,101 @@
+@use '../helpers' as *;
+.violationinbox {
+    .budget {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: #f5faf8;
+            border: 1px solid #25935F;
+            box-shadow: 0px 8px 20px #E2E8F0;
+            border-radius: 8px;
+            font-weight: 600;
+            color: rgb(0 0 0 / 40%);
+
+            .number {
+                color: $Primary-500;
+                @include font-2xl-500;
+            }
+        }
+
+        .Consumed {
+            border: 1px solid #FF7474;
+            background: #fff8f8;
+
+            .number {
+                color: #FF7474;
+            }
+        }
+
+        .remaining {
+            border: 1px solid #007BFF;
+            background: #f4f7fa;
+
+            .number {
+                color: #007BFF;
+            }
+        }
+    }
+
+    .details {
+        .rightDetails {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #C6C6DC;
+            background: #fff;
+
+            .top {
+                padding: 14px;
+                border: 1px solid #C0D6ED;
+                background: rgba(241, 247, 255, 0.4);
+                border-radius: 8px;
+                gap: 14px;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .violationInboxmap {
+            .maindetails {
+                padding: 0;
+                gap: 0 !important;
+
+                .block {
+                    width: 47.8% !important;
+                }
+            }
+        }
+
+        .generalCasesStyle__cases__right--officer {
+            .newDSCases--BasicInfo__title {
+                @include font-md-500;
+            }
+
+            .block {
+                background: #ffffff;
+                font-size: 10px;
+
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .indescrption {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 16px;
+            gap: 10px;
+            background: #F1F6FB;
+            border: 1px solid #CEDEEB;
+            border-radius: 8px;
+        }
+    }
+}

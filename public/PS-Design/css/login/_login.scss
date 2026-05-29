@@ -1,0 +1,233 @@
+@use "../helpers" as *;
+
+.abp-account-container {
+  /* height: 100vh; */
+  overflow: hidden;
+}
+
+.loginBody {
+  font-family: "IBMPlexSansArabic", sans-serif !important;
+  @include font-lg-500;
+
+  &__right__area {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 8px 20px 0px #e2e8f0;
+    border-radius: 20px;
+    width: 80%;
+    margin: 5% auto;
+    padding: 20px;
+    background: #fff;
+    background: url(../images/logimage.svg) #fff no-repeat -270px -20%;
+
+    &__title {
+      img {
+        margin-left: 10px;
+        height: 60px;
+      }
+
+      &--subtitle {
+        h3 {
+          @include titles;
+          color: $darkBlue;
+        }
+
+        span {
+          @include boldfont;
+        }
+      }
+    }
+
+    &--logintitle {
+      margin-top: 20px;
+      color: #000;
+      @include titles;
+    }
+
+    .copyRights {
+      font-size: 10px;
+      margin-top: 20px;
+      color: $Neutral-950;
+    }
+
+    .form-check {
+      margin-bottom: 0;
+    }
+
+    .form-content img {
+      position: absolute;
+      top: 12px;
+      right: 10px;
+      height: 20px;
+    }
+
+    .input-group {
+      .input-group-text {
+        background: #fff;
+        border-left: 0;
+        padding-left: 0;
+      }
+
+      input {
+        border-right: none;
+      }
+    }
+
+    .form-control {
+      border-radius: 4px;
+      padding-right: 18px;
+    }
+    /* =========================
+       Password Toggle (FULL)
+       ========================= */
+    .passworddiv {
+      position: relative;
+      width: 100%;
+      // Bootstrap input داخل الـ password wrapper
+      input.form-control {
+        width: 100%;
+        padding: 12px 45px 12px 12px;
+        font-size: 14px;
+      }
+
+      .fa {
+        position: absolute;
+        top: 50%;
+        inset-inline-end: 15px;
+        transform: translateY(-50%);
+        width: 17px;
+        height: 24px;
+        cursor: pointer;
+        z-index: 2;
+        display: inline-block;
+      }
+
+      .fa::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 24px 20px;
+      }
+
+      .fa-eye::before {
+        background-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M3 6.5C6 4.5 9 3.5 12 3.5C15 3.5 18 4.5 21 6.5' stroke='%23161616' stroke-width='2' stroke-linecap='round' fill='none'/><path d='M2 12C4.5 8.5 8 6.5 12 6.5C16 6.5 19.5 8.5 22 12C19.5 15.5 16 17.5 12 17.5C8 17.5 4.5 15.5 2 12Z' stroke='%23161616' stroke-width='2' fill='none'/><circle cx='12' cy='12' r='3.5' fill='%23161616'/></svg>");
+      }
+
+      .fa-eye-slash::before {
+        background-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M3 11C6 14 9 15.5 12 15.5C15 15.5 18 14 21 11' stroke='%23161616' stroke-width='2' stroke-linecap='round' fill='none'/><path d='M6.5 13.5L5 15' stroke='%23161616' stroke-width='2' stroke-linecap='round'/><path d='M10 14.5V17' stroke='%23161616' stroke-width='2' stroke-linecap='round'/><path d='M14 14.5V17' stroke='%23161616' stroke-width='2' stroke-linecap='round'/><path d='M17.5 13.5L19 15' stroke='%23161616' stroke-width='2' stroke-linecap='round'/></svg>");
+      }
+    }
+
+    .ordiv {
+      display: flex;
+      align-items: center;
+      padding: $padding-14;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+
+      .line {
+        background: #f4f0e8;
+        height: 1px;
+        width: 100%;
+      }
+    }
+  }
+  // end &__right__area
+
+  &__left__area {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+
+    img {
+      height: 100vh;
+      object-fit: cover;
+    }
+
+    .loginbuttons {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+
+      a {
+        border-radius: 50%;
+        border: 1px solid $white-100;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+
+        &:hover {
+          background: $Primary-500;
+          border: none;
+        }
+      }
+    }
+
+    .circle-exterior {
+      margin-bottom: 30px;
+      position: relative;
+      animation-name: float;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: ease;
+    }
+
+    h3 {
+      @include boldfont-18;
+      color: $white-100;
+    }
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px $white-100 inset !important;
+  }
+
+  @keyframes float {
+    to {
+      top: 0;
+    }
+
+    from {
+      top: 30px;
+    }
+  }
+
+  .Fingerimage {
+    width: 100px !important;
+    height: 100px !important;
+    margin-top: 10px !important;
+  }
+
+  .reloadbtn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .reloadbtn img {
+    height: 25px !important;
+    width: 25px !important;
+  }
+
+  .loginBody__right__area .ordiv .titlebettween {
+    padding: 10px;
+    border-radius: 4px;
+    color: #a38664;
+    z-index: 1;
+    min-width: max-content;
+  }
+}
+// end .loginBody

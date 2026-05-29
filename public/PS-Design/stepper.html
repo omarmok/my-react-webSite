@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<link href="./css/bootstrap-v5.css" rel="stylesheet" />
+	<link href="./css/slick.css" rel="stylesheet" />
+	<link href="./css/slick-theme.css" rel="stylesheet" />
+	<link href="./css/animate.css" rel="stylesheet" />
+	<link href="./css/font-awesome.min.css" rel="stylesheet" />
+	<link href="./css/main.css" rel="stylesheet" />
+
+	<script src="./js/jquery-3.6.0.min.js"></script>
+	<script src="./js/popper.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/slick.min.js"></script>
+</head>
+
+
+<body>
+
+
+
+
+	<div class="d-flex  justify-content-between align-items-center rounded radius-sm steps">
+		<ul role="tablist" class="m-0">
+			<li role="tab" aria-disabled="false" aria-selected="true" class="first current" style="float: right;">
+				<div class="wizerd__item wizerd__item--Complated">
+					<div class="wizerdImage selectedWizerdImage"> <svg width="24" height="24" viewBox="0 0 24 24"
+							fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M9.56433 15.8366C9.27438 15.4418 9.04454 15.1049 8.84254 14.8118L5.84556 10.3608C5.53956 9.91583 4.90055 9.79203 4.44255 10.088C3.98455 10.385 3.85654 11.0041 4.16154 11.4481L7.15956 15.899C8.05955 17.2088 9.81556 17.3751 10.9626 16.2627C10.5 16.3203 10 16.4299 9.56433 15.8366Z"
+								fill="#25935F" />
+							<path
+								d="M18.9912 6C18.7362 6 18.4692 6.08319 18.2742 6.27182L9.56418 14.8992C9.30718 15.1488 9.08091 15.1624 8.87891 14.8693C8.87891 14.8693 9.27594 15.4409 9.56418 15.8366C10 16.4349 10.5 16.3202 10.9672 16.2602L19.7082 7.6628C20.0972 7.28458 20.0972 6.65004 19.7082 6.27182C19.5132 6.08319 19.2462 6 18.9912 6Z"
+								fill="#166A45" />
+						</svg>
+					</div>
+					البيانات الأساسية
+				</div>
+			</li>
+			<li role="tab" aria-disabled="false" aria-selected="true" class="first current" style="float: right;">
+				<div class="wizerd__item wizerd__item--Currant">
+					<div class="wizerdImage"> 2 </div>
+					الأشخاص
+				</div>
+			</li>
+			<li role="tab" aria-disabled="false" aria-selected="true" class="first current" style="float: right;">
+				<div class="wizerd__item">
+					<div class="wizerdImage"> 5 </div>
+					الملخص
+				</div>
+			</li>
+		</ul>
+		<div class="moi-radial-stepper" dir="rtl" style="--current:1; --total:4;">
+			<div class="moi-radial-stepper__content">
+				<h3 class="moi-radial-stepper__title">الخطوة الأولى</h3>
+				<p class="moi-radial-stepper__desc">
+					وصف الخطوة التالية:
+					<span class="moi-radial-stepper__step-name">اسم الخطوة</span>
+				</p>
+			</div>
+
+			<div class="moi-radial-stepper__ring" aria-label="التقدم: 1 من 4">
+				<svg class="moi-ring" viewBox="0 0 120 120" aria-hidden="true">
+					<circle class="moi-ring__track" cx="60" cy="60" r="46"></circle>
+					<circle class="moi-ring__progress" cx="60" cy="60" r="46"></circle>
+				</svg>
+
+				<div class="moi-ring__label" aria-hidden="true">
+					<span class="moi-ring__num">1</span>
+					<span class="moi-ring__word">من</span>
+					<span class="moi-ring__num">4</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content ">
+		<section id="tab-1">
+			البيانات الأساسية
+		</section>
+	</div>
+
+
+	<div class="w-100 p-3 d-flex align-items-center justify-content-between steeper__footer">
+		<div class="d-flex gap-4 steeper__footer--buttons">
+			<button class="btn moi-btn--Neutral--outline" type="button" aria-label="السابق">
+				<span class="icon icon-2xl " data-icon="previous-arrow"></span>
+
+
+				<span> السابق</span>
+
+			</button>
+			<button class="btn moi-btn--primary" type="button" aria-label="التالي">
+				التالي
+
+				<span class="icon icon-2xl " data-icon="next-arrow"></span>
+
+
+			</button>
+		</div>
+
+		<div class="d-flex gap-4 steeper__footer--buttons">
+			<button class="btn moi-btn--Neutral--outline" type="button" aria-label="حفظ واستكمال لاحقًا">
+				<span class="icon icon-2xl " data-icon="savelater"></span>
+				حفظ وإستكمال لاحقاً
+			</button>
+			<button class="btn moi-btn--Neutral--outline" type="button" aria-label="إغلاق">
+				<span class="icon icon-2xl " data-icon="close"></span>
+
+				إغلاق
+			</button>
+		</div>
+	</div>
+	<script src="js/app.js"></script>
+	<script src="icons.js"></script>
+</body>

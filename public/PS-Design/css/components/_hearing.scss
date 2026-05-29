@@ -1,0 +1,218 @@
+@use '../helpers' as *;
+@use './insertUserComponent' as *;
+.hearing {
+    @extend .insertUser;
+
+    &__mainDetails {
+        background: #fcfbfb;
+        box-shadow: 0px 8px 30px rgba(181, 181, 181, 0.08);
+        border: 1px solid #f3f6ff;
+        padding: $padding-14;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+        height: 100%;
+        border: 1px solid #d8e0e9;
+        /*   box-shadow: -10px -10px 30px 0px #fff, 10px 10px 30px 0px rgba(174, 174, 192, 0.4);*/
+        border-radius: 10px;
+
+        &--block {
+            background: var(--color, #ffffff);
+            border-style: solid;
+            border-color: var(--long-shadow, #e2e8f0);
+            border-width: 1px;
+            padding: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 5px;
+
+            .new-custommap .newIms--inquiryDs--card--body .maindetails .block {
+                width: 48% !important;
+            }
+
+            .detailsicon {
+                img {
+                    height: 24px;
+                }
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                label {
+                    margin-bottom: 5px !important;
+                }
+            }
+        }
+
+        .custom-title {
+            background: var(--theme-primary) !important;
+            display: flex;
+            justify-content: space-between;
+            padding: $padding-14;
+            border-radius: 6px;
+
+            h3 {
+                @include boldfont;
+                color: #fff;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__section {
+        border: 1px solid var(--stroke-1, #ecedef);
+        background: #fcfdff;
+        display: flex;
+        padding: $padding-14;
+        flex-direction: column;
+        gap: 10px;
+
+        &--topblock {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        textarea.form-control {
+            height: 160px;
+        }
+    }
+
+    &__list {
+        h3 {
+            @include boldfont-16;
+        }
+
+        &--block {
+            @extend .hearing__mainDetails;
+            padding: 5px;
+
+            .accordion-item {
+                background: #fff;
+                margin-bottom: 5px;
+
+                .accordion-header {
+                    display: flex;
+                    background: #f8f6f2;
+                    border-style: solid;
+                    border-color: transparent;
+                    border-width: 1px;
+                    padding: 5px;
+
+                    .accordion-button {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        align-self: stretch;
+                        @include font-sm-500;
+                        font-weight: bold !important;
+                        background: transparent;
+                        padding: 5px;
+                        box-shadow: none;
+                        color: #a38664;
+
+                        span {
+                            background: #a38664;
+                            width: 30px;
+                            height: 30px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 50%;
+                            color: #fff;
+                            margin-left: 5px;
+                        }
+
+                        &:focus {
+                            z-index: 3;
+                            border-color: transparent;
+                            outline: 0;
+                            box-shadow: none;
+                        }
+                    }
+
+                    img {
+                        height: 26px;
+                    }
+                }
+
+                .accordion-body {
+                    line-height: 2.1;
+                    padding: 12px;
+                    border-style: solid;
+                    border-color: var(--long-shadow, #e2e8f0);
+                    border-width: 1px;
+                    text-align: justify;
+                }
+            }
+
+            .accordion-header:has(.accordion-button:not(.collapsed)) {
+                background: #f2f6fc !important;
+
+                .accordion-button {
+                    color: #000000 !important;
+                }
+            }
+
+            .accordion-button::after {
+                background: url(../images/arrow-down.svg), #a38664;
+                padding: 17px;
+                display: flex;
+                background-position: 7px 6px;
+                background-repeat: no-repeat;
+                margin-top: -4px;
+                border-radius: 8px;
+                width: 20px;
+                height: 20px;
+                margin: 0;
+            }
+
+            .accordion-button:not(.collapsed)::after {
+                flex-shrink: 0;
+                width: var(--bs-accordion-btn-icon-width);
+                height: var(--bs-accordion-btn-icon-width);
+                margin-right: auto;
+                content: "";
+                background-image: var(--bs-accordion-btn-icon);
+                background-repeat: no-repeat;
+                background-size: var(--bs-accordion-btn-icon-width);
+                transition: var(--bs-accordion-btn-icon-transition);
+                background-image: url(../images/arrow-down.svg);
+            }
+        }
+    }
+
+    &__Fingerprint {
+        .interviewer {
+            background: var(--color, #ffffff);
+            border-style: solid;
+            border-color: var(--long-shadow, #e2e8f0);
+            border-width: 1px;
+            padding: 10px;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            h4 {
+                @include boldfont;
+                margin-bottom: 0;
+            }
+        }
+
+        .interviewee {
+            @extend .interviewer;
+        }
+    }
+}
+
+.modalP {
+  line-height: 2.1;
+  text-align: justify;
+}

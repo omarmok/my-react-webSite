@@ -1,0 +1,84 @@
+@use '../helpers' as *;
+.recordCreate {
+    .recordCreateNav {
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            border-radius: 16px;
+            width: 180px;
+            background: #FFFFFF;
+            border: 1px solid #BBBEC8;
+
+            img {
+                width: 60px;
+                height: 60px;
+                mix-blend-mode: multiply;
+            }
+
+            span {
+                @include meduimfont;
+                color: #000;
+            }
+        }
+
+        .nav-link.active {
+            background: #E6F6F4;
+            border: 1px solid #00A991;
+        }
+    }
+
+    .searchfields {
+        box-shadow: none;
+        background: transparent;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        margin-bottom: 10px;
+
+        .moi-btn--Primaryhover {
+            margin-left: 0 !important;
+        }
+    }
+
+    .person__tabs .tab-content {
+        background: transparent;
+        padding: 0;
+        border: 1px solid #e9f0fc;
+        box-shadow: none;
+        border-radius: 8px;
+        margin-top: -1px;
+    }
+
+
+
+    .vue-treeselect__menu-container {
+        z-index: 9999 !important;
+    }
+
+    h6.fw-bold {
+        background: $Info-25;
+        padding: $padding-14;
+        width: 100%;
+        color: $Info-600;
+    }
+
+    #entity-print {
+        .newIms--inquiryDs--card {
+            margin: 0;
+            margin-bottom: 10px;
+
+            .col-lg-3.col-sm-12.mb-3.animate__animated.animate__fadeIn {
+                margin: 0 !important;
+            }
+        }
+    }
+
+    .radiostyle {
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
+    }
+}

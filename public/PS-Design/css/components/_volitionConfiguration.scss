@@ -1,0 +1,264 @@
+@use '../helpers' as *;
+.user-search {
+  box-shadow: $shadow-100;
+}
+
+.volitionConfiguration {
+  &__card {
+    background: #fff;
+    box-shadow: $shadow-100;
+    margin: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: $padding-14;
+    margin-bottom: 30px;
+    gap: 20px;
+    height: 470px;
+
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8f6f2;
+      padding: 16px;
+
+      .form-check {
+        align-items: center;
+        display: flex;
+
+        label {
+          display: flex;
+          flex-direction: row;
+          margin: 0 !important;
+          align-items: center;
+          @include font-sm-500;
+          color: #000;
+          span {
+            color: #a38664;
+            @include font-md-500;
+            margin-right: 5px;
+            // background: #e4e6fa;
+            // padding: 5px 20px;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+
+    &__body {
+      &--violitionsubject {
+        color: #7a582f;
+        @include meduimfont;
+
+        p {
+          @include meduimfont-reg-12;
+          color: #000;
+          height: 40px;
+          max-height: 40px;
+          margin: 0;
+          line-height: 1.9;
+          margin-bottom: 10px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    &__cost {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border: 1px dashed #b1b1b1;
+      padding: 10px;
+      text-align: center;
+      @include meduimfont;
+      color: $darkBlue;
+      flex-direction: column;
+      gap: 5px;
+
+      span {
+        color: $Primary-500;
+        margin: 0 5px;
+      }
+    }
+
+    &__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f4f8fa;
+      padding: $padding-14;
+      @include smallfont;
+      gap: 10px;
+
+      &--numberofcreated {
+        color: $Primary-500;
+
+        span {
+          color: $darkBlue;
+        }
+      }
+
+      &--action {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+
+        img {
+          height: 20px;
+        }
+
+        .switch {
+          font-size: 17px;
+          // position: relative;
+          // display: inline-block;
+          // width: 40px;
+          // height: 20px;
+          // margin: 0 !important;
+
+          input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+          }
+
+          .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 5px;
+            right: 0;
+            bottom: 0;
+            background-color: #abbbc2;
+            transition: 0.4s;
+            border-radius: 3px;
+            width: 100%;
+          }
+        }
+
+        .switch .slider:before {
+          position: absolute;
+          content: "";
+          height: 15px;
+          width: 15px;
+          border-radius: 3px;
+          left: 4px;
+          bottom: 3px;
+          background-color: white;
+          transition: 0.3s cubic-bezier(0, 2.18, 0.64, 0.69);
+        }
+
+        input:checked + .slider {
+          background-color: $Primary-500;
+        }
+
+        input:focus + .slider {
+          box-shadow: none;
+        }
+
+        input:checked + .slider:before {
+          transform: translateX(1em);
+        }
+      }
+    }
+  }
+}
+
+#addnewViolitionConfigruation {
+  .modal-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    @include meduimfont;
+    color: $darkBlue;
+    text-align: center;
+
+    span {
+      background: #fff;
+      border-radius: 50%;
+      padding: $padding-14;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      box-shadow: 2px 10px 13px #e4e4e4, -13px -13px 20px #ffffff;
+      margin-bottom: 20px;
+    }
+
+    img {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}
+
+.switch {
+  // font-size: 17px !important;
+  // position: relative !important;
+  // display: inline-block !important;
+  // width: 40px !important;
+  // height: 20px !important;
+  // margin: 0 !important;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 5px;
+    right: 0;
+    bottom: 0;
+    background-color: #abbbc2 !important;
+    transition: 0.4s !important;
+    border-radius: 3px !important;
+    width: 100%;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+}
+
+.switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  border-radius: 3px !important;
+  // left: 6px;
+  bottom: 3px;
+  background-color: white !important;
+  transition: 0.3s cubic-bezier(0, 2.18, 0.64, 0.69);
+}
+
+input:checked + .slider {
+  background: #08c28d !important;
+  &::after {
+    content: "";
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    left: 0;
+    top: 12%;
+    background: url("../images/icon-check2-w.svg");
+  }
+}

@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alerts | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .page-header .code-inline {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .sample-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      align-items: center;
+    }
+
+    .demo-grid .btn {
+      width: 100%;
+    }
+
+    .visual-scroll {
+      overflow-x: auto;
+    }
+
+    .visual-matrix {
+      display: grid;
+      grid-template-columns: minmax(200px, 240px) repeat(5, minmax(160px, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .matrix-head {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .matrix-label {
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #111827;
+    }
+
+    .matrix-label[data-copy] {
+      cursor: pointer;
+    }
+
+    .matrix-label svg path {
+      fill: currentColor;
+    }
+
+    .state-cell {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      width: 100%;
+      min-height: 56px;
+      border: 1px dashed #e5e7eb;
+      background: #f9fafb;
+      text-align: center;
+    }
+
+    .state-tile {
+      background: #fff;
+      border: 1px dashed #e5e7eb;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .state-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .state-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .usage-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* DesignOps visual accents */
+    .designops-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .designops-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 10px 24px rgba(16, 24, 40, 0.05);
+    }
+
+    .designops-card h4 {
+      margin-bottom: 10px;
+    }
+
+    .designops-card ul {
+      margin-bottom: 0;
+    }
+
+    .usage-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .usage-card h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .usage-card ul {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .token-chip {
+      background: #f3f4f6;
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      color: #374151;
+    }
+
+    .two-col {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .sample-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    svg {
+      width: 16px !important;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .sidebar-nav a.is-active {
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+    }
+
+    .lang-toggle {
+      margin-top: 12px;
+      width: 100%;
+      background: #fff;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #cbd5f5;
+      box-shadow: 0 14px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .lang-toggle svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+
+    .copy-tooltip {
+      position: fixed;
+      z-index: 1000;
+      background: #111827;
+      color: #f9fafb;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .copy-tooltip.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <link href="./css/ds-site-nav.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <a href="./alert.html" class="is-active" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+        </nav>
+      </div>
+
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><svg width="24"
+            height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.05469 1.25C9.42218 1.24998 10.5247 1.24968 11.3916 1.36621C12.2917 1.48723 13.0495 1.74672 13.6514 2.34863C14.2533 2.95055 14.5128 3.70829 14.6338 4.6084C14.7503 5.47534 14.75 6.57782 14.75 7.94531V9.25488C15.1235 9.25143 15.5218 9.24999 15.9453 9.25H16.0547C17.4222 9.24998 18.5247 9.24968 19.3916 9.36621C20.2917 9.48723 21.0495 9.74672 21.6514 10.3486C22.2533 10.9505 22.5128 11.7083 22.6338 12.6084C22.7503 13.4753 22.75 14.5778 22.75 15.9453V16.0547C22.75 17.4222 22.7503 18.5247 22.6338 19.3916C22.5128 20.2917 22.2533 21.0495 21.6514 21.6514C21.0495 22.2533 20.2917 22.5128 19.3916 22.6338C18.5247 22.7503 17.4222 22.75 16.0547 22.75H15.9453C14.5778 22.75 13.4753 22.7503 12.6084 22.6338C11.7083 22.5128 10.9505 22.2533 10.3486 21.6514C9.74672 21.0495 9.48723 20.2917 9.36621 19.3916C9.24968 18.5247 9.24998 17.4222 9.25 16.0547V15.9453C9.24999 15.5218 9.25143 15.1235 9.25488 14.75H7.94531C6.57782 14.75 5.47534 14.7503 4.6084 14.6338C3.70829 14.5128 2.95055 14.2533 2.34863 13.6514C1.74672 13.0495 1.48723 12.2917 1.36621 11.3916C1.24968 10.5247 1.24998 9.42218 1.25 8.05469V7.94531C1.24998 6.57782 1.24968 5.47534 1.36621 4.6084C1.48723 3.70829 1.74672 2.95055 2.34863 2.34863C2.95055 1.74672 3.70829 1.48723 4.6084 1.36621C5.47534 1.24968 6.57782 1.24998 7.94531 1.25H8.05469ZM16 10.75C14.5648 10.75 13.5639 10.752 12.8086 10.8535C12.0748 10.9522 11.6859 11.1324 11.4092 11.4092C11.1324 11.6859 10.9522 12.0748 10.8535 12.8086C10.752 13.5639 10.75 14.5648 10.75 16C10.75 17.4352 10.752 18.4361 10.8535 19.1914C10.9522 19.9252 11.1324 20.3141 11.4092 20.5908C11.6859 20.8676 12.0748 21.0478 12.8086 21.1465C13.5639 21.248 14.5648 21.25 16 21.25C17.4352 21.25 18.4361 21.248 19.1914 21.1465C19.9252 21.0478 20.3141 20.8676 20.5908 20.5908C20.8676 20.3141 21.0478 19.9252 21.1465 19.1914C21.248 18.4361 21.25 17.4352 21.25 16C21.25 14.5648 21.248 13.5639 21.1465 12.8086C21.0478 12.0748 20.8676 11.6859 20.5908 11.4092C20.3141 11.1324 19.9252 10.9522 19.1914 10.8535C18.4361 10.752 17.4352 10.75 16 10.75ZM4 15.75C4.41421 15.75 4.75 16.0858 4.75 16.5C4.75 17.2178 4.75071 17.7 4.78809 18.0674C4.82419 18.4221 4.88849 18.5859 4.96094 18.6943C5.05212 18.8308 5.16921 18.9479 5.30566 19.0391C5.4141 19.1115 5.57788 19.1758 5.93262 19.2119C6.30002 19.2493 6.78216 19.25 7.5 19.25C7.91421 19.25 8.25 19.5858 8.25 20C8.25 20.4142 7.91421 20.75 7.5 20.75H7.46191C6.79245 20.75 6.23354 20.7501 5.78125 20.7041C5.30783 20.6559 4.86862 20.5507 4.47266 20.2861C4.17238 20.0855 3.9145 19.8276 3.71387 19.5273C3.44934 19.1314 3.34406 18.6922 3.2959 18.2188C3.24991 17.7665 3.24998 17.2075 3.25 16.5381C3.25 16.5254 3.25 16.5127 3.25 16.5C3.25 16.0858 3.58579 15.75 4 15.75ZM16 12.25C16.3028 12.25 16.5759 12.4324 16.6924 12.7119L19.1924 18.7119C19.3514 19.0941 19.1711 19.533 18.7891 19.6924C18.4067 19.8517 17.9669 19.6704 17.8076 19.2881L17.167 17.75H14.834L14.1924 19.2881C14.0331 19.6704 13.5942 19.8516 13.2119 19.6924C12.8297 19.5331 12.6486 19.0942 12.8076 18.7119L15.3076 12.7119C15.424 12.4325 15.6973 12.2501 16 12.25Z"
+              fill="currentColor"></path>
+          </svg><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.9975 3.25C11.624 3.25 11.2774 3.41565 11.0172 3.57252C10.7364 3.7418 10.4464 3.96944 10.1638 4.21918C9.59669 4.72018 8.98771 5.37387 8.43684 6.00823C7.88274 6.64633 7.37253 7.28222 7.00175 7.75725C6.81606 7.99516 6.66462 8.19364 6.55931 8.33304C6.50664 8.40276 6.46547 8.45776 6.43727 8.49558L6.40489 8.53915L6.39633 8.55071L6.39337 8.55472C6.14771 8.88822 6.2186 9.35816 6.5521 9.60382C6.88559 9.84947 7.35507 9.77828 7.60074 9.44481L7.61015 9.43209L7.63992 9.39204C7.66632 9.35662 7.70557 9.3042 7.75618 9.2372C7.85743 9.10317 8.00402 8.91102 8.1842 8.68019C8.54517 8.21772 9.03806 7.60363 9.56942 6.99173C10.104 6.37611 10.6628 5.77981 11.1569 5.34331C11.1882 5.3157 11.2189 5.28899 11.249 5.26316L11.249 20C11.249 20.4142 11.5848 20.75 11.999 20.75C12.4132 20.75 12.749 20.4142 12.749 20L12.749 5.2657C12.7782 5.29073 12.808 5.31661 12.8382 5.34331C13.3323 5.77981 13.8911 6.37611 14.4257 6.99173C14.957 7.60363 15.4499 8.21772 15.8109 8.68019C15.9911 8.91102 16.1377 9.10317 16.2389 9.2372C16.2895 9.30419 16.3288 9.35662 16.3552 9.39204L16.3849 9.43209L16.3943 9.44481C16.64 9.77828 17.1095 9.84947 17.443 9.60382C17.7765 9.35816 17.8474 8.88822 17.6017 8.55472L17.5988 8.55071L17.5902 8.53915L17.5578 8.49558C17.5296 8.45776 17.4884 8.40276 17.4358 8.33304C17.3305 8.19363 17.179 7.99516 16.9933 7.75725C16.6226 7.28222 16.1123 6.64633 15.5582 6.00823C15.0074 5.37387 14.3984 4.72018 13.8313 4.21918C13.5486 3.96944 13.2587 3.7418 12.9779 3.57252C12.7192 3.4166 12.3753 3.25199 12.0043 3.25002"
+              fill="white"></path>
+          </svg><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span>
+        </button>
+      </div>
+
+
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="المكونات / التنبيهات">Components / Alerts</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="التنبيهات">Alerts</h1>
+
+        <p class="text-muted mb-4" data-i18n
+          data-ar="التنبيهات تنقل حالات مهمة وتوجه المستخدم نحو الإجراءات التالية. استخدمها داخل المسارات لتسليط الضوء على الحالات الحرجة أو التحذيرية أو المعلوماتية أو الناجحة.">
+          Alerts communicate important states and guide users toward follow-up actions. Use them inside flows to
+          highlight critical, warning, info, or success states that need attention.</p>
+        <div class="sample-stack" dir="rtl">
+          <div class="moi-notification" data-status="neutral" role="alert">
+            <div class="moi-notification__content">
+              <span class="moi-notification__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" focusable="false">
+                  <path fill="currentColor" d="M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM11.2764 10.25C11.4815 10.2499 11.7034 10.2502 11.8906 10.2754C12.1099 10.3049 12.3902 10.3804 12.626 10.6162C12.8618 10.852 12.9373 11.1322 12.9668 11.3516C12.992 11.5388 12.9923 11.7607 12.9922 11.9658V17C12.9922 17.4142 12.6564 17.75 12.2422 17.75C11.828 17.75 11.4922 17.4142 11.4922 17V12C11.4922 11.9009 11.4923 11.8204 11.4912 11.751C11.4218 11.7499 11.3413 11.75 11.2422 11.75C10.828 11.75 10.4922 11.4142 10.4922 11C10.4922 10.5858 10.828 10.25 11.2422 10.25C11.2535 10.25 11.2649 10.25 11.2764 10.25ZM12.001 7C12.5533 7 13.001 7.44772 13.001 8C13.001 8.55228 12.5533 9 12.001 9H11.9922C11.4399 9 10.9922 8.55228 10.9922 8C10.9922 7.44772 11.4399 7 11.9922 7H12.001Z" />
+                </svg>
+              </span>
+              <strong class="moi-notification__title">تنبيه:</strong>
+              <span class="moi-notification__message">تم رصد ملاحظة تتطلب المراجعة قبل المتابعة أو إرسال الطلب.</span>
+            </div>
+            <div class="moi-notification__actions">
+              <button class="btn moi-notification__btn" type="button"><span>عرض التفاصيل</span></button>
+              <button class="moi-notification__close" type="button" aria-label="إغلاق التنبيه">
+                <svg viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d="M1.07.18 6 5.12 10.93.18 11.82 1.07 6.88 6 11.82 10.93 10.93 11.82 6 6.88 1.07 11.82.18 10.93 5.12 6 .18 1.07 1.07.18Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="moi-notification" data-status="success" role="alert">
+            <div class="moi-notification__content">
+              <span class="moi-notification__icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23Z" fill="white" />
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23ZM7.05022 11.1213C6.65969 11.5118 6.65969 12.145 7.05022 12.5355L9.87864 15.364C10.2692 15.7545 10.9023 15.7545 11.2929 15.364L16.9497 9.70711C17.3402 9.31658 17.3402 8.68342 16.9497 8.29289C16.5592 7.90237 15.926 7.90237 15.5355 8.29289L10.5858 13.2426L8.46443 11.1213C8.07391 10.7308 7.44074 10.7308 7.05022 11.1213Z" fill="currentColor" />
+                </svg>
+              </span>
+              <strong class="moi-notification__title">نجاح:</strong>
+              <span class="moi-notification__message">تمت العملية بنجاح ويمكن المتابعة.</span>
+            </div>
+            <div class="moi-notification__actions">
+              <button class="btn moi-notification__btn" type="button"><span>عرض التفاصيل</span></button>
+              <button class="moi-notification__close" type="button" aria-label="إغلاق التنبيه">
+                <svg viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d="M1.07.18 6 5.12 10.93.18 11.82 1.07 6.88 6 11.82 10.93 10.93 11.82 6 6.88 1.07 11.82.18 10.93 5.12 6 .18 1.07 1.07.18Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill" data-i18n data-ar="المكوّن: التنبيهات" data-en="Component: Alerts">
+          المكوّن: التنبيهات
+        </span>
+
+        <span class="metadata-pill" data-i18n data-ar="الإصدار: قيد التحديث" data-en="Version: TBD">
+          الإصدار: قيد التحديث
+        </span>
+
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 10 مايو 2026"
+          data-en="Last updated: May 10, 2026">
+          آخر تحديث: 10 مايو 2026
+        </span>
+      </div>
+
+
+      <section class="section" id="overview">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="الهدف / متى تستخدم">Purpose &amp; when to use</h2>
+          <p class="section-note" data-i18n
+            data-ar="التنبيهات هي رسائل نظامية تُستخدم لإيصال المعلومات الهامة أو الحالات التي تتطلب انتباه المستخدم. تتوفر أنواع مختلفة من التنبيهات (معلوماتي، نجاح، تحذير، خطأ) وكل منها مصمم لسيناريو استخدام محدد.">
+            Alerts are system messages used to convey important information or states requiring user attention. Various
+            types of alerts (info, success, warning, error) are available, each designed for a specific use case.
+          </p>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="استعمل التنبيهات داخل المسارات لإظهار الحالات التي تحتاج خطوات تالية (نجاح، خطأ، تحذير، معلومات).">
+              Surface alerts within flows to highlight outcomes that need follow-up (success, error, warning, info).
+            </li>
+            <li data-i18n data-ar="لا تستخدم التنبيهات للتزيين؛ اذكر الحالة بخط واضح مع أيقونة ونص قصير.">
+              Do not use alerts decoratively; pair a clear message with an icon and concise copy.</li>
+            <li data-i18n data-ar="إرفاق إجراء واضح (مثلاً زر 'عرض التفاصيل') يساعد على إغلاق الحلقة الذهنية.">
+              Attach an explicit action (e.g., “View details”) so users can resolve the situation.</li>
+            <li data-i18n data-ar="اذكر الحالة بنص بديل عند إخفاء اللون أو الأيقونة حتى تظل الحالة مفهومة.">
+              Describe the state in text when hiding color or icons to keep the intent accessible.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="anatomy">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2>
+          <p class="section-note" data-i18n data-ar="يستخدم مكوّن moi-notification هيكل BEM واضح. الحالة البصرية تُحدَّد بواسطة data-status وليس فئات CSS مباشرة.">The <code class="code-inline">.moi-notification</code> component uses a BEM structure. Visual state is driven by <code class="code-inline">data-status</code>, not CSS modifier classes.</p>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="العنصر">Element</th>
+                <th data-i18n data-ar="الفئة">Class</th>
+                <th data-i18n data-ar="الوصف">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n data-ar="الجذر">Root</td>
+                <td><code class="code-inline">.moi-notification</code></td>
+                <td data-i18n data-ar="الحاوية الجذرية. تأخذ data-status لتحديد الحالة البصرية. أضف alert alert-dismissible fade show فقط لتفعيل سلوك إغلاق Bootstrap.">Root container. Takes <code class="code-inline">data-status</code> for visual state. Add <code class="code-inline">alert alert-dismissible fade show</code> only when Bootstrap dismiss behavior is needed.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="المحتوى">Content</td>
+                <td><code class="code-inline">.moi-notification__content</code></td>
+                <td data-i18n data-ar="يحتوي على الأيقونة والعنوان والرسالة.">Wraps the icon, title, and message.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="الأيقونة">Icon</td>
+                <td><code class="code-inline">.moi-notification__icon</code></td>
+                <td data-i18n data-ar="حاوية الأيقونة. يجب أن يستخدم SVG الداخلي currentColor. أضف aria-hidden=true على الحاوية.">Icon wrapper. Inner SVG must use <code class="code-inline">currentColor</code>. Add <code class="code-inline">aria-hidden="true"</code> on the wrapper.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="العنوان">Title</td>
+                <td><code class="code-inline">.moi-notification__title</code></td>
+                <td data-i18n data-ar="العنوان الرئيسي للتنبيه، عادةً عنصر strong.">Primary alert headline, typically a <code class="code-inline">&lt;strong&gt;</code>.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="الرسالة">Message</td>
+                <td><code class="code-inline">.moi-notification__message</code></td>
+                <td data-i18n data-ar="نص الرسالة الداعمة.">Supporting message text.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="الإجراءات">Actions</td>
+                <td><code class="code-inline">.moi-notification__actions</code></td>
+                <td data-i18n data-ar="يحتوي على زر الإجراء وزر الإغلاق.">Wraps the action button and close button.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="زر الإجراء">Action button</td>
+                <td><code class="code-inline">.moi-notification__btn</code></td>
+                <td data-i18n data-ar="زر الإجراء. يُستخدم مع btn. متغير الزر يُطبَّق تلقائيًا عبر JavaScript بناءً على data-status الأب.">Action button. Used with <code class="code-inline">btn</code>. Button variant is applied automatically by JavaScript based on the parent's <code class="code-inline">data-status</code>.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="زر الإغلاق">Close button</td>
+                <td><code class="code-inline">.moi-notification__close</code></td>
+                <td data-i18n data-ar="زر الإغلاق. أضف data-bs-dismiss=alert لسلوك Bootstrap. يجب أن يحتوي على aria-label واضح.">Dismiss button. Add <code class="code-inline">data-bs-dismiss="alert"</code> for Bootstrap dismiss. Must have a clear <code class="code-inline">aria-label</code>.</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="usage-grid mt-4">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="نظام data-status">data-status system</h4>
+              <ul>
+                <li data-i18n data-ar="استخدم data-status بدلاً من فئات CSS المعدِّلة. القيم المدعومة: neutral, info, error, warning, success.">Use <code>data-status</code> instead of CSS modifier classes. Supported values: <code>neutral</code>, <code>info</code>, <code>error</code>, <code>warning</code>, <code>success</code>.</li>
+                <li data-i18n data-ar="لا تضيف فئات الحالة يدويًا — يتولى data-status ذلك عبر CSS و JavaScript.">Do not add status classes manually — <code>data-status</code> handles it via CSS and JavaScript.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="SVG و currentColor">SVG &amp; currentColor</h4>
+              <ul>
+                <li data-i18n data-ar="يجب أن يستخدم SVG الداخلي currentColor ليرث لون الحالة تلقائيًا.">Inline SVG must use <code>currentColor</code> to inherit the status color automatically.</li>
+                <li data-i18n data-ar="لا تحدد fill بقيمة لون ثابتة داخل مكوّن التنبيه.">Do not hardcode color <code>fill</code> values inside the component's SVGs.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="حدود الإطار">Border rule</h4>
+              <ul>
+                <li data-i18n data-ar="التنبيه يستخدم حدًا سفليًا فقط: border-bottom: 3px solid status color.">Notification uses a bottom border only: <code>border-bottom: 3px solid status-color</code>.</li>
+                <li data-i18n data-ar="لا تضف حدودًا على الجوانب الأخرى لمكوّن التنبيه.">Do not add borders to other sides of the notification.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="usage-grid mt-4">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="سلوك الزر">Button behavior</h4>
+              <ul>
+                <li data-i18n data-ar="يكون الزر دائمًا btn moi-notification__btn. يُضاف متغير الزر الصحيح بواسطة JavaScript بحسب data-status.">Always use <code>btn moi-notification__btn</code>. The correct variant class is added by JavaScript based on <code>data-status</code>.</li>
+                <li data-i18n data-ar="لا تحدد متغير الزر يدويًا داخل HTML.">Do not manually specify the button variant in HTML.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="قاعدة IDs">ID rule</h4>
+              <ul>
+                <li data-i18n data-ar="لا تعتمد على IDs في تنسيق المكوّن أو تشغيله. استخدم الفئات وdata-status.">Do not rely on IDs for styling or behavior. Use classes and <code>data-status</code>.</li>
+                <li data-i18n data-ar="تجنب IDs المكررة في الصفحة الواحدة.">Avoid duplicate IDs on the same page.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="السمات والتفاعل">ARIA &amp; behavior</h4>
+              <ul>
+                <li data-i18n data-ar="عيّن role=alert للحالات الحرجة.">Set <code>role="alert"</code> for critical states.</li>
+                <li data-i18n data-ar="أضف aria-hidden=true على حاوية الأيقونة.">Add <code>aria-hidden="true"</code> on the icon wrapper.</li>
+                <li data-i18n data-ar="زر الإغلاق يحتاج aria-label واضحًا.">Close button must have a clear <code>aria-label</code>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="variants">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="أنواع التنبيهات (Variants)">Alert Variants</h2>
+          <p class="section-note" data-i18n
+            data-ar="يتم تحديد نوع التنبيه (ولونه) من خلال خاصية data-status على عنصر .moi-notification. لا تُضاف فئات CSS للحالة مباشرة.">
+            The type of alert (and its color) is determined by the <code class="code-inline">data-status</code> attribute on <code class="code-inline">.moi-notification</code>. Do not add status modifier CSS classes directly.
+          </p>
+
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="الحالة">Status</th>
+                <th data-i18n data-ar="القيمة">data-status value</th>
+                <th data-i18n data-ar="متغير الزر">Button variant (JS)</th>
+                <th data-i18n data-ar="الاستخدام">Usage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n data-ar="محايد (Neutral)">Neutral</td>
+                <td><code class="code-inline">data-status="neutral"</code></td>
+                <td><code class="code-inline">moi-btn--black</code></td>
+                <td data-i18n data-ar="للتنبيهات العامة أو المعلومات التي لا تحمل دلالة إيجابية أو سلبية.">For general alerts or information with no positive or negative connotation.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="معلومات (Info)">Info</td>
+                <td><code class="code-inline">data-status="info"</code></td>
+                <td><code class="code-inline">moi-btn--Info</code></td>
+                <td data-i18n data-ar="لتقديم معلومات غير حرجة أو نصائح للمستخدم.">For non-critical information or guidance.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="خطأ (Error)">Error</td>
+                <td><code class="code-inline">data-status="error"</code></td>
+                <td><code class="code-inline">moi-btn--Error</code></td>
+                <td data-i18n data-ar="للإشارة إلى مشكلة خطيرة أو فشل في عملية ما.">To indicate a serious problem or failure in an operation.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="تحذير (Warning)">Warning</td>
+                <td><code class="code-inline">data-status="warning"</code></td>
+                <td><code class="code-inline">moi-btn--Warning</code></td>
+                <td data-i18n data-ar="لتحذير المستخدم بشأن مشكلات محتملة أو إجراءات تتطلب اهتمامًا.">To warn about potential issues or actions requiring attention.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="نجاح (Success)">Success</td>
+                <td><code class="code-inline">data-status="success"</code></td>
+                <td><code class="code-inline">moi-btn--Primary</code></td>
+                <td data-i18n data-ar="للإشارة إلى أن إجراءً ما قد اكتمل بنجاح.">To confirm an action completed successfully.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="usage-rules">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="استخدم .moi-notification مع data-status لتحديد حالة التنبيه. لا تضف فئات الحالة يدويًا.">Use <code>.moi-notification</code> with <code>data-status</code> to set the alert state. Do not add status classes manually.</li>
+            <li data-i18n data-ar="أضف alert alert-dismissible fade show فقط عند الحاجة لتفعيل سلوك الإغلاق من Bootstrap.">Add <code>alert alert-dismissible fade show</code> only when Bootstrap dismiss behavior is required.</li>
+            <li data-i18n data-ar="يستخدم المكوّن حدًا سفليًا فقط: border-bottom: 3px solid لون-الحالة.">The component uses a bottom border only: <code>border-bottom: 3px solid status-color</code>.</li>
+            <li data-i18n data-ar="لا تعتمد على IDs للتنسيق أو التشغيل. استخدم الفئات وdata-status.">Do not rely on IDs for styling or behavior. Use classes and <code>data-status</code>.</li>
+            <li data-i18n data-ar="جرب الرموز والأزرار مع لوحة المفاتيح واحتفظ بحدود التركيز.">Test icons and buttons via keyboard and keep focus outlines intact.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="implementation-notes">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="ملاحظات التطبيق">Implementation Notes</h2>
+          <p class="section-note" data-i18n data-ar="قواعد محددة يجب مراعاتها عند تطبيق مكوّن moi-notification.">Specific rules to follow when implementing the <code class="code-inline">.moi-notification</code> component.</p>
+          <div class="two-col">
+            <div class="designops-card">
+              <h4 data-i18n data-ar="تكامل Bootstrap">Bootstrap integration</h4>
+              <p class="section-note mb-2" data-i18n data-ar="الفئات الثلاث التالية اختيارية وتُستخدم فقط لتفعيل زر الإغلاق من Bootstrap.">The following classes are optional and used only for Bootstrap dismiss behavior:</p>
+              <code class="code-inline">alert alert-dismissible fade show</code>
+              <ul class="mt-2">
+                <li data-i18n data-ar="أضف data-bs-dismiss=alert على زر الإغلاق.">Add <code>data-bs-dismiss="alert"</code> on the close button.</li>
+                <li data-i18n data-ar="لا تستخدم هذه الفئات للتنسيق — هي لسلوك JavaScript فقط.">Do not use these classes for styling — they are for JavaScript behavior only.</li>
+              </ul>
+            </div>
+            <div class="designops-card">
+              <h4 data-i18n data-ar="حدود الإطار">Border rule</h4>
+              <p class="section-note mb-2" data-i18n data-ar="التنبيه يستخدم حدًا سفليًا فقط بسماكة 3px بلون الحالة.">The notification uses only a bottom border, 3px thick, in the status color.</p>
+              <code class="code-inline">border-bottom: 3px solid &lt;status-color&gt;</code>
+              <ul class="mt-2">
+                <li data-i18n data-ar="لا تضف حدودًا على الجوانب الأخرى.">Do not add borders on other sides.</li>
+              </ul>
+            </div>
+            <div class="designops-card">
+              <h4 data-i18n data-ar="سلوك زر الإجراء">Action button behavior</h4>
+              <p class="section-note mb-2" data-i18n data-ar="يجب أن يبقى الزر btn moi-notification__btn دائمًا. يتولى JavaScript إضافة متغير الزر الصحيح بناءً على data-status.">The button always stays <code class="code-inline">btn moi-notification__btn</code>. JavaScript adds the correct variant based on <code class="code-inline">data-status</code>.</p>
+              <div class="code-block mt-2">
+                <pre><code>const map = {
+  neutral: "moi-btn--black",
+  info:    "moi-btn--Info",
+  error:   "moi-btn--Error",
+  warning: "moi-btn--Warning",
+  success: "moi-btn--Primary",
+};</code></pre>
+              </div>
+            </div>
+            <div class="designops-card">
+              <h4 data-i18n data-ar="قاعدة SVG">SVG rule</h4>
+              <p class="section-note mb-2" data-i18n data-ar="يجب أن يستخدم كل SVG داخل المكوّن currentColor ليرث لون الحالة. يُسمح بـ fill=white فقط لخلفية شكل الأيقونة المركبة.">All SVGs inside the component must use <code class="code-inline">currentColor</code> to inherit the status color. <code class="code-inline">fill="white"</code> is only acceptable for the background shape in composite icons (e.g., warning, success).</p>
+              <code class="code-inline">&lt;path fill="currentColor" d="..." /&gt;</code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="developer-api">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="واجهة برمجة التطبيقات للمطورين (Developer API)">Developer API
+          </h2>
+          <p class="section-note" data-i18n data-ar="يوضح هذا القسم كيفية بناء إشعارات moi-notification باستخدام هيكل BEM ونظام data-status.">
+            This section shows how to construct <code class="code-inline">.moi-notification</code> components using the BEM structure and <code class="code-inline">data-status</code> system.
+          </p>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="الهيكل الأساسي">Base structure</h3>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;div class="moi-notification" data-status="neutral" role="alert"&gt;
+  &lt;div class="moi-notification__content"&gt;
+    &lt;span class="moi-notification__icon" aria-hidden="true"&gt;
+      &lt;svg viewBox="0 0 24 24" fill="none" focusable="false"&gt;
+        &lt;path fill="currentColor" d="..." /&gt;
+      &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;strong class="moi-notification__title"&gt;تنبيه:&lt;/strong&gt;
+    &lt;span class="moi-notification__message"&gt;نص الرسالة هنا.&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="moi-notification__actions"&gt;
+    &lt;button class="btn moi-notification__btn" type="button"&gt;
+      &lt;span&gt;عرض التفاصيل&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="moi-notification__close" type="button" aria-label="إغلاق التنبيه"&gt;
+      &lt;svg viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"&gt;
+        &lt;path fill="currentColor" d="M1.07.18 6 5.12 10.93.18 11.82 1.07 6.88 6 11.82 10.93 10.93 11.82 6 6.88 1.07 11.82.18 10.93 5.12 6 .18 1.07 1.07.18Z" /&gt;
+      &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="تنبيه معلوماتي">Info notification</h3>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;div class="moi-notification" data-status="info" role="alert"&gt;
+  &lt;div class="moi-notification__content"&gt;
+    &lt;span class="moi-notification__icon" aria-hidden="true"&gt;
+      &lt;svg viewBox="0 0 24 24" fill="none" focusable="false"&gt;
+        &lt;path fill="currentColor" d="..." /&gt;
+      &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;strong class="moi-notification__title"&gt;معلومة:&lt;/strong&gt;
+    &lt;span class="moi-notification__message"&gt;يرجى مراجعة البيانات المفقودة واستكمالها قبل الإرسال.&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="moi-notification__actions"&gt;
+    &lt;button class="btn moi-notification__btn" type="button"&gt;&lt;span&gt;عرض التفاصيل&lt;/span&gt;&lt;/button&gt;
+    &lt;button class="moi-notification__close" type="button" aria-label="إغلاق التنبيه"&gt;...&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="تنبيه قابل للإغلاق (Bootstrap)">Dismissible notification (Bootstrap)</h3>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;!-- Add Bootstrap classes only when dismiss behavior is needed --&gt;
+&lt;div class="moi-notification alert alert-dismissible fade show" data-status="warning" role="alert"&gt;
+  &lt;div class="moi-notification__content"&gt;
+    &lt;span class="moi-notification__icon" aria-hidden="true"&gt;...&lt;/span&gt;
+    &lt;strong class="moi-notification__title"&gt;تحذير:&lt;/strong&gt;
+    &lt;span class="moi-notification__message"&gt;هناك متطلبات يجب استكمالها قبل المتابعة.&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="moi-notification__actions"&gt;
+    &lt;button class="btn moi-notification__btn" type="button"&gt;&lt;span&gt;عرض التفاصيل&lt;/span&gt;&lt;/button&gt;
+    &lt;button class="moi-notification__close" type="button"
+      data-bs-dismiss="alert" aria-label="إغلاق التنبيه"&gt;
+      &lt;svg viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"&gt;
+        &lt;path fill="currentColor" d="M1.07.18 6 5.12 10.93.18 11.82 1.07 6.88 6 11.82 10.93 10.93 11.82 6 6.88 1.07 11.82.18 10.93 5.12 6 .18 1.07 1.07.18Z" /&gt;
+      &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="accessibility-guidance">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إرشادات إمكانية الوصول">Accessibility Guidance</h2>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="استخدم <span class=&quot;code-inline&quot;>role=&quot;alert&quot;</span> للتنبيهات ذات الأهمية القصوى (مثل الأخطاء). للحالات الأقل إلحاحًا، يمكن استخدام <span class=&quot;code-inline&quot;>role=&quot;status&quot;</span> مع <span class=&quot;code-inline&quot;>aria-live=&quot;polite&quot;</span>.">
+              Use <span class="code-inline">role="alert"</span> for critical/high-impact alerts (e.g., errors). For less
+              urgent states, consider <span class="code-inline">role="status"</span> with <span
+                class="code-inline">aria-live="polite"</span>.
+            </li>
+            <li data-i18n
+              data-ar="يجب أن تكون الأيقونات داخل التنبيهات زخرفية (<span class=&quot;code-inline&quot;>aria-hidden=&quot;true&quot;</span>) ما لم تكن تحمل معنى إضافيًا غير موجود في النص.">
+              Icons within alerts should be decorative (<span class="code-inline">aria-hidden="true"</span>) unless they
+              convey additional meaning not present in the text.
+            </li>
+            <li data-i18n
+              data-ar="تأكد من أن جميع الأزرار القابلة للتفاعل (مثل 'عرض التفاصيل' أو زر الإغلاق) قابلة للوصول بلوحة المفاتيح ولديها تسميات واضحة (<span class=&quot;code-inline&quot;>aria-label</span>).">
+              Ensure all interactive buttons (e.g., 'View Details' or dismiss button) are keyboard-focusable and have
+              clear labels (<span class="code-inline">aria-label</span>).
+            </li>
+            <li data-i18n
+              data-ar="تجنب الاعتماد على اللون وحده لنقل المعنى. يجب أن يكون هناك دائمًا نص أو أيقونة داعمة لإيصال حالة التنبيه.">
+              Avoid relying on color alone to convey meaning. There should always be supplementary text or an icon to
+              communicate the alert's state.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="edge-cases">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="حالات حافة">Edge cases</h2>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="لا تكدس تنبيهين متتابعين لنفس الحالة في صف واحد؛ اجعل كل تنبيه منفصلًا وابدأ بـ مسافة أعلى.">Do
+              not stack multiple alerts for the same state in a row; give each alert its own spacing.</li>
+            <li data-i18n data-ar="للنص الطويل، لا يفصل الخط؛ استخدم فئة <code>.font-md-400</code> مع حدود النقص.">For
+              long text, keep it within <code>.font-md-400</code> and break in a new line to avoid clipping.</li>
+            <li data-i18n data-ar="في حال وجود حالات متعددة (مثلاً: خطأ + تحذير)، اعرض تنبيهات منفصلة مع دلالات واضحة.">
+              When multiple states exist (error + warning), show separate alerts with clear labels.</li>
+            <li data-i18n
+              data-ar="إذا تطلب الإجراء تأكيدًا إضافيًا، أرفق رابطاً أو زرًا يفتح طبقة حوار بدلًا من التكرار.">If an
+              action needs confirmation, attach a dialog link rather than repeating the alert.</li>
+          </ul>
+        </div>
+      </section>
+
+
+
+
+
+      <section class="section" id="examples">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="أمثلة حية">Live examples</h2>
+          <p class="section-note" data-i18n
+            data-ar="الأمثلة التالية تستخدم هيكل moi-notification مع data-status لكل حالة. زر الإجراء يحصل على متغيره الصحيح تلقائيًا.">Examples below use the <code class="code-inline">.moi-notification</code> structure with <code class="code-inline">data-status</code> for each state. The action button variant is applied automatically by JavaScript.</p>
+
+          <div class="sample-stack gap-6xl" dir="rtl">
+            <div class="d-flex flex-column  gap-2 border border-sm padding-xl  radius-xl">
+              <div class="fw-semibold" data-i18n data-ar="محايد (Neutral)">Neutral</div>
+              <p class="section-note mb-2" data-i18n data-ar="تحديثات عامة أو تذكيرات غير عاجلة.">General updates or non-urgent reminders.</p>
+              <div class="d-flex">
+                <button class="btn moi-btn--Neutral--outline copy-variant-btnc mb-3" type="button"
+                  data-copy-target="#notif-neutral" data-i18n data-ar="نسخ كود HTML">Copy HTML code</button>
+              </div>
+
+              <div class="moi-notification" data-status="neutral" id="notif-neutral" role="alert">
+                <div class="moi-notification__content">
+                  <span class="moi-notification__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" focusable="false">
+                      <path fill="currentColor" d="M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM11.2764 10.25C11.4815 10.2499 11.7034 10.2502 11.8906 10.2754C12.1099 10.3049 12.3902 10.3804 12.626 10.6162C12.8618 10.852 12.9373 11.1322 12.9668 11.3516C12.992 11.5388 12.9923 11.7607 12.9922 11.9658V17C12.9922 17.4142 12.6564 17.75 12.2422 17.75C11.828 17.75 11.4922 17.4142 11.4922 17V12C11.4922 11.9009 11.4923 11.8204 11.4912 11.751C11.4218 11.7499 11.3413 11.75 11.2422 11.75C10.828 11.75 10.4922 11.4142 10.4922 11C10.4922 10.5858 10.828 10.25 11.2422 10.25C11.2535 10.25 11.2649 10.25 11.2764 10.25ZM12.001 7C12.5533 7 13.001 7.44772 13.001 8C13.001 8.55228 12.5533 9 12.001 9H11.9922C11.4399 9 10.9922 8.55228 10.9922 8C10.9922 7.44772 11.4399 7 11.9922 7H12.001Z" />
+                    </svg>
+                  </span>
+                  <strong class="moi-notification__title">تنبيه:</strong>
+                  <span class="moi-notification__message">تم رصد ملاحظة تتطلب المراجعة قبل المتابعة أو إرسال الطلب.</span>
+                </div>
+                <div class="moi-notification__actions">
+                  <button class="btn moi-notification__btn" type="button">
+                    <span>عرض التفاصيل</span>
+                  </button>
+                  <button class="moi-notification__close" type="button" aria-label="إغلاق التنبيه">
+                    <svg viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
+                      <path fill="currentColor" d="M1.07.18 6 5.12 10.93.18 11.82 1.07 6.88 6 11.82 10.93 10.93 11.82 6 6.88 1.07 11.82.18 10.93 5.12 6 .18 1.07 1.07.18Z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="d-flex flex-column  gap-2 border border-sm padding-xl  radius-xl">
+              <div class="fw-semibold" data-i18n data-ar="معلومات (Info)">Info</div>
+              <p class="section-note mb-2" data-i18n data-ar="إرشاد معلوماتي أو نتيجة بحث ذكي.">Informational guidance or smart search result.</p>
+              <div class="d-flex">
+                <button class="btn moi-btn--Info--outline copy-variant-btn mb-3" type="button"
+                  data-copy-target="#notif-info" data-i18n data-ar="نسخ كود HTML">Copy HTML code</button>
+              </div>
+
+              <div class="moi-notification" data-status="info" id="notif-info" role="alert">
+                <div class="moi-notification__content">
+                  <span class="moi-notification__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" focusable="false">
+                      <path fill="currentColor" d="M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM11.2764 10.25C11.4815 10.2499 11.7034 10.2502 11.8906 10.2754C12.1099 10.3049 12.3902 10.3804 12.626 10.6162C12.8618 10.852 12.9373 11.1322 12.9668 11.3516C12.992 11.5388 12.9923 11.7607 12.9922 11.9658V17C12.9922 17.4142 12.6564 17.75 12.2422 17.75C11.828 17.75 11.4922 17.4142 11.4922 17V12C11.4922 11.9009 11.4923 11.8204 11.4912 11.751C11.4218 11.7499 11.3413 11.75 11.2422 11.75C10.828 11.75 10.4922 11.4142 10.4922 11C10.4922 10.5858 10.828 10.25 11.2422 10.25C11.2535 10.25 11.2649 10.25 11.2764 10.25ZM12.001 7C12.5533 7 13.001 7.44772 13.001 8C13.001 8.55228 12.5533 9 12.001 9H11.9922C11.4399 9 10.9922 8.55228 10.9922 8C10.9922 7.44772 11.4399 7 11.9922 7H12.001Z" />
+                    </svg>
+                  </span>
+                  <strong class="moi-notification__title">معلومة:</strong>
+                  <span class="moi-notification__message">يرجى مراجعة البيانات المفقودة واستكمالها قبل الإرسال.</span>
+                </div>
+                <div class="moi-notification__actions">
+                  <button class="btn moi-notification__btn" type="button">
+                    <span>عرض التفاصيل</span>
+                  </button>
+                  <button class="moi-notification__close" type="button" aria-label="إغلاق التنبيه">
+                    <svg viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
+                      <path fill="currentColor" d="M1.07.18 6 5.12 10.93.18 11.82 1.07 6.88 6 11.82 10.93 10.93 11.82 6 6.88 1.07 11.82.18 10.93 5.12 6 .18 1.07 1.07.18Z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="d-flex flex-column  gap-2 border border-sm padding-xl  radius-xl">
+              <div class="fw-semibold" data-i18n data-ar="خطأ (Error)">Error</div>
+              <p class="section-note mb-2" data-i18n data-ar="فشل في الإرسال أو خطأ حرج يحتاج إجراء.">Submission failure or critical error needing action.</p>
+              <div class="d-flex">
+                <button class="btn moi-btn--Error--outline copy-variant-btn mb-3" type="button"
+                  data-copy-target="#notif-error" data-i18n data-ar="نسخ كود HTML">Copy HTML code</button>
+              </div>
+
+              <div class="moi-notification" data-status="error" id="notif-error" role="alert">
+                <div class="moi-notification__content">
+                  <span class="moi-notification__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" focusable="false">
+                      <path fill="currentColor" d="M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM11.2764 10.25C11.4815 10.2499 11.7034 10.2502 11.8906 10.2754C12.1099 10.3049 12.3902 10.3804 12.626 10.6162C12.8618 10.852 12.9373 11.1322 12.9668 11.3516C12.992 11.5388 12.9923 11.7607 12.9922 11.9658V17C12.9922 17.4142 12.6564 17.75 12.2422 17.75C11.828 17.75 11.4922 17.4142 11.4922 17V12C11.4922 11.9009 11.4923 11.8204 11.4912 11.751C11.4218 11.7499 11.3413 11.75 11.2422 11.75C10.828 11.75 10.4922 11.4142 10.4922 11C10.4922 10.5858 10.828 10.25 11.2422 10.25C11.2535 10.25 11.2649 10.25 11.2764 10.25ZM12.001 7C12.5533 7 13.001 7.44772 13.001 8C13.001 8.55228 12.5533 9 12.001 9H11.9922C11.4399 9 10.9922 8.55228 10.9922 8C10.9922 7.44772 11.4399 7 11.9922 7H12.001Z" />
+                    </svg>
+                  </span>
+                  <strong class="moi-notification__title">خطأ:</strong>
+                  <span class="moi-notification__message">تعذر إكمال العملية. يرجى المحاولة لاحقاً أو التواصل مع الدعم.</span>
+                </div>
+                <div class="moi-notification__actions">
+                  <button class="btn moi-notification__btn" type="button">
+                    <span>عرض التفاصيل</span>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                      focusable="false">
+                      <path
+                        d="M3.25 12.0005C3.25 12.374 3.41565 12.7206 3.57252 12.9808C3.7418 13.2617 3.96944 13.5516 4.21918 13.8343C4.72018 14.4013 5.37387 15.0103 6.00824 15.5612C6.64633 16.1153 7.28222 16.6255 7.75725 16.9963C7.99516 17.182 8.19364 17.3334 8.33304 17.4387C8.40276 17.4914 8.45776 17.5326 8.49558 17.5607L8.53915 17.5931L8.55071 17.6017L8.55472 17.6046C8.88822 17.8503 9.35816 17.7794 9.60382 17.4459C9.84947 17.1124 9.77828 16.6429 9.44482 16.3973L9.43209 16.3879L9.39204 16.3581C9.35662 16.3317 9.3042 16.2925 9.2372 16.2418C9.10317 16.1406 8.91103 15.994 8.68019 15.8138C8.21772 15.4528 7.60363 14.96 6.99173 14.4286C6.37611 13.894 5.77981 13.3352 5.34331 12.8411C5.3157 12.8099 5.28899 12.7792 5.26316 12.749L20 12.749C20.4142 12.749 20.75 12.4132 20.75 11.999C20.75 11.5848 20.4142 11.249 20 11.249L5.2657 11.249C5.29073 11.2198 5.31661 11.1901 5.34331 11.1598C5.77981 10.6658 6.37611 10.1069 6.99173 9.57235C7.60363 9.04099 8.21772 8.5481 8.68019 8.18713C8.91102 8.00695 9.10317 7.86036 9.2372 7.75911C9.30419 7.7085 9.35662 7.66925 9.39203 7.64285L9.43208 7.61308L9.44481 7.60367C9.77828 7.358 9.84947 6.88852 9.60382 6.55503C9.35815 6.22153 8.88822 6.15064 8.55472 6.3963L8.55071 6.39926L8.53915 6.40782L8.49558 6.4402C8.45776 6.4684 8.40276 6.50957 8.33304 6.56224C8.19363 6.66755 7.99516 6.81899 7.75725 7.00468C7.28222 7.37546 6.64633 7.88567 6.00823 8.43977C5.37387 8.99064 4.72018 9.59962 4.21918 10.1667C3.96944 10.4494 3.7418 10.7393 3.57252 11.0201C3.4166 11.2788 3.25199 11.6228 3.25002 11.9938" />
+                    </svg>
+                  </button>
+                  <button class="moi-notification__close" type="button" aria-label="إغلاق التنبيه">
+                    <svg viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
+                      <path fill="currentColor" d="M1.07.18 6 5.12 10.93.18 11.82 1.07 6.88 6 11.82 10.93 10.93 11.82 6 6.88 1.07 11.82.18 10.93 5.12 6 .18 1.07 1.07.18Z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column  gap-2 border border-sm padding-xl  radius-xl">
+              <div class="fw-semibold" data-i18n data-ar="تحذير (Warning)">Warning</div>
+              <p class="section-note mb-2" data-i18n data-ar="مخاطر قادمة أو خطوات مطلوبة قبل المتابعة.">Upcoming risks or required steps before proceeding.</p>
+              <div class="d-flex">
+                <button class="btn moi-btn--Warning--outline copy-variant-btn mb-3" type="button"
+                  data-copy-target="#notif-warning" data-i18n data-ar="نسخ كود HTML">Copy HTML code</button>
+              </div>
+
+              <div class="moi-notification" data-status="warning" id="notif-warning" role="alert">
+                <div class="moi-notification__content">
+                  <span class="moi-notification__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8575 2.95731C12.4691 2.30997 11.5309 2.30997 11.1425 2.95731L0.9087 20.0137C0.508785 20.6802 0.988898 21.5282 1.76619 21.5282H22.2338C23.0111 21.5282 23.4912 20.6802 23.0913 20.0137L12.8575 2.95731Z" fill="white" />
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8575 2.95731C12.4691 2.30997 11.5309 2.30997 11.1425 2.95731L0.9087 20.0137C0.508785 20.6802 0.988898 21.5282 1.76619 21.5282H22.2338C23.0111 21.5282 23.4912 20.6802 23.0913 20.0137L12.8575 2.95731ZM12 8.52815C11.4477 8.52815 11 8.97587 11 9.52815V13.5282C11 14.0804 11.4477 14.5282 12 14.5282C12.5523 14.5282 13 14.0804 13 13.5282V9.52815C13 8.97587 12.5523 8.52815 12 8.52815ZM12 16.5282C11.4477 16.5282 11 16.9759 11 17.5282C11 18.0804 11.4477 18.5282 12 18.5282C12.5523 18.5282 13 18.0804 13 17.5282C13 16.9759 12.5523 16.5282 12 16.5282Z" fill="currentColor" />
+                    </svg>
+                  </span>
+                  <strong class="moi-notification__title">تحذير:</strong>
+                  <span class="moi-notification__message">هناك متطلبات يجب استكمالها أولاً. يرجى مراجعة التنبيه.</span>
+                </div>
+                <div class="moi-notification__actions">
+                  <button class="btn moi-notification__btn" type="button">
+                    <span>عرض التفاصيل</span>
+                  </button>
+                  <button class="moi-notification__close" type="button" aria-label="إغلاق التنبيه">
+                    <svg viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
+                      <path fill="currentColor" d="M1.07.18 6 5.12 10.93.18 11.82 1.07 6.88 6 11.82 10.93 10.93 11.82 6 6.88 1.07 11.82.18 10.93 5.12 6 .18 1.07 1.07.18Z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column  gap-2 border border-sm padding-xl  radius-xl">
+              <div class="fw-semibold" data-i18n data-ar="نجاح (Success)">Success</div>
+              <p class="section-note mb-2" data-i18n data-ar="تأكيد نجاح إجراء أو طلب.">Confirms a task or request completed successfully.</p>
+              <div class="d-flex">
+                <button class="btn moi-btn--Primary--outline copy-variant-btn mb-3" type="button"
+                  data-copy-target="#notif-success" data-i18n data-ar="نسخ كود HTML">Copy HTML code</button>
+              </div>
+
+              <div class="moi-notification" data-status="success" id="notif-success" role="alert">
+                <div class="moi-notification__content">
+                  <span class="moi-notification__icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23Z" fill="white" />
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23ZM7.05022 11.1213C6.65969 11.5118 6.65969 12.145 7.05022 12.5355L9.87864 15.364C10.2692 15.7545 10.9023 15.7545 11.2929 15.364L16.9497 9.70711C17.3402 9.31658 17.3402 8.68342 16.9497 8.29289C16.5592 7.90237 15.926 7.90237 15.5355 8.29289L10.5858 13.2426L8.46443 11.1213C8.07391 10.7308 7.44074 10.7308 7.05022 11.1213Z" fill="currentColor" />
+                    </svg>
+                  </span>
+                  <strong class="moi-notification__title">نجاح:</strong>
+                  <span class="moi-notification__message">تمت العملية بنجاح ويمكن المتابعة.</span>
+                </div>
+                <div class="moi-notification__actions">
+                  <button class="btn moi-notification__btn" type="button">
+                    <span>عرض التفاصيل</span>
+                  </button>
+                  <button class="moi-notification__close" type="button" aria-label="إغلاق التنبيه">
+                    <svg viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
+                      <path fill="currentColor" d="M1.07.18 6 5.12 10.93.18 11.82 1.07 6.88 6 11.82 10.93 10.93 11.82 6 6.88 1.07 11.82.18 10.93 5.12 6 .18 1.07 1.07.18Z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column  gap-2 border border-sm padding-xl  radius-xl">
+              <div class="fw-semibold" data-i18n data-ar="قابل للإغلاق (Bootstrap)">Dismissible (Bootstrap)</div>
+              <p class="section-note mb-2" data-i18n data-ar="نفس هيكل التنبيه مع إضافة فئات Bootstrap لتفعيل سلوك الإغلاق.">Same structure with Bootstrap classes added to enable dismiss behavior. Add <code class="code-inline">data-bs-dismiss="alert"</code> on the close button.</p>
+              <div class="d-flex">
+                <button class="btn moi-btn--Warning--outline copy-variant-btn mb-3" type="button"
+                  data-copy-target="#notif-dismissible" data-i18n data-ar="نسخ كود HTML">Copy HTML code</button>
+              </div>
+
+              <div class="moi-notification alert alert-dismissible fade show" data-status="info" id="notif-dismissible" role="alert">
+                <div class="moi-notification__content">
+                  <span class="moi-notification__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" focusable="false">
+                      <path fill="currentColor" d="M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM11.2764 10.25C11.4815 10.2499 11.7034 10.2502 11.8906 10.2754C12.1099 10.3049 12.3902 10.3804 12.626 10.6162C12.8618 10.852 12.9373 11.1322 12.9668 11.3516C12.992 11.5388 12.9923 11.7607 12.9922 11.9658V17C12.9922 17.4142 12.6564 17.75 12.2422 17.75C11.828 17.75 11.4922 17.4142 11.4922 17V12C11.4922 11.9009 11.4923 11.8204 11.4912 11.751C11.4218 11.7499 11.3413 11.75 11.2422 11.75C10.828 11.75 10.4922 11.4142 10.4922 11C10.4922 10.5858 10.828 10.25 11.2422 10.25C11.2535 10.25 11.2649 10.25 11.2764 10.25ZM12.001 7C12.5533 7 13.001 7.44772 13.001 8C13.001 8.55228 12.5533 9 12.001 9H11.9922C11.4399 9 10.9922 8.55228 10.9922 8C10.9922 7.44772 11.4399 7 11.9922 7H12.001Z" />
+                    </svg>
+                  </span>
+                  <strong class="moi-notification__title">معلومة:</strong>
+                  <span class="moi-notification__message">يمكنك إغلاق هذا التنبيه بالنقر على زر الإغلاق — Bootstrap يتولى ذلك.</span>
+                </div>
+                <div class="moi-notification__actions">
+                  <button class="btn moi-notification__btn" type="button">
+                    <span>عرض التفاصيل</span>
+                  </button>
+                  <button class="moi-notification__close" type="button" data-bs-dismiss="alert" aria-label="إغلاق التنبيه">
+                    <svg viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
+                      <path fill="currentColor" d="M1.07.18 6 5.12 10.93.18 11.82 1.07 6.88 6 11.82 10.93 10.93 11.82 6 6.88 1.07 11.82.18 10.93 5.12 6 .18 1.07 1.07.18Z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="section-divider mt-4"></div>
+            <div class="fw-semibold mb-2" data-i18n data-ar="مثال على الهيكل الكامل">Full structure example</div>
+            <div class="code-block">
+              <pre><code>&lt;div class="moi-notification" data-status="success" role="alert"&gt;
+  &lt;div class="moi-notification__content"&gt;
+    &lt;span class="moi-notification__icon" aria-hidden="true"&gt;
+      &lt;svg viewBox="0 0 24 24" fill="none" focusable="false"&gt;
+        &lt;path fill="currentColor" d="..." /&gt;
+      &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;strong class="moi-notification__title"&gt;نجاح:&lt;/strong&gt;
+    &lt;span class="moi-notification__message"&gt;تمت العملية بنجاح.&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="moi-notification__actions"&gt;
+    &lt;button class="btn moi-notification__btn" type="button"&gt;
+      &lt;span&gt;عرض التفاصيل&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="moi-notification__close" type="button" aria-label="إغلاق التنبيه"&gt;
+      &lt;svg viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"&gt;
+        &lt;path fill="currentColor" d="M1.07.18 6 5.12 10.93.18..." /&gt;
+      &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+      </section>
+
+
+
+    </div>
+  </main>
+
+
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      let tooltip = null;
+      let tooltipTimer = null;
+      const feedbackTimers = new WeakMap();
+
+      function showTooltip(target, message) {
+        if (!tooltip) {
+          tooltip = document.createElement('div');
+          tooltip.className = 'copy-tooltip';
+          document.body.appendChild(tooltip);
+        }
+
+        tooltip.textContent = message;
+        const rect = target.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const top = Math.max(8, rect.top - tooltipRect.height - 10);
+        const left = Math.min(
+          window.innerWidth - tooltipRect.width - 8,
+          Math.max(8, rect.left + rect.width / 2 - tooltipRect.width / 2)
+        );
+        tooltip.style.top = `${top}px`;
+        tooltip.style.left = `${left}px`;
+
+        tooltip.classList.add('is-visible');
+        clearTimeout(tooltipTimer);
+        tooltipTimer = setTimeout(() => {
+          tooltip.classList.remove('is-visible');
+        }, 1600);
+      }
+
+      function fallbackCopy(html) {
+        return new Promise((resolve, reject) => {
+          const textarea = document.createElement('textarea');
+          textarea.value = html;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'fixed';
+          textarea.style.top = '-9999px';
+          document.body.appendChild(textarea);
+          textarea.select();
+          let ok = false;
+          try {
+            ok = document.execCommand('copy');
+          } catch (error) {
+            ok = false;
+          }
+          document.body.removeChild(textarea);
+          if (ok) {
+            resolve();
+          } else {
+            reject(new Error('Fallback copy failed'));
+          }
+        });
+      }
+
+      function copyHtmlToClipboard(html) {
+        if (!html || !html.trim()) {
+          return Promise.reject(new Error('Empty HTML generated'));
+        }
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard.writeText(html).catch(() => fallbackCopy(html));
+        }
+        return fallbackCopy(html);
+      }
+
+      function getOriginalLabel(button) {
+        if (!button.dataset.originalLabel) {
+          button.dataset.originalLabel = button.textContent.trim();
+        }
+        return button.dataset.originalLabel;
+      }
+
+      function setButtonFeedback(button, message, keep = false) {
+        if (!button) {
+          return;
+        }
+        button.textContent = message;
+        if (feedbackTimers.has(button)) {
+          clearTimeout(feedbackTimers.get(button));
+        }
+        if (!keep) {
+          const timer = setTimeout(() => {
+            button.textContent = getOriginalLabel(button);
+          }, 1400);
+          feedbackTimers.set(button, timer);
+        }
+      }
+
+      document.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-copy-target]');
+        if (!button) {
+          return;
+        }
+
+        const selector = button.getAttribute('data-copy-target') || '';
+        const target = selector ? document.querySelector(selector) : null;
+        if (!target) {
+          const errorMessage = document.documentElement.lang === 'ar' ? 'الهدف غير موجود' : 'Target not found';
+          const failText = document.documentElement.lang === 'ar' ? 'فشل النسخ' : 'Copy failed';
+          showTooltip(button, errorMessage);
+          setButtonFeedback(button, failText, true);
+          return;
+        }
+
+        const html = target.outerHTML.trim();
+        copyHtmlToClipboard(html)
+          .then(() => {
+            const successText = document.documentElement.lang === 'ar' ? 'تم النسخ' : 'Copied';
+            showTooltip(button, successText);
+            setButtonFeedback(button, successText);
+          })
+          .catch(() => {
+            const failText = document.documentElement.lang === 'ar' ? 'فشل النسخ' : 'Copy failed';
+            showTooltip(button, failText);
+            setButtonFeedback(button, failText, true);
+          });
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+
+  <script src="./js/top-actions.js"></script>
+  <script>
+    (function () {
+      const notificationButtonMap = {
+        neutral: "moi-btn--black",
+        info: "moi-btn--Info",
+        error: "moi-btn--Error",
+        warning: "moi-btn--Warning",
+        success: "moi-btn--Primary",
+      };
+
+      document.querySelectorAll(".moi-notification").forEach(function (notification) {
+        const button = notification.querySelector(".moi-notification__btn");
+        if (!button) return;
+
+        const applyButtonVariant = function () {
+          const status = notification.dataset.status || "neutral";
+          const nextClass = notificationButtonMap[status] || notificationButtonMap.neutral;
+          button.classList.remove("moi-btn--black", "moi-btn--Info", "moi-btn--Error", "moi-btn--Warning", "moi-btn--Primary");
+          button.classList.add("btn", nextClass);
+        };
+
+        applyButtonVariant();
+
+        new MutationObserver(applyButtonVariant).observe(notification, {
+          attributes: true,
+          attributeFilter: ["data-status"],
+        });
+      });
+    })();
+  </script>
+  <script src="./js/ds-site-nav.js"></script>
+  <script src="./js/watermark.js"></script>
+</body>
+
+</html>

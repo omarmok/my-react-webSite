@@ -1,0 +1,158 @@
+
+@use '../helpers' as *;
+@keyframes bake-pie {
+    from {
+      transform: rotate(0deg) translate3d(0,0,0);
+    }
+  }
+  
+  .piecontainer{
+      position: relative;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+  }
+  .pieID {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0;
+      padding: 0;
+      gap: 10px;
+  }
+  .pie {
+    width: 180px;
+    height: 180px;
+    position: relative;
+  }
+  .pie::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+  
+    border-radius: 50%;
+    top: 50px;
+    left: 50px;
+  }
+  // .pie::after {
+  //   content: "";
+  //   display: block;
+  //   width: 120px;
+  //   height: 2px;
+  //   background: rgba(0,0,0,0.1);
+  //   border-radius: 50%;
+  //   box-shadow: 0 0 3px 4px rgba(0,0,0,0.1);
+  //   margin: 206px auto;
+    
+  // }
+  
+  .pieID {
+    li{
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      @include font-md-500;
+      font-weight: bold !important;
+      color: rgba(0, 0, 0, 0.4);
+      .number{
+          display: flex;
+          width: 100px;
+          height: 30px;
+          padding: 10px;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          border-radius: 5px;
+           background: rgba(125, 205, 24, 0.10);
+           color: #7DCD18;
+  
+          text-align: right;
+          @include font-2xl-500;
+          font-style: normal;
+          font-weight: 700 !important;
+          line-height: 120%; /* 24px */
+      }
+      .underprocess{
+          background:#FCF2E8;
+          color: rgba(255, 129, 3, 1);
+      }
+      .finished{
+          background:rgba(241, 247, 255, 1);
+          color: rgba(6, 82, 194, 1);
+      }
+      span{
+          @include boldfont;
+          color: rgba(0, 0, 0, 0.4);
+      }
+  }
+  
+  }
+
+  .slice {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    clip: rect(0px, 200px, 200px, 90px);
+    animation: bake-pie 1s;
+  }
+  .slice span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    clip: rect(0px, 200px, 200px, 90px);
+  }
+  
+  .center-date {
+      background: #fff;
+      position: absolute;
+      z-index: 9;
+      font-size: 28px;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 110px;
+      height: 110px;
+      margin: auto;
+      border-radius: 50%;
+      line-height: 30px;
+      padding: 10% 0 0;
+      font-weight: 700;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      align-items: center;
+      gap: 0px;
+      box-shadow: -10px -10px 30px 0px rgb(255 255 255 / 47%), -1px 3px 30px 0px rgba(114, 114, 177, 0.25);
+      border: 11px solid white;
+  
+      .scnd-font-color{
+          color: gray;
+          @include meduimfont;
+      }
+  
+  }
+  
+    .center-datebg {
+      background: #fff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 130px;
+      height: 130px;
+      margin: auto;
+      border-radius: 50%;
+    
+      box-shadow: -10px -10px 30px 0px rgb(255 255 255 / 47%), -1px 3px 30px 0px rgba(114, 114, 177, 0.25);
+      border: 11px solid white;
+  
+  }

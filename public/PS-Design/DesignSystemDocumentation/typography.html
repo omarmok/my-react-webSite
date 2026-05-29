@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typography | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+      font-size: 1rem;
+      line-height: var(--line-height-body);
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .page-header .code-inline {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .copy-hint {
+      color: var(--muted);
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    .copy-tooltip {
+      position: fixed;
+      z-index: 1000;
+      background: #111827;
+      color: #f9fafb;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .copy-tooltip.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .type-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .type-sample {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 16px;
+      display: grid;
+      gap: 8px;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .type-sample:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(15, 23, 42, 0.08);
+    }
+
+    .type-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .type-meta {
+      font-size: 0.75rem;
+      color: #4b5563;
+    }
+
+    .type-text {
+      color: #111827;
+      line-height: var(--line-height-display);
+    }
+
+    .docs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .docs-table th,
+    .docs-table td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      vertical-align: top;
+    }
+
+    .docs-table th {
+      background: #f9fafb;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .color-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .color-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 14px;
+      background: #fff;
+      display: grid;
+      gap: 6px;
+    }
+
+    .color-chip {
+      width: 100%;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .utility-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(4, minmax(160px, 1fr));
+    }
+
+    .utility-groups {
+      display: grid;
+      gap: 18px;
+    }
+
+    .utility-group {
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: #fff;
+      display: grid;
+      gap: 8px;
+    }
+
+    .utility-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #111827;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    .utility-item {
+      border: 1px dashed #e5e7eb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: #f9fafb;
+      font-weight: 600;
+      color: #1f2937;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .weight-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .weight-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 14px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .line-height-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .line-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+      display: grid;
+      gap: 6px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .sidebar-nav a.is-active {
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+    }
+
+    .lang-toggle {
+      margin-top: 12px;
+      width: 100%;
+      background: #fff;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #cbd5f5;
+      box-shadow: 0 14px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .lang-toggle svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .page-layout {
+      direction: rtl;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] .type-label {
+      letter-spacing: 0.02em;
+    }
+
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+  
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+
+  </style>
+  <link href="./css/ds-site-nav.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" class="is-active" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+        </nav>
+      </div>
+
+    </aside>
+
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><svg width="24"
+            height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.05469 1.25C9.42218 1.24998 10.5247 1.24968 11.3916 1.36621C12.2917 1.48723 13.0495 1.74672 13.6514 2.34863C14.2533 2.95055 14.5128 3.70829 14.6338 4.6084C14.7503 5.47534 14.75 6.57782 14.75 7.94531V9.25488C15.1235 9.25143 15.5218 9.24999 15.9453 9.25H16.0547C17.4222 9.24998 18.5247 9.24968 19.3916 9.36621C20.2917 9.48723 21.0495 9.74672 21.6514 10.3486C22.2533 10.9505 22.5128 11.7083 22.6338 12.6084C22.7503 13.4753 22.75 14.5778 22.75 15.9453V16.0547C22.75 17.4222 22.7503 18.5247 22.6338 19.3916C22.5128 20.2917 22.2533 21.0495 21.6514 21.6514C21.0495 22.2533 20.2917 22.5128 19.3916 22.6338C18.5247 22.7503 17.4222 22.75 16.0547 22.75H15.9453C14.5778 22.75 13.4753 22.7503 12.6084 22.6338C11.7083 22.5128 10.9505 22.2533 10.3486 21.6514C9.74672 21.0495 9.48723 20.2917 9.36621 19.3916C9.24968 18.5247 9.24998 17.4222 9.25 16.0547V15.9453C9.24999 15.5218 9.25143 15.1235 9.25488 14.75H7.94531C6.57782 14.75 5.47534 14.7503 4.6084 14.6338C3.70829 14.5128 2.95055 14.2533 2.34863 13.6514C1.74672 13.0495 1.48723 12.2917 1.36621 11.3916C1.24968 10.5247 1.24998 9.42218 1.25 8.05469V7.94531C1.24998 6.57782 1.24968 5.47534 1.36621 4.6084C1.48723 3.70829 1.74672 2.95055 2.34863 2.34863C2.95055 1.74672 3.70829 1.48723 4.6084 1.36621C5.47534 1.24968 6.57782 1.24998 7.94531 1.25H8.05469ZM16 10.75C14.5648 10.75 13.5639 10.752 12.8086 10.8535C12.0748 10.9522 11.6859 11.1324 11.4092 11.4092C11.1324 11.6859 10.9522 12.0748 10.8535 12.8086C10.752 13.5639 10.75 14.5648 10.75 16C10.75 17.4352 10.752 18.4361 10.8535 19.1914C10.9522 19.9252 11.1324 20.3141 11.4092 20.5908C11.6859 20.8676 12.0748 21.0478 12.8086 21.1465C13.5639 21.248 14.5648 21.25 16 21.25C17.4352 21.25 18.4361 21.248 19.1914 21.1465C19.9252 21.0478 20.3141 20.8676 20.5908 20.5908C20.8676 20.3141 21.0478 19.9252 21.1465 19.1914C21.248 18.4361 21.25 17.4352 21.25 16C21.25 14.5648 21.248 13.5639 21.1465 12.8086C21.0478 12.0748 20.8676 11.6859 20.5908 11.4092C20.3141 11.1324 19.9252 10.9522 19.1914 10.8535C18.4361 10.752 17.4352 10.75 16 10.75ZM4 15.75C4.41421 15.75 4.75 16.0858 4.75 16.5C4.75 17.2178 4.75071 17.7 4.78809 18.0674C4.82419 18.4221 4.88849 18.5859 4.96094 18.6943C5.05212 18.8308 5.16921 18.9479 5.30566 19.0391C5.4141 19.1115 5.57788 19.1758 5.93262 19.2119C6.30002 19.2493 6.78216 19.25 7.5 19.25C7.91421 19.25 8.25 19.5858 8.25 20C8.25 20.4142 7.91421 20.75 7.5 20.75H7.46191C6.79245 20.75 6.23354 20.7501 5.78125 20.7041C5.30783 20.6559 4.86862 20.5507 4.47266 20.2861C4.17238 20.0855 3.9145 19.8276 3.71387 19.5273C3.44934 19.1314 3.34406 18.6922 3.2959 18.2188C3.24991 17.7665 3.24998 17.2075 3.25 16.5381C3.25 16.5254 3.25 16.5127 3.25 16.5C3.25 16.0858 3.58579 15.75 4 15.75ZM16 12.25C16.3028 12.25 16.5759 12.4324 16.6924 12.7119L19.1924 18.7119C19.3514 19.0941 19.1711 19.533 18.7891 19.6924C18.4067 19.8517 17.9669 19.6704 17.8076 19.2881L17.167 17.75H14.834L14.1924 19.2881C14.0331 19.6704 13.5942 19.8516 13.2119 19.6924C12.8297 19.5331 12.6486 19.0942 12.8076 18.7119L15.3076 12.7119C15.424 12.4325 15.6973 12.2501 16 12.25Z"
+              fill="currentColor"></path>
+          </svg><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.9975 3.25C11.624 3.25 11.2774 3.41565 11.0172 3.57252C10.7364 3.7418 10.4464 3.96944 10.1638 4.21918C9.59669 4.72018 8.98771 5.37387 8.43684 6.00823C7.88274 6.64633 7.37253 7.28222 7.00175 7.75725C6.81606 7.99516 6.66462 8.19364 6.55931 8.33304C6.50664 8.40276 6.46547 8.45776 6.43727 8.49558L6.40489 8.53915L6.39633 8.55071L6.39337 8.55472C6.14771 8.88822 6.2186 9.35816 6.5521 9.60382C6.88559 9.84947 7.35507 9.77828 7.60074 9.44481L7.61015 9.43209L7.63992 9.39204C7.66632 9.35662 7.70557 9.3042 7.75618 9.2372C7.85743 9.10317 8.00402 8.91102 8.1842 8.68019C8.54517 8.21772 9.03806 7.60363 9.56942 6.99173C10.104 6.37611 10.6628 5.77981 11.1569 5.34331C11.1882 5.3157 11.2189 5.28899 11.249 5.26316L11.249 20C11.249 20.4142 11.5848 20.75 11.999 20.75C12.4132 20.75 12.749 20.4142 12.749 20L12.749 5.2657C12.7782 5.29073 12.808 5.31661 12.8382 5.34331C13.3323 5.77981 13.8911 6.37611 14.4257 6.99173C14.957 7.60363 15.4499 8.21772 15.8109 8.68019C15.9911 8.91102 16.1377 9.10317 16.2389 9.2372C16.2895 9.30419 16.3288 9.35662 16.3552 9.39204L16.3849 9.43209L16.3943 9.44481C16.64 9.77828 17.1095 9.84947 17.443 9.60382C17.7765 9.35816 17.8474 8.88822 17.6017 8.55472L17.5988 8.55071L17.5902 8.53915L17.5578 8.49558C17.5296 8.45776 17.4884 8.40276 17.4358 8.33304C17.3305 8.19363 17.179 7.99516 16.9933 7.75725C16.6226 7.28222 16.1123 6.64633 15.5582 6.00823C15.0074 5.37387 14.3984 4.72018 13.8313 4.21918C13.5486 3.96944 13.2587 3.7418 12.9779 3.57252C12.7192 3.4166 12.3753 3.25199 12.0043 3.25002"
+              fill="white"></path>
+          </svg><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span>
+        </button>
+      </div>
+
+
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="الأساسيات / الطباعة">Foundations / Typography</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="الطباعة">Typography</h1>
+
+        <p class="text-muted mb-4" data-i18n
+          data-ar="يعتمد نظام الطباعة على خط <span class=&quot;code-inline&quot;>IBMPlexSansArabic</span> من <span class=&quot;code-inline&quot;>_changeFont.scss</span>. تتوفر أيضًا عائلة <span class=&quot;code-inline&quot;>29LT Bukra</span> عبر <span class=&quot;code-inline&quot;>_fonts.scss</span>، ويتم تخزين الملفات داخل مجلد <span class=&quot;code-inline&quot;>/fonts</span>.">
+          The typography system uses the <span class="code-inline">IBMPlexSansArabic</span> family from
+          <span class="code-inline">_changeFont.scss</span>. The <span class="code-inline">29LT Bukra</span> family is
+          also available via <span class="code-inline">_fonts.scss</span>, and the files live in the
+          <span class="code-inline">/fonts</span> folder.
+        </p>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="المكوّن: الطباعة"
+              data-en="Component: Typography">
+          المكوّن: الطباعة
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="الإصدار: قيد التحديث"
+              data-en="Version: TBD">
+          الإصدار: قيد التحديث
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="آخر تحديث: 28 يناير 2026"
+              data-en="Last updated: January 28, 2026">
+          آخر تحديث: 28 يناير 2026
+        </span>
+      </div>
+
+
+      <div class="mt-3">
+        <a class="btn moi-btn--Info--outline d-inline-flex align-items-center gap-2"
+          href="https://fonts.google.com/specimen/IBM+Plex+Sans+Arabic" target="_blank" rel="noopener noreferrer"
+          data-i18n data-ar="تحميل مكتبة الخط (IBM Plex Sans Arabic)">
+          <span data-i18n data-ar="تحميل مكتبة الخط (IBM Plex Sans Arabic)">Download the Font library (IBM Plex Sans
+            Arabic)</span>
+        </a>
+      </div>
+
+      <section class="section" id="token-mapping">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="رسم خرائط الرموز">Token mapping</h2>
+          <p class="section-note" data-i18n
+            data-ar="تم تعريف الأحجام والأوزان في <code>css/helpers/_mixins.scss</code> وهذه التنسيقات متاحة كفئات <code>font-*-*</code>.">
+            Sizes and weights are defined inside <code>css/helpers/_mixins.scss</code> and exposed via the
+            <code>font-*-*</code> utilities.
+          </p>
+          <div class="table-responsive">
+            <table class="docs-table" style="direction:ltr;">
+              <thead>
+                <tr>
+                  <th>Mixin</th>
+                  <th>Size</th>
+                  <th>Weight</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>font-7xl-700</code></td>
+                  <td>4.5rem</td>
+                  <td>700</td>
+                  <td>Display headline (Display 1)</td>
+                </tr>
+                <tr>
+                  <td><code>font-6xl-600</code></td>
+                  <td>3.75rem</td>
+                  <td>600</td>
+                  <td>Secondary display</td>
+                </tr>
+                <tr>
+                  <td><code>font-4xl-600</code></td>
+                  <td>2.25rem</td>
+                  <td>600</td>
+                  <td>Section heading</td>
+                </tr>
+                <tr>
+                  <td><code>font-lg-500</code></td>
+                  <td>1rem</td>
+                  <td>500</td>
+                  <td>Primary paragraph text</td>
+                </tr>
+                <tr>
+                  <td><code>font-md-400</code></td>
+                  <td>0.875rem</td>
+                  <td>400</td>
+                  <td>Secondary paragraph text / body</td>
+                </tr>
+                <tr>
+                  <td><code>font-sm-400</code></td>
+                  <td>0.75rem</td>
+                  <td>400</td>
+                  <td>Caption / Overline</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="overview">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2>
+          <p class="section-note" data-i18n
+            data-ar="يتم توليد فئات الطباعة من <span class=&quot;code-inline&quot;>_mixins.scss</span> عبر نطاقات الأحجام <span class=&quot;code-inline&quot;>xs</span> إلى <span class=&quot;code-inline&quot;>7xl</span> وأوزان 400-700. استخدم <span class=&quot;code-inline&quot;>font-*-*</span> لضبط الحجم والوزن بسرعة، وتقوم فئة <span class=&quot;code-inline&quot;>.cairo</span> في <span class=&quot;code-inline&quot;>_changeFontClasses.scss</span> بتفعيل خط IBM على مستوى الواجهة.">
+            Typography utilities are generated in <span class="code-inline">_mixins.scss</span> using size steps
+            from <span class="code-inline">xs</span> to <span class="code-inline">7xl</span> and weights 400-700.
+            Use <span class="code-inline">font-*-*</span> to apply size and weight quickly, and the
+            <span class="code-inline">cairo</span> class in <span class="code-inline">_changeFontClasses.scss</span>
+            switches the UI to IBM Plex Sans Arabic.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="display">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="أنماط العرض والنص">Display &amp; Text Styles</h2>
+          <p class="section-note" data-i18n
+            data-ar="تستخدم العينات أدناه خط IBM Plex Sans Arabic. انقر أي بطاقة لنسخ الفئة.">
+            Samples below use IBM Plex Sans Arabic. Click any card to copy its class.
+          </p>
+          <div class="type-grid">
+            <div class="type-sample" data-copy="font-7xl-700">
+              <div class="type-label" data-i18n data-ar="عرض 1">Display 1</div>
+              <div class="type-text font-7xl-700" data-i18n data-ar="عنوان العرض الكبير">Display headline</div>
+              <div class="type-meta"><code>font-7xl-700</code></div>
+            </div>
+            <div class="type-sample" data-copy="font-6xl-600">
+              <div class="type-label" data-i18n data-ar="عرض 2">Display 2</div>
+              <div class="type-text font-6xl-600" data-i18n data-ar="عنوان عرض ثانوي">Secondary display</div>
+              <div class="type-meta"><code>font-6xl-600</code></div>
+            </div>
+            <div class="type-sample" data-copy="font-5xl-600">
+              <div class="type-label" data-i18n data-ar="عرض 3">Display 3</div>
+              <div class="type-text font-5xl-600" data-i18n data-ar="عنوان بارز">Prominent title</div>
+              <div class="type-meta"><code>font-5xl-600</code></div>
+            </div>
+            <div class="type-sample" data-copy="font-4xl-600">
+              <div class="type-label" data-i18n data-ar="عنوان 1">Heading 1</div>
+              <div class="type-text font-4xl-600" data-i18n data-ar="عنوان القسم الرئيسي">Section heading</div>
+              <div class="type-meta"><code>font-4xl-600</code></div>
+            </div>
+            <div class="type-sample" data-copy="font-3xl-600">
+              <div class="type-label" data-i18n data-ar="عنوان 2">Heading 2</div>
+              <div class="type-text font-3xl-600" data-i18n data-ar="عنوان فرعي">Subheading</div>
+              <div class="type-meta"><code>font-3xl-600</code></div>
+            </div>
+            <div class="type-sample" data-copy="font-2xl-600">
+              <div class="type-label" data-i18n data-ar="عنوان">Title</div>
+              <div class="type-text font-2xl-600" data-i18n data-ar="عنوان البطاقة">Card title</div>
+              <div class="type-meta"><code>font-2xl-600</code></div>
+            </div>
+            <div class="type-sample" data-copy="font-lg-500">
+              <div class="type-label" data-i18n data-ar="نص كبير">Body L</div>
+              <div class="type-text font-lg-500" data-i18n data-ar="نص فقرة أساسي">Primary paragraph text</div>
+              <div class="type-meta"><code>font-lg-500</code></div>
+            </div>
+            <div class="type-sample" data-copy="font-md-400">
+              <div class="type-label" data-i18n data-ar="نص متوسط">Body M</div>
+              <div class="type-text font-md-400" data-i18n data-ar="نص ثانوي">Secondary paragraph text</div>
+              <div class="type-meta"><code>font-md-400</code></div>
+            </div>
+            <div class="type-sample" data-copy="font-sm-400">
+              <div class="type-label" data-i18n data-ar="تعليق">Caption</div>
+              <div class="type-text font-sm-400" data-i18n data-ar="نص توضيحي قصير">Supporting caption text</div>
+              <div class="type-meta"><code>font-sm-400</code></div>
+            </div>
+            <div class="type-sample" data-copy="font-xs-400">
+              <div class="type-label" data-i18n data-ar="ملاحظة">Overline</div>
+              <div class="type-text font-xs-400" data-i18n data-ar="معلومة مختصرة">Short label</div>
+              <div class="type-meta"><code>font-xs-400</code></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="font-family">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="عائلة الخط">Font Family</h2>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="العائلة">Family</th>
+                <th data-i18n data-ar="الاستخدام">Usage</th>
+                <th data-i18n data-ar="الملفات">Files</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>IBMPlexSansArabic</td>
+                <td data-i18n
+                  data-ar="الخط الأساسي للواجهات ثنائية اللغة والعربية، مُعرّف في <code>_changeFont.scss</code>.">
+                  Primary font for bilingual and Arabic UI, defined in <code>_changeFont.scss</code>.
+                </td>
+                <td data-i18n
+                  data-ar="ضمن <code>/fonts</code>: IBMPlexSansArabic-Regular.ttf, IBMPlexSansArabic-Medium.ttf, IBMPlexSansArabic-SemiBold.ttf.">
+                  In <code>/fonts</code>: IBMPlexSansArabic-Regular.ttf, IBMPlexSansArabic-Medium.ttf,
+                  IBMPlexSansArabic-SemiBold.ttf.
+                </td>
+              </tr>
+              <tr>
+                <td>29LT Bukra</td>
+                <td data-i18n data-ar="خط احتياطي/رسمي مُعرّف في <code>_fonts.scss</code>.">
+                  Alternate/legacy family defined in <code>_fonts.scss</code>.
+                </td>
+                <td data-i18n
+                  data-ar="ضمن <code>/fonts</code>: 29LTBukra-Regular.ttf, 29LTBukra-Bold.ttf, 29LTBukra-Light.ttf.">
+                  In <code>/fonts</code>: 29LTBukra-Regular.ttf, 29LTBukra-Bold.ttf, 29LTBukra-Light.ttf.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="weights">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="أوزان الخط">Font Weights</h2>
+          <p class="section-note" data-i18n data-ar="يُتيح خط IBM Plex Sans Arabic أوزان 200 و300 و400 و500 و600 و700.">
+            IBM Plex Sans Arabic provides weights 200, 300, 400, 500, 600, and 700.
+          </p>
+          <div class="weight-grid">
+            <div class="weight-card">
+              <div class="type-label" data-i18n data-ar="وزن 200">Weight 200</div>
+              <div style="font-weight: 200; font-size: 1.125rem;" data-i18n data-ar="عينة خفيفة جدًا">Extra light sample
+              </div>
+              <div class="type-meta">200</div>
+            </div>
+            <div class="weight-card">
+              <div class="type-label" data-i18n data-ar="وزن 300">Weight 300</div>
+              <div style="font-weight: 300; font-size: 1.125rem;" data-i18n data-ar="عينة خفيفة">Light sample</div>
+              <div class="type-meta">300</div>
+            </div>
+            <div class="weight-card">
+              <div class="type-label" data-i18n data-ar="وزن 400">Weight 400</div>
+              <div style="font-weight: 400; font-size: 1.125rem;" data-i18n data-ar="عينة عادية">Regular sample</div>
+              <div class="type-meta">400</div>
+            </div>
+            <div class="weight-card">
+              <div class="type-label" data-i18n data-ar="وزن 500">Weight 500</div>
+              <div style="font-weight: 500; font-size: 1.125rem;" data-i18n data-ar="عينة متوسطة">Medium sample</div>
+              <div class="type-meta">500</div>
+            </div>
+            <div class="weight-card">
+              <div class="type-label" data-i18n data-ar="وزن 600">Weight 600</div>
+              <div style="font-weight: 600; font-size: 1.125rem;" data-i18n data-ar="عينة شبه عريضة">Semi-bold sample
+              </div>
+              <div class="type-meta">600</div>
+            </div>
+            <div class="weight-card">
+              <div class="type-label" data-i18n data-ar="وزن 700">Weight 700</div>
+              <div style="font-weight: 700; font-size: 1.125rem;" data-i18n data-ar="عينة عريضة">Bold sample</div>
+              <div class="type-meta">700</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="line-height">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="ارتفاع السطر">Line Height</h2>
+          <p class="section-note" data-i18n
+            data-ar="اضبط ارتفاع السطر بحسب حجم النص لزيادة الوضوح. استخدم قيماً أوسع للنصوص الطويلة.">
+            Line height should scale with size for readability. Use wider values for long-form text.
+          </p>
+          <div class="line-height-grid">
+            <div class="line-card">
+              <div class="type-label" data-i18n data-ar="عرض ضيق">Display Tight</div>
+              <div style="line-height: 1.1; font-size: 1.5rem;" data-i18n data-ar="نص كبير مع ارتفاع سطر ضيق">Large text
+                with tight leading</div>
+              <div class="type-meta" data-i18n data-ar="1.1 - 1.2 للعرض">1.1 - 1.2 for display</div>
+            </div>
+            <div class="line-card">
+              <div class="type-label" data-i18n data-ar="نص قياسي">Body Standard</div>
+              <div style="line-height: 1.5; font-size: 1rem;" data-i18n data-ar="نص فقرة قياسي لسهولة القراءة">Readable
+                paragraph sample</div>
+              <div class="type-meta" data-i18n data-ar="1.4 - 1.6 للنصوص">1.4 - 1.6 for body</div>
+            </div>
+            <div class="line-card">
+              <div class="type-label" data-i18n data-ar="نص مضغوط">Dense UI</div>
+              <div style="line-height: 1.3; font-size: 0.875rem;" data-i18n data-ar="نص قصير للعناصر المكتظة">Compact UI
+                text</div>
+              <div class="type-meta" data-i18n data-ar="1.2 - 1.4 للعناصر المكدسة">1.2 - 1.4 for dense UI</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="text-colors">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="ألوان النص">Text Colors</h2>
+          <p class="section-note" data-i18n
+            data-ar="استخدم ألوان النص من نظام الألوان الأساسي للحفاظ على التباين والوضوح.">
+            Use text colors from the core palette to keep contrast consistent.
+          </p>
+          <div class="color-grid">
+            <div class="color-card">
+              <div class="color-chip" style="background: #1f2a37;"></div>
+              <div class="fw-semibold" data-i18n data-ar="نص أساسي">Primary text</div>
+              <div class="type-meta">$Neutral-800 / #1f2a37</div>
+            </div>
+            <div class="color-card">
+              <div class="color-chip" style="background: #4d5761;"></div>
+              <div class="fw-semibold" data-i18n data-ar="نص ثانوي">Secondary text</div>
+              <div class="type-meta">$Neutral-600 / #4d5761</div>
+            </div>
+            <div class="color-card">
+              <div class="color-chip" style="background: #9da4ae;"></div>
+              <div class="fw-semibold" data-i18n data-ar="نص مساعد">Tertiary text</div>
+              <div class="type-meta">$Neutral-400 / #9da4ae</div>
+            </div>
+            <div class="color-card">
+              <div class="color-chip" style="background: #1570ef;"></div>
+              <div class="fw-semibold" data-i18n data-ar="نص مميز">Accent text</div>
+              <div class="type-meta">$Info-600 / #1570ef</div>
+            </div>
+            <div class="color-card">
+              <div class="color-chip" style="background: #25935f;"></div>
+              <div class="fw-semibold" data-i18n data-ar="نص إيجابي">Positive text</div>
+              <div class="type-meta">$Primary-500 / #25935f</div>
+            </div>
+            <div class="color-card">
+              <div class="color-chip" style="background: #d92d20;"></div>
+              <div class="fw-semibold" data-i18n data-ar="نص تحذيري">Error text</div>
+              <div class="type-meta">$Error-600 / #d92d20</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="utilities">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="فئات الطباعة">Typography Utilities</h2>
+          <p class="section-note" data-i18n
+            data-ar="فئات <span class=&quot;code-inline&quot;>font-*-*</span> متوفرة للأحجام والأوزان. انقر لنسخ الفئة.">
+            <span class="code-inline">font-*-*</span> classes cover size and weight. Click to copy a class.
+          </p>
+          <div class="utility-groups">
+            <div class="utility-group">
+              <label class="utility-label">XS</label>
+              <div class="utility-grid">
+                <div class="utility-item" data-copy="font-xs-400">font-xs-400</div>
+                <div class="utility-item" data-copy="font-xs-500">font-xs-500</div>
+                <div class="utility-item" data-copy="font-xs-600">font-xs-600</div>
+                <div class="utility-item" data-copy="font-xs-700">font-xs-700</div>
+              </div>
+            </div>
+
+            <div class="utility-group">
+              <label class="utility-label">SM</label>
+              <div class="utility-grid">
+                <div class="utility-item" data-copy="font-sm-400">font-sm-400</div>
+                <div class="utility-item" data-copy="font-sm-500">font-sm-500</div>
+                <div class="utility-item" data-copy="font-sm-600">font-sm-600</div>
+                <div class="utility-item" data-copy="font-sm-700">font-sm-700</div>
+              </div>
+            </div>
+
+            <div class="utility-group">
+              <label class="utility-label">MD</label>
+              <div class="utility-grid">
+                <div class="utility-item" data-copy="font-md-400">font-md-400</div>
+                <div class="utility-item" data-copy="font-md-500">font-md-500</div>
+                <div class="utility-item" data-copy="font-md-600">font-md-600</div>
+                <div class="utility-item" data-copy="font-md-700">font-md-700</div>
+              </div>
+            </div>
+
+            <div class="utility-group">
+              <label class="utility-label">LG</label>
+              <div class="utility-grid">
+                <div class="utility-item" data-copy="font-lg-400">font-lg-400</div>
+                <div class="utility-item" data-copy="font-lg-500">font-lg-500</div>
+                <div class="utility-item" data-copy="font-lg-600">font-lg-600</div>
+                <div class="utility-item" data-copy="font-lg-700">font-lg-700</div>
+              </div>
+            </div>
+
+            <div class="utility-group">
+              <label class="utility-label">XL</label>
+              <div class="utility-grid">
+                <div class="utility-item" data-copy="font-xl-400">font-xl-400</div>
+                <div class="utility-item" data-copy="font-xl-500">font-xl-500</div>
+                <div class="utility-item" data-copy="font-xl-600">font-xl-600</div>
+                <div class="utility-item" data-copy="font-xl-700">font-xl-700</div>
+              </div>
+            </div>
+
+            <div class="utility-group">
+              <label class="utility-label">2XL</label>
+              <div class="utility-grid">
+                <div class="utility-item" data-copy="font-2xl-400">font-2xl-400</div>
+                <div class="utility-item" data-copy="font-2xl-500">font-2xl-500</div>
+                <div class="utility-item" data-copy="font-2xl-600">font-2xl-600</div>
+                <div class="utility-item" data-copy="font-2xl-700">font-2xl-700</div>
+              </div>
+            </div>
+
+            <div class="utility-group">
+              <label class="utility-label">3XL</label>
+              <div class="utility-grid">
+                <div class="utility-item" data-copy="font-3xl-400">font-3xl-400</div>
+                <div class="utility-item" data-copy="font-3xl-500">font-3xl-500</div>
+                <div class="utility-item" data-copy="font-3xl-600">font-3xl-600</div>
+                <div class="utility-item" data-copy="font-3xl-700">font-3xl-700</div>
+              </div>
+            </div>
+
+            <div class="utility-group">
+              <label class="utility-label">4XL</label>
+              <div class="utility-grid">
+                <div class="utility-item" data-copy="font-4xl-400">font-4xl-400</div>
+                <div class="utility-item" data-copy="font-4xl-500">font-4xl-500</div>
+                <div class="utility-item" data-copy="font-4xl-600">font-4xl-600</div>
+                <div class="utility-item" data-copy="font-4xl-700">font-4xl-700</div>
+              </div>
+            </div>
+
+            <div class="utility-group">
+              <label class="utility-label">5XL</label>
+              <div class="utility-grid">
+                <div class="utility-item" data-copy="font-5xl-400">font-5xl-400</div>
+                <div class="utility-item" data-copy="font-5xl-500">font-5xl-500</div>
+                <div class="utility-item" data-copy="font-5xl-600">font-5xl-600</div>
+                <div class="utility-item" data-copy="font-5xl-700">font-5xl-700</div>
+              </div>
+            </div>
+
+            <div class="utility-group">
+              <label class="utility-label">6XL</label>
+              <div class="utility-grid">
+                <div class="utility-item" data-copy="font-6xl-400">font-6xl-400</div>
+                <div class="utility-item" data-copy="font-6xl-500">font-6xl-500</div>
+                <div class="utility-item" data-copy="font-6xl-600">font-6xl-600</div>
+                <div class="utility-item" data-copy="font-6xl-700">font-6xl-700</div>
+              </div>
+            </div>
+
+            <div class="utility-group">
+              <label class="utility-label">7XL</label>
+              <div class="utility-grid">
+                <div class="utility-item" data-copy="font-7xl-400">font-7xl-400</div>
+                <div class="utility-item" data-copy="font-7xl-500">font-7xl-500</div>
+                <div class="utility-item" data-copy="font-7xl-600">font-7xl-600</div>
+                <div class="utility-item" data-copy="font-7xl-700">font-7xl-700</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="accessibility">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="حافظ على تباين النص مع الخلفية بما يحقق WCAG AA.">Maintain text contrast that meets
+              WCAG AA.</li>
+            <li data-i18n data-ar="استخدم <span class=&quot;code-inline&quot;>md</span> أو أكبر لنصوص الفقرات الطويلة.">
+              Use <span class="code-inline">md</span> or larger for long-form body text.</li>
+            <li data-i18n data-ar="تجنب الأحرف الكبيرة بالكامل في العربية والواجهات ثنائية اللغة.">Avoid all-caps in
+              Arabic and bilingual UI.</li>
+            <li data-i18n data-ar="حافظ على طول السطر بين 45-80 حرفًا للنصوص الطويلة.">Keep line length around 45-80
+              characters for readability.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="tokens">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="رموز الطباعة والتسلسل الهرمي">Typography Tokens &amp; Hierarchy
+          </h2>
+          <p class="section-note" data-i18n
+            data-ar="الرموز الأولية تتتبع لوحة الأحجام والأوزان الحالية، بينما تربط الرموز الدلالية تلك القيم بأدوار HTML، وفئات <code>.font-*-*</code>، ومساعدات <code>_mixins.scss</code> وفق حوكمة الوزارة.">
+            Primitive tokens track the current size and weight palette, while semantic tokens tie those primitives to
+            HTML
+            roles, <code>.font-*-*</code> utilities, and <code>_mixins.scss</code> helpers for MOI governance.
+          </p>
+
+          <h3 class="section-title" data-i18n data-ar="رموز الحجم">Size tokens</h3>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="الرمز">Token</th>
+                <th data-i18n data-ar="القيمة">Value</th>
+                <th data-i18n data-ar="الفئة / الميكسين">Class / mixin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>--font-size-xs</code></td>
+                <td>0.625rem / 10px</td>
+                <td data-i18n data-ar="تستخدم <code>.font-xs-*</code> (تُولّد عبر <code>_mixins.scss</code>).">Uses
+                  <code>.font-xs-*</code> (generated via <code>_mixins.scss</code>).
+                </td>
+              </tr>
+              <tr>
+                <td><code>--font-size-sm</code></td>
+                <td>0.75rem / 12px</td>
+                <td data-i18n data-ar="تستخدم <code>.font-sm-*</code> (تُولّد عبر <code>_mixins.scss</code>).">Uses
+                  <code>.font-sm-*</code> (generated via <code>_mixins.scss</code>).
+                </td>
+              </tr>
+              <tr>
+                <td><code>--font-size-md</code></td>
+                <td>0.875rem / 14px</td>
+                <td data-i18n data-ar="تستخدم <code>.font-md-*</code> (تُولّد عبر <code>_mixins.scss</code>).">Uses
+                  <code>.font-md-*</code> (generated via <code>_mixins.scss</code>).
+                </td>
+              </tr>
+              <tr>
+                <td><code>--font-size-lg</code></td>
+                <td>1rem / 16px</td>
+                <td data-i18n data-ar="تستخدم <code>.font-lg-*</code> (تُولّد عبر <code>_mixins.scss</code>).">Uses
+                  <code>.font-lg-*</code> (generated via <code>_mixins.scss</code>).
+                </td>
+              </tr>
+              <tr>
+                <td><code>--font-size-xl</code></td>
+                <td>1.25rem / 20px</td>
+                <td data-i18n data-ar="تستخدم <code>.font-xl-*</code> (تُولّد عبر <code>_mixins.scss</code>).">Uses
+                  <code>.font-xl-*</code> (generated via <code>_mixins.scss</code>).
+                </td>
+              </tr>
+              <tr>
+                <td><code>--font-size-2xl</code></td>
+                <td>1.5rem / 24px</td>
+                <td data-i18n data-ar="تستخدم <code>.font-2xl-*</code> (تُولّد عبر <code>_mixins.scss</code>).">Uses
+                  <code>.font-2xl-*</code> (generated via <code>_mixins.scss</code>).
+                </td>
+              </tr>
+              <tr>
+                <td><code>--font-size-3xl</code></td>
+                <td>1.875rem / 30px</td>
+                <td data-i18n data-ar="تستخدم <code>.font-3xl-*</code> (تُولّد عبر <code>_mixins.scss</code>).">Uses
+                  <code>.font-3xl-*</code> (generated via <code>_mixins.scss</code>).
+                </td>
+              </tr>
+              <tr>
+                <td><code>--font-size-4xl</code></td>
+                <td>2.25rem / 36px</td>
+                <td data-i18n data-ar="تستخدم <code>.font-4xl-*</code> (تُولّد عبر <code>_mixins.scss</code>).">Uses
+                  <code>.font-4xl-*</code> (generated via <code>_mixins.scss</code>).
+                </td>
+              </tr>
+              <tr>
+                <td><code>--font-size-5xl</code></td>
+                <td>3rem / 48px</td>
+                <td data-i18n data-ar="تستخدم <code>.font-5xl-*</code> (تُولّد عبر <code>_mixins.scss</code>).">Uses
+                  <code>.font-5xl-*</code> (generated via <code>_mixins.scss</code>).
+                </td>
+              </tr>
+              <tr>
+                <td><code>--font-size-6xl</code></td>
+                <td>3.75rem / 60px</td>
+                <td data-i18n data-ar="تستخدم <code>.font-6xl-*</code> (تُولّد عبر <code>_mixins.scss</code>).">Uses
+                  <code>.font-6xl-*</code> (generated via <code>_mixins.scss</code>).
+                </td>
+              </tr>
+              <tr>
+                <td><code>--font-size-7xl</code></td>
+                <td>4.5rem / 72px</td>
+                <td data-i18n data-ar="تستخدم <code>.font-7xl-*</code> (تُولّد عبر <code>_mixins.scss</code>).">Uses
+                  <code>.font-7xl-*</code> (generated via <code>_mixins.scss</code>).
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 class="section-title" data-i18n data-ar="رموز الوزن">Weight tokens</h3>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="الرمز">Token</th>
+                <th data-i18n data-ar="القيمة">Value</th>
+                <th data-i18n data-ar="الفئة / الميكسين">Class / mixin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>--font-weight-400</code></td>
+                <td>400</td>
+                <td data-i18n data-ar="تربط بـ <code>.font-*-400</code>.">Maps to <code>.font-*-400</code>.</td>
+              </tr>
+              <tr>
+                <td><code>--font-weight-500</code></td>
+                <td>500</td>
+                <td data-i18n data-ar="تربط بـ <code>.font-*-500</code>.">Maps to <code>.font-*-500</code>.</td>
+              </tr>
+              <tr>
+                <td><code>--font-weight-600</code></td>
+                <td>600</td>
+                <td data-i18n data-ar="تربط بـ <code>.font-*-600</code>.">Maps to <code>.font-*-600</code>.</td>
+              </tr>
+              <tr>
+                <td><code>--font-weight-700</code></td>
+                <td>700</td>
+                <td data-i18n data-ar="تربط بـ <code>.font-*-700</code>.">Maps to <code>.font-*-700</code>.</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+        </div>
+      </section>
+
+      <section class="section" id="usage-guidance">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules &amp; practical guidance</h2>
+          <p class="section-note" data-i18n
+            data-ar="طبق هذه الرموز وارتفاعات السطر لضمان وضوح الوزارة مع الحفاظ على اتساق الواجهات ثنائية اللغة.">
+            Apply these tokens and line heights to guarantee MOI readability while keeping bilingual surfaces
+            consistent.
+          </p>
+
+          <h3 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h3>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="رَبط كل عنوان ظاهر برمز دلالي قبل تعديل الوزن أو الحجم.">
+              Map every surface-level heading to a semantic token before adjusting weight or size.</li>
+            <li data-i18n data-ar="استخدم <code>font-md-400</code> أو أكبر للفقرات المطولة للحفاظ على حد 16 بكسل.">
+              Use <code>font-md-400</code> or larger for long-form paragraphs to preserve the 16px minimum.</li>
+            <li data-i18n data-ar="طبق <code>line-height-body</code> عند تجميع النص مع رموز التباعد المعيارية.">
+              Apply <code>line-height-body</code> whenever text is grouped with modular spacing tokens.</li>
+            <li data-i18n
+              data-ar="حافظ على تزامن فئات <code>font-*-*</code> في <code>_mixins.scss</code> مع هذا الدليل.">
+              Keep <code>font-*-*</code> utilities in <code>_mixins.scss</code> synchronized with this guide.</li>
+            <li data-i18n data-ar="أعد استخدام نفس أسماء الرموز في الواجهات العربية والإنجليزية لتجنب التشتت.">
+              Reuse the same token names across Arabic and English layouts to avoid fragmentation.</li>
+          </ul>
+
+          <h3 class="section-title" data-i18n data-ar="افعل / لا تفعل">Do / Don&#39;t</h3>
+          <div class="utility-groups">
+            <div class="utility-group">
+              <label class="utility-label" data-i18n data-ar="افعل">Do</label>
+              <ul class="accessibility-list">
+                <li data-i18n data-ar="ارجع إلى فئات <code>font-*-*</code> بدلًا من تعديل الخط داخليًا.">
+                  Reference <code>font-*-*</code> utilities instead of inline font adjustments.</li>
+                <li data-i18n data-ar="اجعل الأحرف الكبيرة محدودة بالرموز اللاتينية؛ وتجنبها في النص العربي.">
+                  Keep uppercase limited to Latin tokens; avoid all-caps for Arabic strings.</li>
+                <li data-i18n data-ar="تحقّق من قارئات الشاشة والتباين لكل مستوى دلالي.">
+                  Validate screen readers and contrast for each semantic level.</li>
+              </ul>
+            </div>
+            <div class="utility-group">
+              <label class="utility-label" data-i18n data-ar="لا تفعل">Don&#39;t</label>
+              <ul class="accessibility-list">
+                <li data-i18n data-ar="لا تنشئ أحجامًا وسيطة خارج مجموعة الرموز هذه.">
+                  Don&#39;t create intermediate sizes outside this token set.</li>
+                <li data-i18n data-ar="لا تفرط في تعديل الرموز في سمات المكونات دون موافقة الحوكمة.">
+                  Don&#39;t override tokens in component themes without governance approval.</li>
+                <li data-i18n data-ar="لا تقلل نص الفقرات عن <code>font-md-400</code> أو ارتفاع سطر 1.4.">
+                  Don&#39;t shrink body text below <code>font-md-400</code> or line-height 1.4.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="governance">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="ملاحظات الحوكمة">Governance notes</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="تحتاج تحديثات الرموز إلى توقيع DesignOps بالوزارة وتوثيق في هذا الدليل.">
+              Token updates need MOI DesignOps sign-off and documentation in this guide.</li>
+            <li data-i18n data-ar="المراجعة للاتجاه من اليمين لليسار واختبار العربية إلزاميان قبل الإصدار.">
+              RTL review and Arabic QA are mandatory before release.</li>
+            <li data-i18n data-ar="حافظ على توافق حلقات <code>_mixins.scss</code> ووثائق المكونات مع هذه الصفحة.">
+              Keep <code>_mixins.scss</code> loops and component docs aligned with this page.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="rtl-guidance">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="ملاحظات RTL">RTL notes</h2>
+          <p data-i18n
+            data-ar="تأكد من أن الخطوط والمسطرة لا تتغير عند التبديل بين العربية والإنجليزية، واحتفظ بارتفاع السطر المعتمد.">
+            Ensure the font utilities behave the same across Arabic and English layouts, and keep the documented line
+            heights intact.
+          </p>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="لا تقلب أسماء الرموز؛ استخدم نفس فئة <code>font-*-*</code> في RTL وLTR.">
+              Don’t flip token names; reuse the same <code>font-*-*</code> class in both RTL and LTR views.</li>
+            <li data-i18n
+              data-ar="تحقق من أن المحاذاة والدعم اليدوي للكتابة من اليمين لا يكسر مسافات الأحرف أو تباعد الأسطر.">
+              Verify that RTL alignment and manual right-to-left rules don’t break letter spacing or line height.</li>
+            <li data-i18n data-ar="اعتمد على طبقات CSS الحالية للاتجاه (مثل <code>dir=\" rtl\"</code>) بدلًا من إعادة
+              كتابة الأنماط.">
+              Rely on existing CSS direction layers (e.g., <code>dir="rtl"</code>) instead of rewriting styles.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const targets = document.querySelectorAll('[data-copy]');
+      if (!targets.length) {
+        return;
+      }
+
+      let tooltip = null;
+      let timer = null;
+
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard.writeText(text).then(
+            () => true,
+            () => false
+          );
+        }
+
+        return new Promise((resolve) => {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'absolute';
+          textarea.style.left = '-9999px';
+          document.body.appendChild(textarea);
+          textarea.select();
+          let ok = false;
+          try {
+            ok = document.execCommand('copy');
+          } catch (error) {
+            ok = false;
+          }
+          document.body.removeChild(textarea);
+          resolve(ok);
+        });
+      }
+
+      function showTooltip(target, message) {
+        if (!tooltip) {
+          tooltip = document.createElement('div');
+          tooltip.className = 'copy-tooltip';
+          document.body.appendChild(tooltip);
+        }
+
+        tooltip.textContent = message;
+        const rect = target.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const top = Math.max(8, rect.top - tooltipRect.height - 10);
+        const left = Math.min(
+          window.innerWidth - tooltipRect.width - 8,
+          Math.max(8, rect.left + rect.width / 2 - tooltipRect.width / 2)
+        );
+        tooltip.style.top = `${top}px`;
+        tooltip.style.left = `${left}px`;
+
+        tooltip.classList.add('is-visible');
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          tooltip.classList.remove('is-visible');
+        }, 1600);
+      }
+
+      document.addEventListener('click', (event) => {
+        const target = event.target.closest('[data-copy]');
+        if (!target) {
+          return;
+        }
+
+        const text = target.getAttribute('data-copy');
+        copyText(text).then((ok) => {
+          const isArabic = document.documentElement.lang === 'ar';
+          const message = ok
+            ? isArabic
+              ? `تم النسخ: ${text}`
+              : `Copied: ${text}`
+            : isArabic
+              ? 'فشل النسخ'
+              : 'Copy failed';
+          showTooltip(target, message);
+        });
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+
+  <script src="./js/top-actions.js"></script>
+  <script src="./js/ds-site-nav.js"></script>
+  <script src="./js/watermark.js"></script>
+</body>
+
+</html>

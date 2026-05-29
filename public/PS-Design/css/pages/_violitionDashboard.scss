@@ -1,0 +1,194 @@
+@use '../helpers' as *;
+.violitionDashboard {
+    &--statistics {
+        h4 {
+            @include boldfont-16;
+        }
+
+        h6 {
+            @include boldfont-16;
+            color: $Primary-500;
+            margin: 0;
+        }
+
+        &--cardcontainer {
+            margin: 0px;
+          /*  display: flex;
+            justify-content: space-between;*/
+            width: 100%;
+
+            &--card {
+                padding: 8px;
+                background: #fff;
+                border-radius: 50%;
+                width: 100px;
+                height: 100px;
+                display: flex;
+                border: none;
+
+                &:hover {
+                    padding: 0;
+                }
+
+                &--cardBody {
+                    background: #f3f3f3;
+                    border: 1px solid #ecebeb;
+                    // box-shadow: -2px 4px 10px rgba(181, 181, 181, 0.31);
+                    border-radius: 50%;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    &:hover {
+                        box-shadow: none;
+                    }
+
+                    .borderanimation {
+                        border: 2px dashed #000;
+                        width: 110px;
+                        height: 110px;
+                        border-radius: 50%;
+                        position: absolute;
+                        animation: spin 70s linear infinite;
+                    }
+
+                    svg {
+                        height: 30px;
+                        fill: #000;
+                    }
+
+                    &__totalenumber {
+                        @include font-2xl-500;
+                        font-weight: bold !important;
+                    }
+
+                    &__categoname {
+                        @include smallfont;
+                    }
+
+                    &:hover {
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+
+        .sharedtoviolitionplatform {
+            .violitionDashboard--statistics--cardcontainer--card--cardBody {
+                background: #e7f4f1;
+                border: 1px solid #bbe0d8;
+
+                .borderanimation {
+                    border-color: $Primary-500;
+                }
+
+                svg {
+                    fill: $Primary-500;
+                }
+
+                &__totalenumber {
+                    color: $Primary-500;
+                }
+
+                &__categoname {
+                    color: $Primary-500;
+                }
+            }
+        }
+
+        .faildtoshar {
+            .violitionDashboard--statistics--cardcontainer--card--cardBody {
+                background: #fff2f1;
+                border: 1px solid #fccfd6;
+
+                .borderanimation {
+                    border-color: #f1416c;
+                }
+
+                svg {
+                    fill: #f1416c;
+                }
+
+                &__totalenumber {
+                    color: #f1416c;
+                }
+
+                &__categoname {
+                    color: #f1416c;
+                }
+            }
+        }
+
+        .waitingforvoting {
+            .violitionDashboard--statistics--cardcontainer--card--cardBody {
+                background: #f1f7ff;
+                border: 1px solid #c2d6f3;
+
+                .borderanimation {
+                    border-color: #0652c2;
+                }
+
+                svg {
+                    fill: #0652c2;
+                }
+
+                &__totalenumber {
+                    color: #0652c2;
+                }
+
+                &__categoname {
+                    color: #0652c2;
+                }
+            }
+        }
+
+        .waitingforshare {
+            .violitionDashboard--statistics--cardcontainer--card--cardBody {
+                background: #fdf5e2;
+                border: 1px solid #f5cfa1;
+
+                .borderanimation {
+                    border-color: #e78b2f;
+                }
+
+                svg {
+                    fill: #e78b2f;
+                }
+
+                &__totalenumber {
+                    color: #e78b2f;
+                }
+
+                &__categoname {
+                    color: #e78b2f;
+                }
+            }
+        }
+
+        .votinginprogress {
+            .violitionDashboard--statistics--cardcontainer--card--cardBody {
+                background: #ecf9fb;
+                border: 1px solid #cff4fc;
+
+                .borderanimation {
+                    border-color: #116c80;
+                }
+
+                svg {
+                    fill: #116c80;
+                }
+
+                &__totalenumber {
+                    color: #116c80;
+                }
+
+                &__categoname {
+                    color: #116c80;
+                }
+            }
+        }
+    }
+}

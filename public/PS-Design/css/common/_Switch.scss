@@ -1,0 +1,104 @@
+@use "../_helpers" as *;
+
+$form-sw-width: 48px;
+$form-sw-height: 24px;
+$form-sw-padding: 3px;
+$form-sw-thumb: 16px;
+
+$form-sw-dur: var(--tran-05, 0.3s);
+$form-sw-ease: cubic-bezier(0.2, 0, 0, 1);
+
+.form-check.form-switch {
+  padding-left: 0;
+
+  .form-check-input {
+    width: $form-sw-width;
+    height: $form-sw-height;
+    margin-left: 0;
+    cursor: pointer;
+
+    background-color: $white-100;
+    border: 2px solid $Neutral-300;
+    border-radius: $Radius-100;
+    background-image: none;
+
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: $form-sw-padding;
+      width: $form-sw-thumb;
+      height: $form-sw-thumb;
+      background-color: $Neutral-900;
+      border-radius: 50%;
+      transform: translateY(-50%);
+      transition: left $form-sw-dur $form-sw-ease,
+        background-color $form-sw-dur $form-sw-ease,
+        transform $form-sw-dur $form-sw-ease;
+    }
+    transition: background-color $form-sw-dur $form-sw-ease,
+      border-color $form-sw-dur $form-sw-ease,
+      box-shadow $form-sw-dur $form-sw-ease;
+
+    /* Hover */
+    &:hover {
+      box-shadow: 0 0 0 4px rgba($Primary-700, 0.12);
+    }
+
+    /* Focus */
+    &:focus-visible {
+      box-shadow: 0 0 0 4px rgba($Primary-700, 0.22);
+    }
+
+    /* Checked */
+    &:checked {
+      background-color: $Primary-500;
+      border-color: $Primary-500;
+
+      &::before {
+        left: calc(100% - #{$form-sw-thumb} - #{$form-sw-padding});
+        background-color: $white-100;
+        transform: translateY(-50%) scale(1.06);
+      }
+    }
+
+    /* Press feedback */
+    &:active::before {
+      transform: translateY(-50%) scale(0.92);
+    }
+
+    /* Disabled */
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.45;
+      background-color: $Neutral-100;
+      border-color: $Neutral-200;
+      box-shadow: none;
+
+      &::before {
+        background-color: $Neutral-400;
+        transform: translateY(-50%) scale(1);
+      }
+    }
+
+    &:checked:disabled {
+      background-color: $Neutral-200;
+      border-color: $Neutral-200;
+    }
+  }
+
+  .form-check-label {
+    margin-inline-start: 10px;
+    cursor: pointer;
+  }
+}
+
+/* Reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  .form-check-input,
+  .form-check-input::before {
+    transition: none !important;
+  }
+}

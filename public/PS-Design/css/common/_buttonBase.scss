@@ -1,0 +1,51 @@
+@use '../helpers' as *;
+
+/*  Base buttons*/
+.btn,
+.moi-btn {
+  @include buttonStyles;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+
+  svg {
+    fill: currentColor;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+ 
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  &:disabled,
+  &[aria-disabled='true'] {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+
+.btn-check:checked + .btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check) + .btn:active {
+  border-color: inherit;
+}
+
+
+/* Global Disabled Fallback */
+.btn:disabled,
+.moi-btn:disabled {
+  background: $Neutral-100 !important;
+  border: 1px solid $Neutral-300 !important;
+  color: $Neutral-400;
+}

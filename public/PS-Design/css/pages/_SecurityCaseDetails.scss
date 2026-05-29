@@ -1,0 +1,60 @@
+@use '../helpers' as *;
+.SecurityCaseDetails {
+    &--right {
+        background: white;
+        padding: $padding-14;
+        // border: 1px solid #a38664;
+        box-shadow: 0px 5px 35px 0px rgba(0, 27, 175, 0.05);
+        border-radius: 8px;
+
+        &__title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: $padding-14;
+
+            h3 {
+                @include meduimfont-16;
+                color: $Primary-600;
+                margin-bottom: 0;
+            }
+        }
+
+        &--body {
+            padding-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-between;
+
+            .block {
+                display: flex;
+                padding: 10px;
+                width: 49%;
+                flex-direction: column;
+                border-radius: $Radius-4;
+                background: $Neutral-25;
+                border: 1px solid $Neutral-100;
+
+                label {
+                    color: $Primary-500;
+                }
+
+                span {
+                    color: $Primary-900;
+                    font-weight:600;
+/*
+                    @include meduimfont-14;*/
+                }
+            }
+        }
+    }
+
+    &--left {
+        @extend .SecurityCaseDetails--right;
+
+        &__title {
+            @extend .SecurityCaseDetails--right__title;
+        }
+    }
+}

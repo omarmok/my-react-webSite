@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start Developing | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .docs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .docs-table th,
+    .docs-table td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .docs-table th {
+      background: #f9fafb;
+      font-weight: 600;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .docs-sidebar {}
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .sidebar-nav a.is-active {
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+    }
+
+    .lang-toggle {
+      margin-top: 12px;
+      width: 100%;
+      background: #fff;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #cbd5f5;
+      box-shadow: 0 14px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .lang-toggle svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .page-header .code-inline {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.2);
+    }
+  
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+
+  </style>
+  <link href="./css/ds-site-nav.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="روابط أساسية">Getting Started</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./StartDeveloping.html" class="is-active" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+        </nav>
+      </div>
+
+    </aside>
+
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><svg width="24"
+            height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.05469 1.25C9.42218 1.24998 10.5247 1.24968 11.3916 1.36621C12.2917 1.48723 13.0495 1.74672 13.6514 2.34863C14.2533 2.95055 14.5128 3.70829 14.6338 4.6084C14.7503 5.47534 14.75 6.57782 14.75 7.94531V9.25488C15.1235 9.25143 15.5218 9.24999 15.9453 9.25H16.0547C17.4222 9.24998 18.5247 9.24968 19.3916 9.36621C20.2917 9.48723 21.0495 9.74672 21.6514 10.3486C22.2533 10.9505 22.5128 11.7083 22.6338 12.6084C22.7503 13.4753 22.75 14.5778 22.75 15.9453V16.0547C22.75 17.4222 22.7503 18.5247 22.6338 19.3916C22.5128 20.2917 22.2533 21.0495 21.6514 21.6514C21.0495 22.2533 20.2917 22.5128 19.3916 22.6338C18.5247 22.7503 17.4222 22.75 16.0547 22.75H15.9453C14.5778 22.75 13.4753 22.7503 12.6084 22.6338C11.7083 22.5128 10.9505 22.2533 10.3486 21.6514C9.74672 21.0495 9.48723 20.2917 9.36621 19.3916C9.24968 18.5247 9.24998 17.4222 9.25 16.0547V15.9453C9.24999 15.5218 9.25143 15.1235 9.25488 14.75H7.94531C6.57782 14.75 5.47534 14.7503 4.6084 14.6338C3.70829 14.5128 2.95055 14.2533 2.34863 13.6514C1.74672 13.0495 1.48723 12.2917 1.36621 11.3916C1.24968 10.5247 1.24998 9.42218 1.25 8.05469V7.94531C1.24998 6.57782 1.24968 5.47534 1.36621 4.6084C1.48723 3.70829 1.74672 2.95055 2.34863 2.34863C2.95055 1.74672 3.70829 1.48723 4.6084 1.36621C5.47534 1.24968 6.57782 1.24998 7.94531 1.25H8.05469ZM16 10.75C14.5648 10.75 13.5639 10.752 12.8086 10.8535C12.0748 10.9522 11.6859 11.1324 11.4092 11.4092C11.1324 11.6859 10.9522 12.0748 10.8535 12.8086C10.752 13.5639 10.75 14.5648 10.75 16C10.75 17.4352 10.752 18.4361 10.8535 19.1914C10.9522 19.9252 11.1324 20.3141 11.4092 20.5908C11.6859 20.8676 12.0748 21.0478 12.8086 21.1465C13.5639 21.248 14.5648 21.25 16 21.25C17.4352 21.25 18.4361 21.248 19.1914 21.1465C19.9252 21.0478 20.3141 20.8676 20.5908 20.5908C20.8676 20.3141 21.0478 19.9252 21.1465 19.1914C21.248 18.4361 21.25 17.4352 21.25 16C21.25 14.5648 21.248 13.5639 21.1465 12.8086C21.0478 12.0748 20.8676 11.6859 20.5908 11.4092C20.3141 11.1324 19.9252 10.9522 19.1914 10.8535C18.4361 10.752 17.4352 10.75 16 10.75ZM4 15.75C4.41421 15.75 4.75 16.0858 4.75 16.5C4.75 17.2178 4.75071 17.7 4.78809 18.0674C4.82419 18.4221 4.88849 18.5859 4.96094 18.6943C5.05212 18.8308 5.16921 18.9479 5.30566 19.0391C5.4141 19.1115 5.57788 19.1758 5.93262 19.2119C6.30002 19.2493 6.78216 19.25 7.5 19.25C7.91421 19.25 8.25 19.5858 8.25 20C8.25 20.4142 7.91421 20.75 7.5 20.75H7.46191C6.79245 20.75 6.23354 20.7501 5.78125 20.7041C5.30783 20.6559 4.86862 20.5507 4.47266 20.2861C4.17238 20.0855 3.9145 19.8276 3.71387 19.5273C3.44934 19.1314 3.34406 18.6922 3.2959 18.2188C3.24991 17.7665 3.24998 17.2075 3.25 16.5381C3.25 16.5254 3.25 16.5127 3.25 16.5C3.25 16.0858 3.58579 15.75 4 15.75ZM16 12.25C16.3028 12.25 16.5759 12.4324 16.6924 12.7119L19.1924 18.7119C19.3514 19.0941 19.1711 19.533 18.7891 19.6924C18.4067 19.8517 17.9669 19.6704 17.8076 19.2881L17.167 17.75H14.834L14.1924 19.2881C14.0331 19.6704 13.5942 19.8516 13.2119 19.6924C12.8297 19.5331 12.6486 19.0942 12.8076 18.7119L15.3076 12.7119C15.424 12.4325 15.6973 12.2501 16 12.25Z"
+              fill="currentColor"></path>
+          </svg><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.9975 3.25C11.624 3.25 11.2774 3.41565 11.0172 3.57252C10.7364 3.7418 10.4464 3.96944 10.1638 4.21918C9.59669 4.72018 8.98771 5.37387 8.43684 6.00823C7.88274 6.64633 7.37253 7.28222 7.00175 7.75725C6.81606 7.99516 6.66462 8.19364 6.55931 8.33304C6.50664 8.40276 6.46547 8.45776 6.43727 8.49558L6.40489 8.53915L6.39633 8.55071L6.39337 8.55472C6.14771 8.88822 6.2186 9.35816 6.5521 9.60382C6.88559 9.84947 7.35507 9.77828 7.60074 9.44481L7.61015 9.43209L7.63992 9.39204C7.66632 9.35662 7.70557 9.3042 7.75618 9.2372C7.85743 9.10317 8.00402 8.91102 8.1842 8.68019C8.54517 8.21772 9.03806 7.60363 9.56942 6.99173C10.104 6.37611 10.6628 5.77981 11.1569 5.34331C11.1882 5.3157 11.2189 5.28899 11.249 5.26316L11.249 20C11.249 20.4142 11.5848 20.75 11.999 20.75C12.4132 20.75 12.749 20.4142 12.749 20L12.749 5.2657C12.7782 5.29073 12.808 5.31661 12.8382 5.34331C13.3323 5.77981 13.8911 6.37611 14.4257 6.99173C14.957 7.60363 15.4499 8.21772 15.8109 8.68019C15.9911 8.91102 16.1377 9.10317 16.2389 9.2372C16.2895 9.30419 16.3288 9.35662 16.3552 9.39204L16.3849 9.43209L16.3943 9.44481C16.64 9.77828 17.1095 9.84947 17.443 9.60382C17.7765 9.35816 17.8474 8.88822 17.6017 8.55472L17.5988 8.55071L17.5902 8.53915L17.5578 8.49558C17.5296 8.45776 17.4884 8.40276 17.4358 8.33304C17.3305 8.19363 17.179 7.99516 16.9933 7.75725C16.6226 7.28222 16.1123 6.64633 15.5582 6.00823C15.0074 5.37387 14.3984 4.72018 13.8313 4.21918C13.5486 3.96944 13.2587 3.7418 12.9779 3.57252C12.7192 3.4166 12.3753 3.25199 12.0043 3.25002"
+              fill="white"></path>
+          </svg><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span>
+        </button>
+      </div>
+
+
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="الأساسيات / البدء">Foundations / Getting Started</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="ابدأ التطوير">Start Developing</h1>
+
+        <p class="text-muted mb-4" data-i18n
+          data-ar="تستخدم صفحات PS-Design ملفات <span class=&quot;code-inline&quot;>bootstrap-v5.css</span> إلى جانب ملف <span class=&quot;code-inline&quot;>main.css</span> الذي يتم توليده من ملفات SCSS الخاصة بالنظام.">
+          PS-Design pages load <span class="code-inline">bootstrap-v5.css</span> alongside a custom
+          <span class="code-inline">main.css</span> that compiles from the SCSS source files.
+        </p>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="المكوّن: ابدأ التطوير"
+              data-en="Component: Start Developing">
+          المكوّن: ابدأ التطوير
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="الإصدار: قيد التحديث"
+              data-en="Version: TBD">
+          الإصدار: قيد التحديث
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="آخر تحديث: 28 يناير 2026"
+              data-en="Last updated: January 28, 2026">
+          آخر تحديث: 28 يناير 2026
+        </span>
+      </div>
+
+
+      <section class="section" id="overview">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2>
+          <p class="section-note" data-i18n
+            data-ar="نعتمد على Bootstrap 5 للبنية الأساسية، بينما يتم تخصيص الهوية البصرية، الألوان، والطباعة عبر ملفات SCSS ثم تجميعها في <span class=&quot;code-inline&quot;>main.css</span>.">
+            We rely on Bootstrap 5 for the base UI scaffolding, then customize the brand, colors,
+            and typography via SCSS and compile everything into <span class="code-inline">main.css</span>.
+          </p>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="قم بتحميل <span class=&quot;code-inline&quot;>bootstrap-v5.css</span> أولاً، ثم <span class=&quot;code-inline&quot;>main.css</span> ليقوم بعمل override.">
+              Load <span class="code-inline">bootstrap-v5.css</span> first, then <span
+                class="code-inline">main.css</span> for overrides.</li>
+            <li data-i18n
+              data-ar="تحديثات التصميم تتم من خلال ملفات SCSS، وليس عبر تعديل <span class=&quot;code-inline&quot;>main.css</span> مباشرة.">
+              Design updates should happen in SCSS, not by editing <span class="code-inline">main.css</span> directly.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="stylesheets">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="ملفات الأنماط">Stylesheets</h2>
+          <p class="section-note" data-i18n data-ar="هذه هي الملفات الأساسية التي يتم تحميلها في صفحات النظام.">
+            These are the core stylesheets loaded on PS-Design pages.
+          </p>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="الملف">File</th>
+                <th data-i18n data-ar="الوصف">Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>./css/bootstrap-v5.css</code></td>
+                <td data-i18n data-ar="إطار Bootstrap 5 الأساسي لتخطيط الشبكات والمكونات.">Bootstrap 5 base framework
+                  for layout and components.</td>
+              </tr>
+              <tr>
+                <td><code>./css/main.css</code></td>
+                <td data-i18n data-ar="ملف الواجهة المخصص الذي يجمع أنماط النظام وتعديلات الهوية.">Custom UI stylesheet
+                  that bundles design tokens and overrides.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="scss">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="مصادر SCSS">SCSS Sources</h2>
+          <p class="section-note" data-i18n
+            data-ar="يتم تجميع <span class=&quot;code-inline&quot;>main.css</span> من الملفات التالية داخل مجلد <span class=&quot;code-inline&quot;>css</span>.">
+            <span class="code-inline">main.css</span> is compiled from these SCSS sources under the
+            <span class="code-inline">css</span> folder.
+          </p>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="الملف">File</th>
+                <th data-i18n data-ar="الدور">Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>css/helpers/_index.scss</code></td>
+                <td data-i18n
+                  data-ar="نقطة التجميع الرئيسية؛ تقوم باستيراد جميع الملفات المساعدة والتوكنز حتى تصل إلى <span class=&quot;code-inline&quot;>main.css</span>.">
+                  Primary aggregator that imports helper and token files into <span class="code-inline">main.css</span>.
+                </td>
+              </tr>
+              <tr>
+                <td><code>css/helpers/_variables.scss</code></td>
+                <td data-i18n
+                  data-ar="يحتوي على رموز الألوان، التباعد، ونصف القطر. أي تغيير هنا ينعكس مباشرة على المكونات التي تستخدم المتغيرات.">
+                  Defines color, spacing, and radius tokens that cascade into every component.</td>
+              </tr>
+              <tr>
+                <td><code>css/helpers/_mixins.scss</code></td>
+                <td data-i18n
+                  data-ar="مكسينات الطباعة وفئات <span class=&quot;code-inline&quot;>.font-*</span> المولدة، بالإضافة إلى مكسينات مشتركة للمكونات.">
+                  Typography mixins, generated <span class="code-inline">.font-*</span> utilities, and shared component
+                  helpers.</td>
+              </tr>
+              <tr>
+                <td><code>css/_customClasses.scss</code></td>
+                <td data-i18n
+                  data-ar="فئات الأدوات المخصصة (مثل <span class=&quot;code-inline&quot;>.font-*</span> و <span class=&quot;code-inline&quot;>.gap-*</span> و <span class=&quot;code-inline&quot;>.radius-*</span>) التي تُستخدم مباشرة في HTML.">
+                  Custom utility classes (such as <span class="code-inline">.font-*</span>, <span
+                    class="code-inline">.gap-*</span>, <span class="code-inline">.radius-*</span>) used directly in
+                  HTML.</td>
+              </tr>
+              <tr>
+                <td><code>css/helpers/_changeFont.scss</code></td>
+                <td data-i18n
+                  data-ar="يعرف خط IBM Plex Sans Arabic (أوزان متعددة) ليكون جاهزًا عند تفعيل فئة <span class=&quot;code-inline&quot;>.cairo</span>.">
+                  Defines IBM Plex Sans Arabic (multiple weights) used when <span class="code-inline">.cairo</span> is
+                  applied.</td>
+              </tr>
+              <tr>
+                <td><code>css/helpers/_changeFontClasses.scss</code></td>
+                <td data-i18n data-ar="يطبّق الخط العربي على عناصر محددة داخل الواجهة ويضبط أحجام النصوص الافتراضية.">
+                  Applies Arabic font styles across UI elements and adjusts default text sizes.</td>
+              </tr>
+              <tr>
+                <td><code>css/helpers/_fonts.scss</code></td>
+                <td data-i18n
+                  data-ar="تعريف خطوط 29LT Bukra مع مسارات الملفات في مجلد <span class=&quot;code-inline&quot;>fonts</span>.">
+                  Defines 29LT Bukra font-face files located in the <span class="code-inline">fonts</span> folder.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="scss-all">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="جميع ملفات SCSS">All SCSS Files</h2>
+          <p class="section-note" data-i18n
+            data-ar="هذه القائمة تشمل كل ملفات SCSS داخل <span class=&quot;code-inline&quot;>css</span> والمجلدات الفرعية، مع وصف مختصر لكل ملف.">
+            This list covers every SCSS file under <span class="code-inline">css</span> and its subfolders,
+            with a brief purpose for each.
+          </p>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="الملف">File</th>
+                <th data-i18n data-ar="الوصف">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>css/_common.scss</code></td>
+                <td data-i18n data-ar="يجمع الأنماط المشتركة.">Bundles common shared styles.</td>
+              </tr>
+              <tr>
+                <td><code>css/_components.scss</code></td>
+                <td data-i18n data-ar="يجمع ملفات المكونات الجزئية.">Bundles component partials.</td>
+              </tr>
+              <tr>
+                <td><code>css/_customClasses.scss</code></td>
+                <td data-i18n data-ar="ملف SCSS جزئي لـ customClasses.">SCSS partial for customClasses.</td>
+              </tr>
+              <tr>
+                <td><code>css/_helpers.scss</code></td>
+                <td data-i18n data-ar="يجمع المساعدات والأدوات.">Bundles helper utilities.</td>
+              </tr>
+              <tr>
+                <td><code>css/_login.scss</code></td>
+                <td data-i18n data-ar="يجمع أنماط تسجيل الدخول.">Bundles authentication styles.</td>
+              </tr>
+              <tr>
+                <td><code>css/_pages.scss</code></td>
+                <td data-i18n data-ar="يجمع أنماط الصفحات.">Bundles page-specific styles.</td>
+              </tr>
+              <tr>
+                <td><code>css/common/_buttons.scss</code></td>
+                <td data-i18n data-ar="أنماط مشتركة لواجهة buttons.">Common UI styles for buttons.</td>
+              </tr>
+              <tr>
+                <td><code>css/common/_common.scss</code></td>
+                <td data-i18n data-ar="أنماط مشتركة لواجهة common.">Common UI styles for common.</td>
+              </tr>
+              <tr>
+                <td><code>css/common/_datepicker.scss</code></td>
+                <td data-i18n data-ar="أنماط مشتركة لواجهة datepicker.">Common UI styles for datepicker.</td>
+              </tr>
+              <tr>
+                <td><code>css/common/_layout.scss</code></td>
+                <td data-i18n data-ar="أنماط مشتركة لواجهة layout.">Common UI styles for layout.</td>
+              </tr>
+              <tr>
+                <td><code>css/common/_modal.scss</code></td>
+                <td data-i18n data-ar="أنماط مشتركة لواجهة modal.">Common UI styles for modal.</td>
+              </tr>
+              <tr>
+                <td><code>css/common/_nav.scss</code></td>
+                <td data-i18n data-ar="أنماط مشتركة لواجهة nav.">Common UI styles for nav.</td>
+              </tr>
+              <tr>
+                <td><code>css/common/_tags.scss</code></td>
+                <td data-i18n data-ar="أنماط مشتركة لواجهة tags.">Common UI styles for tags.</td>
+              </tr>
+              <tr>
+                <td><code>css/common/_vue-treeselect.scss</code></td>
+                <td data-i18n data-ar="أنماط مشتركة لواجهة vue-treeselect.">Common UI styles for vue-treeselect.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_Accedentsketch.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون Accedentsketch.">Component styles for Accedentsketch.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_Incoming__reports.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون Incoming reports.">Component styles for Incoming reports.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_Inquire.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون Inquire.">Component styles for Inquire.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_Most__Used__Services.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون Most Used Services.">Component styles for Most Used Services.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_charts.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون charts.">Component styles for charts.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_createViolition.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون createViolition.">Component styles for createViolition.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_hand.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون hand.">Component styles for hand.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_hearing.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون hearing.">Component styles for hearing.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_homeStatistics.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون homeStatistics.">Component styles for homeStatistics.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_insertUserComponent.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون insertUserComponent.">Component styles for insertUserComponent.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_inteo.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون inteo.">Component styles for inteo.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_letters.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون letters.">Component styles for letters.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_mapDesign.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون mapDesign.">Component styles for mapDesign.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_person.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون person.">Component styles for person.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_personCard.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون personCard.">Component styles for personCard.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_personInquiry.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون personInquiry.">Component styles for personInquiry.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_stepper.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون stepper.">Component styles for stepper.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_table.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون table.">Component styles for table.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_tabs.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون tabs.">Component styles for tabs.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_tabsDesign.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون tabsDesign.">Component styles for tabsDesign.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_timeline.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون timeline.">Component styles for timeline.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_user__custom--table.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون user custom--table.">Component styles for user custom--table.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_userauthentication.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون userauthentication.">Component styles for userauthentication.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_vehiclemodal.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون vehiclemodal.">Component styles for vehiclemodal.</td>
+              </tr>
+              <tr>
+                <td><code>css/components/_volitionConfiguration.scss</code></td>
+                <td data-i18n data-ar="أنماط مكون volitionConfiguration.">Component styles for volitionConfiguration.
+                </td>
+              </tr>
+              <tr>
+                <td><code>css/helpers/_changeFont.scss</code></td>
+                <td data-i18n data-ar="تعريفات خط IBM Plex Sans Arabic.">IBM Plex Sans Arabic font-face declarations.
+                </td>
+              </tr>
+              <tr>
+                <td><code>css/helpers/_changeFontClasses.scss</code></td>
+                <td data-i18n data-ar="تطبيق خط عربي وتعديلات على عناصر الواجهة.">Arabic font class overrides for UI
+                  elements.</td>
+              </tr>
+              <tr>
+                <td><code>css/helpers/_fonts.scss</code></td>
+                <td data-i18n data-ar="تعريفات الخط لخط 29LT Bukra.">Font-face declarations for 29LT Bukra.</td>
+              </tr>
+              <tr>
+                <td><code>css/helpers/_index.scss</code></td>
+                <td data-i18n data-ar="فهرس المساعدات الذي يستورد التوكنز والمكسينات والخطوط.">SCSS helper index that
+                  imports tokens, mixins, and fonts.</td>
+              </tr>
+              <tr>
+                <td><code>css/helpers/_mixins.scss</code></td>
+                <td data-i18n data-ar="مكسينات الطباعة والمكسينات المشتركة.">Typography mixins and shared helper mixins.
+                </td>
+              </tr>
+              <tr>
+                <td><code>css/helpers/_variables.scss</code></td>
+                <td data-i18n data-ar="رموز التصميم للألوان والتباعد ونصف القطر.">Design tokens for colors, spacing, and
+                  radius.</td>
+              </tr>
+              <tr>
+                <td><code>css/login/_ResetPassword.scss</code></td>
+                <td data-i18n data-ar="أنماط المصادقة لواجهة ResetPassword.">Authentication styles for ResetPassword.
+                </td>
+              </tr>
+              <tr>
+                <td><code>css/login/_login.scss</code></td>
+                <td data-i18n data-ar="أنماط المصادقة لواجهة login.">Authentication styles for login.</td>
+              </tr>
+              <tr>
+                <td><code>css/main.scss</code></td>
+                <td data-i18n data-ar="مدخل SCSS الرئيسي الذي يتم تجميعه إلى main.css.">Main SCSS entry compiled into
+                  main.css.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_ maincontainer.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة maincontainer.">Page-specific styles for maincontainer.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_ArrestedPersons.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة ArrestedPersons.">Page-specific styles for ArrestedPersons.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_CivilComplains.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة CivilComplains.">Page-specific styles for CivilComplains.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_Deathmanagment.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة Deathmanagment.">Page-specific styles for Deathmanagment.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_OtarrContainer.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة OtarrContainer.">Page-specific styles for OtarrContainer.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_SecurityCase.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة SecurityCase.">Page-specific styles for SecurityCase.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_SecurityCaseDetails.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة SecurityCaseDetails.">Page-specific styles for SecurityCaseDetails.
+                </td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_SecurityCaseFa.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة SecurityCaseFa.">Page-specific styles for SecurityCaseFa.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_Sessionexpired.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة Sessionexpired.">Page-specific styles for Sessionexpired.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_TrafficViolition.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة TrafficViolition.">Page-specific styles for TrafficViolition.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_UserManagementRols.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة UserManagementRols.">Page-specific styles for UserManagementRols.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_VehiclesRestriction.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة VehiclesRestriction.">Page-specific styles for VehiclesRestriction.
+                </td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_ViolationDirectoryApproval.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة ViolationDirectoryApproval.">Page-specific styles for
+                  ViolationDirectoryApproval.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_accidentCreateMainDiv.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة accidentCreateMainDiv.">Page-specific styles for
+                  accidentCreateMainDiv.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_cases.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة cases.">Page-specific styles for cases.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_createAgency.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة createAgency.">Page-specific styles for createAgency.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_createUser.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة createUser.">Page-specific styles for createUser.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_dashboardMainContent.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة dashboardMainContent.">Page-specific styles for dashboardMainContent.
+                </td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_email.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة email.">Page-specific styles for email.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_emailContainer.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة emailContainer.">Page-specific styles for emailContainer.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_incidentinbox.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة incidentinbox.">Page-specific styles for incidentinbox.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_incomingIncidents.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة incomingIncidents.">Page-specific styles for incomingIncidents.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_landingpage.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة landingpage.">Page-specific styles for landingpage.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_newDSCasesBasicInfo.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة newDSCasesBasicInfo.">Page-specific styles for newDSCasesBasicInfo.
+                </td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_newPermits.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة newPermits.">Page-specific styles for newPermits.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_newims.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة newims.">Page-specific styles for newims.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_recordCreate.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة recordCreate.">Page-specific styles for recordCreate.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_report.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة report.">Page-specific styles for report.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_searchAboutCaseMembers.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة searchAboutCaseMembers.">Page-specific styles for
+                  searchAboutCaseMembers.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_summary.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة summary.">Page-specific styles for summary.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_userManagmetStyle.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة userManagmetStyle.">Page-specific styles for userManagmetStyle.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_violationinbox.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة violationinbox.">Page-specific styles for violationinbox.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_violitionDashboard.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة violitionDashboard.">Page-specific styles for violitionDashboard.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_violitionDetails.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة violitionDetails.">Page-specific styles for violitionDetails.</td>
+              </tr>
+              <tr>
+                <td><code>css/pages/_violitionStatistics.scss</code></td>
+                <td data-i18n data-ar="أنماط صفحة violitionStatistics.">Page-specific styles for violitionStatistics.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="workflow">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="طريقة العمل">Workflow</h2>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="عدّل ملفات SCSS ضمن <span class=&quot;code-inline&quot;>css</span> ثم قم بإعادة بناء <span class=&quot;code-inline&quot;>main.css</span>.">
+              Update SCSS files under <span class="code-inline">css</span> and rebuild <span
+                class="code-inline">main.css</span>.</li>
+            <li data-i18n
+              data-ar="أضف التوكنز الجديدة في <span class=&quot;code-inline&quot;>_variables.scss</span> ثم استخدمها في المكونات.">
+              Add new tokens in <span class="code-inline">_variables.scss</span> and consume them in components.</li>
+            <li data-i18n data-ar="حافظ على التوافق مع Bootstrap 5 عن طريق استخدام فئاتها الأساسية أولاً.">Keep
+              Bootstrap 5 conventions by layering on top of its base classes.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+
+  <script src="./js/top-actions.js"></script>
+  <script src="./js/ds-site-nav.js"></script>
+  <script src="./js/watermark.js"></script>
+</body>
+
+</html>

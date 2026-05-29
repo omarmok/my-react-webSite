@@ -1,0 +1,536 @@
+@use "sass:map";
+@use "../helpers" as *;
+
+// =============================================================================
+// Legacy (UNCHANGED)
+// =============================================================================
+
+.defualtprioroty {
+  display: flex;
+  white-space: nowrap;
+  width: max-content;
+  margin: 0 auto;
+  height: 36px;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: $padding-8;
+  border-radius: $Radius-100;
+  line-height: 36px;
+  @include font-lg-500;
+  font-weight: 600 !important;
+  color: $Neutral-600 !important;
+  background: $Neutral-50 !important;
+  border: 1px solid $Neutral-200 !important;
+
+  &::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: $Neutral-600 !important;
+    border-radius: $Radius-100;
+    margin-left: 5px;
+  }
+}
+
+.highpriority {
+  @extend .defualtprioroty;
+  color: $Error-600 !important;
+  background: $Error-50 !important;
+  border: 1px solid $Error-200 !important;
+
+  &::before {
+    background: $Error-600 !important;
+  }
+}
+
+.mediumpriority {
+  @extend .defualtprioroty;
+  border: 1px solid $Warning-300 !important;
+  color: $Warning-600 !important;
+  background: $Warning-50 !important;
+
+  &::before {
+    background: $Warning-600 !important;
+  }
+}
+
+.regpriority {
+  @extend .defualtprioroty;
+  border: 1px solid $Primary-200 !important;
+  color: $Primary-600 !important;
+  background: $Primary-50 !important;
+
+  &::before {
+    background: $Primary-600 !important;
+  }
+}
+
+.infoprioroty {
+  @extend .defualtprioroty;
+  border: 1px solid $Info-200 !important;
+  color: $Info-600 !important;
+  background: $Info-50 !important;
+
+  &::before {
+    background: $Info-600 !important;
+  }
+}
+
+.primaryprioroty {
+  @extend .defualtprioroty;
+  border: 1px solid $Primary-200 !important;
+  color: $Primary-600 !important;
+  background: $Primary-50 !important;
+
+  &::before {
+    background: $Primary-600 !important;
+  }
+}
+
+//In Review
+.UnderProgress {
+  @extend .defualtprioroty;
+  border: 1px solid #d6c8ec !important;
+  color: #6929c4 !important;
+  background: #f1e8ff !important;
+
+  &::before {
+    background: #6929c4 !important;
+  }
+}
+
+//Rework
+.Returned {
+  @extend .defualtprioroty;
+  border: 1px solid #c0e1fa !important;
+  color: #3f739b !important;
+  background: #d2ebff !important;
+
+  &::before {
+    background: #3f739b !important;
+  }
+}
+
+// =============================================================================
+// SVG behavior (legacy - unchanged)
+// =============================================================================
+
+.defualtprioroty:has(svg),
+.highpriority:has(svg),
+.mediumpriority:has(svg),
+.regpriority:has(svg),
+.infoprioroty:has(svg),
+.primaryprioroty:has(svg),
+.UnderProgress:has(svg),
+.Returned:has(svg) {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  &::before {
+    display: none !important;
+  }
+
+  svg {
+    flex: 0 0 auto;
+    fill: currentColor;
+  }
+}
+
+.highpriority-filled {
+  @extend .defualtprioroty;
+  border: 1px solid $Error-500 !important;
+  color: $white-100 !important;
+  background: $Error-500 !important;
+
+  &::before {
+    background: $white-100 !important;
+  }
+}
+
+.regpriority-filled {
+  @extend .defualtprioroty;
+  border: 1px solid $Primary-500 !important;
+  color: $white-100 !important;
+  background: $Primary-500 !important;
+
+  &::before {
+    background: $white-100 !important;
+  }
+}
+
+.defualtprioroty-filled {
+  @extend .defualtprioroty;
+  border: 1px solid $Neutral-100 !important;
+  color: $Neutral-100 !important;
+  background: $Neutral-900 !important;
+
+  &::before {
+    background: $Neutral-100 !important;
+  }
+}
+
+.infoprioroty-filled {
+  @extend .defualtprioroty;
+  border: 1px solid $Info-500 !important;
+  color: $white-100 !important;
+  background: $Info-500 !important;
+
+  &::before {
+    background: $white-100 !important;
+  }
+}
+
+.mediumpriority-filled {
+  @extend .defualtprioroty;
+  border: 1px solid $Warning-600 !important;
+  color: $white-100 !important;
+  background: $Warning-600 !important;
+
+  &::before {
+    background: $white-100 !important;
+  }
+}
+
+.UnderProgress-filled {
+  @extend .defualtprioroty;
+  border: 1px solid #6929c4 !important;
+  color: $white-100 !important;
+  background: #6929c4 !important;
+
+  &::before {
+    background: $white-100 !important;
+  }
+}
+
+.Returned-filled {
+  @extend .defualtprioroty;
+  border: 1px solid #3f739b !important;
+  color: $white-100 !important;
+  background: #3f739b !important;
+
+  &::before {
+    background: $white-100 !important;
+  }
+}
+
+.highpriority-rounded {
+  @extend .defualtprioroty;
+  border-radius: $radius-sm;
+  @extend .highpriority;
+}
+
+.mediumpriority-rounded {
+  @extend .defualtprioroty;
+  @extend .mediumpriority;
+  @extend .highpriority-rounded;
+}
+
+.regpriority-rounded {
+  @extend .defualtprioroty;
+  @extend .regpriority;
+  @extend .highpriority-rounded;
+}
+
+.infoprioroty-rounded {
+  @extend .defualtprioroty;
+  @extend .infoprioroty;
+  @extend .highpriority-rounded;
+}
+
+.defualtprioroty-rounded {
+  @extend .defualtprioroty;
+  @extend .defualtprioroty;
+  border-radius: $radius-sm;
+}
+
+.primaryprioroty-rounded {
+  @extend .defualtprioroty;
+  @extend .primaryprioroty;
+  @extend .highpriority-rounded;
+}
+
+.UnderProgress-rounded {
+  @extend .defualtprioroty;
+  @extend .UnderProgress;
+  @extend .highpriority-rounded;
+}
+
+.Returned-rounded {
+  @extend .defualtprioroty;
+  @extend .Returned;
+  @extend .highpriority-rounded;
+}
+
+// =============================================================================
+// Modern .moi-tag
+// =============================================================================
+
+$moi-tag-sizes: (
+  sm: 1rem,
+  md: 1.25rem,
+  lg: 1.5rem,
+  xl: 2rem,
+  2xl: 2.5rem,
+  3xl: 3rem,
+  4xl: 4rem,
+);
+
+$moi-tag-icon-sizes: (
+  sm: 0.75rem,
+  md: 0.875rem,
+  lg: 1rem,
+  xl: 1.25rem,
+  2xl: 1.5rem,
+  3xl: 1.75rem,
+  4xl: 2rem,
+);
+
+.moi-tag {
+  display: inline-flex;
+  white-space: nowrap;
+  width: max-content;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  position: relative;
+  height: 36px;
+  padding: $padding-8;
+  border-radius: $Radius-100;
+  line-height: 36px;
+
+  // @include font-lg-500;
+  // font-weight: 600;
+
+  color: $Neutral-600;
+  background: $Neutral-50;
+  border: 1px solid $Neutral-200;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: currentColor;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  svg,
+  img {
+    flex: 0 0 auto;
+    fill: currentColor;
+  }
+
+  &:has(> svg:first-child),
+  &:has(> img:first-child) {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+// =============================================================================
+// Sizes
+// =============================================================================
+
+@each $size, $value in $moi-tag-sizes {
+  $icon-size: map.get($moi-tag-icon-sizes, $size);
+
+  .moi-tag--#{$size} {
+    height: $value;
+    min-height: $value;
+    line-height: $value;
+
+    > svg:first-child,
+    > img:first-child,
+    .tag-close svg {
+      width: $icon-size;
+      height: $icon-size;
+    }
+  }
+}
+
+// =============================================================================
+// Status colors (data-status API)
+// =============================================================================
+
+$_moi-tag-statuses: (
+  defualtprioroty: (
+    color: $Neutral-600,
+    bg: $Neutral-50,
+    border: $Neutral-200,
+    dot: $Neutral-600,
+    has-filled: true,
+    filled-color: $Neutral-100,
+    filled-bg: $Neutral-900,
+    filled-border: $Neutral-100,
+    filled-dot: $Neutral-100,
+  ),
+  highpriority: (
+    color: $Error-600,
+    bg: $Error-50,
+    border: $Error-200,
+    dot: $Error-600,
+    has-filled: true,
+    filled-color: $white-100,
+    filled-bg: $Error-500,
+    filled-border: $Error-500,
+    filled-dot: $white-100,
+  ),
+  mediumpriority: (
+    color: $Warning-600,
+    bg: $Warning-50,
+    border: $Warning-300,
+    dot: $Warning-600,
+    has-filled: true,
+    filled-color: $white-100,
+    filled-bg: $Warning-600,
+    filled-border: $Warning-600,
+    filled-dot: $white-100,
+  ),
+  regpriority: (
+    color: $Primary-600,
+    bg: $Primary-50,
+    border: $Primary-200,
+    dot: $Primary-600,
+    has-filled: true,
+    filled-color: $white-100,
+    filled-bg: $Primary-500,
+    filled-border: $Primary-500,
+    filled-dot: $white-100,
+  ),
+  infoprioroty: (
+    color: $Info-600,
+    bg: $Info-50,
+    border: $Info-200,
+    dot: $Info-600,
+    has-filled: true,
+    filled-color: $white-100,
+    filled-bg: $Info-500,
+    filled-border: $Info-500,
+    filled-dot: $white-100,
+  ),
+  primaryprioroty: (
+    color: $Primary-600,
+    bg: $Primary-50,
+    border: $Primary-200,
+    dot: $Primary-600,
+    has-filled: false,
+  ),
+  UnderProgress: (
+    color: #6929c4,
+    bg: #f1e8ff,
+    border: #d6c8ec,
+    dot: #6929c4,
+    has-filled: true,
+    filled-color: $white-100,
+    filled-bg: #6929c4,
+    filled-border: #6929c4,
+    filled-dot: $white-100,
+  ),
+  Returned: (
+    color: #3f739b,
+    bg: #d2ebff,
+    border: #c0e1fa,
+    dot: #3f739b,
+    has-filled: true,
+    filled-color: $white-100,
+    filled-bg: #3f739b,
+    filled-border: #3f739b,
+    filled-dot: $white-100,
+  ),
+);
+
+@each $status, $colors in $_moi-tag-statuses {
+  .moi-tag[data-status="#{$status}"] {
+    color: map.get($colors, color);
+    background: map.get($colors, bg);
+    border: 1px solid map.get($colors, border);
+
+    &::before {
+      background: map.get($colors, dot);
+    }
+  }
+
+  @if map.get($colors, has-filled) {
+    .moi-tag--filled[data-status="#{$status}"] {
+      color: map.get($colors, filled-color);
+      background: map.get($colors, filled-bg);
+      border: 1px solid map.get($colors, filled-border);
+
+      &::before {
+        background: map.get($colors, filled-dot);
+      }
+    }
+
+    .moi-tag--filled.moi-tag--rounded[data-status="#{$status}"] {
+      color: map.get($colors, filled-color);
+      background: map.get($colors, filled-bg);
+      border: 1px solid map.get($colors, filled-border);
+      border-radius: $radius-sm;
+
+      &::before {
+        background: map.get($colors, filled-dot);
+      }
+    }
+  }
+
+  .moi-tag--rounded[data-status="#{$status}"] {
+    border-radius: $radius-sm;
+  }
+}
+
+// =============================================================================
+// Label
+// =============================================================================
+
+.moi-label {
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+}
+
+// =============================================================================
+// Closable tag
+// =============================================================================
+
+.moi-tag .tag-close {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  color: inherit;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: opacity 0.15s ease;
+
+  svg {
+    flex: 0 0 auto;
+    fill: currentColor;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+}

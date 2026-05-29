@@ -1,0 +1,19 @@
+/* Error: Undefined mixin.
+ *      ,
+ * 1474 | .font-xs-400 { @include font-xs-400; }
+ *      |                ^^^^^^^^^^^^^^^^^^^^
+ *      '
+ *   PS-Design/css/helpers/_variables.scss 1474:16  @import
+ *   PS-Design/css/_helpers.scss 2:9                @import
+ *   PS-Design/css/main.scss 2:9                    root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined mixin.\a      \2577 \a 1474 \2502  .font-xs-400 { @include font-xs-400; }\a      \2502                 ^^^^^^^^^^^^^^^^^^^^\a      \2575 \a   PS-Design/css/helpers/_variables.scss 1474:16  @import\a   PS-Design/css/_helpers.scss 2:9                @import\a   PS-Design/css/main.scss 2:9                    root stylesheet";
+}

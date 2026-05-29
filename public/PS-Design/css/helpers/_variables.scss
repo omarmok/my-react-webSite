@@ -1,0 +1,288 @@
+﻿$blueGrediant: linear-gradient(180deg, #002d73 0%, #003ca6 100%);
+$bodyBg: hsl(0, 0%, 96%);
+
+$darkBlue: #00367e;
+
+$table-th: #f3f0eb;
+$baige: #f8f6f2;
+$Brown-100: #a38664;
+$moi-info: #0d99ff;
+$blueColor: #0652c2;
+$blackGreen: #0b3948;
+
+$white-100: #ffffff;
+$Modal-bg: rgba(0, 0, 0, 0.4);
+$Neutral-25: #fcfcfd;
+$Neutral-50: #f9fafb;
+$Neutral-100: #f3f4f6;
+$Neutral-200: #e5e7eb;
+$Neutral-300: #d2d6db;
+$Neutral-400: #9da4ae;
+$Neutral-500: #6c737f;
+$Neutral-600: #4d5761;
+$Neutral-700: #384250;
+$Neutral-800: #1f2a37;
+$Neutral-900: #252525;
+$Neutral-950: #0f0f0f;
+
+$Gold-25: #ffffef;
+$Gold-50: #fffef2;
+$Gold-100: #fffce6;
+$Gold-200: #fcf3bd;
+$Gold-300: #fae996;
+$Gold-400: #f7d54d;
+$Gold-500: #f5bd02;
+$Gold-600: #dba102;
+$Gold-700: #b87b02;
+$Gold-800: #945c01;
+$Gold-900: #6e3c00;
+$Gold-950: #472400;
+
+$Lavender-25: #fefcff;
+$Lavender-50: #f9f5fa;
+$Lavender-100: #f2e9f5;
+$Lavender-200: #e1cce8;
+$Lavender-300: #ccadd9;
+$Lavender-400: #a57bba;
+$Lavender-500: #80519f;
+$Lavender-600: #6d428f;
+$Lavender-700: #532d75;
+$Lavender-800: #3d1d5e;
+$Lavender-900: #281047;
+$Lavender-950: #16072e;
+
+$Primary-25: #f7fdf9;
+$Primary-50: #f3fcf6;
+$Primary-100: #dff6e7;
+$Primary-200: #b8eacb;
+$Primary-300: #88d8ad;
+$Primary-400: #54c08a;
+$Primary-500: #25935f;
+$Primary-600: #1b8354;
+$Primary-700: #166a45;
+$Primary-800: #14573a;
+$Primary-900: #104631;
+$Primary-950: #092a1e;
+
+$Brown-25: #f9f5f0;
+$Brown-50: #ede0d0;
+$Brown-100: #e5d1b9;
+$Brown-200: #d9bd98;
+$Brown-300: #d1b085;
+$Brown-400: #cdab80;
+$Brown-500: #c69c66;
+$Brown-600: #b48e5d;
+$Brown-700: #8d6f48;
+$Brown-800: #6d5638;
+$Brown-900: #53422b;
+$Brown-950: #3f311e;
+
+$Info-25: #eff8ff;
+$Info-50: #eff8ff;
+$Info-100: #d1e9ff;
+$Info-200: #b2ddff;
+$Info-300: #84caff;
+$Info-400: #53b1fd;
+$Info-500: #2e90fa;
+$Info-600: #1570ef;
+$Info-700: #175cd3;
+$Info-800: #1849a9;
+$Info-900: #194185;
+$Info-950: #102a56;
+
+$Error-25: #fffbfa;
+$Error-50: #fef3f2;
+$Error-100: #fee4e2;
+$Error-200: #fecdca;
+$Error-300: #fda29b;
+$Error-400: #f97066;
+$Error-500: #f04438;
+$Error-600: #d92d20;
+$Error-700: #b42318;
+$Error-800: #912018;
+$Error-900: #7a271a;
+$Error-950: #55160c;
+
+$Warning-25: #fffcf5;
+$Warning-50: #fffaeb;
+$Warning-100: #fef0c7;
+$Warning-200: #fedf89;
+$Warning-300: #fec84b;
+$Warning-400: #fdb022;
+$Warning-500: #f79009;
+$Warning-600: #dc6803;
+$Warning-700: #b54708;
+$Warning-800: #93370d;
+$Warning-900: #7a2e0e;
+$Warning-950: #4e1d09;
+
+
+$padding-none: 0;
+$padding-xxs: 2px;
+$padding-xs: 4px;
+$padding-sm: 6px;
+$padding-md: 8px;
+$padding-lg: 12px;
+$padding-xl: 16px;
+$padding-2xl: 20px;
+$padding-3xl: 24px;
+$padding-4xl: 32px;
+$padding-5xl: 40px;
+$padding-6xl: 48px;
+$padding-7xl: 64px;
+$padding-8xl: 80px;
+$padding-9xl: 96px;
+$padding-10xl: 128px;
+$padding-11xl: 150px;
+
+
+
+$padding-0: $padding-none;
+$padding-2: $padding-xs;
+$padding-4: $padding-sm;
+$padding-6: $padding-sm;
+$padding-8: $padding-md;
+$padding-10: $padding-md;
+$padding-12: $padding-md;
+$padding-14: $padding-lg;
+$padding-16: $padding-lg;
+$padding-20: $padding-lg;
+
+
+
+$margin-none: 0;
+$margin-xxs: 2px;
+$margin-xs: 4px;
+$margin-sm: 6px;
+$margin-md: 8px;
+$margin-lg: 12px;
+$margin-xl: 16px;
+$margin-2xl: 20px;
+$margin-3xl: 24px;
+$margin-4xl: 32px;
+$margin-5xl: 40px;
+$margin-6xl: 48px;
+$margin-7xl: 64px;
+$margin-8xl: 80px;
+$margin-9xl: 96px;
+$margin-10xl: 128px;
+$margin-11xl: 150px;
+
+
+$gap-2: 2px;
+$gap-4: 4px;
+$gap-6: 6px;
+$gap-8: 8px;
+$gap-10: 10px;
+$gap-12: 12px;
+$gap-14: 14px;
+$gap-16: 16px;
+$gap-18: 18px;
+$gap-20: 20px;
+$gap-22: 22px;
+$gap-24: 24px;
+$gap-26: 26px;
+$gap-28: 28px;
+$gap-30: 30px;
+
+$gap-none: 0;
+$gap-xxs: 2px;
+$gap-xs: 4px;
+$gap-sm: 6px;
+$gap-md: 8px;
+$gap-lg: 12px;
+$gap-xl: 16px;
+$gap-2xl: 20px;
+$gap-3xl: 24px;
+$gap-4xl: 32px;
+$gap-5xl: 40px;
+$gap-6xl: 48px;
+$gap-7xl: 64px;
+$gap-8xl: 80px;
+$gap-9xl: 96px;
+$gap-10xl: 128px;
+$gap-11xl: 150px;
+
+
+
+
+$radius-none: 0;
+$radius-xxs: 2px;
+$radius-xs: 4px;
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-2xl: 20px;
+$radius-3xl: 24px;
+$radius-4xl: 32px;
+$radius-5xl: 40px;
+$radius-6xl: 48px;
+$radius-7xl: 64px;
+$radius-8xl: 80px;
+$radius-9xl: 96px;
+$radius-10xl: 128px;
+$radius-11xl: 150px;
+
+$Radius-none: $radius-none;
+$Radius-2: $radius-xs;
+$Radius-4: $radius-sm;
+$Radius-6: $radius-sm;
+$Radius-8: $radius-md;
+$Radius-10: $radius-md;
+$Radius-12: $radius-md;
+$Radius-14: $radius-md;
+$Radius-16: $radius-lg;
+$Radius-18: $radius-lg;
+$Radius-20: 20px;
+$Radius-100: 100px;
+
+
+
+// shadows
+$shadow-100: 0px 8px 30px rgba(181, 181, 181, 0.08);
+$shadow-2: 0px 5px 35px 0px rgba(0, 27, 175, 0.05);
+
+// Shadows Variables
+$shadow-xs: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+$shadow-sm: 0px 1px 3px 0px rgba(16, 24, 40, 0.1),
+    0px 1px 2px 0px rgba(16, 24, 40, 0.06);
+$shadow-md: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 
+    0px 2px 4px -2px rgba(16, 24, 40, 0.06);
+$shadow-lg: 0px 12px 16px -6px rgba(16, 24, 40, 0.08),
+    0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+$shadow-xl: 0px 20px 24px -4px rgba(16, 24, 40, 0.08),
+    0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+$shadow-2xl: 0px 24px 48px -12px rgba(16, 24, 40, 0.18);
+$shadow-3xl: 0px 32px 64px -12px rgba(16, 24, 40, 0.14);
+
+
+$form-control-height: 44px;
+$borderRadius: 6px;
+$transition-speed: 0.4s;
+
+
+:root {
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+    --alpha: 0.8;
+    --color_change: #25935f;
+    /* Effects */
+    --shadow-1-box-shadow: 0px 8px 30px 0px rgba(181, 181, 181, 0.08);
+    --shadow-2-box-shadow: 0px 8px 20px 0px rgba(226, 232, 240, 1);
+    --neumo-box-shadow: -10px -10px 30px 0px rgba(255, 255, 255, 1),
+        10px 10px 30px 0px rgba(174, 174, 192, 0.4);
+    --inner-shadow-box-shadow: inset -20px -28.42px 30.17px 0px
+            rgba(255, 255, 255, 0.38),
+        inset -20px -31.36px 35.03px 0px rgba(255, 255, 255, 0.45),
+        inset -20px -36.83px 42.67px 0px rgba(255, 255, 255, 0.54),
+        inset -20px -63px 65px 0px rgba(255, 255, 255, 0.75),
+        inset 30px 54px 61px 0px rgba(209, 217, 230, 0.67),
+        inset 30px 35px 45px 0px rgba(209, 217, 230, 0.48),
+        inset 30px 28px 38px 0px rgba(209, 217, 230, 0.4),
+        inset 30px 24px 34px 0px rgba(209, 217, 230, 0.34);
+}
+
+

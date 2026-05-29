@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buttons | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .page-header .code-inline {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .sample-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      align-items: center;
+    }
+
+    .demo-grid .btn {
+      width: 100%;
+    }
+
+    .visual-scroll {
+      overflow-x: auto;
+    }
+
+    .visual-matrix {
+      display: grid;
+      grid-template-columns: minmax(200px, 240px) repeat(5, minmax(160px, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .matrix-head {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .matrix-label {
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #111827;
+    }
+
+    .matrix-label[data-copy] {
+      cursor: pointer;
+    }
+
+    .matrix-label svg path {
+      fill: currentColor;
+    }
+
+    .state-cell {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      width: 100%;
+      min-height: 56px;
+      border: 1px dashed #e5e7eb;
+      background: #f9fafb;
+      text-align: center;
+    }
+
+    .state-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #111827;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .visual-grid .btn {
+      width: 100%;
+    }
+
+    .copy-hint {
+      color: var(--muted);
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    .copy-status {
+      color: #111827;
+      font-weight: 600;
+    }
+
+    .copy-tooltip {
+      position: fixed;
+      z-index: 1000;
+      background: #111827;
+      color: #f9fafb;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .copy-tooltip.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* disabled state is handled via native [disabled] or aria-disabled="true" */
+    button[disabled],
+    button[aria-disabled="true"] {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .sample-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .token-chip {
+      background: #f3f4f6;
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      color: #374151;
+    }
+
+    .anatomy-frame {
+      background-image: url("./images/dot-grid.svg");
+      background-size: 280px;
+      padding: 24px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .anatomy-frame img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0;
+    }
+
+    .state-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .governance-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .gov-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .gov-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .gov-card .section-note {
+      margin-bottom: 6px;
+    }
+
+    .state-tile {
+      background: #fff;
+      border: 1px dashed #e5e7eb;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .state-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .usage-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .usage-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    #sizing .usage-grid .usage-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .usage-card h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .usage-card ul {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .btn-sample {
+      min-width: 180px;
+    }
+
+    .docs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .docs-table th,
+    .docs-table td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      vertical-align: top;
+    }
+
+    .docs-table th {
+      background: #f9fafb;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .docs-table th svg,
+    .docs-table td svg {
+      width: 24px !important;
+      height: 24px !important;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #1f2a6b;
+      font-size: 0.75rem;
+    }
+
+    .two-col {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    svg {
+      width: 16px !important;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .docs-sidebar {}
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .sidebar-nav a.is-active {
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+    }
+
+    .lang-toggle {
+      margin-top: 12px;
+      width: 100%;
+      background: #fff;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #cbd5f5;
+      box-shadow: 0 14px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .lang-toggle svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+  
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+
+  </style>
+  <link href="./css/ds-site-nav.css" rel="stylesheet" />
+</head>
+
+<body>
+
+
+  <div class="top-actions" role="group" aria-label="Page utilities">
+    <button class="btn moi-btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><svg width="24"
+        height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M8.05469 1.25C9.42218 1.24998 10.5247 1.24968 11.3916 1.36621C12.2917 1.48723 13.0495 1.74672 13.6514 2.34863C14.2533 2.95055 14.5128 3.70829 14.6338 4.6084C14.7503 5.47534 14.75 6.57782 14.75 7.94531V9.25488C15.1235 9.25143 15.5218 9.24999 15.9453 9.25H16.0547C17.4222 9.24998 18.5247 9.24968 19.3916 9.36621C20.2917 9.48723 21.0495 9.74672 21.6514 10.3486C22.2533 10.9505 22.5128 11.7083 22.6338 12.6084C22.7503 13.4753 22.75 14.5778 22.75 15.9453V16.0547C22.75 17.4222 22.7503 18.5247 22.6338 19.3916C22.5128 20.2917 22.2533 21.0495 21.6514 21.6514C21.0495 22.2533 20.2917 22.5128 19.3916 22.6338C18.5247 22.7503 17.4222 22.75 16.0547 22.75H15.9453C14.5778 22.75 13.4753 22.7503 12.6084 22.6338C11.7083 22.5128 10.9505 22.2533 10.3486 21.6514C9.74672 21.0495 9.48723 20.2917 9.36621 19.3916C9.24968 18.5247 9.24998 17.4222 9.25 16.0547V15.9453C9.24999 15.5218 9.25143 15.1235 9.25488 14.75H7.94531C6.57782 14.75 5.47534 14.7503 4.6084 14.6338C3.70829 14.5128 2.95055 14.2533 2.34863 13.6514C1.74672 13.0495 1.48723 12.2917 1.36621 11.3916C1.24968 10.5247 1.24998 9.42218 1.25 8.05469V7.94531C1.24998 6.57782 1.24968 5.47534 1.36621 4.6084C1.48723 3.70829 1.74672 2.95055 2.34863 2.34863C2.95055 1.74672 3.70829 1.48723 4.6084 1.36621C5.47534 1.24968 6.57782 1.24998 7.94531 1.25H8.05469ZM16 10.75C14.5648 10.75 13.5639 10.752 12.8086 10.8535C12.0748 10.9522 11.6859 11.1324 11.4092 11.4092C11.1324 11.6859 10.9522 12.0748 10.8535 12.8086C10.752 13.5639 10.75 14.5648 10.75 16C10.75 17.4352 10.752 18.4361 10.8535 19.1914C10.9522 19.9252 11.1324 20.3141 11.4092 20.5908C11.6859 20.8676 12.0748 21.0478 12.8086 21.1465C13.5639 21.248 14.5648 21.25 16 21.25C17.4352 21.25 18.4361 21.248 19.1914 21.1465C19.9252 21.0478 20.3141 20.8676 20.5908 20.5908C20.8676 20.3141 21.0478 19.9252 21.1465 19.1914C21.248 18.4361 21.25 17.4352 21.25 16C21.25 14.5648 21.248 13.5639 21.1465 12.8086C21.0478 12.0748 20.8676 11.6859 20.5908 11.4092C20.3141 11.1324 19.9252 10.9522 19.1914 10.8535C18.4361 10.752 17.4352 10.75 16 10.75ZM4 15.75C4.41421 15.75 4.75 16.0858 4.75 16.5C4.75 17.2178 4.75071 17.7 4.78809 18.0674C4.82419 18.4221 4.88849 18.5859 4.96094 18.6943C5.05212 18.8308 5.16921 18.9479 5.30566 19.0391C5.4141 19.1115 5.57788 19.1758 5.93262 19.2119C6.30002 19.2493 6.78216 19.25 7.5 19.25C7.91421 19.25 8.25 19.5858 8.25 20C8.25 20.4142 7.91421 20.75 7.5 20.75H7.46191C6.79245 20.75 6.23354 20.7501 5.78125 20.7041C5.30783 20.6559 4.86862 20.5507 4.47266 20.2861C4.17238 20.0855 3.9145 19.8276 3.71387 19.5273C3.44934 19.1314 3.34406 18.6922 3.2959 18.2188C3.24991 17.7665 3.24998 17.2075 3.25 16.5381C3.25 16.5254 3.25 16.5127 3.25 16.5C3.25 16.0858 3.58579 15.75 4 15.75ZM16 12.25C16.3028 12.25 16.5759 12.4324 16.6924 12.7119L19.1924 18.7119C19.3514 19.0941 19.1711 19.533 18.7891 19.6924C18.4067 19.8517 17.9669 19.6704 17.8076 19.2881L17.167 17.75H14.834L14.1924 19.2881C14.0331 19.6704 13.5942 19.8516 13.2119 19.6924C12.8297 19.5331 12.6486 19.0942 12.8076 18.7119L15.3076 12.7119C15.424 12.4325 15.6973 12.2501 16 12.25Z"
+          fill="currentColor"></path>
+      </svg><span>العربية</span></button>
+    <button class="btn moi-btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M11.9975 3.25C11.624 3.25 11.2774 3.41565 11.0172 3.57252C10.7364 3.7418 10.4464 3.96944 10.1638 4.21918C9.59669 4.72018 8.98771 5.37387 8.43684 6.00823C7.88274 6.64633 7.37253 7.28222 7.00175 7.75725C6.81606 7.99516 6.66462 8.19364 6.55931 8.33304C6.50664 8.40276 6.46547 8.45776 6.43727 8.49558L6.40489 8.53915L6.39633 8.55071L6.39337 8.55472C6.14771 8.88822 6.2186 9.35816 6.5521 9.60382C6.88559 9.84947 7.35507 9.77828 7.60074 9.44481L7.61015 9.43209L7.63992 9.39204C7.66632 9.35662 7.70557 9.3042 7.75618 9.2372C7.85743 9.10317 8.00402 8.91102 8.1842 8.68019C8.54517 8.21772 9.03806 7.60363 9.56942 6.99173C10.104 6.37611 10.6628 5.77981 11.1569 5.34331C11.1882 5.3157 11.2189 5.28899 11.249 5.26316L11.249 20C11.249 20.4142 11.5848 20.75 11.999 20.75C12.4132 20.75 12.749 20.4142 12.749 20L12.749 5.2657C12.7782 5.29073 12.808 5.31661 12.8382 5.34331C13.3323 5.77981 13.8911 6.37611 14.4257 6.99173C14.957 7.60363 15.4499 8.21772 15.8109 8.68019C15.9911 8.91102 16.1377 9.10317 16.2389 9.2372C16.2895 9.30419 16.3288 9.35662 16.3552 9.39204L16.3849 9.43209L16.3943 9.44481C16.64 9.77828 17.1095 9.84947 17.443 9.60382C17.7765 9.35816 17.8474 8.88822 17.6017 8.55472L17.5988 8.55071L17.5902 8.53915L17.5578 8.49558C17.5296 8.45776 17.4884 8.40276 17.4358 8.33304C17.3305 8.19363 17.179 7.99516 16.9933 7.75725C16.6226 7.28222 16.1123 6.64633 15.5582 6.00823C15.0074 5.37387 14.3984 4.72018 13.8313 4.21918C13.5486 3.96944 13.2587 3.7418 12.9779 3.57252C12.7192 3.4166 12.3753 3.25199 12.0043 3.25002"
+          fill="white"></path>
+      </svg><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span>
+    </button>
+  </div>
+
+
+  <main class="container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./buttons.html" class="is-active" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+        </nav>
+      </div>
+
+    </aside>
+
+    <div class="page-content">
+
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="المكونات / الإجراءات">Components / Actions</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="الأزرار">Buttons</h1>
+
+        <p class="text-muted mb-4" data-i18n
+          data-ar="الأزرار هي عنصر التحكم الأساسي لإجراءات المستخدم وتفاعل الواجهة. يحدد هذا المستند إرشادات استخدام الأزرار، هياكلها، حالاتها، وكيفية تطبيقها بشكل فعال.">
+          Buttons are the primary control for user actions and interface interaction. This document outlines button
+          usage guidelines, anatomy, states, and how to apply them effectively.
+        </p>
+        <div class="sample-grid">
+          <button class="btn moi-btn moi-btn--Primary" data-i18n data-ar="أساسي">Primary</button>
+          <button class="btn moi-btn moi-btn--Warning" data-i18n data-ar="تحذير">Warning</button>
+          <button class="btn moi-btn moi-btn--Neutral--outline" data-i18n data-ar="محايد بإطار">Neutral outline</button>
+          <button class="btn moi-btn moi-btn--black" data-i18n data-ar="أسود (قديم)">Black (legacy)</button>
+        </div>
+      </header>
+    <div class="metadata-row">
+      <span class="metadata-pill"
+            data-i18n
+            data-ar="المكوّن: الأزرار"
+            data-en="Component: Buttons">
+          المكوّن: الأزرار
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="الإصدار: قيد التحديث"
+              data-en="Version: TBD">
+          الإصدار: قيد التحديث
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+            data-ar="آخر تحديث: 28 يناير 2026"
+            data-en="Last updated: January 28, 2026">
+        آخر تحديث: 28 يناير 2026
+      </span>
+    </div>
+
+
+    <section class="section" id="overview">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2>
+        <p class="section-note" data-i18n
+          data-ar="الأزرار هي عناصر تفاعلية أساسية تُستخدم لتشغيل الإجراءات. نظام الأزرار يعتمد على الفئات، مما يضمن المرونة والاتساق.">
+          Buttons are essential interactive elements used to trigger actions. The button system is class-based,
+          ensuring flexibility and consistency.
+        </p>
+        <h3 class="section-title mt-4" data-i18n data-ar="الفئات الأساسية">Base Classes</h3>
+        <p class="section-note" data-i18n
+          data-ar="يجب دائمًا استخدام الفئات <span class=&quot;code-inline&quot;>.btn</span> و <span class=&quot;code-inline&quot;>.moi-btn</span> معًا لتوفير البنية والأنماط الأساسية المشتركة.">
+          The <span class="code-inline">.btn</span> and <span class="code-inline">.moi-btn</span> classes must always
+          be used together to provide shared structure and base styles.
+        </p>
+        <h3 class="section-title mt-4" data-i18n data-ar="أنواع الأزرار (Variants)">Variants</h3>
+        <p class="section-note" data-i18n
+          data-ar="يتم تطبيق الأنماط المرئية (مثل اللون والشكل) باستخدام فئة معدلة واحدة تبدأ بـ <span class=&quot;code-inline&quot;>.moi-btn--*</span>.">
+          Visual styles (such as color and appearance) are applied using a single modifier class starting with <span
+            class="code-inline">.moi-btn--*</span>.
+        </p>
+        <div class="sample-grid">
+          <button class="btn moi-btn moi-btn--Primary" data-i18n data-ar="أساسي">Primary</button>
+          <button class="btn moi-btn moi-btn--Warning" data-i18n data-ar="تحذير">Warning</button>
+          <button class="btn moi-btn moi-btn--Neutral--outline" data-i18n data-ar="محايد بإطار">Neutral outline</button>
+          <button class="btn moi-btn moi-btn--black" data-i18n data-ar="أسود (قديم)">Black (legacy)</button>
+        </div>
+      </div>
+    </section>
+
+
+      <section class="section" id="variants-usage">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="أنواع الأزرار والاستخدام">Button Variants & Usage</h2>
+          <p class="section-note" data-i18n
+            data-ar="يتم تعريف الأنماط المرئية للأزرار من خلال فئات معدلة فريدة. اختر الفئة التي تناسب سياق الإجراء.">
+            Button visual styles are defined by unique modifier classes. Choose the class that best suits the action
+            context.
+          </p>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="الأنواع الأساسية">Core Variants</h3>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="النوع">Variant</th>
+                <th data-i18n data-ar="فئة CSS">CSS Class</th>
+                <th data-i18n data-ar="الاستخدام">Usage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n data-ar="أساسي (Primary)">Primary</td>
+                <td><code class="code-inline">.moi-btn--Primary</code></td>
+                <td data-i18n data-ar="للإجراءات الأكثر أهمية وتأكيدًا في الواجهة.">For the most important and
+                  affirmative actions.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="محايد (Neutral)">Neutral</td>
+                <td><code class="code-inline">.moi-btn--Neutral</code></td>
+                <td data-i18n data-ar="للإجراءات الثانوية أو الخالية من التمييز.">For secondary or less emphasized
+                  actions.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="تحذير (Warning)">Warning</td>
+                <td><code class="code-inline">.moi-btn--Warning</code></td>
+                <td data-i18n data-ar="للإجراءات التي تتطلب الحذر أو تنبه المستخدم.">For actions requiring caution or
+                  warning the user.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="معلومات (Info)">Info</td>
+                <td><code class="code-inline">.moi-btn--Info</code></td>
+                <td data-i18n data-ar="للإجراءات المعلوماتية أو الإرشادية.">For informational or guidance-related
+                  actions.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="خطأ (Error)">Error</td>
+                <td><code class="code-inline">.moi-btn--Error</code></td>
+                <td data-i18n data-ar="للإجراءات المدمرة أو التي تشير إلى خطأ حرج.">For destructive actions or
+                  indicating a critical error.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="نص فقط (Text)">Text</td>
+                <td><code class="code-inline">.moi-btn--text</code></td>
+                <td data-i18n data-ar="للإجراءات ذات الأهمية المنخفضة أو كبديل للروابط.">For low-emphasis actions or
+                  link-like behavior.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="أسود (Black / Legacy)">Black (Legacy)</td>
+                <td><code class="code-inline">.moi-btn--black</code></td>
+                <td data-i18n data-ar="فئة قديمة، يفضل استخدام الأزرار المحايدة الجديدة.">Legacy class, prefer new
+                  Neutral buttons.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="أنواع الإطار (Outline Variants)">Outline Variants</h3>
+          <p class="section-note" data-i18n
+            data-ar="تتوفر أنماط الأزرار ذات الإطار لتقليل التمييز البصري. أضف <span class=&quot;code-inline&quot;>--outline</span> إلى فئة النمط.">
+            Outline button styles are available to reduce visual emphasis. Append <span
+              class="code-inline">--outline</span> to the variant class.
+          </p>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="النوع">Variant</th>
+                <th data-i18n data-ar="فئة CSS">CSS Class</th>
+                <th data-i18n data-ar="الاستخدام">Usage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n data-ar="أساسي بإطار (Primary Outline)">Primary Outline</td>
+                <td><code class="code-inline">.moi-btn--Primary--outline</code></td>
+                <td data-i18n data-ar="للإجراءات الثانوية المرتبطة بالإجراء الأساسي.">For secondary actions related to a
+                  primary action.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="محايد بإطار (Neutral Outline)">Neutral Outline</td>
+                <td><code class="code-inline">.moi-btn--Neutral--outline</code></td>
+                <td data-i18n data-ar="للإجراءات البديلة أو الإجراءات في سياق محايد.">For alternative actions or actions
+                  in a neutral context.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="تحذير بإطار (Warning Outline)">Warning Outline</td>
+                <td><code class="code-inline">.moi-btn--Warning--outline</code></td>
+                <td data-i18n data-ar="للتأكيد على التحذير مع تقليل التشتيت.">To emphasize a warning while reducing
+                  visual clutter.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="معلومات بإطار (Info Outline)">Info Outline</td>
+                <td><code class="code-inline">.moi-btn--Info--outline</code></td>
+                <td data-i18n data-ar="لإبراز المعلومات دون الحاجة لزر ممتلئ.">To highlight information without the need
+                  for a solid button.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="خطأ بإطار (Error Outline)">Error Outline</td>
+                <td><code class="code-inline">.moi-btn--Error--outline</code></td>
+                <td data-i18n data-ar="لإجراءات الحذف أو التراجع التي تتطلب تحذيرًا مرئيًا.">For delete or undo actions
+                  requiring visual caution.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="developer-api">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="واجهة برمجة التطبيقات للمطورين (Developer API)">Developer API
+          </h2>
+          <p class="section-note" data-i18n data-ar="يوضح هذا القسم كيفية بناء الأزرار باستخدام فئات CSS المتاحة.">
+            This section details how to construct buttons using the available CSS classes.
+          </p>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="الزر الأساسي (Primary Button)">Primary Button</h3>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;button class="btn moi-btn moi-btn--Primary"&gt;إرسال&lt;/button&gt;</code></pre>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="زر محايد بإطار (Neutral Outline Button)">Neutral Outline
+            Button</h3>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;button class="btn moi-btn moi-btn--Neutral--outline"&gt;إلغاء&lt;/button&gt;</code></pre>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="زر مع أيقونة">Button with Icon</h3>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;button class="btn moi-btn moi-btn--Primary"&gt;
+  &lt;span&gt;المزيد&lt;/span&gt;
+  &lt;svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"&gt;
+    &lt;path d="M8 5L13 10L8 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/&gt;
+  &lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="زر أيقونة فقط">Icon-Only Button</h3>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;button class="btn moi-btn moi-btn--Neutral" data-icon-only="true" aria-label="Settings"&gt;
+  &lt;svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"&gt;
+    &lt;circle cx="10" cy="4" r="1.5" fill="currentColor"/&gt;
+    &lt;circle cx="10" cy="10" r="1.5" fill="currentColor"/&gt;
+    &lt;circle cx="10" cy="16" r="1.5" fill="currentColor"/&gt;
+  &lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="زر معطل (Disabled)">Disabled Button</h3>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;button class="btn moi-btn moi-btn--Primary" disabled&gt;معطل&lt;/button&gt;
+&lt;button class="btn moi-btn moi-btn--Neutral" aria-disabled="true"&gt;معطل&lt;/button&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="anatomy">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2>
+          <p class="section-note" data-i18n
+            data-ar="يتم استنتاج البنية من المحددات في SCSS وتتبع الهيكل الأساسي التالي:">
+            Structure is inferred from selectors in the SCSS and follows this basic structure:
+          </p>
+          <div class="row g-4">
+            <div class="col-12 col-lg-6">
+              <h3 class="section-title" data-i18n data-ar="البنية الأساسية">Basic Structure</h3>
+              <p class="section-note" data-i18n
+                data-ar="كل زر يتطلب تطبيق الفئات <span class=&quot;code-inline&quot;>.btn</span> و <span class=&quot;code-inline&quot;>.moi-btn</span> بالإضافة إلى فئة معدلة واحدة للنمط.">
+                Every button requires the application of <span class="code-inline">.btn</span> and <span
+                  class="code-inline">.moi-btn</span> classes, plus a single modifier class for styling.
+              </p>
+              <div class="code-block">
+                <pre><code class="language-html">&lt;button class="btn moi-btn moi-btn--Primary"&gt;Button Label&lt;/button&gt;</code></pre>
+              </div>
+
+              <h3 class="section-title mt-4" data-i18n data-ar="دعم الأيقونات">Icon Support</h3>
+              <p class="section-note" data-i18n
+                data-ar="يمكن للأزرار أن تحتوي على أيقونات (SVG أو IMG) بجانب النص أو كأزرار أيقونية فقط.">
+                Buttons can contain icons (SVG or IMG) alongside text or as icon-only buttons.
+              </p>
+              <div class="code-block">
+                <pre><code class="language-html">&lt;!-- Button with text and icon --&gt;
+&lt;button class="btn moi-btn moi-btn--Primary"&gt;
+  Label &lt;svg class="icon"&gt;...&lt;/svg&gt;
+&lt;/button&gt;
+
+&lt;!-- Icon-only button (requires aria-label) --&gt;
+&lt;button class="btn moi-btn moi-btn--Neutral" data-icon-only="true" aria-label="Settings"&gt;
+  &lt;svg class="icon"&gt;...&lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="anatomy-frame">
+                <img src="../images/buttonanatomy.png" alt="Button anatomy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <section class="section" id="base-styles">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="الأنماط الأساسية">Base Styles</h2>
+        <p class="section-note" data-i18n
+          data-ar="كل من <span class=&quot;code-inline&quot;>.btn</span> و <span class=&quot;code-inline&quot;>.moi-btn</span> يستدعيان <span class=&quot;code-inline&quot;>@include buttonStyles;</span>. يحدد هذا المزيج القواعد الأساسية المشتركة لكل الأنماط؛ راجع قسم التركيب للخصائص المستخرجة.">
+          Both <span class="code-inline">.btn</span> and <span class="code-inline">.moi-btn</span>
+          call <span class="code-inline">@include buttonStyles;</span>. The mixin defines the shared
+          base rules for all variants; see the Anatomy section for the extracted properties.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="sizing">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="الأحجام">Sizing</h2>
+        <p class="section-note" data-i18n
+          data-ar="يتم التحكم بحجم الزر عبر السمة <span class=&quot;code-inline&quot;>data-size=&quot;sm|md|lg|xl&quot;</span>. عند إغفال هذه السمة، يستخدم الزر الحجم الافتراضي (md).">
+          Button size is controlled via the <span class="code-inline">data-size="sm|md|lg|xl"</span> attribute. When
+          omitted, the button defaults to <strong>md</strong> size.
+        </p>
+
+        <h3 class="section-title mt-4" data-i18n data-ar="أمثلة الأحجام">Size Examples</h3>
+        <div class="code-block">
+          <pre><code class="language-html">&lt;button class="btn moi-btn moi-btn--Primary" data-size="sm"&gt;Small Button&lt;/button&gt;
+&lt;button class="btn moi-btn moi-btn--Primary" data-size="md"&gt;Medium Button&lt;/button&gt;
+&lt;button class="btn moi-btn moi-btn--Primary" data-size="lg"&gt;Large Button&lt;/button&gt;
+&lt;button class="btn moi-btn moi-btn--Primary" data-size="xl"&gt;Extra Large Button&lt;/button&gt;</code></pre>
+        </div>
+
+        <h3 class="section-title mt-4" data-i18n data-ar="مساحة اللمس (Touch Target)">Touch Target</h3>
+        <p class="section-note" data-i18n
+          data-ar="يضمن عنصر زائف (<span class=&quot;code-inline&quot;>::after</span>) مساحة لمس لا تقل عن 44×44 بكسل، مما يحسن إمكانية الوصول على الشاشات اللمسية دون تغيير الحجم المرئي للزر.">
+          A pseudo-element (<span class="code-inline">::after</span>) enforces a minimum 44x44 pixel touch target,
+          improving accessibility on touchscreens without altering the button's visual size.
+        </p>
+
+        <h3 class="section-title mt-4" data-i18n data-ar="الأزرار الأيقونية فقط">Icon-Only Buttons</h3>
+        <p class="section-note" data-i18n
+          data-ar="لتفعيل زر أيقوني فقط، استخدم السمة <span class=&quot;code-inline&quot;>data-icon-only=&quot;true&quot;</span> ويجب توفير <span class=&quot;code-inline&quot;>aria-label</span> وصفي.">
+          To enable an icon-only button, use the <span class="code-inline">data-icon-only="true"</span> attribute and
+          provide a descriptive <span class="code-inline">aria-label</span>.
+        </p>
+        <div class="code-block">
+          <pre><code class="language-html">&lt;button class="btn moi-btn moi-btn--Neutral" data-icon-only="true" aria-label="Settings"&gt;
+  &lt;svg class="icon"&gt;...&lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="disabled">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="سلوك التعطيل">Disabled Behavior</h2>
+        <p class="section-note" data-i18n
+          data-ar="يتم تطبيق نمط التعطيل على <span class=&quot;code-inline&quot;>.btn:disabled</span>: خلفية <span class=&quot;code-inline&quot;>$Neutral-100</span>، حد <span class=&quot;code-inline&quot;>1px solid $Neutral-300</span>، ولون نص <span class=&quot;code-inline&quot;>$Neutral-400</span>.">
+          The disabled styling is applied on <span class="code-inline">.btn:disabled</span>:
+          background <span class="code-inline">$Neutral-100</span>, border
+          <span class="code-inline">1px solid $Neutral-300</span>, and text color
+          <span class="code-inline">$Neutral-400</span>.
+        </p>
+      </div>
+    </section>
+
+
+    <section class="section" id="states">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="الحالات">States</h2>
+        <p class="section-note" data-i18n
+          data-ar="يتم عرض كل نمط عبر حالاته المختلفة: الافتراضي، التحويم، النشط، التركيز، والمعطّل.">
+          Each button variant is defined across its different states: Default, Hover, Active, Focus, and Disabled.
+        </p>
+        <p class="section-note" data-i18n data-ar="تضمن هذه الحالات تفاعلًا متسقًا وسهل الاستخدام عبر الواجهة.">
+          These states ensure consistent and intuitive interaction across the interface.
+        </p>
+
+        <h3 class="section-title mt-4" data-i18n data-ar="حالات الأزرار الأساسية (Primary Buttons)">Primary Buttons
+          States</h3>
+        <p class="section-note" data-i18n
+          data-ar="توضح الأمثلة التالية كيفية ظهور الأزرار الأساسية في حالاتها المختلفة.">
+          The following examples illustrate the appearance of primary buttons in their various states.
+        </p>
+        <div class="code-block">
+          <pre><code class="language-html">&lt;!-- Default Primary Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Primary"&gt;Primary&lt;/button&gt;
+
+&lt;!-- Hover Primary Button (simulate with :hover in dev tools) --&gt;
+&lt;button class="btn moi-btn moi-btn--Primary"&gt;Primary Hover&lt;/button&gt;
+
+&lt;!-- Active Primary Button (simulate with :active in dev tools) --&gt;
+&lt;button class="btn moi-btn moi-btn--Primary"&gt;Primary Active&lt;/button&gt;
+
+&lt;!-- Focus Primary Button (simulate with :focus in dev tools) --&gt;
+&lt;button class="btn moi-btn moi-btn--Primary"&gt;Primary Focus&lt;/button&gt;
+
+&lt;!-- Disabled Primary Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Primary" disabled&gt;Primary Disabled&lt;/button&gt;</code></pre>
+        </div>
+
+        <h3 class="section-title mt-4" data-i18n data-ar="حالات الأزرار المحايدة (Neutral Buttons)">Neutral Buttons
+          States</h3>
+        <p class="section-note" data-i18n
+          data-ar="توضح الأمثلة التالية كيفية ظهور الأزرار المحايدة في حالاتها المختلفة.">
+          The following examples illustrate the appearance of neutral buttons in their various states.
+        </p>
+        <div class="code-block">
+          <pre><code class="language-html">&lt;!-- Default Neutral Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Neutral"&gt;Neutral&lt;/button&gt;
+
+&lt;!-- Hover Neutral Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Neutral"&gt;Neutral Hover&lt;/button&gt;
+
+&lt;!-- Active Neutral Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Neutral"&gt;Neutral Active&lt;/button&gt;
+
+&lt;!-- Focus Neutral Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Neutral"&gt;Neutral Focus&lt;/button&gt;
+
+&lt;!-- Disabled Neutral Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Neutral" disabled&gt;Neutral Disabled&lt;/button&gt;</code></pre>
+        </div>
+
+        <h3 class="section-title mt-4" data-i18n data-ar="حالات أزرار التحذير (Warning Buttons)">Warning Buttons States
+        </h3>
+        <p class="section-note" data-i18n data-ar="توضح الأمثلة التالية كيفية ظهور أزرار التحذير في حالاتها المختلفة.">
+          The following examples illustrate the appearance of warning buttons in their various states.
+        </p>
+        <div class="code-block">
+          <pre><code class="language-html">&lt;!-- Default Warning Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Warning"&gt;Warning&lt;/button&gt;
+
+&lt;!-- Hover Warning Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Warning"&gt;Warning Hover&lt;/button&gt;
+
+&lt;!-- Active Warning Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Warning"&gt;Warning Active&lt;/button&gt;
+
+&lt;!-- Focus Warning Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Warning"&gt;Warning Focus&lt;/button&gt;
+
+&lt;!-- Disabled Warning Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Warning" disabled&gt;Warning Disabled&lt;/button&gt;</code></pre>
+        </div>
+
+        <h3 class="section-title mt-4" data-i18n data-ar="حالات أزرار المعلومات (Info Buttons)">Info Buttons States</h3>
+        <p class="section-note" data-i18n
+          data-ar="توضح الأمثلة التالية كيفية ظهور أزرار المعلومات في حالاتها المختلفة.">
+          The following examples illustrate the appearance of info buttons in their various states.
+        </p>
+        <div class="code-block">
+          <pre><code class="language-html">&lt;!-- Default Info Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Info"&gt;Info&lt;/button&gt;
+
+&lt;!-- Hover Info Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Info"&gt;Info Hover&lt;/button&gt;
+
+&lt;!-- Active Info Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Info"&gt;Info Active&lt;/button&gt;
+
+&lt;!-- Focus Info Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Info"&gt;Info Focus&lt;/button&gt;
+
+&lt;!-- Disabled Info Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Info" disabled&gt;Info Disabled&lt;/button&gt;</code></pre>
+        </div>
+
+        <h3 class="section-title mt-4" data-i18n data-ar="حالات أزرار الخطأ (Error Buttons)">Error Buttons States</h3>
+        <p class="section-note" data-i18n data-ar="توضح الأمثلة التالية كيفية ظهور أزرار الخطأ في حالاتها المختلفة.">
+          The following examples illustrate the appearance of error buttons in their various states.
+        </p>
+        <div class="code-block">
+          <pre><code class="language-html">&lt;!-- Default Error Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Error"&gt;Error&lt;/button&gt;
+
+&lt;!-- Hover Error Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Error"&gt;Error Hover&lt;/button&gt;
+
+&lt;!-- Active Error Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Error"&gt;Error Active&lt;/button&gt;
+
+&lt;!-- Focus Error Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Error"&gt;Error Focus&lt;/button&gt;
+
+&lt;!-- Disabled Error Button --&gt;
+&lt;button class="btn moi-btn moi-btn--Error" disabled&gt;Error Disabled&lt;/button&gt;</code></pre>
+        </div>
+
+
+        <section class="section mb-3" id="visual">
+          <div class="section-card bg-Info-100">
+
+            <div class="copy-hint ">
+              <span class="font-lg-600 Info-600" data-i18n
+                data-ar="تلميح: انقر أي زر أو تسمية لنسخ قائمة الفئات الخاصة به."> Hint: click any button or label to
+                copy its class list.</span>
+              <span class=" copy-status" aria-live="polite"></span>
+            </div>
+
+          </div>
+        </section>
+
+        <div class="visual-scroll">
+          <div class="visual-matrix">
+            <div class="matrix-head"></div>
+            <div class="matrix-head">Default</div>
+            <div class="matrix-head">Hover</div>
+            <div class="matrix-head">Active</div>
+            <div class="matrix-head">Focus</div>
+            <div class="matrix-head">Disabled</div>
+
+
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Primary">moi-btn--Primary <svg width="24" height="24" viewBox="0 0 24 24"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <div class="state-cell bg-Primary-500 text-white">Primary default</div>
+            <div class="state-cell bg-Primary-600 text-white">Primary hover</div>
+            <div class="state-cell bg-Primary-700 text-white">Primary active</div>
+            <div class="state-cell bg-Primary-800 text-white">Primary focus</div>
+            <div class="state-cell bg-Primary-100 text-Neutral-600">Primary disabled</div>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Primary--solid">moi-btn--Primary--solid <svg width="24" height="24"
+                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <div class="state-cell bg-Primary-500 text-white">Primary solid</div>
+            <div class="state-cell bg-Primary-500 text-white" style="opacity:0.8;">Primary solid hover</div>
+            <div class="state-cell bg-Primary-500 text-white" style="opacity:0.8;">Primary solid active</div>
+            <div class="state-cell bg-Primary-500 text-white" style="opacity:0.8;">Primary solid focus</div>
+            <div class="state-cell bg-Primary-100 text-Neutral-600">Primary solid disabled</div>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Primary--outline">moi-btn--Primary--outline <svg width="24" height="24"
+                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <div class="state-cell" style="border:1px solid var(--border); color:#25935f;">Primary outline</div>
+            <div class="state-cell bg-Primary-500 text-white" style="opacity:0.8;">Primary outline hover</div>
+            <div class="state-cell bg-Primary-500 text-white" style="opacity:0.8;">Primary outline active</div>
+            <div class="state-cell bg-Primary-500 text-white" style="opacity:0.8;">Primary outline focus</div>
+            <div class="state-cell" style="border:1px solid var(--border); color:#9da4ae;">Primary outline disabled
+            </div>
+
+
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--black">moi-btn--black <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <div class="state-cell bg-Neutral-900 text-white">black default</div>
+            <div class="state-cell bg-Neutral-600 text-white">black hover</div>
+            <div class="state-cell bg-Neutral-700 text-white">black active</div>
+            <div class="state-cell bg-Neutral-800 text-white">black focus</div>
+            <div class="state-cell bg-Neutral-100 text-Neutral-600">black disabled</div>
+
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Neutral">moi-btn--Neutral <svg width="24" height="24" viewBox="0 0 24 24"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <button class="btn moi-btn moi-btn--Neutral w-100" title="Default state">Default</button>
+            <button class="btn moi-btn moi-btn--Neutral w-100"
+              title="Hover this button to preview the hover state">Hover</button>
+            <button class="btn moi-btn moi-btn--Neutral w-100"
+              title="Press and hold to preview the active state">Active</button>
+            <button class="btn moi-btn moi-btn--Neutral w-100"
+              title="Tab to this button to preview the focus state">Focus</button>
+            <button class="btn moi-btn moi-btn--Neutral w-100" aria-disabled="true"
+              data-disabled="true">Disabled</button>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Neutral--solid">moi-btn--Neutral--solid <svg width="24" height="24"
+                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <button class="btn moi-btn moi-btn--Neutral--solid w-100" title="Default state">Default</button>
+            <button class="btn moi-btn moi-btn--Neutral--solid w-100"
+              title="Hover this button to preview the hover state">Hover</button>
+            <button class="btn moi-btn moi-btn--Neutral--solid w-100"
+              title="Press and hold to preview the active state">Active</button>
+            <button class="btn moi-btn moi-btn--Neutral--solid w-100"
+              title="Tab to this button to preview the focus state">Focus</button>
+            <button class="btn moi-btn moi-btn--Neutral--solid w-100" aria-disabled="true"
+              data-disabled="true">Disabled</button>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Neutral--outline">moi-btn--Neutral--outline <svg width="24" height="24"
+                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <button class="btn moi-btn moi-btn--Neutral--outline w-100" title="Default state">Default</button>
+            <button class="btn moi-btn moi-btn--Neutral--outline w-100"
+              title="Hover this button to preview the hover state">Hover</button>
+            <button class="btn moi-btn moi-btn--Neutral--outline w-100"
+              title="Press and hold to preview the active state">Active</button>
+            <button class="btn moi-btn moi-btn--Neutral--outline w-100"
+              title="Tab to this button to preview the focus state">Focus</button>
+            <button class="btn moi-btn moi-btn--Neutral--outline w-100" aria-disabled="true"
+              data-disabled="true">Disabled</button>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Lavender">moi-btn--Lavender <svg width="24" height="24" viewBox="0 0 24 24"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <button class="btn moi-btn moi-btn--Lavender w-100" title="Default state">Default</button>
+            <button class="btn moi-btn moi-btn--Lavender w-100"
+              title="Hover this button to preview the hover state">Hover</button>
+            <button class="btn moi-btn moi-btn--Lavender w-100"
+              title="Press and hold to preview the active state">Active</button>
+            <button class="btn moi-btn moi-btn--Lavender w-100"
+              title="Tab to this button to preview the focus state">Focus</button>
+            <button class="btn moi-btn moi-btn--Lavender w-100" aria-disabled="true"
+              data-disabled="true">Disabled</button>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Lavender--solid">moi-btn--Lavender--solid <svg width="24" height="24"
+                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <button class="btn moi-btn moi-btn--Lavender--solid w-100" title="Default state">Default</button>
+            <button class="btn moi-btn moi-btn--Lavender--solid w-100"
+              title="Hover this button to preview the hover state">Hover</button>
+            <button class="btn moi-btn moi-btn--Lavender--solid w-100"
+              title="Press and hold to preview the active state">Active</button>
+            <button class="btn moi-btn moi-btn--Lavender--solid w-100"
+              title="Tab to this button to preview the focus state">Focus</button>
+            <button class="btn moi-btn moi-btn--Lavender--solid w-100" aria-disabled="true"
+              data-disabled="true">Disabled</button>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Lavender--outline">moi-btn--Lavender--outline <svg width="24" height="24"
+                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <button class="btn moi-btn moi-btn--Lavender--outline w-100" title="Default state">Default</button>
+            <button class="btn moi-btn moi-btn--Lavender--outline w-100"
+              title="Hover this button to preview the hover state">Hover</button>
+            <button class="btn moi-btn moi-btn--Lavender--outline w-100"
+              title="Press and hold to preview the active state">Active</button>
+            <button class="btn moi-btn moi-btn--Lavender--outline w-100"
+              title="Tab to this button to preview the focus state">Focus</button>
+            <button class="btn moi-btn moi-btn--Lavender--outline w-100" aria-disabled="true"
+              data-disabled="true">Disabled</button>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Warning">moi-btn--Warning <svg width="24" height="24" viewBox="0 0 24 24"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <button class="btn moi-btn moi-btn--Warning w-100" title="Default state">Default</button>
+            <button class="btn moi-btn moi-btn--Warning w-100"
+              title="Hover this button to preview the hover state">Hover</button>
+            <button class="btn moi-btn moi-btn--Warning w-100"
+              title="Press and hold to preview the active state">Active</button>
+            <button class="btn moi-btn moi-btn--Warning w-100"
+              title="Tab to this button to preview the focus state">Focus</button>
+            <button class="btn moi-btn moi-btn--Warning w-100" aria-disabled="true"
+              data-disabled="true">Disabled</button>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Warning--solid">moi-btn--Warning--solid <svg width="24" height="24"
+                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <button class="btn moi-btn moi-btn--Warning--solid w-100" title="Default state">Default</button>
+            <button class="btn moi-btn moi-btn--Warning--solid w-100"
+              title="Hover this button to preview the hover state">Hover</button>
+            <button class="btn moi-btn moi-btn--Warning--solid w-100"
+              title="Press and hold to preview the active state">Active</button>
+            <button class="btn moi-btn moi-btn--Warning--solid w-100"
+              title="Tab to this button to preview the focus state">Focus</button>
+            <button class="btn moi-btn moi-btn--Warning--solid w-100" aria-disabled="true"
+              data-disabled="true">Disabled</button>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Warning--outline">moi-btn--Warning--outline <svg width="24" height="24"
+                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <button class="btn moi-btn moi-btn--Warning--outline w-100" title="Default state">Default</button>
+            <button class="btn moi-btn moi-btn--Warning--outline w-100"
+              title="Hover this button to preview the hover state">Hover</button>
+            <button class="btn moi-btn moi-btn--Warning--outline w-100"
+              title="Press and hold to preview the active state">Active</button>
+            <button class="btn moi-btn moi-btn--Warning--outline w-100"
+              title="Tab to this button to preview the focus state">Focus</button>
+            <button class="btn moi-btn moi-btn--Warning--outline w-100" aria-disabled="true"
+              data-disabled="true">Disabled</button>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Info">moi-btn--Info <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <button class="btn moi-btn moi-btn--Info w-100" title="Default state">Default</button>
+            <button class="btn moi-btn moi-btn--Info w-100" title="Hover this button to preview the hover state">Hover</button>
+            <button class="btn moi-btn moi-btn--Info w-100" title="Press and hold to preview the active state">Active</button>
+            <button class="btn moi-btn moi-btn--Info w-100" title="Tab to this button to preview the focus state">Focus</button>
+            <button class="btn moi-btn moi-btn--Info w-100" aria-disabled="true"
+              data-disabled="true">Disabled</button>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Info--solid">moi-btn--Info--solid <svg width="24" height="24" viewBox="0 0 24 24"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <button class="btn moi-btn moi-btn--Info--solid w-100" title="Default state">Default</button>
+            <button class="btn moi-btn moi-btn--Info--solid w-100"
+              title="Hover this button to preview the hover state">Hover</button>
+            <button class="btn moi-btn moi-btn--Info--solid w-100"
+              title="Press and hold to preview the active state">Active</button>
+            <button class="btn moi-btn moi-btn--Info--solid w-100"
+              title="Tab to this button to preview the focus state">Focus</button>
+            <button class="btn moi-btn moi-btn--Info--solid w-100" aria-disabled="true"
+              data-disabled="true">Disabled</button>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Info--outline">moi-btn--Info--outline <svg width="24" height="24"
+                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <button class="btn moi-btn moi-btn--Info--outline w-100" title="Default state">Default</button>
+            <button class="btn moi-btn moi-btn--Info--outline w-100"
+              title="Hover this button to preview the hover state">Hover</button>
+            <button class="btn moi-btn moi-btn--Info--outline w-100"
+              title="Press and hold to preview the active state">Active</button>
+            <button class="btn moi-btn moi-btn--Info--outline w-100"
+              title="Tab to this button to preview the focus state">Focus</button>
+            <button class="btn moi-btn moi-btn--Info--outline w-100" aria-disabled="true"
+              data-disabled="true">Disabled</button>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Error">moi-btn--Error <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <button class="btn moi-btn moi-btn--Error w-100" title="Default state">Default</button>
+            <button class="btn moi-btn moi-btn--Error w-100" title="Hover this button to preview the hover state">Hover</button>
+            <button class="btn moi-btn moi-btn--Error w-100" title="Press and hold to preview the active state">Active</button>
+            <button class="btn moi-btn moi-btn--Error w-100"
+              title="Tab to this button to preview the focus state">Focus</button>
+            <button class="btn moi-btn moi-btn--Error w-100" aria-disabled="true"
+              data-disabled="true">Disabled</button>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Error--solid">moi-btn--Error--solid <svg width="24" height="24"
+                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <button class="btn moi-btn moi-btn--Error--solid w-100" title="Default state">Default</button>
+            <button class="btn moi-btn moi-btn--Error--solid w-100"
+              title="Hover this button to preview the hover state">Hover</button>
+            <button class="btn moi-btn moi-btn--Error--solid w-100"
+              title="Press and hold to preview the active state">Active</button>
+            <button class="btn moi-btn moi-btn--Error--solid w-100"
+              title="Tab to this button to preview the focus state">Focus</button>
+            <button class="btn moi-btn moi-btn--Error--solid w-100" aria-disabled="true"
+              data-disabled="true">Disabled</button>
+            <div class="matrix-label" role="button" tabindex="0" title="Click to copy classes"
+              data-copy="btn moi-btn moi-btn--Error--outline">moi-btn--Error--outline <svg width="24" height="24"
+                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z"
+                  fill="white" />
+              </svg></div>
+            <button class="btn moi-btn moi-btn--Error--outline w-100" title="Default state">Default</button>
+            <button class="btn moi-btn moi-btn--Error--outline w-100"
+              title="Hover this button to preview the hover state">Hover</button>
+            <button class="btn moi-btn moi-btn--Error--outline w-100"
+              title="Press and hold to preview the active state">Active</button>
+            <button class="btn moi-btn moi-btn--Error--outline w-100"
+              title="Tab to this button to preview the focus state">Focus</button>
+            <button class="btn moi-btn moi-btn--Error--outline w-100" aria-disabled="true"
+              data-disabled="true">Disabled</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="section" id="accessibility">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2>
+        <p class="section-note" data-i18n data-ar="إرشادات مبنية على تطبيق CSS الحالي.">Guidance based on the current
+          CSS implementation.</p>
+        <ul class="accessibility-list">
+          <li data-i18n
+            data-ar="استخدم <span class=&quot;code-inline&quot;>&lt;button&gt;</span> للعناصر التفاعلية التي تؤدي إجراءً. استخدم <span class=&quot;code-inline&quot;>&lt;a&gt;</span> فقط للانتقال إلى وجهات أخرى.">
+            Use <span class="code-inline">&lt;button&gt;</span> for interactive elements that perform an action. Only
+            use <span class="code-inline">&lt;a&gt;</span> for navigation to other destinations.
+          </li>
+          <li data-i18n
+            data-ar="يجب أن تكون الأزرار الأيقونية فقط مزودة بـ <span class=&quot;code-inline&quot;>aria-label</span> وصفي.">
+            Icon-only buttons must be provided with a descriptive <span class="code-inline">aria-label</span>.
+          </li>
+          <li data-i18n
+            data-ar="الحفاظ على إطار التركيز المرئي ضروري لمستخدمي لوحة المفاتيح. تجنب إزالة <span class=&quot;code-inline&quot;>:focus</span> الافتراضي.">
+            Maintaining visible focus outlines is crucial for keyboard users. Avoid removing default <span
+              class="code-inline">:focus</span> styles.
+          </li>
+          <li data-i18n
+            data-ar="لتعطيل زر حقيقي، استخدم السمة <span class=&quot;code-inline&quot;>disabled</span>. للعناصر التي ليست أزرارًا ولكنها معطلة بصريًا، استخدم <span class=&quot;code-inline&quot;>aria-disabled=&quot;true&quot;</span>.">
+            For disabling a native button, use the <span class="code-inline">disabled</span> attribute. For non-button
+            elements that are visually disabled, use <span class="code-inline">aria-disabled="true"</span>.
+          </li>
+          <li data-i18n data-ar="لا تعتمد على اللون وحده لنقل المعنى أو الحالة. استخدم النص أو الأيقونات التكميلية.">
+            Do not rely on color alone to convey meaning or state. Use supplementary text or icons.
+          </li>
+          <li data-i18n
+            data-ar="حافظ على إطارات التركيز للأنماط التي تعرفها: <span class=&quot;code-inline&quot;>.moi-btn--Neutral</span> و <span class=&quot;code-inline&quot;>.moi-btn--Neutral--outline</span> ولوحات الألوان المكتوبة بحروف كبيرة (<span class=&quot;code-inline&quot;>.moi-btn--Primary*</span>، <span class=&quot;code-inline&quot;>.moi-btn--Lavender*</span>، <span class=&quot;code-inline&quot;>.moi-btn--Warning*</span>، <span class=&quot;code-inline&quot;>.moi-btn--Info*</span>، <span class=&quot;code-inline&quot;>.moi-btn--Error*</span>).">
+            Keep focus outlines for variants that define them: <span class="code-inline">.moi-btn--Neutral</span>,
+            <span class="code-inline">.moi-btn--Neutral--outline</span>, and the capitalized palettes (<span
+              class="code-inline">.moi-btn--Primary*</span>, <span class="code-inline">.moi-btn--Lavender*</span>,
+            <span class="code-inline">.moi-btn--Warning*</span>, <span class="code-inline">.moi-btn--Info*</span>,
+            <span class="code-inline">.moi-btn--Error*</span>).
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="usage">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="إرشادات الاستخدام">Usage Guidelines</h2>
+        <div class="usage-grid">
+          <div class="usage-card">
+            <h4 data-i18n data-ar="ممتلئ مقابل إطار">Solid vs outline</h4>
+            <ul>
+              <li data-i18n
+                data-ar="استخدم الأنماط الممتلئة (<span class=&quot;code-inline&quot;>.moi-btn--Primary</span>، <span class=&quot;code-inline&quot;>.moi-btn--Neutral</span>) للإجراءات الأساسية.">
+                Use solid variants (<span class="code-inline">.moi-btn--Primary</span>, <span
+                  class="code-inline">.moi-btn--Neutral</span>) for primary actions.</li>
+              <li data-i18n data-ar="استخدم الأنماط ذات الإطار للإجراءات الثانوية أو المتجاورة.">Use outline variants
+                for secondary or adjacent actions.</li>
+            </ul>
+          </div>
+          <div class="usage-card">
+            <h4 data-i18n data-ar="أزرار نصية">Text buttons</h4>
+            <ul>
+              <li data-i18n
+                data-ar="خصّص <span class=&quot;code-inline&quot;>.moi-btn--text</span> و <span class=&quot;code-inline&quot;>.moi-btn--text-icon</span> للإجراءات منخفضة الأهمية.">
+                Reserve <span class="code-inline">.moi-btn--text</span> and <span
+                  class="code-inline">.moi-btn--text-icon</span> for low-emphasis actions.</li>
+            </ul>
+          </div>
+          <div class="usage-card">
+            <h4 data-i18n data-ar="إجراءات الحالة">Status actions</h4>
+            <ul>
+              <li data-i18n data-ar="استخدم أنماط الخطر والتحذير للإجراءات المدمرة أو التحذيرية.">Use danger and
+                warning variants for destructive or cautionary actions.</li>
+              <li data-i18n data-ar="استخدم أنماط المعلومات للإجراءات المعلوماتية.">Use info variants for
+                informational actions.</li>
+            </ul>
+          </div>
+          <div class="usage-card">
+            <h4 data-i18n data-ar="التخصيص">Theming</h4>
+            <ul>
+              <li data-i18n
+                data-ar="الأنماط التي تستخدم <span class=&quot;code-inline&quot;>var(--theme-primary)</span> ترث لون السمة.">
+                Variants using <span class="code-inline">var(--theme-primary)</span> inherit theme color.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="designops-governance">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="حوكمة DesignOps">DesignOps Governance</h2>
+        <p class="section-note" data-i18n
+          data-ar="إطار حوكمة لضمان الاتساق والجودة والقابلية للتوسع وقابلية الوصول في الأزرار.">Governance framework
+          ensuring consistency, quality, scalability, and accessibility for buttons.</p>
+        <div class="governance-grid">
+          <article class="gov-card">
+            <h3 data-i18n data-ar="حوكمة DesignOps">DesignOps Governance</h3>
+            <p class="section-note" data-i18n data-ar="إطار لضمان تجربة موحدة وقابلة للتوسع عبر المنتجات.">Framework
+              to ensure a unified, scalable experience across products.</p>
+            <h4 class="mt-1" data-i18n data-ar="فحوصات سريعة">Quick Checks</h4>
+            <ul class="accessibility-list">
+              <li data-i18n
+                data-ar="كل زر = <span class=&quot;code-inline&quot;>.btn</span> + <span class=&quot;code-inline&quot;>.moi-btn</span> + فئة معدلة واحدة فقط.">
+                Every button = <span class="code-inline">.btn</span> + <span class="code-inline">.moi-btn</span> + exactly
+                one modifier class.
+              </li>
+              <li data-i18n
+                data-ar="يتم التحكم بالأحجام عبر السمة <span class=&quot;code-inline&quot;>data-size</span> فقط.">
+                Sizes are controlled solely via the <span class="code-inline">data-size</span> attribute.
+              </li>
+              <li data-i18n data-ar="مساحة اللمس يجب أن تكون 44x44 بكسل كحد أدنى.">
+                Touch target must meet a minimum of 44x44 pixels.
+              </li>
+              <li data-i18n data-ar="الحالات المدعومة: الافتراضي، التحويم، النشط، التركيز المرئي، والمعطّل.">
+                Supported states: Default, Hover, Active, Focus-visible, Disabled.
+              </li>
+              <li data-i18n data-ar="لا تغييرات أو إضافات دون مراجعة DesignOps والتوثيق الرسمي.">
+                No changes or additions without DesignOps review and official documentation.
+              </li>
+              <li data-i18n
+                data-ar="للتفاصيل الكاملة حول الحوكمة، ارجع إلى <a href=&quot;./GOVERNANCE.md&quot;>GOVERNANCE.md</a>.">
+                For full governance details, refer to <a href="./GOVERNANCE.md">GOVERNANCE.md</a>.
+              </li>
+            </ul>
+            <h4 class="mt-1" data-i18n data-ar="الهدف">Purpose</h4>
+            <ul class="accessibility-list">
+              <li data-i18n data-ar="ضمان تجربة موحدة وقابلة للتطوير عبر المنتجات.">Ensure a unified, scalable
+                experience across products.</li>
+              <li data-i18n data-ar="الحفاظ على الجودة البصرية والوظيفية.">Maintain visual and functional quality.
+              </li>
+              <li data-i18n data-ar="تطبيق متطلبات إمكانية الوصول بشكل منهجي.">Apply accessibility requirements
+                systematically.</li>
+            </ul>
+            <h4 class="mt-1" data-i18n data-ar="النطاق">Scope</h4>
+            <p class="section-note" data-i18n
+              data-ar="تنطبق الحوكمة على كل الأزرار باستخدام .btn + .moi-btn + .moi-btn--* عبر جميع المتغيرات والحالات والمنصات.">
+              Applies to all buttons using .btn + .moi-btn + .moi-btn--* across all variants, states, and platforms.
+            </p>
+            <h4 class="mt-1" data-i18n data-ar="الملكية والمسؤوليات">Ownership &amp; Responsibilities</h4>
+            <ul class="accessibility-list">
+              <li data-i18n data-ar="<strong>مالك التصميم:</strong> قرارات بصرية، إمكانية الوصول، المتغيرات والأنماط.">
+                <strong>Design Owner:</strong> Visual decisions, accessibility, variants, and styles.
+              </li>
+              <li data-i18n data-ar="<strong>مالك التطوير:</strong> التنفيذ والأداء والتوافق."><strong>Engineering
+                  Owner:</strong> Implementation, performance, compatibility.</li>
+              <li data-i18n data-ar="<strong>DesignOps:</strong> العمليات، الموافقات، التوثيق.">
+                <strong>DesignOps:</strong> Process, approvals, documentation.
+              </li>
+            </ul>
+            <h4 class="mt-1" data-i18n data-ar="قواعد الاستخدام">Usage Rules</h4>
+            <p class="section-note" data-i18n data-ar="كل زر = .btn + .moi-btn + معدل واحد فقط (.moi-btn--*).">Each
+              button = .btn + .moi-btn + exactly one modifier (.moi-btn--*).</p>
+            <div class="two-col">
+              <div class="usage-card">
+                <h4 data-i18n data-ar="مسموح">Allowed</h4>
+                <div class="code-block">
+                  <pre><code class="language-html">&lt;button class="btn moi-btn moi-btn--Primary"&gt;حفظ&lt;/button&gt;</code></pre>
+                </div>
+              </div>
+              <div class="usage-card">
+                <h4 data-i18n data-ar="غير مسموح">Disallowed</h4>
+                <div class="code-block">
+                  <pre><code class="language-html">&lt;button class="btn moi-btn moi-btn--Primary moi-btn--Warning"&gt;حفظ&lt;/button&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="gov-card">
+            <h3 data-i18n data-ar="حوكمة التسمية">Naming Governance</h3>
+            <ul class="accessibility-list">
+              <li data-i18n data-ar="التسمية دلالية وليست سياقية.">Naming is semantic, not contextual.</li>
+              <li data-i18n data-ar="لا تُستخدم أسماء مبنية على الميزة أو الوصف البصري.">No feature-based or
+                visual-description class names.</li>
+              <li data-i18n data-ar="المعدّلات هي الوسيلة الوحيدة للتعبير عن المتغيرات والأنماط.">Modifiers are the
+                only way to express variants and styles.</li>
+            </ul>
+          </article>
+
+          <article class="gov-card">
+            <h3 data-i18n data-ar="حوكمة الأحجام والمسافات">Sizing &amp; Spacing Governance</h3>
+            <ul class="accessibility-list">
+              <li data-i18n
+                data-ar="التحكم بالحجم فقط عبر <span class=&quot;code-inline&quot;>data-size=&quot;sm|md|lg|xl&quot;</span>.">
+                Size is controlled only via <span class="code-inline">data-size="sm|md|lg|xl"</span>.</li>
+              <li data-i18n data-ar="يمنع تعديل الحشو/الارتفاع محليًا.">No local padding or height overrides.</li>
+              <li data-i18n data-ar="المسافات والارتفاعات وأحجام الأيقونات تعتمد على رموز التصميم.">Spacing, heights,
+                and icon sizing are governed by design tokens.</li>
+              <li data-i18n data-ar="مساحة لمس 44×44 عبر توسيع hit-area دون تغيير الحجم المرئي.">Touch target must
+                meet 44×44 via hit-area expansion without changing visual size.</li>
+            </ul>
+          </article>
+
+          <article class="gov-card">
+            <h3 data-i18n data-ar="حوكمة الحالات">State Governance</h3>
+            <ul class="accessibility-list">
+              <li data-i18n data-ar="الحالات المدعومة: افتراضي، تحويم، نشط، تركيز-مرئي، معطّل.">Supported states:
+                Default, Hover, Active, Focus-visible, Disabled.</li>
+              <li data-i18n data-ar="لا يجوز للـ Hover أن يستبدل Focus-visible.">Hover must never replace
+                focus-visible.</li>
+              <li data-i18n data-ar="المعطّل و aria-disabled يشتركان في نفس المعالجة البصرية.">Disabled and
+                aria-disabled share the same visual treatment.</li>
+              <li data-i18n data-ar="لا حالات مخصصة أو غير موثقة.">No custom or undocumented states.</li>
+            </ul>
+          </article>
+
+          <article class="gov-card">
+            <h3 data-i18n data-ar="حوكمة إمكانية الوصول">Accessibility Governance</h3>
+            <ul class="accessibility-list">
+              <li data-i18n data-ar="يجب إظهار التركيز بوضوح.">Focus visibility is mandatory.</li>
+              <li data-i18n data-ar="الأيقونة فقط تتطلب <span class=&quot;code-inline&quot;>aria-label</span>.">
+                Icon-only buttons require an <span class="code-inline">aria-label</span>.</li>
+              <li data-i18n data-ar="استخدم &lt;button&gt; للإجراءات و &lt;a&gt; للتنقل.">Use &lt;button&gt; for
+                actions and &lt;a&gt; for navigation.</li>
+              <li data-i18n data-ar="لا يعتمد اللون وحده لنقل المعنى.">Color alone must not convey meaning.</li>
+            </ul>
+          </article>
+
+          <article class="gov-card">
+            <h3 data-i18n data-ar="سياسة الإضافة">Extension Policy</h3>
+            <ul class="accessibility-list">
+              <li data-i18n data-ar="يُسمح بمتغير أو سلوك جديد عند الحاجة الواضحة والمسوغة.">New variants or behaviors
+                are allowed when clearly justified.</li>
+              <li data-i18n data-ar="تتطلب عملية رسمية: مقترح → مراجعة تصميم → مواءمة الرموز → تنفيذ → توثيق → موافقة.">
+                Requires
+                formal flow: proposal → design review → token mapping → implementation → documentation → approval.
+              </li>
+              <li data-i18n data-ar="لا إضافات مباشرة دون موافقة.">No direct additions without approval.</li>
+            </ul>
+          </article>
+
+          <article class="gov-card">
+            <h3 data-i18n data-ar="قواعد التوثيق">Documentation Rules</h3>
+            <ul class="accessibility-list">
+              <li data-i18n data-ar="أي تغيير يجب أن يُوثق في نفس طلب الدمج.">Any change must be documented in the
+                same PR.</li>
+              <li data-i18n data-ar="أمثلة الشيفرة مرجعية وملزمة.">Code examples are authoritative.</li>
+              <li data-i18n data-ar="لا يُسمح بفئات غير موثقة.">Undocumented classes are not allowed.</li>
+              <li data-i18n data-ar="تجنّب لغة تاريخية أو انتقالية في التوثيق.">Documentation avoids historical or
+                transitional language.</li>
+            </ul>
+          </article>
+
+          <article class="gov-card">
+            <h3 data-i18n data-ar="الامتثال">Compliance</h3>
+            <ul class="accessibility-list">
+              <li data-i18n data-ar="المخالفات تُعامل كدين تصميمي.">Violations are treated as Design Debt.</li>
+              <li data-i18n data-ar="يمكن لـ DesignOps طلب تعديلات أو إيقاف الدمج.">DesignOps may request changes or
+                block merges.</li>
+            </ul>
+          </article>
+
+          <article class="gov-card">
+            <h3 data-i18n data-ar="ملخص">TL;DR Summary</h3>
+            <ul class="accessibility-list">
+              <li data-i18n data-ar="زر واحد = .btn + .moi-btn + معدل واحد.">One button = .btn + .moi-btn + one
+                modifier.</li>
+              <li data-i18n data-ar="الأحجام عبر data-size فقط؛ مساحة لمس 44×44.">Sizes via data-size only; touch
+                target 44×44.</li>
+              <li data-i18n data-ar="الحالات خمس لا غير؛ التركيز مرئي دائمًا.">States limited to five; focus must be
+                visible.</li>
+              <li data-i18n data-ar="الأيقونة فقط تتطلب aria-label.">Icon-only requires aria-label.</li>
+              <li data-i18n data-ar="لا تغييرات أو إضافات دون مراجعة وتوثيق.">No changes or additions without review
+                and documentation.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="do-dont">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="افعل ولا تفعل">Do &amp; Don’t</h2>
+        <div class="two-col">
+          <div class="usage-card">
+            <h4 data-i18n data-ar="افعل">Do</h4>
+            <ul>
+              <li data-i18n
+                data-ar="ادمج <span class=&quot;code-inline&quot;>.btn</span> مع <span class=&quot;code-inline&quot;>.moi-btn</span> ومعدّل واحد.">
+                Combine <span class="code-inline">.btn</span> with <span class="code-inline">.moi-btn</span> and one
+                modifier.</li>
+              <li data-i18n data-ar="احفظ إطارات التركيز حيثما وُجدت.">Preserve focus outlines where they exist.</li>
+              <li data-i18n data-ar="استخدم فلاتر الأيقونات وملء svg للحفاظ على التباين.">Use icon filters and svg
+                fills to maintain contrast.</li>
+            </ul>
+          </div>
+          <div class="usage-card">
+            <h4 data-i18n data-ar="لا تفعل">Don’t</h4>
+            <ul>
+              <li data-i18n data-ar="لا تستخدم الأزرار النصية للإجراءات الأساسية.">Use text buttons for primary
+                actions.</li>
+              <li data-i18n data-ar="لا تزل إطارات التركيز أو تستبدلها بأنماط مخصصة.">Remove focus outlines or
+                override them with custom styles.</li>
+              <li data-i18n data-ar="لا تجمع عدة معدلات في زر واحد.">Stack multiple modifiers on a single button.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="new-reference">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="مرجع HTML كامل">Full HTML reference</h2>
+        <p class="section-note" data-i18n
+          data-ar="يشمل جميع الأمثلة ويضيف حالات توضيحية للأحجام، الأيقونة فقط، مساحة اللمس، والتعطيل.">
+          Includes all examples and adds illustrative states for sizes, icon-only, touch area, and disabled.
+        </p>
+        <div class="code-block">
+          <pre><code class="language-html">&lt;!-- Baseline samples (structure/classes) --&gt;
+&lt;div class=&quot;sample-grid&quot;&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Primary&quot;&gt;Primary&lt;/button&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Warning&quot;&gt;Warning&lt;/button&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Neutral--outline&quot;&gt;Neutral outline&lt;/button&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--primary&quot;&gt;أساسي (حروف صغيرة)&lt;/button&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--primary--outline&quot;&gt;أساسي بإطار (حروف صغيرة)&lt;/button&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--text&quot;&gt;إجراء نصي&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;!-- أمثلة موسعة (تحافظ على البنية نفسها) --&gt;
+&lt;div class=&quot;sample-grid&quot; dir=&quot;rtl&quot;&gt;
+  &lt;!-- data-size usage --&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Primary&quot; data-size=&quot;sm&quot;&gt;حفظ (SM)&lt;/button&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Primary&quot; data-size=&quot;md&quot;&gt;حفظ (MD)&lt;/button&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Primary&quot; data-size=&quot;lg&quot;&gt;حفظ (LG)&lt;/button&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Primary&quot; data-size=&quot;xl&quot;&gt;حفظ (XL)&lt;/button&gt;
+
+  &lt;!-- Outline / solid still valid --&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Primary--outline&quot;&gt;متابعة (Outline)&lt;/button&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Primary--solid&quot;&gt;متابعة (Solid)&lt;/button&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Neutral--outline&quot;&gt;رجوع&lt;/button&gt;
+
+  &lt;!-- Info / Warning / Error --&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Info&quot;&gt;مساعدة&lt;/button&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Warning&quot;&gt;تحذير&lt;/button&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Error&quot;&gt;حذف&lt;/button&gt;
+
+  &lt;!-- Icon + text --&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Primary&quot;&gt;
+    المزيد
+    &lt;svg width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 20 20&quot; fill=&quot;none&quot; aria-hidden=&quot;true&quot;&gt;
+      &lt;path d=&quot;M8 5L13 10L8 15&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;
+    &lt;/svg&gt;
+  &lt;/button&gt;
+
+  &lt;!-- Icon-only (requires aria-label) --&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Neutral&quot; data-icon-only=&quot;true&quot; aria-label=&quot;المزيد&quot;&gt;
+    &lt;svg width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 20 20&quot; fill=&quot;none&quot; aria-hidden=&quot;true&quot;&gt;
+      &lt;circle cx=&quot;10&quot; cy=&quot;4&quot; r=&quot;1.5&quot; fill=&quot;currentColor&quot;/&gt;
+      &lt;circle cx=&quot;10&quot; cy=&quot;10&quot; r=&quot;1.5&quot; fill=&quot;currentColor&quot;/&gt;
+      &lt;circle cx=&quot;10&quot; cy=&quot;16&quot; r=&quot;1.5&quot; fill=&quot;currentColor&quot;/&gt;
+    &lt;/svg&gt;
+  &lt;/button&gt;
+
+  &lt;!-- Disabled (native) --&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Primary&quot; disabled&gt;حفظ (معطّل)&lt;/button&gt;
+
+  &lt;!-- Disabled (aria-disabled) --&gt;
+  &lt;button class=&quot;btn moi-btn moi-btn--Neutral&quot; aria-disabled=&quot;true&quot;&gt;إلغاء&lt;/button&gt;
+&lt;/div&gt;
+
+ &lt;!-- Notes:
+ - data-size is optional; default is md when omitted.
+ - Touch target 44×44 via ::after; visuals unchanged.
+ - data-icon-only is attribute-only; no new classes.
+ - Samples above are all valid and compatible.
+--&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+    </div>
+  </main>
+
+
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const tableCells = document.querySelectorAll('.docs-table th, .docs-table td');
+      if (tableCells.length) {
+        const iconMarkup = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z" fill="white"/></svg>`;
+        tableCells.forEach((cell) => {
+          cell.insertAdjacentHTML('beforeend', iconMarkup);
+        });
+      }
+
+      const visual = document.querySelector('#visual');
+      if (!visual) {
+        return;
+      }
+
+      let statusTimer = null;
+      let tooltip = null;
+
+      function getCopyText(button) {
+        const classList = Array.from(button.classList).filter(
+          (name) => name !== 'w-100'
+        );
+        return classList.join(' ');
+      }
+
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard.writeText(text).then(
+            () => true,
+            () => false
+          );
+        }
+
+        return new Promise((resolve) => {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'absolute';
+          textarea.style.left = '-9999px';
+          document.body.appendChild(textarea);
+          textarea.select();
+          let ok = false;
+          try {
+            ok = document.execCommand('copy');
+          } catch (error) {
+            ok = false;
+          }
+          document.body.removeChild(textarea);
+          resolve(ok);
+        });
+      }
+
+      function showTooltip(target, message) {
+        if (!tooltip) {
+          tooltip = document.createElement('div');
+          tooltip.className = 'copy-tooltip';
+          document.body.appendChild(tooltip);
+        }
+
+        tooltip.textContent = message;
+        const rect = target.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const top = Math.max(8, rect.top - tooltipRect.height - 10);
+        const left = Math.min(
+          window.innerWidth - tooltipRect.width - 8,
+          Math.max(8, rect.left + rect.width / 2 - tooltipRect.width / 2)
+        );
+        tooltip.style.top = `${top}px`;
+        tooltip.style.left = `${left}px`;
+
+        tooltip.classList.add('is-visible');
+        clearTimeout(statusTimer);
+        statusTimer = setTimeout(() => {
+          tooltip.classList.remove('is-visible');
+        }, 1600);
+      }
+
+      document.addEventListener('click', (event) => {
+        const copyTarget = event.target.closest('[data-copy], #visual button, #states button');
+        if (!copyTarget) {
+          return;
+        }
+
+        const text = copyTarget.dataset.copy || getCopyText(copyTarget);
+        copyText(text).then((ok) => {
+          const isArabic = document.documentElement.lang === 'ar';
+          const message = ok
+            ? isArabic
+              ? `تم النسخ: ${text}`
+              : `Copied: ${text}`
+            : isArabic
+              ? 'فشل النسخ'
+              : 'Copy failed';
+          showTooltip(copyTarget, message);
+        });
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+
+  <script src="./js/top-actions.js"></script>
+  <script src="./js/ds-site-nav.js"></script>
+  <script src="./js/watermark.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,323 @@
+@use '../helpers' as *;
+.newDSCases {
+    .secondary-cat .secocontainer {
+        gap: 5px;
+        justify-content: start;
+    }
+
+    .ellipsistd p {
+        max-width: 140px;
+    }
+
+    .secondary-cat .secocontainer img {
+        height: 16px;
+    }
+
+    .secondary-cat .secocontainer .content {
+        border: none;
+        border-radius: 10px;
+        background: #f4f6f8;
+        border: 1px solid #c7d2dc;
+        padding: 5px;
+    }
+
+    .secondary-cat .secocontainer .content p {
+        color: #000000;
+    }
+
+    .secondary-cat .secocontainer .content svg {
+        fill: #000000;
+    }
+
+    .secondary-cat .dropdown-menu {
+        border: none;
+        padding: $padding-14;
+        box-shadow: 0 0 68px 0 rgba(122, 122, 122, 0.16);
+        border-radius: 8px;
+    }
+
+    .secondary-cat .dropdown-menu h5 {
+        font-weight: 600;
+        @include font-sm-500;
+        background: #f8f6f2;
+        padding: 20px;
+    }
+
+    .secondary-cat .dropdown-menu ul {
+        max-height: 150px;
+        min-height: 100px;
+        overflow-y: scroll;
+    }
+
+    .secondary-cat .dropdown-menu .dropdown-item {
+        margin-bottom: 4px;
+        border-radius: 5px;
+        @include font-sm-500;
+        color: #252f4a;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid #e9e9e9;
+        padding: $padding-14;
+    }
+
+    .moreStutus::after {
+        display: none !important;
+    }
+
+    .generalCasesStyle__cases__right--incedentDetails .title {
+        border-radius: var(--border-radius-6, 6px);
+        padding: $padding-14;
+    }
+
+    .case__notecomplated--alert {
+        z-index: 9;
+    }
+
+    .swal2-container {
+        z-index: 99999;
+    }
+
+    &--BasicInfo {
+        border-radius: 8px;
+        /*border: 1px solid #dee2e6;*/
+
+        &__details {
+            .block {
+                @include meduimfont;
+                border: 1px solid #dde3e0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 5px;
+                border-radius: 3px;
+
+                label {
+                    color: #000;
+                }
+
+                .content {
+                    color: #000000;
+                    @include boldfont;
+
+                    .form-check {
+                        label {
+                            color: #000000;
+                            @include boldfont;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .caseOfficers {
+        justify-content: center;
+
+        .userimage {
+            img {
+                width: 54px !important;
+                height: 54px !important;
+            }
+
+            [data-tooltip] {
+                z-index: 9999999999999999999;
+            }
+        }
+    }
+
+    .newpersoncase {
+        &--action {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            display: flex;
+            gap: 10px;
+
+            .actionIcon {
+                padding: 5px;
+
+                span {
+                    display: none;
+                    margin-right: 5px;
+                }
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                    margin-left: 0;
+                }
+
+                &:hover {
+                    span {
+                        display: block;
+                    }
+                }
+            }
+
+            .editicon {
+                background: #e7f3ff;
+            }
+
+            .detailsiconu {
+                background: $Primary-50;
+            }
+
+            .completeuser {
+                background: #ffebe9;
+            }
+        }
+
+        &--userimbasiccontainer {
+            &--userimage {
+                img {
+                    width: 70px;
+                    height: 70px;
+                    -o-object-fit: cover;
+                    object-fit: cover;
+                    border-radius: 8px;
+                    box-shadow: 0px 0px 8px -3px rgb(8 19 75 / 21%);
+                    border: 5px solid white;
+                }
+            }
+
+            &--username {
+                align-items: flex-start;
+            }
+        }
+    }
+}
+
+.addpublicJudgmentsModal {
+  .publicjudjments {
+    flex-direction: column;
+    padding: 0;
+
+    .col-md-3 {
+      width: 100%;
+
+      .newDSCases--BasicInfo {
+        .row {
+          flex-direction: row !important;
+        }
+      }
+    }
+
+    .col-md-9 {
+      width: 100%;
+
+      .CivilComplains--container {
+        margin-left: 0 !important;
+      }
+    }
+  }
+}
+
+.closedcase {
+  @include font-sm-500;
+  color: #f1416c !important;
+  background: #ffedf1 !important;
+
+  svg {
+    fill: #f1416c;
+  }
+}
+
+.newDSCases {
+    .closedCaseAlert {
+        margin: 15px;
+        background: #ffedf1;
+        padding: 16px;
+        position: relative;
+        border-radius: 8px;
+
+        .title {
+            color: #f1416c;
+            @include boldfont;
+        }
+
+        p {
+            margin: 0;
+            color: #000;
+        }
+
+        .date {
+            color: #000000;
+            @include smallfont;
+            display: flex;
+            align-items: center;
+
+            svg {
+                fill: #000000;
+            }
+        }
+    }
+
+    .casedetailsfirststep {
+      /*  label {
+            color: #a38664 !important;
+        }
+*/
+        .disabled {
+            background: #f8f9fa;
+            border: 1px solid #e8eff6;
+            color: #000 !important;
+        }
+
+        .ReportDetails {
+            .accessibilityPraghraphtools {
+                position: sticky;
+                top: -16px;
+            }
+
+            .changeaccessibility {
+                padding: 0;
+                line-height: 2.7;
+                text-align: justify;
+                height: 360px;
+                overflow-y: scroll;
+                font-weight: 600;
+                margin-top: 10px;
+                padding: 10px;
+            }
+        }
+
+        .incedetailsmap {
+            height: 520px;
+
+            .new-custommap--title {
+                background: #f8f6f2 !important;
+
+                h4 {
+                    color: #704214;
+                }
+
+                img {
+                    filter: brightness(1) invert(1);
+                }
+
+                svg {
+                    fill: #704214;
+                }
+            }
+        }
+
+        .new-custommap--mapContainer__locationDetails {
+            background: transparent;
+            box-shadow: none;
+        }
+    }
+}
+
+.newDSCases--BasicInfo__title {
+    .bg-primary {
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include font-lg-500;
+        background: #c49c6e !important;
+    }
+}

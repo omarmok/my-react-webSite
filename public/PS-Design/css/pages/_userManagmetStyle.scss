@@ -1,0 +1,453 @@
+@use '../helpers' as *;
+.userManagmetStyle {
+  padding-bottom: 50px;
+
+  &--card {
+      margin-bottom: 24px;
+      box-shadow: 0 0 68px 0 rgba(174, 175, 175, 0.17);
+      height: 380px;
+      max-height: 380px;
+      justify-content: space-between;
+
+      &--rolename {
+          @include boldfont-16;
+
+          &__total {
+              @include meduimfont;
+              color: #78829d;
+          }
+      }
+
+      &--rolelist {
+          ul {
+              li {
+                  padding: 5px 20px;
+                  position: relative;
+                  color: #78829d;
+                  @include meduimfont-reg-14;
+
+                  &::before {
+                      content: "";
+                      border-radius: 6px;
+                      width: 10px;
+                      height: 4px;
+                      position: absolute;
+                      top: 50%;
+                      display: inline-block;
+                      background: #50cd89;
+                      right: 0;
+                  }
+              }
+          }
+      }
+
+    
+  }
+
+  &--table-search {
+      border-radius: 0;
+      box-shadow: 0px 5px 35px 0px rgba(0, 27, 175, 0.05);
+
+      .searchicon {
+          position: absolute;
+          height: 45px;
+          width: 45px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          right: 0;
+
+          img {
+              height: 24px;
+          }
+      }
+
+      .form-control:focus {
+          background: #fff;
+          border: 1px solid #05bbc9;
+      }
+
+      .custom-input {
+          background: #f9f9f9;
+          border: none;
+          border-radius: 6px;
+          color: #98a1b7;
+          width: 330px;
+      }
+
+      .custom-input::-webkit-input-placeholder {
+          color: #98a1b7;
+          @include meduimfont;
+      }
+
+      .custom-input::-moz-placeholder {
+          color: #98a1b7;
+          @include meduimfont;
+      }
+
+      .custom-input::-ms-input-placeholder {
+          color: #98a1b7;
+          @include meduimfont;
+      }
+
+      .custom-input::-moz-placeholder {
+          color: #98a1b7;
+          @include meduimfont;
+      }
+  }
+
+  .tabletotal {
+      h4 {
+          font-weight: 600;
+          color: #0d8f75;
+          @include font-md-500;
+          margin-bottom: 0;
+      }
+
+      span {
+          font-weight: 600;
+          @include font-md-500;
+      }
+  }
+
+  .filter.dropdown-toggle::after {
+      display: none;
+  }
+
+  .verficationinterviewerContainer {
+      .inputs {
+          gap: 10px;
+      }
+
+      .absher img {
+          height: 50px;
+      }
+
+      .form-control {
+          height: 40px;
+          width: 30px;
+          text-align: center;
+          padding: 0;
+      }
+  }
+}
+
+.editrole {
+    h4 {
+        @include boldfont;
+        padding: $padding-14;
+        background: $baige;
+        color: #704818;
+    }
+
+    .allpermission {
+        .title {
+            @include boldfont;
+            width: 28%;
+        }
+
+        label {
+            @include meduimfont-reg-12;
+        }
+
+        border-bottom: 1px dashed #cdcdcd;
+    }
+
+    .imgdiv img {
+        height: 90px;
+    }
+
+    .accordion-item {
+        border: none;
+
+        .accordion-body {
+            padding-right: 15px !important;
+            padding-left: 0 !important;
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+            border: none;
+
+            .inaccrdionPermission {
+                border-bottom: 1px dashed #cdcdcd;
+
+                .title {
+                    @include boldfont;
+                    width: 30%;
+                }
+
+                label {
+                    @include meduimfont;
+                    margin: 0 !important;
+                }
+
+                .form-check {
+                    background: #fafcff;
+                    border: 1px solid #f0f4fa;
+                    border-radius: 4px;
+                    min-width: 130px;
+                    padding: 10px;
+                    align-items: center;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+
+            border-bottom: 1px dashed #cdcdcd;
+        }
+    }
+
+    .checked {
+        background: #f2fffc !important;
+        border: 1px solid #e3f9f4 !important;
+        color: $Primary-500 !important;
+
+        label {
+            color: $Primary-500 !important;
+        }
+    }
+
+    .form-check-input {
+        border: 2px solid #cfd9e0;
+    }
+
+    .form-check-input[type="checkbox"] {
+        border-radius: 4px;
+    }
+
+    .form-check-input:checked {
+        border: 1px solid #e3f9f4 !important;
+    }
+
+    .accordion-button {
+        background: #fafcff;
+        border: 1px solid #f0f4fa;
+        border-radius: 4px;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .accordion-button:not(.collapsed) {
+        background: #0d8f75 !important;
+        color: #ffffff !important;
+
+        .form-check {
+            label {
+                color: #fff;
+            }
+        }
+    }
+
+    .accordion-button:not(.collapsed)::after {
+        filter: brightness(0) invert(1);
+    }
+
+    .accordion-button:not(.collapsed) {
+        .checked {
+            background: transparent !important;
+            border: 1px solid transparent !important;
+
+            label {
+                color: #ffffff !important;
+            }
+        }
+    }
+
+    .adduserinformation {
+        display: flex;
+        flex-direction: column;
+        padding: $padding-14;
+        gap: 14px;
+
+        &--user {
+            img {
+                border-radius: 16px;
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+            }
+        }
+
+        &--name {
+            @include boldfont;
+        }
+
+        &--details {
+            display: flex;
+
+            &__block {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                @include meduimfont;
+                background: $Neutral-50;
+                width: 100%;
+                padding: 16px;
+                border-bottom: 1px solid $Neutral-200;
+
+                span {
+                    color: $Primary-500;
+                }
+
+                &:last-child {
+                    border: none;
+                }
+            }
+        }
+
+        &--advancedInfo {
+            display: flex;
+            width: 100%;
+            gap: 0;
+        }
+
+        &--rolespackage {
+            display: flex;
+            gap: 12px;
+            padding: $padding-14;
+            background: var(--Disable, #f8f9fa);
+            flex-direction: column;
+
+            h4 {
+                @include boldfont-16;
+                background: transparent;
+                padding: 0;
+                color: #000;
+                margin-bottom: 0;
+                display: flex;
+                align-items: center;
+                gap: 3px;
+            }
+
+            &--listofrole {
+                height: 590px;
+                overflow-y: scroll;
+
+                &--form-check {
+                    border-bottom: 1px dashed #cdcdcd;
+                    background: var(--white-100, #fff);
+                    width: 33%;
+                    padding: 10px;
+                    margin-right: 0px;
+                    display: flex;
+
+                    .form-check-input {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 0;
+                        cursor: pointer;
+                    }
+
+                    &--role {
+                        &__rolename {
+                            label {
+                                @include boldfont;
+                                margin: 0;
+                            }
+                        }
+
+                        &__description {
+                            color: $Primary-500;
+                            @include meduimfont-reg-12;
+
+                            a {
+                                color: $Primary-500;
+                                text-decoration: underline;
+                                @include font-md-500;
+                                font-weight: bold !important;
+
+                                svg {
+                                    fill: $Primary-500;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .badge {
+                    @include font-sm-500;
+                    background: #e5e5e5;
+                    padding: 10px 20px;
+                    color: #4a4a4a;
+                    border: 1px solid #c9c9c9;
+                }
+            }
+        }
+    }
+}
+
+.FilterList {
+  width: 368px;
+}
+
+
+
+
+.userseatingActionButtons {
+  .btn.moi-btn--text-icon {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+
+      .icon {
+          background: #F3F0EB;
+          box-shadow: 0px 8px 30px rgb(181 181 181 / 18%);
+          width: 60px;
+          height: 60px;
+          left: 27px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          margin-bottom: 10px;
+
+          svg {
+              width: 44px;
+              height: 30px;
+              margin-left: 0;
+          }
+      }
+
+      span {
+          color: #000000;
+      }
+
+      &:hover {
+          .icon {
+              background: #ffffff;
+              border: 1px solid;
+              border-color: #1abc9c #1abc9c #cba983 #c3996b !important;
+          }
+
+          span {
+              color: $Primary-500;
+          }
+      }
+  }
+}
+
+
+.agancytreeselect {
+
+
+  .dropdown-menu {
+      background: transparent;
+      border: none;
+   width:400px;min-height:100px;
+   .vue-treeselect__control {
+          display: none;
+      }
+
+      .vue-treeselect__no-children-tip .vue-treeselect__no-children-tip-text {
+          display: none;
+      }
+
+      .vue-treeselect--open-below .vue-treeselect__menu {
+          border-radius: 5px !important;
+      }
+  }
+}

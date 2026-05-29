@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Text Fields | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .page-header .code-inline {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .sample-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      align-items: center;
+    }
+
+    .demo-grid .btn {
+      width: 100%;
+    }
+
+    .visual-scroll {
+      overflow-x: auto;
+    }
+
+    .visual-matrix {
+      display: grid;
+      grid-template-columns: minmax(200px, 240px) repeat(5, minmax(160px, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .matrix-head {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .matrix-label {
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #111827;
+    }
+
+    .matrix-label[data-copy] {
+      cursor: pointer;
+    }
+
+    .matrix-label svg path {
+      fill: currentColor;
+    }
+
+    .state-cell {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      width: 100%;
+      min-height: 56px;
+      border: 1px dashed #e5e7eb;
+      background: #f9fafb;
+      text-align: center;
+    }
+
+    .state-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #111827;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+
+
+    .copy-hint {
+      color: var(--muted);
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    .copy-status {
+      color: #111827;
+      font-weight: 600;
+    }
+
+    .copy-tooltip {
+      position: fixed;
+      z-index: 1000;
+      background: #111827;
+      color: #f9fafb;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .copy-tooltip.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .is-disabled {
+      background: #f3f4f6 !important;
+      border: 1px solid #d2d6db !important;
+      color: #9da4ae !important;
+      cursor: not-allowed;
+    }
+
+    .sample-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .token-chip {
+      background: #f3f4f6;
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      color: #374151;
+    }
+
+    .anatomy-frame {
+      background-image: url("./images/dot-grid.svg");
+      background-size: 280px;
+      padding: 24px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .anatomy-frame img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0;
+    }
+
+    .state-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .state-tile {
+      background: #fff;
+      border: 1px dashed #e5e7eb;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .state-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .usage-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .usage-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .usage-card h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .usage-card ul {
+      padding-right: 18px;
+      margin: 0;
+      color: #4b5563;
+    }
+
+    .accessibility-list {
+      padding-right: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .btn-sample {
+      min-width: 180px;
+    }
+
+    .docs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .docs-table th,
+    .docs-table td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      vertical-align: top;
+    }
+
+    .docs-table th {
+      background: #f9fafb;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .docs-table th svg,
+    .docs-table td svg {
+      width: 24px !important;
+      height: 24px !important;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #1f2a6b;
+      font-size: 0.75rem;
+    }
+
+    .two-col {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    svg {
+      width: 16px !important;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .docs-sidebar {}
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .sidebar-nav a.is-active {
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+    }
+
+    .lang-toggle {
+      margin-top: 12px;
+      width: 100%;
+      background: #fff;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #cbd5f5;
+      box-shadow: 0 14px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .lang-toggle svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .field-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .field-shell {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .input-wrapper.has-leading .form-control {
+      padding-inline-start: 40px;
+    }
+
+    .input-wrapper.has-trailing .form-control {
+      padding-inline-end: 40px;
+    }
+
+    .input-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      width: 18px;
+      height: 18px;
+      pointer-events: none;
+    }
+
+    .input-icon.leading {
+      inset-inline-start: 12px;
+    }
+
+    .input-icon.trailing {
+      inset-inline-end: 12px;
+    }
+
+    .toggle-password {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      inset-inline-end: 10px;
+      color: var(--muted);
+    }
+
+    .helper-text {
+      color: var(--muted);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .error-text {
+      font-size: 0.85rem;
+    }
+
+    .select-field {
+      position: relative;
+      width: 100%;
+    }
+
+    .select-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: #fff;
+    }
+
+    .select-trigger .select-value {
+      flex: 1;
+    }
+
+    .select-trigger .placeholder {
+      color: var(--muted);
+    }
+
+    .select-menu {
+      list-style: none;
+      margin: 0;
+      padding: 8px 0;
+      position: absolute;
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+      top: calc(100% + 6px);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
+      display: none;
+      z-index: 20;
+    }
+
+    .select-field.is-open .select-menu {
+      display: block;
+    }
+
+    .select-option {
+      padding: 10px 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .select-option:hover {
+      background: #f3f4f6;
+    }
+
+    .chevron {
+      transition: transform 0.16s ease;
+    }
+
+    .select-field.is-open .chevron {
+      transform: rotate(180deg);
+    }
+
+    .select-field.is-disabled .form-control {
+      background: #f3f4f6;
+      border: 1px solid #d2d6db;
+      color: #9da4ae;
+      pointer-events: none;
+    }
+
+    .state-hover .form-control {
+      border-color: var(--muted);
+      box-shadow: 0 0 0 1px var(--border);
+    }
+
+    .state-focus .form-control {
+      border-color: var(--color_change, #25935f);
+      box-shadow: 0 0 0 2px rgba(37, 147, 95, 0.12);
+    }
+
+    .state-filled .form-control {
+      color: #111827;
+    }
+
+    .select-field.state-focus .form-control {
+      border-color: var(--color_change, #25935f);
+      box-shadow: 0 0 0 2px rgba(37, 147, 95, 0.12);
+    }
+
+    .select-field .form-control.is-invalid {
+      border-color: var(--bs-danger, #f04438);
+      box-shadow: 0 0 0 2px rgba(240, 68, 56, 0.12);
+    }
+
+    .field-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+
+  </style>
+  <link href="./css/ds-site-nav.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" class="is-active" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+        </nav>
+      </div>
+
+    </aside>
+
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><svg width="24"
+            height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.05469 1.25C9.42218 1.24998 10.5247 1.24968 11.3916 1.36621C12.2917 1.48723 13.0495 1.74672 13.6514 2.34863C14.2533 2.95055 14.5128 3.70829 14.6338 4.6084C14.7503 5.47534 14.75 6.57782 14.75 7.94531V9.25488C15.1235 9.25143 15.5218 9.24999 15.9453 9.25H16.0547C17.4222 9.24998 18.5247 9.24968 19.3916 9.36621C20.2917 9.48723 21.0495 9.74672 21.6514 10.3486C22.2533 10.9505 22.5128 11.7083 22.6338 12.6084C22.7503 13.4753 22.75 14.5778 22.75 15.9453V16.0547C22.75 17.4222 22.7503 18.5247 22.6338 19.3916C22.5128 20.2917 22.2533 21.0495 21.6514 21.6514C21.0495 22.2533 20.2917 22.5128 19.3916 22.6338C18.5247 22.7503 17.4222 22.75 16.0547 22.75H15.9453C14.5778 22.75 13.4753 22.7503 12.6084 22.6338C11.7083 22.5128 10.9505 22.2533 10.3486 21.6514C9.74672 21.0495 9.48723 20.2917 9.36621 19.3916C9.24968 18.5247 9.24998 17.4222 9.25 16.0547V15.9453C9.24999 15.5218 9.25143 15.1235 9.25488 14.75H7.94531C6.57782 14.75 5.47534 14.7503 4.6084 14.6338C3.70829 14.5128 2.95055 14.2533 2.34863 13.6514C1.74672 13.0495 1.48723 12.2917 1.36621 11.3916C1.24968 10.5247 1.24998 9.42218 1.25 8.05469V7.94531C1.24998 6.57782 1.24968 5.47534 1.36621 4.6084C1.48723 3.70829 1.74672 2.95055 2.34863 2.34863C2.95055 1.74672 3.70829 1.48723 4.6084 1.36621C5.47534 1.24968 6.57782 1.24998 7.94531 1.25H8.05469ZM16 10.75C14.5648 10.75 13.5639 10.752 12.8086 10.8535C12.0748 10.9522 11.6859 11.1324 11.4092 11.4092C11.1324 11.6859 10.9522 12.0748 10.8535 12.8086C10.752 13.5639 10.75 14.5648 10.75 16C10.75 17.4352 10.752 18.4361 10.8535 19.1914C10.9522 19.9252 11.1324 20.3141 11.4092 20.5908C11.6859 20.8676 12.0748 21.0478 12.8086 21.1465C13.5639 21.248 14.5648 21.25 16 21.25C17.4352 21.25 18.4361 21.248 19.1914 21.1465C19.9252 21.0478 20.3141 20.8676 20.5908 20.5908C20.8676 20.3141 21.0478 19.9252 21.1465 19.1914C21.248 18.4361 21.25 17.4352 21.25 16C21.25 14.5648 21.248 13.5639 21.1465 12.8086C21.0478 12.0748 20.8676 11.6859 20.5908 11.4092C20.3141 11.1324 19.9252 10.9522 19.1914 10.8535C18.4361 10.752 17.4352 10.75 16 10.75ZM4 15.75C4.41421 15.75 4.75 16.0858 4.75 16.5C4.75 17.2178 4.75071 17.7 4.78809 18.0674C4.82419 18.4221 4.88849 18.5859 4.96094 18.6943C5.05212 18.8308 5.16921 18.9479 5.30566 19.0391C5.4141 19.1115 5.57788 19.1758 5.93262 19.2119C6.30002 19.2493 6.78216 19.25 7.5 19.25C7.91421 19.25 8.25 19.5858 8.25 20C8.25 20.4142 7.91421 20.75 7.5 20.75H7.46191C6.79245 20.75 6.23354 20.7501 5.78125 20.7041C5.30783 20.6559 4.86862 20.5507 4.47266 20.2861C4.17238 20.0855 3.9145 19.8276 3.71387 19.5273C3.44934 19.1314 3.34406 18.6922 3.2959 18.2188C3.24991 17.7665 3.24998 17.2075 3.25 16.5381C3.25 16.5254 3.25 16.5127 3.25 16.5C3.25 16.0858 3.58579 15.75 4 15.75ZM16 12.25C16.3028 12.25 16.5759 12.4324 16.6924 12.7119L19.1924 18.7119C19.3514 19.0941 19.1711 19.533 18.7891 19.6924C18.4067 19.8517 17.9669 19.6704 17.8076 19.2881L17.167 17.75H14.834L14.1924 19.2881C14.0331 19.6704 13.5942 19.8516 13.2119 19.6924C12.8297 19.5331 12.6486 19.0942 12.8076 18.7119L15.3076 12.7119C15.424 12.4325 15.6973 12.2501 16 12.25Z"
+              fill="currentColor"></path>
+          </svg><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.9975 3.25C11.624 3.25 11.2774 3.41565 11.0172 3.57252C10.7364 3.7418 10.4464 3.96944 10.1638 4.21918C9.59669 4.72018 8.98771 5.37387 8.43684 6.00823C7.88274 6.64633 7.37253 7.28222 7.00175 7.75725C6.81606 7.99516 6.66462 8.19364 6.55931 8.33304C6.50664 8.40276 6.46547 8.45776 6.43727 8.49558L6.40489 8.53915L6.39633 8.55071L6.39337 8.55472C6.14771 8.88822 6.2186 9.35816 6.5521 9.60382C6.88559 9.84947 7.35507 9.77828 7.60074 9.44481L7.61015 9.43209L7.63992 9.39204C7.66632 9.35662 7.70557 9.3042 7.75618 9.2372C7.85743 9.10317 8.00402 8.91102 8.1842 8.68019C8.54517 8.21772 9.03806 7.60363 9.56942 6.99173C10.104 6.37611 10.6628 5.77981 11.1569 5.34331C11.1882 5.3157 11.2189 5.28899 11.249 5.26316L11.249 20C11.249 20.4142 11.5848 20.75 11.999 20.75C12.4132 20.75 12.749 20.4142 12.749 20L12.749 5.2657C12.7782 5.29073 12.808 5.31661 12.8382 5.34331C13.3323 5.77981 13.8911 6.37611 14.4257 6.99173C14.957 7.60363 15.4499 8.21772 15.8109 8.68019C15.9911 8.91102 16.1377 9.10317 16.2389 9.2372C16.2895 9.30419 16.3288 9.35662 16.3552 9.39204L16.3849 9.43209L16.3943 9.44481C16.64 9.77828 17.1095 9.84947 17.443 9.60382C17.7765 9.35816 17.8474 8.88822 17.6017 8.55472L17.5988 8.55071L17.5902 8.53915L17.5578 8.49558C17.5296 8.45776 17.4884 8.40276 17.4358 8.33304C17.3305 8.19363 17.179 7.99516 16.9933 7.75725C16.6226 7.28222 16.1123 6.64633 15.5582 6.00823C15.0074 5.37387 14.3984 4.72018 13.8313 4.21918C13.5486 3.96944 13.2587 3.7418 12.9779 3.57252C12.7192 3.4166 12.3753 3.25199 12.0043 3.25002"
+              fill="white"></path>
+          </svg><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span>
+        </button>
+      </div>
+
+
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="المكونات / الإدخال">Components / Input</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="حقول النص والقوائم">Text Inputs &amp; Selects</h1>
+
+        <p class="text-muted mb-4" data-i18n
+          data-ar="تعرض هذه الصفحة الحقول النصية وقوائم الاختيار بنفس هيكل الأزرار. يعتمد كل حقل على الفئات الجاهزة <span class=&quot;code-inline&quot;>.form-control</span> و <span class=&quot;code-inline&quot;>.form-select</span> مع استخدام الأيقونات والنصوص المساعدة عند الحاجة.">
+          This page maps text inputs and dropdown selects using the same layout as buttons. Each field is
+          built on the core <span class="code-inline">.form-control</span> and
+          <span class="code-inline">.form-select</span> styles, layering icons and helper text where needed.
+        </p>
+
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="المكوّن: حقول النص والقوائم"
+              data-en="Component: Text Inputs &amp;amp; Selects">
+          المكوّن: حقول النص والقوائم
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="الإصدار: قيد التحديث"
+              data-en="Version: TBD">
+          الإصدار: قيد التحديث
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="آخر تحديث: 28 يناير 2026"
+              data-en="Last updated: January 28, 2026">
+          آخر تحديث: 28 يناير 2026
+        </span>
+      </div>
+
+
+      <section class="section" id="overview">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2>
+          <p class="section-note" data-i18n
+            data-ar="الحقول تستخدم فئات Bootstrap القائمة <span class=&quot;code-inline&quot;>.form-control</span> و <span class=&quot;code-inline&quot;>.form-select</span> مع أيقونات مساعدة داخل <span class=&quot;code-inline&quot;>.form-content</span> ونصوص تحتية باستخدام <span class=&quot;code-inline&quot;>.form-text</span>.">
+            Inputs rely on the shipped Bootstrap styles <span class="code-inline">.form-control</span> and
+            <span class="code-inline">.form-select</span>. Icons sit inside a
+            <span class="code-inline">.form-content</span> wrapper and helper/error messaging uses
+            <span class="code-inline">.form-text</span> or Bootstrap feedback classes.
+          </p>
+          <div class="sample-grid">
+            <div class="state-cell" data-i18n
+              data-ar="حافظ على ارتفاع 44 بكسل، نصف قطرradius-sm، وحد 1 بكسل كما هو محدد في CSS.">
+              Keep the 44px height, radius-sm , and 1px border defined in CSS.
+            </div>
+            <div class="state-cell" data-i18n
+              data-ar="إشارات الحالة تعتمد على الحدود والظل من الفئات الحالية (تركيز، تعطيل، خطأ).">
+              State cues come from existing border/box-shadow rules (focus, disabled, error).
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="usage-rules">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="حافظ على ارتفاع 44 بكسل، نصف القطر، وحد 1 بكسل حسب SCSS الأساسي.">Keep the 44px
+              height, radius-sm, and 1px border as defined in the base SCSS.</li>
+            <li data-i18n
+              data-ar="استخدم <code>.form-control</code> و<code>.form-select</code> كنقطة انطلاق ثم أضف أيقونات عبر <code>.form-content</code>.">
+              Start with <code>.form-control</code>/<code>.form-select</code> and layer icons inside
+              <code>.form-content</code>.</li>
+            <li data-i18n
+              data-ar="ارفَع الملاحظات المساعدة بـ <code>aria-describedby</code> لضمان ارتباط نص الخطأ/المساعدة.">Hook
+              helper or error text via <code>aria-describedby</code>.</li>
+            <li data-i18n
+              data-ar="استخدم <code>.has-leading</code> و<code>.has-trailing</code> لتقديم أيقونات بمسافات صحيحة.">Apply
+              <code>.has-leading</code> / <code>.has-trailing</code> to maintain icon spacing.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="do-dont">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="افعل ولا تفعل">Do &amp; Don&#39;t</h2>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="افعل">Do</h4>
+              <ul>
+                <li data-i18n data-ar="استخدم المستحضر نفسه لكل الحالات بحيث ترجع إلى SCSS الأصلي.">Reuse the existing
+                  SCSS mixins for every state.</li>
+                <li data-i18n
+                  data-ar="اضبط النص المساعد أو الخطأ مع <code>aria-describedby</code> إذا احتجت لهذا السياق.">Link
+                  helper/error text via <code>aria-describedby</code> when needed.</li>
+                <li data-i18n
+                  data-ar="اعتمد على الأيقونات المزخرفة مع <code>aria-hidden=&quot;true&quot;</code> وأعطِ أزرار الإغلاق تسمية واضحة.">
+                  Treat icons as decorative (<code>aria-hidden="true"</code>) and give close buttons a clear label.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="لا تفعل">Don&#39;t</h4>
+              <ul>
+                <li data-i18n data-ar="لا تغير الارتفاع أو الحدود داخل العنصر؛ اجعل التغييرات عبر المتغيرات.">Don’t
+                  alter height/borders inline; adjust via variables.</li>
+                <li data-i18n
+                  data-ar="لا تستخدم ألوانًا جديدة لرموز الحالة؛ استخدم <code>$Error-*</code>, <code>$Warning-*</code>، وإلا ستفقد الاتساق.">
+                  Avoid inventing new status colors.</li>
+                <li data-i18n data-ar="لا تزيل أصناف التركيز أو تجهض لوحة المفاتيح.">Do not strip focus styles or
+                  keyboard support.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="anatomy">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2>
+          <p class="section-note" data-i18n
+            data-ar="كل حقل يحتوي على تصنيف أعلى، حاوية، محتوى الإدخال، وأيقونات اختيارية، مع نص مساعد أو خطأ أسفل.">
+            Each field is made of a label, the input container, optional leading/trailing icons, and helper or
+            error text.
+          </p>
+          <div class="row g-4">
+            <div class="col-12 col-lg-6">
+              <ul class="accessibility-list">
+                <li data-i18n
+                  data-ar="<strong>التصنيف:</strong> استخدم <span class=&quot;code-inline&quot;>&lt;label for&gt;</span> مع معرف مطابق.">
+                  <strong>Label:</strong> Use <span class="code-inline">&lt;label for&gt;</span> that matches the field
+                  id.
+                </li>
+                <li data-i18n
+                  data-ar="<strong>الحاوية:</strong> <span class=&quot;code-inline&quot;>.form-control</span> أو <span class=&quot;code-inline&quot;>.form-select</span> للحصول على الطول، الحشو، والحد.">
+                  <strong>Container:</strong> <span class="code-inline">.form-control</span> or <span
+                    class="code-inline">.form-select</span> for consistent height, padding, and border.
+                </li>
+                <li data-i18n
+                  data-ar="<strong>أيقونة قيادة:</strong> موضوعة داخل <span class=&quot;code-inline&quot;>.form-content</span> مع إزاحة نصية.">
+                  <strong>Leading icon:</strong> Placed inside <span class="code-inline">.form-content</span> with text
+                  indent.
+                </li>
+                <li data-i18n data-ar="<strong>أيقونة ذيل:</strong> زر أو رمز تفاعل (إظهار/إخفاء، سهم القائمة).">
+                  <strong>Trailing icon:</strong> Action or state affordance (toggle visibility, dropdown chevron).
+                </li>
+                <li data-i18n
+                  data-ar="<strong>النص المساعد/الخطأ:</strong> استخدم <span class=&quot;code-inline&quot;>.form-text</span> أو <span class=&quot;code-inline&quot;>.invalid-feedback</span> مع <span class=&quot;code-inline&quot;>aria-describedby</span>.">
+                  <strong>Helper/Error:</strong> <span class="code-inline">.form-text</span> or <span
+                    class="code-inline">.invalid-feedback</span> tied via <span
+                    class="code-inline">aria-describedby</span>.
+                </li>
+              </ul>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="anatomy-frame">
+                <div class="field-shell w-100" style="max-width: 320px;">
+                  <label class="form-label mb-1" for="anatomy-input">اسم المستخدم</label>
+                  <div class="input-wrapper has-leading has-trailing">
+                    <span class="input-icon leading" aria-hidden="true">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6.19434 14.8369C9.74833 12.7209 14.2527 12.7208 17.8066 14.8369C17.9228 14.9061 18.0661 14.9875 18.2285 15.0791C18.9413 15.4812 20.0196 16.089 20.7578 16.8115C21.2195 17.2634 21.6576 17.8593 21.7373 18.5889C21.8221 19.3647 21.4836 20.0924 20.8047 20.7393C19.6332 21.8553 18.2275 22.75 16.4092 22.75H7.59082C5.77262 22.7499 4.36671 21.8553 3.19531 20.7393C2.51651 20.0924 2.17795 19.3646 2.2627 18.5889C2.34244 17.8593 2.7815 17.2634 3.24316 16.8115C3.98132 16.0891 5.05877 15.4812 5.77148 15.0791C5.93409 14.9874 6.07806 14.9062 6.19434 14.8369ZM17.0391 16.126C13.958 14.2914 10.043 14.2915 6.96191 16.126C6.79407 16.2259 6.60964 16.3302 6.41699 16.4395C5.70439 16.8437 4.87208 17.316 4.29199 17.8838C3.93192 18.2363 3.77846 18.5273 3.75391 18.752C3.73447 18.9303 3.78002 19.2242 4.23047 19.6533C5.26624 20.6401 6.31849 21.2499 7.59082 21.25H16.4092C17.6816 21.25 18.7347 20.6402 19.7705 19.6533C20.2207 19.2243 20.2655 18.9303 20.2461 18.752C20.2215 18.5273 20.0681 18.2363 19.708 17.8838C19.1279 17.316 18.2956 16.8437 17.583 16.4395C17.3905 16.3302 17.2068 16.2259 17.0391 16.126ZM12 1.25C14.8995 1.25 17.25 3.6005 17.25 6.5C17.25 9.39949 14.8995 11.75 12 11.75C9.1005 11.75 6.75 9.39949 6.75 6.5C6.75 3.6005 9.1005 1.25 12 1.25ZM12 2.75C9.92893 2.75 8.25 4.42893 8.25 6.5C8.25 8.57107 9.92893 10.25 12 10.25C14.0711 10.25 15.75 8.57107 15.75 6.5C15.75 4.42893 14.0711 2.75 12 2.75Z"
+                          fill="#161616" />
+                      </svg>
+                    </span>
+                    <input class="form-control" id="anatomy-input" type="text" placeholder="يرجى إضافة اسم المستخدم"
+                      aria-describedby="anatomy-helper" />
+                    <i class="fa fa-check input-icon trailing" aria-hidden="true"></i>
+                  </div>
+                  <p class="helper-text" id="anatomy-helper">Helper text</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="states">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="حالات حقل النص">Text Input States</h2>
+          <p class="section-note" data-i18n
+            data-ar="تمثيل الحالات الافتراضية والتحويم والتركيز والقيمة والخطأ والتعطيل.">Mapped states for default,
+            hover, focus, filled, error, and disabled.</p>
+          <div class="state-grid">
+            <div class="state-tile">
+              <div class="state-label" data-i18n data-ar="افتراضي">Default</div>
+              <label class="form-label mb-1" for="input-default">اسم المستخدم</label>
+              <div class="input-wrapper has-leading">
+                <span class="input-icon leading" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M6.19434 14.8369C9.74833 12.7209 14.2527 12.7208 17.8066 14.8369C17.9228 14.9061 18.0661 14.9875 18.2285 15.0791C18.9413 15.4812 20.0196 16.089 20.7578 16.8115C21.2195 17.2634 21.6576 17.8593 21.7373 18.5889C21.8221 19.3647 21.4836 20.0924 20.8047 20.7393C19.6332 21.8553 18.2275 22.75 16.4092 22.75H7.59082C5.77262 22.7499 4.36671 21.8553 3.19531 20.7393C2.51651 20.0924 2.17795 19.3646 2.2627 18.5889C2.34244 17.8593 2.7815 17.2634 3.24316 16.8115C3.98132 16.0891 5.05877 15.4812 5.77148 15.0791C5.93409 14.9874 6.07806 14.9062 6.19434 14.8369ZM17.0391 16.126C13.958 14.2914 10.043 14.2915 6.96191 16.126C6.79407 16.2259 6.60964 16.3302 6.41699 16.4395C5.70439 16.8437 4.87208 17.316 4.29199 17.8838C3.93192 18.2363 3.77846 18.5273 3.75391 18.752C3.73447 18.9303 3.78002 19.2242 4.23047 19.6533C5.26624 20.6401 6.31849 21.2499 7.59082 21.25H16.4092C17.6816 21.25 18.7347 20.6402 19.7705 19.6533C20.2207 19.2243 20.2655 18.9303 20.2461 18.752C20.2215 18.5273 20.0681 18.2363 19.708 17.8838C19.1279 17.316 18.2956 16.8437 17.583 16.4395C17.3905 16.3302 17.2068 16.2259 17.0391 16.126ZM12 1.25C14.8995 1.25 17.25 3.6005 17.25 6.5C17.25 9.39949 14.8995 11.75 12 11.75C9.1005 11.75 6.75 9.39949 6.75 6.5C6.75 3.6005 9.1005 1.25 12 1.25ZM12 2.75C9.92893 2.75 8.25 4.42893 8.25 6.5C8.25 8.57107 9.92893 10.25 12 10.25C14.0711 10.25 15.75 8.57107 15.75 6.5C15.75 4.42893 14.0711 2.75 12 2.75Z"
+                      fill="#161616" />
+                  </svg>
+                </span>
+                <input class="form-control" id="input-default" type="text" placeholder="يرجى إضافة اسم المستخدم"
+                  aria-describedby="input-default-helper" />
+              </div>
+              <p class="helper-text" id="input-default-helper" data-i18n data-ar="نص مساعد اختياري">Helper text</p>
+            </div>
+            <div class="state-tile state-hover">
+              <div class="state-label" data-i18n data-ar="تحويم">Hover</div>
+              <label class="form-label mb-1" for="input-hover">اسم المستخدم</label>
+              <div class="input-wrapper">
+                <input class="form-control" id="input-hover" type="text" placeholder="يرجى إضافة اسم المستخدم"
+                  aria-describedby="input-hover-helper" />
+              </div>
+              <p class="helper-text" id="input-hover-helper" data-i18n data-ar="تحريك المؤشر لمعاينة الحدود">Hover to
+                preview border</p>
+            </div>
+            <div class="state-tile state-focus">
+              <div class="state-label" data-i18n data-ar="تركيز/نشط">Focus / Active</div>
+              <label class="form-label mb-1" for="input-focus">اسم المستخدم</label>
+              <div class="input-wrapper">
+                <input class="form-control" id="input-focus" type="text" placeholder="يرجى إضافة اسم المستخدم"
+                  aria-describedby="input-focus-helper" />
+              </div>
+              <p class="helper-text" id="input-focus-helper" data-i18n data-ar="ظل و حد بلون السمة عند التركيز">Theme
+                border and glow on focus</p>
+            </div>
+            <div class="state-tile state-filled">
+              <div class="state-label" data-i18n data-ar="معبأ">Filled</div>
+              <label class="form-label mb-1" for="input-filled">اسم المستخدم</label>
+              <div class="input-wrapper has-trailing">
+                <input class="form-control" id="input-filled" type="text" value="عبدالله القحطاني"
+                  aria-describedby="input-filled-helper" />
+                <i class="fa fa-check input-icon trailing text-success" aria-hidden="true"></i>
+              </div>
+              <p class="helper-text" id="input-filled-helper" data-i18n data-ar="قيمة مدخلة مع تأكيد بصري">Value present
+                with confirmation icon</p>
+            </div>
+            <div class="state-tile">
+              <div class="state-label" data-i18n data-ar="خطأ">Error</div>
+              <label class="form-label mb-1" for="input-error">اسم المستخدم</label>
+              <div class="input-wrapper has-trailing">
+                <input class="form-control is-invalid" id="input-error" type="text" aria-invalid="true"
+                  aria-describedby="input-error-helper" placeholder="يرجى إضافة اسم المستخدم" />
+                <i class="fa fa-exclamation-circle input-icon trailing text-danger" aria-hidden="true"></i>
+              </div>
+              <div class="error-text text-danger invalid-feedback d-block" id="input-error-helper" data-i18n
+                data-ar="نص الخطأ">Error text</div>
+            </div>
+            <div class="state-tile">
+              <div class="state-label" data-i18n data-ar="معطل">Disabled</div>
+              <label class="form-label mb-1" for="input-disabled">اسم المستخدم</label>
+              <div class="input-wrapper">
+                <input class="form-control" id="input-disabled" type="text" placeholder="يرجى إضافة اسم المستخدم"
+                  aria-describedby="input-disabled-helper" disabled />
+              </div>
+              <p class="helper-text" id="input-disabled-helper" data-i18n data-ar="حالة قراءة فقط مع مؤشر تعطيل">
+                Read-only visual state</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="variants">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="متغيرات حقل النص">Text Input Variants</h2>
+          <p class="section-note" data-i18n data-ar="إضافات متداخلة للنص المساعد، الأيقونات، وكلمة المرور.">Inline
+            variants for helper messaging, icons, and password reveal.</p>
+          <div class="visual-grid">
+            <div class="field-shell">
+              <label class="form-label mb-1" for="input-helper">اسم المستخدم</label>
+              <input class="form-control" id="input-helper" type="text" placeholder="يرجى إضافة اسم المستخدم"
+                aria-describedby="input-helper-text" />
+              <p class="helper-text" id="input-helper-text" data-i18n data-ar="نص مساعد تحت الحقل">Helper text below
+                field</p>
+            </div>
+            <div class="field-shell">
+              <label class="form-label mb-1" for="input-leading">اسم المستخدم</label>
+              <div class="input-wrapper has-leading">
+                <span class="input-icon leading" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M6.19434 14.8369C9.74833 12.7209 14.2527 12.7208 17.8066 14.8369C17.9228 14.9061 18.0661 14.9875 18.2285 15.0791C18.9413 15.4812 20.0196 16.089 20.7578 16.8115C21.2195 17.2634 21.6576 17.8593 21.7373 18.5889C21.8221 19.3647 21.4836 20.0924 20.8047 20.7393C19.6332 21.8553 18.2275 22.75 16.4092 22.75H7.59082C5.77262 22.7499 4.36671 21.8553 3.19531 20.7393C2.51651 20.0924 2.17795 19.3646 2.2627 18.5889C2.34244 17.8593 2.7815 17.2634 3.24316 16.8115C3.98132 16.0891 5.05877 15.4812 5.77148 15.0791C5.93409 14.9874 6.07806 14.9062 6.19434 14.8369ZM17.0391 16.126C13.958 14.2914 10.043 14.2915 6.96191 16.126C6.79407 16.2259 6.60964 16.3302 6.41699 16.4395C5.70439 16.8437 4.87208 17.316 4.29199 17.8838C3.93192 18.2363 3.77846 18.5273 3.75391 18.752C3.73447 18.9303 3.78002 19.2242 4.23047 19.6533C5.26624 20.6401 6.31849 21.2499 7.59082 21.25H16.4092C17.6816 21.25 18.7347 20.6402 19.7705 19.6533C20.2207 19.2243 20.2655 18.9303 20.2461 18.752C20.2215 18.5273 20.0681 18.2363 19.708 17.8838C19.1279 17.316 18.2956 16.8437 17.583 16.4395C17.3905 16.3302 17.2068 16.2259 17.0391 16.126ZM12 1.25C14.8995 1.25 17.25 3.6005 17.25 6.5C17.25 9.39949 14.8995 11.75 12 11.75C9.1005 11.75 6.75 9.39949 6.75 6.5C6.75 3.6005 9.1005 1.25 12 1.25ZM12 2.75C9.92893 2.75 8.25 4.42893 8.25 6.5C8.25 8.57107 9.92893 10.25 12 10.25C14.0711 10.25 15.75 8.57107 15.75 6.5C15.75 4.42893 14.0711 2.75 12 2.75Z"
+                      fill="#161616" />
+                  </svg>
+                </span>
+                <input class="form-control" id="input-leading" type="text" placeholder="يرجى إضافة اسم المستخدم"
+                  aria-describedby="input-leading-text" />
+              </div>
+              <p class="helper-text" id="input-leading-text" data-i18n data-ar="أيقونة قيادة مع إزاحة للنص">Leading icon
+                with text indent</p>
+            </div>
+            <div class="field-shell">
+              <label class="form-label mb-1" for="input-trailing">اسم المستخدم</label>
+              <div class="input-wrapper has-trailing">
+                <input class="form-control" id="input-trailing" type="text" placeholder="يرجى إضافة اسم المستخدم"
+                  aria-describedby="input-trailing-text" />
+                <i class="fa fa-search input-icon trailing" aria-hidden="true"></i>
+              </div>
+              <p class="helper-text" id="input-trailing-text" data-i18n data-ar="أيقونة ذيل لإجراء ثانوي">Trailing icon
+                for secondary action</p>
+            </div>
+            <div class="field-shell">
+              <label class="form-label mb-1" for="input-password" data-i18n data-ar="كلمة المرور">Password</label>
+              <div class="input-wrapper has-trailing form-content">
+                <img src="./images/icon-lock.svg" alt="" aria-hidden="true" />
+                <input class="form-control" id="input-password" type="password" placeholder="يرجى إضافة كلمة المرور"
+                  aria-describedby="input-password-helper" />
+                <button class="btn btn-link p-0 text-decoration-none toggle-password" type="button"
+                  aria-label="إظهار كلمة المرور" data-target="input-password">
+                  <i class="fa fa-eye-slash"></i>
+                </button>
+              </div>
+              <p class="helper-text" id="input-password-helper" data-i18n data-ar="زر إظهار/إخفاء مع تحديث aria-label">
+                Toggle eye updates aria-label</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="select-states">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="حالات القائمة المنسدلة">Select States</h2>
+          <p class="section-note" data-i18n data-ar="قائمة منسدلة مخصصة تستخدم نفس ارتفاع الإدخال وسهم دوار.">Custom
+            select mirrors input height with rotating chevron.</p>
+          <div class="state-grid">
+            <div class="state-tile">
+              <div class="state-label" data-i18n data-ar="افتراضي">Default</div>
+              <label class="form-label mb-1" for="select-default">قائمة منسدلة</label>
+              <div class="select-field">
+                <button class="form-control select-trigger" type="button" id="select-default" aria-haspopup="listbox"
+                  aria-expanded="false">
+                  <span class="select-value placeholder" data-placeholder="اختر من القائمة">اختر من القائمة</span>
+                  <i class="fa fa-chevron-down chevron" aria-hidden="true"></i>
+                </button>
+                <ul class="select-menu" role="listbox">
+                  <li class="select-option" role="option" tabindex="0">الخيار الأول</li>
+                  <li class="select-option" role="option" tabindex="0">الخيار الثاني</li>
+                  <li class="select-option" role="option" tabindex="0">الخيار الثالث</li>
+                </ul>
+              </div>
+              <p class="helper-text" data-i18n data-ar="نص مساعد">Helper text</p>
+            </div>
+            <div class="state-tile state-hover">
+              <div class="state-label" data-i18n data-ar="تحويم">Hover</div>
+              <label class="form-label mb-1" for="select-hover">قائمة منسدلة</label>
+              <div class="select-field state-hover">
+                <button class="form-control select-trigger" type="button" id="select-hover" aria-haspopup="listbox"
+                  aria-expanded="false">
+                  <span class="select-value placeholder" data-placeholder="اختر من القائمة">اختر من القائمة</span>
+                  <i class="fa fa-chevron-down chevron" aria-hidden="true"></i>
+                </button>
+                <ul class="select-menu" role="listbox">
+                  <li class="select-option" role="option" tabindex="0">الخيار الأول</li>
+                  <li class="select-option" role="option" tabindex="0">الخيار الثاني</li>
+                  <li class="select-option" role="option" tabindex="0">الخيار الثالث</li>
+                </ul>
+              </div>
+              <p class="helper-text" data-i18n data-ar="تحريك المؤشر لمعاينة التحويم">Hover to preview</p>
+            </div>
+            <div class="state-tile state-focus">
+              <div class="state-label" data-i18n data-ar="نشط/مفتوح">Active / Open</div>
+              <label class="form-label mb-1" for="select-open">قائمة منسدلة</label>
+              <div class="select-field is-open state-focus">
+                <button class="form-control select-trigger" type="button" id="select-open" aria-haspopup="listbox"
+                  aria-expanded="true">
+                  <span class="select-value placeholder" data-placeholder="اختر من القائمة">اختر من القائمة</span>
+                  <i class="fa fa-chevron-down chevron" aria-hidden="true"></i>
+                </button>
+                <ul class="select-menu" role="listbox">
+                  <li class="select-option" role="option" tabindex="0">الخيار الأول</li>
+                  <li class="select-option" role="option" tabindex="0">الخيار الثاني</li>
+                  <li class="select-option" role="option" tabindex="0">الخيار الثالث</li>
+                </ul>
+              </div>
+              <p class="helper-text" data-i18n data-ar="القائمة مفتوحة مع تدوير السهم">Open with rotated chevron</p>
+            </div>
+            <div class="state-tile">
+              <div class="state-label" data-i18n data-ar="قيمة محددة">Selected</div>
+              <label class="form-label mb-1" for="select-selected">قائمة منسدلة</label>
+              <div class="select-field">
+                <button class="form-control select-trigger" type="button" id="select-selected" aria-haspopup="listbox"
+                  aria-expanded="false">
+                  <span class="select-value" data-placeholder="اختر من القائمة">الخيار الثاني</span>
+                  <i class="fa fa-chevron-down chevron" aria-hidden="true"></i>
+                </button>
+                <ul class="select-menu" role="listbox">
+                  <li class="select-option" role="option" tabindex="0">الخيار الأول</li>
+                  <li class="select-option" role="option" tabindex="0">الخيار الثاني</li>
+                  <li class="select-option" role="option" tabindex="0">الخيار الثالث</li>
+                </ul>
+              </div>
+              <p class="helper-text" data-i18n data-ar="عرض القيمة المختارة">Displays selected value</p>
+            </div>
+            <div class="state-tile">
+              <div class="state-label" data-i18n data-ar="خطأ">Error</div>
+              <label class="form-label mb-1" for="select-error">قائمة منسدلة</label>
+              <div class="select-field">
+                <button class="form-control select-trigger is-invalid" type="button" id="select-error"
+                  aria-haspopup="listbox" aria-expanded="false" aria-invalid="true"
+                  aria-describedby="select-error-helper">
+                  <span class="select-value placeholder" data-placeholder="اختر من القائمة">اختر من القائمة</span>
+                  <i class="fa fa-chevron-down chevron text-danger" aria-hidden="true"></i>
+                </button>
+                <ul class="select-menu" role="listbox">
+                  <li class="select-option" role="option" tabindex="0">الخيار الأول</li>
+                  <li class="select-option" role="option" tabindex="0">الخيار الثاني</li>
+                  <li class="select-option" role="option" tabindex="0">الخيار الثالث</li>
+                </ul>
+              </div>
+              <div class="error-text text-danger invalid-feedback d-block" id="select-error-helper" data-i18n
+                data-ar="نص الخطأ">Error text</div>
+            </div>
+            <div class="state-tile">
+              <div class="state-label" data-i18n data-ar="معطل">Disabled</div>
+              <label class="form-label mb-1" for="select-disabled">قائمة منسدلة</label>
+              <div class="select-field is-disabled">
+                <button class="form-control select-trigger" type="button" id="select-disabled" aria-haspopup="listbox"
+                  aria-expanded="false" disabled>
+                  <span class="select-value placeholder" data-placeholder="اختر من القائمة">اختر من القائمة</span>
+                  <i class="fa fa-chevron-down chevron" aria-hidden="true"></i>
+                </button>
+              </div>
+              <p class="helper-text" data-i18n data-ar="حالة تعطيل">Disabled state</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="accessibility">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2>
+          <p class="section-note" data-i18n
+            data-ar="تأكد من أن التسميات والرسائل مرتبطة وأن الأزرار التفاعلية لها aria-label.">Ensure labels and
+            messaging are connected; interactive icons need aria-label.</p>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="اربط كل <span class=&quot;code-inline&quot;>label</span> مع <span class=&quot;code-inline&quot;>id</span> فريد.">
+              Tie every <span class="code-inline">label</span> to a unique <span class="code-inline">id</span>.</li>
+            <li data-i18n
+              data-ar="استخدم <span class=&quot;code-inline&quot;>aria-describedby</span> لربط النص المساعد أو الخطأ.">
+              Use <span class="code-inline">aria-describedby</span> for helper or error text.</li>
+            <li data-i18n
+              data-ar="عيّن <span class=&quot;code-inline&quot;>aria-invalid=&quot;true&quot;</span> عند إظهار الخطأ.">
+              Set <span class="code-inline">aria-invalid=&quot;true&quot;</span> when showing error.</li>
+            <li data-i18n
+              data-ar="أزرار الأيقونات (إظهار/إخفاء، السهم) تحتاج <span class=&quot;code-inline&quot;>aria-label</span>.">
+              Icon buttons (toggle eye, chevron) need an <span class="code-inline">aria-label</span>.</li>
+            <li data-i18n
+              data-ar="القائمة المنسدلة تستخدم <span class=&quot;code-inline&quot;>role=&quot;listbox&quot;</span> و <span class=&quot;code-inline&quot;>role=&quot;option&quot;</span> للأصناف.">
+              Dropdown uses <span class="code-inline">role=&quot;listbox&quot;</span> with <span
+                class="code-inline">role=&quot;option&quot;</span> items.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="edge-cases">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="حالات حافة">Edge cases</h2>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="في الحقول متعددة الأسطر، راقب ارتفاع الحاوية واجعل <code>line-height</code> مناسبًا.">Monitor
+              container height and line height for multi-line fields.</li>
+            <li data-i18n data-ar="أزرار إظهار/إخفاء كلمة المرور تحتاج إلى تحديث <code>aria-label</code> عند التبديل.">
+              Toggle buttons must update their <code>aria-label</code> when the state changes.</li>
+            <li data-i18n
+              data-ar="عند الفلاتر أو المقاعد المرنة، استخدم <code>.form-select</code> مع قوائم خيارات قابلة للوحة المفاتيح.">
+              For filters, pair <code>.form-select</code> with keyboard-friendly option lists.</li>
+            <li data-i18n
+              data-ar="التقاليم RTL تحتاج إلى <code>dir=&quot;rtl&quot;</code> و<span class=&quot;code-inline&quot;>padding-inline</span> لضبط الأيقونات.">
+              RTL contexts require <code>dir="rtl"</code> and inline padding adjustments for icons.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="developer-api">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="واجهة برمجة التطبيقات للمطورين">Developer API</h2>
+          <p class="section-note" data-i18n
+            data-ar="حدد بنية الحقول، الأيقونات، والنصوص المساعدة مع الفئات المذكورة أدناه.">
+            Define form fields, icons, and helper text using the classes listed below.
+          </p>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;label for=&quot;username&quot;&gt;اسم المستخدم&lt;/label&gt;
+&lt;div class=&quot;input-wrapper has-leading has-trailing&quot;&gt;
+  &lt;span class=&quot;input-icon leading&quot; aria-hidden=&quot;true&quot;&gt;...&lt;/span&gt;
+  &lt;input class=&quot;form-control&quot; id=&quot;username&quot; type=&quot;text&quot; aria-describedby=&quot;username-helper&quot;&gt;
+  &lt;i class=&quot;fa fa-check input-icon trailing&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;p class=&quot;helper-text&quot; id=&quot;username-helper&quot;&gt;Helper text&lt;/p&gt;</code></pre>
+          </div>
+          <ul class="accessibility-list mt-3">
+            <li data-i18n
+              data-ar="يطالب كل حقل بـ <code>.form-control</code> أو <code>.form-select</code> مع <code>label</code> مطابق.">
+              Each field starts with <code>.form-control</code> or <code>.form-select</code> and matching label.</li>
+            <li data-i18n data-ar="الأيقونات تأتي من <code>.input-icon</code> داخل <code>.input-wrapper</code>.">Icons
+              live inside <code>.input-icon</code> within <code>.input-wrapper</code>.</li>
+            <li data-i18n
+              data-ar="النص المساعد يربط بـ <code>aria-describedby</code>، ورسائل الخطأ تظهر عبر <code>.invalid-feedback</code>.">
+              <code>aria-describedby</code> links helper/error text, and error messages use
+              <code>.invalid-feedback</code>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="code-examples">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="أمثلة برمجية">Code Examples</h2>
+          <p class="section-note" data-i18n data-ar="نماذج جاهزة للنسخ مطابقة للأسماء الحالية.">Copy-ready snippets that
+            align to current class names.</p>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;label class=&quot;form-label&quot; for=&quot;username&quot;&gt;اسم المستخدم&lt;/label&gt;
+&lt;div class=&quot;input-wrapper has-leading&quot;&gt;
+  &lt;span class=&quot;input-icon leading&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+&lt;path d=&quot;M6.19434 14.8369C9.74833 12.7209 14.2527 12.7208 17.8066 14.8369C17.9228 14.9061 18.0661 14.9875 18.2285 15.0791C18.9413 15.4812 20.0196 16.089 20.7578 16.8115C21.2195 17.2634 21.6576 17.8593 21.7373 18.5889C21.8221 19.3647 21.4836 20.0924 20.8047 20.7393C19.6332 21.8553 18.2275 22.75 16.4092 22.75H7.59082C5.77262 22.7499 4.36671 21.8553 3.19531 20.7393C2.51651 20.0924 2.17795 19.3646 2.2627 18.5889C2.34244 17.8593 2.7815 17.2634 3.24316 16.8115C3.98132 16.0891 5.05877 15.4812 5.77148 15.0791C5.93409 14.9874 6.07806 14.9062 6.19434 14.8369ZM17.0391 16.126C13.958 14.2914 10.043 14.2915 6.96191 16.126C6.79407 16.2259 6.60964 16.3302 6.41699 16.4395C5.70439 16.8437 4.87208 17.316 4.29199 17.8838C3.93192 18.2363 3.77846 18.5273 3.75391 18.752C3.73447 18.9303 3.78002 19.2242 4.23047 19.6533C5.26624 20.6401 6.31849 21.2499 7.59082 21.25H16.4092C17.6816 21.25 18.7347 20.6402 19.7705 19.6533C20.2207 19.2243 20.2655 18.9303 20.2461 18.752C20.2215 18.5273 20.0681 18.2363 19.708 17.8838C19.1279 17.316 18.2956 16.8437 17.583 16.4395C17.3905 16.3302 17.2068 16.2259 17.0391 16.126ZM12 1.25C14.8995 1.25 17.25 3.6005 17.25 6.5C17.25 9.39949 14.8995 11.75 12 11.75C9.1005 11.75 6.75 9.39949 6.75 6.5C6.75 3.6005 9.1005 1.25 12 1.25ZM12 2.75C9.92893 2.75 8.25 4.42893 8.25 6.5C8.25 8.57107 9.92893 10.25 12 10.25C14.0711 10.25 15.75 8.57107 15.75 6.5C15.75 4.42893 14.0711 2.75 12 2.75Z&quot; fill=&quot;#161616&quot;/&gt;
+&lt;/svg&gt;
+  &lt;/span&gt;
+  &lt;input class=&quot;form-control&quot; id=&quot;username&quot; type=&quot;text&quot; placeholder=&quot;يرجى إضافة اسم المستخدم&quot; aria-describedby=&quot;username-helper&quot; /&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-text text-muted&quot; id=&quot;username-helper&quot;&gt;نص مساعد&lt;/div&gt;
+
+&lt;label class=&quot;form-label&quot; for=&quot;password&quot;&gt;كلمة المرور&lt;/label&gt;
+&lt;div class=&quot;input-wrapper has-trailing form-content&quot;&gt;
+  &lt;img src=&quot;./images/icon-lock.svg&quot; alt=&quot;&quot; aria-hidden=&quot;true&quot; /&gt;
+  &lt;input class=&quot;form-control&quot; id=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;يرجى إضافة كلمة المرور&quot; aria-describedby=&quot;password-help&quot; /&gt;
+  &lt;button class=&quot;btn btn-link toggle-password&quot; type=&quot;button&quot; data-target=&quot;password&quot; aria-label=&quot;إظهار كلمة المرور&quot;&gt;
+    &lt;i class=&quot;fa fa-eye-slash&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-text text-muted&quot; id=&quot;password-help&quot;&gt;إظهار/إخفاء الكلمة&lt;/div&gt;
+
+&lt;label class=&quot;form-label&quot; for=&quot;selectField&quot;&gt;قائمة منسدلة&lt;/label&gt;
+&lt;div class=&quot;select-field&quot;&gt;
+  &lt;button class=&quot;form-control select-trigger&quot; type=&quot;button&quot; id=&quot;selectField&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;false&quot;&gt;
+    &lt;span class=&quot;select-value placeholder&quot; data-placeholder=&quot;اختر من القائمة&quot;&gt;اختر من القائمة&lt;/span&gt;
+    &lt;i class=&quot;fa fa-chevron-down chevron&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+  &lt;ul class=&quot;select-menu&quot; role=&quot;listbox&quot;&gt;
+    &lt;li class=&quot;select-option&quot; role=&quot;option&quot; tabindex=&quot;0&quot;&gt;الخيار الأول&lt;/li&gt;
+    &lt;li class=&quot;select-option&quot; role=&quot;option&quot; tabindex=&quot;0&quot;&gt;الخيار الثاني&lt;/li&gt;
+    &lt;li class=&quot;select-option&quot; role=&quot;option&quot; tabindex=&quot;0&quot;&gt;الخيار الثالث&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+
+  <script>
+    (function () {
+      const toggles = document.querySelectorAll('.toggle-password');
+
+      toggles.forEach((button) => {
+        button.addEventListener('click', () => {
+          const targetId = button.getAttribute('data-target');
+          const input = targetId ? document.getElementById(targetId) : null;
+          if (!input) return;
+          const isHidden = input.type === 'password';
+          input.type = isHidden ? 'text' : 'password';
+          const icon = button.querySelector('i');
+          if (icon) {
+            icon.classList.toggle('fa-eye', isHidden);
+            icon.classList.toggle('fa-eye-slash', !isHidden);
+          }
+          const isArabic = document.documentElement.lang === 'ar';
+          const label = isHidden
+            ? isArabic
+              ? 'إخفاء كلمة المرور'
+              : 'Hide password'
+            : isArabic
+              ? 'إظهار كلمة المرور'
+              : 'Show password';
+          button.setAttribute('aria-label', label);
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const selects = document.querySelectorAll('.select-field');
+
+      function closeAll(except) {
+        selects.forEach((field) => {
+          if (field !== except) {
+            field.classList.remove('is-open');
+            const trigger = field.querySelector('.select-trigger');
+            if (trigger) {
+              trigger.setAttribute('aria-expanded', 'false');
+            }
+          }
+        });
+      }
+
+      selects.forEach((field) => {
+        const trigger = field.querySelector('.select-trigger');
+        const value = field.querySelector('.select-value');
+        const menu = field.querySelector('.select-menu');
+        const options = field.querySelectorAll('.select-option');
+
+        if (trigger) {
+          trigger.addEventListener('click', () => {
+            if (field.classList.contains('is-disabled')) return;
+            const isOpen = field.classList.toggle('is-open');
+            trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            if (isOpen) {
+              closeAll(field);
+            }
+          });
+        }
+
+        options.forEach((option) => {
+          option.addEventListener('click', () => {
+            if (!value) return;
+            value.textContent = option.textContent || '';
+            value.classList.remove('placeholder');
+            field.classList.remove('is-open');
+            if (trigger) {
+              trigger.setAttribute('aria-expanded', 'false');
+            }
+          });
+        });
+
+        document.addEventListener('click', (event) => {
+          if (!field.contains(event.target)) {
+            field.classList.remove('is-open');
+            if (trigger) {
+              trigger.setAttribute('aria-expanded', 'false');
+            }
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script src="./js/top-actions.js"></script>
+  <script src="./js/ds-site-nav.js"></script>
+  <script src="./js/watermark.js"></script>
+</body>
+
+</html>

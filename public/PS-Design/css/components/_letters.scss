@@ -1,0 +1,86 @@
+@use '../helpers' as *;
+.letterKeyboard {
+    min-width: 150px;
+  .dropdown-menu {
+      width: 260px;
+      box-shadow: 10px 10px 30px 0px rgba(174, 174, 192, 0.4);
+
+      .content {
+          gap: 10px;
+          display: flex;
+          flex-wrap: wrap;
+
+          .letterdiv {
+              border-radius: 6px;
+              border: 1px solid var(--table-th, #f3f0eb);
+              background: var(--bg-baige, #f8f6f2);
+              box-shadow: 0px 8px 20px 0px #fff;
+              display: flex;
+              justify-content: center;
+              height: 50px;
+              width: 50px;
+              padding: 10px;
+              align-items: center;
+              cursor: pointer;
+              font-family: Georgia, serif;
+              @include font-lg-500;
+              color: #683005;
+              font-weight: 600 !important;
+
+              &:hover {
+                  background: #0d8f75;
+                  color: #fff;
+
+                  img {
+                      filter: brightness(0) invert(1);
+                  }
+              }
+          }
+      }
+  }
+
+  .dropdown-toggle {
+    //   left: 10px;
+    //   position: absolute;
+    //   top: 0;
+      padding: 0;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      height: auto;
+
+      &:after {
+        // left: -10px;
+        // position: absolute;
+      }
+  }
+
+  .selecteditem {
+      border-radius: 5px;
+      border: 1px solid #b3e8dd;
+      background: var(--green-50, #e3f9f4);
+      box-shadow: 0px 8px 20px 0px #fff;
+      display: flex;
+      width: 80px;
+      height: 30px;
+      padding: 5px;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2px;
+      flex-shrink: 0;
+      font-weight: 600;
+      color: #0d8f75;
+      padding-right: 8px;
+      font-family: Georgia, serif;
+      font-size: 15px;
+
+      .remove {
+          fill: #21705e;
+          background: #c6ece3;
+          width: 18px;
+          height: 17px;
+          padding: 2px;
+          border-radius: 2px;
+      }
+  }
+}

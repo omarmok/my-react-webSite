@@ -1,0 +1,198 @@
+@use '../helpers' as *;
+.OtarrContainer {
+    &--right {
+        display: flex;
+        padding: 12px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 20px;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0px 8px 20px 0px #f5f6f7;
+
+        .form-group {
+            width: 100%;
+
+            textarea.form-control {
+                height: 60px;
+            }
+        }
+    }
+
+    &--left {
+        &--blockadd {
+            display: flex;
+            padding: 12px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 20px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0px 8px 20px 0px #f5f6f7;
+
+            h4 {
+                @include boldfont;
+                color: #552e00;
+                width: 100%;
+                background: #f8f6f2;
+            }
+
+            &__addContainer-form {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                gap: 20px;
+
+                .form-group {
+                    width: 100%;
+
+                    textarea.form-control {
+                        height: 45px;
+                    }
+
+                    .form-select {
+                        height: 45px;
+                    }
+                }
+            }
+        }
+
+        &--containers {
+            @extend .OtarrContainer--left--blockadd;
+
+            h4 {
+                display: flex;
+                align-items: center;
+
+                span {
+                    background: #0d8f75;
+                    color: #fff;
+                    border-radius: 50%;
+                    padding: 10px;
+                    line-height: 2;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 5px;
+                }
+            }
+
+            .accordion {
+                width: 100%;
+
+                .accordion-item {
+                    margin-bottom: 10px;
+                    border: 1px solid #ffffff;
+                    border-radius: 6px;
+                    box-shadow: 0px 8px 20px 0px #f5f6f7;
+                    border: 1px solid #f4f4f4;
+
+                    .accordion-header {
+                        padding: 10px;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        border: 1px solid #e9eef5;
+                        border-radius: 6px;
+
+                        .accordion-button {
+                            background: transparent;
+                            border: none;
+                            box-shadow: none;
+                            font-weight: 600;
+                            padding: 10px;
+                            color: #000;
+                            display: flex;
+                            justify-content: space-between;
+                            @include font-sm-500;
+                        }
+                    }
+
+                    .accordion-header:has(.accordion-button:not(.collapsed)) {
+                        box-shadow: none;
+                        background: #fafffe;
+
+                        .accordion-button {
+                            color: $Primary-500;
+                        }
+                    }
+
+                    .accordion-header:not(.collapsed) {
+                        box-shadow: none;
+                        color: #000;
+                        background: white;
+                    }
+
+                    .accordion-header:focus {
+                        border-color: transparent;
+                        outline: 0;
+                        box-shadow: none;
+                    }
+
+
+
+                    span.badge.text-bg-secondary {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 10px;
+                        border-radius: 5px;
+                        border: 1px solid #dddddd;
+                        background: #eaeaea !important;
+                        color: #5e5e5e !important;
+                        @include font-sm-500;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.persontestblock {
+    border-radius: 5px;
+    margin: 0 0 10px;
+    padding: $padding-14;
+    background: rgb(255, 255, 255);
+    height: 45px;
+    border: 1px solid rgb(224, 224, 224);
+    line-height: 0;
+}
+
+
+
+.ortarrAccordionStyle {
+    width: 100%;
+
+    .accordion .accordion-item .accordion-header:has(.accordion-button:not(.collapsed)) {
+        display: flex;
+        background: #f3f0eb;
+        border-style: solid;
+        border-color: transparent;
+        border-width: 1px;
+        padding: 10px;
+
+        span {
+            color: #a38664;
+        }
+    }
+
+    .accordion-button::after {
+        background: url(../images/arrow-down.svg), #a38664 ;
+        padding: 17px;
+        display: flex;
+        background-position: 7px 6px;
+        background-repeat: no-repeat;
+        margin-top: -4px;
+        border-radius: 8px;
+        width: 20px;
+        height: 20px;
+        margin: 0;
+    }
+}

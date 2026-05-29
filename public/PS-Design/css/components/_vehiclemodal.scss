@@ -1,0 +1,73 @@
+@use '../helpers' as *;
+#vehicleModal {
+  .relatedVecielsTableSeetings {
+    @include meduimfont;
+    color: $darkBlue;
+
+    span {
+      color: #000;
+      @include boldfont-18;
+    }
+  }
+
+  .tablecontainer {
+    width: 100%;
+
+    .table {
+      thead {
+        tr {
+          background: #f4f5fb;
+          color: #000;
+          border-radius: 5px 5px 0 0;
+          padding: 0;
+          gap: 0;
+
+          th {
+            border-bottom: 0;
+            text-align: center;
+            white-space: nowrap;
+            padding: $padding-14;
+            border: 1px solid #e6e8f0;
+
+            &:first-child {
+              border-radius: 0px 10px 0 0;
+            }
+
+            &:last-child {
+              border-radius: 10px 0px 0 0;
+            }
+          }
+        }
+      }
+
+      tr {
+        box-shadow: 0px 8px 20px #f1f1f1;
+        background: white;
+        border-radius: 5px;
+        gap: 0px;
+
+        td {
+          text-align: center;
+          white-space: nowrap;
+          vertical-align: middle;
+          padding: $padding-14;
+          border: 1px solid #e6e8f0;
+
+          span {
+            background: $Primary-500;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+          }
+
+          .danger {
+            background: red;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+}

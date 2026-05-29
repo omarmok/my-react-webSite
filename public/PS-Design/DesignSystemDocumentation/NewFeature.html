@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Feature | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+      color: #1f2a37;
+    }
+
+    html[dir="ltr"] body {
+      direction: ltr;
+      text-align: left;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .docs-sidebar {
+
+      z-index: 2;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .sidebar-nav a.is-active {
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+      position: relative;
+    }
+
+    .sidebar-nav a.is-active::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-inline-start: 4px solid #1c8354;
+      border-radius: 10px;
+      mix-blend-mode: screen;
+    }
+
+    .lang-toggle {
+      margin-top: 12px;
+      width: 100%;
+      background: #fff;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #cbd5f5;
+      box-shadow: 0 14px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      color: #e5f2ea;
+      letter-spacing: 0.02em;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.04);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+      margin-top: 12px;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: 0.9rem;
+      color: #0f172a;
+    }
+
+    .usage-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .usage-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+  
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+
+  </style>
+  <link href="./css/ds-site-nav.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" class="is-active" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+        </nav>
+      </div>
+
+    </aside>
+
+    <div class="page-content page-shell">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><svg width="24"
+            height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.05469 1.25C9.42218 1.24998 10.5247 1.24968 11.3916 1.36621C12.2917 1.48723 13.0495 1.74672 13.6514 2.34863C14.2533 2.95055 14.5128 3.70829 14.6338 4.6084C14.7503 5.47534 14.75 6.57782 14.75 7.94531V9.25488C15.1235 9.25143 15.5218 9.24999 15.9453 9.25H16.0547C17.4222 9.24998 18.5247 9.24968 19.3916 9.36621C20.2917 9.48723 21.0495 9.74672 21.6514 10.3486C22.2533 10.9505 22.5128 11.7083 22.6338 12.6084C22.7503 13.4753 22.75 14.5778 22.75 15.9453V16.0547C22.75 17.4222 22.7503 18.5247 22.6338 19.3916C22.5128 20.2917 22.2533 21.0495 21.6514 21.6514C21.0495 22.2533 20.2917 22.5128 19.3916 22.6338C18.5247 22.7503 17.4222 22.75 16.0547 22.75H15.9453C14.5778 22.75 13.4753 22.7503 12.6084 22.6338C11.7083 22.5128 10.9505 22.2533 10.3486 21.6514C9.74672 21.0495 9.48723 20.2917 9.36621 19.3916C9.24968 18.5247 9.24998 17.4222 9.25 16.0547V15.9453C9.24999 15.5218 9.25143 15.1235 9.25488 14.75H7.94531C6.57782 14.75 5.47534 14.7503 4.6084 14.6338C3.70829 14.5128 2.95055 14.2533 2.34863 13.6514C1.74672 13.0495 1.48723 12.2917 1.36621 11.3916C1.24968 10.5247 1.24998 9.42218 1.25 8.05469V7.94531C1.24998 6.57782 1.24968 5.47534 1.36621 4.6084C1.48723 3.70829 1.74672 2.95055 2.34863 2.34863C2.95055 1.74672 3.70829 1.48723 4.6084 1.36621C5.47534 1.24968 6.57782 1.24998 7.94531 1.25H8.05469ZM16 10.75C14.5648 10.75 13.5639 10.752 12.8086 10.8535C12.0748 10.9522 11.6859 11.1324 11.4092 11.4092C11.1324 11.6859 10.9522 12.0748 10.8535 12.8086C10.752 13.5639 10.75 14.5648 10.75 16C10.75 17.4352 10.752 18.4361 10.8535 19.1914C10.9522 19.9252 11.1324 20.3141 11.4092 20.5908C11.6859 20.8676 12.0748 21.0478 12.8086 21.1465C13.5639 21.248 14.5648 21.25 16 21.25C17.4352 21.25 18.4361 21.248 19.1914 21.1465C19.9252 21.0478 20.3141 20.8676 20.5908 20.5908C20.8676 20.3141 21.0478 19.9252 21.1465 19.1914C21.248 18.4361 21.25 17.4352 21.25 16C21.25 14.5648 21.248 13.5639 21.1465 12.8086C21.0478 12.0748 20.8676 11.6859 20.5908 11.4092C20.3141 11.1324 19.9252 10.9522 19.1914 10.8535C18.4361 10.752 17.4352 10.75 16 10.75ZM4 15.75C4.41421 15.75 4.75 16.0858 4.75 16.5C4.75 17.2178 4.75071 17.7 4.78809 18.0674C4.82419 18.4221 4.88849 18.5859 4.96094 18.6943C5.05212 18.8308 5.16921 18.9479 5.30566 19.0391C5.4141 19.1115 5.57788 19.1758 5.93262 19.2119C6.30002 19.2493 6.78216 19.25 7.5 19.25C7.91421 19.25 8.25 19.5858 8.25 20C8.25 20.4142 7.91421 20.75 7.5 20.75H7.46191C6.79245 20.75 6.23354 20.7501 5.78125 20.7041C5.30783 20.6559 4.86862 20.5507 4.47266 20.2861C4.17238 20.0855 3.9145 19.8276 3.71387 19.5273C3.44934 19.1314 3.34406 18.6922 3.2959 18.2188C3.24991 17.7665 3.24998 17.2075 3.25 16.5381C3.25 16.5254 3.25 16.5127 3.25 16.5C3.25 16.0858 3.58579 15.75 4 15.75ZM16 12.25C16.3028 12.25 16.5759 12.4324 16.6924 12.7119L19.1924 18.7119C19.3514 19.0941 19.1711 19.533 18.7891 19.6924C18.4067 19.8517 17.9669 19.6704 17.8076 19.2881L17.167 17.75H14.834L14.1924 19.2881C14.0331 19.6704 13.5942 19.8516 13.2119 19.6924C12.8297 19.5331 12.6486 19.0942 12.8076 18.7119L15.3076 12.7119C15.424 12.4325 15.6973 12.2501 16 12.25Z"
+              fill="currentColor"></path>
+          </svg><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.9975 3.25C11.624 3.25 11.2774 3.41565 11.0172 3.57252C10.7364 3.7418 10.4464 3.96944 10.1638 4.21918C9.59669 4.72018 8.98771 5.37387 8.43684 6.00823C7.88274 6.64633 7.37253 7.28222 7.00175 7.75725C6.81606 7.99516 6.66462 8.19364 6.55931 8.33304C6.50664 8.40276 6.46547 8.45776 6.43727 8.49558L6.40489 8.53915L6.39633 8.55071L6.39337 8.55472C6.14771 8.88822 6.2186 9.35816 6.5521 9.60382C6.88559 9.84947 7.35507 9.77828 7.60074 9.44481L7.61015 9.43209L7.63992 9.39204C7.66632 9.35662 7.70557 9.3042 7.75618 9.2372C7.85743 9.10317 8.00402 8.91102 8.1842 8.68019C8.54517 8.21772 9.03806 7.60363 9.56942 6.99173C10.104 6.37611 10.6628 5.77981 11.1569 5.34331C11.1882 5.3157 11.2189 5.28899 11.249 5.26316L11.249 20C11.249 20.4142 11.5848 20.75 11.999 20.75C12.4132 20.75 12.749 20.4142 12.749 20L12.749 5.2657C12.7782 5.29073 12.808 5.31661 12.8382 5.34331C13.3323 5.77981 13.8911 6.37611 14.4257 6.99173C14.957 7.60363 15.4499 8.21772 15.8109 8.68019C15.9911 8.91102 16.1377 9.10317 16.2389 9.2372C16.2895 9.30419 16.3288 9.35662 16.3552 9.39204L16.3849 9.43209L16.3943 9.44481C16.64 9.77828 17.1095 9.84947 17.443 9.60382C17.7765 9.35816 17.8474 8.88822 17.6017 8.55472L17.5988 8.55071L17.5902 8.53915L17.5578 8.49558C17.5296 8.45776 17.4884 8.40276 17.4358 8.33304C17.3305 8.19363 17.179 7.99516 16.9933 7.75725C16.6226 7.28222 16.1123 6.64633 15.5582 6.00823C15.0074 5.37387 14.3984 4.72018 13.8313 4.21918C13.5486 3.96944 13.2587 3.7418 12.9779 3.57252C12.7192 3.4166 12.3753 3.25199 12.0043 3.25002"
+              fill="white"></path>
+          </svg><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span>
+        </button>
+      </div>
+
+
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="التخطيطات / المزايا">Layouts / Features</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="ميزة جديدة ">New Feature </h1>
+
+        <p class=" mb-0" data-i18n
+          data-ar="مرجع الحوكمة لهيكل صفحات الخدمة، يحدد القواعد الملزمة للبحث، التبويبات، الجدول، والتحميل.">Governed
+          reference for Service Page structure, defining mandatory rules for search, tabs, table layout, and loading
+          states.</p>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="المكوّن: ميزة جديدة "
+              data-en="Component: New Feature">
+          المكوّن: ميزة جديدة 
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="الإصدار: قيد التحديث"
+              data-en="Version: TBD">
+          الإصدار: قيد التحديث
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="آخر تحديث: 28 يناير 2026"
+              data-en="Last updated: January 28, 2026">
+          آخر تحديث: 28 يناير 2026
+        </span>
+      </div>
+
+
+      <section class="section" id="overview">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2>
+          <p class="section-note" data-i18n
+            data-ar="صفحة الخدمة تعرض بيانات خدمات قابلة للبحث ضمن تخطيط موحد. الالتزام يقلل الحمل الذهني، ويحسن القابلية للاستخدام، ويمكن DesignOps من التدقيق.">
+            A Service Page displays searchable service data in a unified layout. Consistency lowers cognitive load,
+            improves usability, and enables DesignOps auditing.</p>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="التخطيط موحّد ومُدار من DesignOps، ولا يسمح بالاستثناءات دون موافقة.">Layout is
+              standardized and governed by DesignOps; exceptions require approval.</li>
+            <li data-i18n data-ar="يحدد ما يجب أن يراه المستخدم من عنوان، بحث، تبويبات، وجدول.">Defines what users see:
+              title, search, optional tabs, header bar, table, pagination.</li>
+            <li data-i18n data-ar="يوفر عقدًا واحدًا للمصممين والمطورين والمراجعين.">Acts as a single contract for
+              designers, engineers, and auditors.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="anatomy">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="التشريح">Design Anatomy</h2>
+          <p class="section-note" data-i18n data-ar="الترتيب الإلزامي من أعلى لأسفل.">Required top-to-bottom order:</p>
+          <ol>
+            <li data-i18n data-ar="عنوان الصفحة">Page Title</li>
+            <li data-i18n data-ar="شريط البحث">Search Block</li>
+            <li data-i18n data-ar="التبويبات (اختياري)">Tabs (optional)</li>
+            <li data-i18n data-ar="شريط رأس الجدول">Table Header Bar</li>
+            <li data-i18n data-ar="الجدول">Table</li>
+            <li data-i18n data-ar="ترقيم الصفحات">Pagination</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="search">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="قواعد شريط البحث">Search Block Rules</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="أقصى الحقول: 4 (المفضل 3).">Max fields: 4 (preferred 3).</li>
+            <li data-i18n data-ar="الأزرار المطلوبة: بحث (أساسي)، بحث متقدم (ثانوي)، إعادة ضبط (ثالث).">Required
+              buttons: Search (primary), Advanced Search (secondary), Reset (tertiary).</li>
+            <li data-i18n data-ar="المرشحات الإضافية داخل البحث المتقدم فقط.">Extra filters live inside Advanced Search
+              only.</li>
+            <li data-i18n data-ar="يحاكي تخطيط الصف المرجعي: تسميات ومدخلات مع مجموعة أزرار في الجانب الأيمن.">Mirror
+              the reference row: labeled inputs with action cluster on the right.</li>
+          </ul>
+          <div class="code-block">
+            <pre><code>&lt;div class="row align-items-center search-bar"&gt;
+  &lt;div class="col"&gt;
+    &lt;label&gt;Service ID&lt;/label&gt;
+    &lt;input type="text" class="form-control" /&gt;
+  &lt;/div&gt;
+  &lt;div class="col"&gt;
+    &lt;label&gt;Requester&lt;/label&gt;
+    &lt;input type="text" class="form-control" /&gt;
+  &lt;/div&gt;
+  &lt;div class="col-auto d-flex gap-2"&gt;
+    &lt;button class="btn btn-primary"&gt;Search&lt;/button&gt;
+    &lt;button class="btn btn-outline-secondary"&gt;Advanced Search&lt;/button&gt;
+    &lt;button class="btn btn-link text-danger"&gt;Reset&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="tabs">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="قواعد التبويبات">Tabs Rules</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="اختيارية، وتستخدم فقط لتبديل الحالة/الفئة.">Optional; only for status/category
+              switching.</li>
+            <li data-i18n data-ar="يجب استخدام مكون التبويبات المعتمد وبنفس المسافات.">Use the approved Tabs component
+              with standard spacing.</li>
+            <li data-i18n data-ar="تسميات قصيرة وواضحة؛ دون إجراءات داخل التبويب.">Keep labels concise; no inline
+              actions inside tabs.</li>
+          </ul>
+          <div class="code-block">
+            <pre><code>&lt;ul class="nav nav-tabs mb-3"&gt;
+  &lt;li class="nav-item"&gt;&lt;button class="nav-link active"&gt;All&lt;/button&gt;&lt;/li&gt;
+  &lt;li class="nav-item"&gt;&lt;button class="nav-link"&gt;Pending&lt;/button&gt;&lt;/li&gt;
+  &lt;li class="nav-item"&gt;&lt;button class="nav-link"&gt;Completed&lt;/button&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="table-anatomy">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="تشريح الجدول">Table Anatomy</h2>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="شريط رأس الجدول">Table Header Bar</h4>
+              <ul class="accessibility-list">
+                <li data-i18n data-ar="اليمين: إجمالي السجلات.">Right: total records count.</li>
+                <li data-i18n data-ar="اليسار: تخصيص، طباعة، تصدير (اختياري).">Left: Customize, Print, Export
+                  (optional).</li>
+                <li data-i18n data-ar="حافظ على المحاذاة والتباعد القياسي.">Keep alignment and standard spacing.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="الجسم والأعمدة">Body &amp; Columns</h4>
+              <ul class="accessibility-list">
+                <li data-i18n data-ar="اتساق ترتيب الأعمدة عبر الصفحات.">Column order is consistent across pages.</li>
+                <li data-i18n data-ar="شارات الحالة وفق نظام التصميم.">Status badges follow design system tokens.</li>
+                <li data-i18n data-ar="عمود إجراءات مخصص عند الحاجة.">Use a dedicated actions column if needed.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="code-block">
+            <pre><code>&lt;div class="table-header d-flex justify-content-between align-items-center mb-2"&gt;
+  &lt;div class="fw-semibold"&gt;Total: 128 records&lt;/div&gt;
+  &lt;div class="d-flex gap-2"&gt;
+    &lt;button class="btn btn-outline-secondary btn-sm"&gt;Customize&lt;/button&gt;
+    &lt;button class="btn btn-outline-secondary btn-sm"&gt;Print&lt;/button&gt;
+    &lt;button class="btn btn-outline-secondary btn-sm"&gt;Export&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;table class="table"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Service ID&lt;/th&gt;
+      &lt;th&gt;Requester&lt;/th&gt;
+      &lt;th&gt;Status&lt;/th&gt;
+      &lt;th&gt;Submitted&lt;/th&gt;
+      &lt;th&gt;Actions&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SRV-1289&lt;/td&gt;
+      &lt;td&gt;Jane Smith&lt;/td&gt;
+      &lt;td&gt;&lt;span class="badge bg-success"&gt;Approved&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;2024-03-18&lt;/td&gt;
+      &lt;td&gt;&lt;button class="btn btn-link btn-sm"&gt;View&lt;/button&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="column-limit">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="قاعدة الحد الأقصى للأعمدة">Column Limit Rule</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="إذا تجاوزت الأعمدة 8: توفير محدد رؤية الأعمدة.">If columns exceed 8, provide a column
+              visibility selector.</li>
+            <li data-i18n data-ar="حفظ تفضيلات الأعمدة لكل مستخدم.">Save column preferences per user.</li>
+            <li data-i18n data-ar="الحالة الافتراضية تعرض الأعمدة الأهم أولًا.">Default view prioritizes the most
+              critical columns first.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="loading">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="حالة التحميل">Loading State</h2>
+          <p class="section-note" data-i18n data-ar="أضف الصنف tableloader أثناء جلب البيانات؛ أزِلْه بعد تحميلها.">Add
+            the class <span class="code-inline">tableloader</span> while data loads; remove it when ready.</p>
+          <div class="code-block">
+            <pre><code>&lt;!-- Loading --&gt;
+&lt;table class="table tableloader"&gt;&lt;/table&gt;
+
+&lt;!-- After data loads --&gt;
+&lt;table class="table"&gt;
+  &lt;!-- rows here --&gt;
+&lt;/table&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="empty">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="حالة عدم وجود بيانات">Empty State</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="حافظ على بنية الجدول مرئية.">Keep table structure visible.</li>
+            <li data-i18n data-ar="اعرض رسالة “لا توجد بيانات” وفق النظام.">Show “No Data” per design system pattern.
+            </li>
+            <li data-i18n data-ar="يجب أن يعرض العداد القيمة 0.">Record count must show 0.</li>
+          </ul>
+          <div class="usage-card">
+            <h4 data-i18n data-ar="تذكير الحوكمة">Governance Reminder</h4>
+            <p class="section-note" data-i18n data-ar="لا تخفِ الشريط العلوي أو الترقيم عند عدم وجود بيانات.">Do not
+              hide the header bar or pagination when empty.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="governance">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="حوكمة DesignOps">DesignOps Governance</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="الملكية: فريق نظام التصميم/DesignOps يدير التخطيط والمراجعات.">Ownership: Design
+              System / DesignOps teams manage layout and reviews.</li>
+            <li data-i18n data-ar="إدارة التغيير: أي تعديل يتطلب موافقة وتوثيقًا.">Change management: any change
+              requires approval and documentation.</li>
+            <li data-i18n data-ar="انحرافات ممنوعة دون موافقة مسبقة.">Prohibited deviations without prior approval.</li>
+            <li data-i18n data-ar="تتبع الدين التقني مع موعد معالجة متفق عليه.">Track design debt with an agreed
+              remediation date.</li>
+            <li data-i18n data-ar="الالتزام والمراجعة الدورية مسؤولية الفرق المنفذة.">Compliance and periodic auditing
+              are the responsibility of delivery teams.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="do-dont">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="افعل ولا تفعل">Do &amp; Don’t</h2>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="افعل">Do</h4>
+              <ul class="accessibility-list">
+                <li data-i18n data-ar="اتبع ترتيب التشريح الإلزامي.">Follow the mandatory anatomy order.</li>
+                <li data-i18n data-ar="التزم بحدود الحقول 3–4 مع الأزرار المطلوبة.">Keep 3–4 search fields with required
+                  buttons.</li>
+                <li data-i18n data-ar="استخدم شريط رأس الجدول والأعمدة المتسقة.">Use the header bar and consistent
+                  columns.</li>
+                <li data-i18n data-ar="فعّل محدد الأعمدة عند &gt;8 أعمدة.">Enable column selector when &gt;8 columns.
+                </li>
+                <li data-i18n data-ar="طبّق tableloader أثناء التحميل.">Apply <span
+                    class="code-inline">tableloader</span> during loading.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="لا تفعل">Don’t</h4>
+              <ul class="accessibility-list">
+                <li data-i18n data-ar="لا تضف حقول بحث إضافية في الصف الرئيسي.">Add extra search fields to the main row.
+                </li>
+                <li data-i18n data-ar="لا تعيد ترتيب الأعمدة عشوائيًا.">Reorder columns arbitrarily.</li>
+                <li data-i18n data-ar="لا تبتكر سلوك تحميل مخصص خارج tableloader.">Invent custom loading behavior
+                  outside <span class="code-inline">tableloader</span>.</li>
+                <li data-i18n data-ar="لا تخفِ البنية أو الترقيم في حالة عدم وجود بيانات.">Hide structure or pagination
+                  on empty states.</li>
+                <li data-i18n data-ar="لا تشحن انحرافات دون موافقة DesignOps.">Ship deviations without DesignOps
+                  approval.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="featurelist-snippets">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="مقاطع أساسية من Feature List">Feature list key snippets</h2>
+
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-center gap-2">
+              <button class="btn moi-btn--Primary copy-code-btn" type="button" data-copy-target="#snippet-breadcrumb"
+                data-success-en="Copied!" data-success-ar="تم النسخ" data-i18n data-ar="نسخ مسار التنقل">
+                Copy breadcrumb
+              </button>
+              <span class="copy-status font-sm-400" aria-live="polite" data-i18n data-ar="اضغط لنسخ الكود">
+                Press to copy the breadcrumb block.
+              </span>
+            </div>
+            <div class="code-block">
+              <pre><code id="snippet-breadcrumb">&lt;!-- start breadcrumb --&gt;
+&lt;div class=&quot;breadcrumb-container px-3 mt-4&quot;&gt;
+  &lt;nav aria-label=&quot;breadcrumb&quot;&gt;
+    &lt;ol class=&quot;breadcrumb&quot;&gt;
+      &lt;li class=&quot;breadcrumb-item  active &quot; aria-current=&quot;page&quot;&gt;
+        &lt;a href=&quot;/&quot;&gt;
+          &lt;img src=&quot;./images/house-door.svg&quot; alt=&quot;&quot; /&gt;
+          الرئيسية
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;
+&lt;!-- end breadcrumb --&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="d-flex flex-column gap-3 mt-4">
+            <div class="d-flex align-items-center gap-2">
+              <button class="btn moi-btn--Primary copy-code-btn" type="button" data-copy-target="#snippet-page-title"
+                data-success-en="Copied!" data-success-ar="تم النسخ" data-i18n data-ar="نسخ عنوان الصفحة">
+                Copy page title
+              </button>
+              <span class="copy-status font-sm-400" aria-live="polite" data-i18n data-ar="اضغط لنسخ الكود">
+                Press to copy the page title block.
+              </span>
+            </div>
+            <div class="code-block">
+              <pre><code id="snippet-page-title">&lt;div class=&quot;page__title&quot; data-step=&quot;1&quot; data-intro=&quot;هنا التعريف بالصفحة&quot;&gt;
+  &lt;h3&gt;&lt;img alt=&quot;&quot; class=&quot;titleimg&quot; src=&quot;./images/icon-security-case.svg&quot;&gt; الحالات الأمنية&lt;/h3&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="d-flex flex-column gap-3 mt-4">
+            <div class="d-flex align-items-center gap-2">
+              <button class="btn moi-btn--Primary copy-code-btn" type="button" data-copy-target="#snippet-tabsdesign"
+                data-success-en="Copied!" data-success-ar="تم النسخ" data-i18n data-ar="نسخ مقطع tabsDesign">
+                Copy tabsDesign
+              </button>
+              <span class="copy-status font-sm-400" aria-live="polite" data-i18n data-ar="اضغط لنسخ الكود">
+                Press to copy the tabs/search/tabs block.
+              </span>
+            </div>
+            <div class="code-block">
+              <pre><code id="snippet-tabsdesign">&lt;div class=&quot;tabsDesign&quot;&gt;
+  &lt;div class=&quot;container-fluid&quot;&gt;
+    &lt;div class=&quot;searchfields&quot;&gt;
+      &lt;div class=&quot;advancedSearchContainer mt-3 &quot;&gt;
+        &lt;div class=&quot;d-flex&quot;&gt;
+          &lt;div class=&quot;d-flex flex-column&quot;&gt;
+            &lt;label class=&quot;required&quot;&gt;الجهة الأمنية&lt;/label&gt; &lt;select class=&quot;form-select&quot;&gt;
+              &lt;option selected&gt;
+                اختر نوع البحث
+              &lt;/option&gt;
+              &lt;option value=&quot;1&quot;&gt;
+                1
+              &lt;/option&gt;
+              &lt;option value=&quot;2&quot;&gt;
+                2
+              &lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;
+                4
+              &lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;
+                5
+              &lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;
+                6
+              &lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;d-flex flex-column&quot;&gt;
+            &lt;label class=&quot;required&quot;&gt;مصدر الحالة&lt;/label&gt; &lt;select class=&quot;form-select&quot;&gt;
+              &lt;option selected&gt;
+                اختر نوع البحث
+              &lt;/option&gt;
+              &lt;option value=&quot;1&quot;&gt;
+                1
+              &lt;/option&gt;
+              &lt;option value=&quot;2&quot;&gt;
+                2
+              &lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;
+                4
+              &lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;
+                5
+              &lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;
+                6
+              &lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;d-flex flex-column&quot;&gt;
+            &lt;label class=&quot;required&quot;&gt;الجهة الأمنية&lt;/label&gt; &lt;select class=&quot;form-select&quot;&gt;
+              &lt;option selected&gt;
+                اختر نوع البحث
+              &lt;/option&gt;
+              &lt;option value=&quot;1&quot;&gt;
+                1
+              &lt;/option&gt;
+              &lt;option value=&quot;2&quot;&gt;
+                2
+              &lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;
+                4
+              &lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;
+                5
+              &lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;
+                6
+              &lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;d-flex flex-column&quot;&gt;
+            &lt;label class=&quot;required&quot;&gt;مصدر الحالة&lt;/label&gt; &lt;select class=&quot;form-select&quot;&gt;
+              &lt;option selected&gt;
+                اختر نوع البحث
+              &lt;/option&gt;
+              &lt;option value=&quot;1&quot;&gt;
+                1
+              &lt;/option&gt;
+              &lt;option value=&quot;2&quot;&gt;
+                2
+              &lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;
+                4
+              &lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;
+                5
+              &lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;
+                6
+              &lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;d-flex gap-2&quot;&gt;
+        &lt;div class=&quot;d-flex flex-column w-100&quot;&gt;
+          &lt;label class=&quot;required&quot;&gt;الجهة الأمنية&lt;/label&gt; &lt;select class=&quot;form-select&quot;&gt;
+            &lt;option selected&gt;
+              اختر نوع البحث
+            &lt;/option&gt;
+            &lt;option value=&quot;1&quot;&gt;
+              1
+            &lt;/option&gt;
+            &lt;option value=&quot;2&quot;&gt;
+              2
+            &lt;/option&gt;
+            &lt;option value=&quot;3&quot;&gt;
+              4
+            &lt;/option&gt;
+            &lt;option value=&quot;3&quot;&gt;
+              5
+            &lt;/option&gt;
+            &lt;option value=&quot;3&quot;&gt;
+              6
+            &lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;d-flex flex-column w-100&quot;&gt;
+          &lt;label class=&quot;required&quot;&gt;مصدر الحالة&lt;/label&gt; &lt;select class=&quot;form-select&quot;&gt;
+            &lt;option selected&gt;
+              اختر نوع البحث
+            &lt;/option&gt;
+            &lt;option value=&quot;1&quot;&gt;
+              1
+            &lt;/option&gt;
+            &lt;option value=&quot;2&quot;&gt;
+              2
+            &lt;/option&gt;
+            &lt;option value=&quot;3&quot;&gt;
+              4
+            &lt;/option&gt;
+            &lt;option value=&quot;3&quot;&gt;
+              5
+            &lt;/option&gt;
+            &lt;option value=&quot;3&quot;&gt;
+              6
+            &lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;d-flex flex-column w-100&quot;&gt;
+          &lt;label class=&quot;required&quot;&gt;درجة الأهمية&lt;/label&gt; &lt;input class=&quot;form-control&quot; type=&quot;&quot;
+            value=&quot;&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;d-flex flex-column&quot;&gt;
+          &lt;label class=&quot;required&quot; style=&quot;visibility: hidden;&quot;&gt;نوع البحث&lt;/label&gt; &lt;button
+            class=&quot;btn moi-btn--secondary ms-2&quot;&gt;&lt;img src=&quot;./images/icon-searchtitle.svg&quot;&gt;
+            بحث&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;d-flex flex-column&quot;&gt;
+          &lt;label class=&quot;required&quot; style=&quot;visibility: hidden;&quot;&gt;نوع البحث&lt;/label&gt; &lt;button
+            class=&quot;btn moi-btn--Neutral--outline ms-2 advancedSearchBtn&quot;&gt;&lt;svg
+              xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;
+              fill=&quot;none&quot;&gt;
+              &lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot;
+                d=&quot;M12.8759 8.99237C12.9569 8.67505 13 8.34255 13 8C13 7.65744 12.9569 7.32494 12.8759 7.00762C12.9166 7.00259 12.958 7 13 7H21C21.5523 7 22 7.44772 22 8C22 8.55228 21.5523 9 21 9H13C12.958 9 12.9166 8.99741 12.8759 8.99237ZM5.12406 7.00762C5.04306 7.32494 5 7.65744 5 8C5 8.34256 5.04306 8.67506 5.12406 8.99238C5.08342 8.99741 5.04201 9 5 9H3C2.44772 9 2 8.55228 2 8C2 7.44772 2.44772 7 3 7H5C5.04201 7 5.08342 7.00259 5.12406 7.00762ZM19.8759 16.9924C19.9569 16.6751 20 16.3426 20 16C20 15.6574 19.9569 15.3249 19.8759 15.0076C19.9166 15.0026 19.958 15 20 15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H20C19.958 17 19.9166 16.9974 19.8759 16.9924ZM12.1241 15.0076C12.0431 15.3249 12 15.6574 12 16C12 16.3426 12.0431 16.6751 12.1241 16.9924C12.0834 16.9974 12.042 17 12 17H3C2.44772 17 2 16.5523 2 16C2 15.4477 2.44772 15 3 15H12C12.042 15 12.0834 15.0026 12.1241 15.0076Z&quot;
+                fill=&quot;black&quot; fill-opacity=&quot;0.4&quot; /&gt;
+              &lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot;
+                d=&quot;M13 8C13 10.2091 11.2091 12 9 12C6.79086 12 5 10.2091 5 8C5 5.79086 6.79086 4 9 4C11.2091 4 13 5.79086 13 8ZM20 16C20 18.2091 18.2091 20 16 20C13.7909 20 12 18.2091 12 16C12 13.7909 13.7909 12 16 12C18.2091 12 20 13.7909 20 16Z&quot;
+                fill=&quot;black&quot; /&gt;
+            &lt;/svg&gt;بحث متقدم&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;d-flex flex-column&quot;&gt;
+          &lt;label class=&quot;required&quot; style=&quot;visibility: hidden;&quot;&gt;نوع البحث&lt;/label&gt; &lt;button
+            class=&quot; btn btn moi-btn--Neutral ms-2&quot;&gt;
+            &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;
+              xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+              &lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot;
+                d=&quot;M14.8129 0.338831C15.1781 0.143443 15.6326 0.281132 15.828 0.646367L16.4459 1.80145C16.6309 2.14713 16.7985 2.46044 16.8983 2.70776C16.9498 2.8356 17.0071 3.0014 17.0236 3.17983C17.0412 3.37022 17.0171 3.64693 16.8156 3.8909C16.6054 4.14538 16.3248 4.21366 16.1425 4.22951C15.9657 4.24489 15.7905 4.2204 15.6499 4.1936C15.3756 4.14133 15.0154 4.03438 14.609 3.91368L14.5697 3.90201C13.7581 3.66108 12.8955 3.5311 12 3.5311C7.14613 3.5311 3.25 7.34389 3.25 12.0001C3.25 13.5395 3.67364 14.9817 4.41516 16.2256C4.62725 16.5814 4.51075 17.0418 4.15495 17.2539C3.79916 17.466 3.33879 17.3495 3.1267 16.9937C2.2516 15.5256 1.75 13.8192 1.75 12.0001C1.75 6.47333 6.36046 2.0311 12 2.0311C13.0413 2.0311 14.0477 2.18233 14.9966 2.46405C15.0387 2.47655 15.0793 2.4886 15.1186 2.50023C15.1135 2.49081 15.1085 2.4813 15.1033 2.4717L14.5054 1.35393C14.31 0.988692 14.4477 0.534218 14.8129 0.338831ZM19.845 6.7464C20.2008 6.53431 20.6612 6.65081 20.8733 7.0066C21.7484 8.47465 22.25 10.1811 22.25 12.0001C22.25 17.527 17.6395 21.9692 12 21.9692C10.9587 21.9692 9.95232 21.818 9.00343 21.5362C8.96132 21.5237 8.92067 21.5117 8.88141 21.5001C8.88645 21.5095 8.89154 21.519 8.89668 21.5286L9.49465 22.6464C9.69004 23.0116 9.55235 23.4661 9.18712 23.6615C8.82188 23.8569 8.36741 23.7192 8.17202 23.3539L7.55409 22.1989C7.36911 21.8532 7.20146 21.5399 7.1017 21.2925C7.05014 21.1647 6.99292 20.9989 6.97642 20.8205C6.95881 20.6301 6.98283 20.3534 7.18435 20.1094C7.39455 19.8549 7.6752 19.7866 7.85745 19.7708C8.03429 19.7554 8.20945 19.7799 8.35009 19.8067C8.62446 19.859 8.98463 19.9659 9.39113 20.0866L9.43035 20.0983C10.2419 20.3392 11.1045 20.4692 12 20.4692C16.8539 20.4692 20.75 16.6564 20.75 12.0001C20.75 10.4608 20.3264 9.0186 19.5848 7.77465C19.3728 7.41885 19.4893 6.95849 19.845 6.7464Z&quot;
+                fill=&quot;#161616&quot; /&gt;
+            &lt;/svg&gt;
+
+            إعادة تعيين&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;ul class=&quot;nav nav-tabs&quot; id=&quot;myTab&quot; role=&quot;tablist&quot;&gt;
+      &lt;li class=&quot;nav-item&quot; role=&quot;presentation&quot;&gt;
+        &lt;button class=&quot;nav-link active&quot; id=&quot;home-tab&quot; data-bs-toggle=&quot;tab&quot;
+          data-bs-target=&quot;#home-tab-pane&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-controls=&quot;home-tab-pane&quot;
+          aria-selected=&quot;true&quot;&gt;الكل&lt;/button&gt;
+      &lt;/li&gt;
+      &lt;li class=&quot;nav-item&quot; role=&quot;presentation&quot;&gt;
+        &lt;button class=&quot;nav-link&quot; id=&quot;profile-tab&quot; data-bs-toggle=&quot;tab&quot;
+          data-bs-target=&quot;#profile-tab-pane&quot; type=&quot;button&quot; role=&quot;tab&quot;
+          aria-controls=&quot;profile-tab-pane&quot; aria-selected=&quot;false&quot;&gt;جديد&lt;/button&gt;
+      &lt;/li&gt;
+      &lt;li class=&quot;nav-item&quot; role=&quot;presentation&quot;&gt;
+        &lt;button class=&quot;nav-link&quot; id=&quot;contact-tab&quot; data-bs-toggle=&quot;tab&quot;
+          data-bs-target=&quot;#contact-tab-pane&quot; type=&quot;button&quot; role=&quot;tab&quot;
+          aria-controls=&quot;contact-tab-pane&quot; aria-selected=&quot;false&quot;&gt;تحت الإجراء&lt;/button&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class=&quot;tab-content&quot; id=&quot;myTabContent&quot;&gt;
+      &lt;div class=&quot;tab-pane fade show active&quot; id=&quot;home-tab-pane&quot; role=&quot;tabpanel&quot;
+        aria-labelledby=&quot;home-tab&quot; tabindex=&quot;0&quot;&gt;
+        &lt;div class=&quot;tablecontainer&quot;&gt;
+          &lt;div class=&quot; tableSeetings mt-0 &quot;&gt;
+            &lt;h3&gt;عدد الطلبات &lt;span&gt;24572&lt;/span&gt;&lt;/h3&gt;
+            &lt;div class=&quot;action-items&quot;&gt;
+              &lt;button class=&quot;btn moi-btn--Neutral&quot; data-bs-target=&quot;#tableSeetingModal&quot;
+                data-bs-toggle=&quot;modal&quot;
+                title=&quot;يمكنك هذا الزر من تحديد عدد الاعمده التي تريد ظهورها&quot; data-step=&quot;2&quot;
+                data-intro=&quot;يمكنك هذا الزر من تحديد عدد الاعمده التي تريد ظهورها&quot;&gt;
+                &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 25&quot;&gt;
+                  &lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot;
+                    d=&quot;M2 6.02988C2 3.82074 3.79086 2.02988 6 2.02988H18C20.2091 2.02988 22 3.82074 22 6.02988V18.0299C22 20.239 20.2091 22.0299 18 22.0299H6C3.79086 22.0299 2 20.239 2 18.0299V6.02988ZM6 4.02988C4.89543 4.02988 4 4.92531 4 6.02988V18.0299C4 19.1344 4.89543 20.0299 6 20.0299H18C19.1046 20.0299 20 19.1344 20 18.0299V6.02988C20 4.92531 19.1046 4.02988 18 4.02988H6Z&quot; /&gt;
+                  &lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot;
+                    d=&quot;M10 4.02988H8V8.02988H4V10.0299H8V14.0299H4V16.0299H8V20.0299H10V16.0299H14V20.0299H16V16.0299H20V14.0299H16V10.0299H20V8.02988H16V4.02988H14V8.02988H10V4.02988ZM14 14.0299V10.0299H10V14.0299H14Z&quot;
+                    fill-opacity=&quot;0.4&quot; /&gt;
+                &lt;/svg&gt;
+                تخصيص&lt;/button&gt;
+              &lt;button @@click=&quot;printTable&quot; class=&quot;btn moi-btn--Neutral&quot;&gt;
+                &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 25&quot; fill=&quot;none&quot;
+                  class=&quot;m-0&quot;&gt;
+                  &lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot;
+                    d=&quot;M9 3.16504C7.89543 3.16504 7 4.06047 7 5.16504V7.16504H9V5.16504H15V7.16504H17V5.16504C17 4.06047 16.1046 3.16504 15 3.16504H9ZM9 19.165V13.165H15V19.165H9ZM7 13.165C6.44772 13.165 6 12.7173 6 12.165C6 11.6128 6.44772 11.165 7 11.165H17C17.5523 11.165 18 11.6128 18 12.165C18 12.7173 17.5523 13.165 17 13.165V19.165C17 20.2696 16.1046 21.165 15 21.165H9C7.89543 21.165 7 20.2696 7 19.165V13.165Z&quot; /&gt;
+                  &lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot;
+                    d=&quot;M5 9.16504C4.44772 9.16504 4 9.61275 4 10.165V15.165C4 15.7173 4.44772 16.165 5 16.165H7V18.165H5C3.34315 18.165 2 16.8219 2 15.165V10.165C2 8.50818 3.34315 7.16504 5 7.16504H19C20.6569 7.16504 22 8.50819 22 10.165V15.165C22 16.8219 20.6569 18.165 19 18.165H17V16.165H19C19.5523 16.165 20 15.7173 20 15.165V10.165C20 9.61275 19.5523 9.16504 19 9.16504H5Z&quot;
+                    fill-opacity=&quot;0.4&quot; /&gt;
+                &lt;/svg&gt;
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;!-- add your table markup here if needed --&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;tab-pane fade&quot; id=&quot;profile-tab-pane&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;profile-tab&quot;
+        tabindex=&quot;0&quot;&gt;...&lt;/div&gt;
+      &lt;div class=&quot;tab-pane fade&quot; id=&quot;contact-tab-pane&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;contact-tab&quot;
+        tabindex=&quot;0&quot;&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    </div>
+  </main>
+
+
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      const buttons = document.querySelectorAll('.copy-code-btn');
+      if (!buttons.length) return;
+
+      const defaultMessages = {
+        en: 'Press to copy the full markup.',
+        ar: 'اضغط لنسخ الكود',
+      };
+
+      const currentLang = () => (document.documentElement.lang === 'ar' ? 'ar' : 'en');
+
+      buttons.forEach((copyBtn) => {
+        const status = copyBtn.parentElement.querySelector('.copy-status');
+        const target = document.querySelector(copyBtn.dataset.copyTarget || '');
+        const setStatus = (message) => {
+          if (status) status.textContent = message;
+        };
+
+        copyBtn.addEventListener('click', async () => {
+          if (!target) return;
+          const lang = currentLang();
+          const successText =
+            lang === 'ar' ? copyBtn.dataset.successAr || 'تم النسخ' : copyBtn.dataset.successEn || 'Copied!';
+
+          try {
+            await navigator.clipboard.writeText(target.textContent || '');
+            setStatus(successText);
+            copyBtn.classList.add('is-copied');
+            setTimeout(() => {
+              copyBtn.classList.remove('is-copied');
+              setStatus(defaultMessages[lang]);
+            }, 2000);
+          } catch (err) {
+            setStatus(lang === 'ar' ? 'تعذر النسخ' : 'Copy failed');
+          }
+        });
+      });
+    })();
+  </script>
+
+
+  <script src="./js/top-actions.js"></script>
+  <script src="./js/ds-site-nav.js"></script>
+  <script src="./js/watermark.js"></script>
+</body>
+
+</html>

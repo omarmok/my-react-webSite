@@ -41,7 +41,23 @@ const cleanup = (now) => {
   }
 };
 
+const isDesignSystemPath = (pathname) =>
+  pathname.startsWith('/PS-Design/DesignSystemDocumentation');
+
 export function proxy(request) {
+  const { pathname } = request.nextUrl;
+
+  // Guard the design system documentation behind an httpOnly cookie check.
+  // The cookie is set server-side by /api/design-system-login — never by client JS.
+  if (isDesignSystemPath(pathname)) {
+    const accessCookie = request.cookies.get('design_system_access');
+    if (accessCookie?.value !== 'true') {
+      return NextResponse.redirect(new URL('/design-system', request.url));
+    }
+    return NextResponse.next();
+  }
+
+  // Rate limiting for image optimization endpoint
   const contentLength = Number(request.headers.get('content-length') ?? '0');
   if (contentLength > MAX_BODY_SIZE) {
     return new NextResponse('Payload too large', { status: 413 });
@@ -74,5 +90,8 @@ export function proxy(request) {
 }
 
 export const config = {
-  matcher: ['/_next/image'],
+  matcher: [
+    '/_next/image',
+    '/PS-Design/DesignSystemDocumentation/:path*',
+  ],
 };

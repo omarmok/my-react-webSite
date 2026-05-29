@@ -1,0 +1,200 @@
+[
+  {
+    "file": "PS-Design/DesignSystemDocumentation/ColorSystem.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 188,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 187,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/Entity.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 93,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 92,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/NewFeature.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 92,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 91,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/StartDeveloping.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 135,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 134,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/alert.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 127,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 126,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/buttons.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 174,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 173,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/iconography.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 106,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 105,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/index.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 92,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 91,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/layout.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 111,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 109,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/personcard.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 116,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 115,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/radius.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 69,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 68,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/shadows.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 68,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 67,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/spacing.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 132,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 131,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/stepper.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 67,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 66,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/switch.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 141,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 137,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/tags.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 153,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 146,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/text-fields.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 78,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 77,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  },
+  {
+    "file": "PS-Design/DesignSystemDocumentation/typography.html",
+    "topActionsCount": 1,
+    "hasLangToggle": true,
+    "hasScrollTop": true,
+    "countI18nNodes": 143,
+    "missingDataArCount": 0,
+    "missingDataEnCount": 142,
+    "scriptSrc": "./js/top-actions.js",
+    "hasCentralJS": true
+  }
+]

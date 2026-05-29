@@ -1,0 +1,154 @@
+
+@use '../helpers' as *;
+.bootstrap-datetimepicker-widget.dropdown-menu {
+    z-index: 9999999;
+    display: block !important;
+    /* background: #f8f6f2 !important;*/
+    box-shadow: rgb(53 51 51 / 26%) 0px 0.5rem 30px;
+    border-radius: 10px;
+    border: none;
+    /*    padding-right: 30px;*/
+    width: auto;
+
+    &:hover {
+        background: #f8f6f2 !important;
+    }
+}
+
+.bootstrap-datetimepicker-widget table th.prev span {
+    visibility: hidden;
+}
+
+.bootstrap-datetimepicker-widget table th.prev::after {
+    background-image: url(../images/icon-arrow-right.svg);
+    content: "";
+    width: 20px;
+    height: 20px;
+    left: 20px;
+    top: 10px;
+    clip: unset;
+    transform: rotate(-90deg);
+}
+
+.bootstrap-datetimepicker-widget table thead tr th {
+    cursor: pointer;
+    border-bottom: 1px solid #eaecf4 !important;
+    height: 40px;
+    position: relative;
+}
+
+.bootstrap-datetimepicker-widget .picker-switch {
+    color: $Neutral-900;
+    font-weight: 600;
+}
+
+.bootstrap-datetimepicker-widget table th.next span {
+    visibility: hidden;
+}
+
+.bootstrap-datetimepicker-widget table th.next::after {
+    background-image: url(../images/icon-arrow-right.svg);
+    content: "";
+    width: 20px;
+    height: 20px;
+    left: 4px;
+    top: 0.875rem;
+    clip: unset;
+    transform: rotate(90deg);
+}
+
+.bootstrap-datetimepicker-widget table td,
+.bootstrap-datetimepicker-widget table th {
+    border-radius: 0;
+}
+
+.datepicker thead th.dow {
+    height: 50px;
+    color: #000;
+    font-weight: 600;
+    height: 40px;
+    // border-bottom: 1px solid #8d541a !important;
+    background: #fff !important;
+    border-radius: 0;
+    // border: 1px solid #8d541a !important;
+}
+
+.datepicker tbody tr > td.day.selected,
+.datepicker tbody tr > td.day.selected:hover,
+.datepicker tbody tr > td.day.active,
+.datepicker tbody tr > td.day.active:hover {
+    background: transparent;
+    border: 1px solid #00337c !important;
+    color: #00337c !important;
+    text-shadow: none;
+}
+
+.datepicker {
+    padding-top: 0;
+}
+
+.datepicker tbody tr > td.day {
+    color: $Neutral-900;
+    padding: $padding-6;
+    background: $white-100 !important;
+    height: 40px;
+    font-weight: 600;
+    line-height: 1px;
+    width: 20px;
+    border: none !important;
+}
+
+.datepicker tbody tr > td.day.today {
+    position: relative;
+    background: var(--theme-primary) !important !important;
+    color: $white-100 !important;
+    border-radius: 50%;
+}
+
+.datepicker tbody tr > td.day:hover {
+    background: #f4f9ff;
+    color: #000000 !important;
+}
+
+.datepicker tbody tr > td.day.today:before {
+    content: "";
+    display: inline-block;
+    border: 3px solid $Primary-500;
+    border-width: none;
+    border-bottom-color: $Primary-500;
+    border-top-color: $Primary-500;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px;
+    right: 17px;
+    display: none;
+}
+
+
+.bootstrap-datetimepicker-widget table thead tr:first-child th {
+    background: $white-100;
+    color: $Neutral-900;
+    border-radius: 0;
+}
+
+.bootstrap-datetimepicker-widget table thead tr:first-child th:hover {
+    background: $white-100;
+    color: $Neutral-900;
+    border-radius: 0;
+}
+
+
+
+.day.disabled {
+    background: $Neutral-200 !important;
+    box-shadow: none !important;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu:hover {
+    background: $white-100 !important;
+}
+
+
+.datepicker thead th.prev:hover, .datepicker thead th.datepicker-switch:hover, .datepicker thead th.next:hover {
+    background: $white-100 !important;
+}

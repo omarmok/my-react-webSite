@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layout | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+      --primary: #1c8354;
+      --ink: #0b1c13;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-7: 32px;
+      --space-8: 48px;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.07);
+      --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.12);
+      --shadow-lg: 0 24px 48px rgba(15, 23, 42, 0.16);
+      --max-text: 80ch;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: right;
+      direction: rtl;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .docs-sidebar {
+
+      z-index: 2;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      position: relative;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .sidebar-nav a.is-active {
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+    }
+
+    .sidebar-nav a.is-active::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-inline-end: 4px solid #1c8354;
+      border-radius: 10px;
+      mix-blend-mode: screen;
+    }
+
+    .lang-toggle {
+      margin-top: 12px;
+      width: 100%;
+      background: #fff;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+      direction: ltr;
+      /* lock icon/text flow for RTL + LTR */
+      flex-direction: row;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #cbd5f5;
+      box-shadow: 0 14px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .lang-toggle svg {
+      width: 20px;
+      height: 20px;
+      order: 0;
+    }
+
+    .lang-toggle span {
+      order: 1;
+    }
+
+    .page-content {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+      text-align: right;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .page-header .text-muted {
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 0;
+    }
+
+    .section {
+      margin-top: 0;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .accessibility-list li strong {
+      font-weight: 600;
+    }
+
+    .anatomy-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .anatomy-list li {
+      padding: 20px;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f9fafb;
+    }
+
+    .anatomy-list h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    .anatomy-sub {
+      padding-right: 12px;
+      margin-bottom: 8px;
+    }
+
+    .anatomy-sub h4 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      color: #0b3f79;
+    }
+
+    .two-col {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .two-col .section-card {
+      background: #f8fafc;
+      border-color: #e5e7eb;
+    }
+
+    .two-col ul {
+      padding-left: 18px;
+      margin: 0;
+      color: #1f2937;
+      display: grid;
+      gap: 6px;
+    }
+
+    .preview-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .preview-navbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 12px;
+      background: #f5f7fb;
+      flex-wrap: wrap;
+    }
+
+    .preview-brand {
+      background: #0b4c37;
+      color: #fff;
+      border-radius: 10px;
+      padding: 12px 16px;
+      min-width: 160px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .preview-brand span {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .preview-search {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      min-width: 220px;
+    }
+
+    .preview-search svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .preview-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .preview-actions span {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid #d1d5db;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #1c8354;
+    }
+
+    .preview-frame {
+      margin-top: 16px;
+      width: 100%;
+      height: 320px;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.04);
+    }
+
+    .implementation-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .implementation-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .copy-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .copy-status {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+      margin-bottom: 0;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+    }
+
+    .copy-tooltip {
+      position: fixed;
+      z-index: 1000;
+      background: #111827;
+      color: #f9fafb;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .copy-tooltip.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    html[dir="ltr"] body {
+      direction: ltr;
+      text-align: left;
+    }
+
+    html[dir="ltr"] .page-layout {
+      direction: ltr;
+    }
+
+    html[dir="ltr"] .sidebar-nav a {
+      text-align: left;
+    }
+
+    html[dir="ltr"] .sidebar-nav a.is-active::after {
+      border-inline-end: 0;
+      border-inline-start: 4px solid #1c8354;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+  
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+
+  </style>
+  <link href="./css/ds-site-nav.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">
+          Documentation
+        </div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./layout.html" class="is-active" data-i18n data-ar="الهيكل العام">Layout</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+        </nav>
+      </div>
+
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><svg width="24"
+            height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.05469 1.25C9.42218 1.24998 10.5247 1.24968 11.3916 1.36621C12.2917 1.48723 13.0495 1.74672 13.6514 2.34863C14.2533 2.95055 14.5128 3.70829 14.6338 4.6084C14.7503 5.47534 14.75 6.57782 14.75 7.94531V9.25488C15.1235 9.25143 15.5218 9.24999 15.9453 9.25H16.0547C17.4222 9.24998 18.5247 9.24968 19.3916 9.36621C20.2917 9.48723 21.0495 9.74672 21.6514 10.3486C22.2533 10.9505 22.5128 11.7083 22.6338 12.6084C22.7503 13.4753 22.75 14.5778 22.75 15.9453V16.0547C22.75 17.4222 22.7503 18.5247 22.6338 19.3916C22.5128 20.2917 22.2533 21.0495 21.6514 21.6514C21.0495 22.2533 20.2917 22.5128 19.3916 22.6338C18.5247 22.7503 17.4222 22.75 16.0547 22.75H15.9453C14.5778 22.75 13.4753 22.7503 12.6084 22.6338C11.7083 22.5128 10.9505 22.2533 10.3486 21.6514C9.74672 21.0495 9.48723 20.2917 9.36621 19.3916C9.24968 18.5247 9.24998 17.4222 9.25 16.0547V15.9453C9.24999 15.5218 9.25143 15.1235 9.25488 14.75H7.94531C6.57782 14.75 5.47534 14.7503 4.6084 14.6338C3.70829 14.5128 2.95055 14.2533 2.34863 13.6514C1.74672 13.0495 1.48723 12.2917 1.36621 11.3916C1.24968 10.5247 1.24998 9.42218 1.25 8.05469V7.94531C1.24998 6.57782 1.24968 5.47534 1.36621 4.6084C1.48723 3.70829 1.74672 2.95055 2.34863 2.34863C2.95055 1.74672 3.70829 1.48723 4.6084 1.36621C5.47534 1.24968 6.57782 1.24998 7.94531 1.25H8.05469ZM16 10.75C14.5648 10.75 13.5639 10.752 12.8086 10.8535C12.0748 10.9522 11.6859 11.1324 11.4092 11.4092C11.1324 11.6859 10.9522 12.0748 10.8535 12.8086C10.752 13.5639 10.75 14.5648 10.75 16C10.75 17.4352 10.752 18.4361 10.8535 19.1914C10.9522 19.9252 11.1324 20.3141 11.4092 20.5908C11.6859 20.8676 12.0748 21.0478 12.8086 21.1465C13.5639 21.248 14.5648 21.25 16 21.25C17.4352 21.25 18.4361 21.248 19.1914 21.1465C19.9252 21.0478 20.3141 20.8676 20.5908 20.5908C20.8676 20.3141 21.0478 19.9252 21.1465 19.1914C21.248 18.4361 21.25 17.4352 21.25 16C21.25 14.5648 21.248 13.5639 21.1465 12.8086C21.0478 12.0748 20.8676 11.6859 20.5908 11.4092C20.3141 11.1324 19.9252 10.9522 19.1914 10.8535C18.4361 10.752 17.4352 10.75 16 10.75ZM4 15.75C4.41421 15.75 4.75 16.0858 4.75 16.5C4.75 17.2178 4.75071 17.7 4.78809 18.0674C4.82419 18.4221 4.88849 18.5859 4.96094 18.6943C5.05212 18.8308 5.16921 18.9479 5.30566 19.0391C5.4141 19.1115 5.57788 19.1758 5.93262 19.2119C6.30002 19.2493 6.78216 19.25 7.5 19.25C7.91421 19.25 8.25 19.5858 8.25 20C8.25 20.4142 7.91421 20.75 7.5 20.75H7.46191C6.79245 20.75 6.23354 20.7501 5.78125 20.7041C5.30783 20.6559 4.86862 20.5507 4.47266 20.2861C4.17238 20.0855 3.9145 19.8276 3.71387 19.5273C3.44934 19.1314 3.34406 18.6922 3.2959 18.2188C3.24991 17.7665 3.24998 17.2075 3.25 16.5381C3.25 16.5254 3.25 16.5127 3.25 16.5C3.25 16.0858 3.58579 15.75 4 15.75ZM16 12.25C16.3028 12.25 16.5759 12.4324 16.6924 12.7119L19.1924 18.7119C19.3514 19.0941 19.1711 19.533 18.7891 19.6924C18.4067 19.8517 17.9669 19.6704 17.8076 19.2881L17.167 17.75H14.834L14.1924 19.2881C14.0331 19.6704 13.5942 19.8516 13.2119 19.6924C12.8297 19.5331 12.6486 19.0942 12.8076 18.7119L15.3076 12.7119C15.424 12.4325 15.6973 12.2501 16 12.25Z"
+              fill="currentColor"></path>
+          </svg><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.9975 3.25C11.624 3.25 11.2774 3.41565 11.0172 3.57252C10.7364 3.7418 10.4464 3.96944 10.1638 4.21918C9.59669 4.72018 8.98771 5.37387 8.43684 6.00823C7.88274 6.64633 7.37253 7.28222 7.00175 7.75725C6.81606 7.99516 6.66462 8.19364 6.55931 8.33304C6.50664 8.40276 6.46547 8.45776 6.43727 8.49558L6.40489 8.53915L6.39633 8.55071L6.39337 8.55472C6.14771 8.88822 6.2186 9.35816 6.5521 9.60382C6.88559 9.84947 7.35507 9.77828 7.60074 9.44481L7.61015 9.43209L7.63992 9.39204C7.66632 9.35662 7.70557 9.3042 7.75618 9.2372C7.85743 9.10317 8.00402 8.91102 8.1842 8.68019C8.54517 8.21772 9.03806 7.60363 9.56942 6.99173C10.104 6.37611 10.6628 5.77981 11.1569 5.34331C11.1882 5.3157 11.2189 5.28899 11.249 5.26316L11.249 20C11.249 20.4142 11.5848 20.75 11.999 20.75C12.4132 20.75 12.749 20.4142 12.749 20L12.749 5.2657C12.7782 5.29073 12.808 5.31661 12.8382 5.34331C13.3323 5.77981 13.8911 6.37611 14.4257 6.99173C14.957 7.60363 15.4499 8.21772 15.8109 8.68019C15.9911 8.91102 16.1377 9.10317 16.2389 9.2372C16.2895 9.30419 16.3288 9.35662 16.3552 9.39204L16.3849 9.43209L16.3943 9.44481C16.64 9.77828 17.1095 9.84947 17.443 9.60382C17.7765 9.35816 17.8474 8.88822 17.6017 8.55472L17.5988 8.55071L17.5902 8.53915L17.5578 8.49558C17.5296 8.45776 17.4884 8.40276 17.4358 8.33304C17.3305 8.19363 17.179 7.99516 16.9933 7.75725C16.6226 7.28222 16.1123 6.64633 15.5582 6.00823C15.0074 5.37387 14.3984 4.72018 13.8313 4.21918C13.5486 3.96944 13.2587 3.7418 12.9779 3.57252C12.7192 3.4166 12.3753 3.25199 12.0043 3.25002"
+              fill="white"></path>
+          </svg><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span>
+        </button>
+      </div>
+
+
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="منظومة الواجهة">System Layout</div>
+        <h1 class="fw-bold" data-i18n data-ar="الهيكل العام">Layout</h1>
+
+        <p class="text-muted mb-0" data-i18n data-ar="التخطيط العام للتطبيق – شريط التنقل والقشرة">Global Application
+          Layout – Navbar &amp; Shell</p>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="المكوّن: الهيكل العام"
+              data-en="Component: Layout">
+          المكوّن: الهيكل العام
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="الإصدار: قيد التحديث"
+              data-en="Version: TBD">
+          الإصدار: قيد التحديث
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="آخر تحديث: 28 يناير 2026"
+              data-en="Last updated: January 28, 2026">
+          آخر تحديث: 28 يناير 2026
+        </span>
+      </div>
+
+
+      <section class="section" id="system-shell">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إطار التنقل والتنبيهات">System Navigation &amp; Feedback</h2>
+          <p class="section-note" data-i18n
+            data-ar="يتكون نظام التنقل والردود المعيارية من شريط علوي ثابت، وشريط جانبي تفصيلي، وإشعار أساسي من البنية التحتية.">
+            The platform-level navigation/feedback framework pairs the fixed Top Bar (Navbar), the Sidebar, and the
+            Infra-sourced Primary Alert to deliver consistent identity, navigation, and critical messaging everywhere.
+          </p>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="الشريط العلوي ثابت موحد يبرز هوية النظام ويجمع البحث العام، أدوات التخطيط، تبديل التطبيقات، وسياق المستخدم.">
+              The Top Bar is a fixed, unified header that communicates system identity and delivers global search,
+              layout
+              controls, app switching, and user context across every experience.
+            </li>
+            <li data-i18n data-ar="الهوية النظامية والمشروع تُعرض عند أعلى اليمين (RTL) لتأكيد المنصة والسياق الحالي.">
+              System and project identity sit near the top-right (RTL) to clarify the active platform and project
+              context.
+            </li>
+            <li data-i18n
+              data-ar="منطقة البحث الوسيعة في الوسط تستخدم العنصر النائب 'الاستعلامات العامة' للتفاعل مع كل التطبيقات والبيانات الأساسية.">
+              A wide global search area in the center (placeholder “الاستعلامات العامة”) ties together queries over
+              applications and the system’s core entities.
+            </li>
+            <li data-i18n
+              data-ar="أدوات التخطيط، الإجراءات السريعة، الإشعارات، وأيقونات الحالة تقع على اليسار للحصول على إجراءات النظام دون مغادرة السياق.">
+              Layout controls, quick actions, notifications, and status icons live on the left edge so system-level
+              actions
+              stay within reach without leaving the current context.
+            </li>
+            <li data-i18n
+              data-ar="مفتاح التطبيقات، سياق الجلسة، والبروفايل يُشكلون نهاية التسلسل البصري ويتيحون التنقل السلس بين التطبيقات.">
+              The App Switcher, session context, and user profile close the Top Bar’s visual hierarchy and enable
+              seamless
+              cross-application navigation.
+            </li>
+            <li data-i18n
+              data-ar="الشريط الجانبي هو قناة التنقل الرئيسية داخل التطبيق ويعرض هيكلًا هرميًا يدعم القوائم الفرعية ويعكس الصلاحيات.">
+              The Sidebar is the primary in-application navigation channel. It presents a hierarchical tree of
+              modules/pages,
+              supports nested sub-menus, reflects user permissions, and keeps the Top Bar focused by housing deeper
+              navigation.
+            </li>
+            <li data-i18n data-ar="الإشعار الأساسي مصدره البنية التحتية، يظهر عبر التطبيقات ولا يتم تعريفه محليًا.">
+              The Primary Alert comes from Infra, not the local UI. It surfaces critical system-wide messages—outages,
+              maintenance, mandates—consistent across apps, governed by Infra, and must never be overridden at the app
+              level.
+            </li>
+          </ul>
+
+
+          <div
+            class="alert moi-alert d-flex justify-content-between align-items-center padding-y-md padding-x-md border-3 border-bottom bg-Info-50 border-Info-600 mt-3"
+            id="alert-info" role="alert">
+            <div class="d-flex gap-lg align-items-center Info-700">
+              <svg class="Info-800 icon icon-xl" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true" focusable="false">
+                <path
+                  d="M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM11.2764 10.25C11.4815 10.2499 11.7034 10.2502 11.8906 10.2754C12.1099 10.3049 12.3902 10.3804 12.626 10.6162C12.8618 10.852 12.9373 11.1322 12.9668 11.3516C12.992 11.5388 12.9923 11.7607 12.9922 11.9658V17C12.9922 17.4142 12.6564 17.75 12.2422 17.75C11.828 17.75 11.4922 17.4142 11.4922 17V12C11.4922 11.9009 11.4923 11.8204 11.4912 11.751C11.4218 11.7499 11.3413 11.75 11.2422 11.75C10.828 11.75 10.4922 11.4142 10.4922 11C10.4922 10.5858 10.828 10.25 11.2422 10.25C11.2535 10.25 11.2649 10.25 11.2764 10.25ZM12.001 7C12.5533 7 13.001 7.44772 13.001 8C13.001 8.55228 12.5533 9 12.001 9H11.9922C11.4399 9 10.9922 8.55228 10.9922 8C10.9922 7.44772 11.4399 7 11.9922 7H12.001Z">
+                </path>
+              </svg>
+
+              <span class=" mb-0 " data-i18n data-ar="يمكنك إستيراد الهيكل من Infra">
+                You can import it from Infra
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section class="section" id="overview">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2>
+          <p class="section-note" data-i18n
+            data-ar="الشريط العلوي هو رأس ثابت موحد يثبت الهوية، ويجمع البحث، والتحكم في التخطيط، والتبديل بين التطبيقات، وسياق المستخدم.">
+            The Navbar is a persistent application header that keeps identity, global search, layout controls, app
+            switching, and user context within reach of every experience.
+          </p>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="هوية النظام والمشروع بالقرب من أعلى اليمين (RTL).">System identity and project
+              context sit near the right edge (RTL).</li>
+            <li data-i18n
+              data-ar="بحث موسّع في الوسط مع العنصر النائب &quot;الاستعلامات العامة&quot; للبحث عبر جميع التطبيقات.">A
+              wide global search sits center stage with the placeholder “الاستعلامات العامة” for cross-application
+              queries.</li>
+            <li data-i18n
+              data-ar="مجموعات أدوات التحكم في التخطيط والإجراءات السريعة تتجمع على اليسار مع إشعارات وأيقونات الحالة.">
+              Layout utilities and quick actions gather on the left, alongside notifications and state icons.</li>
+            <li data-i18n data-ar="مفتاح التنقل بين التطبيقات وسياق الجلسة والبروفايل يشكلون نهاية التسلسل البصري.">The
+              app switcher, session text, and profile complete the visual flow.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="anatomy">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2>
+          <p class="section-note" data-i18n
+            data-ar="كل بنية رقمية تشرح المنطقة المسؤولة عن الهوية، البحث، الإجراءات، التبديل، وسياق المستخدم.">Each
+            numbered block explains the region responsible for identity, search, actions, switching, and user context.
+          </p>
+          <ol class="anatomy-list">
+            <li>
+              <h3 data-i18n data-ar="١. الحاوية الرئيسية">1. Navbar Container (الحاوية الرئيسية)</h3>
+              <p data-i18n
+                data-ar="حاوية بعرض كامل، ارتفاع ثابت، خلفية بيضاء، وظل خفيف، تستضيف جميع أدوات التحكم العلوية وتظل مرئية في جميع أنحاء المنصة.">
+                Full-width, fixed-height white band with a subtle bottom shadow that hosts every top-level control and
+                remains visible across the platform.
+              </p>
+            </li>
+            <li>
+              <h3 data-i18n data-ar="٢. الهوية النظامية">2. Brand &amp; System Identity (أقصى اليمين – RTL)</h3>
+              <p data-i18n
+                data-ar="الجانب الأيمن يعرض اسم المنصة، الشعار الرسمي، والقسم الفرعي الذي يتغير حسب التطبيق النشط للحفاظ على السياق.">
+                The rightmost edge renders the platform name, seal, and a subtitle that shifts depending on the active
+                application to keep context obvious.
+              </p>
+              <div class="anatomy-sub">
+                <h4 data-i18n data-ar="٢.١ الكتلة الخضراء">2.1 Brand Block (الكتلة الخضراء)</h4>
+                <p data-i18n data-ar="يعرض اسم المنصة الثابت 'منصة أمن'، وشعارًا حكوميًا، وعنوانًا فرعيًا ديناميكيًا.'">
+                  Displays the constant platform name "منصة أمن", the official logo, and a dynamic subtitle describing
+                  the current module (e.g., "إدارة المستخدمين والصلاحيات", "إدارة البلاغات والحوادث", "إدارة التصاريح
+                  والخدمات").
+                </p>
+                <ul class="accessibility-list">
+                  <li data-i18n data-ar="الاسم يبقى ثابتًا بينما العنوان الفرعي يتغير مع التطبيق.">Platform name stays
+                    fixed while the subtitle updates with the active app.</li>
+                  <li data-i18n data-ar="العنوان الفرعي يعكس نطاق الوظيفة الحالية ولا يُعامل كنص ثابت.">The subtitle
+                    reflects the current functional scope and must never be treated as static text.</li>
+                  <li data-i18n data-ar="يوفر الهوية والسياق الواضحين قبل تحميل القشرة الخاصة بالتطبيق.">Delivers
+                    identity and clear context before the specific application shell loads.</li>
+                </ul>
+              </div>
+              <div class="anatomy-sub">
+                <h4 data-i18n data-ar="٢.٢ زر شريط التنقل">2.2 Sidebar Toggle</h4>
+                <p data-i18n data-ar="زر أيقوني دائري يتحكم في توسيع أو طَي الشريط الجانبي، مؤثرًا في عرض المحتوى.">
+                  Circular icon button beside the brand block toggles the sidebar expansion/collapse and thus adjusts
+                  the content width.</p>
+              </div>
+            </li>
+            <li>
+              <h3 data-i18n data-ar="٣. منطقة البحث">3. Global Search Area (منتصف الـNavbar)</h3>
+              <p data-i18n
+                data-ar="زر البحث الكبير يعرض العنصر النائب 'بحث الأشخاص والمركبات والأسلحة' ويحتوي على أيقونة، ويستهدف بيانات الأشخاص والمركبات والأسلحة. يتم تصميمه بدقة ليدعم التركيز الكامل، لوحة المفاتيح، والضغط على Enter لتشغيل البحث.">
+                The large search input shows the placeholder “Search for people, vehicles, and weapons” alongside an
+                icon, touching every people, vehicle, and weapon dataset. It is tuned for full focus, keyboard control,
+                and pressing Enter immediately triggers the query.
+              </p>
+              <ul class="accessibility-list">
+                <li data-i18n data-ar="دعم التركيز الكامل، والضغط على Enter يشغّل البحث.">Full-focus support plus
+                  Enter-to-search keeps the experience keyboard friendly.</li>
+                <li data-i18n
+                  data-ar="تظهر نتائج اقتراحية للأشخاص والمركبات والأسلحة دون كسر التسلسل البصري أو تخريب التخطيط.">
+                  Optional autocomplete or suggestion overlays for people, vehicles, and weapons appear without
+                  shifting the layout or breaking structure.</li>
+              </ul>
+            </li>
+            <li>
+              <h3 data-i18n data-ar="٤. الأدوات والإجراءات">4. Utilities &amp; System Actions (اليسار – RTL)</h3>
+              <p data-i18n
+                data-ar="الجهة اليسرى تجمع رموز الإجراءات السريعة، التبديل بين التطبيقات، سياق الجلسة، الحالة، والبروفايل.">
+                The left zone collects quick-action icons, the app switcher, session context, notifications, and the
+                user profile to close the visual journey.
+              </p>
+              <div class="anatomy-sub">
+                <h4 data-i18n data-ar="٤.١ أيقونات الإجراءات">4.1 System Action Icons Group</h4>
+                <p data-i18n
+                  data-ar="أزرار رمزية للعودة، ملء الشاشة، الإعدادات، والإشعارات مع شارات رقمية؛ تتطلب تسميات aria وأحجام تفاعل موحدة وتظهر حسب الأذونات.">
+                  Icon-only buttons represent exit/back, fullscreen, settings, and notifications (with numeric badges).
+                  They rely on aria labels, consistent hit areas, and only appear when permission logic allows.</p>
+              </div>
+              <div class="anatomy-sub">
+                <h4 data-i18n data-ar="٤.٢ مفتاح التطبيقات">4.2 App Switcher</h4>
+                <p data-i18n
+                  data-ar="زر شبكة يفتح قائمة من التطبيقات المصرح بها، كل عنصر يحتوي على اسم وأيقونة وحالة نشطة. التبديل يحدث في نفس القشرة دون إعادة تحميل كامل.">
+                  A grid-style button opens the app switcher dropdown showing permitted applications (icon, name, active
+                  state). Selecting an app updates the brand subtitle, loads the corresponding shell, and avoids full
+                  page reload unless required.</p>
+              </div>
+              <div class="anatomy-sub">
+                <h4 data-i18n data-ar="٤.٣ سياق الجلسة">4.3 Session / Context Info</h4>
+                <p data-i18n
+                  data-ar="نص قابل للقراءة فقط يذكر آخر تسجيل دخول (التاريخ والوقت) ليعطي ارتباطًا لحالة الجلسة.">A
+                  read-only line such as "تسجيل أخر دخول/..." provides temporal session context right beside the
+                  actions.</p>
+              </div>
+              <div class="anatomy-sub">
+                <h4 data-i18n data-ar="٤.٤ ملف المستخدم">4.4 User Profile</h4>
+                <p data-i18n data-ar="أفاتار دائري يفتح قائمة للمستخدم تتضمن الملف الشخصي، التفضيلات، وتسجيل الخروج.">A
+                  circular avatar opens the user menu (Profile, Preferences, Logout) and serves as the contextual
+                  endpoint of the navbar.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="sidebar-structure">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="هيكل الشريط الجانبي">Sidebar Structure</h2>
+          <p class="section-note" data-i18n
+            data-ar="كل عنصر رئيسي في الشريط الجانبي يُبنى ضمن عنصر &lt;li&gt; واحد يستضيف المحتوى التفاعلي ويتحكم بقابلية التوسع والتوافق.">
+            Every primary sidebar item is implemented as a single <code>&lt;li&gt;</code> that serves as the core
+            structural
+            container, grouping the visual label, icon, and any related behavior in a predictable block.
+          </p>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="داخل الـ &lt;li&gt; يوجد حاوية icon-link تحدد منطقة التفاعل الرئيسية وتحتوي على الأيقونة، النص، وسهم التوسّع الاختياري.">
+              Inside that <code>&lt;li&gt;</code>, an icon-link wrapper defines the primary interactive area, housing
+              the inline SVG icon, label, and optional expand/collapse arrow while managing hover, focus, and click
+              interactions.
+            </li>
+            <li data-i18n
+              data-ar="تُضاف قوائم &lt;ul&gt; ثانوية مختارة عندما يحتاج العنصر إلى روابط مرتبطة، وتتحكم في ظهورها طريقتنا التفاعلية.">
+              The <code>&lt;li&gt;</code> may optionally include a nested <code>&lt;ul&gt;</code> submenu for related
+              secondary
+              links; its presence is communicated through the expand/collapse arrow and the sidebar interaction logic.
+            </li>
+            <li data-i18n
+              data-ar="هذه البنية القائمة على الـ &lt;li&gt; إلزامية لضمان التماثل في المحاذاة، السلوك، الوصولية، وقابلية التوسع.">
+              This <code>&lt;li&gt;</code>-based structure is mandatory across the sidebar to keep alignment,
+              interaction,
+              accessibility, and scalability consistent system-wide.
+            </li>
+          </ul>
+          <p class="section-note" data-i18n
+            data-ar="جميع الأيقونات داخل الشريط الجانبي تستخدم SVG مضمن وتُزال جميع خصائص fill (fill، fill=&quot;none&quot;، fill-opacity، ...)؛ يتحكم اللون عبر CSS باستخدام currentColor فقط.">
+            All sidebar icons must be inline SVG, and every fill attribute (fill, fill="none", fill-opacity, etc.) must
+            be removed;
+            color is controlled through CSS inheritance (e.g., <code>currentColor</code>) so hover, active, disabled,
+            and theme states stay predictable.
+          </p>
+          <p class="section-note" data-i18n
+            data-ar="تسجيل الحوكمة: أي عنصر شريط جانبي أو رمز SVG ينتهك هذه البنية أو يعرّف fill يعتبر غير متوافق ويجب إصلاحه.">
+            Governance note: any sidebar item or SVG icon that deviates from this structure or defines its own fill
+            is non-compliant with the Design System and must be corrected before release.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="sidebar-governance">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="عمليات التصميم والحوكمة">DesignOps &amp; Governance</h2>
+          <p class="section-note" data-i18n
+            data-ar="الشريط الجانبي يُدار مركزيًا من قِبل نظام التصميم ويعمل كمصدر واحد للحقيقة عبر جميع التطبيقات؛ لا يُسمح بتغييرات محلية غير معتمدة.">
+            The Sidebar structure is centrally managed by the Design System and serves as the single source of truth
+            across applications; alternative structures or local variations are not permitted.
+          </p>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="جميع عناصر الشريط الجانبي تتبع البنية المعتمدة (عنصر li واحد، حاوية icon-link للمحتوى التفاعلي وقوائم فرعية اختيارية).">
+              Every sidebar item must follow the approved pattern (single <code>&lt;li&gt;</code>, icon-link container
+              for the
+              interactive area, and optional nested sub-menu). No other structures are allowed.
+            </li>
+            <li data-i18n
+              data-ar="أي تعديل على هيكل الشريط الجانبي أو سلوكه يجب أن يمر عبر عملية التصميم ويُراجع من قِبل فرق التصميم والفرونت إند.">
+              Any change to structure or behavior must go through the DesignOps process and be reviewed by design and
+              frontend to safeguard cross-application consistency and scalability.
+            </li>
+            <li data-i18n
+              data-ar="تُطبق قواعد الأيقونات الحكومية التالية: تستخدم SVG ضمنية فقط، وتزال جميع خصائص fill، ويتحكم CSS باللون عبر currentColor.">
+              Icon governance: use inline SVG only, remove every fill attribute (fill, fill="none", fill-opacity,
+              hardcoded
+              colors), and drive color exclusively through inherited CSS (e.g., <code>currentColor</code>).
+            </li>
+            <li data-i18n data-ar="هذه الحوكمة تضمن حالات بصرية متسقة، دعم المواضيع، الوصولية، وسلوك تفاعلي متوقع.">
+              This governance ensures consistent visual states, theming, accessibility, and predictable interaction
+              behavior.
+            </li>
+          </ul>
+          <p class="section-note text-danger" data-i18n
+            data-ar="أي عنصر أو أيقونة تنتهك الهيكل المعتمد أو تعرّف fill تُعتبر غير متوافقة ويجب تصحيحها قبل الإصدار.">
+            Compliance rule: any sidebar item or SVG icon that violates the approved structure or defines its own fill
+            is
+            non-compliant and must be corrected before release.
+          </p>
+          <p class="section-note" data-i18n
+            data-ar="الثبات الهيكلي، الوصولية، وقابلية التوسع إلزامية؛ لا يُسمح بانحرافات في مستوى التطبيق.">
+            Structural consistency, accessibility, and scalability are mandatory—no application-level deviations are
+            allowed.
+          </p>
+        </div>
+      </section>
+
+
+
+      <section class="section" id="behavior">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="ملاحظات السلوك">Behavior Notes</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="الشريط ثابت في الأعلى ولا يتحرك عند التمرير.">Navbar is sticky and unaffected by page
+              scrolling.</li>
+            <li data-i18n data-ar="تبديل التطبيق يحدث دون كسر القشرة الحالية، ويُحدث العنوان الفرعي فورًا.">Application
+              switching updates context without breaking the layout.</li>
+            <li data-i18n data-ar="العناصر تظهر وتختفي بحسب أذونات المستخدم.">Elements appear/disappear based on
+              permissions.</li>
+            <li data-i18n data-ar="الوصول الكامل باللوحة والاختصارات محفوظ.">Fully keyboard accessible.</li>
+            <li data-i18n data-ar="الأزرار الرمزية لا تعتمد على التلميحات وحدها، ويجب أن تحتوي على aria-label.">
+              Icon-only buttons must not rely solely on tooltips.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="guidance">
+        <div class="two-col">
+          <div class="section-card" data-i18n data-ar="افعل">
+            <h2 class="section-title" data-i18n data-ar="افعل">Do</h2>
+            <ul>
+              <li data-i18n data-ar="حافظ على ثبات حجم الأيقونات والتباعد المتوازن.">Keep icon sizes and spacing
+                consistent.</li>
+              <li data-i18n data-ar="اجعل البحث عالميًا ومُتوقعًا عبر كل التطبيقات.">Keep the search experience global
+                and predictable.</li>
+              <li data-i18n data-ar="التزم بكتلة الهوية الموحدة المتوسطة في أعلى يمين RTL.">Keep the brand block
+                consistent across the platform.</li>
+              <li data-i18n data-ar="استعمل مفتاح التطبيقات للتنقل بين مستويات التطبيقات.">Use the App Switcher for
+                application-level navigation.</li>
+            </ul>
+          </div>
+          <div class="section-card" data-i18n data-ar="لا تفعل">
+            <h2 class="section-title" data-i18n data-ar="لا تفعل">Don’t</h2>
+            <ul>
+              <li data-i18n data-ar="لا تفرط في عدد الإجراءات حتى لا تفقد التركيز.">Don’t overload the Navbar with
+                actions.</li>
+              <li data-i18n data-ar="لا تخفي الإجراءات الحيوية دون منطق الأذونات.">Don’t hide critical actions without
+                permission logic.</li>
+              <li data-i18n data-ar="لا تعامل العنوان الفرعي كنص ثابت؛ يجب أن يتغير مع التطبيق.">Don’t treat the
+                subtitle as static text.</li>
+              <li data-i18n data-ar="لا تبتدع طرقًا بديلة للتبديل بين التطبيقات.">Don’t introduce alternative
+                app-switching patterns.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="variants">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="متغيرات التخطيط">Optional Layout Variants</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="التخطيط الافتراضي مع الشريط الجانبي الموسع الذي يكشف الرموز والنصوص.">Default layout
+              with the expanded sidebar, showing icons and labels while keeping the navbar fixed.</li>
+            <li data-i18n data-ar="الشريط الجانبي المدمج (سكيل الأيقونات) عند الحاجة إلى مساحة أفقية إضافية.">Compact
+              sidebar (icon rail) for tighter horizontal spaces.</li>
+            <li data-i18n data-ar="نسخ التخطيط بدون شريط جانبي عندما تغطي التطبيقات الصفحات المخصصة.">Layout without a
+              sidebar when standalone modules take over the full width.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="preview">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="المعاينة">Preview</h2>
+          <p class="section-note" data-i18n data-ar="تصور بصري للعناصر الرئيسية في الشريط العلوي الموحد.">Visual
+            snapshot of the key regions inside the unified top navbar.</p>
+          <div class="preview-card">
+
+            <ul class="accessibility-list" style="padding:12px 0 0;">
+              <li data-i18n
+                data-ar="المعاينة تعرض العلامة التجارية والبحث والأيقونات في ترتيب RTL، تمامًا كما هو في الإنتاج.">
+                Preview shows the brand, search, and icons aligned in RTL order, mirroring production.</li>
+            </ul>
+            <iframe class="preview-frame" src="../layout.html" title="Layout preview" loading="lazy"></iframe>
+            <p class="section-note mt-2" data-i18n
+              data-ar="المعاينة تعكس الملف layout.html، لذا أي تغييرات في التطبيق تظهر هنا مباشرة.">This iframe renders
+              the actual `layout.html` so any adjustment in the real layout is reflected instantly.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="implementation">
+        <div class="implementation-card">
+          <div class="implementation-header">
+            <div>
+              <h2 class="section-title" data-i18n data-ar="التنفيذ / العلامة">Implementation / Markup</h2>
+              <p class="section-note mb-0" data-i18n data-ar="هذا المقتطف يعكس شريط التنقل الفعلي في layout.html.">The
+                snippet below reflects the real Navbar markup from layout.html.</p>
+            </div>
+            <div class="copy-toolbar">
+              <button class="btn moi-btn--Info copy-markup-btn" type="button" data-copy-target="#navbar-markup"
+                aria-label="Copy navbar markup" data-i18n data-ar="نسخ الكود" data-en="Copy Code">
+                Copy Code
+              </button>
+              <span class="copy-status" aria-live="polite"></span>
+            </div>
+          </div>
+          <div class="code-block">
+            <pre><code id="navbar-markup" class="language-html">
+&lt;section class=&quot;wapper&quot;&gt;
+        &lt;!-- start top navbar --&gt;
+
+        &lt;div class=&quot;navbar&quot;&gt;
+          &lt;div class=&quot;amn__title&quot;&gt;
+            &lt;h4&gt;منصة أمن&lt;/h4&gt;
+            &lt;span&gt;الحالات الامنية&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&quot;left__area&quot;&gt;
+            &lt;button class=&quot;btn moi-btn moi-btn--Info&quot;&gt;
+              &lt;svg
+                width=&quot;24&quot;
+                height=&quot;24&quot;
+                viewBox=&quot;0 0 24 24&quot;
+                fill=&quot;none&quot;
+                xmlns=&quot;http://www.w3.org/2000/svg&quot;
+              &gt;
+                &lt;path
+                  fill-rule=&quot;evenodd&quot;
+                  clip-rule=&quot;evenodd&quot;
+                  d=&quot;M14.9056 16.32C15.4339 15.9094 15.9092 15.434 16.3199 14.9058L21.7071 20.293C22.0976 20.6835 22.0976 21.3167 21.7071 21.7072C21.3166 22.0977 20.6834 22.0977 20.2929 21.7072L14.9056 16.32Z&quot;
+                /&gt;
+                &lt;path
+                  fill-rule=&quot;evenodd&quot;
+                  clip-rule=&quot;evenodd&quot;
+                  d=&quot;M10 16C13.3137 16 16 13.3137 16 10C16 6.68629 13.3137 4 10 4C6.68629 4 4 6.68629 4 10C4 13.3137 6.68629 16 10 16ZM10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z&quot;
+                /&gt;
+              &lt;/svg&gt;
+
+              الاستعلامات العامة
+            &lt;/button&gt;
+            &lt;div class=&quot;dropdown user-detaiolsdrop&quot;&gt;
+              &lt;button
+                class=&quot;user__details dropdown-toggle&quot;
+                type=&quot;button&quot;
+                data-bs-toggle=&quot;dropdown&quot;
+                aria-expanded=&quot;false&quot;
+              &gt;
+                &lt;div class=&quot;user__details--avatar&quot;&gt;
+                  &lt;img src=&quot;./images/Avatar.png&quot; alt=&quot;&quot; /&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;user__details--user&quot;&gt;
+                  &lt;div class=&quot;login-date&quot;&gt;
+                    تسجيل أخر دخول/٢٠/يناير/٢٠٢٣ الوقت ٠٣/١٢مساءا
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/button&gt;
+              &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;dropdown seatingdrop&quot;&gt;
+              &lt;button
+                class=&quot;seating&quot;
+                type=&quot;button&quot;
+                id=&quot;apps&quot;
+                data-bs-toggle=&quot;dropdown&quot;
+                data-bs-auto-close=&quot;false&quot;
+                aria-expanded=&quot;false&quot;
+                aria-label=&quot;فتح تطبيقات إضافية&quot;
+              &gt;
+                &lt;svg viewBox=&quot;0 0 24 24&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                  &lt;path
+                    fill-rule=&quot;evenodd&quot;
+                    clip-rule=&quot;evenodd&quot;
+                    d=&quot;M15 3C13.8954 3 13 3.895 13 5V9C13 10.105 13.8954 11 15 11H19C20.1046 11 21 10.105 21 9V5C21 3.895 20.1046 3 19 3H15ZM5 13C3.8954 13 3 13.895 3 15V19C3 20.105 3.8954 21 5 21H9C10.1046 21 11 20.105 11 19V15C11 13.895 10.1046 13 9 13H5ZM13 15C13 13.895 13.8954 13 15 13H19C20.1046 13 21 13.895 21 15V19C21 20.105 20.1046 21 19 21H15C13.8954 21 13 20.105 13 19V15Z&quot;
+                    fill-opacity=&quot;0.4&quot;
+                  &gt;&lt;/path&gt;
+                  &lt;path
+                    d=&quot;M4.99805 3C3.89345 3 2.99805 3.895 2.99805 5V9C2.99805 10.105 3.89345 11 4.99805 11H8.99805C10.1026 11 10.998 10.105 10.998 9V5C10.998 3.895 10.1026 3 8.99805 3H4.99805Z&quot;
+                  &gt;&lt;/path&gt;
+                &lt;/svg&gt;
+              &lt;/button&gt;
+              &lt;div class=&quot;dropdown-menu apps&quot; aria-labelledby=&quot;apps&quot;&gt;
+                &lt;ul class=&quot;apps__items&quot;&gt;
+                  &lt;!--&lt;li&gt;
+                            &lt;a href=&quot;https://localhost:44394&quot;&gt;
+    
+                                &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;25&quot; height=&quot;20&quot; viewBox=&quot;0 0 25 20&quot; fill=&quot;none&quot;&gt;
+                                    &lt;path d=&quot;M7.14962 15.2346C8.24922 14.1653 9.55689 13.6961 11.0531 13.6943C12.1854 13.6929 13.3177 13.694 14.45 13.694C14.6121 13.694 14.7741 13.694 14.9453 13.694C14.4361 16.6518 14.758 17.4443 16.5757 19.543C16.4045 19.5555 16.2639 19.5746 16.1233 19.5747C13.0429 19.5763 9.96239 19.5766 6.88191 19.5754C5.98998 19.575 5.63555 19.1044 5.73138 18.2164C5.85578 17.0638 6.30293 16.0829 7.14962 15.2346Z&quot; fill-opacity=&quot;0.4&quot; /&gt;
+                                    &lt;path d=&quot;M10.8536 5.39444C13.4873 3.93172 16.7182 5.52317 16.7612 8.68703C16.7885 10.7025 15.2449 12.3068 13.2031 12.4959C11.2542 12.6764 9.43132 11.3311 9.10867 9.37442C8.83828 7.73468 9.40847 6.38165 10.8536 5.39444Z&quot; /&gt;
+                                    &lt;path d=&quot;M16.4632 17.4322C16.3877 17.2832 16.3381 17.1607 16.2684 17.0505C16.0233 16.6629 16.1145 16.4214 16.5409 16.2151C17.076 15.9561 17.083 14.8741 16.5494 14.6274C16.079 14.41 16.0457 14.1413 16.2875 13.7515C16.4 13.5703 16.4893 13.3748 16.6056 13.1962C17.0338 12.5387 17.0364 12.5403 17.7511 12.8636C18.136 13.0377 19.0203 12.4916 19.0408 12.0671C19.0746 11.3697 19.0893 11.3531 19.8071 11.3159C19.9897 11.3064 20.1735 11.3062 20.3562 11.3146C21.1413 11.3509 21.1325 11.3593 21.1898 12.1064C21.2018 12.2629 21.3308 12.4521 21.4639 12.5506C21.8888 12.865 22.3305 13.1566 22.8666 12.7035C22.9332 12.6473 23.2167 12.7084 23.2759 12.7959C23.559 13.2149 23.8214 13.6517 24.0372 14.1068C24.0817 14.2006 23.9226 14.4241 23.8094 14.5442C23.6688 14.6935 23.3651 14.774 23.3325 14.9259C23.2586 15.2697 23.2567 15.6498 23.3311 15.9931C23.3623 16.1373 23.6509 16.2458 23.84 16.3345C24.0839 16.4489 24.1691 16.589 24.0275 16.8332C23.8066 17.214 23.5995 17.6028 23.3703 17.9787C23.2039 18.2515 22.9917 18.2707 22.7014 18.1066C22.0441 17.7351 21.1775 18.2371 21.1859 18.9846C21.1893 19.2901 21.0957 19.4498 20.7839 19.4694C20.4866 19.4881 20.1867 19.5386 19.8922 19.5176C19.1099 19.462 19.1163 19.4491 19.0345 18.7019C19.0221 18.589 18.9598 18.4471 18.872 18.3833C18.6461 18.2195 18.4041 18.0648 18.1458 17.9615C18.0192 17.9108 17.8233 17.9436 17.6906 18.005C17.0562 18.2987 17.0397 18.3016 16.6378 17.7144C16.5821 17.6331 16.5325 17.5478 16.4632 17.4322ZM19.4964 16.5063C20.2005 16.765 20.7599 16.6471 21.1102 16.1662C21.4009 15.7671 21.3808 15.0749 21.0692 14.6944C20.723 14.2718 20.253 14.1932 19.7599 14.3031C19.3257 14.3999 19.0211 14.7023 18.9287 15.1337C18.8151 15.6645 18.9218 16.145 19.4964 16.5063Z&quot; fill-opacity=&quot;0.4&quot; /&gt;
+                                    &lt;path d=&quot;M4.75136 0.864034C6.21025 0.401784 7.68997 1.07715 8.28527 2.16188C8.88883 3.26167 8.84413 4.36765 8.12027 5.40566C7.48139 6.3218 6.21585 6.77468 5.12657 6.5426C3.84127 6.26875 3.02145 5.53006 2.76763 4.251C2.46205 2.71111 3.23629 1.39258 4.75136 0.864034Z&quot; /&gt;
+                                    &lt;path d=&quot;M18.725 6.28782C17.5468 5.67775 17.0479 4.68665 17.1219 3.47988C17.1987 2.22611 17.8435 1.27922 19.1257 0.882426C20.3875 0.491933 21.4898 0.77373 22.3869 1.73888C23.1287 2.53698 23.3002 3.86575 22.832 4.86394C22.2644 6.07423 21.2674 6.60877 19.9589 6.59085C19.5575 6.58535 19.1587 6.40501 18.725 6.28782Z&quot; /&gt;
+                                    &lt;path d=&quot;M2.81242 8.1053C3.36415 7.98857 3.8792 7.81773 4.39908 7.80214C5.32755 7.77429 6.25957 7.82755 7.18885 7.87224C7.63593 7.89375 7.83659 8.05959 7.80636 8.60467C7.74928 9.63408 8.07872 10.6027 8.67462 11.4679C8.74718 11.5732 8.81966 11.6787 8.95152 11.8703C8.72386 11.8935 8.57288 11.922 8.42185 11.9222C6.23825 11.925 4.05464 11.9275 1.87105 11.9221C1.06286 11.9201 0.766838 11.5414 0.911753 10.7563C1.1259 9.59615 1.69471 8.6845 2.81242 8.1053Z&quot; /&gt;
+                                    &lt;path d=&quot;M22.6967 10.81C21.0029 9.95956 19.3226 9.9405 17.5496 10.7662C17.6126 10.5372 17.6605 10.4059 17.6841 10.2706C17.7871 9.67892 17.9334 9.08852 17.9634 8.49278C17.9822 8.11997 18.1018 7.93839 18.4501 7.89279C18.8112 7.84552 19.1757 7.78853 19.538 7.79288C20.4683 7.80407 21.4158 7.74633 22.3242 7.89981C23.8194 8.1524 24.9577 9.66217 24.8719 11.1581C24.8579 11.4019 24.6384 11.6911 24.4271 11.8417C24.3296 11.9112 24.0034 11.7263 23.8149 11.6055C23.4402 11.3655 23.0892 11.0899 22.6967 10.81Z&quot; /&gt;
+                                &lt;/svg&gt;
+    
+                                إدارة المستخدمين&lt;/a&gt;
+                        &lt;/li&gt;  --&gt;
+                  &lt;li&gt;
+                    &lt;a href=&quot;https://10.5.15.205/PS.Violation.Web/&quot;&gt;
+                      &lt;svg
+                        xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                        width=&quot;25&quot;
+                        height=&quot;20&quot;
+                        viewBox=&quot;0 0 25 20&quot;
+                        fill=&quot;none&quot;
+                      &gt;
+                        &lt;path
+                          d=&quot;M7.14962 15.2346C8.24922 14.1653 9.55689 13.6961 11.0531 13.6943C12.1854 13.6929 13.3177 13.694 14.45 13.694C14.6121 13.694 14.7741 13.694 14.9453 13.694C14.4361 16.6518 14.758 17.4443 16.5757 19.543C16.4045 19.5555 16.2639 19.5746 16.1233 19.5747C13.0429 19.5763 9.96239 19.5766 6.88191 19.5754C5.98998 19.575 5.63555 19.1044 5.73138 18.2164C5.85578 17.0638 6.30293 16.0829 7.14962 15.2346Z&quot;
+                          fill-opacity=&quot;0.4&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M10.8536 5.39444C13.4873 3.93172 16.7182 5.52317 16.7612 8.68703C16.7885 10.7025 15.2449 12.3068 13.2031 12.4959C11.2542 12.6764 9.43132 11.3311 9.10867 9.37442C8.83828 7.73468 9.40847 6.38165 10.8536 5.39444Z&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M16.4632 17.4322C16.3877 17.2832 16.3381 17.1607 16.2684 17.0505C16.0233 16.6629 16.1145 16.4214 16.5409 16.2151C17.076 15.9561 17.083 14.8741 16.5494 14.6274C16.079 14.41 16.0457 14.1413 16.2875 13.7515C16.4 13.5703 16.4893 13.3748 16.6056 13.1962C17.0338 12.5387 17.0364 12.5403 17.7511 12.8636C18.136 13.0377 19.0203 12.4916 19.0408 12.0671C19.0746 11.3697 19.0893 11.3531 19.8071 11.3159C19.9897 11.3064 20.1735 11.3062 20.3562 11.3146C21.1413 11.3509 21.1325 11.3593 21.1898 12.1064C21.2018 12.2629 21.3308 12.4521 21.4639 12.5506C21.8888 12.865 22.3305 13.1566 22.8666 12.7035C22.9332 12.6473 23.2167 12.7084 23.2759 12.7959C23.559 13.2149 23.8214 13.6517 24.0372 14.1068C24.0817 14.2006 23.9226 14.4241 23.8094 14.5442C23.6688 14.6935 23.3651 14.774 23.3325 14.9259C23.2586 15.2697 23.2567 15.6498 23.3311 15.9931C23.3623 16.1373 23.6509 16.2458 23.84 16.3345C24.0839 16.4489 24.1691 16.589 24.0275 16.8332C23.8066 17.214 23.5995 17.6028 23.3703 17.9787C23.2039 18.2515 22.9917 18.2707 22.7014 18.1066C22.0441 17.7351 21.1775 18.2371 21.1859 18.9846C21.1893 19.2901 21.0957 19.4498 20.7839 19.4694C20.4866 19.4881 20.1867 19.5386 19.8922 19.5176C19.1099 19.462 19.1163 19.4491 19.0345 18.7019C19.0221 18.589 18.9598 18.4471 18.872 18.3833C18.6461 18.2195 18.4041 18.0648 18.1458 17.9615C18.0192 17.9108 17.8233 17.9436 17.6906 18.005C17.0562 18.2987 17.0397 18.3016 16.6378 17.7144C16.5821 17.6331 16.5325 17.5478 16.4632 17.4322ZM19.4964 16.5063C20.2005 16.765 20.7599 16.6471 21.1102 16.1662C21.4009 15.7671 21.3808 15.0749 21.0692 14.6944C20.723 14.2718 20.253 14.1932 19.7599 14.3031C19.3257 14.3999 19.0211 14.7023 18.9287 15.1337C18.8151 15.6645 18.9218 16.145 19.4964 16.5063Z&quot;
+                          fill-opacity=&quot;0.4&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M4.75136 0.864034C6.21025 0.401784 7.68997 1.07715 8.28527 2.16188C8.88883 3.26167 8.84413 4.36765 8.12027 5.40566C7.48139 6.3218 6.21585 6.77468 5.12657 6.5426C3.84127 6.26875 3.02145 5.53006 2.76763 4.251C2.46205 2.71111 3.23629 1.39258 4.75136 0.864034Z&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M18.725 6.28782C17.5468 5.67775 17.0479 4.68665 17.1219 3.47988C17.1987 2.22611 17.8435 1.27922 19.1257 0.882426C20.3875 0.491933 21.4898 0.77373 22.3869 1.73888C23.1287 2.53698 23.3002 3.86575 22.832 4.86394C22.2644 6.07423 21.2674 6.60877 19.9589 6.59085C19.5575 6.58535 19.1587 6.40501 18.725 6.28782Z&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M2.81242 8.1053C3.36415 7.98857 3.8792 7.81773 4.39908 7.80214C5.32755 7.77429 6.25957 7.82755 7.18885 7.87224C7.63593 7.89375 7.83659 8.05959 7.80636 8.60467C7.74928 9.63408 8.07872 10.6027 8.67462 11.4679C8.74718 11.5732 8.81966 11.6787 8.95152 11.8703C8.72386 11.8935 8.57288 11.922 8.42185 11.9222C6.23825 11.925 4.05464 11.9275 1.87105 11.9221C1.06286 11.9201 0.766838 11.5414 0.911753 10.7563C1.1259 9.59615 1.69471 8.6845 2.81242 8.1053Z&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M22.6967 10.81C21.0029 9.95956 19.3226 9.9405 17.5496 10.7662C17.6126 10.5372 17.6605 10.4059 17.6841 10.2706C17.7871 9.67892 17.9334 9.08852 17.9634 8.49278C17.9822 8.11997 18.1018 7.93839 18.4501 7.89279C18.8112 7.84552 19.1757 7.78853 19.538 7.79288C20.4683 7.80407 21.4158 7.74633 22.3242 7.89981C23.8194 8.1524 24.9577 9.66217 24.8719 11.1581C24.8579 11.4019 24.6384 11.6911 24.4271 11.8417C24.3296 11.9112 24.0034 11.7263 23.8149 11.6055C23.4402 11.3655 23.0892 11.0899 22.6967 10.81Z&quot;
+                        &gt;&lt;/path&gt;
+                      &lt;/svg&gt;
+
+                      إدارة المخالفات&lt;/a
+                    &gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;a href=&quot;https://10.5.15.205/PS.IMS.Web/&quot;&gt;
+                      &lt;svg
+                        xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                        width=&quot;25&quot;
+                        height=&quot;20&quot;
+                        viewBox=&quot;0 0 25 20&quot;
+                        fill=&quot;none&quot;
+                      &gt;
+                        &lt;path
+                          d=&quot;M7.14962 15.2346C8.24922 14.1653 9.55689 13.6961 11.0531 13.6943C12.1854 13.6929 13.3177 13.694 14.45 13.694C14.6121 13.694 14.7741 13.694 14.9453 13.694C14.4361 16.6518 14.758 17.4443 16.5757 19.543C16.4045 19.5555 16.2639 19.5746 16.1233 19.5747C13.0429 19.5763 9.96239 19.5766 6.88191 19.5754C5.98998 19.575 5.63555 19.1044 5.73138 18.2164C5.85578 17.0638 6.30293 16.0829 7.14962 15.2346Z&quot;
+                          fill-opacity=&quot;0.4&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M10.8536 5.39444C13.4873 3.93172 16.7182 5.52317 16.7612 8.68703C16.7885 10.7025 15.2449 12.3068 13.2031 12.4959C11.2542 12.6764 9.43132 11.3311 9.10867 9.37442C8.83828 7.73468 9.40847 6.38165 10.8536 5.39444Z&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M16.4632 17.4322C16.3877 17.2832 16.3381 17.1607 16.2684 17.0505C16.0233 16.6629 16.1145 16.4214 16.5409 16.2151C17.076 15.9561 17.083 14.8741 16.5494 14.6274C16.079 14.41 16.0457 14.1413 16.2875 13.7515C16.4 13.5703 16.4893 13.3748 16.6056 13.1962C17.0338 12.5387 17.0364 12.5403 17.7511 12.8636C18.136 13.0377 19.0203 12.4916 19.0408 12.0671C19.0746 11.3697 19.0893 11.3531 19.8071 11.3159C19.9897 11.3064 20.1735 11.3062 20.3562 11.3146C21.1413 11.3509 21.1325 11.3593 21.1898 12.1064C21.2018 12.2629 21.3308 12.4521 21.4639 12.5506C21.8888 12.865 22.3305 13.1566 22.8666 12.7035C22.9332 12.6473 23.2167 12.7084 23.2759 12.7959C23.559 13.2149 23.8214 13.6517 24.0372 14.1068C24.0817 14.2006 23.9226 14.4241 23.8094 14.5442C23.6688 14.6935 23.3651 14.774 23.3325 14.9259C23.2586 15.2697 23.2567 15.6498 23.3311 15.9931C23.3623 16.1373 23.6509 16.2458 23.84 16.3345C24.0839 16.4489 24.1691 16.589 24.0275 16.8332C23.8066 17.214 23.5995 17.6028 23.3703 17.9787C23.2039 18.2515 22.9917 18.2707 22.7014 18.1066C22.0441 17.7351 21.1775 18.2371 21.1859 18.9846C21.1893 19.2901 21.0957 19.4498 20.7839 19.4694C20.4866 19.4881 20.1867 19.5386 19.8922 19.5176C19.1099 19.462 19.1163 19.4491 19.0345 18.7019C19.0221 18.589 18.9598 18.4471 18.872 18.3833C18.6461 18.2195 18.4041 18.0648 18.1458 17.9615C18.0192 17.9108 17.8233 17.9436 17.6906 18.005C17.0562 18.2987 17.0397 18.3016 16.6378 17.7144C16.5821 17.6331 16.5325 17.5478 16.4632 17.4322ZM19.4964 16.5063C20.2005 16.765 20.7599 16.6471 21.1102 16.1662C21.4009 15.7671 21.3808 15.0749 21.0692 14.6944C20.723 14.2718 20.253 14.1932 19.7599 14.3031C19.3257 14.3999 19.0211 14.7023 18.9287 15.1337C18.8151 15.6645 18.9218 16.145 19.4964 16.5063Z&quot;
+                          fill-opacity=&quot;0.4&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M4.75136 0.864034C6.21025 0.401784 7.68997 1.07715 8.28527 2.16188C8.88883 3.26167 8.84413 4.36765 8.12027 5.40566C7.48139 6.3218 6.21585 6.77468 5.12657 6.5426C3.84127 6.26875 3.02145 5.53006 2.76763 4.251C2.46205 2.71111 3.23629 1.39258 4.75136 0.864034Z&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M18.725 6.28782C17.5468 5.67775 17.0479 4.68665 17.1219 3.47988C17.1987 2.22611 17.8435 1.27922 19.1257 0.882426C20.3875 0.491933 21.4898 0.77373 22.3869 1.73888C23.1287 2.53698 23.3002 3.86575 22.832 4.86394C22.2644 6.07423 21.2674 6.60877 19.9589 6.59085C19.5575 6.58535 19.1587 6.40501 18.725 6.28782Z&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M2.81242 8.1053C3.36415 7.98857 3.8792 7.81773 4.39908 7.80214C5.32755 7.77429 6.25957 7.82755 7.18885 7.87224C7.63593 7.89375 7.83659 8.05959 7.80636 8.60467C7.74928 9.63408 8.07872 10.6027 8.67462 11.4679C8.74718 11.5732 8.81966 11.6787 8.95152 11.8703C8.72386 11.8935 8.57288 11.922 8.42185 11.9222C6.23825 11.925 4.05464 11.9275 1.87105 11.9221C1.06286 11.9201 0.766838 11.5414 0.911753 10.7563C1.1259 9.59615 1.69471 8.6845 2.81242 8.1053Z&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M22.6967 10.81C21.0029 9.95956 19.3226 9.9405 17.5496 10.7662C17.6126 10.5372 17.6605 10.4059 17.6841 10.2706C17.7871 9.67892 17.9334 9.08852 17.9634 8.49278C17.9822 8.11997 18.1018 7.93839 18.4501 7.89279C18.8112 7.84552 19.1757 7.78853 19.538 7.79288C20.4683 7.80407 21.4158 7.74633 22.3242 7.89981C23.8194 8.1524 24.9577 9.66217 24.8719 11.1581C24.8579 11.4019 24.6384 11.6911 24.4271 11.8417C24.3296 11.9112 24.0034 11.7263 23.8149 11.6055C23.4402 11.3655 23.0892 11.0899 22.6967 10.81Z&quot;
+                        &gt;&lt;/path&gt;
+                      &lt;/svg&gt;
+                      الحالات الأمنية&lt;/a
+                    &gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;a href=&quot;https://10.5.15.205/PS.Cases.Web/&quot;&gt;
+                      &lt;svg
+                        xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                        width=&quot;25&quot;
+                        height=&quot;20&quot;
+                        viewBox=&quot;0 0 25 20&quot;
+                        fill=&quot;none&quot;
+                      &gt;
+                        &lt;path
+                          d=&quot;M7.14962 15.2346C8.24922 14.1653 9.55689 13.6961 11.0531 13.6943C12.1854 13.6929 13.3177 13.694 14.45 13.694C14.6121 13.694 14.7741 13.694 14.9453 13.694C14.4361 16.6518 14.758 17.4443 16.5757 19.543C16.4045 19.5555 16.2639 19.5746 16.1233 19.5747C13.0429 19.5763 9.96239 19.5766 6.88191 19.5754C5.98998 19.575 5.63555 19.1044 5.73138 18.2164C5.85578 17.0638 6.30293 16.0829 7.14962 15.2346Z&quot;
+                          fill-opacity=&quot;0.4&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M10.8536 5.39444C13.4873 3.93172 16.7182 5.52317 16.7612 8.68703C16.7885 10.7025 15.2449 12.3068 13.2031 12.4959C11.2542 12.6764 9.43132 11.3311 9.10867 9.37442C8.83828 7.73468 9.40847 6.38165 10.8536 5.39444Z&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M16.4632 17.4322C16.3877 17.2832 16.3381 17.1607 16.2684 17.0505C16.0233 16.6629 16.1145 16.4214 16.5409 16.2151C17.076 15.9561 17.083 14.8741 16.5494 14.6274C16.079 14.41 16.0457 14.1413 16.2875 13.7515C16.4 13.5703 16.4893 13.3748 16.6056 13.1962C17.0338 12.5387 17.0364 12.5403 17.7511 12.8636C18.136 13.0377 19.0203 12.4916 19.0408 12.0671C19.0746 11.3697 19.0893 11.3531 19.8071 11.3159C19.9897 11.3064 20.1735 11.3062 20.3562 11.3146C21.1413 11.3509 21.1325 11.3593 21.1898 12.1064C21.2018 12.2629 21.3308 12.4521 21.4639 12.5506C21.8888 12.865 22.3305 13.1566 22.8666 12.7035C22.9332 12.6473 23.2167 12.7084 23.2759 12.7959C23.559 13.2149 23.8214 13.6517 24.0372 14.1068C24.0817 14.2006 23.9226 14.4241 23.8094 14.5442C23.6688 14.6935 23.3651 14.774 23.3325 14.9259C23.2586 15.2697 23.2567 15.6498 23.3311 15.9931C23.3623 16.1373 23.6509 16.2458 23.84 16.3345C24.0839 16.4489 24.1691 16.589 24.0275 16.8332C23.8066 17.214 23.5995 17.6028 23.3703 17.9787C23.2039 18.2515 22.9917 18.2707 22.7014 18.1066C22.0441 17.7351 21.1775 18.2371 21.1859 18.9846C21.1893 19.2901 21.0957 19.4498 20.7839 19.4694C20.4866 19.4881 20.1867 19.5386 19.8922 19.5176C19.1099 19.462 19.1163 19.4491 19.0345 18.7019C19.0221 18.589 18.9598 18.4471 18.872 18.3833C18.6461 18.2195 18.4041 18.0648 18.1458 17.9615C18.0192 17.9108 17.8233 17.9436 17.6906 18.005C17.0562 18.2987 17.0397 18.3016 16.6378 17.7144C16.5821 17.6331 16.5325 17.5478 16.4632 17.4322ZM19.4964 16.5063C20.2005 16.765 20.7599 16.6471 21.1102 16.1662C21.4009 15.7671 21.3808 15.0749 21.0692 14.6944C20.723 14.2718 20.253 14.1932 19.7599 14.3031C19.3257 14.3999 19.0211 14.7023 18.9287 15.1337C18.8151 15.6645 18.9218 16.145 19.4964 16.5063Z&quot;
+                          fill-opacity=&quot;0.4&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M4.75136 0.864034C6.21025 0.401784 7.68997 1.07715 8.28527 2.16188C8.88883 3.26167 8.84413 4.36765 8.12027 5.40566C7.48139 6.3218 6.21585 6.77468 5.12657 6.5426C3.84127 6.26875 3.02145 5.53006 2.76763 4.251C2.46205 2.71111 3.23629 1.39258 4.75136 0.864034Z&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M18.725 6.28782C17.5468 5.67775 17.0479 4.68665 17.1219 3.47988C17.1987 2.22611 17.8435 1.27922 19.1257 0.882426C20.3875 0.491933 21.4898 0.77373 22.3869 1.73888C23.1287 2.53698 23.3002 3.86575 22.832 4.86394C22.2644 6.07423 21.2674 6.60877 19.9589 6.59085C19.5575 6.58535 19.1587 6.40501 18.725 6.28782Z&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M2.81242 8.1053C3.36415 7.98857 3.8792 7.81773 4.39908 7.80214C5.32755 7.77429 6.25957 7.82755 7.18885 7.87224C7.63593 7.89375 7.83659 8.05959 7.80636 8.60467C7.74928 9.63408 8.07872 10.6027 8.67462 11.4679C8.74718 11.5732 8.81966 11.6787 8.95152 11.8703C8.72386 11.8935 8.57288 11.922 8.42185 11.9222C6.23825 11.925 4.05464 11.9275 1.87105 11.9221C1.06286 11.9201 0.766838 11.5414 0.911753 10.7563C1.1259 9.59615 1.69471 8.6845 2.81242 8.1053Z&quot;
+                        &gt;&lt;/path&gt;
+                        &lt;path
+                          d=&quot;M22.6967 10.81C21.0029 9.95956 19.3226 9.9405 17.5496 10.7662C17.6126 10.5372 17.6605 10.4059 17.6841 10.2706C17.7871 9.67892 17.9334 9.08852 17.9634 8.49278C17.9822 8.11997 18.1018 7.93839 18.4501 7.89279C18.8112 7.84552 19.1757 7.78853 19.538 7.79288C20.4683 7.80407 21.4158 7.74633 22.3242 7.89981C23.8194 8.1524 24.9577 9.66217 24.8719 11.1581C24.8579 11.4019 24.6384 11.6911 24.4271 11.8417C24.3296 11.9112 24.0034 11.7263 23.8149 11.6055C23.4402 11.3655 23.0892 11.0899 22.6967 10.81Z&quot;
+                        &gt;&lt;/path&gt;
+                      &lt;/svg&gt;
+                      القضايا الأمنية&lt;/a
+                    &gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;dropdown seatingdrop navemail&quot;&gt;
+              &lt;button
+                class=&quot;seating&quot;
+                type=&quot;button&quot;
+                id=&quot;apps&quot;
+                data-bs-toggle=&quot;dropdown&quot;
+                data-bs-auto-close=&quot;false&quot;
+                aria-expanded=&quot;false&quot;
+              &gt;
+                &lt;span&gt;10&lt;/span&gt;
+                &lt;svg
+                  viewBox=&quot;0 0 24 24&quot;
+                  fill=&quot;none&quot;
+                  xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                &gt;
+                  &lt;path
+                    fill-rule=&quot;evenodd&quot;
+                    clip-rule=&quot;evenodd&quot;
+                    d=&quot;M2 9V16C2 18.2091 3.79086 20 6 20H18C20.2091 20 22 18.2091 22 16V9C21.678 9.27205 21.3544 9.525 21.0277 9.7804C20.8751 9.8997 20.7218 10.0195 20.5677 10.1421C20.3946 10.2797 20.2044 10.4295 20 10.5884V16C20 17.1046 19.1046 18 18 18H6C4.89543 18 4 17.1046 4 16V10.5884C3.79559 10.4295 3.60535 10.2797 3.4323 10.1421C3.27817 10.0195 3.12488 9.89969 2.97227 9.78039C2.64557 9.525 2.32198 9.27204 2 9Z&quot;
+                    fill-opacity=&quot;0.4&quot;
+                  /&gt;
+                  &lt;path
+                    fill-rule=&quot;evenodd&quot;
+                    clip-rule=&quot;evenodd&quot;
+                    d=&quot;M2 8C2 5.79086 3.79086 4 6 4H18C20.2091 4 22 5.79086 22 8V9C21.5276 9.39912 21.0518 9.75715 20.5677 10.1421C19.9101 10.665 19.0043 11.3643 18.0162 12.0655C17.0319 12.7641 15.9469 13.4782 14.9338 14.0218C13.9723 14.5377 12.8998 15 12 15C11.1002 15 10.0277 14.5377 9.06624 14.0218C8.05311 13.4782 6.96807 12.7641 5.98375 12.0655C4.99567 11.3643 4.08989 10.665 3.4323 10.1421C2.94822 9.75715 2.47239 9.39912 2 9V8ZM4 8.03023C4.17276 8.17188 4.40277 8.35854 4.67708 8.57667C5.31636 9.08501 6.19183 9.76072 7.14125 10.4345C8.09443 11.1109 9.10314 11.7718 10.0119 12.2595C10.9723 12.7748 11.6498 13 12 13C12.3502 13 13.0277 12.7748 13.9881 12.2595C14.8969 11.7718 15.9056 11.1109 16.8588 10.4345C17.8082 9.76072 18.6836 9.08501 19.3229 8.57667C19.5972 8.35854 19.8272 8.17188 20 8.03023V8C20 6.89543 19.1046 6 18 6H6C4.89543 6 4 6.89543 4 8V8.03023Z&quot;
+                  /&gt;
+                &lt;/svg&gt;
+              &lt;/button&gt;
+              &lt;div class=&quot;dropdown-menu apps&quot; aria-labelledby=&quot;apps&quot;&gt;
+                &lt;button
+                  class=&quot;d-flex flex-column emailnavcontainer&quot;
+                  title=&quot;تفاصيل البريد&quot;
+                &gt;
+                  &lt;div class=&quot;sendernametime&quot;&gt;
+                    &lt;svg
+                      viewBox=&quot;0 0 24 24&quot;
+                      fill=&quot;none&quot;
+                      xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                    &gt;
+                      &lt;path
+                        fill-rule=&quot;evenodd&quot;
+                        clip-rule=&quot;evenodd&quot;
+                        d=&quot;M2 9V16C2 18.2091 3.79086 20 6 20H18C20.2091 20 22 18.2091 22 16V9C21.678 9.27205 21.3544 9.525 21.0277 9.7804C20.8751 9.8997 20.7218 10.0195 20.5677 10.1421C20.3946 10.2797 20.2044 10.4295 20 10.5884V16C20 17.1046 19.1046 18 18 18H6C4.89543 18 4 17.1046 4 16V10.5884C3.79559 10.4295 3.60535 10.2797 3.4323 10.1421C3.27817 10.0195 3.12488 9.89969 2.97227 9.78039C2.64557 9.525 2.32198 9.27204 2 9Z&quot;
+                        fill-opacity=&quot;0.4&quot;
+                      /&gt;
+                      &lt;path
+                        fill-rule=&quot;evenodd&quot;
+                        clip-rule=&quot;evenodd&quot;
+                        d=&quot;M2 8C2 5.79086 3.79086 4 6 4H18C20.2091 4 22 5.79086 22 8V9C21.5276 9.39912 21.0518 9.75715 20.5677 10.1421C19.9101 10.665 19.0043 11.3643 18.0162 12.0655C17.0319 12.7641 15.9469 13.4782 14.9338 14.0218C13.9723 14.5377 12.8998 15 12 15C11.1002 15 10.0277 14.5377 9.06624 14.0218C8.05311 13.4782 6.96807 12.7641 5.98375 12.0655C4.99567 11.3643 4.08989 10.665 3.4323 10.1421C2.94822 9.75715 2.47239 9.39912 2 9V8ZM4 8.03023C4.17276 8.17188 4.40277 8.35854 4.67708 8.57667C5.31636 9.08501 6.19183 9.76072 7.14125 10.4345C8.09443 11.1109 9.10314 11.7718 10.0119 12.2595C10.9723 12.7748 11.6498 13 12 13C12.3502 13 13.0277 12.7748 13.9881 12.2595C14.8969 11.7718 15.9056 11.1109 16.8588 10.4345C17.8082 9.76072 18.6836 9.08501 19.3229 8.57667C19.5972 8.35854 19.8272 8.17188 20 8.03023V8C20 6.89543 19.1046 6 18 6H6C4.89543 6 4 6.89543 4 8V8.03023Z&quot;
+                      /&gt;
+                    &lt;/svg&gt;
+
+                    &lt;div class=&quot;sender&quot;&gt;
+                      &lt;span&gt; أحمد ناصر بن حلاص القحطاني-2484988122 &lt;/span&gt;
+                      &lt;div class=&quot;time&quot;&gt;منذ 8 ساعة 32 دقيقة&lt;/div&gt;
+                      &lt;div class=&quot;content&quot;&gt;
+                        السلام عليكم ورحمة الله وبركاته : اسعد الله كل اوقاتكم
+                        بكل خير نأمل منكم تعديل رتبتي
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/button&gt;
+
+                &lt;button
+                  class=&quot;d-flex flex-column emailnavcontainer odd&quot;
+                  title=&quot;تفاصيل البريد&quot;
+                &gt;
+                  &lt;div class=&quot;sendernametime&quot;&gt;
+                    &lt;svg
+                      viewBox=&quot;0 0 24 24&quot;
+                      fill=&quot;none&quot;
+                      xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                    &gt;
+                      &lt;path
+                        fill-rule=&quot;evenodd&quot;
+                        clip-rule=&quot;evenodd&quot;
+                        d=&quot;M2 9V16C2 18.2091 3.79086 20 6 20H18C20.2091 20 22 18.2091 22 16V9C21.678 9.27205 21.3544 9.525 21.0277 9.7804C20.8751 9.8997 20.7218 10.0195 20.5677 10.1421C20.3946 10.2797 20.2044 10.4295 20 10.5884V16C20 17.1046 19.1046 18 18 18H6C4.89543 18 4 17.1046 4 16V10.5884C3.79559 10.4295 3.60535 10.2797 3.4323 10.1421C3.27817 10.0195 3.12488 9.89969 2.97227 9.78039C2.64557 9.525 2.32198 9.27204 2 9Z&quot;
+                        fill-opacity=&quot;0.4&quot;
+                      /&gt;
+                      &lt;path
+                        fill-rule=&quot;evenodd&quot;
+                        clip-rule=&quot;evenodd&quot;
+                        d=&quot;M2 8C2 5.79086 3.79086 4 6 4H18C20.2091 4 22 5.79086 22 8V9C21.5276 9.39912 21.0518 9.75715 20.5677 10.1421C19.9101 10.665 19.0043 11.3643 18.0162 12.0655C17.0319 12.7641 15.9469 13.4782 14.9338 14.0218C13.9723 14.5377 12.8998 15 12 15C11.1002 15 10.0277 14.5377 9.06624 14.0218C8.05311 13.4782 6.96807 12.7641 5.98375 12.0655C4.99567 11.3643 4.08989 10.665 3.4323 10.1421C2.94822 9.75715 2.47239 9.39912 2 9V8ZM4 8.03023C4.17276 8.17188 4.40277 8.35854 4.67708 8.57667C5.31636 9.08501 6.19183 9.76072 7.14125 10.4345C8.09443 11.1109 9.10314 11.7718 10.0119 12.2595C10.9723 12.7748 11.6498 13 12 13C12.3502 13 13.0277 12.7748 13.9881 12.2595C14.8969 11.7718 15.9056 11.1109 16.8588 10.4345C17.8082 9.76072 18.6836 9.08501 19.3229 8.57667C19.5972 8.35854 19.8272 8.17188 20 8.03023V8C20 6.89543 19.1046 6 18 6H6C4.89543 6 4 6.89543 4 8V8.03023Z&quot;
+                      /&gt;
+                    &lt;/svg&gt;
+
+                    &lt;div class=&quot;sender&quot;&gt;
+                      &lt;span&gt;النيابة العامة&lt;/span&gt;
+                      &lt;div class=&quot;time&quot;&gt;منذ 1 ساعة 28 دقيقة&lt;/div&gt;
+                      &lt;div class=&quot;content&quot;&gt;
+                        تعديل موقع المشغل من شرطة محافظة المجمعة الى موقع شرطة
+                        محافظة المجمعة / مخفر شرطة القاعية.......
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/button&gt;
+                &lt;button
+                  class=&quot;d-flex flex-column emailnavcontainer&quot;
+                  title=&quot;تفاصيل البريد&quot;
+                &gt;
+                  &lt;div class=&quot;sendernametime&quot;&gt;
+                    &lt;svg
+                      viewBox=&quot;0 0 24 24&quot;
+                      fill=&quot;none&quot;
+                      xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                    &gt;
+                      &lt;path
+                        fill-rule=&quot;evenodd&quot;
+                        clip-rule=&quot;evenodd&quot;
+                        d=&quot;M2 9V16C2 18.2091 3.79086 20 6 20H18C20.2091 20 22 18.2091 22 16V9C21.678 9.27205 21.3544 9.525 21.0277 9.7804C20.8751 9.8997 20.7218 10.0195 20.5677 10.1421C20.3946 10.2797 20.2044 10.4295 20 10.5884V16C20 17.1046 19.1046 18 18 18H6C4.89543 18 4 17.1046 4 16V10.5884C3.79559 10.4295 3.60535 10.2797 3.4323 10.1421C3.27817 10.0195 3.12488 9.89969 2.97227 9.78039C2.64557 9.525 2.32198 9.27204 2 9Z&quot;
+                        fill-opacity=&quot;0.4&quot;
+                      /&gt;
+                      &lt;path
+                        fill-rule=&quot;evenodd&quot;
+                        clip-rule=&quot;evenodd&quot;
+                        d=&quot;M2 8C2 5.79086 3.79086 4 6 4H18C20.2091 4 22 5.79086 22 8V9C21.5276 9.39912 21.0518 9.75715 20.5677 10.1421C19.9101 10.665 19.0043 11.3643 18.0162 12.0655C17.0319 12.7641 15.9469 13.4782 14.9338 14.0218C13.9723 14.5377 12.8998 15 12 15C11.1002 15 10.0277 14.5377 9.06624 14.0218C8.05311 13.4782 6.96807 12.7641 5.98375 12.0655C4.99567 11.3643 4.08989 10.665 3.4323 10.1421C2.94822 9.75715 2.47239 9.39912 2 9V8ZM4 8.03023C4.17276 8.17188 4.40277 8.35854 4.67708 8.57667C5.31636 9.08501 6.19183 9.76072 7.14125 10.4345C8.09443 11.1109 9.10314 11.7718 10.0119 12.2595C10.9723 12.7748 11.6498 13 12 13C12.3502 13 13.0277 12.7748 13.9881 12.2595C14.8969 11.7718 15.9056 11.1109 16.8588 10.4345C17.8082 9.76072 18.6836 9.08501 19.3229 8.57667C19.5972 8.35854 19.8272 8.17188 20 8.03023V8C20 6.89543 19.1046 6 18 6H6C4.89543 6 4 6.89543 4 8V8.03023Z&quot;
+                      /&gt;
+                    &lt;/svg&gt;
+
+                    &lt;div class=&quot;sender&quot;&gt;
+                      &lt;span&gt; أحمد ناصر بن حلاص القحطاني-2484988122 &lt;/span&gt;
+                      &lt;div class=&quot;time&quot;&gt;منذ 8 ساعة 32 دقيقة&lt;/div&gt;
+                      &lt;div class=&quot;content&quot;&gt;
+                        السلام عليكم ورحمة الله وبركاته : اسعد الله كل اوقاتكم
+                        بكل خير نأمل منكم تعديل رتبتي
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/button&gt;
+                &lt;div class=&quot;w-100&quot;&gt;
+                  &lt;div class=&quot;d-flex align-items-center justify-content-center&quot;&gt;
+                    &lt;svg
+                      width=&quot;89&quot;
+                      height=&quot;76&quot;
+                      viewBox=&quot;0 0 89 76&quot;
+                      fill=&quot;none&quot;
+                      xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                    &gt;
+                      &lt;path
+                        d=&quot;M60.2353 3.18132C60.2353 3.18132 48.0559 18.6086 28.5688 9.40634C9.08168 0.204083 -10.4055 25.1043 6.37511 40.261C23.1557 55.4176 6.73464 63.7461 18.1347 73.0351C31.0916 83.5926 42.3721 62.184 52.657 67.0558C75.3562 77.808 92.1725 73.5515 88.3834 61.1014C81.732 39.2468 73.2268 37.8251 79.7224 26.4576C86.2181 15.0901 71.882 -8.54572 60.2353 3.18132Z&quot;
+                        fill=&quot;#F8F4EC&quot;
+                      &gt;&lt;/path&gt;
+                      &lt;path
+                        d=&quot;M53.6043 45.8491L52.6422 51.015L48.0591 75.5718L39.8035 74.0303L45.0969 45.6629L45.3486 44.3111L53.6043 45.8491Z&quot;
+                        fill=&quot;#D8B892&quot;
+                      &gt;&lt;/path&gt;
+                      &lt;path
+                        d=&quot;M73.9364 33.4952L71.0897 48.7569C71.0814 48.8016 71.0643 48.8442 71.0395 48.8824C71.0146 48.9205 70.9825 48.9534 70.945 48.9791C70.9074 49.0048 70.8652 49.0229 70.8207 49.0323C70.7761 49.0417 70.7302 49.0422 70.6855 49.0338L30.6917 41.5746L35.3989 16.3359L65.7687 22.0002C71.2731 23.0266 74.9292 28.1721 73.9364 33.4952Z&quot;
+                        fill=&quot;#D8B892&quot;
+                      &gt;&lt;/path&gt;
+                      &lt;path
+                        d=&quot;M43.9409 28.3735L41.1165 43.5168L20.1235 39.6014L22.9479 24.4582C23.9878 18.8826 29.5304 15.2392 35.3273 16.3203C41.1243 17.4015 44.9808 22.7979 43.9409 28.3735Z&quot;
+                        fill=&quot;#93714A&quot;
+                      &gt;&lt;/path&gt;
+                      &lt;path
+                        d=&quot;M53.7142 35.4525C52.1672 35.1639 51.1465 33.6604 51.4378 32.0991C51.7292 30.5377 53.223 29.5029 54.77 29.7916C55.2632 29.8842 55.723 30.1058 56.1027 30.4339C56.4824 30.7619 56.7685 31.1846 56.9318 31.659L76.4732 35.3037L75.9453 38.1342L56.4039 34.4896C56.0806 34.8733 55.6614 35.1646 55.1889 35.3337C54.7165 35.5028 54.2076 35.5438 53.7142 35.4525V35.4525Z&quot;
+                        fill=&quot;#A38664&quot;
+                      &gt;&lt;/path&gt;
+                      &lt;path
+                        d=&quot;M43.2445 28.6518L40.4927 43.4059L20.7166 39.7174L23.4686 24.9633C24.4817 19.5312 29.7302 15.953 35.1912 16.9715C40.6522 17.9901 44.2576 23.2196 43.2445 28.6518Z&quot;
+                        fill=&quot;#A38664&quot;
+                      &gt;&lt;/path&gt;
+                      &lt;path
+                        d=&quot;M54.2683 34.0226C55.0634 34.0226 55.708 33.378 55.708 32.5829C55.708 31.7878 55.0634 31.1432 54.2683 31.1432C53.4732 31.1432 52.8286 31.7878 52.8286 32.5829C52.8286 33.378 53.4732 34.0226 54.2683 34.0226Z&quot;
+                        fill=&quot;white&quot;
+                      &gt;&lt;/path&gt;
+                      &lt;path
+                        d=&quot;M76.6991 35.2937L74.9729 44.5487C74.9654 44.5886 74.9425 44.6239 74.909 44.6468C74.8756 44.6697 74.8344 44.6784 74.7946 44.671L70.257 43.8247C70.2491 43.8232 70.2421 43.8187 70.2376 43.8121C70.2331 43.8055 70.2314 43.7973 70.2328 43.7895L71.9815 34.4138C71.983 34.406 71.9875 34.399 71.9941 34.3945C72.0007 34.3899 72.0088 34.3882 72.0167 34.3897L76.6749 35.2585C76.6828 35.26 76.6898 35.2645 76.6943 35.2711C76.6988 35.2777 76.7005 35.2858 76.6991 35.2937V35.2937Z&quot;
+                        fill=&quot;#A38664&quot;
+                      &gt;&lt;/path&gt;
+                      &lt;path
+                        d=&quot;M27.2609 34.4229C27.452 35.8286 28.9944 37.4993 28.9944 37.4993C26.6441 37.6659 25.3712 36.3367 24.8235 35.529C24.1464 35.7247 23.4504 35.8482 22.7473 35.8975C17.9221 36.2395 13.7683 33.0893 13.4683 28.8578C13.1684 24.6262 16.8363 20.9215 21.6615 20.5796C26.4867 20.2377 30.6402 23.3877 30.9401 27.6193C31.1352 30.3717 29.65 32.9017 27.2609 34.4229Z&quot;
+                        fill=&quot;white&quot;
+                      &gt;&lt;/path&gt;
+                      &lt;path
+                        d=&quot;M41.1369 43.5261C40.9184 44.0791 36.9226 60.5555 23.9919 58.1438C9.8126 55.7432 20.0688 39.5966 20.0688 39.5966L41.1369 43.5261Z&quot;
+                        fill=&quot;#D8B892&quot;
+                      &gt;&lt;/path&gt;
+                      &lt;path
+                        d=&quot;M22.2041 29.6902C22.8667 29.6902 23.4038 29.1531 23.4038 28.4905C23.4038 27.8279 22.8667 27.2908 22.2041 27.2908C21.5415 27.2908 21.0044 27.8279 21.0044 28.4905C21.0044 29.1531 21.5415 29.6902 22.2041 29.6902Z&quot;
+                        fill=&quot;#A38664&quot;
+                      &gt;&lt;/path&gt;
+                      &lt;path
+                        d=&quot;M16.8334 29.167C17.5 29.167 18.0404 28.6266 18.0404 27.9601C18.0404 27.2935 17.5 26.7531 16.8334 26.7531C16.1668 26.7531 15.6265 27.2935 15.6265 27.9601C15.6265 28.6266 16.1668 29.167 16.8334 29.167Z&quot;
+                        fill=&quot;#A38664&quot;
+                      &gt;&lt;/path&gt;
+                      &lt;path
+                        d=&quot;M27.5236 30.2015C28.1902 30.2015 28.7305 29.6611 28.7305 28.9945C28.7305 28.328 28.1902 27.7876 27.5236 27.7876C26.857 27.7876 26.3167 28.328 26.3167 28.9945C26.3167 29.6611 26.857 30.2015 27.5236 30.2015Z&quot;
+                        fill=&quot;#A38664&quot;
+                      &gt;&lt;/path&gt;
+                      &lt;path
+                        d=&quot;M53.6044 45.8491L52.6422 51.015L45.0969 45.6629L45.3486 44.3111L53.6044 45.8491Z&quot;
+                        fill=&quot;#A38664&quot;
+                      &gt;&lt;/path&gt;
+                    &lt;/svg&gt;
+                  &lt;/div&gt;
+                  &lt;p class=&quot;text-center mt-2 fs-6 text-secondary&quot;&gt;
+                    لاتوجد مراسلات واردة
+                  &lt;/p&gt;
+                  @*
+                  &lt;img
+                    src=&quot;@(PS.Infra.Theme.Models.EndPointsURL.AppUrl)/images/no-email.svg&quot;
+                    alt=&quot;لا توجد مراسلات واردة&quot;
+                  /&gt;
+                  *@
+                &lt;/div&gt;
+                &lt;button class=&quot;btn moi-btn--outline&quot;&gt;
+                  الذهاب الي صفحة المراسلات الداخلية
+
+                  &lt;svg
+                    xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                    class=&quot;me-2&quot;
+                    viewBox=&quot;0 0 24 24&quot;
+                    fill=&quot;none&quot;
+                  &gt;
+                    &lt;path
+                      d=&quot;M9.57 5.92999L3.5 12L9.57 18.07&quot;
+                      stroke=&quot;#292D32&quot;
+                      stroke-width=&quot;1.5&quot;
+                      stroke-miterlimit=&quot;10&quot;
+                      stroke-linecap=&quot;round&quot;
+                      stroke-linejoin=&quot;round&quot;
+                    /&gt;
+                    &lt;path
+                      d=&quot;M20.4999 12H3.66992&quot;
+                      stroke=&quot;#292D32&quot;
+                      stroke-width=&quot;1.5&quot;
+                      stroke-miterlimit=&quot;10&quot;
+                      stroke-linecap=&quot;round&quot;
+                      stroke-linejoin=&quot;round&quot;
+                    /&gt;
+                  &lt;/svg&gt;
+                &lt;/button&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;button class=&quot;seating notification_btn&quot; title=&quot;الإشعارات&quot;&gt;
+              &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                &lt;path
+                  opacity=&quot;0.4&quot;
+                  fill-rule=&quot;evenodd&quot;
+                  clip-rule=&quot;evenodd&quot;
+                  d=&quot;M9 21C9 20.4477 9.44772 20 10 20H14C14.5523 20 15 20.4477 15 21C15 21.5523 14.5523 22 14 22H10C9.44772 22 9 21.5523 9 21Z&quot;
+                /&gt;
+                &lt;path
+                  fill-rule=&quot;evenodd&quot;
+                  clip-rule=&quot;evenodd&quot;
+                  d=&quot;M6 8C6 4.68629 8.68629 2 12 2C15.3137 2 18 4.68629 18 8V9.75736C18 10.2878 18.2107 10.7965 18.5858 11.1716L20.1213 12.7071C20.6839 13.2697 21 14.0328 21 14.8284V15C21 16.6569 19.6569 18 18 18H6C4.34315 18 3 16.6569 3 15V14.8284C3 14.0328 3.31607 13.2697 3.87868 12.7071L5.41421 11.1716C5.78929 10.7965 6 10.2878 6 9.75736V8ZM12 4C9.79086 4 8 5.79086 8 8V9.75736C8 10.8182 7.57857 11.8356 6.82843 12.5858L5.29289 14.1213C5.10536 14.3089 5 14.5632 5 14.8284V15C5 15.5523 5.44772 16 6 16H18C18.5523 16 19 15.5523 19 15V14.8284C19 14.5632 18.8946 14.3089 18.7071 14.1213L17.1716 12.5858C16.4214 11.8356 16 10.8182 16 9.75736V8C16 5.79086 14.2091 4 12 4Z&quot;
+                /&gt;
+                &lt;circle
+                  cx=&quot;8&quot;
+                  cy=&quot;5&quot;
+                  r=&quot;3&quot;
+                  fill=&quot;red&quot;
+                  class=&quot;notification_bullet&quot;
+                /&gt;
+              &lt;/svg&gt;
+            &lt;/button&gt;
+
+            &lt;div class=&quot;dropdown seatingdrop&quot;&gt;
+              &lt;button
+                class=&quot;seating&quot;
+                type=&quot;button&quot;
+                id=&quot;dropdownMenuButton1&quot;
+                data-bs-toggle=&quot;dropdown&quot;
+                data-bs-auto-close=&quot;false&quot;
+                aria-expanded=&quot;false&quot;
+                title=&quot;إعدادات العرض&quot;
+              &gt;
+                &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                  &lt;path
+                    d=&quot;M8.96802 2.45571C7.55002 2.90571 6.32702 3.63971 5.24902 4.64371C4.91602 4.95371 4.81403 5.46172 5.03003 5.86172C5.83103 7.34272 4.99302 8.92771 3.18602 9.01871C2.74402 9.04071 2.35302 9.36872 2.24902 9.79972C2.07002 10.5447 1.99902 11.1687 1.99902 11.9867C1.99902 12.6737 2.07302 13.4517 2.21802 14.1437C2.30802 14.5757 2.68402 14.8867 3.12402 14.9247C4.94202 15.0817 5.84203 16.4687 5.03003 18.2367C4.85003 18.6297 4.93202 19.0997 5.24902 19.3937C6.31102 20.3757 7.53102 21.0687 8.96802 21.5187C9.37802 21.6467 9.84102 21.4917 10.093 21.1437C11.205 19.6047 12.818 19.5997 13.874 21.1437C14.123 21.5067 14.579 21.6817 14.999 21.5497C16.386 21.1127 17.678 20.3697 18.749 19.3937C19.079 19.0927 19.166 18.6057 18.968 18.2057C18.136 16.5267 19.093 14.9857 20.811 14.9557C21.267 14.9477 21.673 14.6487 21.78 14.2057C21.953 13.4887 21.999 12.8647 21.999 11.9867C21.999 11.2327 21.91 10.4897 21.749 9.76872C21.647 9.31172 21.248 8.98772 20.78 8.98672C19.089 8.98372 18.141 7.32172 18.968 5.86172C19.198 5.45572 19.126 4.95771 18.78 4.64371C17.69 3.65371 16.361 2.87971 14.968 2.45571C14.54 2.32571 14.085 2.48572 13.843 2.86172C12.877 4.36272 11.073 4.38871 10.124 2.89371C9.88102 2.50971 9.40002 2.31871 8.96802 2.45571ZM15.046 4.57972C15.729 4.86572 16.268 5.16472 16.887 5.63372C16.161 7.93072 17.392 10.3167 19.942 10.8977C20.005 11.3107 19.999 11.5607 19.999 11.9867C19.999 12.4957 20.006 12.6747 19.948 13.0427C17.409 13.5687 16.153 15.8877 16.86 18.3387C16.252 18.7797 15.817 19.0857 15.054 19.3807C13.262 17.5567 10.774 17.4767 8.94403 19.3927C8.23003 19.0787 7.68104 18.7997 7.12604 18.3307C7.81404 15.8417 6.65103 13.6927 4.06903 13.0407C3.95403 12.5847 4.00002 11.2967 4.06602 10.9057C6.73602 10.2657 7.78803 7.90272 7.12503 5.62672C7.71103 5.18572 8.23803 4.86472 8.92303 4.58672C10.648 6.34172 13.238 6.51672 15.046 4.57972Z&quot;
+                  &gt;&lt;/path&gt;
+                  &lt;path
+                    fill-rule=&quot;evenodd&quot;
+                    clip-rule=&quot;evenodd&quot;
+                    d=&quot;M12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10ZM8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12Z&quot;
+                    fill-opacity=&quot;0.4&quot;
+                  &gt;&lt;/path&gt;
+                &lt;/svg&gt;
+              &lt;/button&gt;
+              &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;dropdownMenuButton1&quot;&gt;
+                &lt;div class=&quot;Resizefont&quot;&gt;
+                  تكبير وتصغير الخط
+                  &lt;div class=&quot;d-flex align-items-center w-100 mt-2&quot;&gt;
+                    &lt;div class=&quot;btn btn-14&quot;&gt;-A&lt;/div&gt;
+                    &lt;div class=&quot;btn btn-16&quot;&gt;A&lt;/div&gt;
+                    &lt;div class=&quot;btn btn-18&quot; title=&quot;يمكنك تكبير الخط بشكل أكبر&quot;&gt;
+                      A++
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;hr /&gt;
+                &lt;div class=&quot;changefont&quot;&gt;
+                  تغيير الخط
+                  &lt;div
+                    class=&quot;d-flex justify-content-between align-items-center w-100 mt-2&quot;
+                  &gt;
+                    &lt;!-- &lt;div class=&quot;btn moi-btn--primary font defualtFont &quot;&gt;الخط الافتراضي&lt;/div&gt; --&gt;
+
+                    &lt;div
+                      class=&quot;btn moi-btn--secondary--outline font anotherFont ms-2&quot;
+                    &gt;
+                      &lt;img src=&quot;../PS-Design/images/rotate-right.svg&quot; alt=&quot;&quot; /&gt;
+
+                      تغيير الخط
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;hr /&gt;
+                &lt;div class=&quot;d-lex flex-column align-items-start color__change&quot;&gt;
+                  &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                    &lt;div class=&quot;color__container&quot;&gt;
+                      &lt;svg
+                        xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                        viewBox=&quot;0 0 464.7 464.7&quot;
+                      &gt;
+                        &lt;path
+                          d=&quot;M446.6 18.1a62 62 0 00-87.6 0L342.3 35a23 23 0 10-32.5 32.5l5.4 5.4-180.6 180.6L71.9 316c-5 5-8 11.6-8.2 18.7l-.2 3.3-2.5 56.7a9.4 9.4 0 009.4 9.8h.4l30-1.3 18.4-.8 8.3-.4a37 37 0 0024.5-10.8l240.9-240.9 4.5 4.6a23 23 0 0032.5 0c9-9 9-23.6 0-32.6l16.7-16.7a62 62 0 000-87.6zm-174 209.2l-84.6 16 138-138 34.4 34.3-87.8 87.7zM64.5 423.9C28.9 423.9 0 433 0 444.3c0 11.3 28.9 20.4 64.5 20.4s64.5-9.1 64.5-20.4C129 433 100 424 64.5 424z&quot;
+                        &gt;&lt;/path&gt;
+                      &lt;/svg&gt;
+
+                      &lt;input
+                        type=&quot;color&quot;
+                        value=&quot;#4d76fd&quot;
+                        class=&quot;colorpicker&quot;
+                        id=&quot;colorpicker&quot;
+                        title=&quot;اختيار اللون&quot;
+                      /&gt;
+                    &lt;/div&gt;
+                    &lt;label for=&quot;&quot;&gt; اختيار الالوان&lt;/label&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;d-flex align-items-center mt-3&quot;&gt;
+                    &lt;button
+                      class=&quot;btn moi-btn--secondary--outline&quot;
+                      type=&quot;button&quot;
+                      data-reset-theme-color
+                    &gt;
+                      اعادة تعيين اللون الافتراضي
+                    &lt;/button&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;d-flex align-items-center mt-3&quot;&gt;
+                    &lt;div class=&quot;bg-secondary rounded-5 text-white p-2 ms-2&quot;&gt;
+                      &lt;i class=&quot;fa fa-eye darkmode&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+
+                    &lt;label for=&quot;&quot;&gt; عمي الالوان&lt;/label&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;button
+              class=&quot;seating js-toggle-fullscreen-btn toggle-fullscreen-btn&quot;
+              aria-label=&quot;Enter fullscreen mode&quot;
+              type=&quot;button&quot;
+            &gt;
+              &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path
+                  d=&quot;M6.99805 3C4.78905 3 2.99805 4.791 2.99805 7V10C2.99805 10.552 3.44605 11 3.99805 11C4.55005 11 4.99805 10.552 4.99805 10V7C4.99805 5.895 5.89305 5 6.99805 5H9.99805C10.55 5 10.998 4.552 10.998 4C10.998 3.448 10.55 3 9.99805 3H6.99805ZM13.998 3C13.446 3 12.998 3.448 12.998 4C12.998 4.552 13.446 5 13.998 5H16.998C18.103 5 18.998 5.895 18.998 7V10C18.998 10.552 19.446 11 19.998 11C20.55 11 20.998 10.552 20.998 10V7C20.998 4.791 19.207 3 16.998 3H13.998ZM3.99805 13C3.44605 13 2.99805 13.448 2.99805 14V17C2.99805 19.209 4.78905 21 6.99805 21H9.99805C10.55 21 10.998 20.552 10.998 20C10.998 19.448 10.55 19 9.99805 19H6.99805C5.89305 19 4.99805 18.105 4.99805 17V14C4.99805 13.448 4.55005 13 3.99805 13ZM19.998 13C19.446 13 18.998 13.448 18.998 14V17C18.998 18.105 18.103 19 16.998 19H13.998C13.446 19 12.998 19.448 12.998 20C12.998 20.552 13.446 21 13.998 21H16.998C19.207 21 20.998 19.209 20.998 17V14C20.998 13.448 20.55 13 19.998 13Z&quot;
+                  fill-opacity=&quot;0.4&quot;
+                &gt;&lt;/path&gt;
+                &lt;path
+                  d=&quot;M13.998 3C13.446 3 12.998 3.448 12.998 4C12.998 4.552 13.446 5 13.998 5H16.998C18.103 5 18.998 5.895 18.998 7V10C18.998 10.552 19.446 11 19.998 11C20.55 11 20.998 10.552 20.998 10V7C20.998 4.791 19.207 3 16.998 3H13.998ZM3.99805 13C3.44605 13 2.99805 13.448 2.99805 14V17C2.99805 19.209 4.78905 21 6.99805 21H9.99805C10.55 21 10.998 20.552 10.998 20C10.998 19.448 10.55 19 9.99805 19H6.99805C5.89305 19 4.99805 18.105 4.99805 17V14C4.99805 13.448 4.55005 13 3.99805 13Z&quot;
+                &gt;&lt;/path&gt;
+              &lt;/svg&gt;
+            &lt;/button&gt;
+
+            &lt;a class=&quot;seating logout_btn&quot; href=&quot;/account/login&quot;&gt;
+              &lt;svg
+                xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                viewBox=&quot;0 0 20 18&quot;
+                fill=&quot;none&quot;
+              &gt;
+                &lt;path
+                  class=&quot;logout_p-2&quot;
+                  d=&quot;M8 12L5 9L8 6&quot;
+                  stroke=&quot;#999999&quot;
+                  stroke-width=&quot;2&quot;
+                  stroke-linecap=&quot;round&quot;
+                  stroke-linejoin=&quot;round&quot;
+                &gt;&lt;/path&gt;
+                &lt;path
+                  class=&quot;logout_p-2&quot;
+                  d=&quot;M5 9H19&quot;
+                  stroke=&quot;#999999&quot;
+                  stroke-width=&quot;2&quot;
+                  stroke-linecap=&quot;round&quot;
+                  stroke-linejoin=&quot;round&quot;
+                &gt;&lt;/path&gt;
+                &lt;path
+                  class=&quot;logout_p-3&quot;
+                  d=&quot;M12 13V16C12 16.2652 11.8946 16.5196 11.7071 16.7071C11.5196 16.8946 11.2652 17 11 17H2C1.73478 17 1.48043 16.8946 1.29289 16.7071C1.10536 16.5196 1 16.2652 1 16V2C1 1.73478 1.10536 1.48043 1.29289 1.29289C1.48043 1.10536 1.73478 1 2 1H11C11.2652 1 11.5196 1.10536 11.7071 1.29289C11.8946 1.48043 12 1.73478 12 2V5&quot;
+                  stroke=&quot;black&quot;
+                  stroke-width=&quot;2&quot;
+                  stroke-linecap=&quot;round&quot;
+                  stroke-linejoin=&quot;round&quot;
+                &gt;&lt;/path&gt;
+              &lt;/svg&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+            </code></pre>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const tableCells = document.querySelectorAll('.docs-table th, .docs-table td');
+      if (tableCells.length) {
+        const iconMarkup = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z" fill="currentColor"/></svg>`;
+        tableCells.forEach((cell) => {
+          cell.insertAdjacentHTML('beforeend', iconMarkup);
+        });
+      }
+
+      const targets = document.querySelectorAll('[data-copy]');
+      if (!targets.length) {
+        return;
+      }
+
+      let tooltip = null;
+      let timer = null;
+
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard.writeText(text).then(
+            () => true,
+            () => false
+          );
+        }
+
+        return new Promise((resolve) => {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'absolute';
+          textarea.style.left = '-9999px';
+          document.body.appendChild(textarea);
+          textarea.select();
+          let ok = false;
+          try {
+            ok = document.execCommand('copy');
+          } catch (error) {
+            ok = false;
+          }
+          document.body.removeChild(textarea);
+          resolve(ok);
+        });
+      }
+
+      function showTooltip(target, message) {
+        if (!tooltip) {
+          tooltip = document.createElement('div');
+          tooltip.className = 'copy-tooltip';
+          document.body.appendChild(tooltip);
+        }
+
+        tooltip.textContent = message;
+        const rect = target.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const top = Math.max(8, rect.top - tooltipRect.height - 10);
+        const left = Math.min(
+          window.innerWidth - tooltipRect.width - 8,
+          Math.max(8, rect.left + rect.width / 2 - tooltipRect.width / 2)
+        );
+        tooltip.style.top = `${top}px`;
+        tooltip.style.left = `${left}px`;
+
+        tooltip.classList.add('is-visible');
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          tooltip.classList.remove('is-visible');
+        }, 1600);
+      }
+
+      document.addEventListener('click', (event) => {
+        const target = event.target.closest('[data-copy]');
+        if (!target) {
+          return;
+        }
+
+        const text = target.getAttribute('data-copy');
+        copyText(text).then((ok) => {
+          showTooltip(target, ok ? `Copied: ${text}` : 'Copy failed');
+        });
+      });
+
+      const snippetButton = document.querySelector('[data-copy-target]');
+      const snippetSource = snippetButton
+        ? document.querySelector(snippetButton.getAttribute('data-copy-target'))
+        : null;
+      let snippetTimer = null;
+
+      const getCurrentLabel = () => {
+        if (!snippetButton) {
+          return 'Copy Code';
+        }
+        const lang = document.documentElement.lang;
+        return (lang === 'ar' ? snippetButton.dataset.ar : snippetButton.dataset.en) || snippetButton.textContent;
+      };
+
+      if (snippetButton && snippetSource) {
+        snippetButton.addEventListener('click', () => {
+          const text = snippetSource.textContent;
+          copyText(text.trim()).then((ok) => {
+            if (!ok) {
+              return;
+            }
+            const feedback = 'تم النسخ';
+            snippetButton.textContent = feedback;
+            clearTimeout(snippetTimer);
+            snippetTimer = setTimeout(() => {
+              snippetButton.textContent = getCurrentLabel();
+            }, 1400);
+          });
+        });
+      }
+    })();
+  </script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+  <script src="./js/top-actions.js"></script>
+  <script src="./js/ds-site-nav.js"></script>
+  <script src="./js/watermark.js"></script>
+</body>
+
+</html>

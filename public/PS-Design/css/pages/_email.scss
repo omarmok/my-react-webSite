@@ -1,0 +1,43 @@
+@use '../helpers' as *;
+.emailModal {
+  .block {
+    background: white;
+    padding: 10px;
+    border: 1px solid #e3e3e3;
+    line-height: 1.9;
+    text-align: justify;
+    border-radius: 5px;
+    img {
+      height: 20px;
+    }
+  }
+  .subject {
+    background: white;
+    padding: 10px;
+    border: 1px solid #e3e3e3;
+    line-height: 1.9;
+    text-align: justify;
+    border-radius: 5px;
+  }
+
+  .toUsers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    div {
+      background: #f8faff;
+      border: 1px solid #eaeffa;
+      padding: 5px;
+      border-radius: 6px;
+      display: flex;
+    }
+
+    li {
+      background: #f8faff;
+      border: 1px solid #eaeffa;
+      padding: 5px;
+      border-radius: 6px;
+      display: flex;
+    }
+  }
+}

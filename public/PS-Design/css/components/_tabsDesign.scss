@@ -1,0 +1,23 @@
+@use '../helpers' as *;
+.tabsDesign {
+    nav {
+        background: #f8f6f2;
+        padding: $padding-14;
+    }
+
+    .tab-content {
+        border: 1px solid #1b8354;
+        border-radius: 6px;
+        padding: $padding-14;
+    }
+
+    .tab-content > .active {
+        display: block;
+        padding: $padding-14;
+        display: flex;
+        border-radius: 8px;
+        box-shadow: 0px 8px 30px rgba(181, 181, 181, 0.08);
+        flex-direction: column;
+        background: #fff;
+    }
+}

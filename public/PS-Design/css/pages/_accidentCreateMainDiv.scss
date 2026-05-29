@@ -1,0 +1,123 @@
+@use '../helpers' as *;
+.accidentCreateMainDiv {
+    .customuploader {
+        width: 145px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        position: relative;
+        gap: 8px;
+    }
+
+    .customuploader h6 {
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+
+    .customuploaderViewOnly {
+        width: 200px;
+
+        .overlayViewOnly {
+            height: 100px;
+
+            .previewViewOnly {
+                img {
+                    height: 100px;
+                }
+            }
+        }
+    }
+
+
+    .overlay {
+        height: 60px;
+        width: 100%;
+        border-radius: 8px;
+        position: absolute;
+    }
+
+    .upload-icon {
+        display: flex;
+        cursor: pointer;
+        user-select: none;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        width: 90%;
+        height: 60px;
+        position: relative;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .preview {
+        position: relative;
+        width: 100%;
+    }
+
+    .preview img {
+        height: 60px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .overlayBtnDiv {
+        position: absolute;
+        bottom: 8px;
+        left: 8px;
+        display: flex;
+        gap: 4px;
+    }
+
+    .delete-button,
+    .preview-button,
+    .add-more-button {
+        display: flex;
+        padding: 2px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.4);
+    }
+
+    .delete-button svg,
+    .preview-button svg,
+    .add-more-button svg {
+        fill: #ffffff;
+        height: 18px;
+        width: 18px;
+    }
+
+    .delete-button:hover,
+    .preview-button:hover {
+        background: #1bae6a;
+    }
+
+    .label-badge {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        font-size: 10px;
+    }
+}
+
+.image-count-badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 12px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.previewBG {
+    background: rgb(0 0 0 / 48%);
+}

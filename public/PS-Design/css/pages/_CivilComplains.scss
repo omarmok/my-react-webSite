@@ -1,0 +1,76 @@
+@use '../helpers' as *;
+.CivilComplains {
+  &--container {
+    &--personsdata {
+      .dropdown-toggle::after {
+        filter: brightness(0) invert(1);
+        background: transparent;
+      }
+
+      .dropdown-menu {
+        background: $Brown-500;
+
+        li {
+          padding: 5px;
+          border-bottom: 1px solid #9c642c;
+          background: transparent;
+
+          a {
+            font-weight: 600;
+            color: #fff;
+            background: transparent;
+
+            img {
+              filter: brightness(0) invert(1);
+              width: 24px;
+            }
+          }
+
+          &:hover {
+            background-color: #b2712f;
+          }
+
+          &:last-child {
+            border: none;
+          }
+        }
+      }
+
+      .pliner {
+        .dropdown-menu {
+          background: $Primary-500;
+
+          li {
+            padding: 5px;
+            border-bottom: 1px solid #0ea587;
+            background: transparent;
+
+            a {
+              font-weight: 600;
+              color: #fff;
+              background: transparent;
+
+              img {
+                filter: brightness(0) invert(1);
+                width: 24px;
+              }
+            }
+
+            &:hover {
+              background-color: #0ea587;
+            }
+
+            &:last-child {
+              border: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.CivilCases .stepscontainer .steps {
+    width: auto;
+}

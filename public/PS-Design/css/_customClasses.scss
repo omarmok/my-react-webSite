@@ -1,0 +1,1643 @@
+
+@use './helpers' as *;
+
+
+
+.flex-3 {
+    flex: 3;
+}
+
+.white-100 {
+    color: $white-100 !important;
+    fill: $white-100 !important;
+}
+
+.shadow-22 {
+    box-shadow: $shadow-2 !important;
+}
+
+/* Classes for background colors */
+
+.green-100 {
+    background-color: $Primary-500 !important;
+}
+
+.green-50 {
+    background-color: $Primary-25 !important;
+}
+
+.darkBlue {
+    background-color: $darkBlue !important;
+}
+
+.Brown {
+    background-color: $Brown-500 !important;
+}
+
+.baige {
+    background-color: $baige !important;
+}
+
+.brown-light {
+    background-color: $Brown-100 !important;
+}
+
+.bluebg {
+    background-color: $blueColor !important;
+}
+
+/* Classes for text colors */
+
+.blueColor {
+    color: $blueColor !important;
+}
+
+.green-100Color {
+    color: $Primary-500 !important;
+}
+
+.darkBlueColor {
+    color: $darkBlue !important;
+}
+
+.brownlightColor {
+    color: $Brown-100 !important;
+}
+
+.BrownColor {
+    color: $Brown-700 !important;
+}
+
+.baigeColor {
+    color: $baige !important;
+}
+
+.text-gold {
+    color: $Brown-500 !important;
+}
+
+.round-border {
+    border-radius: 50% !important;
+}
+
+.main-border-radius {
+    border-radius: $borderRadius !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+
+/* Neutral Colors */
+.Neutral-25 {
+    color: $Neutral-25 !important;
+    fill: $Neutral-25 !important;
+}
+
+.bg-Neutral-25 {
+    background-color: $Neutral-25 !important;
+}
+
+.Neutral-50 {
+    color: $Neutral-50 !important;
+     fill: $Neutral-50 !important;
+}
+
+.bg-Neutral-50 {
+    background-color: $Neutral-50 !important;
+}
+
+.Neutral-100 {
+    color: $Neutral-100 !important;
+    fill: $Neutral-100 !important;
+}
+
+
+.bg-Neutral-100 {
+    background-color: $Neutral-100 !important;
+}
+
+.Neutral-200 {
+    color: $Neutral-200 !important;
+      fill: $Neutral-200 !important;
+}
+
+.bg-Neutral-200 {
+    background-color: $Neutral-200 !important;
+}
+
+.Neutral-300 {
+    color: $Neutral-300 !important;
+     fill: $Neutral-300 !important;
+}
+
+
+
+.bg-Neutral-300 {
+    background-color: $Neutral-300 !important;
+}
+
+.Neutral-400 {
+    color: $Neutral-400 !important;
+        fill: $Neutral-400 !important;
+}
+
+
+
+.bg-Neutral-400 {
+    background-color: $Neutral-400 !important;
+}
+
+.Neutral-500 {
+    color: $Neutral-500 !important;
+        fill: $Neutral-500 !important;
+}
+
+
+.bg-Neutral-500 {
+    background-color: $Neutral-500 !important;
+}
+
+.Neutral-600 {
+    color: $Neutral-600 !important;
+        fill: $Neutral-600 !important; 
+}
+
+.bg-Neutral-600 {
+    background-color: $Neutral-600 !important;
+}
+
+.Neutral-700 {
+    color: $Neutral-700 !important;
+
+}
+
+
+.bg-Neutral-700 {
+    background-color: $Neutral-700 !important;
+}
+
+.Neutral-800 {
+    color: $Neutral-800 !important;
+    fill: $Neutral-800 !important;
+}
+
+
+.bg-Neutral-800 {
+    background-color: $Neutral-800 !important;
+}
+
+.Neutral-900 {
+    color: $Neutral-900 !important;
+    fill: $Neutral-900 !important;
+
+}
+
+.bg-Neutral-900 {
+    background-color: $Neutral-900 !important;
+}
+
+.Neutral-950 {
+    color: $Neutral-950 !important;
+    fill: $Neutral-950 !important;
+}
+
+.bg-Neutral-950 {
+    background-color: $Neutral-950 !important;
+}
+
+
+
+
+/* Gold Colors */
+.Gold-25 {
+    color: $Gold-25;
+    fill: $Gold-25;
+}
+
+.bg-Gold-25 {
+    background-color: $Gold-25;
+}
+
+.Gold-50 {
+    color: $Gold-50;
+    fill: $Gold-50; 
+
+}
+
+.bg-Gold-50 {
+    background-color: $Gold-50;
+}
+
+.Gold-100 {
+    color: $Gold-100;
+    fill: $Gold-100;    
+
+}
+
+
+.bg-Gold-100 {
+    background-color: $Gold-100;
+}
+
+.Gold-200 {
+    color: $Gold-200;
+    fill: $Gold-200;    
+
+}
+
+.bg-Gold-200 {
+    background-color: $Gold-200;
+}
+
+.Gold-300 {
+    color: $Gold-300;
+    fill: $Gold-300;
+}
+
+
+
+.bg-Gold-300 {
+    background-color: $Gold-300;
+}
+
+.Gold-400 {
+    color: $Gold-400;
+    fill: $Gold-400;
+
+}
+
+
+
+.bg-Gold-400 {
+    background-color: $Gold-400;
+}
+
+.Gold-500 {
+    color: $Gold-500;
+    fill: $Gold-500;
+}
+
+
+.bg-Gold-500 {
+    background-color: $Gold-500;
+}
+
+.Gold-600 {
+    color: $Gold-600;
+    fill: $Gold-600; 
+}
+
+.bg-Gold-600 {
+    background-color: $Gold-600;
+}
+
+.Gold-700 {
+    color: $Gold-700;
+    fill: $Gold-700; 
+}
+
+
+.bg-Gold-700 {
+    background-color: $Gold-700;
+}
+
+.Gold-800 {
+    color: $Gold-800;
+    fill: $Gold-800; 
+}
+
+
+.bg-Gold-800 {
+    background-color: $Gold-800;
+}
+
+.Gold-900 {
+    color: $Gold-900;
+    fill: $Gold-900; 
+}
+
+.bg-Gold-900 {
+    background-color: $Gold-900;
+}
+
+.Gold-950 {
+    color: $Gold-950;
+    fill: $Gold-950; 
+}
+
+.bg-Gold-950 {
+    background-color: $Gold-950;
+}
+
+
+/* Gold Colors */
+.Lavender-25 {
+    color: $Lavender-25;
+     fill: $Lavender-25;
+}
+
+.bg-Lavender-25 {
+    background-color: $Lavender-25;
+}
+
+.Lavender-50 {
+    color: $Lavender-50;
+       fill: $Lavender-50;
+}
+
+.bg-Lavender-50 {
+    background-color: $Lavender-50;
+}
+
+.Lavender-100 {
+    color: $Lavender-100;
+      fill: $Lavender-100;
+}
+
+
+.bg-Lavender-100 {
+    background-color: $Lavender-100;
+}
+
+.Lavender-200 {
+    color: $Lavender-200;
+      fill: $Lavender-200;
+}
+
+.bg-Lavender-200 {
+    background-color: $Lavender-200;
+}
+
+.Lavender-300 {
+    color: $Lavender-300;   
+      fill: $Lavender-300;
+}
+
+
+
+.bg-Lavender-300 {
+    background-color: $Lavender-300;
+}
+
+.Lavender-400 {
+    color: $Lavender-400;
+     fill: $Lavender-400;
+}
+
+
+
+.bg-Lavender-400 {
+    background-color: $Lavender-400;
+}
+
+.Lavender-500 {
+    color: $Lavender-500;
+    fill: $Lavender-500;
+}
+
+
+.bg-Lavender-500 {
+    background-color: $Lavender-500;
+}
+
+.Lavender-600 {
+    color: $Lavender-600;
+     fill: $Lavender-600;
+}
+
+.bg-Lavender-600 {
+    background-color: $Lavender-600;
+}
+
+.Lavender-700 {
+    color: $Lavender-700;
+     fill: $Lavender-700;
+}
+
+
+.bg-Lavender-700 {
+    background-color: $Lavender-700;
+}
+
+.Lavender-800 {
+    color: $Lavender-800;
+     fill: $Lavender-800;
+}
+
+
+.bg-Lavender-800 {
+    background-color: $Lavender-800;
+}
+
+.Lavender-900 {
+    color: $Lavender-900;
+     fill: $Lavender-900;
+}
+
+.bg-Lavender-900 {
+    background-color: $Lavender-900;
+}
+
+.Lavender-950 {
+    color: $Lavender-950;
+     fill: $Lavender-950;
+}
+
+.bg-Lavender-950 {
+    background-color: $Lavender-950;
+}
+
+
+/* Primary Colors */
+.Primary-25 {
+    color: $Primary-25 !important;
+    fill: $Primary-25 !important;
+}
+
+
+
+.bg-Primary-25 {
+    background-color: $Primary-25 !important;
+}
+
+.Primary-50 {
+    color: $Primary-50 !important;
+    fill: $Primary-50 !important;
+}
+
+.bg-Primary-50 {
+    background-color: $Primary-50 !important;
+}
+
+.Primary-100 {
+    color: $Primary-100 !important;
+     fill: $Primary-100 !important;
+}
+
+.bg-Primary-100 {
+    background-color: $Primary-100 !important;
+}
+
+.Primary-200 {
+    color: $Primary-200 !important;
+     fill: $Primary-200 !important;
+}
+
+.bg-Primary-200 {
+    background-color: $Primary-200 !important;
+}
+
+.Primary-300 {
+    color: $Primary-300 !important;
+     fill: $Primary-300 !important;
+}
+
+.bg-Primary-300 {
+    background-color: $Primary-300 !important;
+}
+
+.Primary-400 {
+    color: $Primary-400 !important;
+     fill: $Primary-400 !important;
+}
+
+.bg-Primary-400 {
+    background-color: $Primary-400 !important;
+}
+
+.Primary-500 {
+    color: $Primary-500 !important;
+     fill: $Primary-500 !important;
+}
+
+.bg-Primary-500 {
+    background-color: $Primary-500 !important;
+}
+
+.Primary-600 {
+    color: $Primary-600 !important;;
+     fill: $Primary-600 !important;
+}
+
+.bg-Primary-600 {
+    background-color: $Primary-600 !important;
+}
+
+.Primary-700 {
+    color: $Primary-700 !important; 
+     fill: $Primary-700 !important;
+}
+
+.bg-Primary-700 {
+    background-color: $Primary-700 !important;
+}
+
+.Primary-800 {
+    color: $Primary-800 !important; 
+     fill: $Primary-800 !important;
+}
+
+.bg-Primary-800 {
+    background-color: $Primary-800 !important;
+}
+
+.Primary-900 {
+    color: $Primary-900 !important;
+     fill: $Primary-900 !important;
+}
+
+.bg-Primary-900 {
+    background-color: $Primary-900 !important;
+}
+
+.Primary-950 {
+    color: $Primary-950 !important;
+     fill: $Primary-950 !important;
+}
+
+.bg-Primary-950 {
+    background-color: $Primary-950 !important;
+}
+
+/* Error Colors */
+.Error-25 {
+    color: $Error-25 !important;  
+    fill: $Error-25 !important;
+}
+
+.bg-Error-25 {
+    background-color: $Error-25 !important;
+}
+
+.Error-50 {
+    color: $Error-50 !important;  
+    fill: $Error-50 !important;
+}
+
+.bg-Error-50 {
+    background-color: $Error-50 !important;
+}
+
+.Error-100 {
+    color: $Error-100 !important;
+    fill: $Error-100 !important;
+}
+
+.bg-Error-100 {
+    background-color: $Error-100 !important;
+}
+
+.Error-200 {
+    color: $Error-200 !important;
+    fill: $Error-200 !important;
+}
+
+.bg-Error-200 {
+    background-color: $Error-200 !important;
+}
+
+.Error-300 {
+    color: $Error-300 !important;
+    fill: $Error-300 !important;
+}
+
+.bg-Error-300 {
+    background-color: $Error-300 !important;
+}
+
+.Error-400 {
+    color: $Error-400 !important;
+    fill: $Error-400 !important;
+}
+
+.bg-Error-400 {
+    background-color: $Error-400 !important;
+}
+
+.Error-500 {
+    color: $Error-500 !important;
+    fill: $Error-500 !important;
+}
+
+.bg-Error-500 {
+    background-color: $Error-500 !important;
+}
+
+.Error-600 {
+    color: $Error-600 !important;
+    fill: $Error-600 !important;
+}
+
+.bg-Error-600 {
+    background-color: $Error-600 !important;
+}
+
+.Error-700 {
+    color: $Error-700 !important;
+     fill: $Error-700 !important;
+}
+
+.bg-Error-700 {
+    background-color: $Error-700 !important;
+}
+
+.Error-800 {
+    color: $Error-800 !important;
+     fill: $Error-800 !important;
+}
+
+.bg-Error-800 {
+    background-color: $Error-800 !important;
+}
+
+.Error-900 {
+    color: $Error-900 !important;
+     fill: $Error-900 !important;
+}
+
+.bg-Error-900 {
+    background-color: $Error-900 !important;
+}
+
+.Error-950 {
+    color: $Error-950 !important;
+     fill: $Error-950 !important;
+}
+
+.bg-Error-950 {
+    background-color: $Error-950 !important;
+}
+
+/* Info Colors */
+.Info-25 {
+    color: $Info-25 !important;
+    fill: $Info-25 !important;
+}
+
+.bg-Info-25 {
+    background-color: $Info-25 !important;
+}
+
+.Info-50 {
+    color: $Info-50 !important;
+    fill: $Info-50 !important;
+}
+
+.bg-Info-50 {
+    background-color: $Info-50 !important;
+}
+
+.Info-100 {
+    color: $Info-100 !important;
+    fill: $Info-100 !important;
+}
+
+.bg-Info-100 {
+    background-color: $Info-100 !important;
+}
+
+.Info-200 {
+    color: $Info-200 !important;
+    fill: $Info-200 !important;
+}
+
+.bg-Info-200 {
+    background-color: $Info-200 !important;
+}
+
+.Info-300 {
+    color: $Info-300 !important;
+    fill: $Info-300 !important;
+}
+
+.bg-Info-300 {
+    background-color: $Info-300 !important;
+}
+
+.Info-400 {
+    color: $Info-400 !important;
+      fill: $Info-400 !important;
+}
+
+.bg-Info-400 {
+    background-color: $Info-400 !important;
+}
+
+.Info-500 {
+    color: $Info-500 !important;
+    fill: $Info-500 !important;
+}
+
+.bg-Info-500 {
+    background-color: $Info-500 !important;
+}
+
+.Info-600 {
+    color: $Info-600 !important;
+     fill: $Info-600 !important;
+}
+
+.bg-Info-600 {
+    background-color: $Info-600 !important;
+}
+
+.Info-700 {
+    color: $Info-700 !important;
+    fill: $Info-700 !important;
+}
+
+.bg-Info-700 {
+    background-color: $Info-700 !important;
+}
+
+.Info-800 {
+    color: $Info-800 !important;
+     fill: $Info-800 !important;
+}
+
+.bg-Info-800 {
+    background-color: $Info-800 !important;
+}
+
+.Info-900 {
+    color: $Info-900 !important;
+     fill: $Info-900 !important;
+}
+
+.bg-Info-900 {
+    background-color: $Info-900 !important;
+}
+
+.Info-950 {
+    color: $Info-950 !important;
+    fill: $Info-950 !important;
+}
+
+.bg-Info-950 {
+    background-color: $Info-950 !important;
+}
+
+
+
+/* Warning Colors */
+.Warning-25 {
+    color: $Warning-25 !important;
+    fill: $Warning-25 !important;
+}
+
+.bg-Warning-25 {
+    background-color: $Warning-25 !important;
+}
+
+.Warning-50 {
+    color: $Warning-50 !important;
+    fill: $Warning-50 !important;
+}
+
+.bg-Warning-50 {
+    background-color: $Warning-50 !important;
+}
+
+.Warning-100 {
+    color: $Warning-100 !important;
+    fill: $Warning-100 !important;
+}
+
+.bg-Warning-100 {
+    background-color: $Warning-100 !important;
+}
+
+.Warning-200 {
+    color: $Warning-200 !important;
+    fill: $Warning-200 !important;
+}
+
+.bg-Warning-200 {
+    background-color: $Warning-200 !important;
+}
+
+.Warning-300 {
+    color: $Warning-300 !important;
+    fill: $Warning-300 !important;
+}
+
+.bg-Warning-300 {
+    background-color: $Warning-300 !important;
+}
+
+.Warning-400 {
+    color: $Warning-400 !important;
+    fill: $Warning-400 !important;
+}
+
+.bg-Warning-400 {
+    background-color: $Warning-400 !important;
+}
+
+.Warning-500 {
+    color: $Warning-500 !important;
+    fill: $Warning-500 !important;
+}
+
+.bg-Warning-500 {
+    background-color: $Warning-500 !important;
+}
+
+.Warning-600 {
+    color: $Warning-600 !important;
+    fill: $Warning-600 !important;
+}
+
+.bg-Warning-600 {
+    background-color: $Warning-600 !important;
+}
+
+.Warning-700 {
+    color: $Warning-700 !important;
+    fill: $Warning-700 !important;
+}
+
+.bg-Warning-700 {
+    background-color: $Warning-700 !important;
+}
+
+.Warning-800 {
+    color: $Warning-800 !important;
+    fill: $Warning-800 !important;
+}
+
+.bg-Warning-800 {
+    background-color: $Warning-800 !important;
+}
+
+.Warning-900 {
+    color: $Warning-900 !important;
+    fill: $Warning-900 !important;
+}
+
+.bg-Warning-900 {
+    background-color: $Warning-900 !important;
+}
+
+.Warning-950 {
+    color: $Warning-950 !important;
+    fill: $Warning-950 !important;
+}
+
+.bg-Warning-950 {
+    background-color: $Warning-950 !important;
+}
+
+
+
+
+/* Brown Colors */
+.Brown-25 {
+    color: $Brown-25 !important;
+    fill: $Brown-25 !important; 
+}
+
+.bg-Brown-25 {
+    background-color: $Brown-25 !important;
+}
+
+.Brown-50 {
+    color: $Brown-50 !important;
+    fill: $Brown-50 !important;
+}
+
+.bg-Brown-50 {
+    background-color: $Brown-50 !important;
+}
+
+.Brown-100 {
+    color: $Brown-100 !important;
+    fill: $Brown-100 !important;
+}
+
+.bg-Brown-100 {
+    background-color: $Brown-100 !important;
+}
+
+.Brown-200 {
+    color: $Brown-200 !important;
+    fill: $Brown-200 !important;
+}
+
+.bg-Brown-200 {
+    background-color: $Brown-200 !important;
+}
+
+.Brown-300 {
+    color: $Brown-300 !important;
+    fill: $Brown-300 !important;
+}
+
+.bg-Brown-300 {
+    background-color: $Brown-300 !important;
+}
+
+.Brown-400 {
+    color: $Brown-400 !important;
+    fill: $Brown-400 !important;
+}
+
+.bg-Brown-400 {
+    background-color: $Brown-400 !important;
+}
+
+.Brown-500 {
+    color: $Brown-500 !important;
+    fill: $Brown-500 !important;
+}
+
+.bg-Brown-500 {
+    background-color: $Brown-500 !important;
+}
+
+.Brown-600 {
+    color: $Brown-600 !important;
+    fill: $Brown-600 !important;
+}
+
+.bg-Brown-600 {
+    background-color: $Brown-600 !important;
+}
+
+.Brown-700 {
+    color: $Brown-700 !important;
+    fill: $Brown-700 !important;
+
+}
+
+.bg-Brown-700 {
+    background-color: $Brown-700 !important;
+}
+
+.Brown-800 {
+    color: $Brown-800 !important;
+    fill: $Brown-800 !important;
+}
+
+.bg-Brown-800 {
+    background-color: $Brown-800 !important;
+}
+
+.Brown-900 {
+    color: $Brown-900 !important;
+    fill: $Brown-900 !important;
+}
+
+.bg-Brown-900 {
+    background-color: $Brown-900 !important;
+}
+
+.Brown-950 {
+    color: $Brown-950 !important;
+    fill: $Brown-950 !important;
+}
+
+.bg-Brown-950 {
+    background-color: $Brown-950 !important;
+}
+
+
+
+/*
+border colors */
+
+.border-white-100 {
+    border-color: $white-100 !important;
+}
+
+.border-Modal-bg {
+    border-color: $Modal-bg !important;
+}
+
+.border-Neutral-25 {
+    border-color: $Neutral-25 !important;
+}
+
+.border-Neutral-50 {
+    border-color: $Neutral-50 !important;
+}
+
+.border-Neutral-100 {
+    border-color: $Neutral-100 !important;
+}
+
+.border-Neutral-200 {
+    border-color: $Neutral-200 !important;
+}
+
+.border-Neutral-300 {
+    border-color: $Neutral-300 !important;
+}
+
+.border-Neutral-400 {
+    border-color: $Neutral-400 !important;
+}
+
+.border-Neutral-500 {
+    border-color: $Neutral-500 !important;
+}
+
+.border-Neutral-600 {
+    border-color: $Neutral-600 !important;
+}
+
+.border-Neutral-700 {
+    border-color: $Neutral-700 !important;
+}
+
+.border-Neutral-800 {
+    border-color: $Neutral-800 !important;
+}
+
+.border-Neutral-900 {
+    border-color: $Neutral-900 !important;
+}
+
+.border-Neutral-950 {
+    border-color: $Neutral-950 !important;
+}
+
+.border-Lavender-25 {
+    border-color: $Lavender-25 !important;
+}
+
+.border-Lavender-50 {
+    border-color: $Lavender-50 !important;
+}
+
+.border-Lavender-100 {
+    border-color: $Lavender-100 !important;
+}
+
+.border-Lavender-200 {
+    border-color: $Lavender-200 !important;
+}
+
+.border-Lavender-300 {
+    border-color: $Lavender-300 !important;
+}
+
+.border-Lavender-400 {
+    border-color: $Lavender-400 !important;
+}
+
+.border-Lavender-500 {
+    border-color: $Lavender-500 !important;
+}
+
+.border-Lavender-600 {
+    border-color: $Lavender-600 !important;
+}
+
+.border-Lavender-700 {
+    border-color: $Lavender-700 !important;
+}
+
+.border-Lavender-800 {
+    border-color: $Lavender-800 !important;
+}
+
+.border-Lavender-900 {
+    border-color: $Lavender-900 !important;
+}
+
+.border-Lavender-950 {
+    border-color: $Lavender-950 !important;
+}
+
+.border-Lavender-25 {
+    border-color: $Lavender-25 !important;
+}
+
+.border-Primary-50 {
+    border-color: $Primary-50 !important;
+}
+
+.border-Primary-100 {
+    border-color: $Primary-100 !important;
+}
+
+.border-Primary-200 {
+    border-color: $Primary-200 !important;
+}
+
+.border-Primary-300 {
+    border-color: $Primary-300 !important;
+}
+
+.border-Primary-400 {
+    border-color: $Primary-400 !important;
+}
+
+.border-Primary-500 {
+    border-color: $Primary-500 !important;
+}
+
+.border-Primary-600 {
+    border-color: $Primary-600 !important;
+}
+
+.border-Primary-700 {
+    border-color: $Primary-700 !important;
+}
+
+.border-Primary-800 {
+    border-color: $Primary-800 !important;
+}
+
+.border-Primary-900 {
+    border-color: $Primary-900 !important;
+}
+
+.border-Primary-950 {
+    border-color: $Primary-950 !important;
+}
+
+.border-Brown-25 {
+    border-color: $Brown-25 !important;
+}
+
+.border-Brown-50 {
+    border-color: $Brown-50 !important;
+}
+
+.border-Brown-100 {
+    border-color: $Brown-100 !important;
+}
+
+.border-Brown-200 {
+    border-color: $Brown-200 !important;
+}
+
+.border-Brown-300 {
+    border-color: $Brown-300 !important;
+}
+
+.border-Brown-400 {
+    border-color: $Brown-400 !important;
+}
+
+.border-Brown-500 {
+    border-color: $Brown-500 !important;
+}
+
+.border-Brown-600 {
+    border-color: $Brown-600 !important;
+}
+
+.border-Brown-700 {
+    border-color: $Brown-700 !important;
+}
+
+.border-Brown-800 {
+    border-color: $Brown-800 !important;
+}
+
+.border-Brown-900 {
+    border-color: $Brown-900 !important;
+}
+
+.border-Brown-950 {
+    border-color: $Brown-950 !important;
+}
+
+.border-Info-25 {
+    border-color: $Info-25 !important;
+}
+
+.border-Info-50 {
+    border-color: $Info-50 !important;
+}
+
+.border-Info-100 {
+    border-color: $Info-100 !important;
+}
+
+.border-Info-200 {
+    border-color: $Info-200 !important;
+}
+
+.border-Info-300 {
+    border-color: $Info-300 !important;
+}
+
+.border-Info-400 {
+    border-color: $Info-400 !important;
+}
+
+.border-Info-500 {
+    border-color: $Info-500 !important;
+}
+
+.border-Info-600 {
+    border-color: $Info-600 !important;
+}
+
+.border-Info-700 {
+    border-color: $Info-700 !important;
+}
+
+.border-Info-800 {
+    border-color: $Info-800 !important;
+}
+
+.border-Info-900 {
+    border-color: $Info-900 !important;
+}
+
+.border-Info-950 {
+    border-color: $Info-950 !important;
+}
+
+.border-Error-25 {
+    border-color: $Error-25 !important;
+}
+
+.border-Error-50 {
+    border-color: $Error-50 !important;
+}
+
+.border-Error-100 {
+    border-color: $Error-100 !important;
+}
+
+.border-Error-200 {
+    border-color: $Error-200 !important;
+}
+
+.border-Error-300 {
+    border-color: $Error-300 !important;
+}
+
+.border-Error-400 {
+    border-color: $Error-400 !important;
+}
+
+.border-Error-500 {
+    border-color: $Error-500 !important;
+}
+
+.border-Error-600 {
+    border-color: $Error-600 !important;
+}
+
+.border-Error-700 {
+    border-color: $Error-700 !important;
+}
+
+.border-Error-800 {
+    border-color: $Error-800 !important;
+}
+
+.border-Error-900 {
+    border-color: $Error-900 !important;
+}
+
+.border-Error-950 {
+    border-color: $Error-950 !important;
+}
+
+.border-Warning-25 {
+    border-color: $Warning-25 !important;
+}
+
+.border-Warning-50 {
+    border-color: $Warning-50 !important;
+}
+
+.border-Warning-100 {
+    border-color: $Warning-100 !important;
+}
+
+.border-Warning-200 {
+    border-color: $Warning-200 !important;
+}
+
+.border-Warning-300 {
+    border-color: $Warning-300 !important;
+}
+
+.border-Warning-400 {
+    border-color: $Warning-400 !important;
+}
+
+.border-Warning-500 {
+    border-color: $Warning-500 !important;
+}
+
+.border-Warning-600 {
+    border-color: $Warning-600 !important;
+}
+
+.border-Warning-700 {
+    border-color: $Warning-700 !important;
+}
+
+.border-Warning-800 {
+    border-color: $Warning-800 !important;
+}
+
+.border-Warning-900 {
+    border-color: $Warning-900 !important;
+}
+
+.border-Warning-950 {
+    border-color: $Warning-950 !important;
+}
+
+.radius-none {
+    border-radius: 0px !important;
+}
+
+.radius-2 {
+    border-radius: 2px !important;
+}
+
+.radius-4 {
+    border-radius: 4px !important;
+}
+
+.radius-6 {
+    border-radius: 6px !important;
+}
+
+.radius-8 {
+    border-radius: 8px !important;
+}
+
+.radius-10 {
+    border-radius: 10px !important;
+}
+
+.radius-12 {
+    border-radius: 12px !important;
+}
+
+.radius-14 {
+    border-radius: 14px !important;
+}
+
+.radius-16 {
+    border-radius: 16px !important;
+}
+
+.radius-18 {
+    border-radius: 18px !important;
+}
+
+.radius-20 {
+    border-radius: 20px !important;
+}
+
+.radius-100 {
+    border-radius: 100px !important;
+}
+
+
+
+
+
+/* Gap Classes */
+.gap-2 {
+    gap: 2px !important;
+}
+
+.gap-4 {
+    gap: 4px !important;
+}
+
+.gap-6 {
+    gap: 6px !important;
+}
+
+.gap-8 {
+    gap: 8px !important;
+}
+
+.gap-10 {
+    gap: 10px !important;
+}
+
+.gap-12 {
+    gap: 12px !important;
+}
+
+.gap-14 {
+    gap: 14px !important;
+}
+
+.gap-16 {
+    gap: 16px !important;
+}
+
+.gap-18 {
+    gap: 18px !important;
+}
+
+.gap-20 {
+    gap: 20px !important;
+}
+
+.gap-22 {
+    gap: 22px !important;
+}
+
+.gap-24 {
+    gap: 24px !important;
+}
+
+.gap-26 {
+    gap: 26px !important;
+}
+
+.gap-28 {
+    gap: 28px !important;
+}
+
+.gap-30 {
+    gap: 30px !important;
+}
+
+
+
+.gap-none  { gap: $gap-none; }
+.gap-xxs   { gap: $gap-xxs; }
+.gap-xs    { gap: $gap-xs; }
+.gap-sm    { gap: $gap-sm; }
+.gap-md    { gap: $gap-md; }
+.gap-lg    { gap: $gap-lg; }
+.gap-xl    { gap: $gap-xl; }
+.gap-2xl   { gap: $gap-2xl; }
+.gap-3xl   { gap: $gap-3xl; }
+.gap-4xl   { gap: $gap-4xl; }
+.gap-5xl   { gap: $gap-5xl; }
+.gap-6xl   { gap: $gap-6xl; }
+.gap-7xl   { gap: $gap-7xl; }
+.gap-8xl   { gap: $gap-8xl; }
+.gap-9xl   { gap: $gap-9xl; }
+.gap-10xl  { gap: $gap-10xl; }
+.gap-11xl  { gap: $gap-11xl; }
+
+
+// Shadow Classes
+.shadow-xs {
+    box-shadow: $shadow-xs;
+}
+
+.shadow-sm {
+    box-shadow: $shadow-sm;
+}
+
+.shadow-md {
+    box-shadow: $shadow-md;
+}
+
+.shadow-lg {
+    box-shadow: $shadow-lg;
+}
+
+.shadow-xl {
+    box-shadow: $shadow-xl;
+}
+
+.shadow-2xl {
+    box-shadow: $shadow-2xl;
+}
+
+.shadow-3xl {
+    box-shadow: $shadow-3xl;
+}
+
+
+
+.radius-none {
+    border-radius: $radius-none;
+}
+
+.radius-xxs {
+    border-radius: $radius-xxs;
+}
+
+.radius-xs {
+    border-radius: $radius-xs;
+}
+
+.radius-sm {
+    border-radius: $radius-sm;
+}
+
+.radius-md {
+    border-radius: $radius-md;
+}
+
+.radius-lg {
+    border-radius: $radius-lg;
+}
+
+.radius-xl {
+    border-radius: $radius-xl;
+}
+
+.radius-2xl {
+    border-radius: $radius-2xl;
+}
+
+.radius-3xl {
+    border-radius: $radius-3xl;
+}
+
+.radius-4xl {
+    border-radius: $radius-4xl;
+}
+
+.radius-5xl {
+    border-radius: $radius-5xl;
+}
+
+.radius-6xl {
+    border-radius: $radius-6xl;
+}
+
+.radius-7xl {
+    border-radius: $radius-7xl;
+}
+
+.radius-8xl {
+    border-radius: $radius-8xl;
+}
+
+.radius-9xl {
+    border-radius: $radius-9xl;
+}
+
+.radius-10xl {
+    border-radius: $radius-10xl;
+}
+
+.radius-11xl {
+    border-radius: $radius-11xl;
+}
+
+
+
+.font-xs-400 { @include font-xs-400; }
+.font-xs-500 { @include font-xs-500; }
+.font-xs-600 { @include font-xs-600; }
+.font-xs-700 { @include font-xs-700; }
+
+.font-sm-400 { @include font-sm-400; }
+.font-sm-500 { @include font-sm-500; }
+.font-sm-600 { @include font-sm-600; }
+.font-sm-700 { @include font-sm-700; }
+
+.font-md-400 { @include font-md-400; }
+.font-md-500 { @include font-md-500; }
+.font-md-600 { @include font-md-600; }
+.font-md-700 { @include font-md-700; }
+
+.font-lg-400 { @include font-lg-400; }
+.font-lg-500 { @include font-lg-500; }
+.font-lg-600 { @include font-lg-600; }
+.font-lg-700 { @include font-lg-700; }
+
+.font-xl-400 { @include font-xl-400; }
+.font-xl-500 { @include font-xl-500; }
+.font-xl-600 { @include font-xl-600; }
+.font-xl-700 { @include font-xl-700; }
+
+.font-2xl-400 { @include font-2xl-400; }
+.font-2xl-500 { @include font-2xl-500; }
+.font-2xl-600 { @include font-2xl-600; }
+.font-2xl-700 { @include font-2xl-700; }
+
+.font-3xl-400 { @include font-3xl-400; }
+.font-3xl-500 { @include font-3xl-500; }
+.font-3xl-600 { @include font-3xl-600; }
+.font-3xl-700 { @include font-3xl-700; }
+
+.font-4xl-400 { @include font-4xl-400; }
+.font-4xl-500 { @include font-4xl-500; }
+.font-4xl-600 { @include font-4xl-600; }
+.font-4xl-700 { @include font-4xl-700; }
+
+.font-5xl-400 { @include font-5xl-400; }
+.font-5xl-500 { @include font-5xl-500; }
+.font-5xl-600 { @include font-5xl-600; }
+.font-5xl-700 { @include font-5xl-700; }
+
+.font-6xl-400 { @include font-6xl-400; }
+.font-6xl-500 { @include font-6xl-500; }
+.font-6xl-600 { @include font-6xl-600; }
+.font-6xl-700 { @include font-6xl-700; }
+
+.font-7xl-400 { @include font-7xl-400; }
+.font-7xl-500 { @include font-7xl-500; }
+.font-7xl-600 { @include font-7xl-600; }
+.font-7xl-700 { @include font-7xl-700; }

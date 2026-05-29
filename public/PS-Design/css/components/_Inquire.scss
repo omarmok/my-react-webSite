@@ -1,0 +1,121 @@
+@use '../helpers' as *;
+.createViolitionContainer--creatviolition--Inquire {
+  .nav-tabs {
+    background: #fafbff;
+
+    .nav-link {
+      font-weight: 600;
+      padding: 10px;
+      border: 1px dashed $darkBlue;
+      background: #ffffff;
+      color: #0700c4 !important;
+      box-shadow: rgb(239 241 249) 0px 3px 8px 4px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+
+      span {
+        background: #fff;
+        color: #0700c4;
+        padding: 0px;
+        border-radius: 50%;
+        border: 1px dashed #08c28d;
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 12px;
+        box-shadow: rgb(239 241 249) 0px 3px 8px 4px;
+        transition: transition-duration, 0.8s ease !important;
+
+        img {
+          height: 18px;
+        }
+      }
+
+      &.active {
+        background: $darkBlue;
+        color: #ffffff !important;
+
+        span {
+          background: #ffffff;
+          box-shadow: none;
+          color: #0700c4;
+          img {
+          }
+        }
+      }
+    }
+  }
+
+  .searchfields {
+    background: white;
+    padding: $padding-14;
+    box-shadow: 0 0 68px 0 rgba(174, 175, 175, 0.17);
+    border-radius: 8px;
+    z-index: 0;
+   /* position: relative;*/
+  }
+}
+
+.permitDetails {
+  margin-top: 20px;
+
+  &__permitCard {
+    background: #fcfbf9;
+    padding: $padding-14;
+    box-shadow: 0px 5px 7px rgb(247, 248, 250);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    border: 1px dashed #e5dfdf;
+
+    &__top {
+      display: flex;
+      background: #ffffff;
+      align-items: center;
+      padding: 10px;
+      justify-content: space-between;
+      box-shadow: 0px 8px 30px rgb(181 181 181 / 8%);
+      margin-bottom: 15px;
+
+      &--permitName {
+        @include font-sm-500;
+        font-weight: bold !important;
+        color: #353535;
+      }
+
+      &--stutas {
+        background: #08c28d;
+        border-radius: 5px;
+        color: #fff;
+        padding: 5px 10px;
+        font-size: 9px;
+      }
+    }
+
+    &__body {
+      .block {
+        padding: 5px;
+        align-items: flex-start;
+        font-weight: 600;
+        color: $Brown-500;
+        border: 0;
+        border-bottom: 1px solid #f3f6ff;
+        font-size: 10px;
+
+        &:last-child {
+          border: 0;
+        }
+
+        span {
+          font-weight: 500;
+          @include font-sm-500;
+        }
+      }
+    }
+  }
+}

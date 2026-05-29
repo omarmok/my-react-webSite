@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Switches | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .page-header .code-inline {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .sample-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      align-items: center;
+    }
+
+    .demo-grid .btn {
+      width: 100%;
+    }
+
+    .visual-scroll {
+      overflow-x: auto;
+    }
+
+    .visual-matrix {
+      display: grid;
+      grid-template-columns: minmax(200px, 240px) repeat(5, minmax(160px, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .matrix-head {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .matrix-label {
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #111827;
+    }
+
+    .matrix-label[data-copy] {
+      cursor: pointer;
+    }
+
+    .matrix-label svg path {
+      fill: currentColor;
+    }
+
+    .state-cell {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      width: 100%;
+      min-height: 56px;
+      border: 1px dashed #e5e7eb;
+      background: #f9fafb;
+      text-align: center;
+    }
+
+    .state-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #111827;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .visual-grid .btn {
+      width: 100%;
+    }
+
+    .code-examples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .code-example {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    .example-content {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .copy-hint {
+      color: var(--muted);
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    .copy-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .copy-status {
+      color: #111827;
+      font-weight: 600;
+    }
+
+    .copy-tooltip {
+      position: fixed;
+      z-index: 1000;
+      background: #111827;
+      color: #f9fafb;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .copy-tooltip.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .is-disabled {
+      background: #f3f4f6 !important;
+      border: 1px solid #d2d6db !important;
+      color: #9da4ae !important;
+      cursor: not-allowed;
+    }
+
+    .sample-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .token-chip {
+      background: #f3f4f6;
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      color: #374151;
+    }
+
+    .anatomy-frame {
+      background-image: url("./images/dot-grid.svg");
+      background-size: 280px;
+      padding: 24px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .anatomy-frame img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0;
+    }
+
+    .state-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .state-tile {
+      background: #fff;
+      border: 1px dashed #e5e7eb;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .state-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .usage-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .usage-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    #sizing .usage-grid .usage-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .usage-card h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .usage-card ul {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .btn-sample {
+      min-width: 180px;
+    }
+
+    .docs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .docs-table th,
+    .docs-table td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      vertical-align: top;
+    }
+
+    .docs-table th {
+      background: #f9fafb;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .docs-table th svg,
+    .docs-table td svg {
+      width: 24px !important;
+      height: 24px !important;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #1f2a6b;
+      font-size: 0.75rem;
+    }
+
+    .two-col {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    svg {
+      width: 16px !important;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .docs-sidebar {}
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .sidebar-nav a.is-active {
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+    }
+
+    .lang-toggle {
+      margin-top: 12px;
+      width: 100%;
+      background: #fff;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #cbd5f5;
+      box-shadow: 0 14px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .lang-toggle svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+  
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+
+  </style>
+  <link href="./css/ds-site-nav.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" class="is-active" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+        </nav>
+      </div>
+
+    </aside>
+
+
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><svg width="24"
+            height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.05469 1.25C9.42218 1.24998 10.5247 1.24968 11.3916 1.36621C12.2917 1.48723 13.0495 1.74672 13.6514 2.34863C14.2533 2.95055 14.5128 3.70829 14.6338 4.6084C14.7503 5.47534 14.75 6.57782 14.75 7.94531V9.25488C15.1235 9.25143 15.5218 9.24999 15.9453 9.25H16.0547C17.4222 9.24998 18.5247 9.24968 19.3916 9.36621C20.2917 9.48723 21.0495 9.74672 21.6514 10.3486C22.2533 10.9505 22.5128 11.7083 22.6338 12.6084C22.7503 13.4753 22.75 14.5778 22.75 15.9453V16.0547C22.75 17.4222 22.7503 18.5247 22.6338 19.3916C22.5128 20.2917 22.2533 21.0495 21.6514 21.6514C21.0495 22.2533 20.2917 22.5128 19.3916 22.6338C18.5247 22.7503 17.4222 22.75 16.0547 22.75H15.9453C14.5778 22.75 13.4753 22.7503 12.6084 22.6338C11.7083 22.5128 10.9505 22.2533 10.3486 21.6514C9.74672 21.0495 9.48723 20.2917 9.36621 19.3916C9.24968 18.5247 9.24998 17.4222 9.25 16.0547V15.9453C9.24999 15.5218 9.25143 15.1235 9.25488 14.75H7.94531C6.57782 14.75 5.47534 14.7503 4.6084 14.6338C3.70829 14.5128 2.95055 14.2533 2.34863 13.6514C1.74672 13.0495 1.48723 12.2917 1.36621 11.3916C1.24968 10.5247 1.24998 9.42218 1.25 8.05469V7.94531C1.24998 6.57782 1.24968 5.47534 1.36621 4.6084C1.48723 3.70829 1.74672 2.95055 2.34863 2.34863C2.95055 1.74672 3.70829 1.48723 4.6084 1.36621C5.47534 1.24968 6.57782 1.24998 7.94531 1.25H8.05469ZM16 10.75C14.5648 10.75 13.5639 10.752 12.8086 10.8535C12.0748 10.9522 11.6859 11.1324 11.4092 11.4092C11.1324 11.6859 10.9522 12.0748 10.8535 12.8086C10.752 13.5639 10.75 14.5648 10.75 16C10.75 17.4352 10.752 18.4361 10.8535 19.1914C10.9522 19.9252 11.1324 20.3141 11.4092 20.5908C11.6859 20.8676 12.0748 21.0478 12.8086 21.1465C13.5639 21.248 14.5648 21.25 16 21.25C17.4352 21.25 18.4361 21.248 19.1914 21.1465C19.9252 21.0478 20.3141 20.8676 20.5908 20.5908C20.8676 20.3141 21.0478 19.9252 21.1465 19.1914C21.248 18.4361 21.25 17.4352 21.25 16C21.25 14.5648 21.248 13.5639 21.1465 12.8086C21.0478 12.0748 20.8676 11.6859 20.5908 11.4092C20.3141 11.1324 19.9252 10.9522 19.1914 10.8535C18.4361 10.752 17.4352 10.75 16 10.75ZM4 15.75C4.41421 15.75 4.75 16.0858 4.75 16.5C4.75 17.2178 4.75071 17.7 4.78809 18.0674C4.82419 18.4221 4.88849 18.5859 4.96094 18.6943C5.05212 18.8308 5.16921 18.9479 5.30566 19.0391C5.4141 19.1115 5.57788 19.1758 5.93262 19.2119C6.30002 19.2493 6.78216 19.25 7.5 19.25C7.91421 19.25 8.25 19.5858 8.25 20C8.25 20.4142 7.91421 20.75 7.5 20.75H7.46191C6.79245 20.75 6.23354 20.7501 5.78125 20.7041C5.30783 20.6559 4.86862 20.5507 4.47266 20.2861C4.17238 20.0855 3.9145 19.8276 3.71387 19.5273C3.44934 19.1314 3.34406 18.6922 3.2959 18.2188C3.24991 17.7665 3.24998 17.2075 3.25 16.5381C3.25 16.5254 3.25 16.5127 3.25 16.5C3.25 16.0858 3.58579 15.75 4 15.75ZM16 12.25C16.3028 12.25 16.5759 12.4324 16.6924 12.7119L19.1924 18.7119C19.3514 19.0941 19.1711 19.533 18.7891 19.6924C18.4067 19.8517 17.9669 19.6704 17.8076 19.2881L17.167 17.75H14.834L14.1924 19.2881C14.0331 19.6704 13.5942 19.8516 13.2119 19.6924C12.8297 19.5331 12.6486 19.0942 12.8076 18.7119L15.3076 12.7119C15.424 12.4325 15.6973 12.2501 16 12.25Z"
+              fill="currentColor"></path>
+          </svg><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.9975 3.25C11.624 3.25 11.2774 3.41565 11.0172 3.57252C10.7364 3.7418 10.4464 3.96944 10.1638 4.21918C9.59669 4.72018 8.98771 5.37387 8.43684 6.00823C7.88274 6.64633 7.37253 7.28222 7.00175 7.75725C6.81606 7.99516 6.66462 8.19364 6.55931 8.33304C6.50664 8.40276 6.46547 8.45776 6.43727 8.49558L6.40489 8.53915L6.39633 8.55071L6.39337 8.55472C6.14771 8.88822 6.2186 9.35816 6.5521 9.60382C6.88559 9.84947 7.35507 9.77828 7.60074 9.44481L7.61015 9.43209L7.63992 9.39204C7.66632 9.35662 7.70557 9.3042 7.75618 9.2372C7.85743 9.10317 8.00402 8.91102 8.1842 8.68019C8.54517 8.21772 9.03806 7.60363 9.56942 6.99173C10.104 6.37611 10.6628 5.77981 11.1569 5.34331C11.1882 5.3157 11.2189 5.28899 11.249 5.26316L11.249 20C11.249 20.4142 11.5848 20.75 11.999 20.75C12.4132 20.75 12.749 20.4142 12.749 20L12.749 5.2657C12.7782 5.29073 12.808 5.31661 12.8382 5.34331C13.3323 5.77981 13.8911 6.37611 14.4257 6.99173C14.957 7.60363 15.4499 8.21772 15.8109 8.68019C15.9911 8.91102 16.1377 9.10317 16.2389 9.2372C16.2895 9.30419 16.3288 9.35662 16.3552 9.39204L16.3849 9.43209L16.3943 9.44481C16.64 9.77828 17.1095 9.84947 17.443 9.60382C17.7765 9.35816 17.8474 8.88822 17.6017 8.55472L17.5988 8.55071L17.5902 8.53915L17.5578 8.49558C17.5296 8.45776 17.4884 8.40276 17.4358 8.33304C17.3305 8.19363 17.179 7.99516 16.9933 7.75725C16.6226 7.28222 16.1123 6.64633 15.5582 6.00823C15.0074 5.37387 14.3984 4.72018 13.8313 4.21918C13.5486 3.96944 13.2587 3.7418 12.9779 3.57252C12.7192 3.4166 12.3753 3.25199 12.0043 3.25002"
+              fill="white"></path>
+          </svg><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span>
+        </button>
+      </div>
+
+
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="المكونات / عناصر التحكم">Components / Controls</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="مفاتيح التبديل">Switches</h1>
+
+        <p class="text-muted mb-4" data-i18n data-ar="يُترجم المفتاح الحالة الثنائية مع تركيز واضح وسرعة استجابة.">
+          Switches translate binary settings into a single tap. Pair the Bootstrap
+          <span class="code-inline">.form-check-input</span> with
+          <span class="code-inline">.form-check.form-switch</span> and a descriptive label so that both
+          mouse and keyboard users see a clear relationship.
+        </p>
+        <div class="sample-grid">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchSampleDefault">
+            <label class="form-check-label" for="switchSampleDefault" data-i18n data-ar="افتراضي">Default</label>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchSampleChecked" checked>
+            <label class="form-check-label" for="switchSampleChecked" data-i18n data-ar="مفعّل">Checked</label>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchSampleDisabled" disabled>
+            <label class="form-check-label" for="switchSampleDisabled" data-i18n data-ar="معطل">Disabled</label>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchSampleCheckedDisabled" checked
+              disabled>
+            <label class="form-check-label" for="switchSampleCheckedDisabled" data-i18n data-ar="معطل ومفعّل">Checked
+              &amp; disabled</label>
+          </div>
+        </div>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="المكوّن: مفاتيح التبديل"
+              data-en="Component: Switches">
+          المكوّن: مفاتيح التبديل
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="الإصدار: قيد التحديث"
+              data-en="Version: TBD">
+          الإصدار: قيد التحديث
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="آخر تحديث: 28 يناير 2026"
+              data-en="Last updated: January 28, 2026">
+          آخر تحديث: 28 يناير 2026
+        </span>
+      </div>
+
+
+      <section class="section" id="overview">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2>
+          <p class="section-note" data-i18n
+            data-ar="يستند المفتاح إلى مربع اختيار مع دور switch ويسترشد بتنسيق form-check عبر SCSS.">
+            The switch is a checkbox with <span class="code-inline">role="switch"</span>, rendered
+            by <span class="code-inline">.form-check.form-switch</span> plus
+            <span class="code-inline">.form-check-input</span>. The SCSS at
+            <span class="code-inline">css/common/_Switch.scss</span> layers the track, thumb,
+            and motion rules.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="when-to-use">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="متى تستخدم / ومتى لا؟">When to use / When not to use</h2>
+          <div class="two-col">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="متى تستخدم">When to use</h4>
+              <ul>
+                <li data-i18n data-ar="تبديل إعداد ثنائي واحد أو علم ميزة قابل للتغيير فورًا.">Toggle a single boolean
+                  setting or feature flag with immediate feedback.</li>
+                <li data-i18n data-ar="عرض خيار تشغيل/إيقاف ضمن قائمة إعدادات بدون تنقل إضافي.">Surface an on/off choice
+                  inline within a settings list, not as a separate panel.</li>
+                <li data-i18n data-ar="الحفاظ على حالة واحدة واضحة مع تسمية صريحة.">Pair the switch with a concise label
+                  that describes the destination state.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="متى لا تستخدم">When not to use</h4>
+              <ul>
+                <li data-i18n data-ar="لا تستخدمه للتنقل أو لبدء إجراءات تغير الوضع.">Avoid using switches for
+                  navigation or action triggering.</li>
+                <li data-i18n data-ar="لا تستخدمه إذا كانت الخيارات متعددة القيم؛ استخدم قائمة منسدلة أو أزرار راديو.">
+                  Do not force multi-state decisions into a binary switch.</li>
+                <li data-i18n data-ar="لا تعطل التطبيق حتى يتم حفظ التغييرات في مكان آخر.">Do not delay feedback with
+                  asynchronous saves or secondary confirmations.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="anatomy">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2>
+          <p class="section-note" data-i18n data-ar="يُشتق التركيب مباشرة من المحددات في SCSS.">Structure is derived
+            from the selectors in the SCSS.</p>
+          <div class="row g-4">
+            <div class="col-12 col-lg-6">
+              <ul class="accessibility-list">
+                <li data-i18n data-ar="الجذر: .form-check.form-switch يضمن المحاذاة الأفقية والهوامش الافتراضية.">
+                  <strong>Root:</strong> <span class="code-inline">.form-check.form-switch</span> provides layout and
+                  spacing.
+                </li>
+                <li data-i18n data-ar="المسار: .form-check-input يحدد العرض والارتفاع والحدود ولون الخلفية الافتراضي.">
+                  <strong>Track:</strong> <span class="code-inline">.form-check-input</span> defines the 48×24 track,
+                  border, and background.
+                </li>
+                <li data-i18n data-ar="المقبض: ::before يمثل العنصر الدائري الذي يتحرك عند التبديل.">
+                  <strong>Thumb:</strong> <span class="code-inline">.form-check-input::before</span> renders the 16px
+                  thumb.
+                </li>
+                <li data-i18n data-ar="التسمية: .form-check-label تربط النص بالمدخل وتطبق المسافة البادئة.">
+                  <strong>Label:</strong> <span class="code-inline">.form-check-label</span> sits next to the track with
+                  a 10px gap.
+                </li>
+                <li data-i18n data-ar="الحالة: :checked، :disabled، :focus-visible تتحكم باللون والظل/التحجيم.">
+                  <strong>States:</strong> <span class="code-inline">:checked</span>, <span
+                    class="code-inline">:disabled</span>, and <span class="code-inline">:focus-visible</span> adjust
+                  track, border, and thumb styles.
+                </li>
+                <li data-i18n data-ar="الدور: role=&quot;switch&quot; مع aria-checked يدعم القارئات.">
+                  <strong>ARIA:</strong> add <span class="code-inline">role="switch"</span> and keep <span
+                    class="code-inline">aria-checked</span> in sync when state changes via JavaScript.
+                </li>
+              </ul>
+              <div class="section-divider"></div>
+              <div class="fw-semibold mb-2" data-i18n data-ar="بنية المسار والمقبض">Track &amp; thumb structure</div>
+              <ul class="accessibility-list">
+                <li data-i18n data-ar="المسار مركزي، النص لا يلتف، ويتم ضبط الحجم عبر المتغيرات ذات الصلة.">Centered
+                  track, nowrap text, and sizing via the shared switch variables.</li>
+                <li data-i18n data-ar="المقبض يستخدم تحريك أفقي مع تغيير اللون وتكبير طفيف عند التفعيل.">Thumb shifts
+                  horizontally and scales in the checked state.</li>
+              </ul>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="anatomy-frame">
+                <div style="background:#fff; border-radius:20px; padding:20px; width:220px; text-align:left;">
+                  <div style="display:flex; align-items:center; gap:10px;">
+                    <div
+                      style="width:54px; height:28px; background:#f3f4f6; border-radius:999px; border:2px solid #d1d5db; position:relative;">
+                      <div
+                        style="width:16px; height:16px; background:#111827; border-radius:50%; position:absolute; top:50%; left:6px; transform:translateY(-50%);">
+                      </div>
+                    </div>
+                    <span class="fw-semibold" data-i18n data-ar="المسار">Track</span>
+                  </div>
+                  <p class="mt-2" style="font-size:0.85rem; color:#4b5563;" data-i18n
+                    data-ar="المقبض يتحرك ويكبر عند التفعيل.">Thumb moves and scales in the checked state.</p>
+                  <p class="mt-2" style="font-size:0.85rem; color:#4b5563;" data-i18n
+                    data-ar="التسمية متوافقة مع المدخل.">Label stays linked via the for/id pairing.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="variants">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="المتغيرات والأحجام">Variants &amp; Sizes</h2>
+          <p class="section-note" data-i18n data-ar="يوجد متغير واحد فقط، والحجم يتحكم به متغيرات SCSS.">The system only
+            exposes the base switch variant; dimensions are driven by the SCSS variables.</p>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="المتغير الأساسي">Base variant</h4>
+              <ul>
+                <li data-i18n data-ar="لا توجد فئات إضافية؛ يتم تحديد المظهر من خلال .form-check-input و :checked">No
+                  extra modifier classes; visual differences rely on <span class="code-inline">.form-check-input</span>
+                  and <span class="code-inline">:checked</span>.</li>
+                <li data-i18n data-ar="يمكن دمج المتغير مع حالاته مباشرة عبر CSS الحالي.">States (checked, focus,
+                  disabled) are declared in the same SCSS file.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="الأحجام">Sizing tokens</h4>
+              <ul>
+                <li data-i18n data-ar="العرض 48 بكسل، الارتفاع 24 بكسل، الحشوة 3 بكسل."><span
+                    class="code-inline">$form-sw-width</span> 48px, <span class="code-inline">$form-sw-height</span>
+                  24px, padding 3px.</li>
+                <li data-i18n data-ar="المقبض 16 بكسل، نصف القطر 100، والانتقال 0.3s."><span
+                    class="code-inline">$form-sw-thumb</span> 16px, border-radius <span
+                    class="code-inline">$Radius-100</span>, transition duration <span
+                    class="code-inline">$form-sw-dur</span>.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="إرشادات التخصيص">Customization guardrails</h4>
+              <ul>
+                <li data-i18n data-ar="أي تغيير في الأبعاد يجب أن يحدث عبر المتغيرات المشتركة وليس عبر أنماط مضمنة.">
+                  Adjust dimensions only via the shared variables, not via inline styles.</li>
+                <li data-i18n data-ar="لا تضف معدّلات جديدة دون مراجعة التصميم والمبرجات.">New variants go through a
+                  DesignOps review before adding new SCSS selectors.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="states">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="الحالات">States</h2>
+          <p class="section-note" data-i18n data-ar="الحالات الموثقة تتبع SCSS الحالي فقط.">Only the documented states
+            are implemented in SCSS.</p>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="افتراضي">Default</h4>
+              <ul>
+                <li data-i18n data-ar="خلفية بيضاء مع حدود #d1d5db، مقبض داكن، وانسيابية في الانتقال.">White track,
+                  <span class="code-inline">border: 2px solid $Neutral-300</span>, dark thumb, smooth transition.
+                </li>
+                <li data-i18n data-ar="الضغط يطبق تحويل مقياس 0.92 على ::before حتى لو لم يكن هناك تغيّر في اللون.">
+                  Pressing applies <span class="code-inline">transform: scale(0.92)</span> via <span
+                    class="code-inline">:active::before</span>.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="مفعّل">Checked / On</h4>
+              <ul>
+                <li data-i18n data-ar="الحد والخلفية يتحولان إلى $Primary-500، والمقبض يصبح أبيض مع تكبير بسيط.">Border
+                  and track turn <span class="code-inline">$Primary-500</span>, thumb becomes white and scales (1.06).
+                </li>
+                <li data-i18n data-ar="المقبض يحرك إلى الجهة اليمنى باستخدام calc(100% - thumb - padding).">Thumb shifts
+                  right using <span class="code-inline">calc(100% - $form-sw-thumb - $form-sw-padding)</span>.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="تحويم">Hover</h4>
+              <ul>
+                <li data-i18n data-ar="ظل خارجي خفيف 4px باستخدام rgba($Primary-700, 0.12).">Adds <span
+                    class="code-inline">box-shadow: 0 0 0 4px rgba($Primary-700, 0.12)</span>.</li>
+                <li data-i18n data-ar="لا تتغير الألوان إلا إذا كانت الحالة checked تُطبق اللون الأساسي.">Colors adjust
+                  only within the defined palette.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="تركيز">Focus</h4>
+              <ul>
+                <li data-i18n data-ar="ظل أقوى باستخدام rgba($Primary-700, 0.22) عبر focus-visible فقط.">Focus-visible
+                  applies <span class="code-inline">box-shadow: 0 0 0 4px rgba($Primary-700, 0.22)</span>.</li>
+                <li data-i18n data-ar="يحافظ على الحد الحالي ولا يستبدل Hover.">Focus owns the outline without
+                  overriding hover.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="معطل">Disabled</h4>
+              <ul>
+                <li data-i18n data-ar="التحكم يعتم (opacity 0.45) مع خلفية $Neutral-100 وحد $Neutral-200.">Opacity 0.45,
+                  track <span class="code-inline">$Neutral-100</span>, border <span
+                    class="code-inline">$Neutral-200</span>.</li>
+                <li data-i18n data-ar="المقبض يصبح $Neutral-400 وتُلغى الظلال، والحالة checked تستخدم $Neutral-200.">
+                  Thumb turns <span class="code-inline">$Neutral-400</span>, box-shadow removed, checked disabled share
+                  <span class="code-inline">$Neutral-200</span>.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="state-grid mt-3">
+            <div class="state-tile">
+              <div class="state-chip" data-i18n data-ar="افتراضي">Default</div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="stateDefault">
+                <label class="form-check-label" for="stateDefault">Default switch checkbox input</label>
+              </div>
+
+            </div>
+            <div class="state-tile">
+              <div class="state-chip" data-i18n data-ar="مفعّل">Checked / On</div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="stateChecked" checked>
+                <label class="form-check-label" for="stateChecked">Checked switch checkbox input</label>
+              </div>
+
+            </div>
+            <div class="state-tile">
+              <div class="state-chip" data-i18n data-ar="تحويم">Hover</div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="stateHover">
+                <label class="form-check-label" for="stateHover">Hover to preview shadow</label>
+              </div>
+
+            </div>
+            <div class="state-tile">
+              <div class="state-chip" data-i18n data-ar="تركيز">Focus</div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="stateFocus">
+                <label class="form-check-label" for="stateFocus">Tab here to view focus ring</label>
+              </div>
+
+            </div>
+            <div class="state-tile">
+              <div class="state-chip" data-i18n data-ar="معطل">Disabled</div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="stateDisabled" disabled>
+                <label class="form-check-label" for="stateDisabled">Disabled switch checkbox input</label>
+              </div>
+              <div class="copy-toolbar mt-2">
+
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="styling">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="توثيق الأنماط">Styling documentation</h2>
+          <p class="section-note" data-i18n data-ar="الملف المرجعي هو css/common/_Switch.scss.">Authoritative styling
+            lives in <span class="code-inline">css/common/_Switch.scss</span>.</p>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="المدخل الأساسي">Selector scope</h4>
+              <ul>
+                <li data-i18n data-ar="يستهدف .form-check.form-switch .form-check-input لتهيئة المسار والموضع.">Targets
+                  <span class="code-inline">.form-check.form-switch .form-check-input</span> for the track, border, and
+                  relative positioning.
+                </li>
+                <li data-i18n data-ar="يُضيف المشغل ::before لتمثيل المقبض."><span class="code-inline">::before</span>
+                  renders the thumb.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="الإنتقالات والمقبض">Thumb &amp; motion</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="الانتقالات تعتمد على $form-sw-dur و $form-sw-ease وتطبّق على كل من الموضع واللون.">
+                  Transitions use <span class="code-inline">$form-sw-dur</span> and <span
+                    class="code-inline">$form-sw-ease</span> for left/color changes.</li>
+                <li data-i18n
+                  data-ar="وسائط التفاعل (:hover، :focus-visible، :active) تدعم التركيز والضغط دون التحجير.">Hover,
+                  focus-visible, and active states reuse the same transitions.</li>
+                <li data-i18n data-ar="prefers-reduced-motion يلغي كل الانتقالات.">A media query removes transitions
+                  when <span class="code-inline">prefers-reduced-motion: reduce</span>.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="الرموز والمتغيرات">Tokens</h4>
+              <ul>
+                <li data-i18n data-ar="الألوان تستخدم $Primary-500 و $Primary-700 و $Neutral-* عبر الحالات.">Colors rely
+                  on <span class="code-inline">$Primary-500</span>, <span class="code-inline">$Primary-700</span>, and
+                  <span class="code-inline">$Neutral-*</span>.
+                </li>
+                <li data-i18n
+                  data-ar="الحجم والحدود تعتمد على $form-sw-width، $form-sw-height، $form-sw-padding، $form-sw-thumb، $Radius-100.">
+                  Sizing uses <span class="code-inline">$form-sw-width</span>, <span
+                    class="code-inline">$form-sw-height</span>, <span class="code-inline">$form-sw-padding</span>, <span
+                    class="code-inline">$form-sw-thumb</span>, and <span class="code-inline">$Radius-100</span>.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="التسميات">Labels</h4>
+              <ul>
+                <li data-i18n data-ar="margin-inline-start 10px يجعل النص بعيدًا عن المسار."><span
+                    class="code-inline">.form-check-label</span> applies <span class="code-inline">margin-inline-start:
+                    10px</span>.</li>
+                <li data-i18n data-ar="المسافة متساوية في الاتجاهين وظيفيًا.">Label spacing stays consistent in both
+                  layout directions.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="usage-guidelines">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إرشادات الاستخدام">Usage guidelines</h2>
+          <p class="section-note" data-i18n data-ar="اعتمد الإفصاح الواضح والموضع الثابت.">Keep switches disclosed
+            within the page layout rather than hiding them behind modals.</p>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="الموقع">Placement</h4>
+              <ul>
+                <li data-i18n data-ar="ضع التسمية مباشرة إلى جانب المفتاح لتقسيم المساحة النظيفة.">Place the label next
+                  to the switch so it reads as a single row.</li>
+                <li data-i18n data-ar="لا تكدس المفتاح مع عناصر التحكم الأخرى التي قد تربك قراء الشاشة.">Avoid stacking
+                  multiple switches without distinct labels.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="السلوك">Behavior</h4>
+              <ul>
+                <li data-i18n data-ar="اعكس التغييرات فورًا داخل التطبيق، وأظهر المؤشرات إذا استغرق الأمر وقتًا.">Apply
+                  changes immediately and show inline feedback for longer operations.</li>
+                <li data-i18n data-ar="استخدم aria-live أو مربعات حالة لشرح النتائج ذات الصلة عند الحاجة.">Announce
+                  significant side effects using aria-live regions when necessary.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="accessibility">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility considerations</h2>
+          <p class="section-note" data-i18n data-ar="الأقسام التالية تشرح البنية المدعومة بشكل فعلي.">Guidance driven by
+            the current markup.</p>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="المفتاح هو input type=checkbox مع role=&quot;switch&quot; ليتلقى aria-checked.">
+              <strong>Semantics:</strong> use <span class="code-inline">input type="checkbox" role="switch"</span> and
+              keep <span class="code-inline">aria-checked</span> synchronized for scripted toggles.
+            </li>
+            <li data-i18n data-ar="Space/Enter يقومان بالتبديل، لذلك لا تغير التاب أبدًا."><strong>Keyboard:</strong>
+              rely on the browser to handle Space/Enter; do not intercept focus.</li>
+            <li data-i18n data-ar="التركيز يظهر ظل واضح لا يتم تجاوزه بواسطة التحويم."><strong>Focus
+                visibility:</strong> the box-shadow in <span class="code-inline">:focus-visible</span> cannot be
+              removed.</li>
+            <li data-i18n data-ar="التسمية مرتبطة عبر for/id، ويمكن أن تكون باللغة المناسبة."><strong>Labels:</strong>
+              always provide a descriptive label that references the input <span class="code-inline">id</span>.</li>
+            <li data-i18n data-ar="المعطل يشارك نفس النمط عبر disabled و aria-disabled."><strong>Disabled
+                state:</strong> <span class="code-inline">disabled</span> and <span
+                class="code-inline">aria-disabled="true"</span> share the same opacity and colors.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="do-dont">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="افعل ولا تفعل">Do &amp; Don’t</h2>
+          <div class="two-col">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="افعل">Do</h4>
+              <ul>
+                <li data-i18n data-ar="ادمج التسمية مع المفتاح بواسطة for/id وحافظ على النص مختصرًا.">Associate the
+                  label via for/id and keep the text concise.</li>
+                <li data-i18n data-ar="اعرض الحالة الحالية مع وصف نتائج التبديل إن كان الأمر هامًا.">Describe the
+                  current state when the effect is not obvious.</li>
+                <li data-i18n data-ar="استخدم الظلال الموجودة للتحقق من التركيز بدلاً من إنشاء طرق عرض مخصصة.">Preserve
+                  the provided focus shadow.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="لا تفعل">Don’t</h4>
+              <ul>
+                <li data-i18n data-ar="لا تحول مفتاحًا إلى زر تحكم بميزات أخرى مثل التنقل.">Don’t repurpose switches as
+                  navigation controls.</li>
+                <li data-i18n data-ar="لا تخفي التسمية داخل سمة aria-only بدون عرض مرئي.">Avoid invisible labels that
+                  rely solely on aria attributes.</li>
+                <li data-i18n data-ar="لا تغير الأبعاد محليًا بحيث يتعارض مع الرموز المشتركة.">Do not override the
+                  shared sizing tokens locally.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="edge-cases">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="حالات حافة">Edge cases</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="التبديل الذي يخضع لحفظ غير فوري يحتاج إلى مؤشر تحميل أو وحالة معلقة لتوضيح النتيجة.">
+              Switches that trigger asynchronous saves need a loading state or status message.</li>
+            <li data-i18n data-ar="يجب أن يدير <code>aria-checked</code> التحولات البرمجية بحيث يواكب كل تغيير حالة.">
+              Programmatic toggles must keep <code>aria-checked</code> synchronized with the visual state.</li>
+            <li data-i18n data-ar="عند الـ RTL، حافظ على الترتيب والتسمية؛ لا تقلب التسمية والرمز داخل العنصر.">In RTL,
+              maintain the icon/label order; don’t flip them inside the control.</li>
+            <li data-i18n
+              data-ar="استخدم <code>prefers-reduced-motion: reduce</code> لحذف الانتقالات عند الحاجة لتقليل الحركة.">
+              Honor <code>prefers-reduced-motion: reduce</code> to remove transitions when necessary.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="developer-api">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="واجهة برمجة التطبيقات للمطورين">Developer API</h2>
+          <p class="section-note" data-i18n
+            data-ar="يعرض هذا القسم التكوين المطلوب للمفتاح والسمات المرتبطة بالـ ARIA.">
+            This section shows the required switch markup and ARIA attributes.
+          </p>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;div class="form-check form-switch"&gt;
+  &lt;input class="form-check-input" type="checkbox" role="switch" id="autoSaveSwitch" aria-checked="false"&gt;
+  &lt;label class="form-check-label" for="autoSaveSwitch"&gt;Enable auto-save&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+          <ul class="accessibility-list mt-3">
+            <li data-i18n
+              data-ar="استدعِ <code>role=&quot;switch&quot;</code> مع <code>aria-checked</code> المتزامن مع الحالة.">Use
+              <code>role="switch"</code> plus synchronized <code>aria-checked</code>.</li>
+            <li data-i18n data-ar="حافظ على <code>.form-check.form-switch</code> لالتقاط الأبعاد والموضع.">Keep the
+              <code>.form-check.form-switch</code> wrapper for layout and spacing.</li>
+            <li data-i18n data-ar="لا تنسَ رؤية التركيز عبر <code>:focus-visible</code> و<code>box-shadow</code>.">Do
+              not remove focus-visible outlines or box-shadow.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="code-examples">
+        <div class="section-card">
+          <h2 class="section-title">Code examples</h2>
+          <p class="section-note">Each example here is rendered with the real markup, and has its own “Copy code”
+            control.</p>
+          <div class="code-examples-grid">
+            <div class="code-example" data-example="default-switch">
+              <div class="example-content">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="exampleDefault">
+                  <label class="form-check-label" for="exampleDefault">Default switch checkbox input</label>
+                </div>
+              </div>
+              <div class="copy-toolbar mt-3">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود" data-en="Copy code">
+                  Copy code
+                </button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="code-example" data-example="checked-switch">
+              <div class="example-content">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="exampleChecked" checked>
+                  <label class="form-check-label" for="exampleChecked">Checked switch checkbox input</label>
+                </div>
+              </div>
+              <div class="copy-toolbar mt-3">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود" data-en="Copy code">
+                  Copy code
+                </button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="code-example" data-example="disabled-switch">
+              <div class="example-content">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="exampleDisabled" disabled>
+                  <label class="form-check-label" for="exampleDisabled">Disabled switch checkbox input</label>
+                </div>
+              </div>
+              <div class="copy-toolbar mt-3">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود" data-en="Copy code">
+                  Copy code
+                </button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="governance">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="الملاحظات الحاكمة">Governance notes</h2>
+          <p class="section-note" data-i18n data-ar="التغييرات على الحالة والحجم يجب أن تخضع لمراجعة DesignOps.">Changes
+            to state styling or sizing require DesignOps review.</p>
+          <h3 class="mt-3" data-i18n data-ar="الملكية والمسؤوليات">Ownership &amp; Responsibilities</h3>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="مالك التصميم">Design owner</h4>
+              <ul>
+                <li data-i18n data-ar="يوجه اللون والحالات ورسائل إمكانية الوصول.">Owns the palette, focus cues, and
+                  accessibility guidance.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="مالك التطوير">Engineering owner</h4>
+              <ul>
+                <li data-i18n data-ar="يتتبع تنفيذ .form-check-input ويضمن الأداء عبر الأجهزة.">Keeps the markup
+                  consistent and ensures performance.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="DesignOps">DesignOps</h4>
+              <ul>
+                <li data-i18n data-ar="توثيق الإضافات والموافقة على التغييرات.">Documents new variants and approves
+                  changes.</li>
+              </ul>
+            </div>
+          </div>
+          <h3 class="mt-3" data-i18n data-ar="سياسة الإضافة">Extension policy</h3>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="أي متغير جديد يجب أن يمر بمقترح تصميم → مراجعة → توثيق → موافقة.">New variants
+              follow: proposal → review → implementation → documentation → approval.</li>
+            <li data-i18n data-ar="تعديلات الرموز يجب أن تنعكس في css/common/_Switch.scss فقط.">Token adjustments only
+              through <span class="code-inline">css/common/_Switch.scss</span>.</li>
+            <li data-i18n data-ar="لا تُضاف حالات جديدة دون إطلاق ملف تحديث جديد.">No undocumented states are allowed.
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const tableCells = document.querySelectorAll('.docs-table th, .docs-table td');
+      if (tableCells.length) {
+        const iconMarkup = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z" fill="white"/></svg>`;
+        tableCells.forEach((cell) => {
+          cell.insertAdjacentHTML('beforeend', iconMarkup);
+        });
+      }
+
+      let statusTimer = null;
+      let tooltip = null;
+
+      function getCopyText(button) {
+        const classList = Array.from(button.classList).filter(
+          (name) => name !== 'w-100' && name !== 'is-disabled'
+        );
+        return classList.join(' ');
+      }
+
+      function showTooltip(target, message) {
+        if (!tooltip) {
+          tooltip = document.createElement('div');
+          tooltip.className = 'copy-tooltip';
+          document.body.appendChild(tooltip);
+        }
+
+        tooltip.textContent = message;
+        const rect = target.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const top = Math.max(8, rect.top - tooltipRect.height - 10);
+        const left = Math.min(
+          window.innerWidth - tooltipRect.width - 8,
+          Math.max(8, rect.left + rect.width / 2 - tooltipRect.width / 2)
+        );
+        tooltip.style.top = `${top}px`;
+        tooltip.style.left = `${left}px`;
+
+        tooltip.classList.add('is-visible');
+        clearTimeout(statusTimer);
+        statusTimer = setTimeout(() => {
+          tooltip.classList.remove('is-visible');
+        }, 1600);
+      }
+
+      const feedbackTimers = new WeakMap();
+
+      const getLabelForButton = (button) => {
+        const useArabic = document.documentElement.lang === 'ar';
+        if (useArabic) {
+          return button.dataset.ar || button.dataset.en || button.textContent;
+        }
+        return button.dataset.en || button.dataset.ar || button.textContent;
+      };
+
+      const setButtonFeedback = (button, statusEl, message, keep = false) => {
+        if (statusEl) {
+          statusEl.textContent = message;
+        }
+        button.textContent = message;
+        if (feedbackTimers.has(button)) {
+          clearTimeout(feedbackTimers.get(button));
+        }
+        if (!keep) {
+          const timer = setTimeout(() => {
+            button.textContent = getLabelForButton(button);
+            if (statusEl) {
+              statusEl.textContent = '';
+            }
+          }, 1400);
+          feedbackTimers.set(button, timer);
+        }
+      };
+
+      const fallbackCopy = (html) => {
+        return new Promise((resolve, reject) => {
+          const textarea = document.createElement('textarea');
+          textarea.value = html;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'fixed';
+          textarea.style.top = '-9999px';
+          document.body.appendChild(textarea);
+          textarea.select();
+          let ok = false;
+          try {
+            ok = document.execCommand('copy');
+          } catch (error) {
+            ok = false;
+          }
+          document.body.removeChild(textarea);
+          if (ok) {
+            resolve();
+          } else {
+            reject(new Error('Fallback copy failed'));
+          }
+        });
+      };
+
+      const copyHtmlToClipboard = (html) => {
+        if (!html || !html.trim()) {
+          return Promise.reject(new Error('Empty HTML generated'));
+        }
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard.writeText(html).catch(() => fallbackCopy(html));
+        }
+        return fallbackCopy(html);
+      };
+
+      document.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-copy-target]');
+        if (!button) {
+          return;
+        }
+
+        const status = button.closest('.copy-toolbar')?.querySelector('.copy-status');
+        const example = button.closest('[data-example]');
+        const selector = button.getAttribute('data-copy-target') || '.example-content';
+        const target = example ? example.querySelector(selector) : document.querySelector(selector);
+        if (!target) {
+          const errorMessage = document.documentElement.lang === 'ar' ? 'الهدف غير موجود' : 'Target not found';
+          showTooltip(button, errorMessage);
+          setButtonFeedback(button, status, errorMessage);
+          return;
+        }
+
+        const html = target.tagName.toLowerCase() === 'code'
+          ? target.textContent
+          : target.outerHTML;
+
+        copyHtmlToClipboard(html)
+          .then(() => {
+            const successMessage = document.documentElement.lang === 'ar' ? 'تم النسخ' : 'Copied';
+            showTooltip(button, successMessage);
+            setButtonFeedback(button, status, successMessage);
+          })
+          .catch((error) => {
+            const failMessage = error?.message || (document.documentElement.lang === 'ar' ? 'فشل النسخ' : 'Copy failed');
+            showTooltip(button, failMessage);
+            setButtonFeedback(button, status, failMessage);
+          });
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+
+  <script src="./js/top-actions.js"></script>
+  <script src="./js/ds-site-nav.js"></script>
+  <script src="./js/watermark.js"></script>
+</body>
+
+</html>

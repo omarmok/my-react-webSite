@@ -1,0 +1,89 @@
+@use "sass:map";
+
+$moi-icon-sizes: (
+  sm: 1rem,
+  // ~16px
+  md: 1.25rem,
+  // ~20px
+  lg: 1.5rem,
+  // ~24px
+  xl: 2rem,
+  // ~32px
+  2xl: 2.5rem,
+  // ~40px
+  3xl: 3rem,
+  // ~48px
+  4xl: 4rem, // ~64px
+);
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: middle;
+  color: currentColor;
+  font-size: map.get($moi-icon-sizes, md);
+
+  svg {
+    fill: currentColor;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* force fill only (ignore inline fills except none) */
+  svg [fill]:not([fill="none"]) {
+    fill: currentColor;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--bs-primary, currentColor);
+    outline-offset: 2px;
+  }
+}
+
+/* Sizes */
+@each $name, $size in $moi-icon-sizes {
+  .icon-#{$name} {
+    width: $size;
+    height: $size;
+  }
+}
+
+/* Semantic color helpers */
+.icon--muted {
+  fill: var(--bs-secondary, var(--bs-body-color, currentColor));
+}
+.icon--primary {
+  fill: var(--theme-primary, var(--bs-primary, currentColor));
+}
+.icon--success {
+  fill: var(--bs-success, currentColor);
+}
+.icon--warning {
+  fill: var(--bs-warning, currentColor);
+}
+.icon--danger {
+  fill: var(--bs-danger, currentColor);
+}
+.icon--info {
+  fill: var(--bs-info, currentColor);
+}
+
+.icon--start {
+  margin-inline-end: 0.35rem;
+}
+
+.icon--end {
+  margin-inline-start: 0.35rem;
+}
+
+.icon--stroke svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

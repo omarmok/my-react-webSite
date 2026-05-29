@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stepper | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .docs-sidebar {
+
+      align-self: start;
+      z-index: 2;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .section {
+      margin-top: 32px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .usage-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .usage-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .usage-card h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .usage-card ul {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 6px;
+    }
+
+    .sample-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .docs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .docs-table th,
+    .docs-table td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .docs-table th {
+      background: #f9fafb;
+      font-weight: 600;
+    }
+
+    .preview-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .steps-preview {
+      max-width: 640px;
+      border: 1px dashed #d1d5db;
+      border-radius: 12px;
+      padding: 16px;
+      background: #f9fafb;
+    }
+
+    .zoomable-image {
+      cursor: zoom-in;
+      transition: transform 0.12s ease;
+    }
+
+    .zoomable-image:hover {
+      transform: scale(1.01);
+    }
+
+    .img-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      z-index: 9999;
+    }
+
+    .img-lightbox[hidden] {
+      display: none;
+    }
+
+    .img-lightbox__inner {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background: #0b1220;
+      overflow: hidden;
+    }
+
+    .img-lightbox__close {
+      position: absolute;
+      top: 10px;
+      inset-inline-end: 10px;
+      border: none;
+      background: rgba(17, 24, 39, 0.85);
+      color: #fff;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .img-lightbox__img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #0b1220;
+    }
+
+    .tag-legend {
+      margin-top: 16px;
+    }
+
+    .legend-samples {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .legend-samples [data-copy] {
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+    }
+
+    .legend-samples [data-copy].is-copied::after {
+      content: attr(data-copied-label);
+      position: absolute;
+      inset: -8px auto auto 50%;
+      transform: translateX(-50%);
+      background: #111827;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-size: 12px;
+      white-space: nowrap;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.16);
+    }
+
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .sidebar-nav a.is-active {
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+    }
+
+    .lang-toggle {
+      margin-top: 12px;
+      width: 100%;
+      background: #fff;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #cbd5f5;
+      box-shadow: 0 14px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .lang-toggle svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar-card {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  </style>
+  <link href="./css/ds-site-nav.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="الرموز المرتبطة">Related tokens</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <a href="./stepper.html" class="is-active" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+        </nav>
+      </div>
+
+    </aside>
+
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><svg width="24"
+            height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.05469 1.25C9.42218 1.24998 10.5247 1.24968 11.3916 1.36621C12.2917 1.48723 13.0495 1.74672 13.6514 2.34863C14.2533 2.95055 14.5128 3.70829 14.6338 4.6084C14.7503 5.47534 14.75 6.57782 14.75 7.94531V9.25488C15.1235 9.25143 15.5218 9.24999 15.9453 9.25H16.0547C17.4222 9.24998 18.5247 9.24968 19.3916 9.36621C20.2917 9.48723 21.0495 9.74672 21.6514 10.3486C22.2533 10.9505 22.5128 11.7083 22.6338 12.6084C22.7503 13.4753 22.75 14.5778 22.75 15.9453V16.0547C22.75 17.4222 22.7503 18.5247 22.6338 19.3916C22.5128 20.2917 22.2533 21.0495 21.6514 21.6514C21.0495 22.2533 20.2917 22.5128 19.3916 22.6338C18.5247 22.7503 17.4222 22.75 16.0547 22.75H15.9453C14.5778 22.75 13.4753 22.7503 12.6084 22.6338C11.7083 22.5128 10.9505 22.2533 10.3486 21.6514C9.74672 21.0495 9.48723 20.2917 9.36621 19.3916C9.24968 18.5247 9.24998 17.4222 9.25 16.0547V15.9453C9.24999 15.5218 9.25143 15.1235 9.25488 14.75H7.94531C6.57782 14.75 5.47534 14.7503 4.6084 14.6338C3.70829 14.5128 2.95055 14.2533 2.34863 13.6514C1.74672 13.0495 1.48723 12.2917 1.36621 11.3916C1.24968 10.5247 1.24998 9.42218 1.25 8.05469V7.94531C1.24998 6.57782 1.24968 5.47534 1.36621 4.6084C1.48723 3.70829 1.74672 2.95055 2.34863 2.34863C2.95055 1.74672 3.70829 1.48723 4.6084 1.36621C5.47534 1.24968 6.57782 1.24998 7.94531 1.25H8.05469ZM16 10.75C14.5648 10.75 13.5639 10.752 12.8086 10.8535C12.0748 10.9522 11.6859 11.1324 11.4092 11.4092C11.1324 11.6859 10.9522 12.0748 10.8535 12.8086C10.752 13.5639 10.75 14.5648 10.75 16C10.75 17.4352 10.752 18.4361 10.8535 19.1914C10.9522 19.9252 11.1324 20.3141 11.4092 20.5908C11.6859 20.8676 12.0748 21.0478 12.8086 21.1465C13.5639 21.248 14.5648 21.25 16 21.25C17.4352 21.25 18.4361 21.248 19.1914 21.1465C19.9252 21.0478 20.3141 20.8676 20.5908 20.5908C20.8676 20.3141 21.0478 19.9252 21.1465 19.1914C21.248 18.4361 21.25 17.4352 21.25 16C21.25 14.5648 21.248 13.5639 21.1465 12.8086C21.0478 12.0748 20.8676 11.6859 20.5908 11.4092C20.3141 11.1324 19.9252 10.9522 19.1914 10.8535C18.4361 10.752 17.4352 10.75 16 10.75ZM4 15.75C4.41421 15.75 4.75 16.0858 4.75 16.5C4.75 17.2178 4.75071 17.7 4.78809 18.0674C4.82419 18.4221 4.88849 18.5859 4.96094 18.6943C5.05212 18.8308 5.16921 18.9479 5.30566 19.0391C5.4141 19.1115 5.57788 19.1758 5.93262 19.2119C6.30002 19.2493 6.78216 19.25 7.5 19.25C7.91421 19.25 8.25 19.5858 8.25 20C8.25 20.4142 7.91421 20.75 7.5 20.75H7.46191C6.79245 20.75 6.23354 20.7501 5.78125 20.7041C5.30783 20.6559 4.86862 20.5507 4.47266 20.2861C4.17238 20.0855 3.9145 19.8276 3.71387 19.5273C3.44934 19.1314 3.34406 18.6922 3.2959 18.2188C3.24991 17.7665 3.24998 17.2075 3.25 16.5381C3.25 16.5254 3.25 16.5127 3.25 16.5C3.25 16.0858 3.58579 15.75 4 15.75ZM16 12.25C16.3028 12.25 16.5759 12.4324 16.6924 12.7119L19.1924 18.7119C19.3514 19.0941 19.1711 19.533 18.7891 19.6924C18.4067 19.8517 17.9669 19.6704 17.8076 19.2881L17.167 17.75H14.834L14.1924 19.2881C14.0331 19.6704 13.5942 19.8516 13.2119 19.6924C12.8297 19.5331 12.6486 19.0942 12.8076 18.7119L15.3076 12.7119C15.424 12.4325 15.6973 12.2501 16 12.25Z"
+              fill="currentColor"></path>
+          </svg><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.9975 3.25C11.624 3.25 11.2774 3.41565 11.0172 3.57252C10.7364 3.7418 10.4464 3.96944 10.1638 4.21918C9.59669 4.72018 8.98771 5.37387 8.43684 6.00823C7.88274 6.64633 7.37253 7.28222 7.00175 7.75725C6.81606 7.99516 6.66462 8.19364 6.55931 8.33304C6.50664 8.40276 6.46547 8.45776 6.43727 8.49558L6.40489 8.53915L6.39633 8.55071L6.39337 8.55472C6.14771 8.88822 6.2186 9.35816 6.5521 9.60382C6.88559 9.84947 7.35507 9.77828 7.60074 9.44481L7.61015 9.43209L7.63992 9.39204C7.66632 9.35662 7.70557 9.3042 7.75618 9.2372C7.85743 9.10317 8.00402 8.91102 8.1842 8.68019C8.54517 8.21772 9.03806 7.60363 9.56942 6.99173C10.104 6.37611 10.6628 5.77981 11.1569 5.34331C11.1882 5.3157 11.2189 5.28899 11.249 5.26316L11.249 20C11.249 20.4142 11.5848 20.75 11.999 20.75C12.4132 20.75 12.749 20.4142 12.749 20L12.749 5.2657C12.7782 5.29073 12.808 5.31661 12.8382 5.34331C13.3323 5.77981 13.8911 6.37611 14.4257 6.99173C14.957 7.60363 15.4499 8.21772 15.8109 8.68019C15.9911 8.91102 16.1377 9.10317 16.2389 9.2372C16.2895 9.30419 16.3288 9.35662 16.3552 9.39204L16.3849 9.43209L16.3943 9.44481C16.64 9.77828 17.1095 9.84947 17.443 9.60382C17.7765 9.35816 17.8474 8.88822 17.6017 8.55472L17.5988 8.55071L17.5902 8.53915L17.5578 8.49558C17.5296 8.45776 17.4884 8.40276 17.4358 8.33304C17.3305 8.19363 17.179 7.99516 16.9933 7.75725C16.6226 7.28222 16.1123 6.64633 15.5582 6.00823C15.0074 5.37387 14.3984 4.72018 13.8313 4.21918C13.5486 3.96944 13.2587 3.7418 12.9779 3.57252C12.7192 3.4166 12.3753 3.25199 12.0043 3.25002"
+              fill="white"></path>
+          </svg><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span>
+        </button>
+      </div>
+
+
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="المكونات / شريط التقدم">Components / Stepper</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="شريط التقدم">Stepper</h1>
+
+        <p class="text-muted mb-4" data-i18n
+          data-ar="يقسّم المهام الطويلة إلى مراحل مرئية مرتبة. يوضّح هذا الدليل التوافق بين SCSS، المواصفات البصرية، وسلوك الاستخدام الموصى به.">
+          Breaks long, ordered workflows into visible stages. This doc aligns the live SCSS implementation, the visual
+          specification, and recommended behaviors.
+        </p>
+        <div class="sample-grid">
+          <div class="preview-card">
+            <strong data-i18n data-ar="أفقي (افتراضي)">Horizontal (default)</strong>
+            <div class="steps-preview mt-2">
+              <ul class="m-0 p-0 d-flex align-items-center gap-3" style="list-style:none;">
+                <li class="wizerd__item wizerd__item--Complated d-flex align-items-center gap-2">
+                  <div class="wizerdImage selectedWizerdImage">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M9.56433 15.8366C9.27438 15.4418 9.04454 15.1049 8.84254 14.8118L5.84556 10.3608C5.53956 9.91583 4.90055 9.79203 4.44255 10.088C3.98455 10.385 3.85654 11.0041 4.16154 11.4481L7.15956 15.899C8.05955 17.2088 9.81556 17.3751 10.9626 16.2627C10.5 16.3203 10 16.4299 9.56433 15.8366Z" />
+                      <path
+                        d="M18.9912 6C18.7362 6 18.4692 6.08319 18.2742 6.27182L9.56418 14.8992C9.30718 15.1488 9.08091 15.1624 8.87891 14.8693C8.87891 14.8693 9.27594 15.4409 9.56418 15.8366C10 16.4349 10.5 16.3202 10.9672 16.2602L19.7082 7.6628C20.0972 7.28458 20.0972 6.65004 19.7082 6.27182C19.5132 6.08319 19.2462 6 18.9912 6Z" />
+                    </svg>
+
+                  </div>
+                  <span>Basic info</span>
+                </li>
+                <li class="wizerd__item wizerd__item--Currant d-flex align-items-center gap-2">
+                  <div class="wizerdImage">2</div>
+                  <span>People</span>
+                </li>
+                <li class="wizerd__item d-flex align-items-center gap-2">
+                  <div class="wizerdImage">3</div>
+                  <span>Summary</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill" data-i18n data-ar="المكوّن: شريط التقدم" data-en="Component: Stepper">
+          المكوّن: شريط التقدم
+        </span>
+
+        <span class="metadata-pill" data-i18n data-ar="الإصدار: قيد التحديث" data-en="Version: TBD">
+          الإصدار: قيد التحديث
+        </span>
+
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 28 يناير 2026"
+          data-en="Last updated: January 28, 2026">
+          آخر تحديث: 28 يناير 2026
+        </span>
+      </div>
+
+
+      <section class="section" id="overview">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="الهدف / متى تستخدم">Purpose &amp; when to use</h2>
+          <p class="section-note" data-i18n
+            data-ar="الهيكل: غلاف <code class=&quot;code-inline&quot;>.steps</code> ← عنصر <code>li</code> ← <code class=&quot;code-inline&quot;>.wizerd__item</code> ← <code class=&quot;code-inline&quot;>.wizerdImage</code> + النص. إجراءات التذييل في <code class=&quot;code-inline&quot;>.steeper__footer</code>، وعرض التقدم في <code class=&quot;code-inline&quot;>.stepsNumber</code>.">
+            Structure: <code class="code-inline">.steps</code> wrapper → <code>li</code> → <code
+              class="code-inline">.wizerd__item</code> → <code class="code-inline">.wizerdImage</code> + label. Footer
+            actions live in <code class="code-inline">.steeper__footer</code> and <code
+              class="code-inline">.stepsNumber</code> shows “Step X of Y”.
+          </p>
+          <div class="usage-pills">
+            <div class="pill-card">
+              <h3 data-i18n data-ar="متى نستخدمه">When to use</h3>
+              <ul>
+                <li data-i18n data-ar="النماذج المتتابعة متعددة الخطوات (3–7 خطوات) حيث الترتيب أساسي.">Ordered,
+                  multi-step forms (3–7 steps) where sequence matters.</li>
+                <li data-i18n data-ar="العمليات التي تحتاج إلى وضوح الحالة والتقدم (حالي/مكتمل/قادِم).">Workflows
+                  needing progress context and state (current/completed/upcoming).</li>
+                <li data-i18n data-ar="التدفقات التي تتطلب حفظ/إغلاق في تذييل ثابت.">Flows that require Save/Exit in a
+                  fixed footer.</li>
+              </ul>
+            </div>
+            <div class="pill-card">
+              <h3 data-i18n data-ar="متى لا نستخدمه">When not to use</h3>
+              <ul>
+                <li data-i18n data-ar="المهام ذات الشاشة الواحدة أو التنقل غير الخطي—استخدم تبويبات أو أقسامًا داخلية.">
+                  Single-screen tasks or non-linear navigation—use tabs or inline sections.</li>
+                <li data-i18n data-ar="القوائم غير المرتبة—استبدلها بقائمة مع شارات حالة.">Unordered checklists—use a
+                  list with status chips instead.</li>
+                <li data-i18n data-ar="القوائم أو التنقل بين الصفحات—المكوّن مخصص للتقدم المرحلي.">Menus or page
+                  navigation—this component is for progressive disclosure.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="anatomy">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="التشريح">Anatomy</h2>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="شريط التقدم">Stepper</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="الغلاف <code class=&quot;code-inline&quot;>.steps</code>، حشوة 14بكسل، ظل خفيف، عرض كامل.">
+                  <code class="code-inline">.steps</code> wraps the list; padding 14px, shadow, full width.
+                </li>
+                <li data-i18n
+                  data-ar="كل عنصر <code>li</code> يضيف سهمًا رابطًا عبر <code>::after</code> ويختفي في العنصر الأخير.">
+                  Each <code>li</code> inserts an arrow connector via <code>::after</code>; removed on the last item.
+                </li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="عنصر خطوة">Step item</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="كبسولة <code class=&quot;code-inline&quot;>.wizerd__item</code> بحشوة 6×12بكسل، نصف قطر صغير، فراغ 8بكسل.">
+                  <code class="code-inline">.wizerd__item</code> pill; padding 6px x 12px; radius
+                  <code>$radius-sm</code>; gap 8px.
+                </li>
+                <li data-i18n
+                  data-ar="الألوان الأساسية: نص <code>$Neutral-600</code>، حد <code>$Neutral-200</code>، خلفية <code>$Neutral-25</code>.">
+                  Base colors: text <code>$Neutral-600</code>, border <code>$Neutral-200</code>, background
+                  <code>$Neutral-25</code>.
+                </li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="المؤشر">Indicator</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="دائرة 34×34 بكلاس <code class=&quot;code-inline&quot;>.wizerdImage</code> وحد متقطع ومحتوى بمحاذاة وسطية.">
+                  <code class="code-inline">.wizerdImage</code> 34x34 circle, dashed border, centered content.
+                </li>
+                <li data-i18n data-ar="يدعم رقمًا أو أيقونة؛ يضيف حشوة 2بكسل في الحالة المكتملة.">Can hold a number or
+                  icon; adds 2px padding in the completed state.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="نص التقدم">Progress text</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="<code class=&quot;code-inline&quot;>.stepsNumber</code> لمحاذاة نص &quot;الخطوة X من Y&quot; مع أيقونات السابق/التالي.">
+                  <code class="code-inline">.stepsNumber</code> aligns “Step X of Y” with previous/next icons.
+                </li>
+                <li data-i18n data-ar="الشارة داخلها بقطر 24بكسل وخلفية <code>$Gold-600</code>.">Badge inside uses 24px
+                  circle with <code>$Gold-600</code> background.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="التذييل">Footer</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="تذييل <code class=&quot;code-inline&quot;>.steeper__footer</code> بحد علوي <code>$Neutral-200</code> وحشوة 16/14بكسل.">
+                  <code class="code-inline">.steeper__footer</code> with top border <code>$Neutral-200</code>, padding
+                  16px/14px.
+                </li>
+                <li data-i18n data-ar="يجمع أزرار التنقل الأساسية والثانوية مع حفظ/إغلاق.">Groups primary/secondary
+                  navigation and Save/Close actions.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="section-divider"></div>
+          <div class="stepper-footer-doc">
+            <h3 class="section-title" style="margin-top: 32px;" data-i18n data-ar="تذييل الخطوات">Stepper Footer</h3>
+            <div class="usage-grid">
+              <div class="usage-card">
+                <h4 data-i18n data-ar="سياق التذييل">Footer context</h4>
+                <p data-i18n
+                  data-ar="يوجد التذييل داخل <code class=&quot;code-inline&quot;>.steeper__footer</code> (يُشار إليه أيضًا بـ <code class=&quot;code-inline&quot;>.stepper__footer</code> في المصطلحات التصميمية) ويربط عناصر التحكم في التقدم مع إجراءات البيانات المساعدة مثل الحفظ أو الإغلاق.">
+                  The footer lives inside <code class="code-inline">.steeper__footer</code> (also referred to as <code
+                    class="code-inline">.stepper__footer</code> in design terminology) and connects progression controls
+                  with auxiliary metadata actions like Save or Close.</p>
+              </div>
+              <div class="usage-card">
+                <h4 data-i18n data-ar="زر السابق">Previous button</h4>
+                <p data-i18n
+                  data-ar="زر محايد بإطار يُعرض أولًا في الـ DOM للحفاظ على ترتيب تركيز متوقع. يعيد المستخدم للخطوة السابقة ويُفعّل فقط عند وجود خطوة سابقة.">
+                  A neutral-outline control rendered first in the DOM so focus order stays predictable. It returns the
+                  user to the prior step and is enabled only when a previous step exists.</p>
+              </div>
+              <div class="usage-card">
+                <h4 data-i18n data-ar="زر التالي / إنهاء">Next / Finish button</h4>
+                <p data-i18n
+                  data-ar="الانتقال الرئيسي يتم عبر زر واحد: &quot;التالي&quot; يتقدم في المسار، وفي الخطوة الأخيرة يتحول نصه إلى &quot;إنهاء/تأكيد&quot; مع الحفاظ على نفس النمط والموضع لمنع تغيّر التذييل.">
+                  Primary progression lives in a single control: Next advances the workflow and, on the final step,
+                  flips its label to Finish/Confirm while retaining the same styling and placement, preventing footer
+                  shifts.</p>
+              </div>
+              <div class="usage-card">
+                <h4 data-i18n data-ar="الترتيب، RTL والحالة">Order, RTL &amp; state</h4>
+                <p data-i18n
+                  data-ar="يبقى ترتيب الـ DOM ثابتًا: السابق ← التالي/إنهاء ← الإجراءات المساندة عبر جميع اللغات. يضبط التخطيط المرن المحاذاة للاتجاه RTL باستخدام <code class=&quot;code-inline&quot;>justify-content-between</code> ويعكس الترتيب بصريًا دون تغيير الـ DOM، بينما ترتبط الحالات مباشرة بجاهزية الخطوة الحالية.">
+                  The DOM order remains Previous → Next/Finish → supportive actions across locales. The flex layout
+                  mirrors RTL alignment via <code class="code-inline">justify-content-between</code> and reverses visual
+                  order without altering the DOM, while action states link directly to the current step readiness.</p>
+              </div>
+            </div>
+
+            <h3 class="section-title" style="margin-top: 32px;" data-i18n data-ar="تشريح تذييل الخطوات">Stepper Footer
+              Anatomy</h3>
+            <div class="usage-grid">
+              <div class="usage-card">
+                <h4 data-i18n data-ar="حاوية التذييل">Footer container</h4>
+                <p data-i18n
+                  data-ar="<code class=&quot;code-inline&quot;>.steeper__footer</code> تمتد على العرض الكامل، تضيف حدًا علويًا بسماكة 1بكسل، وتضيف حشوة عمودية 16بكسل لتظهر كإطار ثابت لمجموعة الإجراءات.">
+                  <code class="code-inline">.steeper__footer</code> spans the full width, adds a 1px top border, and
+                  pads the content with 16px vertically so it reads as a stable shell for the action group.
+                </p>
+              </div>
+              <div class="usage-card">
+                <h4 data-i18n data-ar="تجميع الأزرار">Button grouping</h4>
+                <p data-i18n
+                  data-ar="أزرار التنقل في أول حاوية <code class=&quot;code-inline&quot;>.d-flex.gap-3</code> بينما تبقى الإجراءات المساندة (حفظ، إغلاق) في الثانية، ما يجعل كل مجموعة سهلة الاستهداف.">
+                  Navigation buttons sit in the first <code class="code-inline">.d-flex.gap-3</code> wrapper while
+                  supplementary actions (Save, Close) stay in the second, making each group easy to target.</p>
+              </div>
+              <div class="usage-card">
+                <h4 data-i18n data-ar="رئيسي مقابل ثانوي">Primary vs secondary</h4>
+                <p data-i18n
+                  data-ar="زر التالي/إنهاء يستخدم دائمًا <code class=&quot;code-inline&quot;>.moi-btn--Primary</code>؛ أزرار السابق، الحفظ، والإغلاق تبقى بمحاذاة محايدة بإطار لتوضيح دورها المساند.">
+                  Next/Finish always uses <code class="code-inline">.moi-btn--Primary</code>; Previous, Save, and Close
+                  stay with neutral-outline to communicate their supportive role.</p>
+              </div>
+              <div class="usage-card">
+                <h4 data-i18n data-ar="المحاذاة والتباعد">Alignment &amp; spacing</h4>
+                <p data-i18n
+                  data-ar="يستخدم صف الـ flex كلاس <code class=&quot;code-inline&quot;>gap-12</code> و <code class=&quot;code-inline&quot;>justify-content-between</code> لضمان تباعد ومحاذاة متسقة في الاتجاهين LTR وRTL دون تعديلات يدوية.">
+                  The flex row uses <code class="code-inline">gap-12</code> and <code
+                    class="code-inline">justify-content-between</code>, ensuring consistent spacing and alignment
+                  whether LTR or RTL without manual layout adjustments.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tag-legend">
+            <div class="legend-card">
+              <div class="legend-title" data-i18n data-ar="الفئات (جاهزة للنسخ)">Classes (copy-ready)</div>
+              <p class="legend-note" data-i18n
+                data-ar="ابدأ بـ <code class=&quot;code-inline&quot;>.wizerd__item</code> ثم أضف المعدّل المطلوب.">Apply
+                the base <code class="code-inline">.wizerd__item</code> first, then add a modifier when needed.</p>
+              <div class="legend-samples" style="gap:12px;">
+                <span class="wizerd__item" data-copy="wizerd__item" data-i18n data-ar="الأساسي: wizerd__item">Base:
+                  wizerd__item</span>
+                <span class="wizerd__item wizerd__item--Currant" data-copy="wizerd__item wizerd__item--Currant"
+                  data-i18n data-ar="الحالي: wizerd__item wizerd__item--Currant">Current: wizerd__item
+                  wizerd__item--Currant</span>
+                <span class="wizerd__item wizerd__item--Complated" data-copy="wizerd__item wizerd__item--Complated"
+                  data-i18n data-ar="المكتمل: wizerd__item wizerd__item--Complated">Completed: wizerd__item
+                  wizerd__item--Complated</span>
+              </div>
+              <p class="section-note copy-hint" data-i18n data-ar="انقر أي كبسولة لنسخ قائمة الفئات.">Click any pill to
+                copy its class list.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="visual-spec">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="المواصفة البصرية">Visual specification</h2>
+          <p class="section-note" data-i18n
+            data-ar="عرض كامل للتشريح، الحالات، تذييل الخطوات، والتباعد. استخدم متغيرات SCSS المطابقة لضمان التطابق.">
+            Complete anatomy, states, footer, and spacing reference. Use the SCSS tokens described above to match this
+            rendering.</p>
+          <div class="preview-card" style="padding:0;">
+            <img class="zoomable-image" src="../images/stepperSpecs.png"
+              alt="Stepper visual specification showing anatomy, states, footer and spacing"
+              style="width:100%; display:block; border-radius:12px 12px 0 0;">
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="states">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="الحالات والحالة">States &amp; status</h2>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="حالي">Current</h4>
+              <ul>
+                <li data-i18n data-ar="الفئة: <code class=&quot;code-inline&quot;>.wizerd__item--Currant</code>.">Class:
+                  <code class="code-inline">.wizerd__item--Currant</code>.
+                </li>
+                <li data-i18n
+                  data-ar="خلفية بنفسجية فاتحة (<code>$Lavender-50</code>)، حد متقطع (<code>$Lavender-200</code>)، مؤشر بحد <code>$Lavender-700</code>.">
+                  Lavender background (<code>$Lavender-50</code>), dashed border (<code>$Lavender-200</code>), indicator
+                  border <code>$Lavender-700</code>.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="مكتمل">Completed</h4>
+              <ul>
+                <li data-i18n data-ar="الفئة: <code class=&quot;code-inline&quot;>.wizerd__item--Complated</code>.">
+                  Class: <code class="code-inline">.wizerd__item--Complated</code>.</li>
+                <li data-i18n
+                  data-ar="خلفية أساسية (<code>$Primary-50</code>)، حد صلب (<code>$Primary-200</code>)، مؤشر ممتلئ <code>$Primary-500</code> بمحتوى أبيض.">
+                  Primary background (<code>$Primary-50</code>), solid border (<code>$Primary-200</code>), indicator
+                  filled <code>$Primary-500</code> with white content.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="قادمة">Upcoming</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="الفئة الأساسية <code class=&quot;code-inline&quot;>.wizerd__item</code> (ألوان حيادية).">Base
+                  <code class="code-inline">.wizerd__item</code> (neutral colors).
+                </li>
+                <li data-i18n data-ar="لا تجمع أكثر من معدّل حالة على نفس العنصر.">Do not combine multiple state
+                  modifiers on one item.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="edge-cases">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="حالات حافة">Edge cases</h2>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="عند خطوات طويلة أو عدد كبير من الخطوات، استخدم شريطًا أفقيًا قابلًا للتمرير أو أرقام مختصرة.">For
+              long sequences, offer a scrollable track or condensed step numbers.</li>
+            <li data-i18n data-ar="تأكد من أن الخطوات المعطلة لا تبلور مؤشرات التركيز أو الألوان دون سبب.">Disabled
+              steps should not show focus or accent colors.</li>
+            <li data-i18n
+              data-ar="في حالات RTL، احتفظ بنفس ترتيب النص والرقم مع الحفاظ على هوامش متسقة عبر <code>margin-inline</code>.">
+              Keep the order of number and label consistent in RTL by using inline margins.</li>
+            <li data-i18n data-ar="إذا كانت الخطوات مرتبطة بعمليات طويلة، أضف مؤشر تحميل أو حالة تقدم في نفس الشريط.">
+              When steps correspond to long-running tasks, provide a loading indicator or progress status.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="layout">
+        <div class="section-card">
+          <h2 class="section-title">Layout &amp; spacing</h2>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4>Horizontal (default)</h4>
+              <ul>
+                <li>Single-row layout; each <code>li</code> has 12px left margin and a 20px arrow connector.</li>
+                <li>Keep labels short to avoid wrapping inside 34px indicator and pill.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4>Spacing tokens</h4>
+              <ul>
+                <li>Wrapper padding 14px; item padding 6px x 12px; gap 8px.</li>
+                <li>Indicator 34px circle; badge in <code>.stepsNumber</code> 24px.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4>Footer alignment</h4>
+              <ul>
+                <li>Footer is a flex row with gap 12px; aligns nav buttons and Save/Close.</li>
+                <li>Use primary for Next, neutral-outline for Previous/Save/Close per hierarchy.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="radial-stepper">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="العداد الدائري">Radial stepper</h2>
+          <p class="section-note" data-i18n
+            data-ar="يُظهر العدّاد الدائري التقدم الحالي مقابل الإجمالي داخل حلقة 60×60 مع نص عمودي/RTL مضمّن.">
+            The radial stepper shows current versus total progress inside a 60×60 circular frame coupled with RTL
+            text.
+          </p>
+
+          <div class="preview-card">
+            <p class="section-note" data-i18n
+              data-ar="المكوّن يعكس الـ HTML الموجود في <code class=&quot;code-inline&quot;>radial-stepper.html</code>.">
+              This markup mirrors <code class="code-inline">radial-stepper.html</code>.
+            </p>
+            <div class="steps-preview" style="padding: 32px; border-radius: 16px;">
+              <div class="moi-radial-stepper" dir="rtl" style="--current:1; --total:4;">
+                <div class="moi-radial-stepper__content">
+                  <h3 class="moi-radial-stepper__title">الخطوة الأولى</h3>
+                  <p class="moi-radial-stepper__desc">
+                    وصف الخطوة التالية:
+                    <span class="moi-radial-stepper__step-name">اسم الخطوة</span>
+                  </p>
+                </div>
+
+                <div class="moi-radial-stepper__ring" aria-label="التقدم: 1 من 4">
+                  <svg class="moi-ring" viewBox="0 0 120 120" aria-hidden="true">
+                    <circle class="moi-ring__track" cx="60" cy="60" r="46"></circle>
+                    <circle class="moi-ring__progress" cx="60" cy="60" r="46"></circle>
+                  </svg>
+
+                  <div class="moi-ring__label" aria-hidden="true">
+                    <span class="moi-ring__num">1</span>
+                    <span class="moi-ring__word">من</span>
+                    <span class="moi-ring__num">4</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="code-block mt-3">
+              <pre><code class="language-html">&lt;div class=&quot;moi-radial-stepper&quot; dir=&quot;rtl&quot; style=&quot;--current:1; --total:4;&quot;&gt;
+  &lt;div class=&quot;moi-radial-stepper__content&quot;&gt;
+    &lt;h3 class=&quot;moi-radial-stepper__title&quot;&gt;الخطوة الأولى&lt;/h3&gt;
+    &lt;p class=&quot;moi-radial-stepper__desc&quot;&gt;
+      وصف الخطوة التالية:
+      &lt;span class=&quot;moi-radial-stepper__step-name&quot;&gt;اسم الخطوة&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;moi-radial-stepper__ring&quot; aria-label=&quot;التقدم: 1 من 4&quot;&gt;
+    &lt;svg class=&quot;moi-ring&quot; viewBox=&quot;0 0 120 120&quot; aria-hidden=&quot;true&quot;&gt;
+      &lt;circle class=&quot;moi-ring__track&quot; cx=&quot;60&quot; cy=&quot;60&quot; r=&quot;46&quot;&gt;&lt;/circle&gt;
+      &lt;circle class=&quot;moi-ring__progress&quot; cx=&quot;60&quot; cy=&quot;60&quot; r=&quot;46&quot;&gt;&lt;/circle&gt;
+    &lt;/svg&gt;
+
+    &lt;div class=&quot;moi-ring__label&quot; aria-hidden=&quot;true&quot;&gt;
+      &lt;span class=&quot;moi-ring__num&quot;&gt;1&lt;/span&gt;
+      &lt;span class=&quot;moi-ring__word&quot;&gt;من&lt;/span&gt;
+      &lt;span class=&quot;moi-ring__num&quot;&gt;4&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="usage-grid mt-4">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="التشريح">Anatomy</h4>
+              <ul>
+                <li data-i18n data-ar=".moi-radial-stepper: حاوية flex RTL تُضبط عبر <code>dir=&quot;rtl&quot;</code>.">
+                  .moi-radial-stepper is the RTL flex wrapper.</li>
+                <li data-i18n data-ar=".moi-radial-stepper__content: كتلة النص، تُوصَل بالترويسة والوصف.">
+                  .moi-radial-stepper__content houses the title + description.</li>
+                <li data-i18n data-ar=".moi-radial-stepper__title: عنوان الخطوة (bold).">.moi-radial-stepper__title is
+                  the bold step title.</li>
+                <li data-i18n data-ar=".moi-radial-stepper__desc و. __step-name: الوصف مع التأكيد في span واحد.">
+                  .moi-radial-stepper__desc contains flow text and the inline step name
+                  (<code>.moi-radial-stepper__step-name</code>). </li>
+                <li data-i18n data-ar=".moi-radial-stepper__ring: إطار 60×60 يحتضن الحلقة.">.moi-radial-stepper__ring
+                  holds the fixed 60×60 ring.</li>
+                <li data-i18n data-ar="svg.moi-ring: الرسم البياني للحلقة، يشمل المسار والتقدم.">svg.moi-ring draws the
+                  ring (track + progress).</li>
+                <li data-i18n data-ar=".moi-ring__track: المسار الرمادي الخلفي.">.moi-ring__track is the light gray
+                  background track.</li>
+                <li data-i18n
+                  data-ar=".moi-ring__progress: القوس الأخضر مع stroke-dasharray المتحكّم به عبر المتغيرات.">
+                  .moi-ring__progress is the green arc driven by CSS variables.</li>
+                <li data-i18n data-ar=".moi-ring__label: مركز حلقة يُظهِر الأرقام باستخدام .__num و.__word.">
+                  .moi-ring__label centers the numeric label; .moi-ring__num and .moi-ring__word style the typography.
+                </li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="الاستخدام">Usage</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="غيّر المتغيرات <code>--current</code> و<code>--total</code> في الأسلوب (أو عبر JavaScript) لتحديث القوس.">
+                  Change <code>--current</code> / <code>--total</code> (inline style or script) to drive the arc.</li>
+                <li data-i18n data-ar="استخدم أعداد صحيحة موجبة حيث <code>current ≤ total</code>.">Use positive integers
+                  with <code>current ≤ total</code>.</li>
+                <li data-i18n data-ar="أبقِ الألوان والخطوط قائمة على رموز SCSS (🔁 $Neutral و $Primary).">Keep
+                  colors/typography aligned to existing tokens (e.g., <code>$Neutral-200</code>,
+                  <code>$Primary-500</code>).
+                </li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="RTL وتوجيه القوس">RTL &amp; progress</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="الحاوية تستخدم <code>dir=&quot;rtl&quot;</code> لتوجيه النص لأعلى اليمين، لكن القوس لا ينعكس—هو مؤشر تقدم بصري مستقل.">
+                  Container uses <code>dir="rtl"</code>; the arc remains visual progress (no mirroring).</li>
+                <li data-i18n data-ar="المسافة بين النص والحلقة تُضبط عبر gap لإعادة الكرة.">Spacing (gap) keeps text
+                  vertically centered with the ring.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="إمكانية الوصول">Accessibility</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="استخدم <code>aria-label</code> في <code>.moi-radial-stepper__ring</code> لقراءة التقدم، مع تعليمات باللغة العربية.">
+                  The ring wrapper carries an Arabic <code>aria-label</code> describing progress.</li>
+                <li data-i18n
+                  data-ar="ضع <code>aria-hidden=&quot;true&quot;</code> على <code>svg</code> وعنصر التسمية لتفادي تكرار القراءة.">
+                  Mark the SVG and center label as <code>aria-hidden="true"</code> to suppress duplicate narration.</li>
+                <li data-i18n data-ar="احتفظ بترتيب العناصر كما هو ليتابع قارئ الشاشة النص أولاً ثم المؤشر.">Keep DOM
+                  order so screen readers read the text before the ring indicator.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="محتوى وتوجيه">Content guidance</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="Do: ضع اسم الخطوة داخل <code>.moi-radial-stepper__step-name</code> داخل الفقرة نفسها لإبرازها دون كسر التدفق.">
+                  Do: keep the step name inside <code>.moi-radial-stepper__step-name</code> within the same paragraph.
+                </li>
+                <li data-i18n data-ar="Don't: قسّم الجملة إلى عناصر كتلية متعددة لأن ذلك يكسر محاذاة النص RTL.">Don't:
+                  split the sentence into multiple block elements.</li>
+                <li data-i18n data-ar="Do: اعتمد رموز الألوان/الطباعة بدلًا من ألوان ثابتة في التوثيق.">Do: rely on
+                  shared color/typography tokens instead of hard-coded colors.</li>
+                <li data-i18n data-ar="Don't: تدرج ألوانًا جديدة في المثال التوثيقي—التزم بالقيم الموجودة في SCSS.">
+                  Don't: introduce new colors not defined in the SCSS tokens.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="usage-guidelines">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="افعل">Do</h4>
+              <ul>
+                <li data-i18n data-ar="اجعل عدد الخطوات بين 3–7 مع تسلسل منطقي.">Keep 3–7 steps; ensure logical
+                  sequencing.</li>
+                <li data-i18n data-ar="اعرض نص التقدم باستخدام <code>.stepsNumber</code> وأبرز الخطوة الحالية.">Show
+                  progress text with <code>.stepsNumber</code> and highlight the active step.</li>
+                <li data-i18n data-ar="تحقق من صحة البيانات في الخطوة الحالية ومنع التقدم حتى يتم التصحيح.">Validate on
+                  the current step and block forward navigation until resolved.</li>
+                <li data-i18n data-ar="قدّم زر الحفظ لاحقًا والإغلاق في التذييل عندما يسمح المسار بالتوقف.">Provide Save
+                  for later and Close in the footer when the flow allows pausing.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="لا تفعل">Don’t</h4>
+              <ul>
+                <li data-i18n data-ar="لا تعِد ترتيب الخطوات بعد بدء المستخدم.">Reorder steps after the user starts.
+                </li>
+                <li data-i18n data-ar="لا تخلط أكثر من فئة حالة على عنصر واحد.">Mix multiple state classes on one item.
+                </li>
+                <li data-i18n data-ar="لا تستخدم تسميات طويلة؛ اجعلها 1–3 كلمات لتجنب الالتفاف.">Use long labels; keep
+                  to 1–3 words to avoid wrapping.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="قاعدة السلوك وإمكانية الوصول">Accessibility &amp; Behavior Rule</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="بالنسبة لعنصر <code>&lt;button aria-label=&quot;السابق&quot;&gt;</code> يجب تعطيل زر السابق مع بقائه مرئيًا وعدم إزالته من الـ DOM أثناء وجود المستخدم في الخطوة الأولى.">
+                  For <code>&lt;button aria-label="السابق"&gt;</code> the Previous control must be disabled, kept
+                  visible, and never removed from the DOM while the user is on the first step.</li>
+                <li data-i18n
+                  data-ar="يظل الزر جزءًا من تسلسل التبويب حتى لا يقفز التركيز ويعرف مستخدمو لوحة المفاتيح بنية الستِبر قبل إتاحة التنقل.">
+                  The button remains part of the tab sequence so focus does not jump and keyboard users always know
+                  the stepper structure before navigation becomes available.</li>
+              </ul>
+              <p class="section-note" data-i18n data-ar="السبب:"><strong>Rationale:</strong></p>
+              <ul>
+                <li data-i18n data-ar="اتساق بصري—كل خطوة تعرض نفس تخطيط التذييل.">Visual consistency—every step renders
+                  the same footer layout.</li>
+                <li data-i18n data-ar="تنقل متوقع—يجد المستخدم زر السابق في الموضع نفسه دائمًا.">Predictable
+                  navigation—users always find the Previous control at the same spot.</li>
+                <li data-i18n data-ar="ثبات التنقل بلوحة المفاتيح—يبقى ترتيب التبويب ثابتًا عند بقاء الزر في مكانه.">
+                  Keyboard navigation stability—tab order is preserved when the button is left in place.</li>
+                <li data-i18n data-ar="استمرارية قارئ الشاشة—الأزرار المعطّلة لكنها موجودة ما تزال تعلن حالتها.">Screen
+                  reader continuity—disabled but present buttons still announce their state.</li>
+                <li data-i18n
+                  data-ar="التوافق مع معايير تجربة المستخدم الحكومية والمؤسساتية—يلبي متطلبات الوصول والتوثيق الصارمة.">
+                  Enterprise and Government UX compliance—meets stringent accessibility and documentation
+                  expectations.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="footer-do-dont">
+        <div class="section-card">
+          <h2 class="section-title">Do &amp; Don’t</h2>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4>✅ Do</h4>
+              <ul>
+                <li>Always display the Previous button.</li>
+                <li>Disable it only on the first step.</li>
+                <li>Use a clear Arabic aria-label (<code>aria-label="السابق"</code>).</li>
+                <li>Keep button placement consistent across all steps.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4>❌ Don’t</h4>
+              <ul>
+                <li>Do not hide the Previous button.</li>
+                <li>Do not change button order between steps.</li>
+                <li>Do not remove accessibility attributes when disabled.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="accessibility">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2>
+          <ul class="usage-card" style="list-style:none; padding-left:0;">
+            <li data-i18n
+              data-ar="استخدم <code>role=&quot;list&quot;</code> على عنصر <code>ul</code> و <code>role=&quot;listitem&quot;</code> على كل خطوة.">
+              Use <code>role="list"</code> on <code>ul</code> and <code>role="listitem"</code> on each step.</li>
+            <li data-i18n data-ar="ضع <code>aria-current=&quot;step&quot;</code> على <code>.wizerd__item</code> النشط.">
+              Set <code>aria-current="step"</code> on the active <code>.wizerd__item</code>.</li>
+            <li data-i18n
+              data-ar="ضمن إمكانية تركيز لوحة المفاتيح على كل الأزرار؛ أعلن عن تسميات الخطوات مع تغير الحالة.">Ensure
+              keyboard focus on all buttons; announce step labels as state changes.</li>
+            <li data-i18n data-ar="حافظ على أنماط التركيز المرئية والتباين حسب ألوان SCSS.">Maintain visible focus
+              styles and contrast per SCSS colors.</li>
+          </ul>
+          <div class="section-divider"></div>
+          <div class="usage-card">
+            <h3 class="section-title" data-i18n data-ar="ملاحظات إمكانية الوصول">Accessibility Notes</h3>
+            <ul>
+              <li data-i18n
+                data-ar="يجب أن يبقى <code>aria-label=&quot;السابق&quot;</code> على زر السابق حتى عند تعطيله ليواصل قارئ الشاشة وصفه.">
+                <code>aria-label="السابق"</code> must stay on the Previous button even when disabled so assistive
+                technology continues to describe the control.
+              </li>
+              <li data-i18n
+                data-ar="الإبقاء على الزر داخل الـ DOM يحافظ على استقرار التخطيط ويمنع القفزات البصرية عند تغير حالة الخطوة.">
+                Keeping the button in the DOM preserves layout stability and avoids visual jumps when the step state
+                changes.</li>
+              <li data-i18n
+                data-ar="الحفاظ على ترتيب التبويب الأصلي يبقي مستخدمي لوحة المفاتيح في تسلسل تركيز متوقع بين الخطوات.">
+                Preserving the original tab order keeps keyboard users in a predictable focus sequence from step to
+                step.</li>
+              <li data-i18n
+                data-ar="هذا الأسلوب يتماشى مع معايير الوصول في المؤسسات والجهات الحكومية التي تتطلب عناصر موثقة ومتسقة.">
+                This handling aligns with enterprise and government accessibility standards that demand consistent,
+                documented controls.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="developer-api">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="واجهة برمجة التطبيقات للمطورين">Developer API</h2>
+          <p class="section-note" data-i18n data-ar="يبين هذا القسم كيف يُبني عنصر العداد باستخدام الفئات الحالية.">
+            Shows how to build the stepper using the current classes.
+          </p>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;ul class=&quot;steps d-flex gap-lg&quot;&gt;
+  &lt;li class=&quot;wizerd__item wizerd__item--Currant d-flex align-items-center gap-2&quot; aria-current=&quot;step&quot;&gt;
+    &lt;div class=&quot;wizerdImage&quot;&gt;1&lt;/div&gt;
+    Step 1
+  &lt;/li&gt;
+  &lt;li class=&quot;wizerd__item d-flex align-items-center gap-2&quot;&gt;
+    &lt;div class=&quot;wizerdImage&quot;&gt;2&lt;/div&gt;
+    Step 2
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          </div>
+          <ul class="accessibility-list mt-3">
+            <li data-i18n
+              data-ar="كل عنصر يستخدم <code>.wizerd__item</code> و<span class=&quot;code-inline&quot;>aria-current</span> أو <code>aria-disabled</code>.">
+              Each item uses <code>.wizerd__item</code> with <code>aria-current="step"</code> or <code>aria-disabled</code>.
+            </li>
+            <li data-i18n
+              data-ar="العنصر النشط يحصل على المعدّل <code>.wizerd__item--Currant</code> وسمة <code>aria-current=&quot;step&quot;</code>.">
+              The active item gets the <code>.wizerd__item--Currant</code> modifier and <code>aria-current="step"</code>.</li>
+            <li data-i18n
+              data-ar="لا تُحذف الأزرار من الـ DOM، بل طبق <code>.is-disabled</code> للحفاظ على التسلسل والاتساق.">Do
+              not remove buttons; apply <code>.is-disabled</code> to maintain order.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="code">
+        <div class="section-card">
+          <h2 class="section-title">Code example</h2>
+          <p class="section-note">Matches the implemented classes in <code class="code-inline">_stepper.scss</code>.</p>
+          <div class="code-block">
+            <button class="btn moi-btn--Info mb-2" type="button" onclick="copyStepperCode(this)">Copy code</button>
+            <pre><code class="language-html" id="stepper-code">
+&lt;div class=&quot;d-flex justify-content-between align-items-center rounded radius-sm steps&quot;&gt;
+  &lt;ul role=&quot;tablist&quot; class=&quot;m-0&quot;&gt;
+    &lt;li role=&quot;tab&quot; aria-disabled=&quot;false&quot; aria-selected=&quot;true&quot; class=&quot;first current&quot; style=&quot;float: right;&quot;&gt;
+      &lt;div class=&quot;wizerd__item wizerd__item--Complated&quot;&gt;
+        &lt;div class=&quot;wizerdImage selectedWizerdImage&quot;&gt;
+          &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+            &lt;path d=&quot;M9.56433 15.8366C9.27438 15.4418 9.04454 15.1049 8.84254 14.8118L5.84556 10.3608C5.53956 9.91583 4.90055 9.79203 4.44255 10.088C3.98455 10.385 3.85654 11.0041 4.16154 11.4481L7.15956 15.899C8.05955 17.2088 9.81556 17.3751 10.9626 16.2627&quot; fill=&quot;#25935F&quot; /&gt;
+            &lt;path d=&quot;M18.9912 6C18.7362 6 18.4692 6.08319 18.2742 6.27182L9.56418 14.8992C9.30718 15.1488 9.08091 15.1624 8.87891 14.8693C9.27594 15.4409 9.56418 15.8366C10 16.4349 10.5 16.3202 10.9672 16.2602L19.7082 7.6628C20.0972 7.28458 20.0972 6.65004 19.7082 6.27182&quot; fill=&quot;#166A45&quot; /&gt;
+          &lt;/svg&gt;
+        &lt;/div&gt;
+        البيانات الأساسية
+      &lt;/div&gt;
+    &lt;/li&gt;
+
+    &lt;li role=&quot;tab&quot; aria-disabled=&quot;false&quot; aria-selected=&quot;true&quot; class=&quot;first current&quot; style=&quot;float: right;&quot;&gt;
+      &lt;div class=&quot;wizerd__item wizerd__item--Currant&quot;&gt;
+        &lt;div class=&quot;wizerdImage&quot;&gt;2&lt;/div&gt;
+        الأشخاص
+      &lt;/div&gt;
+    &lt;/li&gt;
+
+    &lt;li role=&quot;tab&quot; aria-disabled=&quot;false&quot; aria-selected=&quot;true&quot; class=&quot;first current&quot; style=&quot;float: right;&quot;&gt;
+      &lt;div class=&quot;wizerd__item&quot;&gt;
+        &lt;div class=&quot;wizerdImage&quot;&gt;5&lt;/div&gt;
+        الملخص
+      &lt;/div&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;div class=&quot;moi-radial-stepper&quot; dir=&quot;rtl&quot; style=&quot;--current:1; --total:4;&quot;&gt;
+    &lt;div class=&quot;moi-radial-stepper__content&quot;&gt;
+      &lt;h3 class=&quot;moi-radial-stepper__title&quot;&gt;الخطوة الأولى&lt;/h3&gt;
+      &lt;p class=&quot;moi-radial-stepper__desc&quot;&gt;
+        وصف الخطوة التالية:
+        &lt;span class=&quot;moi-radial-stepper__step-name&quot;&gt;اسم الخطوة&lt;/span&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;moi-radial-stepper__ring&quot; aria-label=&quot;التقدم: 1 من 4&quot;&gt;
+      &lt;svg class=&quot;moi-ring&quot; viewBox=&quot;0 0 120 120&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;circle class=&quot;moi-ring__track&quot; cx=&quot;60&quot; cy=&quot;60&quot; r=&quot;46&quot;&gt;&lt;/circle&gt;
+        &lt;circle class=&quot;moi-ring__progress&quot; cx=&quot;60&quot; cy=&quot;60&quot; r=&quot;46&quot;&gt;&lt;/circle&gt;
+      &lt;/svg&gt;
+
+      &lt;div class=&quot;moi-ring__label&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;span class=&quot;moi-ring__num&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;moi-ring__word&quot;&gt;من&lt;/span&gt;
+        &lt;span class=&quot;moi-ring__num&quot;&gt;4&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;w-100 p-3 d-flex align-items-center justify-content-between steeper__footer&quot;&gt;
+  &lt;div class=&quot;d-flex gap-4 steeper__footer--buttons&quot;&gt;
+    &lt;button class=&quot;btn moi-btn--Neutral--outline&quot; type=&quot;button&quot; aria-label=&quot;السابق&quot;&gt;
+      &lt;span class=&quot;icon icon-2xl&quot; data-icon=&quot;previous-arrow&quot;&gt;&lt;/span&gt;
+      &lt;span&gt;السابق&lt;/span&gt;
+    &lt;/button&gt;
+
+    &lt;button class=&quot;btn moi-btn moi-btn--Primary&quot; type=&quot;button&quot; aria-label=&quot;التالي&quot;&gt;
+      التالي
+      &lt;span class=&quot;icon icon-2xl&quot; data-icon=&quot;next-arrow&quot;&gt;&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;d-flex gap-4 steeper__footer--buttons&quot;&gt;
+    &lt;button class=&quot;btn moi-btn--Neutral--outline&quot; type=&quot;button&quot; aria-label=&quot;حفظ واستكمال لاحقًا&quot;&gt;
+      &lt;span class=&quot;icon icon-2xl&quot; data-icon=&quot;savelater&quot;&gt;&lt;/span&gt;
+      حفظ وإستكمال لاحقاً
+    &lt;/button&gt;
+
+    &lt;button class=&quot;btn moi-btn--Neutral--outline&quot; type=&quot;button&quot; aria-label=&quot;إغلاق&quot;&gt;
+      &lt;span class=&quot;icon icon-2xl&quot; data-icon=&quot;close&quot;&gt;&lt;/span&gt;
+      إغلاق
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+  <script>
+    function copyStepperCode(button) {
+      const code = document.getElementById('stepper-code');
+      if (!code) return;
+      const text = code.textContent;
+      const isArabic = document.documentElement.lang === 'ar';
+      navigator.clipboard.writeText(text).then(() => {
+        const original = button.textContent;
+        button.textContent = isArabic ? 'تم النسخ' : 'Copied';
+        setTimeout(() => {
+          button.textContent = original;
+        }, 1200);
+      });
+    }
+  </script>
+  <script>
+    (function () {
+      const pills = document.querySelectorAll('[data-copy]');
+      if (!pills.length) return;
+
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard
+            .writeText(text)
+            .then(() => true)
+            .catch(() => false);
+        }
+
+        return new Promise((resolve) => {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'absolute';
+          textarea.style.left = '-9999px';
+          document.body.appendChild(textarea);
+          textarea.select();
+          let ok = false;
+          try {
+            ok = document.execCommand('copy');
+          } catch (e) {
+            ok = false;
+          }
+          document.body.removeChild(textarea);
+          resolve(ok);
+        });
+      }
+
+      pills.forEach((pill) => {
+        pill.addEventListener('click', () => {
+          const text = pill.getAttribute('data-copy') || '';
+          const isArabic = document.documentElement.lang === 'ar';
+          copyText(text).then((ok) => {
+            pill.classList.add('is-copied');
+            pill.setAttribute('data-copied-label', ok ? (isArabic ? 'تم النسخ' : 'Copied') : (isArabic ? 'تعذر النسخ' : 'Copy failed'));
+            setTimeout(() => {
+              pill.classList.remove('is-copied');
+              pill.removeAttribute('data-copied-label');
+            }, 1200);
+          });
+        });
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      const lightbox = document.createElement('div');
+      lightbox.className = 'img-lightbox';
+      lightbox.setAttribute('hidden', '');
+      lightbox.innerHTML = `
+        <div class="img-lightbox__inner">
+          <button class="img-lightbox__close" aria-label="Close">×</button>
+          <img class="img-lightbox__img" alt="">
+        </div>
+      `;
+      document.body.appendChild(lightbox);
+
+      const modalImg = lightbox.querySelector('.img-lightbox__img');
+      const closeBtn = lightbox.querySelector('.img-lightbox__close');
+
+      function openLightbox(src, alt) {
+        modalImg.src = src;
+        modalImg.alt = alt || '';
+        lightbox.removeAttribute('hidden');
+      }
+
+      function closeLightbox() {
+        lightbox.setAttribute('hidden', '');
+        modalImg.src = '';
+        modalImg.alt = '';
+      }
+
+      document.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target instanceof HTMLElement && target.classList.contains('zoomable-image')) {
+          openLightbox(target.getAttribute('src'), target.getAttribute('alt'));
+        }
+      });
+
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+
+      closeBtn.addEventListener('click', closeLightbox);
+      modalImg.addEventListener('click', closeLightbox);
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeLightbox();
+      });
+    })();
+  </script>
+  <script src="./js/top-actions.js"></script>
+  <script src="./js/ds-site-nav.js"></script>
+  <script src="./js/watermark.js"></script>
+</body>
+
+</html>

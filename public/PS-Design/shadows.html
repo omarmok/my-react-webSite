@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="./css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="./css/animate.css" rel="stylesheet" />
+  <link href="./css/font-awesome.min.css" rel="stylesheet" />
+  <link href="./css/main.css" rel="stylesheet" />
+  <title>Shadow Tokens | PS-Design</title>
+  <style>
+:root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+        direction: ltr;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #fff;
+      border-radius: var(--card-radius);
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0;
+    }
+
+    .sample-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .usage-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .usage-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .usage-card h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .usage-card ul {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .docs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .docs-table th,
+    .docs-table td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      vertical-align: top;
+      text-align: left;
+          direction: ltr;
+    }
+
+    .docs-table th {
+      background: #f9fafb;
+      font-weight: 600;
+    }
+
+    .docs-table th svg,
+    .docs-table td svg {
+      width: 24px;
+      height: 24px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .swatch-group{
+      margin-bottom: 32px;
+    }
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+          direction: ltr;
+    }
+
+    .swatch {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .swatch-color {
+      height: 64px;
+    }
+
+    .swatch-label {
+      padding: 8px 10px;
+      font-size: 0.8rem;
+      color: #374151;
+      word-break: break-word;
+               direction: ltr;
+    }
+  
+    .copy-hint {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 0;
+    }
+
+    [data-copy] {
+      cursor: pointer;
+    }
+
+    .copy-tooltip {
+      position: fixed;
+      z-index: 1000;
+      background: #111827;
+      color: #f9fafb;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .copy-tooltip.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+.token-chip {
+      background: #eef2ff;
+      color: #1f2a37;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      border: 1px solid #e0e7ff;
+    }
+
+    .visual-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .visual-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .visual-card h3 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .spacing-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .spacing-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+
+    .spacing-bar {
+      height: 8px;
+      background: #1f2a37;
+      border-radius: 999px;
+      min-width: 2px;
+    }
+
+    .spacing-meta {
+      font-size: 0.85rem;
+      color: #374151;
+    }
+
+    .gap-sample {
+      display: inline-flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px dashed #d1d5db;
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+
+    .gap-dot {
+      width: 12px;
+      height: 12px;
+      background: #1f2a37;
+      border-radius: 4px;
+    }
+
+    .radius-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .radius-item {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .radius-sample {
+      width: 100%;
+      height: 46px;
+      background: #e5e7eb;
+      border: 1px solid #d1d5db;
+    }
+
+    .radius-meta {
+      font-size: 0.85rem;
+      color: #374151;
+    }
+
+    .shadow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .shadow-card {
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      padding: 18px;
+      display: grid;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .shadow-meta {
+      font-size: 0.85rem;
+      color: #374151;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .docs-sidebar {
+      position: sticky;
+      top: 24px;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .sidebar-nav a.is-active {
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+    }
+
+    .lang-toggle {
+      margin-top: 12px;
+      width: 100%;
+      background: #fff;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #cbd5f5;
+      box-shadow: 0 14px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .lang-toggle svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+  
+    .scroll-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 999;
+      border: none;
+      background: #111827;
+      color: #f9fafb;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .scroll-top.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .scroll-top:hover {
+      box-shadow: 0 16px 26px rgba(15, 23, 42, 0.22);
+    }
+  </style>
+</head>
+<body>
+  <main class="page-layout container">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="رموز مرتبطة">Related Tokens</div>
+        <nav class="sidebar-nav">
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+        </nav>
+        <button class="lang-toggle" type="button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.05469 1.25C9.42218 1.24998 10.5247 1.24968 11.3916 1.36621C12.2917 1.48723 13.0495 1.74672 13.6514 2.34863C14.2533 2.95055 14.5128 3.70829 14.6338 4.6084C14.7503 5.47534 14.75 6.57782 14.75 7.94531V9.25488C15.1235 9.25143 15.5218 9.24999 15.9453 9.25H16.0547C17.4222 9.24998 18.5247 9.24968 19.3916 9.36621C20.2917 9.48723 21.0495 9.74672 21.6514 10.3486C22.2533 10.9505 22.5128 11.7083 22.6338 12.6084C22.7503 13.4753 22.75 14.5778 22.75 15.9453V16.0547C22.75 17.4222 22.7503 18.5247 22.6338 19.3916C22.5128 20.2917 22.2533 21.0495 21.6514 21.6514C21.0495 22.2533 20.2917 22.5128 19.3916 22.6338C18.5247 22.7503 17.4222 22.75 16.0547 22.75H15.9453C14.5778 22.75 13.4753 22.7503 12.6084 22.6338C11.7083 22.5128 10.9505 22.2533 10.3486 21.6514C9.74672 21.0495 9.48723 20.2917 9.36621 19.3916C9.24968 18.5247 9.24998 17.4222 9.25 16.0547V15.9453C9.24999 15.5218 9.25143 15.1235 9.25488 14.75H7.94531C6.57782 14.75 5.47534 14.7503 4.6084 14.6338C3.70829 14.5128 2.95055 14.2533 2.34863 13.6514C1.74672 13.0495 1.48723 12.2917 1.36621 11.3916C1.24968 10.5247 1.24998 9.42218 1.25 8.05469V7.94531C1.24998 6.57782 1.24968 5.47534 1.36621 4.6084C1.48723 3.70829 1.74672 2.95055 2.34863 2.34863C2.95055 1.74672 3.70829 1.48723 4.6084 1.36621C5.47534 1.24968 6.57782 1.24998 7.94531 1.25H8.05469ZM16 10.75C14.5648 10.75 13.5639 10.752 12.8086 10.8535C12.0748 10.9522 11.6859 11.1324 11.4092 11.4092C11.1324 11.6859 10.9522 12.0748 10.8535 12.8086C10.752 13.5639 10.75 14.5648 10.75 16C10.75 17.4352 10.752 18.4361 10.8535 19.1914C10.9522 19.9252 11.1324 20.3141 11.4092 20.5908C11.6859 20.8676 12.0748 21.0478 12.8086 21.1465C13.5639 21.248 14.5648 21.25 16 21.25C17.4352 21.25 18.4361 21.248 19.1914 21.1465C19.9252 21.0478 20.3141 20.8676 20.5908 20.5908C20.8676 20.3141 21.0478 19.9252 21.1465 19.1914C21.248 18.4361 21.25 17.4352 21.25 16C21.25 14.5648 21.248 13.5639 21.1465 12.8086C21.0478 12.0748 20.8676 11.6859 20.5908 11.4092C20.3141 11.1324 19.9252 10.9522 19.1914 10.8535C18.4361 10.752 17.4352 10.75 16 10.75ZM4 15.75C4.41421 15.75 4.75 16.0858 4.75 16.5C4.75 17.2178 4.75071 17.7 4.78809 18.0674C4.82419 18.4221 4.88849 18.5859 4.96094 18.6943C5.05212 18.8308 5.16921 18.9479 5.30566 19.0391C5.4141 19.1115 5.57788 19.1758 5.93262 19.2119C6.30002 19.2493 6.78216 19.25 7.5 19.25C7.91421 19.25 8.25 19.5858 8.25 20C8.25 20.4142 7.91421 20.75 7.5 20.75H7.46191C6.79245 20.75 6.23354 20.7501 5.78125 20.7041C5.30783 20.6559 4.86862 20.5507 4.47266 20.2861C4.17238 20.0855 3.9145 19.8276 3.71387 19.5273C3.44934 19.1314 3.34406 18.6922 3.2959 18.2188C3.24991 17.7665 3.24998 17.2075 3.25 16.5381C3.25 16.5254 3.25 16.5127 3.25 16.5C3.25 16.0858 3.58579 15.75 4 15.75ZM16 12.25C16.3028 12.25 16.5759 12.4324 16.6924 12.7119L19.1924 18.7119C19.3514 19.0941 19.1711 19.533 18.7891 19.6924C18.4067 19.8517 17.9669 19.6704 17.8076 19.2881L17.167 17.75H14.834L14.1924 19.2881C14.0331 19.6704 13.5942 19.8516 13.2119 19.6924C12.8297 19.5331 12.6486 19.0942 12.8076 18.7119L15.3076 12.7119C15.424 12.4325 15.6973 12.2501 16 12.25ZM15.459 16.25H16.542L16 14.9502L15.459 16.25ZM8 2.75C6.56485 2.75 5.5639 2.75202 4.80859 2.85352C4.07482 2.95217 3.68594 3.13242 3.40918 3.40918C3.13242 3.68594 2.95217 4.07482 2.85352 4.80859C2.75202 5.5639 2.75 6.56485 2.75 8C2.75 9.43515 2.75202 10.4361 2.85352 11.1914C2.95217 11.9252 3.13242 12.3141 3.40918 12.5908C3.68594 12.8676 4.07482 13.0478 4.80859 13.1465C5.5639 13.248 6.56485 13.25 8 13.25H9.30273C9.31868 13.0232 9.33918 12.8095 9.36621 12.6084C9.48723 11.7083 9.74672 10.9505 10.3486 10.3486C10.9505 9.74672 11.7083 9.48723 12.6084 9.36621C12.8095 9.33918 13.0232 9.31868 13.25 9.30273V8C13.25 6.56485 13.248 5.5639 13.1465 4.80859C13.0478 4.07482 12.8676 3.68594 12.5908 3.40918C12.3141 3.13242 11.9252 2.95217 11.1914 2.85352C10.4361 2.75202 9.43515 2.75 8 2.75ZM7.7002 4.25C8.11432 4.25011 8.4502 4.58585 8.4502 5V5.07715H11C11.4141 5.07715 11.7498 5.41314 11.75 5.82715C11.75 6.24136 11.4142 6.57715 11 6.57715H10.0439C9.73269 7.41774 9.26916 8.20474 8.75195 8.91406L9.46191 9.65234C9.74905 9.95085 9.73989 10.4257 9.44141 10.7129C9.14288 11 8.66801 10.9909 8.38086 10.6924L7.79883 10.0869C7.3047 10.639 6.7998 11.1324 6.34375 11.5518C6.03885 11.8321 5.56357 11.8127 5.2832 11.5078C5.003 11.2029 5.02338 10.7286 5.32812 10.4482C5.79692 10.0172 6.30689 9.51494 6.79297 8.95996C6.70294 8.84285 6.61378 8.72262 6.5293 8.60547C6.32743 8.32553 6.11528 8.00827 6.00488 7.77148C5.82992 7.39608 5.99181 6.94942 6.36719 6.77441C6.74263 6.59943 7.18928 6.76226 7.36426 7.1377C7.40819 7.23194 7.54311 7.44604 7.74609 7.72754C7.74717 7.72904 7.74794 7.73092 7.74902 7.73242C8.00475 7.35616 8.23236 6.9696 8.41797 6.57715H5C4.58579 6.57715 4.25 6.24136 4.25 5.82715C4.25024 5.41314 4.58593 5.07715 5 5.07715H6.9502V5C6.9502 4.58579 7.28598 4.25 7.7002 4.25ZM16.5381 3.25C17.2076 3.24998 17.7665 3.24991 18.2188 3.2959C18.6922 3.34406 19.1314 3.44934 19.5273 3.71387C19.8276 3.9145 20.0855 4.17238 20.2861 4.47266C20.5507 4.86862 20.6559 5.30783 20.7041 5.78125C20.7501 6.23354 20.75 6.79245 20.75 7.46191C20.75 7.47457 20.75 7.48727 20.75 7.5C20.75 7.91421 20.4142 8.25 20 8.25C19.5858 8.25 19.25 7.91421 19.25 7.5C19.25 6.78216 19.2493 6.30002 19.2119 5.93262C19.1758 5.57788 19.1115 5.4141 19.0391 5.30566C18.9479 5.16921 18.8308 5.05212 18.6943 4.96094C18.5859 4.88849 18.4221 4.82419 18.0674 4.78809C17.7 4.75071 17.2178 4.75 16.5 4.75C16.0858 4.75 15.75 4.41421 15.75 4C15.75 3.58579 16.0858 3.25 16.5 3.25H16.5381Z" fill="currentColor"/>
+</svg>
+          <span>العربية</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="page-content">
+    <header class="page-header">
+      <div class="eyebrow" data-i18n data-ar="الرموز / الارتفاع">Tokens / Elevation</div>
+      <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="الظلال">Shadows</h1>
+      <p class="text-muted mb-4" data-i18n data-ar="تحدد رموز الظلال مستويات الارتفاع المستخدمة عبر البطاقات والقوائم والطبقات العائمة.">
+        Shadow tokens define elevation levels used across cards, menus, and overlays.
+      </p>
+      <div class="sample-grid">
+        <span class="token-chip">$shadow-xs</span>
+        <span class="token-chip">$shadow-md</span>
+        <span class="token-chip">$shadow-2xl</span>
+      </div>
+      </header>
+
+    <section class="section" id="overview">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2>
+        <p class="section-note" data-i18n data-ar="استخدم رموز الظلال للتعبير عن الارتفاع والتسلسل الهرمي. جميع القيم معرّفة في <span class=&quot;code-inline&quot;>_variables.scss</span>.">
+          Use shadow tokens to communicate elevation and hierarchy. All values are defined in <span class="code-inline">_variables.scss</span>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="anatomy">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2>
+        <table class="docs-table">
+          <thead><tr><th data-i18n data-ar="العنصر">Element</th><th data-i18n data-ar="الوصف">Description</th></tr></thead>
+          <tbody>
+            <tr><td data-i18n data-ar="اسم الرمز">Token name</td><td data-i18n data-ar="يحدد مستوى ظل محدد مثل <code>$shadow-md</code>.">Defines a specific shadow level such as <code>$shadow-md</code>.</td></tr>
+            <tr><td data-i18n data-ar="القيمة">Value</td><td data-i18n data-ar="طبقة أو أكثر من box-shadow.">One or more box-shadow layers.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="variants">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="الأنواع">Variants</h2>
+        <table class="docs-table">
+          <thead><tr><th data-i18n data-ar="المقياس">Scale</th><th data-i18n data-ar="الرموز">Tokens</th><th data-i18n data-ar="ملاحظات">Notes</th></tr></thead>
+          <tbody>
+            <tr><td data-i18n data-ar="الارتفاع">Elevation</td><td>$shadow-*</td><td data-i18n data-ar="استخدم قيمًا أعلى للأسطح المرتفعة.">Use higher values for elevated surfaces.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+ <section class="section mb-3" id="visual">
+      <div class="section-card bg-Info-100">
+
+        <div class="copy-hint ">
+        <span class="font-lg-600 Info-600" data-i18n data-ar="تلميح: انقر أي صندوق من عينات الظل لنسخ قائمة الفئات الخاصة به.">  Hint: click any Shadow samples
+box  variant to copy its class list.</span>
+          <span class=" copy-status" aria-live="polite"></span>
+        </div>
+   
+      </div>
+    </section>
+
+    <section class="section" id="visual">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="المرئيات">Visual</h2>
+        <p class="section-note" data-i18n data-ar="عينات الظلال لكل رمز ارتفاع.">Shadow samples for each elevation token.</p>
+
+
+        <div class="visual-grid">
+          <div class="visual-card">
+            <h3 class="fw-semibold" data-i18n data-ar="عينات الظل">Shadow samples</h3>
+            <div class="shadow-grid">
+<div class="shadow-card" role="button" tabindex="0" data-copy="$shadow-100" style="box-shadow: 0px 8px 30px rgba(181, 181, 181, 0.08);"><strong>$shadow-100</strong><div class="shadow-meta">0px 8px 30px rgba(181, 181, 181, 0.08)</div></div>
+<div class="shadow-card" role="button" tabindex="0" data-copy="$shadow-2" style="box-shadow: 0px 5px 35px 0px rgba(0, 27, 175, 0.05);"><strong>$shadow-2</strong><div class="shadow-meta">0px 5px 35px 0px rgba(0, 27, 175, 0.05)</div></div>
+<div class="shadow-card" role="button" tabindex="0" data-copy="$shadow-xs" style="box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);"><strong>$shadow-xs</strong><div class="shadow-meta">0px 1px 2px 0px rgba(16, 24, 40, 0.05)</div></div>
+<div class="shadow-card" role="button" tabindex="0" data-copy="$shadow-sm" style="box-shadow: 0px 1px 3px 0px rgba(16, 24, 40, 0.1), 0px 1px 2px 0px rgba(16, 24, 40, 0.06);"><strong>$shadow-sm</strong><div class="shadow-meta">0px 1px 3px 0px rgba(16, 24, 40, 0.1), 0px 1px 2px 0px rgba(16, 24, 40, 0.06)</div></div>
+<div class="shadow-card" role="button" tabindex="0" data-copy="$shadow-md" style="box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);"><strong>$shadow-md</strong><div class="shadow-meta">0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06)</div></div>
+<div class="shadow-card" role="button" tabindex="0" data-copy="$shadow-lg" style="box-shadow: 0px 12px 16px -6px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);"><strong>$shadow-lg</strong><div class="shadow-meta">0px 12px 16px -6px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03)</div></div>
+<div class="shadow-card" role="button" tabindex="0" data-copy="$shadow-xl" style="box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);"><strong>$shadow-xl</strong><div class="shadow-meta">0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03)</div></div>
+<div class="shadow-card" role="button" tabindex="0" data-copy="$shadow-2xl" style="box-shadow: 0px 24px 48px -12px rgba(16, 24, 40, 0.18);"><strong>$shadow-2xl</strong><div class="shadow-meta">0px 24px 48px -12px rgba(16, 24, 40, 0.18)</div></div>
+<div class="shadow-card" role="button" tabindex="0" data-copy="$shadow-3xl" style="box-shadow: 0px 32px 64px -12px rgba(16, 24, 40, 0.14);"><strong>$shadow-3xl</strong><div class="shadow-meta">0px 32px 64px -12px rgba(16, 24, 40, 0.14)</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="utility-classes">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="فئات المساعدة">Utility Classes</h2>
+        <p class="section-note" data-i18n data-ar="انقر أي عينة لنسخ اسم فئة المساعدة.">Click any sample to copy its utility class name.</p>
+        <div class="visual-grid">
+          <div class="visual-card">
+            <h3 class="fw-semibold" data-i18n data-ar="فئات الظل">Shadow utilities</h3>
+            <div class="shadow-grid">
+              <div class="shadow-card shadow-xs" role="button" tabindex="0" data-copy="shadow-xs"><strong>.shadow-xs</strong><div class="shadow-meta">$shadow-xs</div></div>
+              <div class="shadow-card shadow-sm" role="button" tabindex="0" data-copy="shadow-sm"><strong>.shadow-sm</strong><div class="shadow-meta">$shadow-sm</div></div>
+              <div class="shadow-card shadow-md" role="button" tabindex="0" data-copy="shadow-md"><strong>.shadow-md</strong><div class="shadow-meta">$shadow-md</div></div>
+              <div class="shadow-card shadow-lg" role="button" tabindex="0" data-copy="shadow-lg"><strong>.shadow-lg</strong><div class="shadow-meta">$shadow-lg</div></div>
+              <div class="shadow-card shadow-xl" role="button" tabindex="0" data-copy="shadow-xl"><strong>.shadow-xl</strong><div class="shadow-meta">$shadow-xl</div></div>
+              <div class="shadow-card shadow-2xl" role="button" tabindex="0" data-copy="shadow-2xl"><strong>.shadow-2xl</strong><div class="shadow-meta">$shadow-2xl</div></div>
+              <div class="shadow-card shadow-3xl" role="button" tabindex="0" data-copy="shadow-3xl"><strong>.shadow-3xl</strong><div class="shadow-meta">$shadow-3xl</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="accessibility">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2>
+        <ul class="accessibility-list">
+          <li data-i18n data-ar="استخدم إشارات الارتفاع للتعبير عن الأسطح التفاعلية.">Use elevation cues to communicate interactive surfaces.</li>
+          <li data-i18n data-ar="تأكد من بقاء تباين الظل واضحًا مقابل الخلفية.">Ensure shadow contrast remains visible against the background.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="usage">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="إرشادات الاستخدام">Usage Guidelines</h2>
+        <div class="usage-grid">
+          <div class="usage-card">
+            <h4 data-i18n data-ar="ارتفاع منخفض">Low elevation</h4>
+            <ul>
+              <li data-i18n data-ar="استخدم $shadow-xs أو $shadow-sm للبطاقات والأقسام.">Use $shadow-xs or $shadow-sm for cards and sections.</li>
+              <li data-i18n data-ar="احجز المستويات الأعلى للطبقات العلوية.">Reserve higher levels for overlays.</li>
+            </ul>
+          </div>
+          <div class="usage-card">
+            <h4 data-i18n data-ar="ارتفاع عالٍ">High elevation</h4>
+            <ul>
+              <li data-i18n data-ar="استخدم $shadow-xl وما فوق للنوافذ المنبثقة أو القوائم العائمة.">Use $shadow-xl and above for modals or floating menus.</li>
+              <li data-i18n data-ar="حافظ على اتساق مستويات الارتفاع داخل المسار.">Keep elevation consistent within a flow.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="do-dont">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="افعل ولا تفعل">Do and Do Not</h2>
+        <div class="usage-grid">
+          <div class="usage-card">
+            <h4 data-i18n data-ar="افعل">Do</h4>
+            <ul>
+              <li data-i18n data-ar="استخدم رموز الظلال لتعزيز التسلسل الهرمي.">Use shadow tokens to reinforce hierarchy.</li>
+              <li data-i18n data-ar="طابق مستويات الارتفاع مع أهمية التفاعل.">Match elevation levels to interaction importance.</li>
+            </ul>
+          </div>
+          <div class="usage-card">
+            <h4 data-i18n data-ar="لا تفعل">Do Not</h4>
+            <ul>
+              <li data-i18n data-ar="لا تكدس الظلال خارج المقياس المحدد.">Do not stack shadows outside the defined scale.</li>
+              <li data-i18n data-ar="لا تعتمد على الظلال وحدها لتوضيح التفاعل.">Do not rely on shadows alone for affordance.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="code-examples">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="أمثلة برمجية">Code Examples</h2>
+        <div class="code-block">
+          <pre><code class="language-scss">.card {
+  box-shadow: $shadow-sm;
+}
+
+.modal {
+  box-shadow: $shadow-xl;
+}
+</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tokens">
+      <div class="section-card">
+        <h2 class="section-title" data-i18n data-ar="جداول الرموز">Token Tables</h2>
+        <div class="copy-hint" data-i18n data-ar="تلميح: انقر أي اسم رمز لنسخه.">Hint: click any token name to copy it.</div>
+
+        <div class="section-divider"></div>
+        <h3 class="fw-semibold" data-i18n data-ar="الظلال">Shadows</h3>
+        <div class="table-responsive">
+          <table class="docs-table">
+            <thead><tr><th data-i18n data-ar="الرمز">Token</th><th data-i18n data-ar="القيمة">Value</th></tr></thead>
+            <tbody>
+              <tr><td data-copy="$shadow-100"><code>$shadow-100</code></td><td>0px 8px 30px rgba(181, 181, 181, 0.08)</td></tr>
+              <tr><td data-copy="$shadow-2"><code>$shadow-2</code></td><td>0px 5px 35px 0px rgba(0, 27, 175, 0.05)</td></tr>
+              <tr><td data-copy="$shadow-xs"><code>$shadow-xs</code></td><td>0px 1px 2px 0px rgba(16, 24, 40, 0.05)</td></tr>
+              <tr><td data-copy="$shadow-sm"><code>$shadow-sm</code></td><td>0px 1px 3px 0px rgba(16, 24, 40, 0.1), 0px 1px 2px 0px rgba(16, 24, 40, 0.06)</td></tr>
+              <tr><td data-copy="$shadow-md"><code>$shadow-md</code></td><td>0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06)</td></tr>
+              <tr><td data-copy="$shadow-lg"><code>$shadow-lg</code></td><td>0px 12px 16px -6px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03)</td></tr>
+              <tr><td data-copy="$shadow-xl"><code>$shadow-xl</code></td><td>0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03)</td></tr>
+              <tr><td data-copy="$shadow-2xl"><code>$shadow-2xl</code></td><td>0px 24px 48px -12px rgba(16, 24, 40, 0.18)</td></tr>
+              <tr><td data-copy="$shadow-3xl"><code>$shadow-3xl</code></td><td>0px 32px 64px -12px rgba(16, 24, 40, 0.14)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    </div>
+  </main>
+  <button class="scroll-top" type="button" aria-label="Scroll to top"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.9975 3.25C11.624 3.25 11.2774 3.41565 11.0172 3.57252C10.7364 3.7418 10.4464 3.96944 10.1638 4.21918C9.59669 4.72018 8.98771 5.37387 8.43684 6.00823C7.88274 6.64633 7.37253 7.28222 7.00175 7.75725C6.81606 7.99516 6.66462 8.19364 6.55931 8.33304C6.50664 8.40276 6.46547 8.45776 6.43727 8.49558L6.40489 8.53915L6.39633 8.55071L6.39337 8.55472C6.14771 8.88822 6.2186 9.35816 6.5521 9.60382C6.88559 9.84947 7.35507 9.77828 7.60074 9.44481L7.61015 9.43209L7.63992 9.39204C7.66632 9.35662 7.70557 9.3042 7.75618 9.2372C7.85743 9.10317 8.00402 8.91102 8.1842 8.68019C8.54517 8.21772 9.03806 7.60363 9.56942 6.99173C10.104 6.37611 10.6628 5.77981 11.1569 5.34331C11.1882 5.3157 11.2189 5.28899 11.249 5.26316L11.249 20C11.249 20.4142 11.5848 20.75 11.999 20.75C12.4132 20.75 12.749 20.4142 12.749 20L12.749 5.2657C12.7782 5.29073 12.808 5.31661 12.8382 5.34331C13.3323 5.77981 13.8911 6.37611 14.4257 6.99173C14.957 7.60363 15.4499 8.21772 15.8109 8.68019C15.9911 8.91102 16.1377 9.10317 16.2389 9.2372C16.2895 9.30419 16.3288 9.35662 16.3552 9.39204L16.3849 9.43209L16.3943 9.44481C16.64 9.77828 17.1095 9.84947 17.443 9.60382C17.7765 9.35816 17.8474 8.88822 17.6017 8.55472L17.5988 8.55071L17.5902 8.53915L17.5578 8.49558C17.5296 8.45776 17.4884 8.40276 17.4358 8.33304C17.3305 8.19363 17.179 7.99516 16.9933 7.75725C16.6226 7.28222 16.1123 6.64633 15.5582 6.00823C15.0074 5.37387 14.3984 4.72018 13.8313 4.21918C13.5486 3.96944 13.2587 3.7418 12.9779 3.57252C12.7192 3.4166 12.3753 3.25199 12.0043 3.25002" fill="white"/></svg><span data-i18n data-ar="أعلى">Top</span></button>
+
+<script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const tableCells = document.querySelectorAll('.docs-table th, .docs-table td');
+      if (tableCells.length) {
+        const iconMarkup = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z" fill="white"/></svg>`;
+        tableCells.forEach((cell) => {
+          cell.insertAdjacentHTML('beforeend', iconMarkup);
+        });
+      }
+
+      const targets = document.querySelectorAll('[data-copy]');
+      if (!targets.length) {
+        return;
+      }
+
+      let tooltip = null;
+      let timer = null;
+
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard.writeText(text).then(
+            () => true,
+            () => false
+          );
+        }
+
+        return new Promise((resolve) => {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'absolute';
+          textarea.style.left = '-9999px';
+          document.body.appendChild(textarea);
+          textarea.select();
+          let ok = false;
+          try {
+            ok = document.execCommand('copy');
+          } catch (error) {
+            ok = false;
+          }
+          document.body.removeChild(textarea);
+          resolve(ok);
+        });
+      }
+
+      function showTooltip(target, message) {
+        if (!tooltip) {
+          tooltip = document.createElement('div');
+          tooltip.className = 'copy-tooltip';
+          document.body.appendChild(tooltip);
+        }
+
+        tooltip.textContent = message;
+        const rect = target.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const top = Math.max(8, rect.top - tooltipRect.height - 10);
+        const left = Math.min(
+          window.innerWidth - tooltipRect.width - 8,
+          Math.max(8, rect.left + rect.width / 2 - tooltipRect.width / 2)
+        );
+        tooltip.style.top = `${top}px`;
+        tooltip.style.left = `${left}px`;
+
+        tooltip.classList.add('is-visible');
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          tooltip.classList.remove('is-visible');
+        }, 1600);
+      }
+
+      document.addEventListener('click', (event) => {
+        const target = event.target.closest('[data-copy]');
+        if (!target) {
+          return;
+        }
+
+        const text = target.getAttribute('data-copy');
+        copyText(text).then((ok) => {
+          const isArabic = document.documentElement.lang === 'ar';
+          const message = ok
+            ? isArabic
+              ? `تم النسخ: ${text}`
+              : `Copied: ${text}`
+            : isArabic
+              ? 'فشل النسخ'
+              : 'Copy failed';
+          showTooltip(target, message);
+        });
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      const toggle = document.querySelector('.lang-toggle');
+      const iconMarkup = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.05469 1.25C9.42218 1.24998 10.5247 1.24968 11.3916 1.36621C12.2917 1.48723 13.0495 1.74672 13.6514 2.34863C14.2533 2.95055 14.5128 3.70829 14.6338 4.6084C14.7503 5.47534 14.75 6.57782 14.75 7.94531V9.25488C15.1235 9.25143 15.5218 9.24999 15.9453 9.25H16.0547C17.4222 9.24998 18.5247 9.24968 19.3916 9.36621C20.2917 9.48723 21.0495 9.74672 21.6514 10.3486C22.2533 10.9505 22.5128 11.7083 22.6338 12.6084C22.7503 13.4753 22.75 14.5778 22.75 15.9453V16.0547C22.75 17.4222 22.7503 18.5247 22.6338 19.3916C22.5128 20.2917 22.2533 21.0495 21.6514 21.6514C21.0495 22.2533 20.2917 22.5128 19.3916 22.6338C18.5247 22.7503 17.4222 22.75 16.0547 22.75H15.9453C14.5778 22.75 13.4753 22.7503 12.6084 22.6338C11.7083 22.5128 10.9505 22.2533 10.3486 21.6514C9.74672 21.0495 9.48723 20.2917 9.36621 19.3916C9.24968 18.5247 9.24998 17.4222 9.25 16.0547V15.9453C9.24999 15.5218 9.25143 15.1235 9.25488 14.75H7.94531C6.57782 14.75 5.47534 14.7503 4.6084 14.6338C3.70829 14.5128 2.95055 14.2533 2.34863 13.6514C1.74672 13.0495 1.48723 12.2917 1.36621 11.3916C1.24968 10.5247 1.24998 9.42218 1.25 8.05469V7.94531C1.24998 6.57782 1.24968 5.47534 1.36621 4.6084C1.48723 3.70829 1.74672 2.95055 2.34863 2.34863C2.95055 1.74672 3.70829 1.48723 4.6084 1.36621C5.47534 1.24968 6.57782 1.24998 7.94531 1.25H8.05469ZM16 10.75C14.5648 10.75 13.5639 10.752 12.8086 10.8535C12.0748 10.9522 11.6859 11.1324 11.4092 11.4092C11.1324 11.6859 10.9522 12.0748 10.8535 12.8086C10.752 13.5639 10.75 14.5648 10.75 16C10.75 17.4352 10.752 18.4361 10.8535 19.1914C10.9522 19.9252 11.1324 20.3141 11.4092 20.5908C11.6859 20.8676 12.0748 21.0478 12.8086 21.1465C13.5639 21.248 14.5648 21.25 16 21.25C17.4352 21.25 18.4361 21.248 19.1914 21.1465C19.9252 21.0478 20.3141 20.8676 20.5908 20.5908C20.8676 20.3141 21.0478 19.9252 21.1465 19.1914C21.248 18.4361 21.25 17.4352 21.25 16C21.25 14.5648 21.248 13.5639 21.1465 12.8086C21.0478 12.0748 20.8676 11.6859 20.5908 11.4092C20.3141 11.1324 19.9252 10.9522 19.1914 10.8535C18.4361 10.752 17.4352 10.75 16 10.75ZM4 15.75C4.41421 15.75 4.75 16.0858 4.75 16.5C4.75 17.2178 4.75071 17.7 4.78809 18.0674C4.82419 18.4221 4.88849 18.5859 4.96094 18.6943C5.05212 18.8308 5.16921 18.9479 5.30566 19.0391C5.4141 19.1115 5.57788 19.1758 5.93262 19.2119C6.30002 19.2493 6.78216 19.25 7.5 19.25C7.91421 19.25 8.25 19.5858 8.25 20C8.25 20.4142 7.91421 20.75 7.5 20.75H7.46191C6.79245 20.75 6.23354 20.7501 5.78125 20.7041C5.30783 20.6559 4.86862 20.5507 4.47266 20.2861C4.17238 20.0855 3.9145 19.8276 3.71387 19.5273C3.44934 19.1314 3.34406 18.6922 3.2959 18.2188C3.24991 17.7665 3.24998 17.2075 3.25 16.5381C3.25 16.5254 3.25 16.5127 3.25 16.5C3.25 16.0858 3.58579 15.75 4 15.75ZM16 12.25C16.3028 12.25 16.5759 12.4324 16.6924 12.7119L19.1924 18.7119C19.3514 19.0941 19.1711 19.533 18.7891 19.6924C18.4067 19.8517 17.9669 19.6704 17.8076 19.2881L17.167 17.75H14.834L14.1924 19.2881C14.0331 19.6704 13.5942 19.8516 13.2119 19.6924C12.8297 19.5331 12.6486 19.0942 12.8076 18.7119L15.3076 12.7119C15.424 12.4325 15.6973 12.2501 16 12.25ZM15.459 16.25H16.542L16 14.9502L15.459 16.25ZM8 2.75C6.56485 2.75 5.5639 2.75202 4.80859 2.85352C4.07482 2.95217 3.68594 3.13242 3.40918 3.40918C3.13242 3.68594 2.95217 4.07482 2.85352 4.80859C2.75202 5.5639 2.75 6.56485 2.75 8C2.75 9.43515 2.75202 10.4361 2.85352 11.1914C2.95217 11.9252 3.13242 12.3141 3.40918 12.5908C3.68594 12.8676 4.07482 13.0478 4.80859 13.1465C5.5639 13.248 6.56485 13.25 8 13.25H9.30273C9.31868 13.0232 9.33918 12.8095 9.36621 12.6084C9.48723 11.7083 9.74672 10.9505 10.3486 10.3486C10.9505 9.74672 11.7083 9.48723 12.6084 9.36621C12.8095 9.33918 13.0232 9.31868 13.25 9.30273V8C13.25 6.56485 13.248 5.5639 13.1465 4.80859C13.0478 4.07482 12.8676 3.68594 12.5908 3.40918C12.3141 3.13242 11.9252 2.95217 11.1914 2.85352C10.4361 2.75202 9.43515 2.75 8 2.75ZM7.7002 4.25C8.11432 4.25011 8.4502 4.58585 8.4502 5V5.07715H11C11.4141 5.07715 11.7498 5.41314 11.75 5.82715C11.75 6.24136 11.4142 6.57715 11 6.57715H10.0439C9.73269 7.41774 9.26916 8.20474 8.75195 8.91406L9.46191 9.65234C9.74905 9.95085 9.73989 10.4257 9.44141 10.7129C9.14288 11 8.66801 10.9909 8.38086 10.6924L7.79883 10.0869C7.3047 10.639 6.7998 11.1324 6.34375 11.5518C6.03885 11.8321 5.56357 11.8127 5.2832 11.5078C5.003 11.2029 5.02338 10.7286 5.32812 10.4482C5.79692 10.0172 6.30689 9.51494 6.79297 8.95996C6.70294 8.84285 6.61378 8.72262 6.5293 8.60547C6.32743 8.32553 6.11528 8.00827 6.00488 7.77148C5.82992 7.39608 5.99181 6.94942 6.36719 6.77441C6.74263 6.59943 7.18928 6.76226 7.36426 7.1377C7.40819 7.23194 7.54311 7.44604 7.74609 7.72754C7.74717 7.72904 7.74794 7.73092 7.74902 7.73242C8.00475 7.35616 8.23236 6.9696 8.41797 6.57715H5C4.58579 6.57715 4.25 6.24136 4.25 5.82715C4.25024 5.41314 4.58593 5.07715 5 5.07715H6.9502V5C6.9502 4.58579 7.28598 4.25 7.7002 4.25ZM16.5381 3.25C17.2076 3.24998 17.7665 3.24991 18.2188 3.2959C18.6922 3.34406 19.1314 3.44934 19.5273 3.71387C19.8276 3.9145 20.0855 4.17238 20.2861 4.47266C20.5507 4.86862 20.6559 5.30783 20.7041 5.78125C20.7501 6.23354 20.75 6.79245 20.75 7.46191C20.75 7.47457 20.75 7.48727 20.75 7.5C20.75 7.91421 20.4142 8.25 20 8.25C19.5858 8.25 19.25 7.91421 19.25 7.5C19.25 6.78216 19.2493 6.30002 19.2119 5.93262C19.1758 5.57788 19.1115 5.4141 19.0391 5.30566C18.9479 5.16921 18.8308 5.05212 18.6943 4.96094C18.5859 4.88849 18.4221 4.82419 18.0674 4.78809C17.7 4.75071 17.2178 4.75 16.5 4.75C16.0858 4.75 15.75 4.41421 15.75 4C15.75 3.58579 16.0858 3.25 16.5 3.25H16.5381Z" fill="currentColor"/></svg>`;
+      const elements = document.querySelectorAll('[data-i18n]');
+
+      function applyLanguage(lang) {
+        document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+        elements.forEach((element) => {
+          if (!element.dataset.en) {
+            element.dataset.en = element.innerHTML;
+          }
+          element.innerHTML = lang === 'ar' ? element.dataset.ar : element.dataset.en;
+        });
+
+        if (toggle) {
+          const label = lang === 'ar' ? 'English' : 'العربية';
+          toggle.innerHTML = `${iconMarkup}<span>${label}</span>`;
+        }
+      }
+
+      const saved = localStorage.getItem('ps-lang') || 'en';
+      applyLanguage(saved);
+
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const next = document.documentElement.lang === 'ar' ? 'en' : 'ar';
+          localStorage.setItem('ps-lang', next);
+          applyLanguage(next);
+        });
+      }
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const scrollButton = document.querySelector('.scroll-top');
+      if (!scrollButton) {
+        return;
+      }
+
+      const toggleVisibility = () => {
+        scrollButton.classList.toggle('is-visible', window.scrollY > 200);
+      };
+
+      toggleVisibility();
+      window.addEventListener('scroll', toggleVisibility, { passive: true });
+      scrollButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>

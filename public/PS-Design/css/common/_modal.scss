@@ -1,0 +1,144 @@
+@use '../helpers' as *;
+$modal-z-index: 99999 !default;
+$modal-close-size: 1rem !default;
+$modal-info-header-bg: $Info-50 !default;
+$modal-info-header-color: $Info-600 !default;
+$modal-danger-header-bg: $Error-500 !default;
+$modal-table-header-bg: $baige !default;
+$modal-close-icon-path: "../images/Close.svg" !default;
+$modal-close-icon-inline-path: "../images/Close.svg" !default;
+$modal-danger-close-icon-path: "../../images/icon-x-circle.svg" !default;
+
+%modal-close-button {
+    margin: 0;
+    width: $modal-close-size;
+    height: $modal-close-size;
+    padding: $padding-0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
+%modal-header-heading {
+
+   @include font-lg-500;
+    color: $white-100;
+    margin: 0;
+    padding: $padding-0;
+    border: 0;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.modal {
+    z-index: $modal-z-index;
+
+    .modal-content {
+        padding: $padding-14;
+        border: $Radius-none;
+        gap: $gap-14;
+
+        .modal-info-header {
+            border-radius: 0;
+            background: $modal-info-header-bg;
+
+            h5 {
+                color: $modal-info-header-color;
+            }
+
+            .btn-close {
+                @extend %modal-close-button;
+                background-image: url(#{$modal-close-icon-path}) !important;
+            }
+        }
+
+        .modal-danger-header {
+            background: $modal-danger-header-bg;
+            padding: $padding-10;
+
+            h5 {
+                color: $white-100;
+            }
+
+            .btn-close {
+                @extend %modal-close-button;
+                background-image: url(#{$modal-danger-close-icon-path});
+            }
+        }
+
+        .modal-header {
+            align-items: center;
+            background: $Neutral-100;
+            padding: $gap-16;
+            color: $Neutral-800;
+            border: none;
+
+            .modal-title,
+            h5 {
+                color: $Neutral-800;
+                @include font-xl-600;
+            }
+
+            svg {
+                fill: $Neutral-800;
+            }
+
+            .close {
+                @extend %modal-close-button;
+                color: $Neutral-800;
+                text-shadow: none;
+                opacity: 1;
+                background-image: url(#{$modal-close-icon-inline-path}) !important;
+            }
+
+            .btn-close {
+                @extend %modal-close-button;
+                background-image: url(#{$modal-close-icon-path}) !important;
+                width: 34px;
+                height: 34px;
+            }
+
+            &.green-100 {
+                background: $white-100 !important;
+            }
+        }
+
+        .modal-body {
+            .wanted-to {
+                display: flex;
+                flex-direction: column;
+                gap: $gap-6;
+                @include smallfont-reg-10;
+
+                span {
+                    @include meduimfont;
+                    color: $Neutral-950;
+                }
+            }
+
+
+            .form-check {
+                margin-bottom: 0;
+                border-bottom: 1px solid $Neutral-200;
+                padding: 10px 1.5rem 5px 5px;
+                display: flex;
+                gap: $gap-10;
+                align-items: center;
+            }
+        }
+    }
+
+    .modal-footer {
+        padding: $padding-12 $padding-0 $padding-0 $padding-0;
+    }
+}
+
+
+
+#IframeViewer{
+    z-index:9999999999999;
+}
+
+
+
+

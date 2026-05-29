@@ -1,0 +1,920 @@
+// ==================================================
+// Spacing Utilities
+// Padding & Margin – Unified File
+// ==================================================
+
+@use "./variables" as *;
+
+// ------------------
+// Padding (All)
+// ------------------
+.padding-none {
+  padding: $padding-none !important;
+}
+.padding-xxs {
+  padding: $padding-xxs !important;
+}
+.padding-xs {
+  padding: $padding-xs !important;
+}
+.padding-sm {
+  padding: $padding-sm !important;
+}
+.padding-md {
+  padding: $padding-md !important;
+}
+.padding-lg {
+  padding: $padding-lg !important;
+}
+.padding-xl {
+  padding: $padding-xl !important;
+}
+.padding-2xl {
+  padding: $padding-2xl !important;
+}
+.padding-3xl {
+  padding: $padding-3xl !important;
+}
+.padding-4xl {
+  padding: $padding-4xl !important;
+}
+.padding-5xl {
+  padding: $padding-5xl !important;
+}
+.padding-6xl {
+  padding: $padding-6xl !important;
+}
+.padding-7xl {
+  padding: $padding-7xl !important;
+}
+.padding-8xl {
+  padding: $padding-8xl !important;
+}
+.padding-9xl {
+  padding: $padding-9xl !important;
+}
+.padding-10xl {
+  padding: $padding-10xl !important;
+}
+.padding-11xl {
+  padding: $padding-11xl !important;
+}
+
+// ------------------
+// Padding X (Left + Right)
+// ------------------
+.padding-x-none {
+  padding-left: $padding-none !important;
+  padding-right: $padding-none !important;
+}
+.padding-x-xxs {
+  padding-left: $padding-xxs !important;
+  padding-right: $padding-xxs !important;
+}
+.padding-x-xs {
+  padding-left: $padding-xs !important;
+  padding-right: $padding-xs !important;
+}
+.padding-x-sm {
+  padding-left: $padding-sm !important;
+  padding-right: $padding-sm !important;
+}
+.padding-x-md {
+  padding-left: $padding-md !important;
+  padding-right: $padding-md !important;
+}
+.padding-x-lg {
+  padding-left: $padding-lg !important;
+  padding-right: $padding-lg !important;
+}
+.padding-x-xl {
+  padding-left: $padding-xl !important;
+  padding-right: $padding-xl !important;
+}
+.padding-x-2xl {
+  padding-left: $padding-2xl !important;
+  padding-right: $padding-2xl !important;
+}
+.padding-x-3xl {
+  padding-left: $padding-3xl !important;
+  padding-right: $padding-3xl !important;
+}
+.padding-x-4xl {
+  padding-left: $padding-4xl !important;
+  padding-right: $padding-4xl !important;
+}
+.padding-x-5xl {
+  padding-left: $padding-5xl !important;
+  padding-right: $padding-5xl !important;
+}
+.padding-x-6xl {
+  padding-left: $padding-6xl !important;
+  padding-right: $padding-6xl !important;
+}
+.padding-x-7xl {
+  padding-left: $padding-7xl !important;
+  padding-right: $padding-7xl !important;
+}
+.padding-x-8xl {
+  padding-left: $padding-8xl !important;
+  padding-right: $padding-8xl !important;
+}
+.padding-x-9xl {
+  padding-left: $padding-9xl !important;
+  padding-right: $padding-9xl !important;
+}
+.padding-x-10xl {
+  padding-left: $padding-10xl !important;
+  padding-right: $padding-10xl !important;
+}
+.padding-x-11xl {
+  padding-left: $padding-11xl !important;
+  padding-right: $padding-11xl !important;
+}
+// ------------------
+// Padding Y (Top + Bottom)
+// ------------------
+.padding-y-none {
+  padding-top: $padding-none !important;
+  padding-bottom: $padding-none !important;
+}
+.padding-y-xxs {
+  padding-top: $padding-xxs !important;
+  padding-bottom: $padding-xxs !important;
+}
+.padding-y-xs {
+  padding-top: $padding-xs !important;
+  padding-bottom: $padding-xs !important;
+}
+.padding-y-sm {
+  padding-top: $padding-sm !important;
+  padding-bottom: $padding-sm !important;
+}
+.padding-y-md {
+  padding-top: $padding-md !important;
+  padding-bottom: $padding-md !important;
+}
+.padding-y-lg {
+  padding-top: $padding-lg !important;
+  padding-bottom: $padding-lg !important;
+}
+.padding-y-xl {
+  padding-top: $padding-xl !important;
+  padding-bottom: $padding-xl !important;
+}
+.padding-y-2xl {
+  padding-top: $padding-2xl !important;
+  padding-bottom: $padding-2xl !important;
+}
+.padding-y-3xl {
+  padding-top: $padding-3xl !important;
+  padding-bottom: $padding-3xl !important;
+}
+.padding-y-4xl {
+  padding-top: $padding-4xl !important;
+  padding-bottom: $padding-4xl !important;
+}
+.padding-y-5xl {
+  padding-top: $padding-5xl !important;
+  padding-bottom: $padding-5xl !important;
+}
+.padding-y-6xl {
+  padding-top: $padding-6xl !important;
+  padding-bottom: $padding-6xl !important;
+}
+.padding-y-7xl {
+  padding-top: $padding-7xl !important;
+  padding-bottom: $padding-7xl !important;
+}
+.padding-y-8xl {
+  padding-top: $padding-8xl !important;
+  padding-bottom: $padding-8xl !important;
+}
+.padding-y-9xl {
+  padding-top: $padding-9xl !important;
+  padding-bottom: $padding-9xl !important;
+}
+.padding-y-10xl {
+  padding-top: $padding-10xl !important;
+  padding-bottom: $padding-10xl !important;
+}
+.padding-y-11xl {
+  padding-top: $padding-11xl !important;
+  padding-bottom: $padding-11xl !important;
+}
+
+// ------------------
+// Padding Individual Sides
+// ------------------
+.padding-top-none {
+  padding-top: $padding-none !important;
+}
+.padding-top-xxs {
+  padding-top: $padding-xxs !important;
+}
+.padding-top-xs {
+  padding-top: $padding-xs !important;
+}
+.padding-top-sm {
+  padding-top: $padding-sm !important;
+}
+.padding-top-md {
+  padding-top: $padding-md !important;
+}
+.padding-top-lg {
+  padding-top: $padding-lg !important;
+}
+.padding-top-xl {
+  padding-top: $padding-xl !important;
+}
+.padding-top-2xl {
+  padding-top: $padding-2xl !important;
+}
+.padding-top-3xl {
+  padding-top: $padding-3xl !important;
+}
+.padding-top-4xl {
+  padding-top: $padding-4xl !important;
+}
+.padding-top-5xl {
+  padding-top: $padding-5xl !important;
+}
+.padding-top-6xl {
+  padding-top: $padding-6xl !important;
+}
+.padding-top-7xl {
+  padding-top: $padding-7xl !important;
+}
+.padding-top-8xl {
+  padding-top: $padding-8xl !important;
+}
+.padding-top-9xl {
+  padding-top: $padding-9xl !important;
+}
+.padding-top-10xl {
+  padding-top: $padding-10xl !important;
+}
+.padding-top-11xl {
+  padding-top: $padding-11xl !important;
+}
+
+.padding-bottom-none {
+  padding-bottom: $padding-none !important;
+}
+.padding-bottom-xxs {
+  padding-bottom: $padding-xxs !important;
+}
+.padding-bottom-xs {
+  padding-bottom: $padding-xs !important;
+}
+.padding-bottom-sm {
+  padding-bottom: $padding-sm !important;
+}
+.padding-bottom-md {
+  padding-bottom: $padding-md !important;
+}
+.padding-bottom-lg {
+  padding-bottom: $padding-lg !important;
+}
+.padding-bottom-xl {
+  padding-bottom: $padding-xl !important;
+}
+.padding-bottom-2xl {
+  padding-bottom: $padding-2xl !important;
+}
+.padding-bottom-3xl {
+  padding-bottom: $padding-3xl !important;
+}
+.padding-bottom-4xl {
+  padding-bottom: $padding-4xl !important;
+}
+.padding-bottom-5xl {
+  padding-bottom: $padding-5xl !important;
+}
+.padding-bottom-6xl {
+  padding-bottom: $padding-6xl !important;
+}
+.padding-bottom-7xl {
+  padding-bottom: $padding-7xl !important;
+}
+.padding-bottom-8xl {
+  padding-bottom: $padding-8xl !important;
+}
+.padding-bottom-9xl {
+  padding-bottom: $padding-9xl !important;
+}
+.padding-bottom-10xl {
+  padding-bottom: $padding-10xl !important;
+}
+.padding-bottom-11xl {
+  padding-bottom: $padding-11xl !important;
+}
+
+.padding-left-none {
+  padding-left: $padding-none !important;
+}
+.padding-left-xxs {
+  padding-left: $padding-xxs !important;
+}
+.padding-left-xs {
+  padding-left: $padding-xs !important;
+}
+.padding-left-sm {
+  padding-left: $padding-sm !important;
+}
+.padding-left-md {
+  padding-left: $padding-md !important;
+}
+.padding-left-lg {
+  padding-left: $padding-lg !important;
+}
+.padding-left-xl {
+  padding-left: $padding-xl !important;
+}
+.padding-left-2xl {
+  padding-left: $padding-2xl !important;
+}
+.padding-left-3xl {
+  padding-left: $padding-3xl !important;
+}
+.padding-left-4xl {
+  padding-left: $padding-4xl !important;
+}
+.padding-left-5xl {
+  padding-left: $padding-5xl !important;
+}
+.padding-left-6xl {
+  padding-left: $padding-6xl !important;
+}
+.padding-left-7xl {
+  padding-left: $padding-7xl !important;
+}
+.padding-left-8xl {
+  padding-left: $padding-8xl !important;
+}
+.padding-left-9xl {
+  padding-left: $padding-9xl !important;
+}
+.padding-left-10xl {
+  padding-left: $padding-10xl !important;
+}
+.padding-left-11xl {
+  padding-left: $padding-11xl !important;
+}
+
+.padding-right-none {
+  padding-right: $padding-none !important;
+}
+.padding-right-xxs {
+  padding-right: $padding-xxs !important;
+}
+.padding-right-xs {
+  padding-right: $padding-xs !important;
+}
+.padding-right-sm {
+  padding-right: $padding-sm !important;
+}
+.padding-right-md {
+  padding-right: $padding-md !important;
+}
+.padding-right-lg {
+  padding-right: $padding-lg !important;
+}
+.padding-right-xl {
+  padding-right: $padding-xl !important;
+}
+.padding-right-2xl {
+  padding-right: $padding-2xl !important;
+}
+.padding-right-3xl {
+  padding-right: $padding-3xl !important;
+}
+.padding-right-4xl {
+  padding-right: $padding-4xl !important;
+}
+.padding-right-5xl {
+  padding-right: $padding-5xl !important;
+}
+.padding-right-6xl {
+  padding-right: $padding-6xl !important;
+}
+.padding-right-7xl {
+  padding-right: $padding-7xl !important;
+}
+.padding-right-8xl {
+  padding-right: $padding-8xl !important;
+}
+.padding-right-9xl {
+  padding-right: $padding-9xl !important;
+}
+.padding-right-10xl {
+  padding-right: $padding-10xl !important;
+}
+.padding-right-11xl {
+  padding-right: $padding-11xl !important;
+}
+
+// ==================================================
+// Gap Utilities
+// ==================================================
+
+.gap-none {
+  gap: $gap-none !important;
+}
+.gap-xxs {
+  gap: $gap-xxs !important;
+}
+.gap-xs {
+  gap: $gap-xs !important;
+}
+.gap-sm {
+  gap: $gap-sm !important;
+}
+.gap-md {
+  gap: $gap-md !important;
+}
+.gap-lg {
+  gap: $gap-lg !important;
+}
+.gap-xl {
+  gap: $gap-xl !important;
+}
+.gap-2xl {
+  gap: $gap-2xl !important;
+}
+.gap-3xl {
+  gap: $gap-3xl !important;
+}
+.gap-4xl {
+  gap: $gap-4xl !important;
+}
+.gap-5xl {
+  gap: $gap-5xl !important;
+}
+.gap-6xl {
+  gap: $gap-6xl !important;
+}
+.gap-7xl {
+  gap: $gap-7xl !important;
+}
+.gap-8xl {
+  gap: $gap-8xl !important;
+}
+.gap-9xl {
+  gap: $gap-9xl !important;
+}
+.gap-10xl {
+  gap: $gap-10xl !important;
+}
+.gap-11xl {
+  gap: $gap-11xl !important;
+}
+
+// Numeric gap aliases (for legacy usage)
+.gap-2 {
+  gap: $gap-2 !important;
+}
+.gap-4 {
+  gap: $gap-4 !important;
+}
+.gap-6 {
+  gap: $gap-6 !important;
+}
+.gap-8 {
+  gap: $gap-8 !important;
+}
+.gap-10 {
+  gap: $gap-10 !important;
+}
+.gap-12 {
+  gap: $gap-12 !important;
+}
+.gap-14 {
+  gap: $gap-14 !important;
+}
+.gap-16 {
+  gap: $gap-16 !important;
+}
+.gap-18 {
+  gap: $gap-18 !important;
+}
+.gap-20 {
+  gap: $gap-20 !important;
+}
+.gap-22 {
+  gap: $gap-22 !important;
+}
+.gap-24 {
+  gap: $gap-24 !important;
+}
+.gap-26 {
+  gap: $gap-26 !important;
+}
+.gap-28 {
+  gap: $gap-28 !important;
+}
+.gap-30 {
+  gap: $gap-30 !important;
+}
+
+// ==================================================
+// Margin Utilities
+// ==================================================
+
+.margin-none {
+  margin: $margin-none !important;
+}
+.margin-xxs {
+  margin: $margin-xxs !important;
+}
+.margin-xs {
+  margin: $margin-xs !important;
+}
+.margin-sm {
+  margin: $margin-sm !important;
+}
+.margin-md {
+  margin: $margin-md !important;
+}
+.margin-lg {
+  margin: $margin-lg !important;
+}
+.margin-xl {
+  margin: $margin-xl !important;
+}
+.margin-2xl {
+  margin: $margin-2xl !important;
+}
+.margin-3xl {
+  margin: $margin-3xl !important;
+}
+.margin-4xl {
+  margin: $margin-4xl !important;
+}
+.margin-5xl {
+  margin: $margin-5xl !important;
+}
+.margin-6xl {
+  margin: $margin-6xl !important;
+}
+.margin-7xl {
+  margin: $margin-7xl !important;
+}
+.margin-8xl {
+  margin: $margin-8xl !important;
+}
+.margin-9xl {
+  margin: $margin-9xl !important;
+}
+.margin-10xl {
+  margin: $margin-10xl !important;
+}
+.margin-11xl {
+  margin: $margin-11xl !important;
+}
+
+.margin-x-none {
+  margin-left: $margin-none !important;
+  margin-right: $margin-none !important;
+}
+.margin-x-xxs {
+  margin-left: $margin-xxs !important;
+  margin-right: $margin-xxs !important;
+}
+.margin-x-xs {
+  margin-left: $margin-xs !important;
+  margin-right: $margin-xs !important;
+}
+.margin-x-sm {
+  margin-left: $margin-sm !important;
+  margin-right: $margin-sm !important;
+}
+.margin-x-md {
+  margin-left: $margin-md !important;
+  margin-right: $margin-md !important;
+}
+.margin-x-lg {
+  margin-left: $margin-lg !important;
+  margin-right: $margin-lg !important;
+}
+.margin-x-xl {
+  margin-left: $margin-xl !important;
+  margin-right: $margin-xl !important;
+}
+.margin-x-2xl {
+  margin-left: $margin-2xl !important;
+  margin-right: $margin-2xl !important;
+}
+.margin-x-3xl {
+  margin-left: $margin-3xl !important;
+  margin-right: $margin-3xl !important;
+}
+.margin-x-4xl {
+  margin-left: $margin-4xl !important;
+  margin-right: $margin-4xl !important;
+}
+.margin-x-5xl {
+  margin-left: $margin-5xl !important;
+  margin-right: $margin-5xl !important;
+}
+.margin-x-6xl {
+  margin-left: $margin-6xl !important;
+  margin-right: $margin-6xl !important;
+}
+.margin-x-7xl {
+  margin-left: $margin-7xl !important;
+  margin-right: $margin-7xl !important;
+}
+.margin-x-8xl {
+  margin-left: $margin-8xl !important;
+  margin-right: $margin-8xl !important;
+}
+.margin-x-9xl {
+  margin-left: $margin-9xl !important;
+  margin-right: $margin-9xl !important;
+}
+.margin-x-10xl {
+  margin-left: $margin-10xl !important;
+  margin-right: $margin-10xl !important;
+}
+.margin-x-11xl {
+  margin-left: $margin-11xl !important;
+  margin-right: $margin-11xl !important;
+}
+
+.margin-y-none {
+  margin-top: $margin-none;
+  margin-bottom: $margin-none !important;
+}
+.margin-y-xxs {
+  margin-top: $margin-xxs !important;
+  margin-bottom: $margin-xxs !important;
+}
+.margin-y-xs {
+  margin-top: $margin-xs !important;
+  margin-bottom: $margin-xs !important;
+}
+.margin-y-sm {
+  margin-top: $margin-sm !important;
+  margin-bottom: $margin-sm !important;
+}
+.margin-y-md {
+  margin-top: $margin-md !important;
+  margin-bottom: $margin-md !important;
+}
+.margin-y-lg {
+  margin-top: $margin-lg !important;
+  margin-bottom: $margin-lg !important;
+}
+.margin-y-xl {
+  margin-top: $margin-xl !important;
+  margin-bottom: $margin-xl !important;
+}
+.margin-y-2xl {
+  margin-top: $margin-2xl !important;
+  margin-bottom: $margin-2xl !important;
+}
+.margin-y-3xl {
+  margin-top: $margin-3xl !important;
+  margin-bottom: $margin-3xl !important;
+}
+.margin-y-4xl {
+  margin-top: $margin-4xl !important;
+  margin-bottom: $margin-4xl !important;
+}
+.margin-y-5xl {
+  margin-top: $margin-5xl !important;
+  margin-bottom: $margin-5xl !important;
+}
+.margin-y-6xl {
+  margin-top: $margin-6xl !important;
+  margin-bottom: $margin-6xl !important;
+}
+.margin-y-7xl {
+  margin-top: $margin-7xl !important;
+  margin-bottom: $margin-7xl !important;
+}
+.margin-y-8xl {
+  margin-top: $margin-8xl !important;
+  margin-bottom: $margin-8xl !important;
+}
+.margin-y-9xl {
+  margin-top: $margin-9xl !important;
+  margin-bottom: $margin-9xl !important;
+}
+.margin-y-10xl {
+  margin-top: $margin-10xl !important;
+  margin-bottom: $margin-10xl !important;
+}
+.margin-y-11xl {
+  margin-top: $margin-11xl !important;
+  margin-bottom: $margin-11xl !important;
+}
+
+.margin-top-none {
+  margin-top: $margin-none !important;
+}
+.margin-top-xxs {
+  margin-top: $margin-xxs !important;
+}
+.margin-top-xs {
+  margin-top: $margin-xs !important;
+}
+.margin-top-sm {
+  margin-top: $margin-sm !important;
+}
+.margin-top-md {
+  margin-top: $margin-md !important;
+}
+.margin-top-lg {
+  margin-top: $margin-lg !important;
+}
+.margin-top-xl {
+  margin-top: $margin-xl !important;
+}
+.margin-top-2xl {
+  margin-top: $margin-2xl !important;
+}
+.margin-top-3xl {
+  margin-top: $margin-3xl !important;
+}
+.margin-top-4xl {
+  margin-top: $margin-4xl !important;
+}
+.margin-top-5xl {
+  margin-top: $margin-5xl !important;
+}
+.margin-top-6xl {
+  margin-top: $margin-6xl !important;
+}
+.margin-top-7xl {
+  margin-top: $margin-7xl !important;
+}
+.margin-top-8xl {
+  margin-top: $margin-8xl !important;
+}
+.margin-top-9xl {
+  margin-top: $margin-9xl !important;
+}
+.margin-top-10xl {
+  margin-top: $margin-10xl !important;
+}
+.margin-top-11xl {
+  margin-top: $margin-11xl !important;
+}
+
+.margin-bottom-none {
+  margin-bottom: $margin-none !important;
+}
+.margin-bottom-xxs {
+  margin-bottom: $margin-xxs !important;
+}
+.margin-bottom-xs {
+  margin-bottom: $margin-xs !important;
+}
+.margin-bottom-sm {
+  margin-bottom: $margin-sm !important;
+}
+.margin-bottom-md {
+  margin-bottom: $margin-md !important;
+}
+.margin-bottom-lg {
+  margin-bottom: $margin-lg !important;
+}
+.margin-bottom-xl {
+  margin-bottom: $margin-xl !important;
+}
+.margin-bottom-2xl {
+  margin-bottom: $margin-2xl !important;
+}
+.margin-bottom-3xl {
+  margin-bottom: $margin-3xl !important;
+}
+.margin-bottom-4xl {
+  margin-bottom: $margin-4xl !important;
+}
+.margin-bottom-5xl {
+  margin-bottom: $margin-5xl !important;
+}
+.margin-bottom-6xl {
+  margin-bottom: $margin-6xl !important;
+}
+.margin-bottom-7xl {
+  margin-bottom: $margin-7xl !important;
+}
+.margin-bottom-8xl {
+  margin-bottom: $margin-8xl !important;
+}
+.margin-bottom-9xl {
+  margin-bottom: $margin-9xl !important;
+}
+.margin-bottom-10xl {
+  margin-bottom: $margin-10xl !important;
+}
+.margin-bottom-11xl {
+  margin-bottom: $margin-11xl !important;
+}
+
+.margin-left-none {
+  margin-left: $margin-none !important;
+}
+.margin-left-xxs {
+  margin-left: $margin-xxs !important;
+}
+.margin-left-xs {
+  margin-left: $margin-xs !important;
+}
+.margin-left-sm {
+  margin-left: $margin-sm !important;
+}
+.margin-left-md {
+  margin-left: $margin-md !important;
+}
+.margin-left-lg {
+  margin-left: $margin-lg !important;
+}
+.margin-left-xl {
+  margin-left: $margin-xl !important;
+}
+.margin-left-2xl {
+  margin-left: $margin-2xl !important;
+}
+.margin-left-3xl {
+  margin-left: $margin-3xl !important;
+}
+.margin-left-4xl {
+  margin-left: $margin-4xl !important;
+}
+.margin-left-5xl {
+  margin-left: $margin-5xl !important;
+}
+.margin-left-6xl {
+  margin-left: $margin-6xl !important;
+}
+.margin-left-7xl {
+  margin-left: $margin-7xl !important;
+}
+.margin-left-8xl {
+  margin-left: $margin-8xl !important;
+}
+.margin-left-9xl {
+  margin-left: $margin-9xl !important;
+}
+.margin-left-10xl {
+  margin-left: $margin-10xl !important;
+}
+.margin-left-11xl {
+  margin-left: $margin-11xl !important;
+}
+
+.margin-right-none {
+  margin-right: $margin-none !important;
+}
+.margin-right-xxs {
+  margin-right: $margin-xxs !important;
+}
+.margin-right-xs {
+  margin-right: $margin-xs !important;
+}
+.margin-right-sm {
+  margin-right: $margin-sm !important;
+}
+.margin-right-md {
+  margin-right: $margin-md !important;
+}
+.margin-right-lg {
+  margin-right: $margin-lg !important;
+}
+.margin-right-xl {
+  margin-right: $margin-xl !important;
+}
+.margin-right-2xl {
+  margin-right: $margin-2xl !important;
+}
+.margin-right-3xl {
+  margin-right: $margin-3xl !important;
+}
+.margin-right-4xl {
+  margin-right: $margin-4xl !important;
+}
+.margin-right-5xl {
+  margin-right: $margin-5xl !important;
+}
+.margin-right-6xl {
+  margin-right: $margin-6xl !important;
+}
+.margin-right-7xl {
+  margin-right: $margin-7xl !important;
+}
+.margin-right-8xl {
+  margin-right: $margin-8xl !important;
+}
+.margin-right-9xl {
+  margin-right: $margin-9xl !important;
+}
+.margin-right-10xl {
+  margin-right: $margin-10xl !important;
+}
+.margin-right-11xl {
+  margin-right: $margin-11xl !important;
+}

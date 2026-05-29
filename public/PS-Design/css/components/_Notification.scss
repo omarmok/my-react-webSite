@@ -1,0 +1,267 @@
+@use "../_helpers" as *;
+
+@mixin moi-notification-btn-variant(
+  $color,
+  $background,
+  $border-color,
+  $hover-color,
+  $hover-background,
+  $hover-border-color,
+  $active-color,
+  $active-background,
+  $active-border-color,
+  $focus-color,
+  $active-opacity: 1
+) {
+  color: $color;
+  background-color: $background;
+  border: 1px solid $border-color;
+
+  &:hover:not(:disabled):not([aria-disabled="true"]) {
+    color: $hover-color;
+    background-color: $hover-background;
+    border-color: $hover-border-color;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $focus-color;
+    outline-offset: 2px;
+  }
+
+  &:active:not(:disabled):not([aria-disabled="true"]) {
+    color: $active-color;
+    background-color: $active-background;
+    border-color: $active-border-color;
+    opacity: $active-opacity;
+  }
+}
+
+.moi-notification {
+  --moi-notification-bg: #{$Neutral-50};
+  --moi-notification-color: #{$Neutral-700};
+  --moi-notification-icon-color: #{$Neutral-800};
+  --moi-notification-border-color: #{$Neutral-600};
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $padding-lg;
+  margin: 0;
+  padding: $padding-md;
+  color: var(--moi-notification-color);
+  background-color: var(--moi-notification-bg);
+  border: 0;
+  border-bottom: 3px solid var(--moi-notification-border-color);
+  border-radius: 0;
+
+  &[data-status="neutral"] {
+    --moi-notification-bg: #{$Neutral-50};
+    --moi-notification-color: #{$Neutral-700};
+    --moi-notification-icon-color: #{$Neutral-800};
+    --moi-notification-border-color: #{$Neutral-600};
+
+    .moi-notification__btn {
+      @include moi-notification-btn-variant(
+        $white-100,
+        $Neutral-900,
+        $Neutral-900,
+        $white-100,
+        $Neutral-500,
+        $Neutral-500,
+        $white-100,
+        $Neutral-900,
+        $Neutral-900,
+        $Neutral-900,
+        0.8
+      );
+    }
+  }
+
+  &[data-status="info"] {
+    --moi-notification-bg: #{$Info-50};
+    --moi-notification-color: #{$Info-700};
+    --moi-notification-icon-color: #{$Info-800};
+    --moi-notification-border-color: #{$Info-600};
+
+    .moi-notification__btn {
+      @include moi-notification-btn-variant(
+        $Info-25,
+        $Info-500,
+        $Info-500,
+        $Info-600,
+        $Info-100,
+        $Info-500,
+        $Info-25,
+        $Info-200,
+        $Info-500,
+        $Info-700
+      );
+    }
+  }
+
+  &[data-status="error"] {
+    --moi-notification-bg: #{$Error-50};
+    --moi-notification-color: #{$Error-700};
+    --moi-notification-icon-color: #{$Error-800};
+    --moi-notification-border-color: #{$Error-600};
+
+    .moi-notification__btn {
+      @include moi-notification-btn-variant(
+        $Error-25,
+        $Error-500,
+        $Error-600,
+        $Error-100,
+        $Error-600,
+        $Error-600,
+        $Error-25,
+        $Error-700,
+        $Error-700,
+        $Error-700
+      );
+    }
+  }
+
+  &[data-status="warning"] {
+    --moi-notification-bg: #{$Warning-50};
+    --moi-notification-color: #{$Warning-700};
+    --moi-notification-icon-color: #{$Warning-800};
+    --moi-notification-border-color: #{$Warning-600};
+
+    .moi-notification__btn {
+      @include moi-notification-btn-variant(
+        $Warning-25,
+        $Warning-500,
+        $Warning-600,
+        $Warning-100,
+        $Warning-600,
+        $Warning-600,
+        $Warning-25,
+        $Warning-700,
+        $Warning-700,
+        $Warning-700
+      );
+    }
+  }
+
+  &[data-status="success"] {
+    --moi-notification-bg: #{$Primary-50};
+    --moi-notification-color: #{$Primary-700};
+    --moi-notification-icon-color: #{$Primary-800};
+    --moi-notification-border-color: #{$Primary-600};
+
+    .moi-notification__btn {
+      @include moi-notification-btn-variant(
+        $Primary-25,
+        $Primary-500,
+        $Primary-500,
+        $Primary-600,
+        $Primary-100,
+        $Primary-500,
+        $Primary-25,
+        $Primary-200,
+        $Primary-500,
+        $Primary-700
+      );
+    }
+  }
+
+  &.alert {
+    margin-bottom: 0;
+    border: 0;
+    border-bottom: 3px solid var(--moi-notification-border-color);
+  }
+
+  &__content,
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $padding-lg;
+  }
+
+  &__content {
+    min-width: 0;
+  }
+
+  &__icon {
+    flex: 0 0 auto;
+    color: var(--moi-notification-icon-color);
+    fill: currentColor;
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: currentColor;
+    }
+  }
+
+  &__title {
+    @include font-lg-600;
+  }
+
+  &__message {
+    @include font-lg-400;
+    overflow-wrap: anywhere;
+  }
+
+  &__actions {
+    flex-shrink: 0;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $gap-2;
+    min-height: 2.75rem;
+    padding-inline: $padding-16;
+    border-radius: $Radius-4;
+    cursor: pointer;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: currentColor;
+    }
+  }
+
+  &__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    color: $Neutral-800;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+
+    svg {
+      width: 0.75rem;
+      height: 0.75rem;
+      fill: currentColor;
+    }
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__content,
+    &__actions {
+      width: 100%;
+    }
+
+    &__actions {
+      flex-wrap: wrap;
+    }
+  }
+}

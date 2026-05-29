@@ -1,0 +1,109 @@
+// =============================================================================
+// BREADCRUMB  —  PS-Design v2
+// =============================================================================
+// Extends Bootstrap .breadcrumb with project tokens.
+// Source of truth: project tokens ($Primary-*, $Neutral-*, etc.)
+// Bootstrap fills the structural gap; project overrides semantics.
+//
+// Usage:
+//   <nav aria-label="breadcrumb">
+//     <ol class="breadcrumb moi-breadcrumb">
+//       <li class="breadcrumb-item"><a href="#">الرئيسية</a></li>
+//       <li class="breadcrumb-item active" aria-current="page">الحالات</li>
+//     </ol>
+//   </nav>
+//
+// Variants:
+//   .moi-breadcrumb           → default (light bg, chevron separator)
+//   .moi-breadcrumb--compact  → smaller, tighter gap
+//   .moi-breadcrumb--pill     → pill-background wrapper
+// =============================================================================
+
+@use "../helpers" as *;
+
+// ── Separator token ──────────────────────────────────────────────────────────
+$breadcrumb-sep-color: $Neutral-400;
+$breadcrumb-active-color: $Neutral-700;
+$breadcrumb-link-color: $Primary-600;
+$breadcrumb-link-hover: $Primary-700;
+
+// ── Base ─────────────────────────────────────────────────────────────────────
+.moi-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background: none;
+  gap: $gap-xs;
+
+  // Override Bootstrap separator
+  --bs-breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239da4ae' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='15 18 9 12 15 6'%3E%3C/polyline%3E%3C/svg%3E");
+
+  .breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $breadcrumb-active-color;
+
+    // Link items
+    a {
+      color: $breadcrumb-link-color;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s ease;
+
+      &:hover {
+        color: $breadcrumb-link-hover;
+        text-decoration: underline;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $Primary-400;
+        outline-offset: 2px;
+        border-radius: $radius-xxs;
+      }
+    }
+
+    // Active (current page)
+    &.active {
+      color: $breadcrumb-active-color;
+      font-weight: 600;
+      pointer-events: none;
+    }
+
+    // Separator — RTL-aware (Bootstrap handles ::before, we restyle)
+    & + .breadcrumb-item::before {
+      color: $breadcrumb-sep-color;
+      font-size: 0.75rem;
+    }
+  }
+}
+
+// RTL: flip the chevron for RTL layouts
+[dir="rtl"] .moi-breadcrumb,
+.moi-breadcrumb[dir="rtl"] {
+  --bs-breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239da4ae' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+// ── Compact variant ───────────────────────────────────────────────────────────
+.moi-breadcrumb--compact {
+  @extend .moi-breadcrumb;
+  gap: $gap-xxs;
+
+  .breadcrumb-item {
+    font-size: 0.8125rem;
+  }
+}
+
+// ── Pill / surface variant ────────────────────────────────────────────────────
+.moi-breadcrumb-wrap {
+  display: inline-flex;
+  align-items: center;
+  background: $Neutral-50;
+  border: 1px solid $Neutral-200;
+  border-radius: $Radius-100;
+  padding: $padding-xs $padding-lg;
+}

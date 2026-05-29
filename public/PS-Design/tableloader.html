@@ -1,0 +1,207 @@
+<html lang="ar">
+<head>
+    <title>Table Loader</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/bootstrap-v5.css" rel="stylesheet">
+    <link href="./css/slick.css" rel="stylesheet">
+    <link href="./css/slick-theme.css" rel="stylesheet">
+    <link href="./css/animate.css" rel="stylesheet">
+    <link href="./css/font-awesome.min.css" rel="stylesheet">
+    <link href="./css/hover-min.css" rel="stylesheet">
+    <link href="./css/main.css" rel="stylesheet">
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/slick.min.js"></script>
+    <script src="./js/jquery.steps.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="tablecontainer">
+                    <div class="tableSeetings">
+                        <h3>
+                            عدد الطلبات
+                            <span>24572</span>
+                        </h3>
+                        <div class="action-items">
+                            <button class="btn moi-btn--secondary--outline" data-bs-toggle="modal" data-bs-target="#tableSeetingModal" title="يمكنك هذا الزر من  تحديد عدد الاعمده التي تريد ظهورها">
+                                تخصيص
+                            </button>
+                            <button class="btn moi-btn--text-icon" title="طباعة" aria-label="طباعة">
+                                <img src="./images/icon-printer.svg" alt="Print">
+                            </button>
+                        </div>
+                    </div>
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" aria-label="تحديد كل الصفوف"></th>
+                                <th class="togglevisabile">رقم المخالفة</th>
+                                <th>
+                                    تاريخ بدء التصويت
+                                    <span class="descending">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12.0137 14C12.0137 14.552 12.4617 15 13.0137 15H17.0137C17.5657 15 18.0137 14.552 18.0137 14C18.0137 13.448 17.5657 13 17.0137 13H13.0137C12.4617 13 12.0137 13.448 12.0137 14Z" fill-opacity="0.4" />
+                                            <path d="M12.0137 10C12.0137 10.552 12.4617 11 13.0137 11H19.0137C19.5657 11 20.0137 10.552 20.0137 10C20.0137 9.448 19.5657 9 19.0137 9H13.0137C12.4617 9 12.0137 9.448 12.0137 10Z" fill-opacity="0.4" />
+                                            <path d="M12 6C12 6.552 12.448 7 13 7H21C21.552 7 22 6.552 22 6C22 5.44801 21.552 5.00001 21 5.00001H13C12.448 5.00001 12 5.44801 12 6Z" fill-opacity="0.4" />
+                                            <path d="M13 19C12.4477 19 12 18.5523 12 18C12 17.4477 12.4477 17 13 17H15C15.5523 17 16 17.4477 16 18C16 18.5523 15.5523 19 15 19H13Z" fill-opacity="0.4" />
+                                            <path d="M5 5C5 4.448 5.448 4 6 4C6.552 4 7 4.448 7 5V16H10L6 19.9999L2 16H5V5Z" />
+                                        </svg>
+                                    </span>
+                                </th>
+                                <th>
+                                    تاريخ نهاية التصويت
+                                    <span class="ascending">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12.0137 10C12.0137 9.448 12.4617 9 13.0137 9H17.0137C17.5657 9 18.0137 9.448 18.0137 10C18.0137 10.552 17.5657 11 17.0137 11H13.0137C12.4617 11 12.0137 10.552 12.0137 10Z" fill-opacity="0.4"/>
+                                            <path d="M12.0137 14C12.0137 13.448 12.4617 13 13.0137 13H19.0137C19.5657 13 20.0137 13.448 20.0137 14C20.0137 14.552 19.5657 15 19.0137 15H13.0137C12.4617 15 12.0137 14.552 12.0137 14Z"  fill-opacity="0.4"/>
+                                            <path d="M12 18C12 17.448 12.448 17 13 17H21C21.552 17 22 17.448 22 18C22 18.552 21.552 19 21 19H13C12.448 19 12 18.552 12 18Z"  fill-opacity="0.4"/>
+                                            <path d="M13 5C12.4477 5 12 5.44772 12 6C12 6.55228 12.4477 7 13 7H15C15.5523 7 16 6.55228 16 6C16 5.44772 15.5523 5 15 5H13Z"  fill-opacity="0.4"/>
+                                            <path d="M5 19C5 19.552 5.448 20 6 20C6.552 20 7 19.552 7 19V8.00005H10L6 4.00006L2 8.00005H5V19Z" />
+                                        </svg>
+                                    </span>
+                                </th>
+                                <th>
+                                    حالة التصويت
+                                    <span class="defualt">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 19C5 19.552 5.448 20 6 20C6.552 20 7 19.552 7 19V8.00005H10L6 4.00006L2 8.00005H5V19Z"/>
+                                            <path d="M15 5C15 4.448 15.448 4 16 4C16.552 4 17 4.448 17 5V16H20L16 19.9999L12 16H15V5Z"  fill-opacity="0.4"/>
+                                        </svg>
+                                    </span>
+                                </th>
+                                <th class="">نتيجة التصويت</th>
+                                <th class="">نتائج اعضاء اللجنة</th>
+                                <th class="">اعادة تصويت</th>
+                                <th class="">الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input class="form-check-input" type="checkbox" value="" aria-label="تحديد الصف"></td>
+                                <td>1254545</td>
+                                <td>20/10/1444</td>
+                                <td>20/10/1444</td>
+                                <td>تم</td>
+                                <td>2</td>
+                                <td>5</td>
+                                <td>2</td>
+                                <td class="actiontd">
+                                    <button class="moi-btn--text-icon"><img alt="Details" src="./images/icon-file-earmark-text.svg" title="تفاصيل"></button>
+                                    <button class="moi-btn--text-icon"><img alt="Edit" class="editbtn" src="./images/icon-edit-cu.svg" title="تعديل"></button>
+                                    <button class="moi-btn--text-icon"><img alt="Delete" src="./images/icon-trash2.svg" title="حذف الطلب"></button>
+                                    <button class="moi-btn--text-icon"><img alt="Print" src="./images/icon-printer.svg" title="طباعة تفاصيل الطلب"></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="10">
+                                    <div class="nodataTable">
+                                        <img src="./images/noDataAvailable.gif" alt="No Data Available" />
+                                        <h5>لاتوجد بيانات</h5>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <nav aria-label="..." class="paginationContainer justify-content-between">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link"><img alt="Previous" src="./images/icon-arrow-right-pagenation.svg"></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">....</a></li>
+                            <li class="page-item"><a class="page-link" href="#">11</a></li>
+                            <li class="page-item"><a class="page-link" href="#">12</a></li>
+                            <li class="page-item">
+                                <a class="page-link"><img alt="Next" src="./images/icon-arrow-left-pagenation.svg"></a>
+                            </li>
+                        </ul>
+                        <div class="d-flex leftnav">
+                            <div class="d-flex align-items-center pages_number">
+                                <label class="form-label" for="exampleFormControlInput1">إظهار</label>
+                                <select aria-label="اختيار عدد الصفوف لكل صفحة">
+                                    <option selected>10</option>
+                                    <option value="20">20</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                                <label class="form-label" for="exampleFormControlInput1">من <span>68</span></label>
+                            </div>
+                            <div class="d-flex align-items-center goto">
+                                <label class="form-label" for="exampleFormControlInput1">الذهاب الي صفحة</label>
+                                <input class="form-control" placeholder="2" type="text">
+                                <button class="btn moi-btn--outline" type="submit">ذهاب
+                                    <img alt="Go" src="./images/arrow-left-title.svg">
+                                </button>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- table Seeting Modal -->
+    <div class="modal fade" id="tableSeetingModal" tabindex="-1" aria-labelledby="tableSeetingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tableSeetingModalLabel">تخصيص الأعمدة</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-check">
+                        <input class="form-check-input chooseToClose" type="checkbox" value="" id="flexCheckCol1" checked>
+                        <label class="form-check-label" for="flexCheckCol1">
+                            مكان المخالفة
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input chooseToClose" type="checkbox" value="" id="flexCheckCol2" checked>
+                        <label class="form-check-label" for="flexCheckCol2">
+                            المعلم
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input chooseToClose" type="checkbox" value="" id="flexCheckCol3" checked>
+                        <label class="form-check-label" for="flexCheckCol3">
+                            الجهة الأمنية	
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input chooseToClose" type="checkbox" value="" id="flexCheckCol4" checked>
+                        <label class="form-check-label" for="flexCheckCol4">
+                            مجموعة المخالفة	
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input chooseToClose" type="checkbox" value="" id="flexCheckCol5" checked>
+                        <label class="form-check-label" for="flexCheckCol5">
+                            اسم المخالفة	
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn moi-btn--green">حفظ التغييرات</button>
+                    <button class="btn moi-btn--outline" data-bs-dismiss="modal" type="button">اغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $(".chooseToClose").on("change", function(){
+                $(".togglevisabile").toggleClass("d-none", !this.checked);
+            });
+        });
+    </script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+</body>
+</html>

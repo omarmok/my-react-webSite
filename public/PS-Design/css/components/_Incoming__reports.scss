@@ -1,0 +1,74 @@
+@use '../helpers' as *;
+@use './Most__Used__Services' as *;
+.Incoming__reports--container {
+  @extend .Most__Used__Services--container;
+  margin: 40px 0;
+
+  .slick-list {
+    width: 100%;
+  }
+
+  .Incoming__reports {
+    &__card {
+      background: #fff;
+      padding: 30px 15px;
+      box-shadow: 0px 8px 30px rgb(181 181 181 / 8%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin: 0 10px;
+      transition: transition-duration, 0.8s ease !important;
+      cursor: pointer;
+      text-decoration: none;
+      height: auto;
+      img {
+        height: 35px;
+      }
+
+      &__content {
+        @include titles;
+        color: #000 !important;
+
+        &--title {
+          @include smallfont;
+        }
+      }
+
+      .IncomingAbsher {
+        color: #008852;
+      }
+
+      .IncomingProsectution {
+        color: #a98445;
+      }
+
+      .Incomingmidan {
+        color: #366edd;
+      }
+
+      &:hover {
+        color: #000 !important;
+
+        .IncomingAbsher {
+          color: #000 !important;
+        }
+
+        .IncomingProsectution {
+          color: #000 !important;
+        }
+
+        .Incomingmidan {
+          color: #000 !important;
+        }
+
+        img {
+          filter: invert(37%) sepia(10%) saturate(0%) hue-rotate(450deg)
+            brightness(10%) contrast(37%);
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

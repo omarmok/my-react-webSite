@@ -1,6 +1,26 @@
 /** @type {import('next').NextConfig} */
 const path = require('path');
 
+const designSystemPassword = process.env.DESIGN_SYSTEM_PASSWORD;
+const isDesignSystemPasswordMissing =
+  typeof designSystemPassword !== 'string' ||
+  designSystemPassword.trim().length === 0;
+
+if (process.env.NODE_ENV !== 'production' && isDesignSystemPasswordMissing) {
+  console.warn(
+    [
+      '[Design System]',
+      'DESIGN_SYSTEM_PASSWORD is missing.',
+      '',
+      'Create or update:',
+      '.env.local',
+      '',
+      'Example:',
+      'DESIGN_SYSTEM_PASSWORD=YourPasswordHere',
+    ].join('\n'),
+  );
+}
+
 const nextConfig = {
   experimental: {
     turbopackFileSystemCacheForDev: false,

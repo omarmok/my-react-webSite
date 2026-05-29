@@ -1,0 +1,77 @@
+@use '../helpers' as *;
+.creatseach {
+  padding: 10px;
+  margin: 15px;
+
+  &__searchContainer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 550px;
+
+    .label-with-info {
+      width: 100%;
+    }
+
+    .form-group {
+      width: 100%;
+    }
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.success-icon {
+  background: #fff;
+  padding: 30px;
+  border-radius: 50%;
+  box-shadow: #efefef 0 3px 15px 4px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.reportSummarBlock {
+  padding: $padding-14;
+  border-radius: 10px;
+  margin: 5px;
+  background: #fafbff;
+  width: 100%;
+  border: 1px solid #e6e6e6;
+}
+.reportSummarBlock img {
+  height: 25px;
+  margin-left: 5px;
+}
+
+.reportSummarBlock .btn img {
+  height: 20px;
+}
+
+.reportSummarBlock label {
+  margin-bottom: 0px !important;
+}

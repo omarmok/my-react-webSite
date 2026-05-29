@@ -1,0 +1,106 @@
+@use '../helpers' as *;
+.ArrestedPersons {
+    .hearing__mainDetails--block {
+        background: transparent;
+        border-right: 0;
+        border-left: 0;
+        border-top: 0;
+
+        .arrtime {
+            gap: 10px;
+        }
+    }
+
+    .rightArea {
+        .moi-btn--text-icon {
+            position: absolute;
+            left: 25px;
+            top: 25px;
+
+            img {
+                filter: brightness(0) invert(1);
+            }
+        }
+    }
+
+    /*.ArrestedPersonsTabs {
+        .nav-link {
+            border-radius: 10px 10px 0 0;
+            border: 1px solid #F3F0EB;
+            color: #A38664;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            position: relative;
+            border-bottom: none;
+            margin: 0 5px;
+            background: #F8F6F2;
+            padding: 12px;
+
+            svg {
+                fill: #A38664;
+                margin-left: 5px;
+            }
+        }
+
+        .nav-link.active {
+            background: var(--theme-primary) !important;
+            color: #fff;
+            border: none;
+
+            svg {
+                fill: #fff;
+            }
+        }
+
+        .tab-content {
+            background: #fff;*/
+           /* box-shadow: -10px -10px 30px 0px #fff, 10px 10px 30px 0px rgba(174, 174, 192, 0.4);*/
+            /*padding: $padding-14;
+            border: 1px solid #00a991;
+            border-radius: 8px;
+            margin-top: -1px;
+        }
+    }*/
+
+    .highpriority {
+        padding: 5px 20px !important;
+        @include font-sm-500;
+    }
+
+    .regpriority {
+        padding: 5px 20px !important;
+        @include font-sm-500;
+    }
+}
+
+
+.page__title__3 {
+    .page__title--inner {
+        background-color: var(--theme-primary) !important !important;
+        margin-bottom: 30px !important;
+
+        h3 {
+            color: #fff;
+
+            img {
+                filter: brightness(0) invert(1);
+            }
+        }
+    }
+}
+
+
+.arrestedstuff {
+    background: rgb(248 246 242);
+    gap: 5px;
+    padding: 0px 5px;
+    align-items: center;
+
+    .block {
+        img {
+            height: 26px !important;
+            filter: invert(77%) sepia(50%) saturate(20%) hue-rotate(149deg) brightness(73%) contrast(27%);
+        }
+    }
+}

@@ -19,39 +19,102 @@ const projectTranslations = {
     1: {
       info: "Human Rights Commission (HRC) — Saudi Arabia",
       Issued: "Aug 2021 - Present",
+      summary:
+        "UX and UI modernization for a national government platform with a focus on clarity, service usability, and scalable interface patterns.",
+      tags: ["Government Platform", "UX Leadership"],
     },
     2: {
       info: "Deanship of Information Technology",
       Issued: "Oct 2017 - Sep 2018",
+      summary:
+        "Information services platform improvements for university users, including interface refinement and front-end implementation support.",
+      tags: ["University Platform", "Front-End Development"],
     },
-    3: { info: "Mullak", Issued: "Mar 2019 - Present" },
-    4: { info: "Idlelands", Issued: "Mar 2019 - Present" },
-    5: { info: "Majmaah University Portal", Issued: "Aug 2019 - Sep 2020" },
-    6: { info: "Majmaah Charity", Issued: "May 2020 - Sep 2020" },
-    7: { info: "MU Greetings Card", Issued: "Jun 2016 - Sep 2017" },
+    3: {
+      info: "Mullak",
+      Issued: "Mar 2019 - Present",
+      summary:
+        "Product experience work for a housing domain platform focused on streamlined workflows, data visibility, and service efficiency.",
+      tags: ["Housing & Property", "Product Design"],
+    },
+    4: {
+      info: "Idlelands",
+      Issued: "Mar 2019 - Present",
+      summary:
+        "Service platform design for land and property-related processes, improving usability and decision support across core user journeys.",
+      tags: ["Housing & Property", "Government Service"],
+    },
+    5: {
+      info: "Majmaah University Portal",
+      Issued: "Aug 2019 - Sep 2020",
+      summary:
+        "Unified student portal experience combining multiple academic services into one accessible dashboard for daily university tasks.",
+      tags: ["University Platform", "Enterprise UX"],
+    },
+    6: {
+      info: "Majmaah Charity",
+      Issued: "May 2020 - Sep 2020",
+      summary:
+        "Digital platform design for a nonprofit organization with a focus on clear content structure and approachable service access.",
+      tags: ["Nonprofit", "UI Design"],
+    },
+    7: {
+      info: "MU Greetings Card",
+      Issued: "Jun 2016 - Sep 2017",
+      summary:
+        "Interactive web-based greetings tool designed for lightweight publishing and branded communication inside the university ecosystem.",
+      tags: ["UI Design", "Front-End Development"],
+    },
   },
   ar: {
     1: {
       info: "هيئة حقوق الإنسان (HRC) — المملكة العربية السعودية",
       Issued: "أغسطس 2021 – الآن",
+      summary:
+        "تحديث تجربة وواجهة منصة حكومية وطنية مع التركيز على الوضوح، وسهولة استخدام الخدمات، وبناء أنماط واجهة قابلة للتوسع.",
+      tags: ["منصة حكومية", "قيادة UX"],
     },
     2: {
       info: "عمادة تقنية المعلومات",
       Issued: "أكتوبر 2017 – سبتمبر 2018",
+      summary:
+        "تحسين تجربة منصة خدمات تقنية المعلومات لقطاع الجامعة، مع تطوير الواجهة ودعم التنفيذ على الواجهة الأمامية.",
+      tags: ["منصة جامعية", "تطوير الواجهة الأمامية"],
     },
-    3: { info: "مولّاك", Issued: "مارس 2019 – الآن" },
-    4: { info: "أيديلاندز", Issued: "مارس 2019 – الآن" },
+    3: {
+      info: "مولّاك",
+      Issued: "مارس 2019 – الآن",
+      summary:
+        "عمل تصميمي لمنتج رقمي في مجال الإسكان يركز على تبسيط الإجراءات، ووضوح البيانات، ورفع كفاءة تنفيذ الخدمات.",
+      tags: ["إسكان وعقار", "تصميم المنتج"],
+    },
+    4: {
+      info: "الأراضي البيضاء",
+      Issued: "مارس 2019 – الآن",
+      summary:
+        "تصميم منصة خدمات مرتبطة بالأراضي والعقار لتحسين سهولة الاستخدام ودعم اتخاذ القرار عبر رحلات المستخدم الأساسية.",
+      tags: ["إسكان وعقار", "خدمة حكومية"],
+    },
     5: {
       info: "بوابة جامعة المجمعة",
       Issued: "أغسطس 2019 – سبتمبر 2020",
+      summary:
+        "تجربة بوابة طلابية موحّدة تجمع عدة خدمات أكاديمية في لوحة واحدة سهلة الوصول للاستخدام اليومي داخل الجامعة.",
+      tags: ["منصة جامعية", "UX المؤسسي"],
     },
     6: {
       info: "جمعية المجمعة الخيرية",
       Issued: "مايو 2020 – سبتمبر 2020",
+      summary:
+        "تصميم منصة رقمية لجهة غير ربحية مع التركيز على تنظيم المحتوى بوضوح وإتاحة الوصول إلى الخدمات بشكل مريح.",
+      tags: ["منظمة غير ربحية", "تصميم UI"],
     },
     7: {
       info: "بطاقة تهاني جامعة المجمعة",
       Issued: "يونيو 2016 – سبتمبر 2017",
+      summary:
+        "أداة ويب تفاعلية لبطاقات التهنئة، مصممة للنشر السريع والتواصل البصري المتسق ضمن بيئة الجامعة الرقمية.",
+      tags: ["تصميم UI", "تطوير الواجهة الأمامية"],
     },
   },
 };
@@ -92,9 +155,9 @@ Collaborated with the development team on page rebuilds using HTML, Vue.js, and 
     },
     5: {
       date: "Mar 2016 - Feb 2019",
-      jobtitle: "UI/UX Engineer",
+      jobtitle: "UX/UI Engineer",
       companyname: "Al-Majma’ah University",
-      role: "UI/UX designer and front-end developer for the university's e-portal unit. Translated student and staff needs into digital solutions, collaborated with analysts, developers, and QA throughout the project lifecycle, and maintained regular communication with academic stakeholders on product improvements and new requirements.",
+      role: "UX/UI designer and front-end developer for the university e-portal unit. Translated student and staff needs into digital solutions, collaborated with analysts, developers, and QA throughout the delivery lifecycle, and maintained close communication with academic stakeholders on product improvements and new requirements.",
     },
     6: {
       date: "Nov 2013 - Feb 2016",
@@ -104,9 +167,9 @@ Collaborated with the development team on page rebuilds using HTML, Vue.js, and 
     },
     7: {
       date: "May 2012 - 2013",
-      jobtitle: "UI/UX Designer-Developer",
+      jobtitle: "UX/UI Designer-Developer",
       companyname: "Jazan University",
-      role: "UI/UX designer and front-end developer for the university's e-portal unit. Gathered student and staff requirements, collaborated with analysts, developers, and QA to ensure delivery met specifications, and engaged stakeholders on product enhancements and new feature requests.",
+      role: "UX/UI designer and front-end developer for the university e-portal unit. Gathered student and staff requirements, collaborated with analysts, developers, and QA to ensure delivery met specifications, and engaged stakeholders on product enhancements and new feature requests.",
     },
   },
   ar: {
@@ -132,7 +195,7 @@ Collaborated with the development team on page rebuilds using HTML, Vue.js, and 
       date: "فبراير 2019 – ديسمبر 2022",
       jobtitle: "مصمم واجهات وتجربة المستخدم",
       companyname: "الشركة الوطنية للإسكان (NHC)",
-      role: "مصمم واجهات وتجربة المستخدم يركز على رسم الهياكل السلكية، النمذجة الأولية، وتطوير الواجهة الأمامية (HTML، CSS، JavaScript، Vue.js). أنشأت مجموعات واجهات وحلول تصميمية للمنصات، وتعاونت بشكل وثيق مع المحللين والمطورين وضمان الجودة لضمان التطوير وفق مواصفات UX وUI.",
+      role: "مصمم واجهات وتجربة المستخدم يركز على رسم الهياكل السلكية، والنمذجة الأولية، وتطوير الواجهة الأمامية (HTML، CSS، JavaScript، Vue.js). أنشأت مجموعات واجهات وحلولًا تصميمية للمنصات، وتعاونت بشكل وثيق مع المحللين والمطورين وضمان الجودة لضمان التنفيذ وفق مواصفات UX وUI.",
     },
     4: {
       date: "2021 – 2022",
@@ -146,7 +209,7 @@ Collaborated with the development team on page rebuilds using HTML, Vue.js, and 
       date: "مارس 2016 – فبراير 2019",
       jobtitle: "مهندس واجهات وتجربة المستخدم",
       companyname: "جامعة المجمعة",
-      role: "مصمم واجهات وتجربة المستخدم مع خبرة في تطوير الواجهة الأمامية (HTML، CSS، JavaScript) وتصميم الجرافيك لوحدة البوابة الإلكترونية. ترجمت احتياجات الطلاب والموظفين إلى حلول رقمية، وتعاونت مع المحللين والمطورين وضمان الجودة، وتواصلت يوميًا مع أصحاب المصلحة (مثل العمداء) حول الأفكار الجديدة والتحسين المستمر للأنظمة.",
+      role: "مهندس واجهات وتجربة المستخدم بخبرة في تطوير الواجهة الأمامية (HTML، CSS، JavaScript) والتصميم المرئي ضمن وحدة البوابة الإلكترونية. ترجمت احتياجات الطلاب والموظفين إلى حلول رقمية، وتعاونت مع المحللين والمطورين وضمان الجودة، وتواصلت مع أصحاب المصلحة حول التحسين المستمر والاحتياجات الجديدة.",
     },
     6: {
       date: "نوفمبر 2013 – فبراير 2016",
@@ -158,7 +221,7 @@ Collaborated with the development team on page rebuilds using HTML, Vue.js, and 
       date: "مايو 2012 – 2013",
       jobtitle: "مصمم ومطور واجهات وتجربة المستخدم",
       companyname: "جامعة جازان",
-      role: "مصمم ومطور واجهات وتجربة المستخدم يعمل على رسم الهياكل السلكية وتطوير الواجهة الأمامية (HTML، CSS، JavaScript) وتصميم الجرافيك لوحدة البوابة الإلكترونية. حددت احتياجات الطلاب والموظفين، وتعاونت مع المحللين والمطورين وضمان الجودة لضمان تلبية المتطلبات، وتواصلت مع أصحاب المصلحة لتحسين المنتجات والأفكار الجديدة.",
+      role: "مصمم ومطور واجهات وتجربة المستخدم عمل على رسم الهياكل السلكية، وتطوير الواجهة الأمامية (HTML، CSS، JavaScript)، والتصميم المرئي لوحدة البوابة الإلكترونية. حددت احتياجات الطلاب والموظفين، وتعاونت مع المحللين والمطورين وضمان الجودة لضمان تلبية المتطلبات، وتواصلت مع أصحاب المصلحة لتحسين المنتجات وتطوير أفكار جديدة.",
     },
   },
 };
@@ -258,10 +321,11 @@ export const translations = {
         about: "About",
         work: "Work",
         caseStudy: "Case Study",
+        casebook: "Design System",
         blog: "Blog",
         contact: "Contact",
       },
-      brand: "UX Design Lead",
+      brand: "UX & DesignOps Lead ",
       logoAlt: "Omar Mokhtar personal logo",
       languageToggleButton: "العربية",
       languageToggleAria: "Switch language to Arabic",
@@ -288,16 +352,16 @@ export const translations = {
     home: {
       hero: {
         role: "UX & DesignOps Lead — Confidential Government",
-        certificationBadge: "Google Professional UX Certified",
+        certificationBadge: "Google UX Design Professional Certificate Holder",
         certificationTitle: "Google UX Design Professional Certificate",
         downloadButton: "Download Resume",
         downloadTitle: "Download Omar Mokhtar resume from Google Drive",
       },
       paragraphs: [
         {
-          text: "14 years of UX practice across government, education, and national housing — specializing in enterprise platforms, design systems, and product delivery.",
+          text: "Over 19 years of UX practice across government, education, and national housing — specializing in enterprise platforms, design systems, and product delivery.",
           tooltip:
-            "14 years of UX practice across government, education, and national housing — specializing in enterprise platforms, design systems, and product delivery.",
+            "Over 19 years of UX practice across government, education, and national housing — specializing in enterprise platforms, design systems, and product delivery.",
         },
         {
           text: "I lead UX strategy and design governance, build scalable design systems, and work across the full delivery lifecycle — from discovery to production handoff — in close collaboration with product, engineering, and business teams.",
@@ -336,7 +400,7 @@ export const translations = {
       byLine: "By Omar Mokhtar",
       ctaText: "Read Original LinkedIn Post",
       positiveLabel: "Positives:",
-      negativeLabel: "Defects:",
+      negativeLabel: "Limitations:",
       posts: [
         {
           id: "levels",
@@ -399,7 +463,7 @@ export const translations = {
             },
           ],
           closing: [
-            'As the talk goes, "hand-shifting" is the most powerful form of work. In UX, empathy is what enables designers to deliver the best possible experience because it drives them to truly understand the user\'s needs and fix problems at their root.',
+            'As the hadith indicates, "change by hand" is the strongest form of action. In UX, empathy enables designers to deliver better experiences because it drives a deeper understanding of user needs and root causes.',
             "Ultimately, to be successful UX designers, we must aim for work to deliver effective solutions rather than merely offering distant sympathy or pity.",
           ],
           arabicQuote: [
@@ -506,6 +570,8 @@ export const translations = {
         text: "View more on LinkedIn",
         aria: "Open Omar Mokhtar LinkedIn profile for additional projects",
       },
+      projectCtaLabel: "View Project",
+      projectTagsAria: "Project tags for {{project}}",
       projectLinkAria: "Open {{project}} project details in new tab",
     },
     caseStudyPage: {
@@ -726,11 +792,120 @@ export const translations = {
       failureAlert:
         "❌ Failed to send the message, please reconnect Gmail or check the settings.",
     },
+    casebook: {
+      hero: {
+        title: "Design System Showcase",
+        subtitle:
+          "A private showcase of selected design system work, component architecture, documentation, and implementation practices.",
+      },
+      overview: {
+        label: "Overview",
+        body: "This private showcase presents a comprehensive approach to building scalable digital products and maintaining consistency between design and development across multiple platforms and user experiences.",
+      },
+      includes: {
+        label: "What This Showcase Includes",
+        items: [
+          {
+            title: "Design Foundations",
+            description:
+              "Core visual and interaction standards that unify product experiences.",
+          },
+          {
+            title: "Reusable Components",
+            description:
+              "Production-ready UI patterns designed for repeatable implementation.",
+          },
+          {
+            title: "Design Tokens",
+            description:
+              "Tokenized decisions that connect design intent to front-end delivery.",
+          },
+          {
+            title: "Figma Variables",
+            description:
+              "Structured variables to support theme consistency and scalable updates.",
+          },
+          {
+            title: "SCSS Architecture",
+            description:
+              "Maintainable styling structure optimized for team collaboration.",
+          },
+          {
+            title: "Documentation",
+            description:
+              "Clear usage guidelines, behavior notes, and implementation references.",
+          },
+          {
+            title: "Accessibility",
+            description:
+              "Inclusive standards integrated into components and interaction patterns.",
+          },
+          {
+            title: "Governance",
+            description:
+              "Processes that support quality, ownership, and long-term consistency.",
+          },
+        ],
+      },
+      foundations: {
+        label: "Design Foundations",
+        intro:
+          "The foundation layer defines the standards that keep interfaces cohesive and reliable across products, teams, and releases.",
+        items: [
+          "Color System",
+          "Typography",
+          "Spacing",
+          "Border Radius",
+          "Iconography",
+          "Shadows / Elevation",
+          "Accessibility standards",
+        ],
+      },
+      components: {
+        label: "Components",
+        intro:
+          "Reusable components are documented with behavior, states, and implementation expectations to accelerate delivery without sacrificing consistency.",
+        items: [
+          "Buttons",
+          "Cards",
+          "Alerts",
+          "Tags",
+          "Navigation",
+          "Breadcrumbs",
+          "Loaders",
+          "Forms",
+          "Tables",
+        ],
+      },
+      implementation: {
+        label: "Implementation & DesignOps",
+        intro:
+          "This layer connects design decisions to engineering execution through structured standards and operational clarity.",
+        items: [
+          "Component architecture",
+          "Naming conventions",
+          "SCSS structure",
+          "Documentation standards",
+          "Design-to-development workflow",
+          "Governance and maintainability",
+        ],
+      },
+      access: {
+        title: "Request Access",
+        description:
+          "This showcase is shared privately for selected evaluation purposes. If you would like to explore the full design system, please enter the provided access password or contact me for a guided walkthrough.",
+        passwordLabel: "Access Password",
+        passwordPlaceholder: "Enter access password",
+        accessButton: "View Design System",
+        passwordError:
+          "The password you entered is incorrect. If you would like access to the Design System showcase, please contact me and I will be happy to provide access and walk you through the system.",
+      },
+    },
     meta: {
       "/": {
-        title: "Omar Mokhtar - UX Design Lead | 14+ Years Experience",
+        title: "Omar Mokhtar - UX & DesignOps Lead  | 19+ Years Experience",
         description:
-          "Omar Mokhtar is a UX Design Lead with over 14 years of experience in enterprise platforms, design systems, and government digital products. Google Professional UX Certified.",
+          "Omar Mokhtar is a UX & DesignOps Lead  with over 19 years of experience in enterprise platforms, design systems, and government digital products. Google UX Design Professional Certificate holder.",
         keywords:
           "UX Designer, UI Designer, User Experience, Mobile Design, Web Dashboards, Saudi Arabia, Government Projects",
         canonical: baseUrl,
@@ -741,9 +916,9 @@ export const translations = {
           "@context": "https://schema.org",
           "@type": "Person",
           name: "عمر مختار",
-          jobTitle: "UX Design Lead",
+          jobTitle: "UX & DesignOps Lead ",
           description:
-            "UX Design Lead with over 14 years of experience in enterprise platforms, design systems, and government digital products",
+            "UX & DesignOps Lead  with over 19 years of experience in enterprise platforms, design systems, and government digital products",
           url: baseUrl,
           image: `${baseUrl}/images/omar.png`,
           sameAs: [
@@ -762,9 +937,9 @@ export const translations = {
         },
       },
       "/About": {
-        title: "Experience & Career - Omar Mokhtar | UX Design Lead",
+        title: "Experience & Career - Omar Mokhtar | UX & DesignOps Lead ",
         description:
-          "Professional experience and career journey of Omar Mokhtar, UX Design Lead. View certifications, skills, and over 14 years of design expertise across government, education, and enterprise sectors.",
+          "Professional experience and career journey of Omar Mokhtar, UX & DesignOps Lead . Explore certifications, skills, and over 19 years of design expertise across government, education, and enterprise sectors.",
         keywords:
           "UX Designer Experience, Career Journey, Design Certifications, UI/UX Skills, Professional Portfolio",
         canonical: `${baseUrl}/About`,
@@ -796,7 +971,7 @@ export const translations = {
         language: "English",
       },
       "/ContactForm": {
-        title: "Contact Omar Mokhtar | UX Design Lead | Get In Touch",
+        title: "Contact Omar Mokhtar | UX & DesignOps Lead  | Get In Touch",
         description:
           "Get in touch with Omar Mokhtar for UX collaboration, design systems consultation, or enterprise product design inquiries.",
         keywords:
@@ -817,10 +992,21 @@ export const translations = {
         ogLocale: "en_US",
         language: "English",
       },
-      default: {
-        title: "Omar Mokhtar - UX Design Lead",
+      "/design-system": {
+        title: "Design System Showcase | Omar Mokhtar",
         description:
-          "UX Design Lead with over 14 years of experience in enterprise platforms, design systems, and government digital products",
+          "Private implementation portfolio containing selected case studies, design system work, and technical examples.",
+        keywords:
+          "Design System Showcase, UX Case Studies, Design System Work, Front-end Examples, Code Samples",
+        canonical: `${baseUrl}/design-system`,
+        ogImage: `${baseUrl}/images/omar.png`,
+        ogLocale: "en_US",
+        language: "English",
+      },
+      default: {
+        title: "Omar Mokhtar - UX & DesignOps Lead ",
+        description:
+          "UX & DesignOps Lead  with over 19 years of experience in enterprise platforms, design systems, and government digital products",
         keywords: "UX Designer, UI Designer, User Experience",
         canonical: baseUrl,
         ogImage: `${baseUrl}/images/omar.png`,
@@ -837,10 +1023,11 @@ export const translations = {
         about: "من أنا",
         work: "الأعمال",
         caseStudy: "دراسة حالة",
+        casebook: "نظام التصميم",
         blog: "المدونة",
         contact: "تواصل",
       },
-      brand: "UX Design Lead",
+      brand: "UX & DesignOps Lead ",
       logoAlt: "شعار عمر مختار الشخصي",
       languageToggleButton: "English",
       languageToggleAria: "التبديل إلى اللغة الإنجليزية",
@@ -867,16 +1054,17 @@ export const translations = {
     home: {
       hero: {
         role: "قائد تجربة المستخدم وعمليات التصميم — جهة حكومية",
-        certificationBadge: "معتمد من جوجل في تصميم تجربة المستخدم",
+        certificationBadge:
+          "حاصل على شهادة جوجل المهنية في تصميم تجربة المستخدم",
         certificationTitle: "شهادة جوجل في تصميم تجربة المستخدم",
         downloadButton: "تحميل السيرة الذاتية",
         downloadTitle: "تحميل سيرة عمر مختار الذاتية من Google Drive",
       },
       paragraphs: [
         {
-          text: "14 عامًا من الممارسة في تجربة المستخدم — عبر قطاعات حكومية وتعليمية وإسكانية، مع تخصص في المنصات المؤسسية ونظم التصميم وتسليم المنتجات.",
+          text: "أكثر من 19 عامًا من الخبرة في تجربة المستخدم عبر قطاعات حكومية وتعليمية وإسكانية، مع تخصص في المنصات المؤسسية ونظم التصميم وتسليم المنتجات.",
           tooltip:
-            "14 عامًا من الممارسة في تجربة المستخدم — عبر قطاعات حكومية وتعليمية وإسكانية، مع تخصص في المنصات المؤسسية ونظم التصميم وتسليم المنتجات.",
+            "أكثر من 19 عامًا من الخبرة في تجربة المستخدم عبر قطاعات حكومية وتعليمية وإسكانية، مع تخصص في المنصات المؤسسية ونظم التصميم وتسليم المنتجات.",
         },
         {
           text: "أقود استراتيجية تجربة المستخدم وحوكمة التصميم، وأبني أنظمة تصميم قابلة للتوسع، وأعمل عبر دورة التسليم الكاملة — من الاكتشاف حتى التسليم للتطوير — بالتعاون مع فرق المنتج والهندسة والأعمال.",
@@ -983,7 +1171,7 @@ export const translations = {
           ],
           arabicQuote: [
             "(وما ينطق عن الهوى، إن هو إلا وحي يوحى)",
-            "صلي الله عليه وسلم",
+            "صلى الله عليه وسلم",
           ],
           ctaAria:
             "اقرأ منشور لينكدإن الأصلي حول درجات التعاطف في تجربة المستخدم",
@@ -1063,7 +1251,7 @@ export const translations = {
         intro:
           "أدركت جامعة المجمعة الحاجة إلى توحيد خدمات الطلاب المتفرقة في بوابة واحدة متكاملة. كان التحدي تصميم تجربة تقلل من التعقيد عبر مجموعة واسعة من المهام الأكاديمية اليومية لآلاف المستخدمين.",
         tooltip:
-          "أصبحت البوابات الإلكترونية ضرورة ملحة في مجال التعليم والتعليم العالي: ومن هذا المنطلق اقترحت جامعة المجمعة إنشاء بوابة داخلية للطلاب تتميز بما يلي: الدخول الموحد تقديم أكثر من 15 خدمة الاطلاع على الأخبار والفعاليات التي أعلن عنها الوصول السريع للجامعة: تقديم الطلبات عبر أنظمة الجامعة المختلفة وجمعها في مكان واحد. مراجعة دروسهم وجداول الامتحانات.",
+          "استهدفت جامعة المجمعة توحيد خدمات الطلاب المتفرقة ضمن بوابة واحدة متكاملة. تمحور التحدي حول تصميم تجربة تقلل الاحتكاك عبر المهام الأكاديمية اليومية لآلاف المستخدمين.",
         features: [
           "دخول موحد",
           "توفير أكثر من 15 خدمة",
@@ -1086,6 +1274,8 @@ export const translations = {
         text: "اكتشف المزيد على لينكدإن",
         aria: "زيارة حساب عمر مختار على لينكدإن لمزيد من المشاريع",
       },
+      projectCtaLabel: "عرض المشروع",
+      projectTagsAria: "وسوم المشروع {{project}}",
       projectLinkAria: "فتح تفاصيل مشروع {{project}} في علامة تبويب جديدة",
     },
     caseStudyPage: {
@@ -1305,11 +1495,120 @@ export const translations = {
       failureAlert:
         "❌ فشل إرسال الرسالة، يرجى إعادة توصيل Gmail أو التحقق من الإعدادات.",
     },
+    casebook: {
+      hero: {
+        title: "عرض نظام التصميم",
+        subtitle:
+          "عرض خاص يقدّم نماذج مختارة من أعمال نظام التصميم، وهيكلة المكونات، والتوثيق، وممارسات التنفيذ.",
+      },
+      overview: {
+        label: "نظرة عامة",
+        body: "يعرض هذا العرض الخاص منهجية متكاملة لبناء منتجات رقمية قابلة للتوسع والحفاظ على الاتساق بين التصميم والتطوير عبر مختلف المنصات وتجارب المستخدم.",
+      },
+      includes: {
+        label: "ما الذي يتضمنه هذا العرض",
+        items: [
+          {
+            title: "أسس التصميم",
+            description:
+              "معايير بصرية وتفاعلية أساسية تضمن اتساق التجربة عبر المنتجات.",
+          },
+          {
+            title: "مكونات قابلة لإعادة الاستخدام",
+            description:
+              "أنماط واجهة جاهزة للتطبيق المتكرر بجودة تنفيذية عالية.",
+          },
+          {
+            title: "التوكنز التصميمية",
+            description:
+              "قرارات تصميمية موحّدة تربط بين نية التصميم والتنفيذ البرمجي.",
+          },
+          {
+            title: "متغيرات فيجما",
+            description:
+              "بنية متغيرات تدعم قابلية التوسع والاتساق عبر السمات المختلفة.",
+          },
+          {
+            title: "هيكلة SCSS",
+            description:
+              "تنظيم مرن وقابل للصيانة يسهّل التعاون بين فرق التصميم والتطوير.",
+          },
+          {
+            title: "التوثيق",
+            description:
+              "إرشادات واضحة للاستخدام، وحالات المكوّنات، ومراجع التنفيذ.",
+          },
+          {
+            title: "إمكانية الوصول",
+            description:
+              "معايير شمولية مدمجة في المكونات وأنماط التفاعل من البداية.",
+          },
+          {
+            title: "الحوكمة",
+            description:
+              "آليات تضمن الجودة والملكية والاستمرارية على المدى الطويل.",
+          },
+        ],
+      },
+      foundations: {
+        label: "أسس التصميم",
+        intro:
+          "تُحدد طبقة الأسس المعايير التي تحافظ على اتساق الواجهات وموثوقيتها عبر المنتجات والفرق والإصدارات.",
+        items: [
+          "نظام الألوان",
+          "الطباعة",
+          "المسافات",
+          "أنصاف الأقطار",
+          "الأيقونات",
+          "الظلال / مستويات الارتفاع",
+          "معايير إمكانية الوصول",
+        ],
+      },
+      components: {
+        label: "المكونات",
+        intro:
+          "تُوثَّق المكونات القابلة لإعادة الاستخدام مع السلوك والحالات ومتطلبات التنفيذ لتسريع التسليم مع الحفاظ على الاتساق.",
+        items: [
+          "الأزرار",
+          "البطاقات",
+          "التنبيهات",
+          "الوسوم",
+          "التنقل",
+          "مسارات التنقل",
+          "مؤشرات التحميل",
+          "النماذج",
+          "الجداول",
+        ],
+      },
+      implementation: {
+        label: "التنفيذ وعمليات التصميم",
+        intro:
+          "تربط هذه الطبقة قرارات التصميم بالتنفيذ الهندسي عبر معايير منظمة ووضوح تشغيلي.",
+        items: [
+          "هيكلة المكونات",
+          "معايير التسمية",
+          "بنية SCSS",
+          "معايير التوثيق",
+          "سير العمل بين التصميم والتطوير",
+          "الحوكمة وقابلية الصيانة",
+        ],
+      },
+      access: {
+        title: "طلب الوصول",
+        description:
+          "هذا العرض يُشارك بشكل خاص لأغراض تقييم محددة. إذا رغبت في استعراض نظام التصميم بالكامل، يمكنك إدخال كلمة المرور المتاحة لديك أو التواصل معي للحصول على جولة إرشادية.",
+        passwordLabel: "كلمة المرور",
+        passwordPlaceholder: "أدخل كلمة المرور",
+        accessButton: "عرض نظام التصميم",
+        passwordError:
+          "كلمة المرور التي أدخلتها غير صحيحة. إذا كنت ترغب في الوصول إلى عرض نظام التصميم، يرجى التواصل معي، وسأكون سعيدًا بمنحك صلاحية الوصول وشرح النظام لك.",
+      },
+    },
     meta: {
       "/": {
-        title: "عمر مختار - قائد تصميم تجربة المستخدم | 14+ سنة خبرة",
+        title: "عمر مختار - قائد تصميم تجربة المستخدم | 19+ سنة خبرة",
         description:
-          "عمر مختار قائد تجربة المستخدم بخبرة تزيد عن 14 سنة في المنصات المؤسسية ونظم التصميم والمنتجات الحكومية الرقمية. معتمد من جوجل في تصميم تجربة المستخدم.",
+          "عمر مختار قائد تجربة المستخدم بخبرة تزيد على 19 عامًا في المنصات المؤسسية ونظم التصميم والمنتجات الحكومية الرقمية. حاصل على شهادة جوجل المهنية في تصميم تجربة المستخدم.",
         keywords:
           "مصمم تجربة المستخدم, مصمم واجهات المستخدم, تجربة المستخدم, تصميم المحمول, لوحات المعلومات, السعودية, مشاريع حكومية",
         canonical: baseUrl,
@@ -1320,9 +1619,9 @@ export const translations = {
           "@context": "https://schema.org",
           "@type": "Person",
           name: "عمر مختار",
-          jobTitle: "UX Design Lead",
+          jobTitle: "UX & DesignOps Lead ",
           description:
-            "قائد تجربة المستخدم بخبرة أكثر من 14 سنة في المنصات المؤسسية ونظم التصميم والمنتجات الحكومية الرقمية",
+            "قائد تجربة المستخدم بخبرة أكثر من 19 عامًا في المنصات المؤسسية ونظم التصميم والمنتجات الحكومية الرقمية",
           url: baseUrl,
           image: `${baseUrl}/images/omar.png`,
           sameAs: [
@@ -1343,7 +1642,7 @@ export const translations = {
       "/About": {
         title: "الخبرة والمسار المهني - عمر مختار | قائد تصميم تجربة المستخدم",
         description:
-          "مسار الخبرة المهنية لعمر مختار، قائد تجربة المستخدم. اكتشف الشهادات والمهارات وتجربة التصميم الممتدة لأكثر من 14 سنة في قطاعات حكومية وتعليمية ومؤسسية.",
+          "المسار المهني لعمر مختار، قائد تجربة المستخدم. اطّلع على الشهادات والمهارات وخبرة تصميم تمتد لأكثر من 19 عامًا عبر قطاعات حكومية وتعليمية ومؤسسية.",
         keywords:
           "خبرة مصمم UX, المسار المهني, شهادات التصميم, مهارات UI/UX, الملف المهني",
         canonical: `${baseUrl}/About`,
@@ -1384,6 +1683,17 @@ export const translations = {
         ogLocale: "ar_SA",
         language: "Arabic",
       },
+      "/design-system": {
+        title: "عرض نظام التصميم | عمر مختار",
+        description:
+          "ملف تنفيذي خاص يضم دراسات حالة مختارة، وأعمال نظم التصميم، وأمثلة تقنية.",
+        keywords:
+          "دفتر التنفيذ, دراسات حالة UX, أعمال نظم التصميم, أمثلة الواجهة الأمامية, عينات كود",
+        canonical: `${baseUrl}/design-system`,
+        ogImage: `${baseUrl}/images/omar.png`,
+        ogLocale: "ar_SA",
+        language: "Arabic",
+      },
       "/CaseStudy": {
         title: "دراسة حالة بوابة الطالب الداخلية | عمر مختار",
         description:
@@ -1398,7 +1708,7 @@ export const translations = {
       default: {
         title: "عمر مختار - قائد تصميم تجربة المستخدم",
         description:
-          "قائد تجربة المستخدم بخبرة أكثر من 14 سنة في المنصات المؤسسية ونظم التصميم والمنتجات الحكومية الرقمية.",
+          "قائد تجربة المستخدم بخبرة أكثر من 19 عامًا في المنصات المؤسسية ونظم التصميم والمنتجات الحكومية الرقمية.",
         keywords: "مصمم UX, مصمم واجهات المستخدم, تجربة المستخدم",
         canonical: baseUrl,
         ogImage: `${baseUrl}/images/omar.png`,

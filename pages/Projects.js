@@ -20,7 +20,8 @@ const Projects = ({ projects = [] }) => {
       if (!document.querySelector('[data-bs-toggle="tooltip"]')) {
         return;
       }
-      const bootstrap = await import("bootstrap/dist/js/bootstrap.bundle.min.js");
+      const bootstrap =
+        await import("bootstrap/dist/js/bootstrap.bundle.min.js");
       const Tooltip = bootstrap.Tooltip || bootstrap.default?.Tooltip;
       if (!Tooltip) {
         return;
@@ -69,44 +70,76 @@ const Projects = ({ projects = [] }) => {
   }, []);
 
   const Projectslist = projectItems.map((ProjectsItem, index) => {
+    const tags = Array.isArray(ProjectsItem.tags)
+      ? ProjectsItem.tags.slice(0, 3)
+      : [];
+
     return (
       <div
-        className="col-12 col-lg-6 "
+        className="col-12 col-md-6 col-xl-4"
         data-aos="fade-up"
-        data-aos-duration="3000"
+        data-aos-duration="1200"
         key={ProjectsItem.id ?? ProjectsItem.url ?? index}>
-        <div className="portfolio-item">
-          <div className="portfolio-img">
+        <article className="portfolio-item more-project-card h-100">
+          <div className="portfolio-img more-project-card__media">
             <Image
               className="img-fluid"
               src={ProjectsItem.image}
               alt={ProjectsItem.title || "Project thumbnail"}
               width={300}
               height={200}
-              sizes="(min-width: 992px) 25vw, 50vw"
+              sizes="(min-width: 1200px) 30vw, (min-width: 768px) 45vw, 100vw"
               quality={70}
-              style={{ height: "auto", width: "100%" }}
+              style={{ height: "100%", width: "100%" }}
             />
-            <div className="mycard__details--date">
-              {ProjectsItem.Issued}
-            </div>
-            <div className="mycard__details--jobtitle">
-              {ProjectsItem.info}
-            </div>
           </div>
 
-          <div className="portfolio-links">
-            <a
-              href={ProjectsItem.url}
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label={t("projects.projectLinkAria", {
-                project: ProjectsItem.info,
-              })}>
-              <FontAwesomeIcon icon={faExternalLinkAlt} aria-hidden="true" focusable="false" />
-            </a>
+          <div className="more-project-card__content">
+            <h3 className="mycard__details--jobtitle more-project-card__title">
+              {ProjectsItem.info}
+            </h3>
+
+            {ProjectsItem.summary ? (
+              <p className="more-project-card__description">
+                {ProjectsItem.summary}
+              </p>
+            ) : null}
+
+            {tags.length > 0 ? (
+              <ul
+                className="more-project-card__tags"
+                aria-label={t("projects.projectTagsAria", {
+                  project: ProjectsItem.info,
+                })}>
+                {tags.map((tag) => (
+                  <li
+                    className="more-project-card__tag"
+                    key={`${ProjectsItem.id ?? index}-${tag}`}>
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+
+            <div className="portfolio-links more-project-card__cta">
+              <a
+                href={ProjectsItem.url}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="btn"
+                aria-label={t("projects.projectLinkAria", {
+                  project: ProjectsItem.info,
+                })}>
+                <span>{projectMeta.projectCtaLabel}</span>
+                <FontAwesomeIcon
+                  icon={faExternalLinkAlt}
+                  aria-hidden="true"
+                  focusable="false"
+                />
+              </a>
+            </div>
           </div>
-        </div>
+        </article>
       </div>
     );
   });
@@ -170,7 +203,6 @@ const Projects = ({ projects = [] }) => {
                     className="btn btn-warning"
                     aria-label={projectMeta.caseStudy.buttonAria}>
                     {projectMeta.caseStudy.button}{" "}
-
                     <svg
                       aria-hidden="true"
                       focusable="false"
@@ -198,19 +230,7 @@ const Projects = ({ projects = [] }) => {
               {projectMeta.moreProjectsTitle}
             </div>
           </div>
-          <div className="row">{Projectslist}</div>
-          <div className="row">
-            <div className="mr-auto my-4 ">
-              <a
-                href="https://www.linkedin.com/in/omarmokhtar22/"
-                className="btn section__title--btn d-inline-block more_btn_project"
-                data-aos="fade-left"
-                data-aos-duration="1000"
-                aria-label={projectMeta.linkedInButton.aria}>
-                {projectMeta.linkedInButton.text}
-              </a>
-            </div>
-          </div>
+          <div className="row g-4 more-projects-grid">{Projectslist}</div>
         </div>
       </div>
     </div>

@@ -1,0 +1,85 @@
+@use '../helpers' as *;
+.person {
+  margin: 15px;
+  &__image {
+    background: #f4f8fa;
+    padding: $padding-14;
+    border-radius: 8px;
+    img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
+
+  &__tabs {
+    .nav-tabs {
+      padding-right: 20px;
+      .nav-link {
+        background: #fff;
+        color: #000;
+        border: 1px dashed #bbc7dc;
+        border-bottom: none;
+        margin: 0 5px;
+        @include boldfont;
+        border-radius: 6px 6px 0 0;
+        padding: 10px 20px;
+        img {
+          filter: grayscale(1);
+          height: 24px;
+        }
+      }
+      .active {
+        background: #f8f6f2;
+        border: 1px solid #f8f6f2;
+        color: #9f8544;
+        border-bottom: 0;
+        img {
+          filter: invert(47%) sepia(110%) saturate(100%) hue-rotate(250deg)
+            brightness(93%) contrast(77%);
+        }
+      }
+    }
+
+    .tab-content {
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #e9f0fc;
+    /*  box-shadow: #eff1f9 0 3px 8px 4px;*/
+      border-radius: 8px;
+      margin-top: -1px;
+
+      .form-control-rows {
+        display: flex;
+        gap: 20px;
+        .form-control {
+          background-color: #f9f9f9;
+          border: 1px solid #ededed;
+        }
+        .form-control:focus {
+          outline: 0;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  .createViolitionContainer--creatviolition--person {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    margin: 0;
+  }
+
+  .intabs {
+    padding: 0;
+    margin-top: 0;
+    .person__image {
+      padding: 5px;
+      img {
+        height: 80px;
+      }
+    }
+  }
+}

@@ -1,0 +1,329 @@
+
+@use '../helpers' as *;
+.createViolitionContainer {
+  margin-bottom: 30px;
+
+  &--creatviolition--Inquire {
+      background: transparent;
+      padding: $padding-14;
+      display: flex;
+      border-radius: 8px;
+      box-shadow: $shadow-100;
+      flex-direction: column;
+
+      h3 {
+          @include meduimfont;
+          border-bottom: 1px solid #f4f4f4;
+          padding-bottom: 10px;
+          color: $darkBlue;
+          width: 100%;
+          background: #eef5ff;
+          padding: $padding-14;
+
+          img {
+              height: 20px;
+              width: 20px;
+          }
+      }
+
+      .form-group {
+          width: max-content;
+      }
+  }
+
+  &--creatviolition--violitionData {
+      @extend .createViolitionContainer--creatviolition--Inquire;
+
+      h3 {
+          border-bottom: 1px solid #f4f4f4;
+          padding-bottom: 10px;
+
+
+          img {
+              height: 18px;
+              width: 18px;
+          }
+      }
+
+      .details {
+          gap: 15px;
+          flex-wrap: wrap;
+          width: 100%;
+          justify-content: space-between;
+
+          .form-group {
+              width: 23%;
+
+              .d-flex {
+                  width: 100%;
+              }
+          }
+      }
+  }
+
+
+
+
+
+
+  &--violitionSummarry {
+      @extend .createViolitionContainer--creatviolition--Inquire;
+      background: #eef0f2;
+      display: flex;
+      flex-direction: column;
+      box-shadow: $shadow-100;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 100px;
+
+      &--top {
+          background: $Primary-500;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          justify-content: center;
+          padding: 10px;
+          border-radius: 5px;
+
+          h4 {
+              margin: 0;
+              @include meduimfont;
+              color: #fff;
+          }
+      }
+
+      &--body {
+          background: #fff;
+          padding: $padding-14;
+          border-radius: 5px;
+          margin-top: 10px;
+
+          .no-data {
+              img {
+                  width: 120px;
+                  border-radius: 18px;
+                  height: 80px;
+                  margin: 0 auto;
+                  display: block;
+              }
+
+              h5 {
+                  @include smallfont;
+                  text-align: center;
+                  margin-top: 10px;
+              }
+          }
+
+          &__violiters {
+              h4 {
+                  @include smallfont;
+                  border-bottom: 1px solid #f4f4f4;
+                  padding-bottom: 10px;
+                  color: $darkBlue;
+              }
+
+              .details {
+                  box-shadow: $shadow-100;
+              }
+
+              .block {
+
+                  @include smallfont-reg-10;
+                  color: #000;
+                  text-align: center;
+                  display: flex;
+                  flex: 1;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  border: 1px solid #F3F6FF;
+                  gap: 0;
+
+                  .violiters__image {
+                      padding: 10px;
+                      position: relative;
+
+                      .wanted {
+                          border: 3px solid #F43F5E;
+                      }
+
+
+
+                      img {
+                          width: 40px;
+                          height: 40px;
+                          border-radius: 50%;
+                          box-shadow: rgb(239 241 249) 0px 2px 4px 0px;
+                      }
+                  }
+
+                  span {
+                      @include smallfont;
+                      color: #383838;
+
+                      img {
+                          height: 20px;
+                      }
+                  }
+              }
+
+              .pesonName {
+                  flex: 2
+              }
+
+              .violitionCreationDetails {
+                  .block {
+                      align-items: flex-start;
+                      padding: 5px;
+                      @include smallfont;
+                      color: #000;
+                      margin-top: 5px;
+
+                      span {
+                          @include smallfont-reg-10;
+                          text-align: right;
+                      }
+
+                      .attatched {
+                          display: flex !important;
+                          align-items: center;
+                          background: #fdfdfd !important;
+                          width: 100%;
+                          padding: 5px;
+                          margin-top: 5px;
+                          justify-content: space-between;
+                          border: 1px solid #eeeff5;
+
+                          .attatchedname {
+                              color: #000;
+
+                              img {
+                                  height: 20px;
+                              }
+                          }
+
+                          .attatchedRemove {
+                              img {
+                                  height: 17px;
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+
+          &__actionButtons {
+              margin-top: 20px;
+              display: flex;
+              justify-content: space-between;
+              gap: 10px;
+          }
+      }
+  }
+}
+
+
+
+
+
+.successModal {
+
+  h3 {
+      @include meduimfont;
+      text-align: center;
+      color: $darkBlue;
+  }
+
+  .success-icon {
+      background: #fff;
+      box-shadow: 0px 8px 30px rgb(189 200 214 / 70%);
+      display: block;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+  }
+}
+
+
+.modalin-title h5 {
+  @include meduimfont;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.raletedvehicle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .vechicle__block {
+      box-shadow: 0px 8px 20px #f1f1f1;
+      background: white;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      gap: 2px;
+      border: 1px solid #f7f7f7;
+      margin: 15px 0;
+
+      &--number {
+          display: flex;
+          background: #FAFAFA;
+          padding: 10px;
+
+          .form-check {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              padding: 0;
+
+              .form-check-input {
+                  margin: 0 auto;
+                  margin-bottom: 10px !important;
+              }
+
+              .form-check-label {
+                  margin: 0 !important;
+              }
+          }
+      }
+
+      &--details {
+          display: flex;
+          gap: 2px;
+          @include smallfont-reg-10;
+          flex-wrap: wrap;
+
+          &--block {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              border: 1px solid #F5F5F5;
+              padding: 6px;
+              width: 49%;
+          }
+
+          span {
+              @include smallfont;
+              color: #000;
+          }
+      }
+  }
+}
+
+.fetchingData {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h3 {
+      color: #000;
+      text-align: center;
+      background: transparent;
+  }
+}

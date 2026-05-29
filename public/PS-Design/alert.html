@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة أمن</title>
+    <link href="./css/bootstrap-v5.css" rel="stylesheet" />
+    <link href="./css/slick.css" rel="stylesheet" />
+    <link href="./css/slick-theme.css" rel="stylesheet" />
+    <link href="./css/animate.css" rel="stylesheet" />
+    <link href="./css/font-awesome.min.css" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/slick.min.js"></script>
+    <script src="./js/charts.js"></script>
+    <script src="./js/app.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/introjs.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .beta {
+            display: flex;
+            padding: 10px 20px;
+            align-items: center;
+            justify-content: space-between;
+            background: #FF5722;
+            /* Ensure this color has sufficient contrast with the text color */
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            /* Ensure this color has sufficient contrast with the background color */
+            font-weight: 600;
+        }
+
+        .horizintalScroller {
+            position: relative;
+            width: 100%;
+            background: #cfe2ff;
+            /* Ensure this color has sufficient contrast with the text color */
+            overflow: hidden;
+            font-weight: 600;
+            text-align: center;
+            padding: 15px;
+            color: #1366df;
+            /* Ensure this color has sufficient contrast with the background color */
+            border: 1px solid #b2caee;
+            font-size: 14px;
+            box-shadow: 0px -4px 10px rgb(132 174 238);
+        }
+
+        .sidebar .menu-bar {
+            box-shadow: none;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            z-index: 99999;
+            width: 100%;
+            display: flex;
+            background: #f8f6f2;
+            /* Ensure this color has sufficient contrast with the text color */
+            padding: 15px;
+            border-top: 1px solid #f4eeee;
+            color: #552e00;
+            /* Ensure this color has sufficient contrast with the background color */
+        }
+
+        .copyright {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 10px;
+            color: #552e00;
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .wapper {
+            padding-bottom: 60px;
+            height: auto;
+        }
+
+        .content__user__area {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content__user__area--picture img {
+            border-radius: 50%;
+
+        }
+
+        .content__user__area--name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .content__user__area--details .block {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .mail__area .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .mail__area .title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .mail__area .mailbody .mail_details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mail__area .mailbody .mail_details .maincontent {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .mail__area .mailbody .mail_details .arrowDetails img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .statistics--container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .statistics--container__toparea {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .statistics--container__toparea--right .btn {
+            margin-right: 10px;
+        }
+
+        .statistics--container__toparea--left .badge {
+            margin-left: 10px;
+        }
+
+        .statistics--container__bottom {
+            display: flex;
+            align-items: center;
+        }
+
+        .statistics--container__bottom .right {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .statistics--container__bottom .left {
+            width: 75%;
+        }
+
+        .Incoming__reports--container {
+            margin-top: 20px;
+        }
+
+        .Incoming__reports__card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .Incoming__reports__card img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .Incoming__reports__card__content {
+            flex: 1;
+            margin-left: 10px;
+        }
+
+        .Incoming__reports__card__content--title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .Incoming__reports__card__content--number {
+            font-size: 18px;
+            font-weight: bold;
+            color: #FF5722;
+        }
+    </style>
+</head>
+
+
+
+<body data-spy="scroll" data-target=".navbar" id="fullscreendiv">
+    <div style="padding: 1rem; background-color: #fffbe6; color: #92400e; text-align: center; border-bottom: 2px solid #fde68a;">
+        <p style="font-weight: bold; margin: 0; font-size: 1.1rem;">⚠️ This Page is Deprecated</p>
+        <p style="margin: 0.25rem 0 0 0;">This is a legacy example file and should not be used for new development. Please refer to the <a href="./DesignSystemDocumentation/alert.html" style="text-decoration: underline; color: #78350f; font-weight: 600;">canonical documentation for Alerts</a>.</p>
+    </div>
+    <div class="d-flex flex-column gap-xl padding-3xl">
+        <!-- Neutral (light) -->
+        <div class="alert  alert-dismissible  alert  alert-dismissible  moi-alert d-flex justify-content-between align-items-center padding-y-md padding-x-md border-3 border-bottom bg-Neutral-50 border-Neutral-600"
+            role="alert">
+            <div class="d-flex gap-lg align-items-center Neutral-700">
+                <svg class="Neutral-800 icon icon-xl" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" focusable="false">
+                    <path
+                        d="M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM11.2764 10.25C11.4815 10.2499 11.7034 10.2502 11.8906 10.2754C12.1099 10.3049 12.3902 10.3804 12.626 10.6162C12.8618 10.852 12.9373 11.1322 12.9668 11.3516C12.992 11.5388 12.9923 11.7607 12.9922 11.9658V17C12.9922 17.4142 12.6564 17.75 12.2422 17.75C11.828 17.75 11.4922 17.4142 11.4922 17V12C11.4922 11.9009 11.4923 11.8204 11.4912 11.751C11.4218 11.7499 11.3413 11.75 11.2422 11.75C10.828 11.75 10.4922 11.4142 10.4922 11C10.4922 10.5858 10.828 10.25 11.2422 10.25C11.2535 10.25 11.2649 10.25 11.2764 10.25ZM12.001 7C12.5533 7 13.001 7.44772 13.001 8C13.001 8.55228 12.5533 9 12.001 9H11.9922C11.4399 9 10.9922 8.55228 10.9922 8C10.9922 7.44772 11.4399 7 11.9922 7H12.001Z" />
+                </svg>
+
+                <strong>إشعار:</strong>
+                <span class="font-lg-500">
+                    تم إضافة البحث الذكي إلي البحث حيث يمكنك من البحث داخل القضية تم إضافة البحث الذكي إلي البحث حيث
+                    يمكنك من
+                    البحث داخل القضية تم إضافة البحث الذكي إلي البحث حيث يمكنك من البحث داخل القضية
+                </span>
+            </div>
+
+            <div class="d-flex">
+                <button class="btn moi-btn--black" data-size="lg" type="button">
+                    التفاصيل
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                        focusable="false">
+                        <path
+                            d="M3.25 12.0005C3.25 12.374 3.41565 12.7206 3.57252 12.9808C3.7418 13.2617 3.96944 13.5516 4.21918 13.8343C4.72018 14.4013 5.37387 15.0103 6.00824 15.5612C6.64633 16.1153 7.28222 16.6255 7.75725 16.9963C7.99516 17.182 8.19364 17.3334 8.33304 17.4387C8.40276 17.4914 8.45776 17.5326 8.49558 17.5607L8.53915 17.5931L8.55071 17.6017L8.55472 17.6046C8.88822 17.8503 9.35816 17.7794 9.60382 17.4459C9.84947 17.1124 9.77828 16.6429 9.44482 16.3973L9.43209 16.3879L9.39204 16.3581C9.35662 16.3317 9.3042 16.2925 9.2372 16.2418C9.10317 16.1406 8.91103 15.994 8.68019 15.8138C8.21772 15.4528 7.60363 14.96 6.99173 14.4286C6.37611 13.894 5.77981 13.3352 5.34331 12.8411C5.3157 12.8099 5.28899 12.7792 5.26316 12.749L20 12.749C20.4142 12.749 20.75 12.4132 20.75 11.999C20.75 11.5848 20.4142 11.249 20 11.249L5.2657 11.249C5.29073 11.2198 5.31661 11.1901 5.34331 11.1598C5.77981 10.6658 6.37611 10.1069 6.99173 9.57235C7.60363 9.04099 8.21772 8.5481 8.68019 8.18713C8.91102 8.00695 9.10317 7.86036 9.2372 7.75911C9.30419 7.7085 9.35662 7.66925 9.39203 7.64285L9.43208 7.61308L9.44481 7.60367C9.77828 7.358 9.84947 6.88852 9.60382 6.55503C9.35815 6.22153 8.88822 6.15064 8.55472 6.3963L8.55071 6.39926L8.53915 6.40782L8.49558 6.4402C8.45776 6.4684 8.40276 6.50957 8.33304 6.56224C8.19363 6.66755 7.99516 6.81899 7.75725 7.00468C7.28222 7.37546 6.64633 7.88567 6.00823 8.43977C5.37387 8.99064 4.72018 9.59962 4.21918 10.1667C3.96944 10.4494 3.7418 10.7393 3.57252 11.0201C3.4166 11.2788 3.25199 11.6228 3.25002 11.9938" />
+                    </svg>
+                </button>
+
+                <button class="btn moi-btn--transparent" data-size="lg" type="button" aria-label="إغلاق"
+                    data-bs-dismiss="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none" aria-hidden="true"
+                        focusable="false">
+                        <path class="Neutral-800" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M0.183059 0.183058C0.427136 -0.0610194 0.822864 -0.0610194 1.06694 0.183058L5.625 4.74112L10.1831 0.183059C10.4271 -0.0610191 10.8229 -0.0610191 11.0669 0.183059C11.311 0.427136 11.311 0.822864 11.0669 1.06694L6.50888 5.625L11.0669 10.1831C11.311 10.4271 11.311 10.8229 11.0669 11.0669C10.8229 11.311 10.4271 11.311 10.1831 11.0669L5.625 6.50888L1.06694 11.0669C0.822864 11.311 0.427136 11.311 0.183058 11.0669C-0.0610194 10.8229 -0.0610194 10.4271 0.183058 10.1831L4.74112 5.625L0.183059 1.06694C-0.0610191 0.822864 -0.0610191 0.427136 0.183059 0.183058Z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Info (Primary) -->
+        <div class="alert  alert-dismissible  moi-alert d-flex justify-content-between align-items-center padding-y-md padding-x-md border-3 border-bottom bg-Info-50 border-Info-600"
+            role="alert">
+            <div class="d-flex gap-lg align-items-center Info-700">
+                <svg class="Info-800 icon icon-xl" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" focusable="false">
+                    <path
+                        d="M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM11.2764 10.25C11.4815 10.2499 11.7034 10.2502 11.8906 10.2754C12.1099 10.3049 12.3902 10.3804 12.626 10.6162C12.8618 10.852 12.9373 11.1322 12.9668 11.3516C12.992 11.5388 12.9923 11.7607 12.9922 11.9658V17C12.9922 17.4142 12.6564 17.75 12.2422 17.75C11.828 17.75 11.4922 17.4142 11.4922 17V12C11.4922 11.9009 11.4923 11.8204 11.4912 11.751C11.4218 11.7499 11.3413 11.75 11.2422 11.75C10.828 11.75 10.4922 11.4142 10.4922 11C10.4922 10.5858 10.828 10.25 11.2422 10.25C11.2535 10.25 11.2649 10.25 11.2764 10.25ZM12.001 7C12.5533 7 13.001 7.44772 13.001 8C13.001 8.55228 12.5533 9 12.001 9H11.9922C11.4399 9 10.9922 8.55228 10.9922 8C10.9922 7.44772 11.4399 7 11.9922 7H12.001Z" />
+                </svg>
+
+                <strong>إشعار:</strong>
+                <span class="font-lg-500">
+                    تم إضافة البحث الذكي إلي البحث حيث يمكنك من البحث داخل القضية تم إضافة البحث الذكي إلي البحث حيث
+                    يمكنك من
+                    البحث داخل القضية تم إضافة البحث الذكي إلي البحث حيث يمكنك من البحث داخل القضية
+                </span>
+            </div>
+
+            <div class="d-flex">
+                <button class="btn moi-btn--Info" type="button">
+                    التفاصيل
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                        focusable="false">
+                        <path
+                            d="M3.25 12.0005C3.25 12.374 3.41565 12.7206 3.57252 12.9808C3.7418 13.2617 3.96944 13.5516 4.21918 13.8343C4.72018 14.4013 5.37387 15.0103 6.00824 15.5612C6.64633 16.1153 7.28222 16.6255 7.75725 16.9963C7.99516 17.182 8.19364 17.3334 8.33304 17.4387C8.40276 17.4914 8.45776 17.5326 8.49558 17.5607L8.53915 17.5931L8.55071 17.6017L8.55472 17.6046C8.88822 17.8503 9.35816 17.7794 9.60382 17.4459C9.84947 17.1124 9.77828 16.6429 9.44482 16.3973L9.43209 16.3879L9.39204 16.3581C9.35662 16.3317 9.3042 16.2925 9.2372 16.2418C9.10317 16.1406 8.91103 15.994 8.68019 15.8138C8.21772 15.4528 7.60363 14.96 6.99173 14.4286C6.37611 13.894 5.77981 13.3352 5.34331 12.8411C5.3157 12.8099 5.28899 12.7792 5.26316 12.749L20 12.749C20.4142 12.749 20.75 12.4132 20.75 11.999C20.75 11.5848 20.4142 11.249 20 11.249L5.2657 11.249C5.29073 11.2198 5.31661 11.1901 5.34331 11.1598C5.77981 10.6658 6.37611 10.1069 6.99173 9.57235C7.60363 9.04099 8.21772 8.5481 8.68019 8.18713C8.91102 8.00695 9.10317 7.86036 9.2372 7.75911C9.30419 7.7085 9.35662 7.66925 9.39203 7.64285L9.43208 7.61308L9.44481 7.60367C9.77828 7.358 9.84947 6.88852 9.60382 6.55503C9.35815 6.22153 8.88822 6.15064 8.55472 6.3963L8.55071 6.39926L8.53915 6.40782L8.49558 6.4402C8.45776 6.4684 8.40276 6.50957 8.33304 6.56224C8.19363 6.66755 7.99516 6.81899 7.75725 7.00468C7.28222 7.37546 6.64633 7.88567 6.00823 8.43977C5.37387 8.99064 4.72018 9.59962 4.21918 10.1667C3.96944 10.4494 3.7418 10.7393 3.57252 11.0201C3.4166 11.2788 3.25199 11.6228 3.25002 11.9938" />
+                    </svg>
+                </button>
+
+                <button class="btn moi-btn--transparent" data-size="lg" type="button" aria-label="إغلاق"
+                    data-bs-dismiss="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none" aria-hidden="true"
+                        focusable="false">
+                        <path class="Neutral-800" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M0.183059 0.183058C0.427136 -0.0610194 0.822864 -0.0610194 1.06694 0.183058L5.625 4.74112L10.1831 0.183059C10.4271 -0.0610191 10.8229 -0.0610191 11.0669 0.183059C11.311 0.427136 11.311 0.822864 11.0669 1.06694L6.50888 5.625L11.0669 10.1831C11.311 10.4271 11.311 10.8229 11.0669 11.0669C10.8229 11.311 10.4271 11.311 10.1831 11.0669L5.625 6.50888L1.06694 11.0669C0.822864 11.311 0.427136 11.311 0.183058 11.0669C-0.0610194 10.8229 -0.0610194 10.4271 0.183058 10.1831L4.74112 5.625L0.183059 1.06694C-0.0610191 0.822864 -0.0610191 0.427136 0.183059 0.183058Z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Critical (Error) -->
+        <div class="alert  alert-dismissible  moi-alert d-flex justify-content-between align-items-center padding-y-md padding-x-md border-3 border-bottom bg-Error-50 border-Error-600"
+            role="alert">
+            <div class="d-flex gap-lg align-items-center Error-700">
+                <svg class="Error-800 icon icon-xl" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" focusable="false">
+                    <path
+                        d="M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM11.2764 10.25C11.4815 10.2499 11.7034 10.2502 11.8906 10.2754C12.1099 10.3049 12.3902 10.3804 12.626 10.6162C12.8618 10.852 12.9373 11.1322 12.9668 11.3516C12.992 11.5388 12.9923 11.7607 12.9922 11.9658V17C12.9922 17.4142 12.6564 17.75 12.2422 17.75C11.828 17.75 11.4922 17.4142 11.4922 17V12C11.4922 11.9009 11.4923 11.8204 11.4912 11.751C11.4218 11.7499 11.3413 11.75 11.2422 11.75C10.828 11.75 10.4922 11.4142 10.4922 11C10.4922 10.5858 10.828 10.25 11.2422 10.25C11.2535 10.25 11.2649 10.25 11.2764 10.25ZM12.001 7C12.5533 7 13.001 7.44772 13.001 8C13.001 8.55228 12.5533 9 12.001 9H11.9922C11.4399 9 10.9922 8.55228 10.9922 8C10.9922 7.44772 11.4399 7 11.9922 7H12.001Z" />
+                </svg>
+
+                <strong>إشعار:</strong>
+                <span class="font-lg-500">
+                    تم إضافة البحث الذكي إلي البحث حيث يمكنك من البحث داخل القضية تم إضافة البحث الذكي إلي البحث حيث
+                    يمكنك من
+                    البحث داخل القضية تم إضافة البحث الذكي إلي البحث حيث يمكنك من البحث داخل القضية
+                </span>
+            </div>
+
+            <div class="d-flex">
+                <button class="btn moi-btn--Error" type="button">
+                    التفاصيل
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                        focusable="false">
+                        <path
+                            d="M3.25 12.0005C3.25 12.374 3.41565 12.7206 3.57252 12.9808C3.7418 13.2617 3.96944 13.5516 4.21918 13.8343C4.72018 14.4013 5.37387 15.0103 6.00824 15.5612C6.64633 16.1153 7.28222 16.6255 7.75725 16.9963C7.99516 17.182 8.19364 17.3334 8.33304 17.4387C8.40276 17.4914 8.45776 17.5326 8.49558 17.5607L8.53915 17.5931L8.55071 17.6017L8.55472 17.6046C8.88822 17.8503 9.35816 17.7794 9.60382 17.4459C9.84947 17.1124 9.77828 16.6429 9.44482 16.3973L9.43209 16.3879L9.39204 16.3581C9.35662 16.3317 9.3042 16.2925 9.2372 16.2418C9.10317 16.1406 8.91103 15.994 8.68019 15.8138C8.21772 15.4528 7.60363 14.96 6.99173 14.4286C6.37611 13.894 5.77981 13.3352 5.34331 12.8411C5.3157 12.8099 5.28899 12.7792 5.26316 12.749L20 12.749C20.4142 12.749 20.75 12.4132 20.75 11.999C20.75 11.5848 20.4142 11.249 20 11.249L5.2657 11.249C5.29073 11.2198 5.31661 11.1901 5.34331 11.1598C5.77981 10.6658 6.37611 10.1069 6.99173 9.57235C7.60363 9.04099 8.21772 8.5481 8.68019 8.18713C8.91102 8.00695 9.10317 7.86036 9.2372 7.75911C9.30419 7.7085 9.35662 7.66925 9.39203 7.64285L9.43208 7.61308L9.44481 7.60367C9.77828 7.358 9.84947 6.88852 9.60382 6.55503C9.35815 6.22153 8.88822 6.15064 8.55472 6.3963L8.55071 6.39926L8.53915 6.40782L8.49558 6.4402C8.45776 6.4684 8.40276 6.50957 8.33304 6.56224C8.19363 6.66755 7.99516 6.81899 7.75725 7.00468C7.28222 7.37546 6.64633 7.88567 6.00823 8.43977C5.37387 8.99064 4.72018 9.59962 4.21918 10.1667C3.96944 10.4494 3.7418 10.7393 3.57252 11.0201C3.4166 11.2788 3.25199 11.6228 3.25002 11.9938" />
+                    </svg>
+                </button>
+
+                <button class="btn moi-btn--transparent" data-size="lg" type="button" aria-label="إغلاق"
+                    data-bs-dismiss="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none" aria-hidden="true"
+                        focusable="false">
+                        <path class="Neutral-800" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M0.183059 0.183058C0.427136 -0.0610194 0.822864 -0.0610194 1.06694 0.183058L5.625 4.74112L10.1831 0.183059C10.4271 -0.0610191 10.8229 -0.0610191 11.0669 0.183059C11.311 0.427136 11.311 0.822864 11.0669 1.06694L6.50888 5.625L11.0669 10.1831C11.311 10.4271 11.311 10.8229 11.0669 11.0669C10.8229 11.311 10.4271 11.311 10.1831 11.0669L5.625 6.50888L1.06694 11.0669C0.822864 11.311 0.427136 11.311 0.183058 11.0669C-0.0610194 10.8229 -0.0610194 10.4271 0.183058 10.1831L4.74112 5.625L0.183059 1.06694C-0.0610191 0.822864 -0.0610191 0.427136 0.183059 0.183058Z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Warning -->
+        <div class="alert  alert-dismissible  moi-alert d-flex justify-content-between align-items-center padding-y-md padding-x-md border-3 border-bottom bg-Warning-50 border-Warning-600"
+            role="alert">
+            <div class="d-flex gap-lg align-items-center Warning-700">
+
+                <svg class="Warning-800 icon icon-xl" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" focusable="false">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12.0928 0.485504C11.7044 -0.161835 10.7663 -0.161835 10.3779 0.485504L0.144052 17.5419C-0.255863 18.2084 0.224249 19.0563 1.00154 19.0563L21.4692 19.0563C22.2465 19.0563 22.7266 18.2084 22.3267 17.5419L12.0928 0.485504ZM11.2354 6.05635C10.6831 6.05635 10.2354 6.50406 10.2354 7.05635L10.2354 11.0563C10.2354 11.6086 10.6831 12.0563 11.2354 12.0563C11.7876 12.0563 12.2354 11.6086 12.2354 11.0563L12.2354 7.05635C12.2354 6.50406 11.7876 6.05635 11.2354 6.05635ZM11.2354 14.0563C10.6831 14.0563 10.2354 14.5041 10.2354 15.0563C10.2354 15.6086 10.6831 16.0563 11.2354 16.0563C11.7876 16.0563 12.2354 15.6086 12.2354 15.0563C12.2354 14.5041 11.7876 14.0563 11.2354 14.0563Z"
+                        fill="#B54708" />
+                </svg>
+
+
+                <strong>إشعار:</strong>
+                <span class="font-lg-500">
+                    تم إضافة البحث الذكي إلي البحث حيث يمكنك من البحث داخل القضية تم إضافة البحث الذكي إلي البحث حيث
+                    يمكنك من
+                    البحث داخل القضية تم إضافة البحث الذكي إلي البحث حيث يمكنك من البحث داخل القضية
+                </span>
+            </div>
+
+            <div class="d-flex">
+                <button class="btn moi-btn--Warning" type="button">
+                    التفاصيل
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                        focusable="false">
+                        <path
+                            d="M3.25 12.0005C3.25 12.374 3.41565 12.7206 3.57252 12.9808C3.7418 13.2617 3.96944 13.5516 4.21918 13.8343C4.72018 14.4013 5.37387 15.0103 6.00824 15.5612C6.64633 16.1153 7.28222 16.6255 7.75725 16.9963C7.99516 17.182 8.19364 17.3334 8.33304 17.4387C8.40276 17.4914 8.45776 17.5326 8.49558 17.5607L8.53915 17.5931L8.55071 17.6017L8.55472 17.6046C8.88822 17.8503 9.35816 17.7794 9.60382 17.4459C9.84947 17.1124 9.77828 16.6429 9.44482 16.3973L9.43209 16.3879L9.39204 16.3581C9.35662 16.3317 9.3042 16.2925 9.2372 16.2418C9.10317 16.1406 8.91103 15.994 8.68019 15.8138C8.21772 15.4528 7.60363 14.96 6.99173 14.4286C6.37611 13.894 5.77981 13.3352 5.34331 12.8411C5.3157 12.8099 5.28899 12.7792 5.26316 12.749L20 12.749C20.4142 12.749 20.75 12.4132 20.75 11.999C20.75 11.5848 20.4142 11.249 20 11.249L5.2657 11.249C5.29073 11.2198 5.31661 11.1901 5.34331 11.1598C5.77981 10.6658 6.37611 10.1069 6.99173 9.57235C7.60363 9.04099 8.21772 8.5481 8.68019 8.18713C8.91102 8.00695 9.10317 7.86036 9.2372 7.75911C9.30419 7.7085 9.35662 7.66925 9.39203 7.64285L9.43208 7.61308L9.44481 7.60367C9.77828 7.358 9.84947 6.88852 9.60382 6.55503C9.35815 6.22153 8.88822 6.15064 8.55472 6.3963L8.55071 6.39926L8.53915 6.40782L8.49558 6.4402C8.45776 6.4684 8.40276 6.50957 8.33304 6.56224C8.19363 6.66755 7.99516 6.81899 7.75725 7.00468C7.28222 7.37546 6.64633 7.88567 6.00823 8.43977C5.37387 8.99064 4.72018 9.59962 4.21918 10.1667C3.96944 10.4494 3.7418 10.7393 3.57252 11.0201C3.4166 11.2788 3.25199 11.6228 3.25002 11.9938" />
+                    </svg>
+                </button>
+
+                <button class="btn moi-btn--transparent" data-size="lg" type="button" aria-label="إغلاق"
+                    data-bs-dismiss="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none" aria-hidden="true"
+                        focusable="false">
+                        <path class="Neutral-800" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M0.183059 0.183058C0.427136 -0.0610194 0.822864 -0.0610194 1.06694 0.183058L5.625 4.74112L10.1831 0.183059C10.4271 -0.0610191 10.8229 -0.0610191 11.0669 0.183059C11.311 0.427136 11.311 0.822864 11.0669 1.06694L6.50888 5.625L11.0669 10.1831C11.311 10.4271 11.311 10.8229 11.0669 11.0669C10.8229 11.311 10.4271 11.311 10.1831 11.0669L5.625 6.50888L1.06694 11.0669C0.822864 11.311 0.427136 11.311 0.183058 11.0669C-0.0610194 10.8229 -0.0610194 10.4271 0.183058 10.1831L4.74112 5.625L0.183059 1.06694C-0.0610191 0.822864 -0.0610191 0.427136 0.183059 0.183058Z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Success (Primary) -->
+        <div class="alert  alert-dismissible  moi-alert d-flex justify-content-between align-items-center padding-y-md padding-x-md border-3 border-bottom bg-Primary-50 border-Primary-600"
+            role="alert">
+            <div class="d-flex gap-lg align-items-center Primary-700">
+
+
+                <svg class="Primary-800 icon icon-xl" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23Z"
+                        fill="white" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23ZM7.05022 11.1213C6.65969 11.5118 6.65969 12.145 7.05022 12.5355L9.87864 15.364C10.2692 15.7545 10.9023 15.7545 11.2929 15.364L16.9497 9.70711C17.3402 9.31658 17.3402 8.68342 16.9497 8.29289C16.5592 7.90237 15.926 7.90237 15.5355 8.29289L10.5858 13.2426L8.46443 11.1213C8.07391 10.7308 7.44074 10.7308 7.05022 11.1213Z"
+                        fill="#067647" />
+                </svg>
+
+
+
+                <strong>إشعار:</strong>
+                <span class="font-lg-500">
+                    تم إضافة البحث الذكي إلي البحث حيث يمكنك من البحث داخل القضية تم إضافة البحث الذكي إلي البحث حيث
+                    يمكنك من
+                    البحث داخل القضية تم إضافة البحث الذكي إلي البحث حيث يمكنك من البحث داخل القضية
+                </span>
+            </div>
+
+            <div class="d-flex">
+                <button class="btn moi-btn--Primary" data-size="lg" type="button">
+                    التفاصيل
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                        focusable="false">
+                        <path
+                            d="M3.25 12.0005C3.25 12.374 3.41565 12.7206 3.57252 12.9808C3.7418 13.2617 3.96944 13.5516 4.21918 13.8343C4.72018 14.4013 5.37387 15.0103 6.00824 15.5612C6.64633 16.1153 7.28222 16.6255 7.75725 16.9963C7.99516 17.182 8.19364 17.3334 8.33304 17.4387C8.40276 17.4914 8.45776 17.5326 8.49558 17.5607L8.53915 17.5931L8.55071 17.6017L8.55472 17.6046C8.88822 17.8503 9.35816 17.7794 9.60382 17.4459C9.84947 17.1124 9.77828 16.6429 9.44482 16.3973L9.43209 16.3879L9.39204 16.3581C9.35662 16.3317 9.3042 16.2925 9.2372 16.2418C9.10317 16.1406 8.91103 15.994 8.68019 15.8138C8.21772 15.4528 7.60363 14.96 6.99173 14.4286C6.37611 13.894 5.77981 13.3352 5.34331 12.8411C5.3157 12.8099 5.28899 12.7792 5.26316 12.749L20 12.749C20.4142 12.749 20.75 12.4132 20.75 11.999C20.75 11.5848 20.4142 11.249 20 11.249L5.2657 11.249C5.29073 11.2198 5.31661 11.1901 5.34331 11.1598C5.77981 10.6658 6.37611 10.1069 6.99173 9.57235C7.60363 9.04099 8.21772 8.5481 8.68019 8.18713C8.91102 8.00695 9.10317 7.86036 9.2372 7.75911C9.30419 7.7085 9.35662 7.66925 9.39203 7.64285L9.43208 7.61308L9.44481 7.60367C9.77828 7.358 9.84947 6.88852 9.60382 6.55503C9.35815 6.22153 8.88822 6.15064 8.55472 6.3963L8.55071 6.39926L8.53915 6.40782L8.49558 8.4402C8.45776 8.4684 8.40276 8.50957 8.33304 8.56224C8.19363 8.66755 7.99516 8.81899 7.75725 9.00468C7.28222 9.37546 6.64633 9.88567 6.00823 10.4398C5.37387 10.9906 4.72018 11.5996 4.21918 12.1667C3.96944 12.4494 3.7418 12.7393 3.57252 13.0201C3.4166 13.2788 3.25199 13.6228 3.25002 13.9938" />
+                    </svg>
+                </button>
+
+                <button class="btn moi-btn--transparent" data-size="lg" type="button" aria-label="إغلاق"
+                    data-bs-dismiss="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none" aria-hidden="true"
+                        focusable="false">
+                        <path class="Neutral-800" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M0.183059 0.183058C0.427136 -0.0610194 0.822864 -0.0610194 1.06694 0.183058L5.625 4.74112L10.1831 0.183059C10.4271 -0.0610191 10.8229 -0.0610191 11.0669 0.183059C11.311 0.427136 11.311 0.822864 11.0669 1.06694L6.50888 5.625L11.0669 10.1831C11.311 10.4271 11.311 10.8229 11.0669 11.0669C10.8229 11.311 10.4271 11.311 10.1831 11.0669L5.625 6.50888L1.06694 11.0669C0.822864 11.311 0.427136 11.311 0.183058 11.0669C-0.0610194 10.8229 -0.0610194 10.4271 0.183058 10.1831L4.74112 5.625L0.183059 1.06694C-0.0610191 0.822864 -0.0610191 0.427136 0.183059 0.183058Z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,346 @@
+@use '../helpers' as *;
+.incomingIncidents {
+    &--container {
+        margin-top: 20px;
+
+        &--rightarea {
+            @extend .newIms--inquiryDs--card;
+            padding: 12px;
+            gap: 0;
+            width: 100%;
+            border: 1px solid #d8e0e9;
+            border-color: #d8e0e9 !important;
+
+            .custommaintabs {
+                margin-bottom: 0;
+                justify-content: center;
+                padding: 10px;
+                gap: 10px;
+                background: #f8f6f2;
+                border-radius: 5px;
+
+                .nav-link {
+                    width: 100%;
+                    border: none;
+                    border: none !important;
+                    background: #ffffff;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    color: #000000;
+                    font-weight: 600;
+                    padding: 6px;
+                    box-shadow: rgb(178, 174, 174) 0px 0px 5px 0px;
+                    margin-bottom: 0;
+                    box-shadow: 0px 4px 10px 0px rgba(9, 30, 66, 0.06);
+                    justify-content: space-between;
+                    white-space: nowrap;
+                    gap: 10px;
+                }
+
+                .nav-link.active {
+                    background: var(--theme-primary) !important;
+                    border: 1px solid #ffffff;
+                    color: #ffffff;
+                    box-shadow: 0px 4px 4px 0px rgb(211 211 211 / 19%);
+
+                    .new-total {
+                        padding: 2px 4px !important;
+                        background: #fff;
+                        color: $white-100 !important;
+                    }
+                }
+            }
+
+
+
+
+            .tabCustomcontent {
+                &--card {
+                    position: relative;
+                    overflow: hidden;
+                    border: 1px solid #eeeeee;
+                    background: #ffffff;
+                    padding: 12px;
+                    display: flex;
+                    gap: 10px;
+                    border-radius: 8px;
+                    cursor: pointer;
+
+                    &--stutus {
+                        background: $darkBlue;
+                        position: absolute;
+                        left: -52px;
+                        top: -82px;
+                        transform: rotate(45deg);
+                        width: 85px;
+                        height: 141px;
+                        display: flex;
+                        justify-content: center;
+                        align-content: flex-start;
+                        flex-direction: column;
+                        padding: 2px;
+
+                        img {
+                            height: 16px;
+                            position: absolute;
+                            transform: rotate(313deg);
+                            filter: brightness(0) invert(1);
+                        }
+                    }
+
+                    &__logo {
+                        display: flex;
+                        align-items: center;
+
+                        img {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+
+                    &--blockcontainer {
+                        display: flex;
+                        align-items: center;
+                        gap: 3px;
+                        width: 100%;
+
+                        &__block {
+                            @include meduimfont;
+                            background: #f8f9fa;
+                            border-radius: 4px;
+                            padding: 5px;
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            border-radius: 6px;
+                            color: $darkBlue;
+
+                            span {
+                                @include meduimfont;
+                                color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .viewd {
+                // border: 1px solid $Primary-500;
+                // background: #fff;
+
+                .tabCustomcontent--card--blockcontainer__block {
+                    // background: #F8F9FA;
+                    color: rgb(0 0 0);
+                }
+
+                .tabCustomcontent--card--stutus {
+                    background: $Primary-500;
+                }
+            }
+
+            .clicked {
+                background: rgb(163 134 100 / 23%);
+
+                .tabCustomcontent--card--blockcontainer__block {
+                    background: #c0a483;
+                    color: #ffffff;
+
+                    span {
+                        color: #ffffff;
+                    }
+                }
+
+                .tabCustomcontent--card--stutus {
+                    background: $Brown-500;
+                }
+            }
+
+            .notViewd {
+                // border: 1px solid #FFBE18;
+                // background: #fff;
+
+                .tabCustomcontent--card--blockcontainer__block {
+                    // background: #F8F9FA;
+                    color: #bbbbbb;
+
+                    span {
+                        color: #bbbbbb;
+                    }
+                }
+
+                .tabCustomcontent--card--stutus {
+                    background: #ffbe18;
+                }
+            }
+
+            .IncidentInbox-tab-content {
+                // height: 360px;
+                // overflow: scroll;
+
+                .incedentlength {
+                    .containerDiv {
+                        position: fixed;
+                        z-index: 99999;
+                        bottom: 30px;
+                        background: rgb(255 255 255 / 96%);
+                        width: 29%;
+                        padding: 5px 15px;
+
+                        #load-more {
+                            width: 45%;
+                            margin: 0 auto;
+                        }
+                    }
+                }
+            }
+        }
+
+        &--card {
+            @extend .newIms--inquiryDs--card;
+            padding: 12px;
+            width: 100%;
+            border: 1px solid $Brown-500;
+            border-color: #e7d2bd !important;
+            gap: 10px;
+
+            label {
+                margin-bottom: 0 !important;
+            }
+
+
+            .newIms--inquiryDs--card--footer {
+                &__shortCutAction {
+                    border: 1px solid $Primary-500;
+                    background: $Primary-500;
+                    color: #fff;
+                    padding: 6px 12px;
+                    // font-size: 11px;
+                    white-space: nowrap;
+                    flex-direction: row;
+                    border-radius: 6px;
+                    gap: 3px;
+                    justify-content: center;
+
+                    svg {
+                        fill: $Primary-500;
+                        height: 26px;
+                        width: 26px;
+                        background: #fff;
+                        border-radius: 50%;
+                        padding: 5px;
+                        margin-left: 5px;
+                    }
+
+                    &:hover {
+                        background: rgb(15, 166, 136);
+                        color: rgb(255, 255, 255);
+                        border: 1px solid rgb(13, 143, 117);
+
+                        svg {
+                            fill: rgb(15, 166, 136);
+                            background: #fff;
+                        }
+                    }
+                }
+
+                .highpriority {
+                    color: #c92850 !important;
+                    font-weight: 600;
+                    background: #f9e4ea !important;
+                    border: 1px solid #f0d6dd !important;
+
+                    img {
+                        background: #f1416c;
+                    }
+                }
+            }
+
+            .title {
+                padding: 8px;
+                background: $baige;
+                padding: 8px;
+                display: flex;
+                align-items: center;
+
+                .block {
+                    @include meduimfont;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                img {
+                    height: 30px;
+                    margin-left: 10px;
+                }
+
+                span {
+                    @include boldfont;
+                    color: $Brown-500;
+                }
+            }
+
+            .maindetails {
+                .block {
+                    span {
+                        background: rgb(248, 249, 250);
+                        border: 1px solid rgb(232, 239, 246);
+                        color: #000;
+                        padding: 10px;
+                        border-radius: 5px;
+                        line-height: 1.9;
+                        text-wrap: pretty;
+                        text-align: justify;
+                        user-select: all;
+                        @include font-md-500;
+                    }
+                }
+            }
+
+            .incidentLocationmap {
+                height: 550px;
+            }
+        }
+    }
+
+    .newIms--inquiryDs--card {
+        width: 100%;
+        padding: 10px;
+
+        .newIms--inquiryDs--card--top {
+            padding: 10px;
+            align-items: flex-start;
+            gap: 10px;
+        }
+    }
+
+    .platelostdetails {
+        .platelostdetails {
+            .fullname {
+                span {
+                    background: transparent;
+                    border: none;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+.stickyincomingIncidents{
+    position: sticky;
+    top: 90px;
+    z-index: 99;
+}
+
+
+.aboutmorescroll {
+ height: 250px;
+ overflow-y: scroll;
+}
+
+.container-scroll {
+    height: 600px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}

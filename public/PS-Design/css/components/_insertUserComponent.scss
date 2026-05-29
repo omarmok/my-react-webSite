@@ -1,0 +1,125 @@
+@use '../helpers' as *;
+.insertUser {
+  .InsertPageTitle {
+    display: flex;
+    justify-content: space-between;
+    padding: $padding-14;
+    margin: 15px;
+    align-items: center;
+    border-radius: 5px;
+    background: #f8f6f2;
+
+    h3 {
+      color: $darkBlue;
+      margin-bottom: 0;
+      @include boldfont-16;
+    }
+  }
+
+  .noData {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+
+    img {
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      color: #b2b2b2;
+      margin-bottom: 0;
+      @include meduimfont-reg-14;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+
+      .btn {
+        img {
+          width: 24px;
+          height: 24px;
+          margin: 0;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+
+  .pageActions {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  hr {
+    color: #c3c3c3;
+  }
+
+  .insertedUser {
+    background: #f8faff;
+    border: 1px solid #ecedef;
+    padding: 10px;
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 0;
+
+      .btn {
+        img {
+          width: 24px;
+          height: 24px;
+          margin: 0;
+          margin-left: 5px;
+        }
+      }
+
+      .moi-btn--text {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.personImage {
+  width: 50px !important;
+  height: 50px !important;
+  transition: transform 0.2s;
+  border-radius: 5px;
+  object-fit: cover;
+
+  &:hover {
+    transform: scale(4);
+    border: 2px solid white;
+    box-shadow: #eff1f9 0 2px 9px 0px;
+  }
+}
+
+.zoomimage {
+  background: #eae9ff;
+  position: absolute;
+  right: 32%;
+  top: 59%;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    height: 15px;
+  }
+}
+
+.user__image {
+  &:hover {
+    .zoomimage {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,462 @@
+@use "../_helpers" as *;
+
+.moi-person-card {
+    background-color: $white-100;
+    border: 1px solid $Neutral-300;
+    border-radius: $radius-md;
+    padding: $padding-sm;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-sm;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
+
+    &,
+    * {
+        box-sizing: border-box;
+    }
+
+    > * {
+        min-width: 0;
+    }
+
+    &--block {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: $gap-sm;
+        flex: 1 1 0;
+        width: 100%;
+        min-width: 0;
+        border-radius: $radius-sm;
+        @include font-md-500;
+        background: $white-100;
+        padding: $padding-sm;
+        border: 1px solid $Neutral-200;
+        overflow: hidden;
+
+        > label {
+            margin-bottom: $margin-none !important;
+            color: $Primary-600;
+            @include font-lg-500;
+            max-width: 100%;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+        }
+
+        > span {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            @include font-lg-500;
+            color: $Neutral-800;
+            background: $Neutral-50;
+            padding: $padding-sm $padding-md;
+            border-radius: $radius-sm;
+            line-height: 1.5;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
+            > span.bg-white {
+                background: $white-100;
+            }
+    }
+
+    &--container {
+        display: flex;
+        flex-direction: column;
+        padding: $padding-md;
+        background-color: $white-100;
+        gap: $gap-md;
+        border-radius: $radius-md;
+        min-width: 0;
+
+        &--header {
+            @extend .moi-person-card--container;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            background-color: $Neutral-25;
+            border: 1px solid $Neutral-200;
+            gap: $gap-md;
+
+            &__image {
+                width: 100px;
+                min-width: 100px;
+                max-width: 100%;
+                align-self: stretch;
+                display: flex;
+                border-radius: $radius-md;
+                border: 1px solid;
+                border-color: $Primary-600 $Primary-400 $Brown-400 $Brown-500;
+                padding: $padding-xs;
+                flex-shrink: 0;
+                overflow: hidden;
+
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                    min-height: 100%;
+                    border-radius: $radius-md;
+                    display: block;
+                }
+            }
+
+            &__status {
+                display: flex;
+                align-items: center;
+                gap: $gap-none;
+                flex-wrap: wrap;
+            }
+
+            &__meta {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                flex: 1 1 auto;
+                min-width: 0;
+                gap: $gap-sm;
+
+                &--data {
+                    width: 100%;
+                    min-width: 0;
+                    display: grid;
+                    grid-template-columns: repeat(4, minmax(0, 1fr));
+                    align-items: stretch;
+                    gap: $gap-md;
+
+                    > .moi-person-card--block {
+                        width: 100%;
+                        min-width: 0;
+                    }
+                }
+            }
+
+            &__info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                flex-wrap: wrap;
+                gap: $gap-sm;
+                min-width: 0;
+            }
+
+            &__toolbar {
+                display: flex;
+                flex-direction: column;
+                gap: $gap-sm;
+                min-width: 0;
+
+                &-actions {
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: $gap-sm;
+                    min-width: 0;
+                }
+            }
+        }
+
+        &--more-details {
+            gap: $gap-xl;
+            padding: $padding-none;
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-md;
+    }
+
+    &__details {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: stretch;
+        gap: $gap-md;
+        min-width: 0;
+    }
+
+    .job-location-block {
+        grid-column: 1 / -1;
+        width: 100%;
+        min-width: 0;
+        flex-basis: 100%;
+    }
+
+    &__notification {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: $gap-md;
+        min-width: 0;
+        margin-bottom: $margin-none;
+
+        svg {
+            flex-shrink: 0;
+        }
+
+        &-content {
+            display: flex;
+            align-items: flex-start;
+            flex: 1 1 auto;
+            flex-wrap: wrap;
+            gap: $gap-lg;
+            min-width: 0;
+        }
+
+        &-text {
+            min-width: 0;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        &-actions {
+            display: flex;
+            align-items: center;
+            flex: 0 0 auto;
+            min-width: 0;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        gap: $gap-md;
+        flex-wrap: wrap;
+        border-top: 1px solid $Neutral-100;
+        min-width: 0;
+        padding-top: $padding-md;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: stretch;
+        gap: $gap-md;
+        flex-wrap: wrap;
+        width: 100%;
+        min-width: 0;
+
+        .moi-btn {
+            flex: 0 1 auto;
+            min-width: 0;
+            max-width: 100%;
+            white-space: normal;
+        }
+    }
+
+    &__action-label {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: $gap-sm;
+        min-width: 0;
+        text-align: center;
+        @include font-sm-500;
+
+        span {
+            min-width: 0;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        svg {
+            flex-shrink: 0;
+        }
+    }
+
+    @media (max-width: 850px) {
+        &,
+        &--container,
+        &--container--header,
+        &--container--header__meta,
+        &--container--header__meta--data,
+        &--container--header__info,
+        &--container--header__toolbar,
+        &--container--header__toolbar-actions,
+        &__body,
+        &__details,
+        &__notification,
+        &__notification-content,
+        &__notification-actions,
+        &__footer,
+        &__actions,
+        &--block {
+            max-width: 100%;
+            min-width: 0;
+        }
+
+            &--container {
+                &--header {
+                    flex-wrap: wrap;
+                    align-items: stretch;
+                    gap: $gap-sm;
+
+                    &__image {
+                        flex: 0 0 12%;
+                        width: 12%;
+                        min-width: 0;
+                        max-width: 100%;
+                        height: 100%;
+                        align-self: stretch;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            min-height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    &__meta {
+                        flex: 1 1 0;
+                        gap: $gap-sm;
+
+                        &--data {
+                            display: grid;
+                            grid-template-columns: repeat(4, minmax(0, 1fr));
+                            align-items: stretch;
+                            gap: $gap-sm;
+
+                            > .moi-person-card--block {
+                                width: 100%;
+                                min-width: 0;
+                            }
+                        }
+                    }
+
+                    &__info {
+                        flex-wrap: wrap;
+                        align-items: flex-start;
+                        gap: $gap-sm;
+                    }
+
+                    &__toolbar {
+                        min-width: 0;
+
+                        &-actions {
+                            justify-content: flex-end;
+                        }
+                    }
+                }
+            }
+
+            &__details {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: $gap-sm;
+            }
+
+            &__notification {
+                gap: $gap-sm;
+
+                &-content {
+                    gap: $gap-sm;
+                }
+            }
+
+            &__footer,
+            &__actions {
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: stretch;
+                gap: $gap-sm;
+            }
+
+            &__actions {
+                .moi-btn {
+                    flex: 0 1 auto;
+                    width: auto;
+                    max-width: 100%;
+                    justify-content: center;
+                }
+            }
+    }
+
+    @media (max-width: 732px) {
+        &--container {
+            &--header {
+                &__meta {
+                    &--data {
+                        grid-template-columns: repeat(2, minmax(0, 1fr));
+                    }
+                }
+            }
+        }
+
+        &__details {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 576px) {
+        padding: $padding-md;
+        gap: $gap-md;
+
+        &--container {
+            padding: $padding-sm;
+
+            &--header {
+                flex-direction: column;
+                flex-wrap: nowrap;
+                gap: $gap-md;
+
+                &__image {
+                    width: 35%;
+                    max-width: 117px;
+                    flex-basis: auto;
+                    align-self: center;
+                }
+
+                &__meta {
+                    width: 100%;
+                    flex: none;
+
+                    &--data {
+                        grid-template-columns: minmax(0, 1fr);
+                    }
+                }
+
+                &__info {
+                    flex-direction: column;
+                }
+
+                &__toolbar {
+                    width: 100%;
+                    align-items: stretch;
+
+                    &-actions {
+                        justify-content: flex-start;
+                    }
+                }
+            }
+        }
+
+        &__details {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        &__notification {
+            &-content {
+                gap: $gap-md;
+            }
+        }
+
+        &__actions {
+            .moi-btn {
+                flex: 1 1 100%;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+}

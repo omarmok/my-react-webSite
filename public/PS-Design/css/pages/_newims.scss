@@ -1,0 +1,418 @@
+@use '../helpers' as *;
+.newIms {
+    &--inquiry {
+
+
+        .inquirymainData {
+            .block {
+                span {
+                    @include font-md-500;
+                    font-weight: bold !important;
+                }
+            }
+
+            .sponsorName {
+                white-space: nowrap;
+            }
+        }
+    }
+
+    &--inquiryDs {
+        &--card {
+            display: flex;
+            padding: 10px;
+            flex-direction: column;
+            gap: $gap-10;
+            border-radius: 8px;
+            border: 1px solid #d8e0e9;
+            /* box-shadow: 0px 0px 0px 0px #fff, 0px 0px 10px 0px rgb(213 213 227 / 40%);*/
+            background: white;
+            width: 100%;
+            margin: 0 auto;
+            // margin-top: 15px;
+
+
+            &--top {
+                border-radius: 8px;
+                border: 1px solid $Neutral-200;
+                background: $Neutral-25;
+                padding: 4px;
+                display: flex;
+                align-items: flex-start;
+                gap: 0;
+                justify-content: space-between;
+                flex-direction: column;
+
+                &__userImage {
+                    border-radius: 8px;
+                    border: 1px solid;
+                    border-color: #1abc9c #1abc9c #cba983 #c3996b !important;
+                    padding: 5px;
+                    width: 80px;
+                    height: 80px;
+
+                    img {
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 8px;
+                    }
+                }
+
+                &__basicData {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    justify-content: center;
+
+                    .stutus {
+                        /*display: flex;
+                        width: 100px;
+                        height: 30px;
+                        padding: $padding-10;
+                        justify-content: center;
+                        align-items: center;*/
+                        gap: $gap-10;
+                       /* border-radius: $Radius-6;
+                        @include font-md-500;*/
+                        margin: 0;
+                    }
+
+                    .regpriority {
+                        background: $Primary-600 !important;
+                        border: 1px solid $Primary-600 !important;
+                        color: $white-100 !important;
+
+                        &:before {
+                            background: #fff !important;
+                            margin: 0 !important;
+                        }
+                    }
+
+
+
+
+                    .danger {
+                        color: $white-100;
+                        background: $Error-600;
+                    }
+
+                    .primary {
+                        background: $Primary-600;
+                        border: 1px solid $Primary-600;
+                        color: $white-100;
+                        width: 120px;
+                    }
+                }
+
+                &--customACtion {
+                    gap: 5px;
+                    display: flex;
+                    margin: 0 !important;
+
+                    .actionIcon {
+                        padding: $padding-6;
+                        color: $Primary-600 !important;
+                        background: $Primary-50;
+                        border: 1px solid $Primary-300;
+
+                        span {
+                            color: $Primary-600 !important;
+                        }
+
+                        svg {
+                            width: 24px;
+                            height: 24px;
+                            margin-left: 0;
+                            fill: $Primary-600 !important;
+                        }
+
+                        &:hover {
+                            span {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+
+               /* &--personCardTabs {
+                    .nav-link {
+                        background: transparent;
+                        margin: 5px;
+                        color: $darkBlue;
+                        font-weight: 600;
+                        border-radius: 6px;
+                        border: 1px solid $darkBlue;
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+
+                        svg {
+                            fill: $darkBlue;
+                            width: 24px;
+                            height: 24px;
+                        }
+                    }
+
+                    .nav-link.active {
+                        background: $Primary-500;
+                        border: 1px solid $Primary-500;
+
+                        svg {
+                            fill: #fff;
+                        }
+                    }
+                }*/
+            }
+
+            &--body {
+                display: flex;
+
+                .col-lg-3.col-12.mb-3 {
+                    width: 25%;
+                }
+
+                hr {
+                    color: #c7ced4;
+                }
+
+                .form-group {
+                    width: 100%;
+                    @include font-md-500;
+                    font-weight: bold !important;
+                    background: $white-100;
+                    border: 1px solid $Neutral-200;
+                    border-radius: $Radius-8;
+                    padding: $padding-8;
+
+                    label {
+                        color: $Primary-600;
+                    }
+
+                    div {
+                        background: $Neutral-50;
+                        padding-right: $padding-16;
+                        line-height: 24px;
+                    }
+
+                    .disabled {
+                        display: block;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        line-height: 44px;
+                    }
+
+                    input:disabled::-webkit-input-placeholder {
+                        font-weight: 600;
+                        color: #000;
+                    }
+
+                    input:disabled:-moz-placeholder {
+                        font-weight: 600;
+                        color: #000;
+                    }
+
+                    input:disabled::-moz-placeholder {
+                        font-weight: 600;
+                        color: #000;
+                    }
+
+                    input:disabled:-ms-input-placeholder {
+                        font-weight: 600;
+                        color: #000;
+                    }
+                }
+            }
+
+            &--footer {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+
+                &__shortCutAction {
+                    width: 100%;
+                    display: flex;
+                    padding: 10px;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 8px;
+                    border-radius: 8px;
+                    border: 1px solid #cef6ed;
+                    background: #f3fdfb;
+                    text-decoration: none;
+                    // @include meduimfont;
+                    font-weight: 600;
+                    color: #000;
+                    cursor: pointer;
+
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        background: #fff;
+                        padding: 8px;
+                    }
+
+                    &:hover {
+                        background: $Primary-500;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    .searchAboutCaseMembers {
+        .componenttitle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fafbff;
+            padding: $padding-14;
+
+            h3 {
+                @include boldfont;
+                margin: 0;
+            }
+        }
+    }
+}
+
+
+.SecurityAgencytooltip {
+    height: 5px;
+}
+
+.new-personrecord {
+    .newIms--inquiryDs--card {
+        gap: 8px;
+    }
+
+    .newIms--inquiryDs--card--top {
+        padding: 5px;
+        gap: 8px;
+    }
+
+    .newIms--inquiryDs--card--top__userImage {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.Vehicleafteradding {
+    .newIms--inquiryDs--card--top__userImage {
+        /*     display: none;*/
+    }
+
+
+
+    .newIms--inquiryDs--card--top {
+        .block {
+            span {
+                background: transparent;
+                border: none;
+            }
+        }
+    }
+
+    .username {
+        margin: 0;
+    }
+
+    .hideafteradd {
+        display: none;
+    }
+}
+
+.personafteradding {
+    .newIms--inquiryDs--card {
+        gap: 0;
+        padding: 10px;
+        margin-top: 0;
+    }
+
+    .newIms--inquiryDs--card--top {
+        padding: 10px;
+    }
+
+    .newIms--inquiryDs--card--top__userImage {
+        width: 80px;
+        height: 80px;
+    }
+
+    .newIms--inquiryDs--card--body {
+        padding: 0 10px;
+    }
+
+    .newIms--inquiryDs--card--top__basicData {
+        gap: 1px;
+    }
+
+    .username {
+        margin: 0;
+    }
+
+    .newIms--inquiryDs--card--body .col-lg-3.col-12.mb-3 {
+        margin: 0 !important;
+        padding: 5px;
+    }
+
+    .hideafteradd {
+        display: none;
+    }
+}
+
+.personintab {
+    .personafteradding {
+        .newIms--inquiryDs--card {
+            margin: 0 !important;
+        }
+    }
+}
+
+
+.Vehicleafteradding {
+  
+
+    .newIms--inquiryDs--card--top {
+        .block {
+            span {
+                background: transparent;
+                border: none;
+            }
+        }
+    }
+
+    .username {
+        margin: 0;
+    }
+
+    .hideafteradd {
+        display: none;
+    }
+}
+
+
+
+
+.Vehicleafteradding {
+    .newIms--inquiryDs--card--top {
+
+        span {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+        }
+    }
+
+    .form-control {
+        span {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+        }
+    }
+}

@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
+  <title>Spacing Tokens | PS-Design</title>
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .page-header .code-inline {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0;
+    }
+
+    .sample-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .usage-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .usage-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .usage-card h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .usage-card ul {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .docs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .docs-table th,
+    .docs-table td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      vertical-align: top;
+      text-align: left;
+      direction: ltr;
+    }
+
+    .docs-table th {
+      background: #f9fafb;
+      font-weight: 600;
+    }
+
+    .docs-table th svg,
+    .docs-table td svg {
+      width: 24px;
+      height: 24px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .swatch-group {
+      margin-bottom: 32px;
+    }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      direction: ltr;
+    }
+
+    .swatch {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .swatch-color {
+      height: 64px;
+    }
+
+    .swatch-label {
+      padding: 8px 10px;
+      font-size: 0.8rem;
+      color: #374151;
+      word-break: break-word;
+      direction: ltr;
+    }
+
+    .copy-hint {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+
+    [data-copy] {
+      cursor: pointer;
+    }
+
+    [data-copy]:focus-visible {
+      outline: 2px solid #111827;
+      outline-offset: 2px;
+    }
+
+    .copy-tooltip {
+      position: fixed;
+      z-index: 1000;
+      background: #111827;
+      color: #f9fafb;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .copy-tooltip.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .token-chip {
+      background: #eef2ff;
+      color: #1f2a37;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      border: 1px solid #e0e7ff;
+    }
+
+    .visual-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .paired-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .visual-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .visual-card h3 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .spacing-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .spacing-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+      flex: 1 1 160px;
+      min-width: 140px;
+    }
+
+    .spacing-item:focus-visible {
+      outline: 2px solid #1f2a37;
+      outline-offset: 2px;
+    }
+
+    .spacing-bar {
+      height: 8px;
+      background: #1f2a37;
+      border-radius: 999px;
+      min-width: 2px;
+    }
+
+    .spacing-meta {
+      font-size: 0.85rem;
+      color: #374151;
+    }
+
+    .gap-sample {
+      display: inline-flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px dashed #d1d5db;
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+
+    .gap-dot {
+      width: 12px;
+      height: 12px;
+      background: #1f2a37;
+      border-radius: 4px;
+    }
+
+    .padding-sample {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      min-height: 32px;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px dashed #d1d5db;
+    }
+
+    .padding-dot {
+      width: 12px;
+      height: 12px;
+      background: #1f2a37;
+      border-radius: 4px;
+    }
+
+    .radius-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .radius-item {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .radius-sample {
+      width: 100%;
+      height: 46px;
+      background: #e5e7eb;
+      border: 1px solid #d1d5db;
+    }
+
+    .radius-meta {
+      font-size: 0.85rem;
+      color: #374151;
+    }
+
+    .shadow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .shadow-card {
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      padding: 18px;
+      display: grid;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .shadow-meta {
+      font-size: 0.85rem;
+      color: #374151;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .docs-sidebar {}
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .sidebar-nav a.is-active {
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+    }
+
+    .lang-toggle {
+      margin-top: 12px;
+      width: 100%;
+      background: #fff;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #cbd5f5;
+      box-shadow: 0 14px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .lang-toggle svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+  
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+
+  </style>
+  <link href="./css/ds-site-nav.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" class="is-active" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+        </nav>
+      </div>
+
+    </aside>
+
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><svg width="24"
+            height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.05469 1.25C9.42218 1.24998 10.5247 1.24968 11.3916 1.36621C12.2917 1.48723 13.0495 1.74672 13.6514 2.34863C14.2533 2.95055 14.5128 3.70829 14.6338 4.6084C14.7503 5.47534 14.75 6.57782 14.75 7.94531V9.25488C15.1235 9.25143 15.5218 9.24999 15.9453 9.25H16.0547C17.4222 9.24998 18.5247 9.24968 19.3916 9.36621C20.2917 9.48723 21.0495 9.74672 21.6514 10.3486C22.2533 10.9505 22.5128 11.7083 22.6338 12.6084C22.7503 13.4753 22.75 14.5778 22.75 15.9453V16.0547C22.75 17.4222 22.7503 18.5247 22.6338 19.3916C22.5128 20.2917 22.2533 21.0495 21.6514 21.6514C21.0495 22.2533 20.2917 22.5128 19.3916 22.6338C18.5247 22.7503 17.4222 22.75 16.0547 22.75H15.9453C14.5778 22.75 13.4753 22.7503 12.6084 22.6338C11.7083 22.5128 10.9505 22.2533 10.3486 21.6514C9.74672 21.0495 9.48723 20.2917 9.36621 19.3916C9.24968 18.5247 9.24998 17.4222 9.25 16.0547V15.9453C9.24999 15.5218 9.25143 15.1235 9.25488 14.75H7.94531C6.57782 14.75 5.47534 14.7503 4.6084 14.6338C3.70829 14.5128 2.95055 14.2533 2.34863 13.6514C1.74672 13.0495 1.48723 12.2917 1.36621 11.3916C1.24968 10.5247 1.24998 9.42218 1.25 8.05469V7.94531C1.24998 6.57782 1.24968 5.47534 1.36621 4.6084C1.48723 3.70829 1.74672 2.95055 2.34863 2.34863C2.95055 1.74672 3.70829 1.48723 4.6084 1.36621C5.47534 1.24968 6.57782 1.24998 7.94531 1.25H8.05469ZM16 10.75C14.5648 10.75 13.5639 10.752 12.8086 10.8535C12.0748 10.9522 11.6859 11.1324 11.4092 11.4092C11.1324 11.6859 10.9522 12.0748 10.8535 12.8086C10.752 13.5639 10.75 14.5648 10.75 16C10.75 17.4352 10.752 18.4361 10.8535 19.1914C10.9522 19.9252 11.1324 20.3141 11.4092 20.5908C11.6859 20.8676 12.0748 21.0478 12.8086 21.1465C13.5639 21.248 14.5648 21.25 16 21.25C17.4352 21.25 18.4361 21.248 19.1914 21.1465C19.9252 21.0478 20.3141 20.8676 20.5908 20.5908C20.8676 20.3141 21.0478 19.9252 21.1465 19.1914C21.248 18.4361 21.25 17.4352 21.25 16C21.25 14.5648 21.248 13.5639 21.1465 12.8086C21.0478 12.0748 20.8676 11.6859 20.5908 11.4092C20.3141 11.1324 19.9252 10.9522 19.1914 10.8535C18.4361 10.752 17.4352 10.75 16 10.75ZM4 15.75C4.41421 15.75 4.75 16.0858 4.75 16.5C4.75 17.2178 4.75071 17.7 4.78809 18.0674C4.82419 18.4221 4.88849 18.5859 4.96094 18.6943C5.05212 18.8308 5.16921 18.9479 5.30566 19.0391C5.4141 19.1115 5.57788 19.1758 5.93262 19.2119C6.30002 19.2493 6.78216 19.25 7.5 19.25C7.91421 19.25 8.25 19.5858 8.25 20C8.25 20.4142 7.91421 20.75 7.5 20.75H7.46191C6.79245 20.75 6.23354 20.7501 5.78125 20.7041C5.30783 20.6559 4.86862 20.5507 4.47266 20.2861C4.17238 20.0855 3.9145 19.8276 3.71387 19.5273C3.44934 19.1314 3.34406 18.6922 3.2959 18.2188C3.24991 17.7665 3.24998 17.2075 3.25 16.5381C3.25 16.5254 3.25 16.5127 3.25 16.5C3.25 16.0858 3.58579 15.75 4 15.75ZM16 12.25C16.3028 12.25 16.5759 12.4324 16.6924 12.7119L19.1924 18.7119C19.3514 19.0941 19.1711 19.533 18.7891 19.6924C18.4067 19.8517 17.9669 19.6704 17.8076 19.2881L17.167 17.75H14.834L14.1924 19.2881C14.0331 19.6704 13.5942 19.8516 13.2119 19.6924C12.8297 19.5331 12.6486 19.0942 12.8076 18.7119L15.3076 12.7119C15.424 12.4325 15.6973 12.2501 16 12.25Z"
+              fill="currentColor"></path>
+          </svg><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.9975 3.25C11.624 3.25 11.2774 3.41565 11.0172 3.57252C10.7364 3.7418 10.4464 3.96944 10.1638 4.21918C9.59669 4.72018 8.98771 5.37387 8.43684 6.00823C7.88274 6.64633 7.37253 7.28222 7.00175 7.75725C6.81606 7.99516 6.66462 8.19364 6.55931 8.33304C6.50664 8.40276 6.46547 8.45776 6.43727 8.49558L6.40489 8.53915L6.39633 8.55071L6.39337 8.55472C6.14771 8.88822 6.2186 9.35816 6.5521 9.60382C6.88559 9.84947 7.35507 9.77828 7.60074 9.44481L7.61015 9.43209L7.63992 9.39204C7.66632 9.35662 7.70557 9.3042 7.75618 9.2372C7.85743 9.10317 8.00402 8.91102 8.1842 8.68019C8.54517 8.21772 9.03806 7.60363 9.56942 6.99173C10.104 6.37611 10.6628 5.77981 11.1569 5.34331C11.1882 5.3157 11.2189 5.28899 11.249 5.26316L11.249 20C11.249 20.4142 11.5848 20.75 11.999 20.75C12.4132 20.75 12.749 20.4142 12.749 20L12.749 5.2657C12.7782 5.29073 12.808 5.31661 12.8382 5.34331C13.3323 5.77981 13.8911 6.37611 14.4257 6.99173C14.957 7.60363 15.4499 8.21772 15.8109 8.68019C15.9911 8.91102 16.1377 9.10317 16.2389 9.2372C16.2895 9.30419 16.3288 9.35662 16.3552 9.39204L16.3849 9.43209L16.3943 9.44481C16.64 9.77828 17.1095 9.84947 17.443 9.60382C17.7765 9.35816 17.8474 8.88822 17.6017 8.55472L17.5988 8.55071L17.5902 8.53915L17.5578 8.49558C17.5296 8.45776 17.4884 8.40276 17.4358 8.33304C17.3305 8.19363 17.179 7.99516 16.9933 7.75725C16.6226 7.28222 16.1123 6.64633 15.5582 6.00823C15.0074 5.37387 14.3984 4.72018 13.8313 4.21918C13.5486 3.96944 13.2587 3.7418 12.9779 3.57252C12.7192 3.4166 12.3753 3.25199 12.0043 3.25002"
+              fill="white"></path>
+          </svg><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span>
+        </button>
+      </div>
+
+
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="الرموز / التخطيط">Tokens / Layout</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="التباعد">Spacing</h1>
+
+        <p class="text-muted mb-4" data-i18n
+          data-ar="تحدد رموز التباعد مقاييس الحشو والفجوات في <span class=&quot;code-inline&quot;>_variables.scss</span>. استخدمها للحفاظ على إيقاع التخطيط بشكل متسق عبر الشاشات.">
+          Spacing tokens define the padding and gap scales in <span class="code-inline">_variables.scss</span>.
+          Use them to keep layout rhythm consistent across screens.
+        </p>
+        <div class="sample-grid">
+          <span class="token-chip">$padding-md</span>
+          <span class="token-chip">$padding-xl</span>
+          <span class="token-chip">$gap-xl</span>
+        </div>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="المكوّن: التباعد"
+              data-en="Component: Spacing">
+          المكوّن: التباعد
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="الإصدار: قيد التحديث"
+              data-en="Version: TBD">
+          الإصدار: قيد التحديث
+        </span>
+
+        <span class="metadata-pill"
+              data-i18n
+              data-ar="آخر تحديث: 28 يناير 2026"
+              data-en="Last updated: January 28, 2026">
+          آخر تحديث: 28 يناير 2026
+        </span>
+      </div>
+
+
+      <section class="section" id="token-mapping">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="رسم خرائط الرموز">Token mapping</h2>
+          <p class="section-note" data-i18n
+            data-ar="رموز الحشو والفراغات والتباعد معرّفة في <code>css/helpers/_variables.scss</code>. استخدم الأسماء الدلالية مع الفئات المساعدة لتفادي القيم العشوائية.">
+            Padding, gap, and margin tokens are defined in <code>css/helpers/_variables.scss</code>. Use the semantic
+            names alongside helper classes rather than arbitrary values.
+          </p>
+          <div class="table-responsive">
+            <table class="docs-table">
+              <thead>
+                <tr>
+                  <th>Token</th>
+                  <th>Value</th>
+                  <th>Aliases</th>
+                  <th>Utility</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>$padding-md</code></td>
+                  <td>8px</td>
+                  <td><code>$padding-8</code><br><code>$padding-10</code><br><code>$padding-12</code></td>
+                  <td>Use inside cards, buttons, forms</td>
+                </tr>
+                <tr>
+                  <td><code>$gap-lg</code></td>
+                  <td>12px</td>
+                  <td><code>$gap-12</code></td>
+                  <td>Grid and flex gaps</td>
+                </tr>
+                <tr>
+                  <td><code>$margin-xl</code></td>
+                  <td>16px</td>
+                  <td><code>$margin-16</code></td>
+                  <td>Spacing between sections</td>
+                </tr>
+                <tr>
+                  <td><code>$padding-2xl</code></td>
+                  <td>20px</td>
+                  <td>(no alias)</td>
+                  <td>Hero or card padding</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="overview">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إرشادات التباعد">Spacing Guidelines</h2>
+          <p class="section-note" data-i18n
+            data-ar="يوفر نظام التباعد مقياسًا موحدًا للحشو الداخلي وفجوات التخطيط. تُعرَّف جميع القيم كرموز ويعاد استخدامها عبر المكونات.">
+            The spacing system provides a shared scale for internal padding and layout gaps. All values
+            are defined as tokens and reused throughout components.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="anatomy">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="العنصر">Element</th>
+                <th data-i18n data-ar="الوصف">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n data-ar="اسم الرمز">Token name</td>
+                <td data-i18n
+                  data-ar="معرّف دلالي مثل <code>$padding-lg</code> أو <code>$gap-lg</code> أو <code>$margin-md</code>.">
+                  Semantic identifier such as <code>$padding-lg</code>, <code>$gap-lg</code>, or
+                  <code>$margin-md</code>.
+                </td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="القيمة">Value</td>
+                <td data-i18n data-ar="قيمة بالبكسل مع أسماء بديلة متطابقة للحفاظ على التوافق.">Pixel value with
+                  matching aliases to preserve compatibility.</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="mt-3 text-center">
+            <img src="../images/speaceth.png" alt="Spacing anatomy visual showing padding, margin, and gap labels"
+              class="img-fluid rounded">
+            <div class="section-note mt-2" data-i18n
+              data-ar="يوضح المخطط الفرق بين الحشو الداخلي والهامش الخارجي والفجوات بين العناصر.">Diagram highlights the
+              difference between internal padding, external margins, and inter-element gaps.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="variants">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="الأنواع">Variants</h2>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="المقياس">Scale</th>
+                <th data-i18n data-ar="الرموز">Tokens</th>
+                <th data-i18n data-ar="ملاحظات">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n data-ar="الحشو">Padding</td>
+                <td>$padding-*</td>
+                <td data-i18n data-ar="يُستخدم للحشو الداخلي للمكونات.">Used for internal component spacing.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="الهامش">Margin</td>
+                <td>$margin-*</td>
+                <td data-i18n data-ar="يُستخدم للمسافات الخارجية بين المكونات.">Used for external spacing between
+                  components.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="الفجوة">Gap</td>
+                <td>$gap-*</td>
+                <td data-i18n data-ar="يُستخدم لفجوات التخطيط بين العناصر.">Used for layout gaps between elements.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="section-card bg-Info-100 mt-3">
+
+        <div class="copy-hint mb-0">
+          <span class="font-lg-600 Info-600" data-i18n data-ar="تلميح: انقر أي صندوق مرئي لنسخ قائمة الفئات الخاصة به.">
+            Hint: click any Visual
+            box variant to copy its class list.</span>
+          <span class=" copy-status" aria-live="polite"></span>
+        </div>
+
+      </div>
+
+      <section class="section" id="tokens">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="جداول الرموز">Token Tables</h2>
+          <div class="copy-hint" data-i18n data-ar="تلميح: انقر أو اضغط Enter/Space على أي اسم رمز لنسخه.">Hint: click
+            or press Enter/Space on any token name to copy it.</div>
+
+          <div class="section-divider"></div>
+          <h3 class="fw-semibold" data-i18n data-ar="التباعد - الحشو">Spacing - Padding</h3>
+          <div class="table-responsive">
+            <table class="docs-table">
+              <thead>
+                <tr>
+                  <th data-i18n data-ar="الرمز">Token</th>
+                  <th data-i18n data-ar="القيمة">Value</th>
+                </tr>
+              </thead>
+              <tbody id="padding-token-body"></tbody>
+            </table>
+          </div>
+          <p class="section-note mt-2" data-i18n
+            data-ar="يتم عرض الأسماء البديلة (مثل <code>$padding-8</code>) مع الرمز الأساسي نفسه لضمان التوافق مع المواصفات القديمة.">
+            Aliases such as <code>$padding-8</code> are listed next to their base token to keep legacy specs aligned.
+          </p>
+
+          <div class="section-divider"></div>
+          <h3 class="fw-semibold" data-i18n data-ar="التباعد - الهامش">Spacing - Margin</h3>
+          <div class="table-responsive">
+            <table class="docs-table">
+              <thead>
+                <tr>
+                  <th data-i18n data-ar="الرمز">Token</th>
+                  <th data-i18n data-ar="القيمة">Value</th>
+                </tr>
+              </thead>
+              <tbody id="margin-token-body"></tbody>
+            </table>
+          </div>
+
+          <div class="section-divider"></div>
+          <h3 class="fw-semibold" data-i18n data-ar="التباعد - الفجوة">Spacing - Gap</h3>
+          <div class="table-responsive">
+            <table class="docs-table">
+              <thead>
+                <tr>
+                  <th data-i18n data-ar="الرمز">Token</th>
+                  <th data-i18n data-ar="القيمة">Value</th>
+                </tr>
+              </thead>
+              <tbody id="gap-token-body"></tbody>
+            </table>
+          </div>
+          <p class="section-note mt-2" data-i18n
+            data-ar="تتضمن الجداول الرموز الدلالية وأسماءها البديلة المتطابقة للحفاظ على التوافق.">
+            Tables include semantic tokens plus their matching aliases to stay backward compatible.
+          </p>
+
+
+        </div>
+      </section>
+
+
+      <section class="section" id="visual">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="المرئيات">Visual</h2>
+          <p class="section-note" data-i18n data-ar="عينات التباعد لمقاييس الحشو والفجوة.">Spacing samples for the
+            padding and gap scales.</p>
+          <div class="copy-hint" data-i18n data-ar="تلميح: انقر أو اضغط Enter/Space على أي عينة لنسخ اسم الرمز.">Hint:
+            click or press Enter/Space on any sample to copy its token name.</div>
+
+          <div class="visual-grid">
+            <div class="visual-card">
+              <h3 class="fw-semibold" data-i18n data-ar="مقياس الحشو">Padding scale</h3>
+              <div class="spacing-list" id="padding-visual-list"></div>
+            </div>
+
+            <div class="visual-card">
+              <h3 class="fw-semibold" data-i18n data-ar="مقياس الفجوة">Gap scale</h3>
+              <div class="spacing-list" id="gap-visual-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section" id="utility-classes">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="فئات المساعدة">Utility Classes</h2>
+          <p class="section-note" data-i18n
+            data-ar="انقر أي اسم فئة لنسخه. جميع الفئات تستخدم نفس المقياس (none، xxs، xs، sm، md، lg، xl، 2xl–11xl) للأبعاد الأفقية والعمودية.">
+            Click any class name to copy it. All classes share the same scale (none, xxs, xs, sm, md, lg, xl, 2xl–11xl)
+            for both horizontal and vertical dimensions.</p>
+          <div class="visual-grid">
+            <div class="visual-card">
+              <h3 class="fw-semibold" data-i18n data-ar="فئات الفجوة">Gap utilities</h3>
+              <div class="spacing-list" id="utility-gap"></div>
+            </div>
+
+            <div class="visual-card">
+              <h3 class="fw-semibold" data-i18n data-ar="فئات الحشو">Padding utilities</h3>
+              <div class="spacing-list" id="utility-padding"></div>
+            </div>
+
+            <div class="visual-card">
+              <h3 class="fw-semibold" data-i18n data-ar="فئات الحشو الأفقي">Padding X utilities</h3>
+              <div class="spacing-list" id="utility-padding-x"></div>
+            </div>
+
+            <div class="visual-card">
+              <h3 class="fw-semibold" data-i18n data-ar="فئات الحشو العمودي">Padding Y utilities</h3>
+              <div class="spacing-list" id="utility-padding-y"></div>
+            </div>
+
+            <div class="paired-grid">
+              <div class="visual-card">
+                <h3 class="fw-semibold" data-i18n data-ar="حشو علوي">Padding Top utilities</h3>
+                <div class="spacing-list" id="utility-padding-top"></div>
+              </div>
+
+              <div class="visual-card">
+                <h3 class="fw-semibold" data-i18n data-ar="حشو سفلي">Padding Bottom utilities</h3>
+                <div class="spacing-list" id="utility-padding-bottom"></div>
+              </div>
+            </div>
+
+            <div class="visual-card">
+              <h3 class="fw-semibold" data-i18n data-ar="فئات الهوامش">Margin utilities</h3>
+              <div class="spacing-list" id="utility-margin"></div>
+            </div>
+
+            <div class="paired-grid">
+              <div class="visual-card">
+                <h3 class="fw-semibold" data-i18n data-ar="هوامش أفقية">Margin X utilities</h3>
+                <div class="spacing-list" id="utility-margin-x"></div>
+              </div>
+
+              <div class="visual-card">
+                <h3 class="fw-semibold" data-i18n data-ar="هوامش عمودية">Margin Y utilities</h3>
+                <div class="spacing-list" id="utility-margin-y"></div>
+              </div>
+            </div>
+
+            <div class="paired-grid">
+              <div class="visual-card">
+                <h3 class="fw-semibold" data-i18n data-ar="هامش علوي">Margin Top utilities</h3>
+                <div class="spacing-list" id="utility-margin-top"></div>
+              </div>
+              <div class="visual-card">
+                <h3 class="fw-semibold" data-i18n data-ar="هامش سفلي">Margin Bottom utilities</h3>
+                <div class="spacing-list" id="utility-margin-bottom"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="accessibility">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="استخدم رموز التباعد للحفاظ على الحد الأدنى لأحجام أهداف اللمس.">Use spacing tokens to
+              preserve minimum touch target sizes.</li>
+            <li data-i18n data-ar="حافظ على فجوات متسقة لتسهيل مسح المحتوى لجميع المستخدمين.">Maintain consistent gaps
+              so content is scannable for all users.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="usage">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="الحشو">Padding</h4>
+              <ul>
+                <li data-i18n data-ar="طبّق رموز الحشو داخل الحاويات والأزرار.">Apply padding tokens inside containers
+                  and buttons.</li>
+                <li data-i18n data-ar="فضّل المقياس الأساسي واستخدم الأسماء البديلة عند مطابقة مواصفات المكونات.">Favor
+                  the base scale and use aliases when matching component specs.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="الفجوة">Gap</h4>
+              <ul>
+                <li data-i18n data-ar="استخدم رموز الفجوة لمسافات الشبكة والمرونة.">Use gap tokens for grid and flex
+                  spacing.</li>
+                <li data-i18n data-ar="حافظ على اتساق التباعد العمودي والأفقي على نفس المقياس.">Keep vertical and
+                  horizontal spacing aligned to the same scale.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="الهامش">Margin</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="استخدم هوامش X/Y لتفريغ المساحة بين المكونات، وفضل الهوامش الأفقية على الحشو الخارجي.">Use
+                  margin X/Y to separate components; prefer horizontal margins over outer padding.</li>
+                <li data-i18n data-ar="استخدم فئات الهوامش الجانبية/العلوية/السفلية عند ضبط مسافات محددة بدقة.">Use
+                  side/top/bottom margin utilities when you need precise adjustments.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="do-dont">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="افعل ولا تفعل">Do and Do Not</h2>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="افعل">Do</h4>
+              <ul>
+                <li data-i18n data-ar="استخدم الرموز للحفاظ على اتساق التباعد عبر الصفحات.">Use tokens to keep spacing
+                  consistent across pages.</li>
+                <li data-i18n data-ar="وحّد المكونات الجديدة مع المقياس الحالي.">Align new components to the existing
+                  scale.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="لا تفعل">Do Not</h4>
+              <ul>
+                <li data-i18n data-ar="لا تُدخل قيَم تباعد عشوائية.">Do not introduce arbitrary spacing values.</li>
+                <li data-i18n data-ar="لا تخلط المقاييس داخل نفس منطقة التخطيط.">Do not mix scales within the same
+                  layout region.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="designops-governance">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="حوكمة DesignOps (PS-Design)">DesignOps Governance (PS-Design)
+          </h2>
+          <p class="section-note" data-i18n
+            data-ar="تحافظ حوكمة التباعد على اتساق رموز وفئات التباعد في PS-Design عبر الويب والجوال.">
+            Spacing governance keeps PS-Design spacing tokens and utilities consistent across web and mobile.
+          </p>
+
+          <div class="section-divider"></div>
+          <h3 class="fw-semibold mb-2" data-i18n data-ar="مبادئ الحوكمة">Governance Principles</h3>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="مصدر واحد للحقيقة لمقاييس التباعد في _variables.scss والمتغيرات المناظرة في فيغما.">
+              Single source of truth for spacing scales in _variables.scss and mirrored Figma variables.</li>
+            <li data-i18n data-ar="لا يُسمح بقيم px مخصصة خارج المقياس؛ استخدم رموز الحشو/الفجوة/الهامش فقط.">No custom
+              px outside the scale; use padding/gap/margin tokens only.</li>
+            <li data-i18n data-ar="التغييرات على رموز أو فئات التباعد تتطلب اعتمادًا واضحًا ومسار ترحيل.">Changes to
+              spacing tokens or utilities need explicit approval and migration paths.</li>
+            <li data-i18n data-ar="التحقق من التوافق RTL/LTR ضمن كل تحديث للتباعد.">RTL/LTR parity must be verified for
+              every spacing update.</li>
+            <li data-i18n data-ar="التوثيق ثنائي اللغة ويحدّث مع كل تغيير في المقياس.">Bilingual documentation is
+              updated with every scale change.</li>
+            <li data-i18n data-ar="كل تغيير يصدر برقم نسخة ويسجَّل في سجل التغييرات.">Every change is versioned and
+              logged in the changelog.</li>
+          </ul>
+
+          <div class="section-divider"></div>
+          <h3 class="fw-semibold mb-2" data-i18n data-ar="النموذج والحدود">Model & Boundaries</h3>
+          <p class="section-note mb-2" data-i18n
+            data-ar="نموذج اتحادي مع نواة مركزية: الفرق تطبق المقياس الموجود؛ النواة تعتمد رموز/فئات تباعد جديدة أو تغييرات كاسرة أو استثناءات.">
+            Federated with a central core: squads apply the existing scale; core approves new spacing tokens/utilities,
+            breaking changes, or exceptions.
+          </p>
+
+          <div class="section-divider"></div>
+          <h3 class="fw-semibold mb-2" data-i18n data-ar="الأدوار (لمحات RACI)">Roles (RACI highlights)</h3>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="مالك النظام: محاسب عن مقياس التباعد والتصعيد.">Design System Owner: accountable for
+              spacing scale and escalations.</li>
+            <li data-i18n data-ar="قائد DesignOps: يحكم تغييرات التباعد والفرز والإصدارات.">DesignOps Lead: governs
+              spacing changes, triage, releases.</li>
+            <li data-i18n data-ar="مصممو UX: يطبقون المقياس ويقترحون تعديلات التباعد مع أدلة الاستخدام.">UX Designers:
+              apply the scale, propose spacing adjustments with rationale.</li>
+            <li data-i18n data-ar="مهندسو الواجهة: يربطون الرموز بالكود ويمنعون القيم الثابتة.">Frontend Engineers: wire
+              tokens into code, prevent hardcoded values.</li>
+            <li data-i18n data-ar="مديرو المنتجات/أصحاب المصلحة: يبررون الحاجة التجارية لتغييرات المقياس.">
+              PMs/Stakeholders: justify business need for scale changes.</li>
+            <li data-i18n data-ar="ضبط الجودة/الوصول: يتحققون من WCAG والتجاوب وRTL للتباعد.">QA/Accessibility: verify
+              WCAG, responsiveness, and RTL spacing.</li>
+          </ul>
+
+          <div class="section-divider"></div>
+          <h3 class="fw-semibold mb-2" data-i18n data-ar="إطار القرار">Decision Framework</h3>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="رموز التباعد: الموافقة مطلوبة للإضافة أو الإزالة أو تغيير القيمة؛ الأسماء البديلة بالمراجعة وخطة إيقاف.">
+              Spacing tokens: approval required to add/remove/change values; aliases need review and deprecation plan.
+            </li>
+            <li data-i18n data-ar="فئات التباعد (الحشو/الهامش/الفجوة): أي مقياس جديد أو محور جديد يحتاج اعتماد النواة.">
+              Spacing utilities (padding/margin/gap): new scale steps or axes need core approval.</li>
+            <li data-i18n data-ar="توثيق التباعد: تحديثات الإرشاد تتطلب اعتماد DesignOps لضمان الاتساق.">Spacing
+              documentation: guidance updates require DesignOps sign-off for consistency.</li>
+            <li data-i18n data-ar="التغييرات الكاسرة في التباعد: تتطلب دليل ترحيل وإصدار مجدول.">Breaking spacing
+              changes: require migration guide and scheduled release.</li>
+          </ul>
+
+          <div class="section-divider"></div>
+          <h3 class="fw-semibold mb-2" data-i18n data-ar="الاستقبال والمساهمة">Intake & Contribution</h3>
+          <p class="section-note mb-2" data-i18n
+            data-ar="قدّم عبر نموذج الطلب (النوع، المشكلة، المستخدمون، المنصة، أثر الوصول، روابط فيغما، الرموز/المكونات المتأثرة، الإلحاح). الفرز أسبوعي؛ شدة 1 يُرد خلال 24 ساعة.">
+            Submit via intake form (type, business problem, users, platform, accessibility impact, Figma links, impacted
+            spacing tokens/utilities, urgency). Triage weekly; Sev1 responds in 24h.
+          </p>
+
+          <div class="section-divider"></div>
+          <h3 class="fw-semibold mb-2" data-i18n data-ar="تدفق العمل والبوابات">Workflow & Gates</h3>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="التصميم: استخدم مقياس التباعد فقط؛ تجنب قيم px المخصصة؛ تحقق من RTL/LTR.">Design: use
+              the spacing scale only; avoid custom px; verify RTL/LTR.</li>
+            <li data-i18n
+              data-ar="المراجعة: UX زميل → DesignOps → الوصول (WCAG AA) مع التركيز على مساحات اللمس والتباعد البصري.">
+              Review: peer UX → DesignOps → accessibility (WCAG AA) focusing on touch targets and visual rhythm.</li>
+            <li data-i18n data-ar="التسليم: مراجع الرموز (الحشو/الفجوة/الهامش)، لقطات فيغما، وإرشادات ARIA.">Handoff:
+              spacing token references (padding/gap/margin), Figma captures, and ARIA guidance.</li>
+            <li data-i18n data-ar="ضبط الجودة: انحدار بصري، استجابة، لوحة المفاتيح، واختبارات قارئ الشاشة للتباعد.">QA:
+              visual regression, responsive, keyboard, and screen reader smoke for spacing.</li>
+          </ul>
+
+
+
+          <div class="section-divider"></div>
+          <h3 class="fw-semibold mb-2" data-i18n data-ar="المقاييس">Metrics</h3>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="نسبة الشاشات التي تستخدم رموز التباعد مقابل قيم px ثابتة.">Percent of screens using
+              spacing tokens vs hardcoded px.</li>
+            <li data-i18n data-ar="عدد الانحرافات في التباعد (قيم مخصصة/فئات خارج المقياس).">Count of spacing deviations
+              (custom values/utilities off-scale).</li>
+            <li data-i18n data-ar="وقت الموافقة على تغيير التباعد من الطلب إلى الإصدار.">Time to approve spacing change
+              from intake to release.</li>
+            <li data-i18n data-ar="معدل اجتياز اختبارات إمكانية الوصول للتباعد من المراجعة الأولى.">Accessibility pass
+              rate for spacing on first review.</li>
+            <li data-i18n data-ar="معدل عيوب التباعد في RTL مقابل LTR.">RTL vs LTR spacing defect rate.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="code-examples">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="أمثلة برمجية">Code Examples</h2>
+          <div class="code-block">
+            <pre><code class="language-scss">.card {
+  padding: $padding-lg;
+  gap: $gap-lg;
+}
+
+.grid {
+  column-gap: $gap-20;
+  row-gap: $gap-lg;
+}
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="rtl-notes">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="ملاحظات RTL">RTL notes</h2>
+          <p class="section-note" data-i18n
+            data-ar="تعمل رموز التباعد نفسها في RTL وLTR، مع اعتماد الفئات مثل <code>.gap-md</code> أو <code>.padding-xxl</code> دون تغيير.">
+            Spacing tokens are direction-agnostic; classes such as <code>.gap-md</code> or <code>.padding-xxl</code>
+            work in both RTL and LTR.
+          </p>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="يفضل استخدام فئات <code>margin-inline-*</code> و<code>padding-inline-*</code> المدمجة عند التعامل مع اتجاهين.">
+              Prefer inline helpers (margin-inline-*, padding-inline-*) when working across directions.</li>
+            <li data-i18n data-ar="تحقق من أن المساحات المرتبة تعتمد على المقياس نفسه حتى لو تغيرت فكرة اليمين/اليسار.">
+              Keep spacing scale consistent even when the notion of left/right flips.</li>
+            <li data-i18n
+              data-ar="استخدم نفس الأسماء الرمزية (مثلاً <code>$gap-lg</code>) في المستندات العربية والإنجليزية.">
+              Reuse symbolic names (e.g., <code>$gap-lg</code>) in both Arabic and English docs.</li>
+            <li data-i18n data-ar="اعتمد على CSS لربط التباعد بالاتجاه، وابتعد عن التنسيقات المضمنة المعتمدة على px.">
+              Rely on CSS to tie spacing to direction, avoiding inline px-based tweaks.</li>
+          </ul>
+        </div>
+      </section>
+
+
+    </div>
+  </main>
+
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const spacingTokens = {
+        padding: [
+          { name: '$padding-none', px: 0, aliases: ['$padding-0'] },
+          { name: '$padding-xxs', px: 2, aliases: [] },
+          { name: '$padding-xs', px: 4, aliases: ['$padding-2'] },
+          { name: '$padding-sm', px: 6, aliases: ['$padding-4', '$padding-6'] },
+          { name: '$padding-md', px: 8, aliases: ['$padding-8', '$padding-10', '$padding-12'] },
+          { name: '$padding-lg', px: 12, aliases: ['$padding-14', '$padding-16', '$padding-20'] },
+          { name: '$padding-xl', px: 16, aliases: [] },
+          { name: '$padding-2xl', px: 20, aliases: [] },
+          { name: '$padding-3xl', px: 24, aliases: [] },
+          { name: '$padding-4xl', px: 32, aliases: [] },
+          { name: '$padding-5xl', px: 40, aliases: [] },
+          { name: '$padding-6xl', px: 48, aliases: [] },
+          { name: '$padding-7xl', px: 64, aliases: [] },
+          { name: '$padding-8xl', px: 80, aliases: [] },
+          { name: '$padding-9xl', px: 96, aliases: [] },
+          { name: '$padding-10xl', px: 128, aliases: [] },
+          { name: '$padding-11xl', px: 150, aliases: [] },
+        ],
+        gap: [
+          { name: '$gap-none', px: 0, aliases: [] },
+          { name: '$gap-xxs', px: 2, aliases: ['$gap-2'] },
+          { name: '$gap-xs', px: 4, aliases: ['$gap-4'] },
+          { name: '$gap-sm', px: 6, aliases: ['$gap-6'] },
+          { name: '$gap-md', px: 8, aliases: ['$gap-8'] },
+          { name: '$gap-lg', px: 12, aliases: ['$gap-lg'] },
+          { name: '$gap-xl', px: 16, aliases: ['$gap-16'] },
+          { name: '$gap-2xl', px: 20, aliases: ['$gap-20'] },
+          { name: '$gap-3xl', px: 24, aliases: ['$gap-24'] },
+          { name: '$gap-4xl', px: 32, aliases: [] },
+          { name: '$gap-5xl', px: 40, aliases: [] },
+          { name: '$gap-6xl', px: 48, aliases: [] },
+          { name: '$gap-7xl', px: 64, aliases: [] },
+          { name: '$gap-8xl', px: 80, aliases: [] },
+          { name: '$gap-9xl', px: 96, aliases: [] },
+          { name: '$gap-10xl', px: 128, aliases: [] },
+          { name: '$gap-11xl', px: 150, aliases: [] },
+        ],
+        margin: [
+          { name: '$margin-none', px: 0, aliases: [] },
+          { name: '$margin-xxs', px: 2, aliases: [] },
+          { name: '$margin-xs', px: 4, aliases: [] },
+          { name: '$margin-sm', px: 6, aliases: [] },
+          { name: '$margin-md', px: 8, aliases: [] },
+          { name: '$margin-lg', px: 12, aliases: [] },
+          { name: '$margin-xl', px: 16, aliases: [] },
+          { name: '$margin-2xl', px: 20, aliases: [] },
+          { name: '$margin-3xl', px: 24, aliases: [] },
+          { name: '$margin-4xl', px: 32, aliases: [] },
+          { name: '$margin-5xl', px: 40, aliases: [] },
+          { name: '$margin-6xl', px: 48, aliases: [] },
+          { name: '$margin-7xl', px: 64, aliases: [] },
+          { name: '$margin-8xl', px: 80, aliases: [] },
+          { name: '$margin-9xl', px: 96, aliases: [] },
+          { name: '$margin-10xl', px: 128, aliases: [] },
+          { name: '$margin-11xl', px: 150, aliases: [] },
+        ],
+        utilities: {
+          gap: ['gap-none', 'gap-xxs', 'gap-xs', 'gap-sm', 'gap-md', 'gap-lg', 'gap-xl', 'gap-2xl', 'gap-3xl', 'gap-4xl', 'gap-5xl', 'gap-6xl', 'gap-7xl', 'gap-8xl', 'gap-9xl', 'gap-10xl', 'gap-11xl'],
+          padding: ['padding-none', 'padding-xxs', 'padding-xs', 'padding-sm', 'padding-md', 'padding-lg', 'padding-xl', 'padding-2xl', 'padding-3xl', 'padding-4xl', 'padding-5xl', 'padding-6xl', 'padding-7xl', 'padding-8xl', 'padding-9xl', 'padding-10xl', 'padding-11xl'],
+          paddingX: ['padding-x-none', 'padding-x-xxs', 'padding-x-xs', 'padding-x-sm', 'padding-x-md', 'padding-x-lg', 'padding-x-xl', 'padding-x-2xl', 'padding-x-3xl', 'padding-x-4xl', 'padding-x-5xl', 'padding-x-6xl', 'padding-x-7xl', 'padding-x-8xl', 'padding-x-9xl', 'padding-x-10xl', 'padding-x-11xl'],
+          paddingY: ['padding-y-none', 'padding-y-xxs', 'padding-y-xs', 'padding-y-sm', 'padding-y-md', 'padding-y-lg', 'padding-y-xl', 'padding-y-2xl', 'padding-y-3xl', 'padding-y-4xl', 'padding-y-5xl', 'padding-y-6xl', 'padding-y-7xl', 'padding-y-8xl', 'padding-y-9xl', 'padding-y-10xl', 'padding-y-11xl'],
+          paddingTop: ['padding-top-none', 'padding-top-xxs', 'padding-top-xs', 'padding-top-sm', 'padding-top-md', 'padding-top-lg', 'padding-top-xl', 'padding-top-2xl', 'padding-top-3xl', 'padding-top-4xl', 'padding-top-5xl', 'padding-top-6xl', 'padding-top-7xl', 'padding-top-8xl', 'padding-top-9xl', 'padding-top-10xl', 'padding-top-11xl'],
+          paddingBottom: ['padding-bottom-none', 'padding-bottom-xxs', 'padding-bottom-xs', 'padding-bottom-sm', 'padding-bottom-md', 'padding-bottom-lg', 'padding-bottom-xl', 'padding-bottom-2xl', 'padding-bottom-3xl', 'padding-bottom-4xl', 'padding-bottom-5xl', 'padding-bottom-6xl', 'padding-bottom-7xl', 'padding-bottom-8xl', 'padding-bottom-9xl', 'padding-bottom-10xl', 'padding-bottom-11xl'],
+          margin: ['margin-none', 'margin-xxs', 'margin-xs', 'margin-sm', 'margin-md', 'margin-lg', 'margin-xl', 'margin-2xl', 'margin-3xl', 'margin-4xl', 'margin-5xl', 'margin-6xl', 'margin-7xl', 'margin-8xl', 'margin-9xl', 'margin-10xl', 'margin-11xl'],
+          marginX: ['margin-x-none', 'margin-x-xxs', 'margin-x-xs', 'margin-x-sm', 'margin-x-md', 'margin-x-lg', 'margin-x-xl', 'margin-x-2xl', 'margin-x-3xl', 'margin-x-4xl', 'margin-x-5xl', 'margin-x-6xl', 'margin-x-7xl', 'margin-x-8xl', 'margin-x-9xl', 'margin-x-10xl', 'margin-x-11xl'],
+          marginY: ['margin-y-none', 'margin-y-xxs', 'margin-y-xs', 'margin-y-sm', 'margin-y-md', 'margin-y-lg', 'margin-y-xl', 'margin-y-2xl', 'margin-y-3xl', 'margin-y-4xl', 'margin-y-5xl', 'margin-y-6xl', 'margin-y-7xl', 'margin-y-8xl', 'margin-y-9xl', 'margin-y-10xl', 'margin-y-11xl'],
+          marginTop: ['margin-top-none', 'margin-top-xxs', 'margin-top-xs', 'margin-top-sm', 'margin-top-md', 'margin-top-lg', 'margin-top-xl', 'margin-top-2xl', 'margin-top-3xl', 'margin-top-4xl', 'margin-top-5xl', 'margin-top-6xl', 'margin-top-7xl', 'margin-top-8xl', 'margin-top-9xl', 'margin-top-10xl', 'margin-top-11xl'],
+          marginBottom: ['margin-bottom-none', 'margin-bottom-xxs', 'margin-bottom-xs', 'margin-bottom-sm', 'margin-bottom-md', 'margin-bottom-lg', 'margin-bottom-xl', 'margin-bottom-2xl', 'margin-bottom-3xl', 'margin-bottom-4xl', 'margin-bottom-5xl', 'margin-bottom-6xl', 'margin-bottom-7xl', 'margin-bottom-8xl', 'margin-bottom-9xl', 'margin-bottom-10xl', 'margin-bottom-11xl'],
+        },
+      };
+
+      const copyMessages = {
+        success: { en: 'Copied: ', ar: 'تم النسخ: ' },
+        fail: { en: 'Copy failed', ar: 'فشل النسخ' },
+        alias: { en: 'Aliases', ar: 'أسماء بديلة' },
+      };
+
+      let tooltip = null;
+      let timer = null;
+
+      function isArabic() {
+        return document.documentElement.lang === 'ar';
+      }
+
+      function clearContainer(el) {
+        if (el) {
+          while (el.firstChild) {
+            el.removeChild(el.firstChild);
+          }
+        }
+      }
+
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard.writeText(text).then(
+            () => true,
+            () => false
+          );
+        }
+        return new Promise((resolve) => {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'absolute';
+          textarea.style.left = '-9999px';
+          document.body.appendChild(textarea);
+          textarea.select();
+          let ok = false;
+          try {
+            ok = document.execCommand('copy');
+          } catch (error) {
+            ok = false;
+          }
+          document.body.removeChild(textarea);
+          resolve(ok);
+        });
+      }
+
+      function showTooltip(target, message) {
+        if (!tooltip) {
+          tooltip = document.createElement('div');
+          tooltip.className = 'copy-tooltip';
+          document.body.appendChild(tooltip);
+        }
+        tooltip.textContent = message;
+        const rect = target.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const top = Math.max(8, rect.top - tooltipRect.height - 10);
+        const left = Math.min(
+          window.innerWidth - tooltipRect.width - 8,
+          Math.max(8, rect.left + rect.width / 2 - tooltipRect.width / 2)
+        );
+        tooltip.style.top = `${top}px`;
+        tooltip.style.left = `${left}px`;
+        tooltip.classList.add('is-visible');
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          tooltip.classList.remove('is-visible');
+        }, 1600);
+      }
+
+      function aliasLabel(aliases, lang) {
+        if (!aliases || !aliases.length) return '';
+        const label = lang === 'ar' ? copyMessages.alias.ar : copyMessages.alias.en;
+        const separator = lang === 'ar' ? '، ' : ', ';
+        return `${label}: ${aliases.join(separator)}`;
+      }
+
+      function renderTokenTables(lang) {
+        const paddingBody = document.getElementById('padding-token-body');
+        const marginBody = document.getElementById('margin-token-body');
+        const gapBody = document.getElementById('gap-token-body');
+        clearContainer(paddingBody);
+        clearContainer(marginBody);
+        clearContainer(gapBody);
+
+        function appendRow(tbody, token) {
+          const tr = document.createElement('tr');
+          const tdName = document.createElement('td');
+          tdName.setAttribute('data-copy', token.name);
+          tdName.setAttribute('role', 'button');
+          tdName.setAttribute('tabindex', '0');
+          tdName.setAttribute('aria-label', `${lang === 'ar' ? 'انسخ' : 'Copy'} ${token.name}`);
+          const code = document.createElement('code');
+          code.textContent = token.name;
+          tdName.appendChild(code);
+
+          const tdValue = document.createElement('td');
+          const valueText = document.createElement('span');
+          valueText.textContent = `${token.px}px`;
+          tdValue.appendChild(valueText);
+          if (token.aliases && token.aliases.length) {
+            const aliasText = document.createElement('span');
+            aliasText.className = 'text-muted ms-2';
+            aliasText.textContent = `(${aliasLabel(token.aliases, lang)})`;
+            tdValue.appendChild(aliasText);
+          }
+          tr.appendChild(tdName);
+          tr.appendChild(tdValue);
+          tbody.appendChild(tr);
+        }
+
+        spacingTokens.padding.forEach((token) => appendRow(paddingBody, token));
+        spacingTokens.margin.forEach((token) => appendRow(marginBody, token));
+        spacingTokens.gap.forEach((token) => appendRow(gapBody, token));
+      }
+
+      function renderVisuals(lang) {
+        const paddingContainer = document.getElementById('padding-visual-list');
+        const gapContainer = document.getElementById('gap-visual-list');
+        clearContainer(paddingContainer);
+        clearContainer(gapContainer);
+
+        spacingTokens.padding.forEach((token) => {
+          const item = document.createElement('div');
+          item.className = 'spacing-item';
+          item.setAttribute('role', 'button');
+          item.setAttribute('tabindex', '0');
+          item.setAttribute('data-copy', token.name);
+          item.setAttribute('aria-label', `${lang === 'ar' ? 'انسخ' : 'Copy'} ${token.name}`);
+
+          const bar = document.createElement('div');
+          bar.className = 'spacing-bar';
+          bar.style.width = `${token.px}px`;
+          const meta = document.createElement('div');
+          meta.className = 'spacing-meta';
+          meta.textContent = `${token.name} - ${token.px}px`;
+
+          item.appendChild(bar);
+          item.appendChild(meta);
+          paddingContainer.appendChild(item);
+        });
+
+        spacingTokens.gap.forEach((token) => {
+          const item = document.createElement('div');
+          item.className = 'spacing-item';
+          item.setAttribute('role', 'button');
+          item.setAttribute('tabindex', '0');
+          item.setAttribute('data-copy', token.name);
+          item.setAttribute('aria-label', `${lang === 'ar' ? 'انسخ' : 'Copy'} ${token.name}`);
+
+          const sample = document.createElement('div');
+          sample.className = 'gap-sample';
+          sample.style.gap = `${token.px}px`;
+          const dotA = document.createElement('div');
+          const dotB = document.createElement('div');
+          dotA.className = 'gap-dot';
+          dotB.className = 'gap-dot';
+          sample.appendChild(dotA);
+          sample.appendChild(dotB);
+
+          const meta = document.createElement('div');
+          meta.className = 'spacing-meta';
+          meta.textContent = `${token.name} - ${token.px}px`;
+
+          item.appendChild(sample);
+          item.appendChild(meta);
+          gapContainer.appendChild(item);
+        });
+      }
+
+      function renderUtilityList(containerId, list, options = {}) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        if (!options.append) {
+          clearContainer(container);
+        }
+        if (!container) return;
+        const lang = options.lang || 'en';
+        list.forEach((utility) => {
+          const item = document.createElement('div');
+          item.className = 'spacing-item';
+          item.setAttribute('role', 'button');
+          item.setAttribute('tabindex', '0');
+          item.setAttribute('data-copy', utility);
+          const legacyFlag = options.markLegacy ? ` (${legacyLabel(lang)})` : '';
+          item.setAttribute('aria-label', `${lang === 'ar' ? 'انسخ' : 'Copy'} .${utility}${legacyFlag}`);
+          const meta = document.createElement('div');
+          meta.className = 'spacing-meta';
+          meta.textContent = `.${utility}${legacyFlag}`;
+          item.appendChild(meta);
+          container.appendChild(item);
+        });
+      }
+
+      function renderUtilities(lang) {
+        renderUtilityList('utility-gap', spacingTokens.utilities.gap, { lang });
+        renderUtilityList('utility-padding', spacingTokens.utilities.padding, { lang });
+        renderUtilityList('utility-padding-x', spacingTokens.utilities.paddingX, { lang });
+        renderUtilityList('utility-padding-y', spacingTokens.utilities.paddingY, { lang });
+        renderUtilityList('utility-padding-top', spacingTokens.utilities.paddingTop, { lang });
+        renderUtilityList('utility-padding-bottom', spacingTokens.utilities.paddingBottom, { lang });
+        renderUtilityList('utility-margin', spacingTokens.utilities.margin, { lang });
+        renderUtilityList('utility-margin-x', spacingTokens.utilities.marginX, { lang });
+        renderUtilityList('utility-margin-y', spacingTokens.utilities.marginY, { lang });
+        renderUtilityList('utility-margin-top', spacingTokens.utilities.marginTop, { lang });
+        renderUtilityList('utility-margin-bottom', spacingTokens.utilities.marginBottom, { lang });
+      }
+
+      function renderSpacing(lang) {
+        renderTokenTables(lang);
+        renderVisuals(lang);
+        renderUtilities(lang);
+      }
+
+      document.addEventListener('click', (event) => {
+        const target = event.target.closest('[data-copy]');
+        if (!target) {
+          return;
+        }
+        const text = target.getAttribute('data-copy');
+        copyText(text).then((ok) => {
+          const lang = isArabic() ? 'ar' : 'en';
+          const message = ok
+            ? `${copyMessages.success[lang]}${text}`
+            : copyMessages.fail[lang];
+          showTooltip(target, message);
+        });
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') {
+          return;
+        }
+        const target = event.target.closest('[data-copy]');
+        if (!target) return;
+        event.preventDefault();
+        const text = target.getAttribute('data-copy');
+        copyText(text).then((ok) => {
+          const lang = isArabic() ? 'ar' : 'en';
+          const message = ok
+            ? `${copyMessages.success[lang]}${text}`
+            : copyMessages.fail[lang];
+          showTooltip(target, message);
+        });
+      });
+
+      window.renderSpacing = renderSpacing;
+      renderSpacing(document.documentElement.lang || 'en');
+    })();
+  </script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+
+  <script src="./js/top-actions.js"></script>
+  <script src="./js/ds-site-nav.js"></script>
+  <script src="./js/watermark.js"></script>
+</body>
+
+</html>
