@@ -112,7 +112,18 @@ const DesignSystemPage = () => {
       });
 
       if (response.ok) {
-        window.location.replace(REDIRECT_URL);
+        if (
+          typeof window !== "undefined" &&
+          window.history &&
+          typeof window.history.replaceState === "function"
+        ) {
+          window.history.replaceState(
+            { source: "design-system-login" },
+            "",
+            "/"
+          );
+        }
+        window.location.assign(REDIRECT_URL);
         return;
       }
     } catch {

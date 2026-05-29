@@ -63,7 +63,8 @@
       menuClose: isArabic ? "أغلق القائمة" : "Close menu",
       langToggleButton: isArabic ? "English" : "العربية",
       langToggleAria: isArabic ? "التبديل إلى اللغة الإنجليزية" : "Switch language to Arabic",
-      brandAria: isArabic ? "الذهاب إلى الصفحة الرئيسية لموقع عمر مختار" : "Go to Omar Mokhtar website home"
+      brandAria: isArabic ? "الذهاب إلى الصفحة الرئيسية لموقع عمر مختار" : "Go to Omar Mokhtar website home",
+      returnToWebsite: isArabic ? "العودة للموقع" : "Back to Website"
     };
   }
 
@@ -124,6 +125,25 @@
     return html;
   }
 
+  function renderReturnLink(language, isMobile) {
+    var labels = getLabels(language);
+    var isArabic = language === "ar";
+    var arrow = isArabic ? "→" : "←";
+    var className = "site-return-link" + (isMobile ? " site-return-link--mobile" : "");
+
+    return (
+      '<a href="/" class="' +
+      className +
+      '" aria-label="' +
+      labels.returnToWebsite +
+      '">' +
+      arrow +
+      " " +
+      labels.returnToWebsite +
+      "</a>"
+    );
+  }
+
   function render(language) {
     var labels = getLabels(language);
     var isArabic = language === "ar";
@@ -132,6 +152,7 @@
     var desktopNavLinksSection =
       '<div class="navbg-container ' + (isArabic ? "rtl-container" : "") + '">' +
       renderNavLinks(language, currentPath, false) +
+      renderReturnLink(language, false) +
       '<button type="button" class="btn lang-btn" aria-label="' + labels.langToggleAria + '" aria-pressed="' + (isArabic ? "true" : "false") + '">' +
       buildLanguageIcon() + labels.langToggleButton +
       "</button>" +
@@ -163,6 +184,7 @@
       '<div class="navbar__backdrop" aria-hidden="true"></div>' +
       '<nav id="mobileNav" class="navbar__mobile" role="dialog" aria-modal="true" aria-hidden="true" aria-label="' + labels.navLabel + '" dir="' + (isArabic ? "rtl" : "ltr") + '">' +
       renderNavLinks(language, currentPath, true) +
+      renderReturnLink(language, true) +
       "</nav>" +
       "</div>" +
       "</div>";
