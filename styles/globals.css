@@ -483,7 +483,6 @@ body.mobile-menu-open main {
 .navbar-nav {
   display: flex;
   align-items: center;
-  gap: 12px;
   margin: 0;
   padding-left: 0;
   list-style: none;
@@ -499,8 +498,7 @@ body.mobile-menu-open main {
   color: #000;
   font-weight: 600;
   font-size: 16px;
-  padding: 12px 12px !important;
-  min-height: 44px;
+  padding: 4px !important;
   border-radius: 8px;
   transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
