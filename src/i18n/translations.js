@@ -790,7 +790,7 @@ export const translations = {
       whatsappAria: "Open WhatsApp chat with Omar Mokhtar",
       successAlert: "✅ Message sent successfully!",
       failureAlert:
-        "❌ Failed to send the message, please reconnect Gmail or check the settings.",
+        "Sorry, your message could not be sent right now. Please try again later or contact me directly via WhatsApp.",
     },
     casebook: {
       hero: {
@@ -1496,7 +1496,7 @@ export const translations = {
       whatsappAria: "افتح محادثة واتساب مع عمر مختار",
       successAlert: "✅ تم إرسال الرسالة بنجاح!",
       failureAlert:
-        "❌ فشل إرسال الرسالة، يرجى إعادة توصيل Gmail أو التحقق من الإعدادات.",
+        "عذرًا، تعذر إرسال رسالتك الآن. يرجى المحاولة لاحقًا أو التواصل معي مباشرة عبر واتساب.",
     },
     casebook: {
       hero: {

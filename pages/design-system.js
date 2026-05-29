@@ -145,13 +145,21 @@ const DesignSystemPage = () => {
         beyondClose:
           "وتوضح الأمثلة المختارة كيف يتم الربط بين مكونات Figma وDesign Tokens والتوثيق والتنفيذ البرمجي لبناء نظام تصميم قابل للتوسع والاستدامة.",
         accessLabel: "Request Access",
-        accessTitle: "الحصول على صلاحية الوصول",
+        accessTitle: "الدخول إلى عرض نظام التصميم",
         accessBody:
-          "امسح رمز QR للتواصل معي مباشرة عبر واتساب وطلب الوصول إلى العرض الخاص لنظام التصميم.",
-        accessBody2:
-          "يمكنني أيضًا تزويدك ببيانات الوصول وشرح النظام بشكل مباشر، بما يشمل الهيكلة، والمكونات، والتوثيق، وممارسات DesignOps، وآلية الربط بين Figma والتنفيذ الفعلي.",
-        accessBody3:
-          "إذا تم تزويدك بكلمة مرور الوصول، يمكنك إدخالها أدناه.",
+          "إذا تم تزويدك بكلمة مرور الوصول، يمكنك إدخالها أدناه للمتابعة.",
+        accessButtonLabel: "الدخول إلى نظام التصميم",
+        noticeTitle: "تنويه مهم:",
+        noticeBody:
+          "يتم منح بيانات الوصول بشكل فردي، ولا يُسمح بمشاركتها أو إعادة توزيعها أو استخدامها من قبل أي طرف آخر.",
+        contactTitle: "هل تحتاج إلى صلاحية الوصول؟",
+        contactBody:
+          "يتم منح صلاحيات الوصول بشكل فردي لأغراض التقييم المهني، والمقابلات الوظيفية، وجلسات الاستعراض المتخصصة.",
+        contactBody2:
+          "إذا كنت ترغب في الحصول على صلاحية الوصول أو استعراض النظام بشكل مباشر، يمكنك التواصل معي عبر واتساب من خلال مسح رمز QR أدناه.",
+        qrTitle: "التواصل عبر واتساب",
+        qrBody:
+          "امسح رمز QR للتواصل معي مباشرة وطلب صلاحية الوصول أو ترتيب جلسة استعراض للنظام.",
         whatsappLabel: "التواصل عبر واتساب",
         whatsappAria: "التواصل عبر واتساب",
         qrHint: "امسح الرمز للتواصل مباشرة",
@@ -200,13 +208,21 @@ const DesignSystemPage = () => {
         beyondClose:
           "Selected examples demonstrate how Figma components, design tokens, documentation, and front-end implementation are connected to support a scalable design system.",
         accessLabel: "Request Access",
-        accessTitle: "Request Access",
+        accessTitle: "Access the Design System Showcase",
         accessBody:
-          "Scan the QR code to contact me directly on WhatsApp and request access to the private Design System showcase.",
-        accessBody2:
-          "You'll receive access credentials and can also arrange a walkthrough of the system, including its structure, components, documentation, DesignOps practices, and implementation approach.",
-        accessBody3:
-          "If you already received an access password, enter it below.",
+          "If you have received an access password, enter it below to continue.",
+        accessButtonLabel: "Access Design System",
+        noticeTitle: "Please note:",
+        noticeBody:
+          "Access credentials are issued individually and should not be shared, redistributed, or reused by other parties.",
+        contactTitle: "Need Access?",
+        contactBody:
+          "Access credentials are shared individually for evaluation, hiring discussions, and professional walkthroughs.",
+        contactBody2:
+          "If you would like access or a guided overview of the system, you can contact me directly by scanning the QR code below.",
+        qrTitle: "Contact via WhatsApp",
+        qrBody:
+          "Scan the QR code to contact me directly and request access or arrange a walkthrough of the Design System.",
         whatsappLabel: "Contact via WhatsApp",
         whatsappAria: "Contact via WhatsApp",
         qrHint: "Scan to contact directly",
@@ -407,25 +423,19 @@ const DesignSystemPage = () => {
             background: "#fff",
             border: `1px solid ${border}`,
             borderRadius: 14,
-            padding: "24px",
-            boxShadow: "0px 10px 30px rgba(15, 23, 42, 0.06)",
+            padding: "22px",
+            boxShadow: "0px 8px 24px rgba(15, 23, 42, 0.05)",
           }}>
           <div
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: 22,
-              alignItems: "start",
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 18,
+              alignItems: "flex-start",
             }}>
-            <div>
-              <SectionBody style={{ marginBottom: 8 }}>
+            <div style={{ flex: "1.5 1 420px", minWidth: 0 }}>
+              <SectionBody style={{ marginBottom: 16, maxWidth: "60ch" }}>
                 {copy.accessBody}
-              </SectionBody>
-              <SectionBody style={{ marginBottom: 8 }}>
-                {copy.accessBody2}
-              </SectionBody>
-              <SectionBody style={{ marginBottom: 20, color: inkLight }}>
-                {copy.accessBody3}
               </SectionBody>
               <form onSubmit={handleSubmit} noValidate>
                 <label
@@ -455,7 +465,7 @@ const DesignSystemPage = () => {
                   type="submit"
                   className="btn btn-warning mt-3"
                   disabled={isLoading}>
-                  {isLoading ? "..." : casebook.access.accessButton}
+                  {isLoading ? "..." : copy.accessButtonLabel}
                 </button>
                 {showError ? (
                   <p
@@ -470,41 +480,60 @@ const DesignSystemPage = () => {
             </div>
             <aside
               style={{
+                flex: "1 1 400px",
+                maxWidth: 400,
+                width: "100%",
+                marginInlineStart: "auto",
                 background: bg,
                 border: `1px solid ${border}`,
                 borderRadius: 12,
                 padding: "14px",
                 textAlign: "center",
               }}>
+              <h3
+                style={{
+                  margin: "0 0 6px",
+                  fontSize: 18,
+                  fontWeight: 800,
+                  color: ink,
+                }}>
+                {copy.contactTitle}
+              </h3>
+              <SectionBody style={{ marginBottom: 6, fontSize: 14 }}>
+                {copy.contactBody}
+              </SectionBody>
+              <SectionBody style={{ marginBottom: 12, fontSize: 14 }}>
+                {copy.contactBody2}
+              </SectionBody>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label={copy.whatsappAria}
-                style={{ display: "block", textDecoration: "none" }}>
+                style={{ display: "inline-block", textDecoration: "none" }}>
                 <div
                   style={{
                     background: "#fff",
                     border: `1px solid ${border}`,
                     borderRadius: 10,
-                    padding: 12,
+                    padding: 10,
                     display: "inline-block",
                   }}>
                   <Image
                     src={whatsappQr}
                     alt={copy.qrAlt}
-                    width={180}
-                    height={180}
-                    style={{ width: "100%", maxWidth: 180, height: "auto" }}
+                    width={170}
+                    height={170}
+                    style={{ width: "100%", maxWidth: 170, height: "auto" }}
                   />
                 </div>
                 <p
                   style={{
-                    margin: "10px 0 8px",
+                    margin: "8px 0 6px",
                     color: inkLight,
                     fontSize: 12,
                     fontWeight: 600,
-                    lineHeight: 1.5,
+                    lineHeight: 1.45,
                   }}>
                   {copy.qrHint}
                 </p>
@@ -518,14 +547,14 @@ const DesignSystemPage = () => {
                     color: purple,
                     textDecoration: "none",
                   }}>
-                  <Image
+                  {/* <Image
                     src={whatsappIcon}
                     alt=""
                     aria-hidden="true"
                     width={18}
                     height={18}
                     style={{ flexShrink: 0 }}
-                  />
+                  /> */}
                   {copy.whatsappLabel}
                 </span>
               </a>
@@ -533,21 +562,6 @@ const DesignSystemPage = () => {
           </div>
         </div>
       </SectionWrap>
-
-      <div style={{ padding: "0 0 24px", color: inkLight }}>
-        <div
-          style={{
-            width: "min(960px, 100% - 48px)",
-            margin: "0 auto",
-            fontSize: 13,
-            lineHeight: 1.6,
-            textAlign: isRTL ? "right" : "left",
-          }}>
-          {isRTL
-            ? "عرض خاص موجه للمهتمين بالأنظمة التصميمية الناضجة والتنفيذ الواقعي على نطاق واسع."
-            : "A private showcase for professionals seeking mature, scalable, real-world design system execution."}
-        </div>
-      </div>
     </div>
   );
 };
