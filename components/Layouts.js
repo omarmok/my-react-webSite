@@ -27,9 +27,89 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
     ogLocale,
     language: metaLanguage,
     structuredData,
+    robots,
+    googlebot,
   } = pageMeta;
 
   const jsonLd = (data) => JSON.stringify(data).replace(/</g, "\\u003c");
+
+  const supplementalStructuredData = (() => {
+    const personRef = {
+      "@type": "Person",
+      name: "Omar Mokhtar",
+      jobTitle: "UX & DesignOps Lead",
+      url: "https://omarmokhtar.com",
+      sameAs: [
+        "https://www.linkedin.com/in/omarmokhtar22/",
+        "https://www.behance.net/Omar_Mokhtar",
+        "https://github.com/omarmok",
+      ],
+    };
+
+    if (router.pathname === "/About") {
+      return {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        name: title,
+        description,
+        url: canonical,
+        mainEntity: personRef,
+      };
+    }
+
+    if (router.pathname === "/Projects") {
+      return {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: title,
+        description,
+        url: canonical,
+        author: personRef,
+        about: [
+          "UX Leadership",
+          "DesignOps",
+          "Design Systems",
+          "Front-End Implementation",
+          "Enterprise Platforms",
+          "Government Digital Products",
+        ],
+      };
+    }
+
+    if (router.pathname === "/Blog") {
+      return {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        name: title,
+        description,
+        url: canonical,
+        author: personRef,
+      };
+    }
+
+    if (router.pathname === "/CaseStudy") {
+      return {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: title,
+        description,
+        url: canonical,
+        author: personRef,
+      };
+    }
+
+    if (router.pathname === "/ContactForm") {
+      return {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        name: title,
+        description,
+        url: canonical,
+      };
+    }
+
+    return null;
+  })();
 
   return (
     <div className={`wrapper ${fontClass}`}>
@@ -48,9 +128,12 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
         />
         <meta
           name="robots"
-          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+          content={
+            robots ??
+            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+          }
         />
-        <meta name="googlebot" content="index, follow" />
+        <meta name="googlebot" content={googlebot ?? "index, follow"} />
 
         {/* Canonical URL */}
         <link rel="canonical" href={canonical} />
@@ -90,6 +173,15 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }}
+          />
+        )}
+
+        {supplementalStructuredData && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: jsonLd(supplementalStructuredData),
+            }}
           />
         )}
 

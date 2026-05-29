@@ -3,6 +3,7 @@ import Image from "next/image";
 import Loader from "../components/Loader";
 import { useTranslation } from "../src/i18n/useTranslation";
 import whatsappIcon from "../public/images/whatsapp.png";
+import whatsappQr from "../public/images/whatsapp-qr.png";
 
 const REDIRECT_URL = "/PS-Design/DesignSystemDocumentation/index.html";
 const WHATSAPP_URL = "https://wa.me/+966535468309";
@@ -13,7 +14,6 @@ const inkMid = "#334155";
 const inkLight = "#64748b";
 const border = "#e2e8f0";
 const bg = "#f8f7ff";
-const purpleLight = "#ede9fd";
 
 const SectionWrap = ({ children, background = "#fff" }) => (
   <section style={{ background, padding: "48px 0" }}>
@@ -88,10 +88,130 @@ const SectionBody = ({ children, style = {} }) => (
   </p>
 );
 
+const teaserBulletStyle = {
+  background: "#fff",
+  border: `1px solid ${border}`,
+  borderRadius: 10,
+  padding: "14px 16px",
+  display: "flex",
+  alignItems: "flex-start",
+  gap: 10,
+};
+
 const DesignSystemPage = () => {
   const { dictionary, language } = useTranslation();
   const casebook = dictionary.casebook;
   const isRTL = language === "ar";
+  const copy = isRTL
+    ? {
+        heroLabel: "Private Design System Showcase",
+        heroTitle: "عرض خاص لنظام التصميم",
+        heroBody:
+          "يقدم هذا العرض الخاص أمثلة مختارة توضح كيف تم توظيف أنظمة التصميم، وممارسات DesignOps، والتوثيق، وحوكمة التصميم، والتنفيذ البرمجي لبناء تجارب رقمية متسقة وقابلة للتوسع.",
+        heroBody2:
+          "تم تطوير هذا النظام من خلال خبرات عملية في منصات حكومية، ومنتجات مؤسسية، وجهات تعليمية، ومبادرات رقمية واسعة النطاق.",
+        experienceLabel: "Experience Highlight",
+        experienceTitle: "أكثر من 19 عامًا من الخبرة",
+        experienceBody:
+          "يعكس هذا العرض ما يقارب عقدين من الخبرة في تجربة المستخدم، وتصميم الواجهات، وأنظمة التصميم، وDesignOps، وتطوير الواجهات الأمامية، وتصميم المنتجات الرقمية.",
+        discoverLabel: "What You'll Discover Inside",
+        discoverTitle: "ماذا ستجد بالداخل؟",
+        discoverBody:
+          "يقدم هذا العرض الخاص نظرة عملية على كيفية تخطيط نظام تصميم حقيقي وتنفيذه وتوثيقه وتطويره ليخدم منتجات رقمية متعددة.",
+        discoverLead: "يتضمن العرض أمثلة مختارة تغطي:",
+        discoverItems: [
+          "أسس النظام البصري، بما يشمل الألوان والخطوط والمسافات وDesign Tokens",
+          "مكونات واجهات قابلة لإعادة الاستخدام مع شرح المبادئ التي تم الاعتماد عليها في تصميمها",
+          "آليات العمل بين التصميم والتطوير للحفاظ على الاتساق بين Figma والتنفيذ الفعلي",
+          "أساليب التوثيق المستخدمة لدعم المصممين والمطورين وفرق المنتجات",
+          "أمثلة حقيقية على ممارسات DesignOps لتحسين الحوكمة والتعاون وقابلية التوسع",
+          "أمثلة من التنفيذ البرمجي توضح كيفية تحويل معايير التصميم إلى واجهات جاهزة للاستخدام",
+          "خبرات ودروس مستفادة من إدارة الاتساق عبر منتجات وفرق عمل متعددة",
+        ],
+        beyondLabel: "Beyond Code",
+        beyondTitle: "أكثر من مجرد كود",
+        beyondBody: "لا يقتصر نظام التصميم هذا على التنفيذ البرمجي فقط.",
+        beyondLead: "يتضمن العرض أمثلة توضح:",
+        beyondItems: [
+          "مكتبات ومكونات Figma",
+          "Design Tokens وإدارة المتغيرات",
+          "معايير التوثيق",
+          "إرشادات استخدام المكونات",
+          "آليات حوكمة التصميم",
+          "التعاون بين التصميم والتطوير",
+          "التنفيذ البرمجي للواجهات",
+          "الحفاظ على الاتساق بين بيئة التصميم والتنفيذ الفعلي",
+        ],
+        beyondClose:
+          "وتوضح الأمثلة المختارة كيف يتم الربط بين مكونات Figma وDesign Tokens والتوثيق والتنفيذ البرمجي لبناء نظام تصميم قابل للتوسع والاستدامة.",
+        accessLabel: "Request Access",
+        accessTitle: "الحصول على صلاحية الوصول",
+        accessBody:
+          "امسح رمز QR للتواصل معي مباشرة عبر واتساب وطلب الوصول إلى العرض الخاص لنظام التصميم.",
+        accessBody2:
+          "يمكنني أيضًا تزويدك ببيانات الوصول وشرح النظام بشكل مباشر، بما يشمل الهيكلة، والمكونات، والتوثيق، وممارسات DesignOps، وآلية الربط بين Figma والتنفيذ الفعلي.",
+        accessBody3:
+          "إذا تم تزويدك بكلمة مرور الوصول، يمكنك إدخالها أدناه.",
+        whatsappLabel: "التواصل عبر واتساب",
+        whatsappAria: "التواصل عبر واتساب",
+        qrHint: "امسح الرمز للتواصل مباشرة",
+        qrAlt: "رمز QR للتواصل عبر واتساب",
+      }
+    : {
+        heroLabel: "Private Design System Showcase",
+        heroTitle: "Private Design System Showcase",
+        heroBody:
+          "A private showcase presenting selected examples of how Design Systems, DesignOps practices, documentation, design governance, and front-end implementation were combined to create scalable and consistent digital experiences.",
+        heroBody2:
+          "Built through real-world work across government platforms, enterprise products, universities, and large-scale digital initiatives.",
+        experienceLabel: "Experience Highlight",
+        experienceTitle: "19+ Years of Experience",
+        experienceBody:
+          "The showcase reflects nearly two decades of experience across UX, UI, Design Systems, DesignOps, Front-End Development, and digital product design.",
+        discoverLabel: "What You'll Discover Inside",
+        discoverTitle: "What You'll Discover Inside",
+        discoverBody:
+          "This private showcase provides a behind-the-scenes look at how a production Design System was planned, implemented, documented, and scaled across multiple digital products.",
+        discoverLead: "Inside, you'll find selected examples covering:",
+        discoverItems: [
+          "Design foundations, color systems, typography, spacing, and design tokens",
+          "Reusable UI components and the principles behind their design decisions",
+          "Design-to-development workflows that helped maintain consistency between Figma and implementation",
+          "Documentation approaches used to support designers, developers, and product teams",
+          "Real examples of DesignOps practices used to improve collaboration, governance, and scalability",
+          "Front-end implementation examples demonstrating how design standards were translated into production-ready code",
+          "Lessons learned from maintaining consistency across multiple products and teams",
+        ],
+        beyondLabel: "Beyond Code",
+        beyondTitle: "Beyond Code",
+        beyondBody:
+          "This Design System extends beyond front-end implementation.",
+        beyondLead: "The showcase includes examples of:",
+        beyondItems: [
+          "Figma libraries and reusable components",
+          "Design tokens and variable management",
+          "Documentation standards",
+          "Component usage guidelines",
+          "Design governance workflows",
+          "Design-to-development collaboration",
+          "Front-end implementation",
+          "Maintaining consistency between design assets and production environments",
+        ],
+        beyondClose:
+          "Selected examples demonstrate how Figma components, design tokens, documentation, and front-end implementation are connected to support a scalable design system.",
+        accessLabel: "Request Access",
+        accessTitle: "Request Access",
+        accessBody:
+          "Scan the QR code to contact me directly on WhatsApp and request access to the private Design System showcase.",
+        accessBody2:
+          "You'll receive access credentials and can also arrange a walkthrough of the system, including its structure, components, documentation, DesignOps practices, and implementation approach.",
+        accessBody3:
+          "If you already received an access password, enter it below.",
+        whatsappLabel: "Contact via WhatsApp",
+        whatsappAria: "Contact via WhatsApp",
+        qrHint: "Scan to contact directly",
+        qrAlt: "QR code to contact via WhatsApp",
+      };
 
   const [password, setPassword] = useState("");
   const [showError, setShowError] = useState(false);
@@ -147,6 +267,7 @@ const DesignSystemPage = () => {
           padding: "64px 0 56px",
         }}>
         <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
+          <SectionLabel>{copy.heroLabel}</SectionLabel>
           <h1
             style={{
               fontSize: "clamp(2rem, 5vw, 3.2rem)",
@@ -154,200 +275,37 @@ const DesignSystemPage = () => {
               color: "#fff",
               lineHeight: 1.15,
               margin: "0 0 16px",
-              maxWidth: "20ch",
+              maxWidth: "24ch",
             }}>
-            {casebook.hero.title}
+            {copy.heroTitle}
           </h1>
           <p
             style={{
               fontSize: "clamp(15px, 2vw, 17px)",
-              color: "rgba(255,255,255,0.68)",
-              maxWidth: "58ch",
+              color: "rgba(255,255,255,0.72)",
+              maxWidth: "66ch",
+              lineHeight: 1.75,
+              margin: "0 0 10px",
+            }}>
+            {copy.heroBody}
+          </p>
+          <p
+            style={{
+              fontSize: "clamp(15px, 2vw, 17px)",
+              color: "rgba(255,255,255,0.72)",
+              maxWidth: "66ch",
               lineHeight: 1.75,
               margin: 0,
             }}>
-            {casebook.hero.subtitle}
+            {copy.heroBody2}
           </p>
         </div>
       </section>
 
-      <SectionWrap>
-        <SectionLabel>{casebook.overview.label}</SectionLabel>
-        <SectionTitle>{casebook.overview.label}</SectionTitle>
-        <SectionRule />
-        <SectionBody style={{ maxWidth: "70ch", marginBottom: 0 }}>
-          {casebook.overview.body}
-        </SectionBody>
-      </SectionWrap>
-
       <SectionWrap background={bg}>
-        <SectionLabel>{casebook.includes.label}</SectionLabel>
-        <SectionTitle>{casebook.includes.label}</SectionTitle>
+        <SectionLabel>{copy.experienceLabel}</SectionLabel>
+        <SectionTitle>{copy.experienceTitle}</SectionTitle>
         <SectionRule />
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: 14,
-          }}>
-          {casebook.includes.items.map((item) => (
-            <div
-              key={item.title}
-              style={{
-                background: "#fff",
-                border: `1px solid ${border}`,
-                borderRadius: 12,
-                padding: "20px 18px",
-                borderTop: `3px solid ${purple}`,
-              }}>
-              <div
-                style={{
-                  fontWeight: 700,
-                  fontSize: 15,
-                  color: ink,
-                  marginBottom: 8,
-                }}>
-                {item.title}
-              </div>
-              <div style={{ fontSize: 14, color: inkMid, lineHeight: 1.7 }}>
-                {item.description}
-              </div>
-            </div>
-          ))}
-        </div>
-      </SectionWrap>
-
-      <SectionWrap>
-        <SectionLabel>{casebook.foundations.label}</SectionLabel>
-        <SectionTitle>{casebook.foundations.label}</SectionTitle>
-        <SectionRule />
-        <SectionBody style={{ maxWidth: "64ch" }}>
-          {casebook.foundations.intro}
-        </SectionBody>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: 12,
-          }}>
-          {casebook.foundations.items.map((item) => (
-            <div
-              key={item}
-              style={{
-                background: bg,
-                border: `1px solid ${border}`,
-                borderRadius: 10,
-                padding: "14px 16px",
-                display: "flex",
-                alignItems: "center",
-                gap: 10,
-              }}>
-              <span
-                style={{
-                  width: 8,
-                  height: 8,
-                  borderRadius: "50%",
-                  background: purple,
-                  flexShrink: 0,
-                }}
-              />
-              <span style={{ fontSize: 14, color: inkMid }}>{item}</span>
-            </div>
-          ))}
-        </div>
-      </SectionWrap>
-
-      <SectionWrap background={bg}>
-        <SectionLabel>{casebook.components.label}</SectionLabel>
-        <SectionTitle>{casebook.components.label}</SectionTitle>
-        <SectionRule />
-        <SectionBody style={{ maxWidth: "64ch" }}>
-          {casebook.components.intro}
-        </SectionBody>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: 12,
-          }}>
-          {casebook.components.items.map((item) => (
-            <div
-              key={item}
-              style={{
-                background: "#fff",
-                border: `1px solid ${border}`,
-                borderRadius: 10,
-                padding: "14px 16px",
-                display: "flex",
-                alignItems: "center",
-                gap: 10,
-              }}>
-              <span
-                style={{
-                  width: 8,
-                  height: 8,
-                  borderRadius: "50%",
-                  background: purple,
-                  flexShrink: 0,
-                }}
-              />
-              <span style={{ fontSize: 14, color: inkMid }}>{item}</span>
-            </div>
-          ))}
-        </div>
-      </SectionWrap>
-
-      <SectionWrap>
-        <SectionLabel>{casebook.implementation.label}</SectionLabel>
-        <SectionTitle>{casebook.implementation.label}</SectionTitle>
-        <SectionRule />
-        <SectionBody style={{ maxWidth: "64ch" }}>
-          {casebook.implementation.intro}
-        </SectionBody>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          {casebook.implementation.items.map((item, index) => (
-            <div
-              key={item}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "auto 1fr",
-                gap: 16,
-                padding: "18px 0",
-                borderBottom:
-                  index < casebook.implementation.items.length - 1
-                    ? `1px solid ${border}`
-                    : "none",
-                alignItems: "center",
-              }}>
-              <div
-                style={{
-                  width: 32,
-                  height: 32,
-                  borderRadius: 8,
-                  background: purpleLight,
-                  color: purple,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 13,
-                  fontWeight: 800,
-                  flexShrink: 0,
-                }}>
-                {String(index + 1).padStart(2, "0")}
-              </div>
-              <div style={{ fontSize: 15, color: inkMid, lineHeight: 1.65 }}>
-                {item}
-              </div>
-            </div>
-          ))}
-        </div>
-      </SectionWrap>
-
-      <SectionWrap background={bg}>
-        <SectionLabel>{casebook.access.title}</SectionLabel>
-        <SectionTitle>{casebook.access.title}</SectionTitle>
-        <SectionRule />
-
         <div
           style={{
             background: "#fff",
@@ -356,103 +314,238 @@ const DesignSystemPage = () => {
             padding: "24px",
             boxShadow: "0px 10px 30px rgba(15, 23, 42, 0.06)",
           }}>
-          <SectionBody style={{ marginBottom: 20 }}>
-            {casebook.access.description}
+          <SectionBody style={{ marginBottom: 0 }}>
+            {copy.experienceBody}
           </SectionBody>
-          <form onSubmit={handleSubmit} noValidate>
-            <label
-              htmlFor="casebook-password"
-              className="form-label fw-semibold">
-              {casebook.access.passwordLabel}
-            </label>
-            <input
-              id="casebook-password"
-              name="casebook-password"
-              type="password"
-              autoComplete="current-password"
-              className="form-control"
-              value={password}
-              onChange={(event) => {
-                setPassword(event.target.value);
-                if (showError) {
-                  setShowError(false);
-                }
-              }}
-              placeholder={casebook.access.passwordPlaceholder}
-              aria-describedby={
-                showError ? "casebook-password-error" : undefined
-              }
-            />
-            <button
-              type="submit"
-              className="btn btn-warning mt-3"
-              disabled={isLoading}>
-              {isLoading ? "..." : casebook.access.accessButton}
-            </button>
-            {showError ? (
-              <p
-                id="casebook-password-error"
-                className="text-danger mt-3 mb-0"
-                role="alert"
-                aria-live="assertive">
-                {casebook.access.passwordError}
-              </p>
-            ) : null}
-          </form>
         </div>
       </SectionWrap>
 
-      <div style={{ padding: "12px 0 40px" }}>
+      <SectionWrap>
+        <SectionLabel>{copy.discoverLabel}</SectionLabel>
+        <SectionTitle>{copy.discoverTitle}</SectionTitle>
+        <SectionRule />
+        <SectionBody style={{ maxWidth: "74ch", marginBottom: 8 }}>
+          {copy.discoverBody}
+        </SectionBody>
+        <SectionBody
+          style={{ maxWidth: "74ch", marginBottom: 16, fontWeight: 600 }}>
+          {copy.discoverLead}
+        </SectionBody>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: 12,
+          }}>
+          {copy.discoverItems.map((item) => (
+            <div key={item} style={teaserBulletStyle}>
+              <span
+                style={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: "50%",
+                  background: purple,
+                  flexShrink: 0,
+                  marginTop: 7,
+                }}
+              />
+              <span style={{ fontSize: 14, color: inkMid, lineHeight: 1.65 }}>
+                {item}
+              </span>
+            </div>
+          ))}
+        </div>
+      </SectionWrap>
+
+      <SectionWrap background={bg}>
+        <SectionLabel>{copy.beyondLabel}</SectionLabel>
+        <SectionTitle>{copy.beyondTitle}</SectionTitle>
+        <SectionRule />
+        <SectionBody style={{ maxWidth: "74ch", marginBottom: 8 }}>
+          {copy.beyondBody}
+        </SectionBody>
+        <SectionBody
+          style={{ maxWidth: "74ch", marginBottom: 16, fontWeight: 600 }}>
+          {copy.beyondLead}
+        </SectionBody>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: 12,
+            marginBottom: 16,
+          }}>
+          {copy.beyondItems.map((item) => (
+            <div key={item} style={teaserBulletStyle}>
+              <span
+                style={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: "50%",
+                  background: purple,
+                  flexShrink: 0,
+                  marginTop: 7,
+                }}
+              />
+              <span style={{ fontSize: 14, color: inkMid, lineHeight: 1.65 }}>
+                {item}
+              </span>
+            </div>
+          ))}
+        </div>
+        <SectionBody style={{ maxWidth: "74ch", marginBottom: 0 }}>
+          {copy.beyondClose}
+        </SectionBody>
+      </SectionWrap>
+
+      <SectionWrap>
+        <SectionLabel>{copy.accessLabel}</SectionLabel>
+        <SectionTitle>{copy.accessTitle}</SectionTitle>
+        <SectionRule />
+        <div
+          style={{
+            background: "#fff",
+            border: `1px solid ${border}`,
+            borderRadius: 14,
+            padding: "24px",
+            boxShadow: "0px 10px 30px rgba(15, 23, 42, 0.06)",
+          }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gap: 22,
+              alignItems: "start",
+            }}>
+            <div>
+              <SectionBody style={{ marginBottom: 8 }}>
+                {copy.accessBody}
+              </SectionBody>
+              <SectionBody style={{ marginBottom: 8 }}>
+                {copy.accessBody2}
+              </SectionBody>
+              <SectionBody style={{ marginBottom: 20, color: inkLight }}>
+                {copy.accessBody3}
+              </SectionBody>
+              <form onSubmit={handleSubmit} noValidate>
+                <label
+                  htmlFor="casebook-password"
+                  className="form-label fw-semibold">
+                  {casebook.access.passwordLabel}
+                </label>
+                <input
+                  id="casebook-password"
+                  name="casebook-password"
+                  type="password"
+                  autoComplete="current-password"
+                  className="form-control"
+                  value={password}
+                  onChange={(event) => {
+                    setPassword(event.target.value);
+                    if (showError) {
+                      setShowError(false);
+                    }
+                  }}
+                  placeholder={casebook.access.passwordPlaceholder}
+                  aria-describedby={
+                    showError ? "casebook-password-error" : undefined
+                  }
+                />
+                <button
+                  type="submit"
+                  className="btn btn-warning mt-3"
+                  disabled={isLoading}>
+                  {isLoading ? "..." : casebook.access.accessButton}
+                </button>
+                {showError ? (
+                  <p
+                    id="casebook-password-error"
+                    className="text-danger mt-3 mb-0"
+                    role="alert"
+                    aria-live="assertive">
+                    {casebook.access.passwordError}
+                  </p>
+                ) : null}
+              </form>
+            </div>
+            <aside
+              style={{
+                background: bg,
+                border: `1px solid ${border}`,
+                borderRadius: 12,
+                padding: "14px",
+                textAlign: "center",
+              }}>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label={copy.whatsappAria}
+                style={{ display: "block", textDecoration: "none" }}>
+                <div
+                  style={{
+                    background: "#fff",
+                    border: `1px solid ${border}`,
+                    borderRadius: 10,
+                    padding: 12,
+                    display: "inline-block",
+                  }}>
+                  <Image
+                    src={whatsappQr}
+                    alt={copy.qrAlt}
+                    width={180}
+                    height={180}
+                    style={{ width: "100%", maxWidth: 180, height: "auto" }}
+                  />
+                </div>
+                <p
+                  style={{
+                    margin: "10px 0 8px",
+                    color: inkLight,
+                    fontSize: 12,
+                    fontWeight: 600,
+                    lineHeight: 1.5,
+                  }}>
+                  {copy.qrHint}
+                </p>
+                <span
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 7,
+                    fontSize: 14,
+                    fontWeight: 700,
+                    color: purple,
+                    textDecoration: "none",
+                  }}>
+                  <Image
+                    src={whatsappIcon}
+                    alt=""
+                    aria-hidden="true"
+                    width={18}
+                    height={18}
+                    style={{ flexShrink: 0 }}
+                  />
+                  {copy.whatsappLabel}
+                </span>
+              </a>
+            </aside>
+          </div>
+        </div>
+      </SectionWrap>
+
+      <div style={{ padding: "0 0 24px", color: inkLight }}>
         <div
           style={{
             width: "min(960px, 100% - 48px)",
             margin: "0 auto",
-            color: inkLight,
             fontSize: 13,
             lineHeight: 1.6,
             textAlign: isRTL ? "right" : "left",
           }}>
-          <p style={{ margin: 0 }}>
-            {language === "ar"
-              ? "يمكن ترتيب جلسة استعراض وشرح لنظام التصميم عند الطلب."
-              : "A guided walkthrough of the design system can be arranged upon request."}
-          </p>
-          <p style={{ margin: "10px 0 0" }}>
-            {language === "ar"
-              ? "إذا كنت ترغب في الاطلاع على النظام بشكل أعمق أو مناقشة هيكليته وطريقة تنفيذه والقرارات التصميمية المتبعة، يمكنك التواصل معي مباشرة عبر واتساب."
-              : "If you would like to explore the system in more detail or discuss its architecture, implementation approach, and design decisions, feel free to contact me via WhatsApp."}
-          </p>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label={
-              language === "ar"
-                ? "التواصل عبر واتساب"
-                : "Contact me on WhatsApp"
-            }
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              marginTop: 10,
-              fontSize: 14,
-              fontWeight: 600,
-              color: purple,
-              textDecoration: "none",
-            }}>
-            <Image
-              src={whatsappIcon}
-              alt=""
-              aria-hidden="true"
-              width={60}
-              height={60}
-              style={{ flexShrink: 0 }}
-            />
-            {language === "ar"
-              ? "التواصل عبر واتساب"
-              : "Contact me on WhatsApp"}
-          </a>
+          {isRTL
+            ? "عرض خاص موجه للمهتمين بالأنظمة التصميمية الناضجة والتنفيذ الواقعي على نطاق واسع."
+            : "A private showcase for professionals seeking mature, scalable, real-world design system execution."}
         </div>
       </div>
     </div>

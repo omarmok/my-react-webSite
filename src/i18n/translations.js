@@ -995,13 +995,16 @@ export const translations = {
       "/design-system": {
         title: "Design System Showcase | Omar Mokhtar",
         description:
-          "Private implementation portfolio containing selected case studies, design system work, and technical examples.",
+          "Private showcase access page for selected professional walkthrough requests.",
         keywords:
-          "Design System Showcase, UX Case Studies, Design System Work, Front-end Examples, Code Samples",
+          "Private Showcase, Request Access, UX Leadership, DesignOps",
         canonical: `${baseUrl}/design-system`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "en_US",
         language: "English",
+        robots:
+          "noindex, nofollow, noarchive, nosnippet, noimageindex, max-snippet:0, max-image-preview:none, max-video-preview:0",
+        googlebot: "noindex, nofollow",
       },
       default: {
         title: "Omar Mokhtar - UX & DesignOps Lead ",
@@ -1686,13 +1689,16 @@ export const translations = {
       "/design-system": {
         title: "عرض نظام التصميم | عمر مختار",
         description:
-          "ملف تنفيذي خاص يضم دراسات حالة مختارة، وأعمال نظم التصميم، وأمثلة تقنية.",
+          "صفحة وصول خاصة لطلب استعراض نظام التصميم بشكل انتقائي.",
         keywords:
-          "دفتر التنفيذ, دراسات حالة UX, أعمال نظم التصميم, أمثلة الواجهة الأمامية, عينات كود",
+          "عرض خاص, طلب وصول, قيادة UX, DesignOps",
         canonical: `${baseUrl}/design-system`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "ar_SA",
         language: "Arabic",
+        robots:
+          "noindex, nofollow, noarchive, nosnippet, noimageindex, max-snippet:0, max-image-preview:none, max-video-preview:0",
+        googlebot: "noindex, nofollow",
       },
       "/CaseStudy": {
         title: "دراسة حالة بوابة الطالب الداخلية | عمر مختار",

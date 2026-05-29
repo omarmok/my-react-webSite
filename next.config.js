@@ -26,6 +26,30 @@ const nextConfig = {
     turbopackFileSystemCacheForDev: false,
     turbopackFileSystemCacheForBuild: false,
   },
+  async headers() {
+    return [
+      {
+        source: '/design-system',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value:
+              'noindex, nofollow, noarchive, nosnippet, noimageindex, max-snippet:0, max-image-preview:none, max-video-preview:0',
+          },
+        ],
+      },
+      {
+        source: '/PS-Design/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value:
+              'noindex, nofollow, noarchive, nosnippet, noimageindex, max-snippet:0, max-image-preview:none, max-video-preview:0',
+          },
+        ],
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

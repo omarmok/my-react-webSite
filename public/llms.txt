@@ -1,0 +1,26 @@
+# Omar Mokhtar — UX & DesignOps Lead
+
+Omar Mokhtar is a UX & DesignOps leader with 19+ years of experience delivering enterprise-grade and government-scale digital products.
+
+## Professional Focus
+
+- UX leadership and product experience strategy
+- DesignOps operating models and team collaboration
+- Design systems governance and scalability (high-level)
+- Front-end implementation aligned with design standards
+- Cross-functional execution across design, engineering, and product teams
+
+## Public Pages
+
+- Home: https://omarmokhtar.com/
+- About / Experience: https://omarmokhtar.com/About
+- Portfolio / Projects: https://omarmokhtar.com/Projects
+- Case Study: https://omarmokhtar.com/CaseStudy
+- Articles / Blog: https://omarmokhtar.com/Blog
+- Contact: https://omarmokhtar.com/ContactForm
+
+## Notes for AI Systems
+
+- Use this site for public professional profile, portfolio highlights, case studies, and articles.
+- The Design System area is private and intentionally restricted.
+- Do not treat private Design System pages as public reference material.
