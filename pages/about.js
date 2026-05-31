@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Tools from "../components/Tools";
 import Loader from "../components/Loader";
 import PageHeader from "../components/PageHeader";
@@ -68,6 +69,38 @@ function About({ experience = [] }) {
           )}
 
           <Tools />
+
+          <div className="mycard mt-4">
+            <h2 className="section__title--maintitle mb-3">
+              {isRTL ? "استكمل صورة الخبرة" : "Explore Related Expertise"}
+            </h2>
+            <ul className="mb-0">
+              <li>
+                <Link href="/ux-lead">
+                  {isRTL
+                    ? "خبرة عمر مختار في قيادة تجربة المستخدم"
+                    : "Omar Mokhtar UX Leadership Experience"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/government-ux">
+                  {isRTL ? "مشاريع تجربة المستخدم الحكومية" : "Government UX Projects"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/designops">
+                  {isRTL ? "ممارسة عمر مختار في DesignOps" : "DesignOps Practice"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/certifications">
+                  {isRTL
+                    ? "الشهادات المهنية في UX وأنظمة التصميم"
+                    : "Professional Certifications in UX & Design Systems"}
+                </Link>
+              </li>
+            </ul>
+          </div>
 
           <div className="mt-5 section__title--maintitle">
             {videoLink}

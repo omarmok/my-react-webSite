@@ -9,7 +9,7 @@ import { translations } from "../src/i18n/translations";
 
 const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
   const router = useRouter();
-  const { dictionary } = useTranslation();
+  const { dictionary, language } = useTranslation();
   const fallbackMeta = translations.en?.meta ?? {};
   const dictionaryMeta = dictionary.meta ?? {};
   const routeMeta =
@@ -34,23 +34,29 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
   const jsonLd = (data) => JSON.stringify(data).replace(/</g, "\\u003c");
 
   const breadcrumbData = (() => {
+    const isRTL = language === "ar";
     const crumbMap = {
-      "/about": "About",
-      "/certifications": "Professional Certifications",
-      "/projects": "Portfolio",
-      "/blog": "Blog",
-      "/casestudy": "Case Study",
-      "/contact": "Contact",
-      "/ux-lead": "UX Leadership",
-      "/designops": "DesignOps Governance",
-      "/government-ux": "Government UX",
+      "/about": isRTL ? "من أنا" : "About",
+      "/certifications": isRTL ? "الشهادات المهنية" : "Professional Certifications",
+      "/projects": isRTL ? "المشاريع" : "Portfolio",
+      "/blog": isRTL ? "المدونة" : "Blog",
+      "/casestudy": isRTL ? "دراسة حالة" : "Case Study",
+      "/contact": isRTL ? "تواصل" : "Contact",
+      "/ux-lead": isRTL ? "قيادة UX" : "UX Leadership",
+      "/designops": isRTL ? "عمليات التصميم" : "DesignOps Governance",
+      "/government-ux": isRTL ? "تجربة المستخدم الحكومية" : "Government UX",
     };
     if (!crumbMap[router.pathname]) return null;
     return {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://omarmokhtar.com" },
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: isRTL ? "الرئيسية" : "Home",
+          item: "https://omarmokhtar.com",
+        },
         { "@type": "ListItem", position: 2, name: crumbMap[router.pathname], item: canonical },
       ],
     };
@@ -60,12 +66,30 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
     const personRef = {
       "@type": "Person",
       name: "Omar Mokhtar",
-      alternateName: "عمر مختار",
-      jobTitle: "UX Design Lead & DesignOps Specialist",
+      alternateName: ["Omar Mokhtar", "Omar M. Mokhtar", "عمر مختار"],
+      jobTitle: "UX/UI Design Lead",
       description:
         "UX Design Lead with 19+ years of experience in government digital transformation, enterprise UX, and design systems across Saudi Arabia",
       url: "https://omarmokhtar.com",
       image: "https://omarmokhtar.com/images/omar.png",
+      hasOccupation: [
+        {
+          "@type": "Occupation",
+          name: "UX/UI Design Lead",
+        },
+        {
+          "@type": "Occupation",
+          name: "Design Systems Specialist",
+        },
+        {
+          "@type": "Occupation",
+          name: "DesignOps Practitioner",
+        },
+        {
+          "@type": "Occupation",
+          name: "Government UX Specialist",
+        },
+      ],
       nationality: { "@type": "Country", name: "Saudi Arabia" },
       address: {
         "@type": "PostalAddress",
@@ -287,6 +311,15 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
                 "Portfolio and expertise showcase of Omar Mokhtar, UX Design Lead and DesignOps specialist with 19+ years across Saudi Arabia's government, enterprise, and education sectors.",
               url: "https://omarmokhtar.com",
               inLanguage: ["en", "ar"],
+              about: [
+                "UX/UI Design Lead",
+                "UX Leadership",
+                "Design Systems",
+                "DesignOps",
+                "Government UX",
+                "Product Design",
+                "Saudi Arabia",
+              ],
               author: {
                 "@type": "Person",
                 name: "Omar Mokhtar",
