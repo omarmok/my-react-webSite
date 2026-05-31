@@ -297,9 +297,9 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
         />
       </Head>
       <Nav onToggleLanguage={onToggleLanguage} />
-      <div id="main-content" role="main">
+      <main id="main-content">
         {children}
-      </div>
+      </main>
       <Footer />
       <Analytics />
     </div>

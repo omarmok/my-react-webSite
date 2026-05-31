@@ -50,11 +50,10 @@ function About({ experience = [] }) {
         description={headerDescription}
         actions={[
           {
-            href: "https://drive.google.com/file/d/1FdxcD3kPWXA-lyKWJLV3M8aLV6G1FGXo/view",
+            href: "/docs/Omar-Mokhtar-CV.pdf",
             label: downloadButton,
             ariaLabel: downloadTitle,
-            target: "_blank",
-            rel: "noopener noreferrer",
+            target: "_self",
             variant: "solid",
           },
         ]}

@@ -59,25 +59,38 @@ export default function ContactUs() {
 
             <div className="d-flex align-items-center justify-content-between w-100">
               <div className="form-group w-100 m-2 mt-3 mb-5">
-                <label>
+                <label htmlFor="contact-name">
                   {t("contact.form.name")} <span className="requierd">*</span>
                 </label>
-                <input type="text" className="form-control" name="name" required />
+                <input
+                  id="contact-name"
+                  type="text"
+                  className="form-control"
+                  name="name"
+                  required
+                />
               </div>
 
               <div className="form-group w-100 m-2 mt-3 mb-5">
-                <label>
+                <label htmlFor="contact-email">
                   {t("contact.form.email")} <span className="requierd">*</span>
                 </label>
-                <input type="email" className="form-control" name="email" required />
+                <input
+                  id="contact-email"
+                  type="email"
+                  className="form-control"
+                  name="email"
+                  required
+                />
               </div>
             </div>
 
             <div className="form-group m-2 mt-3 mb-5">
-              <label>
+              <label htmlFor="contact-subject">
                 {t("contact.form.subject")} <span className="requierd">*</span>
               </label>
               <input
+                id="contact-subject"
                 type="text"
                 className="form-control"
                 name="subject"
@@ -87,10 +100,11 @@ export default function ContactUs() {
             </div>
 
             <div className="form-group m-2 mt-3 mb-5">
-              <label>
+              <label htmlFor="contact-message">
                 {t("contact.form.message")} <span className="requierd">*</span>
               </label>
               <textarea
+                id="contact-message"
                 className="form-control"
                 name="message"
                 cols="30"

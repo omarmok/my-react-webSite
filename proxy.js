@@ -46,9 +46,11 @@ const isDesignSystemPath = (pathname) =>
 
 const LEGACY_PATH_REDIRECTS = new Map([
   ['/About', '/about'],
+  ['/Certifications', '/certifications'],
   ['/Projects', '/projects'],
   ['/CaseStudy', '/casestudy'],
   ['/Blog', '/blog'],
+  ['/Contact', '/contact'],
   ['/ContactForm', '/contact'],
 ]);
 

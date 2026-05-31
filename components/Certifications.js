@@ -213,20 +213,19 @@ const Certifications = ({ certifications, showSectionHeader = true }) => {
     ? certifications
     : [];
 
-  const arabicCertificationData = Array.isArray(
-    translations.ar?.data?.certifications
+  const localizedCertificationData = Array.isArray(
+    translations?.[language]?.data?.certifications
   )
-    ? translations.ar.data.certifications
+    ? translations[language].data.certifications
     : null;
 
-  const allCerts =
-    language === "ar" && Array.isArray(arabicCertificationData)
-      ? incomingCertifications.length > 0
-        ? arabicCertificationData.filter((item) =>
-            incomingCertifications.some((cert) => cert?.id === item?.id),
-          )
-        : arabicCertificationData
-      : incomingCertifications;
+  const allCerts = Array.isArray(localizedCertificationData)
+    ? incomingCertifications.length > 0
+      ? localizedCertificationData.filter((item) =>
+          incomingCertifications.some((cert) => cert?.id === item?.id),
+        )
+      : localizedCertificationData
+    : incomingCertifications;
 
   const [fallbacks, setFallbacks] = useState({});
   const markFallback = (key) =>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Loader from "../components/Loader";
+import PageHeader from "../components/PageHeader";
 import { useTranslation } from "../src/i18n/useTranslation";
 
 /* ── shared values ─────────────────────────────────────────────────────── */
@@ -130,118 +131,23 @@ const CaseStudy = () => {
   return (
     <div className="page-container" dir={isRTL ? "rtl" : "ltr"}>
       <Loader />
-
-      {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section
-        style={{
-          background: `linear-gradient(160deg, ${ink} 0%, #1e1654 100%)`,
-          padding: "64px 0 48px",
-        }}>
-        <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 8,
-              marginBottom: 24,
-            }}>
-            {cs.hero.tags.map((t) => (
-              <span
-                key={t}
-                style={{
-                  padding: "4px 12px",
-                  borderRadius: 999,
-                  border: "1px solid rgba(255,255,255,0.2)",
-                  fontSize: 12,
-                  fontWeight: 600,
-                  color: "rgba(255,255,255,0.7)",
-                  letterSpacing: "0.04em",
-                }}>
-                {t}
-              </span>
-            ))}
-          </div>
-
-          <h1
-            style={{
-              fontSize: "clamp(2rem, 5vw, 3.2rem)",
-              fontWeight: 900,
-              color: "#fff",
-              lineHeight: 1.15,
-              margin: "0 0 16px",
-              maxWidth: "20ch",
-            }}>
-            {cs.hero.title}
-          </h1>
-
-          <p
-            style={{
-              fontSize: "clamp(15px, 2vw, 17px)",
-              color: "rgba(255,255,255,0.6)",
-              maxWidth: "52ch",
-              lineHeight: 1.7,
-              margin: "0 0 40px",
-            }}>
-            {cs.hero.subtitle}
-          </p>
-
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 32,
-              borderTop: "1px solid rgba(255,255,255,0.12)",
-              paddingTop: 28,
-            }}>
-            {cs.hero.meta.map(({ label, value }) => (
-              <div key={label}>
-                <div
-                  style={{
-                    fontSize: 11,
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    color: "rgba(255,255,255,0.4)",
-                    marginBottom: 4,
-                  }}>
-                  {label}
-                </div>
-                <div
-                  style={{
-                    fontSize: 14,
-                    fontWeight: 700,
-                    color: "rgba(255,255,255,0.85)",
-                  }}>
-                  {value}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow={dictionary?.nav?.links?.caseStudy}
+        title={cs.hero.title}
+        description={cs.hero.subtitle}
+        tags={cs.hero.tags}
+        meta={cs.hero.meta}
+      />
 
       {/* ── HERO IMAGE ───────────────────────────────────────────────────── */}
-      <div style={{ background: ink, padding: "0 24px 24px" }}>
-        <div
-          style={{
-            width: "min(960px, 100%)",
-            margin: "0 auto",
-            height: 300,
-            borderRadius: 12,
-            overflow: "hidden",
-            boxShadow: "0 24px 48px rgba(0,0,0,0.35)",
-          }}>
+      <div className="case-study-hero-image-wrap">
+        <div className="case-study-hero-image">
           <Image
             src="/images/casstudymain.png"
             alt={cs.hero.imageAlt}
             width={960}
             height={540}
-            style={{
-              width: "100%",
-              height: "300px",
-              objectFit: "cover",
-              display: "block",
-            }}
+            className="case-study-hero-image__media"
             priority
           />
         </div>
@@ -253,13 +159,7 @@ const CaseStudy = () => {
         <H2>{cs.overview.h2}</H2>
         <Rule />
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-            gap: 36,
-            alignItems: "start",
-          }}>
+        <div className="case-study-overview-grid">
           <div>
             <Body>{cs.overview.body1}</Body>
             <Body>{cs.overview.body2}</Body>
@@ -345,29 +245,8 @@ const CaseStudy = () => {
           {cs.persona.intro}
         </Body>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "auto 1fr",
-            gap: 32,
-            alignItems: "start",
-            background: bg,
-            border: `1px solid ${border}`,
-            borderRadius: 16,
-            padding: "28px 28px",
-          }}>
-          <div
-            style={{
-              width: 72,
-              height: 72,
-              borderRadius: "50%",
-              background: `linear-gradient(135deg, ${purple}, #9b72ff)`,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 32,
-              flexShrink: 0,
-            }}>
+        <div className="case-study-persona-card">
+          <div className="case-study-persona-avatar">
             👨‍🎓
           </div>
 

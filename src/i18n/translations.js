@@ -403,8 +403,10 @@ export const translations = {
         certificationTitle: "Google UX Design Professional Certificate",
         certVerified: "Verified",
         downloadButton: "Download Resume",
-        downloadTitle: "Download Omar Mokhtar resume from Google Drive",
-        resumeSubtext: "PDF · Updated May 2025",
+        downloadTitle: "Download Omar Mokhtar resume",
+        resumeSubtext: "Available in PDF and Word formats",
+        resumeOptionPdf: "Download PDF Resume",
+        resumeOptionDocx: "Download Word Resume (.docx)",
       },
       paragraphs: [
         {
@@ -442,7 +444,7 @@ export const translations = {
     about: {
       title: "About",
       downloadButton: "Download Resume",
-      downloadTitle: "Download Omar Mokhtar resume from Google Drive",
+      downloadTitle: "Download Omar Mokhtar resume",
       videoLink: "Watch a brief overview of my background and approach.",
       emptyExperience: "Experience data is currently unavailable.",
       certificationsTeaserTitle: "Professional Certifications",
@@ -1204,8 +1206,10 @@ export const translations = {
         certificationTitle: "شهادة جوجل في تصميم تجربة المستخدم",
         certVerified: "موثّق",
         downloadButton: "تحميل السيرة الذاتية",
-        downloadTitle: "تحميل سيرة عمر مختار الذاتية من Google Drive",
-        resumeSubtext: "PDF · محدّث مايو 2025",
+        downloadTitle: "تحميل سيرة عمر مختار الذاتية",
+        resumeSubtext: "متاحة بصيغتي PDF و Word",
+        resumeOptionPdf: "تحميل السيرة الذاتية PDF",
+        resumeOptionDocx: "تحميل السيرة الذاتية Word (.docx)",
       },
       paragraphs: [
         {
@@ -1243,7 +1247,7 @@ export const translations = {
     about: {
       title: "من أنا",
       downloadButton: "تحميل السيرة الذاتية",
-      downloadTitle: "تحميل سيرة عمر مختار الذاتية من Google Drive",
+      downloadTitle: "تحميل سيرة عمر مختار الذاتية",
       videoLink:
         "للاطلاع على نبذة موجزة عن خلفيتي وأسلوب عملي، يمكنك مشاهدة هذا الفيديو.",
       emptyExperience: "بيانات الخبرة غير متوفرة حاليًا.",

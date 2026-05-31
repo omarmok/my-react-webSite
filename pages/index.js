@@ -7,9 +7,9 @@ import {
   FaGithub,
   FaEnvelope,
   FaLinkedin,
-  FaDownload,
 } from "react-icons/fa";
 import { useTranslation } from "../src/i18n/useTranslation";
+import ResumeDownloadMenu from "../components/ResumeDownloadMenu";
 
 // Inline SVGs for each stat — decorative, aria-hidden, currentColor
 const STAT_ICONS = [
@@ -176,7 +176,7 @@ export default function Home() {
     dictionary.home;
 
   return (
-    <main>
+    <div className="home-main">
       <div className="container">
         <div className="index__details">
           <div className="row align-items-stretch g-0">
@@ -195,21 +195,7 @@ export default function Home() {
                     style={{ width: "100%", height: "100%", display: "block" }}
                   />
                   <div className="downloadresume">
-                    <a
-                      href="https://drive.google.com/file/d/1FdxcD3kPWXA-lyKWJLV3M8aLV6G1FGXo/view"
-                      className="resume-cta"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={hero.downloadTitle}
-                      title={hero.downloadTitle}>
-                      <span className="resume-cta__label">
-                        <FaDownload aria-hidden="true" focusable="false" />
-                        {hero.downloadButton}
-                      </span>
-                      <span className="resume-cta__sub">
-                        {hero.resumeSubtext}
-                      </span>
-                    </a>
+                    <ResumeDownloadMenu />
                   </div>
                 </div>
               </div>
@@ -360,6 +346,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
