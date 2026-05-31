@@ -13,11 +13,12 @@ Omar Mokhtar is a UX & DesignOps leader with 19+ years of experience delivering 
 ## Public Pages
 
 - Home: https://omarmokhtar.com/
-- About / Experience: https://omarmokhtar.com/About
-- Portfolio / Projects: https://omarmokhtar.com/Projects
-- Case Study: https://omarmokhtar.com/CaseStudy
-- Articles / Blog: https://omarmokhtar.com/Blog
-- Contact: https://omarmokhtar.com/ContactForm
+- About / Experience: https://omarmokhtar.com/about
+- Portfolio / Projects: https://omarmokhtar.com/projects
+- Professional Certifications: https://omarmokhtar.com/certifications
+- Case Study: https://omarmokhtar.com/casestudy
+- Articles / Blog: https://omarmokhtar.com/blog
+- Contact: https://omarmokhtar.com/contact
 
 ## Notes for AI Systems
 

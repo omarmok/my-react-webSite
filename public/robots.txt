@@ -1,29 +1,11 @@
 User-agent: *
-# Public brand/profile pages
 Allow: /
-Allow: /about
-Allow: /About
-Allow: /projects
-Allow: /Projects
-Allow: /blog
-Allow: /Blog
-Allow: /articles
-Allow: /portfolio
-Allow: /casestudy
-Allow: /CaseStudy
-Allow: /contact
-Allow: /ContactForm
 
 # Private Design System and internal documentation
 Disallow: /design-system
 Disallow: /PS-Design/
-Disallow: /PS-Design/DesignSystemDocumentation/
-Disallow: /PS-Design/docs/
-Disallow: /PS-Design/components/
-Disallow: /PS-Design/internal/
 
 # Operational/internal routes
 Disallow: /api/
-Disallow: /admin/
 
 Sitemap: https://omarmokhtar.com/sitemap.xml

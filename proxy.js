@@ -44,8 +44,24 @@ const cleanup = (now) => {
 const isDesignSystemPath = (pathname) =>
   pathname.startsWith('/PS-Design/DesignSystemDocumentation');
 
+const LEGACY_PATH_REDIRECTS = new Map([
+  ['/About', '/about'],
+  ['/Projects', '/projects'],
+  ['/CaseStudy', '/casestudy'],
+  ['/Blog', '/blog'],
+  ['/ContactForm', '/contact'],
+]);
+
 export function proxy(request) {
   const { pathname } = request.nextUrl;
+
+  // Preserve legacy mixed-case URLs with permanent redirects to lowercase canonical paths.
+  const canonicalPath = LEGACY_PATH_REDIRECTS.get(pathname);
+  if (canonicalPath) {
+    const targetUrl = new URL(request.url);
+    targetUrl.pathname = canonicalPath;
+    return NextResponse.redirect(targetUrl, 308);
+  }
 
   // Guard the design system documentation behind an httpOnly cookie check.
   // The cookie is set server-side by /api/design-system-login — never by client JS.
@@ -54,6 +70,11 @@ export function proxy(request) {
     if (accessCookie?.value !== 'true') {
       return NextResponse.redirect(new URL('/design-system', request.url));
     }
+    return NextResponse.next();
+  }
+
+  // Apply request-size and rate limits only to Next.js image optimization.
+  if (pathname !== '/_next/image') {
     return NextResponse.next();
   }
 
@@ -91,7 +112,6 @@ export function proxy(request) {
 
 export const config = {
   matcher: [
-    '/_next/image',
-    '/PS-Design/DesignSystemDocumentation/:path*',
+    '/:path*',
   ],
 };

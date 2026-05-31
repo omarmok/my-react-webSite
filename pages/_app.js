@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import '../styles/globals.scss';
 import Layouts from '../components/Layouts';
 import { TranslationProvider, useTranslation } from '../src/i18n/useTranslation';
@@ -34,22 +32,133 @@ const WhatsAppLink = () => {
   );
 };
 
-const AudioToggleButton = ({ isPlaying, onClick }) => {
-  const { t } = useTranslation();
-  const label = isPlaying ? t('audio.pauseLabel') : t('audio.playLabel');
-  const text = isPlaying ? t('audio.pauseButton') : t('audio.playButton');
+const WAVEFORM_BARS = [3, 8, 14, 20, 16, 10, 22, 18, 12, 24, 16, 8, 20, 14, 10, 18, 12, 6];
+
+const fmt = (s) => {
+  if (!s || !isFinite(s)) return '0:00';
+  const m = Math.floor(s / 60);
+  const sec = Math.floor(s % 60);
+  return `${m}:${sec.toString().padStart(2, '0')}`;
+};
+
+const AudioCard = ({ isPlaying, onClick, audioRef }) => {
+  const { t, language } = useTranslation();
+  const [isExpanded, setIsExpanded] = useState(true);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const isRTL = language === 'ar';
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return undefined;
+    const onTime = () => setCurrentTime(audio.currentTime);
+    const onMeta = () => setDuration(audio.duration);
+    audio.addEventListener('timeupdate', onTime);
+    audio.addEventListener('loadedmetadata', onMeta);
+    if (audio.readyState >= 1) onMeta();
+    return () => {
+      audio.removeEventListener('timeupdate', onTime);
+      audio.removeEventListener('loadedmetadata', onMeta);
+    };
+  }, [audioRef]);
+
+  const timeStr = duration > 0
+    ? `${fmt(currentTime)} / ${fmt(duration)}`
+    : fmt(currentTime);
 
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`audio-button ${isPlaying ? 'audio-button-stop' : ''}`}
-      aria-label={label}
-      aria-pressed={isPlaying}
+    <div
+      className={[
+        'audio-card',
+        isExpanded ? 'audio-card--open' : 'audio-card--closed',
+        isRTL ? 'audio-card--rtl' : '',
+      ].filter(Boolean).join(' ')}
+      role="region"
+      aria-label={t('audio.cardTitle')}
+      dir={isRTL ? 'rtl' : 'ltr'}
     >
-      <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} aria-hidden="true" focusable="false" />
-      <span className="audio-button-text">{text}</span>
-    </button>
+      {/* ── Collapsible body: heading + description ── */}
+      <div
+        className="audio-card__body"
+        aria-hidden={!isExpanded ? 'true' : undefined}
+        id="audio-card-body"
+      >
+        <div className="audio-card__header">
+          <strong className="audio-card__title">{t('audio.cardTitle')}</strong>
+          <button
+            className="audio-card__toggle"
+            type="button"
+            onClick={() => setIsExpanded(false)}
+            aria-label={t('audio.collapseLabel')}
+            aria-expanded={isExpanded}
+            aria-controls="audio-card-body"
+            tabIndex={isExpanded ? 0 : -1}
+          >
+            {/* chevron-down */}
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true" focusable="false">
+              <path d="M3.5 5.5l4 4 4-4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <p className="audio-card__desc">{t('audio.cardDesc')}</p>
+        <hr className="audio-card__rule" aria-hidden="true" />
+      </div>
+
+      {/* ── Controls: always visible ── */}
+      <div className="audio-card__controls" dir="ltr">
+        {/* Mic pill — shown only when collapsed, acts as expand handle */}
+        <button
+          className="audio-card__mic"
+          type="button"
+          onClick={() => setIsExpanded(true)}
+          aria-label={t('audio.expandLabel')}
+          aria-hidden={isExpanded ? 'true' : undefined}
+          tabIndex={isExpanded ? -1 : 0}
+        >
+          <svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true" focusable="false">
+            <rect x="3.5" y="0.5" width="5" height="8" rx="2.5" fill="currentColor"/>
+            <path d="M1 7C1 10.314 3.239 13 6 13C8.761 13 11 10.314 11 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+            <line x1="6" y1="13" x2="6" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+        </button>
+
+        {/* Play / Pause */}
+        <button
+          className={`audio-card__play${isPlaying ? ' is-playing' : ''}`}
+          type="button"
+          onClick={onClick}
+          aria-label={isPlaying ? t('audio.pauseLabel') : t('audio.playLabel')}
+          aria-pressed={isPlaying}
+        >
+          {isPlaying ? (
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true" focusable="false">
+              <rect x="2" y="1" width="3.5" height="11" rx="1.5" fill="currentColor"/>
+              <rect x="7.5" y="1" width="3.5" height="11" rx="1.5" fill="currentColor"/>
+            </svg>
+          ) : (
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true" focusable="false">
+              <path d="M3 1.5L11.5 6.5L3 11.5V1.5Z" fill="currentColor"/>
+            </svg>
+          )}
+        </button>
+
+        {/* Waveform visualization */}
+        <div className="audio-card__waveform" aria-hidden="true">
+          {WAVEFORM_BARS.map((peak, i) => (
+            <span
+              key={i}
+              className={`audio-card__bar${isPlaying ? ' is-active' : ''}`}
+              style={{ '--peak': `${peak}px`, '--i': i }}
+            />
+          ))}
+        </div>
+
+        {/* Elapsed / total time */}
+        <span className="audio-card__time" aria-live="off" aria-atomic="true">
+          {timeStr}
+        </span>
+      </div>
+    </div>
   );
 };
 
@@ -183,6 +292,14 @@ function MyApp({ Component, pageProps }) {
     });
   };
 
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return undefined;
+    const onEnded = () => setIsPlaying(false);
+    audio.addEventListener('ended', onEnded);
+    return () => audio.removeEventListener('ended', onEnded);
+  }, []);
+
   const playAudio = () => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -201,7 +318,7 @@ function MyApp({ Component, pageProps }) {
       >
         <WhatsAppLink />
 
-        <AudioToggleButton isPlaying={isPlaying} onClick={playAudio} />
+        <AudioCard isPlaying={isPlaying} onClick={playAudio} audioRef={audioRef} />
 
         {/* مشغل الصوت (مخفي) */}
         <audio ref={audioRef} style={{ display: 'none' }}>

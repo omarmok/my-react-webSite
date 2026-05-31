@@ -1,13 +1,12 @@
 import React from "react";
-import Certifications from "../components/Certifications";
 import Tools from "../components/Tools";
 import Loader from "../components/Loader";
-import { FaDownload } from "react-icons/fa";
+import PageHeader from "../components/PageHeader";
 import siteData from "../data.json";
 import { useTranslation } from "../src/i18n/useTranslation";
 
-function About({ experience = [], certifications = [] }) {
-  const { dictionary } = useTranslation();
+function About({ experience = [] }) {
+  const { dictionary, language } = useTranslation();
   const experienceList = dictionary.data.experience ?? experience;
   const {
     title,
@@ -16,7 +15,10 @@ function About({ experience = [], certifications = [] }) {
     videoLink,
     emptyExperience,
   } = dictionary.about;
-  const certificationsList = Array.isArray(certifications) ? certifications : [];
+  const isRTL = language === "ar";
+  const headerDescription = isRTL
+    ? "مسيرة مهنية تمتد لأكثر من 19 عامًا في تصميم تجربة المستخدم وقيادة أنظمة التصميم وعمليات التصميم عبر قطاعات حكومية ومؤسسية وتعليمية."
+    : "A 19+ year journey across UX design, design systems, and DesignOps leadership in government, enterprise, and education platforms.";
 
   const renderExperienceList = () => {
     return experienceList.map((experienceItem, index) => (
@@ -42,35 +44,29 @@ function About({ experience = [], certifications = [] }) {
   return (
     <div>
       <Loader />
+      <PageHeader
+        eyebrow={isRTL ? "الخبرة المهنية" : "Professional Experience"}
+        title={title}
+        description={headerDescription}
+        actions={[
+          {
+            href: "https://drive.google.com/file/d/1FdxcD3kPWXA-lyKWJLV3M8aLV6G1FGXo/view",
+            label: downloadButton,
+            ariaLabel: downloadTitle,
+            target: "_blank",
+            rel: "noopener noreferrer",
+            variant: "solid",
+          },
+        ]}
+      />
 
       <div className="container">
         <div className="page__container">
-          <div
-            className="d-flex justify-content-between mainpagetitle mb-3 aos-init aos-animate"
-            data-aos="fade-in"
-            data-aos-duration="500">
-            {title}
-            <div className="d-flex downloadresume">
-              <a
-                href="https://drive.google.com/file/d/1FdxcD3kPWXA-lyKWJLV3M8aLV6G1FGXo/view"
-                className="btn section__title--btn mt-3 homebtn"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={downloadTitle}
-                title={downloadTitle}>
-                <FaDownload />
-                {downloadButton}
-              </a>
-            </div>
-          </div>
-
           {experienceList.length > 0 ? (
             renderExperienceList()
           ) : (
             <p>{emptyExperience}</p>
           )}
-
-          <Certifications certifications={certificationsList} />
 
           <Tools />
 
@@ -102,14 +98,10 @@ export async function getStaticProps() {
   const experience = Array.isArray(siteData?.Experience)
     ? siteData.Experience
     : [];
-  const certifications = Array.isArray(siteData?.Certifications)
-    ? siteData.Certifications
-    : [];
 
   return {
     props: {
       experience,
-      certifications,
     },
     revalidate: 3600,
   };

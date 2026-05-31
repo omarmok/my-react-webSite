@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Loader from "../components/Loader";
+import PageHeader from "../components/PageHeader";
 import { useTranslation } from "../src/i18n/useTranslation";
 
 const blogImages = {
@@ -11,12 +12,21 @@ const blogImages = {
 };
 
 const Blog = () => {
-  const { dictionary, t } = useTranslation();
+  const { dictionary, t, language } = useTranslation();
   const { posts, byLine } = dictionary.blog;
+  const isRTL = language === "ar";
+  const description = isRTL
+    ? "مقالات ورؤى عملية في تجربة المستخدم وتصميم الواجهات وأنظمة التصميم والتطوير الأمامي."
+    : "Practical UX, UI, design systems, and front-end insights from real product delivery work.";
 
   return (
     <div>
       <Loader />
+      <PageHeader
+        eyebrow={t("nav.links.blog")}
+        title={t("nav.links.blog")}
+        description={description}
+      />
 
       <div className="container">
         <div className="page__container">

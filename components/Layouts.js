@@ -33,20 +33,79 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
 
   const jsonLd = (data) => JSON.stringify(data).replace(/</g, "\\u003c");
 
+  const breadcrumbData = (() => {
+    const crumbMap = {
+      "/about": "About",
+      "/certifications": "Professional Certifications",
+      "/projects": "Portfolio",
+      "/blog": "Blog",
+      "/casestudy": "Case Study",
+      "/contact": "Contact",
+      "/ux-lead": "UX Leadership",
+      "/designops": "DesignOps Governance",
+      "/government-ux": "Government UX",
+    };
+    if (!crumbMap[router.pathname]) return null;
+    return {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://omarmokhtar.com" },
+        { "@type": "ListItem", position: 2, name: crumbMap[router.pathname], item: canonical },
+      ],
+    };
+  })();
+
   const supplementalStructuredData = (() => {
     const personRef = {
       "@type": "Person",
       name: "Omar Mokhtar",
-      jobTitle: "UX & DesignOps Lead",
+      alternateName: "عمر مختار",
+      jobTitle: "UX Design Lead & DesignOps Specialist",
+      description:
+        "UX Design Lead with 19+ years of experience in government digital transformation, enterprise UX, and design systems across Saudi Arabia",
       url: "https://omarmokhtar.com",
+      image: "https://omarmokhtar.com/images/omar.png",
+      nationality: { "@type": "Country", name: "Saudi Arabia" },
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "SA",
+        addressRegion: "Saudi Arabia",
+      },
+      knowsAbout: [
+        "UX Design",
+        "User Experience Design",
+        "UI Design",
+        "DesignOps",
+        "Design Systems",
+        "Government Digital Transformation",
+        "Accessibility Design",
+        "Enterprise UX",
+        "Front-End Development",
+        "Figma",
+        "User Research",
+        "WCAG Accessibility",
+      ],
+      knowsLanguage: ["Arabic", "English"],
+      hasCredential: {
+        "@type": "EducationalOccupationalCredential",
+        name: "Google UX Design Professional Certificate",
+        credentialCategory: "Professional Certificate",
+        recognizedBy: { "@type": "Organization", name: "Google" },
+      },
       sameAs: [
         "https://www.linkedin.com/in/omarmokhtar22/",
         "https://www.behance.net/Omar_Mokhtar",
         "https://github.com/omarmok",
       ],
+      worksFor: {
+        "@type": "Organization",
+        name: "Government of Saudi Arabia",
+        address: { "@type": "PostalAddress", addressCountry: "SA" },
+      },
     };
 
-    if (router.pathname === "/About") {
+    if (router.pathname === "/about") {
       return {
         "@context": "https://schema.org",
         "@type": "ProfilePage",
@@ -57,7 +116,7 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
       };
     }
 
-    if (router.pathname === "/Projects") {
+    if (router.pathname === "/projects") {
       return {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
@@ -76,7 +135,7 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
       };
     }
 
-    if (router.pathname === "/Blog") {
+    if (router.pathname === "/blog") {
       return {
         "@context": "https://schema.org",
         "@type": "Blog",
@@ -87,7 +146,7 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
       };
     }
 
-    if (router.pathname === "/CaseStudy") {
+    if (router.pathname === "/casestudy") {
       return {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -98,13 +157,30 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
       };
     }
 
-    if (router.pathname === "/ContactForm") {
+    if (router.pathname === "/contact") {
       return {
         "@context": "https://schema.org",
         "@type": "ContactPage",
         name: title,
         description,
         url: canonical,
+      };
+    }
+
+    const servicePageMap = {
+      "/ux-lead": "UX Leadership",
+      "/designops": "DesignOps Governance",
+      "/government-ux": "Government UX",
+    };
+    if (servicePageMap[router.pathname]) {
+      return {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: servicePageMap[router.pathname],
+        description,
+        url: canonical,
+        provider: personRef,
+        areaServed: { "@type": "Country", name: "Saudi Arabia" },
       };
     }
 
@@ -147,12 +223,17 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={title} />
         <meta property="og:url" content={canonical} />
         <meta property="og:site_name" content="Omar Mokhtar" />
         <meta property="og:locale" content={ogLocale ?? "en_US"} />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@OmarMokhtar" />
+        <meta name="twitter:creator" content="@OmarMokhtar" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImage} />
@@ -164,6 +245,8 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
         <meta name="language" content={metaLanguage ?? "English"} />
         <meta name="geo.region" content="SA" />
         <meta name="geo.country" content="Saudi Arabia" />
+        <meta name="geo.placename" content="Saudi Arabia" />
+        <meta name="theme-color" content="#0f172a" />
 
         {/* Performance & Security */}
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -185,20 +268,29 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
           />
         )}
 
-        {/* Additional Structured Data for Website */}
+        {breadcrumbData && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbData) }}
+          />
+        )}
+
+        {/* Website Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: jsonLd({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "Omar Mokhtar",
-              description: "UX & DesignOps Lead  Portfolio and Blog",
+              name: "Omar Mokhtar — UX Design Lead Saudi Arabia",
+              description:
+                "Portfolio and expertise showcase of Omar Mokhtar, UX Design Lead and DesignOps specialist with 19+ years across Saudi Arabia's government, enterprise, and education sectors.",
               url: "https://omarmokhtar.com",
-              potentialAction: {
-                "@type": "SearchAction",
-                target: "https://omarmokhtar.com/Blog?q={search_term_string}",
-                "query-input": "required name=search_term_string",
+              inLanguage: ["en", "ar"],
+              author: {
+                "@type": "Person",
+                name: "Omar Mokhtar",
+                url: "https://omarmokhtar.com",
               },
             }),
           }}

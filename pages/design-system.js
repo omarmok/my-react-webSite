@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import Loader from "../components/Loader";
+import PageHeader from "../components/PageHeader";
 import { useTranslation } from "../src/i18n/useTranslation";
 import whatsappIcon from "../public/images/whatsapp.png";
 import whatsappQr from "../public/images/whatsapp-qr.png";
@@ -99,6 +102,7 @@ const teaserBulletStyle = {
 };
 
 const DesignSystemPage = () => {
+  const router = useRouter();
   const { dictionary, language } = useTranslation();
   const casebook = dictionary.casebook;
   const isRTL = language === "ar";
@@ -228,6 +232,23 @@ const DesignSystemPage = () => {
         qrHint: "Scan to contact directly",
         qrAlt: "QR code to contact via WhatsApp",
       };
+  const supportLinks = [
+    {
+      href: "/government-ux",
+      label: isRTL ? "تجربة المستخدم الحكومية" : "Government UX",
+    },
+    {
+      href: "/designops",
+      label: "DesignOps",
+    },
+    {
+      href: "/ux-lead",
+      label: isRTL ? "قيادة UX" : "UX Leadership",
+    },
+  ];
+  const buildSupportLinkProps = (href) => ({
+    "aria-current": router.pathname === href ? "page" : undefined,
+  });
 
   const [password, setPassword] = useState("");
   const [showError, setShowError] = useState(false);
@@ -276,47 +297,11 @@ const DesignSystemPage = () => {
   return (
     <div className="page-container" dir={isRTL ? "rtl" : "ltr"}>
       <Loader />
-
-      <section
-        style={{
-          background: `linear-gradient(160deg, ${ink} 0%, #1e1654 100%)`,
-          padding: "64px 0 56px",
-        }}>
-        <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
-          <SectionLabel>{copy.heroLabel}</SectionLabel>
-          <h1
-            style={{
-              fontSize: "clamp(2rem, 5vw, 3.2rem)",
-              fontWeight: 900,
-              color: "#fff",
-              lineHeight: 1.15,
-              margin: "0 0 16px",
-              maxWidth: "24ch",
-            }}>
-            {copy.heroTitle}
-          </h1>
-          <p
-            style={{
-              fontSize: "clamp(15px, 2vw, 17px)",
-              color: "rgba(255,255,255,0.72)",
-              maxWidth: "66ch",
-              lineHeight: 1.75,
-              margin: "0 0 10px",
-            }}>
-            {copy.heroBody}
-          </p>
-          <p
-            style={{
-              fontSize: "clamp(15px, 2vw, 17px)",
-              color: "rgba(255,255,255,0.72)",
-              maxWidth: "66ch",
-              lineHeight: 1.75,
-              margin: 0,
-            }}>
-            {copy.heroBody2}
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow={copy.heroLabel}
+        title={copy.heroTitle}
+        description={[copy.heroBody, copy.heroBody2]}
+      />
 
       <SectionWrap background={bg}>
         <SectionLabel>{copy.experienceLabel}</SectionLabel>
@@ -412,6 +397,42 @@ const DesignSystemPage = () => {
         <SectionBody style={{ maxWidth: "74ch", marginBottom: 0 }}>
           {copy.beyondClose}
         </SectionBody>
+      </SectionWrap>
+
+      <SectionWrap>
+        <SectionLabel>
+          {isRTL ? "صفحات مرجعية داعمة" : "Supporting Authority Pages"}
+        </SectionLabel>
+        <SectionTitle>
+          {isRTL ? "استكشف الخبرات ذات الصلة" : "Explore Related Expertise"}
+        </SectionTitle>
+        <SectionRule />
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: 12,
+          }}>
+          {supportLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              {...buildSupportLinkProps(link.href)}
+              style={{
+                background: "#fff",
+                border: `1px solid ${border}`,
+                borderRadius: 10,
+                padding: "14px 16px",
+                textDecoration: "none",
+                color: ink,
+                fontSize: 14,
+                fontWeight: 700,
+                display: "block",
+              }}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
       </SectionWrap>
 
       <SectionWrap>

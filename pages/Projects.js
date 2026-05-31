@@ -4,6 +4,7 @@ import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
 import Loader from "../components/Loader";
+import PageHeader from "../components/PageHeader";
 import siteData from "../data.json";
 import casstudymain from "../public/images/casstudymain.png";
 import { useTranslation } from "../src/i18n/useTranslation";
@@ -147,27 +148,13 @@ const Projects = ({ projects = [] }) => {
   return (
     <div>
       <Loader />
+      <PageHeader
+        eyebrow={t("nav.links.work")}
+        title={projectMeta.title}
+        description={projectMeta.description}
+      />
       <div className="container">
         <div className="page__container project">
-          <h1
-            className="mainpagetitle"
-            data-aos="fade-in"
-            data-aos-duration="500">
-            {projectMeta.title}
-          </h1>
-          <div
-            className="project__description"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title={projectMeta.descriptionTooltip}>
-            {projectMeta.description.map((line, index) => (
-              <p key={`project-desc-${index}`}>
-                {line}
-                <br />
-              </p>
-            ))}
-          </div>
-
           <div className="row">
             <div className="col-12">
               <div
@@ -199,7 +186,7 @@ const Projects = ({ projects = [] }) => {
                   <p>{projectMeta.caseStudy.closing}</p>
 
                   <Link
-                    href="./CaseStudy"
+                    href="/casestudy"
                     className="btn btn-warning"
                     aria-label={projectMeta.caseStudy.buttonAria}>
                     {projectMeta.caseStudy.button}{" "}

@@ -2,11 +2,16 @@ import { useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import Image from "next/image";
 import Loader from "../components/Loader";
+import PageHeader from "../components/PageHeader";
 import whatsapp from "../public/images/whatsapp.png";
 import { useTranslation } from "../src/i18n/useTranslation";
 
 export default function ContactUs() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
+  const isRTL = language === "ar";
+  const description = isRTL
+    ? "للشراكات والمشاريع والاستشارات في تجربة المستخدم وأنظمة التصميم، يمكنك التواصل مباشرة عبر النموذج أو واتساب."
+    : "For UX, design systems, and product collaboration opportunities, reach out directly through the form or WhatsApp.";
 
   useEffect(() => {
     emailjs.init({
@@ -39,15 +44,13 @@ export default function ContactUs() {
   return (
     <div>
       <Loader />
+      <PageHeader
+        eyebrow={t("nav.links.contact")}
+        title={t("contact.title")}
+        description={description}
+      />
       <div className="container">
         <div className="page__container">
-          <h1
-            className="mainpagetitle"
-            data-aos="fade-in"
-            data-aos-duration="500">
-            {t("contact.title")}
-          </h1>
-
           <form
             onSubmit={sendEmail}
             className="bg-white p-5 contact"
@@ -109,7 +112,7 @@ export default function ContactUs() {
             <p>{t("contact.whatsapp")}</p>
             <div className="whimage">
               <a
-                href="https://wa.me/966535468309"
+                href="https://wa.me/+966535468309"
                 aria-label={t("contact.whatsappAria")}
                 rel="noreferrer noopener"
                 target="_blank">

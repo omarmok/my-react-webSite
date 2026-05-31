@@ -583,7 +583,7 @@ const CaseStudy = () => {
             {cs.checkWebsite}
           </Link>
           <Link
-            href="/Projects"
+            href="/projects"
             className="btn outlinebtn"
             aria-label={cs.backAria}
             style={{ padding: "8px 18px" }}>
