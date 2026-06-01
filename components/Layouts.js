@@ -40,6 +40,7 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
       "/certifications": isRTL ? "الشهادات المهنية" : "Professional Certifications",
       "/projects": isRTL ? "المشاريع" : "Portfolio",
       "/blog": isRTL ? "المدونة" : "Blog",
+      "/recommendations": isRTL ? "التوصيات" : "Recommendations",
       "/casestudy": isRTL ? "دراسة حالة" : "Case Study",
       "/contact": isRTL ? "تواصل" : "Contact",
       "/ux-lead": isRTL ? "قيادة UX" : "UX Leadership",
@@ -188,6 +189,17 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
         name: title,
         description,
         url: canonical,
+      };
+    }
+
+    if (router.pathname === "/recommendations") {
+      return {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: title,
+        description,
+        url: canonical,
+        author: personRef,
       };
     }
 

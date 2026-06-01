@@ -13,81 +13,119 @@ const Footer = () => {
   return (
     <footer className="footer" role="contentinfo" dir={isRTL ? "rtl" : "ltr"}>
       <div className="footer__inner">
-        {/* Identity */}
-        <div className="footer__identity">
-          <Link
-            href="/"
-            className="footer__name"
-            aria-label="Omar Mokhtar — Homepage">
-            Omar Mokhtar
-          </Link>
-          <p className="footer__title">
-            {isRTL
-              ? "قائد تجربة المستخدم وعمليات التصميم "
-              : "UX/UI Design Lead"}
-          </p>
-        </div>
+        <Link href="/" className="footer__name" aria-label="Omar Mokhtar — Homepage">
+          Omar Mokhtar
+        </Link>
+        <p className="footer__subtitle">UX/UI Lead · Design Systems · DesignOps</p>
 
-        {/* Core expertise — internal authority pages */}
-        <nav
-          className="footer__expertise"
-          aria-label={isRTL ? "صفحات التخصص الرئيسية" : "Core expertise pages"}>
-          <h3 className="footer__heading">{isRTL ? "الخبرات" : "Expertise"}</h3>
-          <ul className="footer__links" role="list">
-            <li>
-              <Link
-                href="/government-ux"
-                className="footer__link"
-                {...buildInternalLinkProps("/government-ux")}>
-                {isRTL ? "تجربة المستخدم الحكومية" : "Government UX"}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/designops"
-                className="footer__link"
-                {...buildInternalLinkProps("/designops")}>
-                {isRTL ? "DesignOps" : "DesignOps"}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/ux-lead"
-                className="footer__link"
-                {...buildInternalLinkProps("/ux-lead")}>
-                {isRTL ? "قيادة UX" : "UX Leadership"}
-              </Link>
-            </li>
-          </ul>
+        <nav className="footer__nav" aria-label="Footer navigation">
+          <Link
+            href="/casestudy"
+            className="footer__link"
+            {...buildInternalLinkProps("/casestudy")}>
+            Case Studies
+          </Link>
+          <span className="footer__dot" aria-hidden="true">
+            ·
+          </span>
+          <Link
+            href="/certifications"
+            className="footer__link"
+            {...buildInternalLinkProps("/certifications")}>
+            Certifications
+          </Link>
+          <span className="footer__dot" aria-hidden="true">
+            ·
+          </span>
+          <Link
+            href="/blog"
+            className="footer__link"
+            {...buildInternalLinkProps("/blog")}>
+            Blog
+          </Link>
+          <span className="footer__dot" aria-hidden="true">
+            ·
+          </span>
+          <Link
+            href="/recommendations"
+            className="footer__link"
+            {...buildInternalLinkProps("/recommendations")}>
+            Recommendations
+          </Link>
+          <span className="footer__dot" aria-hidden="true">
+            ·
+          </span>
+          <Link
+            href="/government-ux"
+            className="footer__link"
+            {...buildInternalLinkProps("/government-ux")}>
+            Government UX
+          </Link>
+          <span className="footer__dot" aria-hidden="true">
+            ·
+          </span>
+          <Link
+            href="/designops"
+            className="footer__link"
+            {...buildInternalLinkProps("/designops")}>
+            DesignOps
+          </Link>
+          <span className="footer__dot" aria-hidden="true">
+            ·
+          </span>
+          <Link
+            href="/ux-lead"
+            className="footer__link"
+            {...buildInternalLinkProps("/ux-lead")}>
+            UX Leadership
+          </Link>
         </nav>
 
-        {/* Contact */}
-        <div className="footer__contact">
-          <h3 className="footer__heading">{isRTL ? "تواصل" : "Connect"}</h3>
+        <div className="footer__social" aria-label="Social links">
           <a
             href="https://www.linkedin.com/in/omarmokhtar22/"
             target="_blank"
             rel="noopener noreferrer"
             className="footer__link"
-            aria-label="Connect with Omar Mokhtar on LinkedIn">
+            aria-label="LinkedIn profile">
             LinkedIn
           </a>
+          <span className="footer__dot" aria-hidden="true">
+            ·
+          </span>
           <a
             href="https://www.behance.net/Omar_Mokhtar"
             target="_blank"
             rel="noopener noreferrer"
             className="footer__link"
-            aria-label="View Omar Mokhtar portfolio on Behance">
+            aria-label="Behance profile">
             Behance
           </a>
-          <Link
-            href="/contact"
+          <span className="footer__dot" aria-hidden="true">
+            ·
+          </span>
+          <a
+            href="https://github.com/omarmok"
+            target="_blank"
+            rel="noopener noreferrer"
             className="footer__link"
-            aria-label={isRTL ? "تواصل مع عمر مختار" : "تواصل معي"}
-            {...buildInternalLinkProps("/contact")}>
-            {isRTL ? "تواصل" : "Contact"}
-          </Link>
+            aria-label="GitHub profile">
+            GitHub
+          </a>
+          <span className="footer__dot" aria-hidden="true">
+            ·
+          </span>
+          <a
+            href="mailto:omarmokhtarayed@hotmail.com"
+            className="footer__link"
+            aria-label="Send email to Omar Mokhtar">
+            Email
+          </a>
         </div>
+
+        <p className="footer__copyright">
+          © 2026 Omar Mokhtar. All rights reserved.
+        </p>
       </div>
     </footer>
   );

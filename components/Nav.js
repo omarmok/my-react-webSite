@@ -7,16 +7,31 @@ import { useTranslation } from "../src/i18n/useTranslation";
 
 const SCROLL_THRESHOLD = 48;
 const MOBILE_NAV_ID = "mobileNav";
+const MORE_MENU_ID = "desktopMoreMenu";
 
-const navLinks = [
+const mainNavLinks = [
   { key: "home", href: "/" },
   { key: "about", href: "/about" },
-  { key: "certifications", href: "/certifications" },
   { key: "work", href: "/projects" },
-  { key: "caseStudy", href: "/casestudy" },
   { key: "casebook", href: "/design-system" },
+];
+
+const moreNavLinks = [
+  { key: "caseStudy", href: "/casestudy" },
+  { key: "certifications", href: "/certifications" },
   { key: "blog", href: "/blog" },
-  { key: "contact", href: "/contact" },
+  { key: "recommendations", href: "/recommendations" },
+];
+
+const contactNavLink = {
+  key: "contact",
+  href: "/contact",
+};
+
+const mobileNavLinks = [
+  ...mainNavLinks,
+  ...moreNavLinks,
+  contactNavLink,
 ];
 
 const menuIcon = (
@@ -59,8 +74,11 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
     (language === "en" ? "العربية" : "English");
   const [navIsSolid, setNavIsSolid] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
   const toggleButtonRef = useRef(null);
   const mobileNavRef = useRef(null);
+  const moreMenuRef = useRef(null);
+  const moreButtonRef = useRef(null);
   const prevMenuOpenRef = useRef(isMenuOpen);
 
   useEffect(() => {
@@ -112,6 +130,7 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
       current === nextIsSolid ? current : nextIsSolid,
     );
     setIsMenuOpen(false);
+    setIsMoreOpen(false);
 
     return undefined;
   }, [router.asPath]);
@@ -150,6 +169,36 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
   }, [isMenuOpen]);
 
   useEffect(() => {
+    if (!isMoreOpen || typeof window === "undefined") {
+      return undefined;
+    }
+
+    const handleClickOutside = (event) => {
+      if (!moreMenuRef.current?.contains(event.target)) {
+        setIsMoreOpen(false);
+      }
+    };
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setIsMoreOpen(false);
+        moreButtonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [isMoreOpen]);
+
+  useEffect(() => {
     if (typeof document === "undefined") {
       return undefined;
     }
@@ -168,9 +217,11 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    setIsMoreOpen(false);
   };
 
   const toggleMenu = () => {
+    setIsMoreOpen(false);
     setIsMenuOpen((prev) => !prev);
   };
 
@@ -179,12 +230,25 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
     onToggleLanguage();
   };
 
-  const buildLinkProps = (link, isMobile) => {
+  const buildLinkProps = (
+    link,
+    { isMobile = false, closeMoreOnClick = false, role } = {},
+  ) => {
     const isActive = router.pathname === link.href;
+    const handleClick = () => {
+      if (isMobile) {
+        closeMenu();
+      }
+      if (closeMoreOnClick) {
+        setIsMoreOpen(false);
+      }
+    };
+
     const props = {
       className: `nav-link ${isActive ? "active" : ""}`,
       "aria-current": isActive ? "page" : undefined,
-      onClick: isMobile ? closeMenu : undefined,
+      onClick: isMobile || closeMoreOnClick ? handleClick : undefined,
+      role: role ?? undefined,
     };
 
     if (!isMobile) {
@@ -196,15 +260,105 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
     return props;
   };
 
-  const renderNavLinks = (isMobile = false) => (
-    <ul className={`navbar-nav${isMobile ? " navbar-nav--mobile" : ""}`}>
-      {navLinks.map((link) => (
+  const renderMobileNavLinks = () => (
+    <ul className="navbar-nav navbar-nav--mobile">
+      {mobileNavLinks.map((link) => (
         <li className="nav-item" key={link.key}>
-          <Link href={link.href} passHref {...buildLinkProps(link, isMobile)}>
+          <Link href={link.href} passHref {...buildLinkProps(link, { isMobile: true })}>
             {t(`nav.links.${link.key}`)}
           </Link>
         </li>
       ))}
+    </ul>
+  );
+
+  const isMoreActive = moreNavLinks.some((link) => router.pathname === link.href);
+  const moreToggleLabel = t("nav.more") ?? "More";
+  const moreToggleAria =
+    t("nav.moreMenuAria") ?? "More navigation links";
+
+  const handleMoreToggle = () => {
+    setIsMoreOpen((prev) => !prev);
+  };
+
+  const handleMoreFocus = () => {
+    setIsMoreOpen(true);
+  };
+
+  const handleMoreBlur = (event) => {
+    const nextFocused = event.relatedTarget;
+    if (nextFocused && moreMenuRef.current?.contains(nextFocused)) {
+      return;
+    }
+    setIsMoreOpen(false);
+  };
+
+  const handleMoreKeyDown = (event) => {
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setIsMoreOpen(true);
+      const firstLink = moreMenuRef.current?.querySelector(".more-dropdown a");
+      firstLink?.focus();
+    }
+  };
+
+  const renderDesktopNavLinks = () => (
+    <ul className="navbar-nav" role="menubar">
+      {mainNavLinks.map((link) => (
+        <li className="nav-item" key={link.key} role="none">
+          <Link href={link.href} passHref {...buildLinkProps(link, { role: "menuitem" })}>
+            {t(`nav.links.${link.key}`)}
+          </Link>
+        </li>
+      ))}
+
+      <li
+        className="nav-item nav-item--more"
+        ref={moreMenuRef}
+        onBlur={handleMoreBlur}
+        role="none">
+        <button
+          type="button"
+          ref={moreButtonRef}
+          className={`nav-link nav-link--button ${isMoreActive ? "active" : ""}`}
+          onClick={handleMoreToggle}
+          onFocus={handleMoreFocus}
+          onKeyDown={handleMoreKeyDown}
+          aria-label={moreToggleAria}
+          aria-haspopup="menu"
+          aria-expanded={isMoreOpen}
+          aria-controls={MORE_MENU_ID}>
+          {moreToggleLabel}
+          <span className="nav-link__chevron" aria-hidden="true">
+            ▾
+          </span>
+        </button>
+        <ul
+          id={MORE_MENU_ID}
+          className={`more-dropdown ${isMoreOpen ? "is-open" : ""}`}
+          role="menu"
+          aria-label={moreToggleLabel}>
+          {moreNavLinks.map((link) => (
+            <li className="more-dropdown__item" role="none" key={link.key}>
+              <Link
+                href={link.href}
+                passHref
+                {...buildLinkProps(link, { closeMoreOnClick: true, role: "menuitem" })}>
+                {t(`nav.links.${link.key}`)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </li>
+
+      <li className="nav-item" key={contactNavLink.key} role="none">
+        <Link
+          href={contactNavLink.href}
+          passHref
+          {...buildLinkProps(contactNavLink, { role: "menuitem" })}>
+          {t(`nav.links.${contactNavLink.key}`)}
+        </Link>
+      </li>
     </ul>
   );
 
@@ -217,7 +371,7 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
   const desktopNavLinksSection = (
     <div
       className={`navbg-container ${language === "ar" ? "rtl-container" : ""}`}>
-      {renderNavLinks(false)}
+      {renderDesktopNavLinks()}
       <button
         type="button"
         className="btn lang-btn"
@@ -315,7 +469,15 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
           aria-hidden={!isMenuOpen}
           aria-label={mobileMenuLabel}
           dir={language === "ar" ? "rtl" : "ltr"}>
-          {renderNavLinks(true)}
+          {renderMobileNavLinks()}
+          <button
+            type="button"
+            className="btn lang-btn navbar__mobile-lang"
+            onClick={handleLanguageToggle}
+            aria-label={t("nav.languageToggleAria")}
+            aria-pressed={language === "ar"}>
+            {buttonLabel}
+          </button>
         </nav>
       </div>
     </>
