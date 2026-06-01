@@ -64,7 +64,6 @@ html[dir="rtl"] * {
 
 .nav-shell {
   position: relative;
-  z-index: var(--nav-z);
 }
 
 .navBg {
@@ -324,7 +323,7 @@ body.mobile-menu-open main {
   align-items: center;
   gap: 2px;
   margin: 0;
-  padding-left: 0;
+  padding-inline-start: 0;
   list-style: none;
   flex-wrap: nowrap;
   min-width: 0;
@@ -2507,8 +2506,6 @@ p {
   }
 
   html[dir="rtl"] .navbar__mobile {
-    inset-inline-start: auto;
-    inset-inline-end: 0;
     transform: translateX(105%);
   }
 

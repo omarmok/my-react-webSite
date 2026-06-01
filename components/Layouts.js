@@ -71,7 +71,7 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
       "@type": "Person",
       name: "Omar Mokhtar",
       alternateName: ["Omar Mokhtar", "Omar M. Mokhtar", "عمر مختار"],
-      jobTitle: "UX/UI Design Lead",
+      jobTitle: "UX & DesignOps Lead",
       description:
         "UX Design Lead with 19+ years of experience in government digital transformation, enterprise UX, and design systems across Saudi Arabia",
       url: "https://omarmokhtar.com",
@@ -79,7 +79,7 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
       hasOccupation: [
         {
           "@type": "Occupation",
-          name: "UX/UI Design Lead",
+          name: "UX & DesignOps Lead",
         },
         {
           "@type": "Occupation",
@@ -328,7 +328,7 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
               url: "https://omarmokhtar.com",
               inLanguage: ["en", "ar"],
               about: [
-                "UX/UI Design Lead",
+                "UX & DesignOps Lead",
                 "UX Leadership",
                 "Design Systems",
                 "DesignOps",

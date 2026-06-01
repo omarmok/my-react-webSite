@@ -42,7 +42,7 @@ const cleanup = (now) => {
 };
 
 const isDesignSystemPath = (pathname) =>
-  pathname.startsWith('/PS-Design/DesignSystemDocumentation');
+  pathname.startsWith('/PS-Design/');
 
 const LEGACY_PATH_REDIRECTS = new Map([
   ['/About', '/about'],
