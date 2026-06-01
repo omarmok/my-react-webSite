@@ -401,7 +401,8 @@ export const translations = {
     },
     home: {
       hero: {
-        role: "UX/UI Design Lead & DesignOps Practitioner — Saudi Arabia",
+        role:
+          "Government UX Leader · Design Systems Lead · DesignOps Practitioner · Design-to-Code Professional",
         certificationBadge: "Google UX Design Professional Certificate Holder",
         certificationTitle: "Google UX Design Professional Certificate",
         certVerified: "Verified",
@@ -413,14 +414,14 @@ export const translations = {
       },
       paragraphs: [
         {
-          text: "Over 19 years of UX practice in Saudi Arabia across government, education, and national housing — specializing in enterprise platforms, design systems, DesignOps, and product delivery.",
+          text: "I lead UX for government and enterprise digital platforms in Saudi Arabia, with 19+ years spanning service design, product delivery, and front-end implementation.",
           tooltip:
-            "Over 19 years of UX practice in Saudi Arabia across government, education, and national housing — specializing in enterprise platforms, design systems, DesignOps, and product delivery.",
+            "I lead UX for government and enterprise digital platforms in Saudi Arabia, with 19+ years spanning service design, product delivery, and front-end implementation.",
         },
         {
-          text: "I lead UX strategy and design governance, build scalable design systems, and work across the full delivery lifecycle — from discovery to production handoff — in close collaboration with product, engineering, and business teams.",
+          text: "My value proposition combines UX leadership, Design System scalability, DesignOps governance, and design-to-code execution to improve consistency, speed, and delivery quality.",
           tooltip:
-            "I lead UX strategy and design governance, build scalable design systems, and work across the full delivery lifecycle — from discovery to production handoff — in close collaboration with product, engineering, and business teams.",
+            "My value proposition combines UX leadership, Design System scalability, DesignOps governance, and design-to-code execution to improve consistency, speed, and delivery quality.",
         },
       ],
       focusAreas: [
@@ -431,10 +432,10 @@ export const translations = {
         "Product Design",
       ],
       stats: [
-        { value: "19+", label: "Years Experience" },
-        { value: "Government", label: "UX Specialist" },
-        { value: "14+", label: "Products Delivered" },
-        { value: "Cross-Functional", label: "Collaboration" },
+        { icon: "calendar", value: "19+", label: "Years Experience" },
+        { icon: "building", value: "Government", label: "UX Specialist" },
+        { icon: "impact", value: "14+", label: "Products Delivered" },
+        { icon: "layers", value: "Design System", label: "Leadership" },
       ],
       social: {
         behance: "Visit Omar Mokhtar on Behance",
@@ -986,7 +987,7 @@ export const translations = {
         description:
           "UX Design Lead and DesignOps practitioner in Saudi Arabia with 19+ years across government digital transformation, enterprise platforms, and scalable design systems. Google UX Design Certificate holder.",
         keywords:
-          "UX Design Lead Saudi Arabia, UI UX Expert Saudi Arabia, DesignOps Specialist Saudi Arabia, Government UX Expert, Design System Lead, Government Digital Transformation, Enterprise UX Designer, Omar Mokhtar",
+          "UX Design Lead Saudi Arabia, UI UX Expert Saudi Arabia, DesignOps Specialist Saudi Arabia, Government UX Expert, Design System Lead, Government Digital Transformation, Enterprise UX Designer, Omar Mokhtar, مصمم تجربة المستخدم, قائد تجربة المستخدم, تصميم الأنظمة, Design System, DesignOps, تجربة المستخدم الحكومية, UX السعودية, UX الخليج, Government UX",
         canonical: baseUrl,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "en_US",
@@ -1186,7 +1187,7 @@ export const translations = {
         blog: "المدونة",
         recommendations: "التوصيات",
         contact: "تواصل",
-        governmentUx: "UX الحكومي",
+        governmentUx: "تجربة المستخدم الحكومية",
         designopsNav: "DesignOps",
         uxLead: "قيادة UX",
       },
@@ -1223,7 +1224,8 @@ export const translations = {
     },
     home: {
       hero: {
-        role: "قائد تصميم تجربة المستخدم وعمليات التصميم — المملكة العربية السعودية",
+        role:
+          "قائد تجربة المستخدم الحكومية · قائد أنظمة التصميم · ممارس DesignOps · متخصص Design-to-Code",
         certificationBadge:
           "حاصل على شهادة جوجل المهنية في تصميم تجربة المستخدم",
         certificationTitle: "شهادة جوجل في تصميم تجربة المستخدم",
@@ -1236,14 +1238,14 @@ export const translations = {
       },
       paragraphs: [
         {
-          text: "أكثر من 19 عامًا من الخبرة في تجربة المستخدم داخل المملكة العربية السعودية عبر قطاعات حكومية وتعليمية وإسكانية، مع تخصص في المنصات المؤسسية وأنظمة التصميم وعمليات التصميم وتسليم المنتجات.",
+          text: "أقود تجربة المستخدم للمنصات الحكومية والمؤسسية في السعودية بخبرة تتجاوز 19 عامًا تشمل تصميم الخدمات، وتسليم المنتجات، وتنفيذ الواجهة الأمامية.",
           tooltip:
-            "أكثر من 19 عامًا من الخبرة في تجربة المستخدم داخل المملكة العربية السعودية عبر قطاعات حكومية وتعليمية وإسكانية، مع تخصص في المنصات المؤسسية وأنظمة التصميم وعمليات التصميم وتسليم المنتجات.",
+            "أقود تجربة المستخدم للمنصات الحكومية والمؤسسية في السعودية بخبرة تتجاوز 19 عامًا تشمل تصميم الخدمات، وتسليم المنتجات، وتنفيذ الواجهة الأمامية.",
         },
         {
-          text: "أقود استراتيجية تجربة المستخدم وحوكمة التصميم، وأبني أنظمة تصميم قابلة للتوسع، وأعمل عبر دورة التسليم الكاملة — من الاكتشاف حتى التسليم للتطوير — بالتعاون مع فرق المنتج والهندسة والأعمال.",
+          text: "قيمتي المهنية ترتكز على قيادة UX، وتوسيع أنظمة التصميم، وتفعيل DesignOps، وربط التصميم بالتنفيذ الفعلي لتحسين الاتساق وسرعة التسليم وجودة المخرجات.",
           tooltip:
-            "أقود استراتيجية تجربة المستخدم وحوكمة التصميم، وأبني أنظمة تصميم قابلة للتوسع، وأعمل عبر دورة التسليم الكاملة — من الاكتشاف حتى التسليم للتطوير — بالتعاون مع فرق المنتج والهندسة والأعمال.",
+            "قيمتي المهنية ترتكز على قيادة UX، وتوسيع أنظمة التصميم، وتفعيل DesignOps، وربط التصميم بالتنفيذ الفعلي لتحسين الاتساق وسرعة التسليم وجودة المخرجات.",
         },
       ],
       focusAreas: [
@@ -1254,10 +1256,10 @@ export const translations = {
         "تصميم المنتجات",
       ],
       stats: [
-        { value: "19+", label: "سنة خبرة" },
-        { value: "حكومي", label: "متخصص UX" },
-        { value: "14+", label: "منتجًا مُسلَّمًا" },
-        { value: "متعدد التخصصات", label: "تعاون" },
+        { icon: "calendar", value: "19+", label: "سنة خبرة" },
+        { icon: "building", value: "حكومي", label: "متخصص UX" },
+        { icon: "impact", value: "14+", label: "منتجات مُسلَّمة" },
+        { icon: "layers", value: "نظام التصميم", label: "قيادة" },
       ],
       social: {
         behance: "زيارة عمر مختار على Behance",
@@ -1809,7 +1811,7 @@ export const translations = {
         description:
           "قائد تجربة المستخدم وعمليات التصميم في المملكة العربية السعودية، بخبرة تزيد على 19 عامًا في المنصات الحكومية الرقمية وأنظمة التصميم والمنتجات المؤسسية. حاصل على شهادة جوجل المهنية في UX.",
         keywords:
-          "قائد تصميم تجربة المستخدم السعودية, خبير UX السعودية, DesignOps السعودية, تجربة المستخدم الحكومية, نظام التصميم, التحويل الرقمي الحكومي, عمر مختار",
+          "مصمم تجربة المستخدم, قائد تجربة المستخدم, تصميم الأنظمة, Design System, DesignOps, تجربة المستخدم الحكومية, UX السعودية, UX الخليج, Government UX, قائد تصميم تجربة المستخدم السعودية, خبير UX السعودية, التحويل الرقمي الحكومي, عمر مختار",
         canonical: baseUrl,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "ar_SA",

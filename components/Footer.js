@@ -23,7 +23,7 @@ const Footer = () => {
             href="/casestudy"
             className="footer__link"
             {...buildInternalLinkProps("/casestudy")}>
-            Case Studies
+            {isRTL ? "دراسات الحالة" : "Case Studies"}
           </Link>
           <span className="footer__dot" aria-hidden="true">
             ·
@@ -32,7 +32,7 @@ const Footer = () => {
             href="/certifications"
             className="footer__link"
             {...buildInternalLinkProps("/certifications")}>
-            Certifications
+            {isRTL ? "الشهادات" : "Certifications"}
           </Link>
           <span className="footer__dot" aria-hidden="true">
             ·
@@ -41,7 +41,7 @@ const Footer = () => {
             href="/blog"
             className="footer__link"
             {...buildInternalLinkProps("/blog")}>
-            Blog
+            {isRTL ? "المدونة" : "Blog"}
           </Link>
           <span className="footer__dot" aria-hidden="true">
             ·
@@ -50,7 +50,7 @@ const Footer = () => {
             href="/recommendations"
             className="footer__link"
             {...buildInternalLinkProps("/recommendations")}>
-            Recommendations
+            {isRTL ? "التوصيات" : "Recommendations"}
           </Link>
           <span className="footer__dot" aria-hidden="true">
             ·
@@ -59,7 +59,7 @@ const Footer = () => {
             href="/government-ux"
             className="footer__link"
             {...buildInternalLinkProps("/government-ux")}>
-            Government UX
+            {isRTL ? "تجربة المستخدم الحكومية" : "Government UX"}
           </Link>
           <span className="footer__dot" aria-hidden="true">
             ·
@@ -77,7 +77,7 @@ const Footer = () => {
             href="/ux-lead"
             className="footer__link"
             {...buildInternalLinkProps("/ux-lead")}>
-            UX Leadership
+            {isRTL ? "قيادة UX" : "UX Leadership"}
           </Link>
         </nav>
 
@@ -124,7 +124,9 @@ const Footer = () => {
         </div>
 
         <p className="footer__copyright">
-          © 2026 Omar Mokhtar. All rights reserved.
+          {isRTL
+            ? "© 2026 عمر مختار. جميع الحقوق محفوظة."
+            : "© 2026 Omar Mokhtar. All rights reserved."}
         </p>
       </div>
     </footer>

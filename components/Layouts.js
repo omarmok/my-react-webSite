@@ -32,6 +32,9 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
   } = pageMeta;
 
   const jsonLd = (data) => JSON.stringify(data).replace(/</g, "\\u003c");
+  const ogType = ["/blog", "/casestudy"].includes(router.pathname)
+    ? "article"
+    : "website";
 
   const breadcrumbData = (() => {
     const isRTL = language === "ar";
@@ -255,7 +258,7 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
 
         {/* Open Graph Meta Tags */}
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content={ogType} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImage} />
@@ -273,6 +276,7 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image:alt" content={title} />
 
         {/* Additional SEO Meta Tags */}
         <meta name="author" content="Omar Mokhtar" />
@@ -337,6 +341,57 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
                 name: "Omar Mokhtar",
                 url: "https://omarmokhtar.com",
               },
+              publisher: {
+                "@type": "Organization",
+                name: "Omar Mokhtar",
+                url: "https://omarmokhtar.com",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://omarmokhtar.com/images/mylogo.png",
+                },
+              },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: jsonLd({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Omar Mokhtar",
+              url: "https://omarmokhtar.com",
+              logo: "https://omarmokhtar.com/images/mylogo.png",
+              sameAs: [
+                "https://www.linkedin.com/in/omarmokhtar22/",
+                "https://www.behance.net/Omar_Mokhtar",
+                "https://github.com/omarmok",
+              ],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: jsonLd({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              name: "Omar Mokhtar UX Leadership Services",
+              url: "https://omarmokhtar.com",
+              provider: {
+                "@type": "Person",
+                name: "Omar Mokhtar",
+                url: "https://omarmokhtar.com",
+              },
+              areaServed: ["Saudi Arabia", "GCC"],
+              serviceType: [
+                "Government UX",
+                "Design Systems",
+                "DesignOps",
+                "UX Leadership",
+                "Design-to-Code",
+              ],
+              availableLanguage: ["Arabic", "English"],
             }),
           }}
         />

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import photo from "../public/images/omar.png";
 
 import {
@@ -11,129 +12,90 @@ import {
 import { useTranslation } from "../src/i18n/useTranslation";
 import ResumeDownloadMenu from "../components/ResumeDownloadMenu";
 
-// Inline SVGs for each stat — decorative, aria-hidden, currentColor
-const STAT_ICONS = [
-  // Calendar — Years Experience
-  <svg
-    key="years"
-    className="hero-footer__icon"
-    width="28"
-    height="28"
-    viewBox="0 0 24 24"
-    fill="none"
-    aria-hidden="true"
-    focusable="false">
-    <rect
-      x="3"
-      y="5"
-      width="18"
-      height="16"
-      rx="2"
-      stroke="currentColor"
-      strokeWidth="2"
-    />
-    <path
-      d="M8 3v4M16 3v4M3 10h18"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
-    <path
-      d="M8 14h3M8 17h6"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
-  </svg>,
+const ICON_LIBRARY = {
+  calendar: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <rect x="3" y="5" width="18" height="16" rx="2.5" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M8 3v4M16 3v4M3 10h18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  ),
+  building: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <path d="M3 10h18L12 4 3 10Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M5 10v8M9 10v8M15 10v8M19 10v8M3 18h18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  ),
+  layers: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <path d="m12 3 8 4-8 4-8-4 8-4Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="m4 12 8 4 8-4m-16 5 8 4 8-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+  workflow: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <rect x="3" y="4" width="7" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
+      <rect x="14" y="4" width="7" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
+      <rect x="8.5" y="14" width="7" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M10 7h4M12 10v4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  ),
+  certificate: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <rect x="4" y="3.5" width="16" height="17" rx="2" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <circle cx="17.5" cy="16.5" r="2.5" stroke="currentColor" strokeWidth="1.6" />
+    </svg>
+  ),
+  code: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <path d="m8 8-4 4 4 4m8-8 4 4-4 4m-4-11-2 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+  implementation: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M8 21h8M12 18v3M8.5 10.5 7 12l1.5 1.5m7-3L17 12l-1.5 1.5m-5-4 3 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+  team: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <circle cx="8" cy="8" r="2.5" stroke="currentColor" strokeWidth="1.8" />
+      <circle cx="16.5" cy="7.5" r="2" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M3.5 19a4.5 4.5 0 0 1 9 0m1 0a3.5 3.5 0 0 1 7 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  ),
+  governance: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <path d="M12 3 4.5 6v5c0 4.6 3.2 8.9 7.5 10 4.3-1.1 7.5-5.4 7.5-10V6L12 3Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="m9.5 12.5 1.8 1.8 3.4-3.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+  leadership: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <path d="M12 4 9.2 9h5.6L12 4Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      <circle cx="12" cy="14" r="3" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M6 21a6 6 0 0 1 12 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  ),
+  impact: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <path d="M4 18V9m6 9V5m6 13v-7m4 7H2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="m6 9 4-4 4 3 5-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+};
 
-  // Government building — UX Specialist
-  <svg
-    key="gov"
-    className="hero-footer__icon"
-    width="28"
-    height="28"
-    viewBox="0 0 24 24"
-    fill="none"
-    aria-hidden="true"
-    focusable="false">
-    <path
-      d="M3 10h18L12 4 3 10Z"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M5 10v8M9 10v8M15 10v8M19 10v8"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
-    <path
-      d="M3 18h18M2 21h20"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
-  </svg>,
+const HeroStatIcon = ({ iconName }) => (
+  <span className="hero-footer__icon" aria-hidden="true">
+    {ICON_LIBRARY[iconName] ?? ICON_LIBRARY.layers}
+  </span>
+);
 
-  // Layers / stack — Products Delivered
-  <svg
-    key="products"
-    className="hero-footer__icon"
-    width="28"
-    height="28"
-    viewBox="0 0 24 24"
-    fill="none"
-    aria-hidden="true"
-    focusable="false">
-    <path
-      d="m12 3 8 4-8 4-8-4 8-4Z"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinejoin="round"
-    />
-    <path
-      d="m4 12 8 4 8-4"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="m4 17 8 4 8-4"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>,
-
-  // People — Cross-Functional Collaboration
-  <svg
-    key="collab"
-    className="hero-footer__icon"
-    width="28"
-    height="28"
-    viewBox="0 0 24 24"
-    fill="none"
-    aria-hidden="true"
-    focusable="false">
-    <circle cx="8" cy="8" r="3" stroke="currentColor" strokeWidth="2" />
-    <circle cx="17" cy="7" r="2.5" stroke="currentColor" strokeWidth="2" />
-    <path
-      d="M3.5 20a4.5 4.5 0 0 1 9 0"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
-    <path
-      d="M14 18.5a3.5 3.5 0 0 1 7 0"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
-  </svg>,
-];
+const SectionIcon = ({ iconName }) => (
+  <span className="homepage-section-icon" aria-hidden="true">
+    {ICON_LIBRARY[iconName] ?? ICON_LIBRARY.layers}
+  </span>
+);
 
 export default function Home() {
   useEffect(() => {
@@ -171,9 +133,245 @@ export default function Home() {
     };
   }, []);
 
-  const { dictionary } = useTranslation();
+  const { dictionary, language } = useTranslation();
   const { hero, paragraphs, focusAreas, stats, social, imageAlt } =
     dictionary.home;
+  const isRTL = language === "ar";
+
+  const strategyCopy = isRTL
+    ? {
+        credibilityTitle: "دليل الموثوقية المهنية",
+        credibilityIntro:
+          "إثباتات مهنية مختصرة تؤكد الخبرة في قيادة UX والتسليم عالي الجودة.",
+        credibilityItems: [
+          {
+            icon: "certificate",
+            title: "شهادة Google UX",
+            detail: "اعتماد مهني معترف به في تجربة المستخدم.",
+          },
+          {
+            icon: "code",
+            title: "خبرة Design-to-Code",
+            detail: "ربط قرارات التصميم بالتنفيذ الفعلي.",
+          },
+          {
+            icon: "implementation",
+            title: "تنفيذ الواجهة الأمامية",
+            detail: "خبرة عملية في HTML وCSS وJavaScript.",
+          },
+          {
+            icon: "team",
+            title: "قيادة متعددة التخصصات",
+            detail: "مواءمة المنتج والهندسة وتجربة المستخدم.",
+          },
+          {
+            icon: "governance",
+            title: "حوكمة UX",
+            detail: "معايير جودة قابلة للتوسع والاستدامة.",
+          },
+        ],
+        highlightsTitle: "خبرة تجربة المستخدم الحكومية",
+        highlightsIntro:
+          "ملخصات مختصرة بصياغة تراعي السرية، تركز على التحدي والدور والنتيجة.",
+        highlights: [
+          {
+            heading: "توحيد تجربة منصة خدمات متعددة المجالات",
+            challenge:
+              "تعدد مسارات الخدمة واختلاف منطق الواجهات بين فرق وقطاعات مختلفة.",
+            role:
+              "قيادة استراتيجية UX وتوجيه قرارات التصميم وتنسيق التنفيذ مع فرق التطوير.",
+            outcome: "تحسين وضوح الرحلات ورفع اتساق التجربة بين الخدمات.",
+          },
+          {
+            heading: "تفعيل DesignOps لمنظومة تصميم مؤسسية",
+            challenge:
+              "تفاوت جودة القرارات التصميمية وصعوبة الحفاظ على الاتساق عبر الإصدارات.",
+            role:
+              "قيادة DesignOps وأنظمة التصميم مع مواءمة مسار التصميم إلى التطوير.",
+            outcome: "تقليل التباين بين الإصدارات وتحسين سرعة وجودة التسليم.",
+          },
+        ],
+        highlightsCta: "عرض الخبرة",
+        authorityTitle: "مجالات الخبرة الأساسية",
+        authorityItems: [
+          {
+            icon: "building",
+            title: "تجربة المستخدم الحكومية",
+            body:
+              "تصميم خدمات رقمية حكومية واضحة وموثوقة.",
+            href: "/government-ux",
+          },
+          {
+            icon: "layers",
+            title: "Design System",
+            body:
+              "أنظمة مكونات قابلة للتوسع والاتساق.",
+            href: "/design-system",
+          },
+          {
+            icon: "workflow",
+            title: "DesignOps",
+            body:
+              "تشغيل تصميم يربط UX بالتطوير بكفاءة.",
+            href: "/designops",
+          },
+          {
+            icon: "leadership",
+            title: "قيادة UX",
+            body:
+              "قيادة فرق متعددة التخصصات نحو قرارات فعّالة.",
+            href: "/ux-lead",
+          },
+        ],
+        authorityCta: "استكشاف المجال",
+        impactTitle: "أثر قابل للقياس",
+        impactItems: [
+          {
+            icon: "layers",
+            title: "خفض الازدواجية",
+            detail:
+              "تقليل تكرار الواجهات عبر مكونات موحدة.",
+          },
+          {
+            icon: "workflow",
+            title: "تسريع دورات التسليم",
+            detail:
+              "تسريع التحويل من التصميم إلى التنفيذ.",
+          },
+          {
+            icon: "governance",
+            title: "رفع الاتساق",
+            detail:
+              "رفع اتساق التجربة بين المنتجات والشاشات.",
+          },
+          {
+            icon: "team",
+            title: "تعزيز التعاون بين التصميم والتطوير",
+            detail:
+              "تقليل فجوات الفهم عبر مراجعات مشتركة وUX QA.",
+          },
+        ],
+      }
+    : {
+        credibilityTitle: "Credibility Snapshot",
+        credibilityIntro:
+          "Concise proof points that validate strategic UX leadership.",
+        credibilityItems: [
+          {
+            icon: "certificate",
+            title: "Google UX Certification",
+            detail:
+              "Industry-recognized UX credential.",
+          },
+          {
+            icon: "code",
+            title: "Design-to-Code Experience",
+            detail:
+              "Bridging design and implementation.",
+          },
+          {
+            icon: "implementation",
+            title: "Front-End Implementation",
+            detail:
+              "HTML, CSS, and JavaScript expertise.",
+          },
+          {
+            icon: "team",
+            title: "Cross-Functional Leadership",
+            detail:
+              "Product, engineering, and UX alignment.",
+          },
+          {
+            icon: "governance",
+            title: "UX Governance",
+            detail:
+              "Scalable quality standards.",
+          },
+        ],
+        highlightsTitle: "Government UX Experience Highlights",
+        highlightsIntro:
+          "Confidentiality-safe summaries focused on challenge, role, and outcome.",
+        highlights: [
+          {
+            heading: "Multi-domain Government Service Experience Unification",
+            challenge:
+              "Service journeys were fragmented, with uneven interaction models across multiple teams and modules.",
+            role:
+              "UX Lead responsible for experience direction, decision governance, and delivery alignment.",
+            outcome:
+              "Improved clarity in critical journeys and strengthened cross-service consistency.",
+          },
+          {
+            heading: "Enterprise DesignOps Operating Model Enablement",
+            challenge:
+              "Design decisions were decentralized, creating quality variance between release cycles.",
+            role:
+              "DesignOps Practitioner and Design System Lead bridging UX strategy with implementation discipline.",
+            outcome:
+              "Reduced release variance and improved delivery speed with stronger quality controls.",
+          },
+        ],
+        highlightsCta: "View Experience",
+        authorityTitle: "Core Practice Areas",
+        authorityItems: [
+          {
+            icon: "building",
+            title: "Government UX",
+            body:
+              "UX leadership for public-sector digital services.",
+            href: "/government-ux",
+          },
+          {
+            icon: "layers",
+            title: "Design Systems",
+            body:
+              "Scalable component systems for consistency and reuse.",
+            href: "/design-system",
+          },
+          {
+            icon: "workflow",
+            title: "DesignOps",
+            body:
+              "Operational workflows connecting UX strategy to delivery.",
+            href: "/designops",
+          },
+          {
+            icon: "leadership",
+            title: "UX Leadership",
+            body:
+              "Cross-functional decision-making for UX outcomes.",
+            href: "/ux-lead",
+          },
+        ],
+        authorityCta: "Explore area",
+        impactTitle: "Quantified Impact",
+        impactItems: [
+          {
+            icon: "layers",
+            title: "Reduced Duplication",
+            detail:
+              "Reduced repetitive UI patterns through shared standards.",
+          },
+          {
+            icon: "workflow",
+            title: "Faster Delivery Cycles",
+            detail:
+              "Improved speed from design to implementation.",
+          },
+          {
+            icon: "governance",
+            title: "Improved Consistency",
+            detail:
+              "Raised cross-product consistency with clearer design rules.",
+          },
+          {
+            icon: "team",
+            title: "Stronger Design–Development Collaboration",
+            detail:
+              "Reduced ambiguity through joint reviews and UX QA.",
+          },
+        ],
+      };
 
   return (
     <div className="home-main">
@@ -298,8 +496,8 @@ export default function Home() {
                       className="hero-footer__stats"
                       aria-label="Profile highlights">
                       {stats.map((stat, i) => (
-                        <div key={`stat-${i}`} className="hero-footer__item">
-                          {STAT_ICONS[i] ?? null}
+                        <article key={`stat-${i}`} className="hero-footer__item">
+                          <HeroStatIcon iconName={stat.icon} />
                           <div className="hero-footer__item-text">
                             <span className="hero-footer__value">
                               {stat.value}
@@ -308,7 +506,7 @@ export default function Home() {
                               {stat.label}
                             </span>
                           </div>
-                        </div>
+                        </article>
                       ))}
                     </div>
                   )}
@@ -345,6 +543,87 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <section
+          className="homepage-credibility"
+          aria-labelledby="homepage-credibility-title"
+          dir={isRTL ? "rtl" : "ltr"}>
+          <h2 id="homepage-credibility-title" className="homepage-section-title">
+            {strategyCopy.credibilityTitle}
+          </h2>
+          <p className="homepage-credibility__intro">{strategyCopy.credibilityIntro}</p>
+          <div className="homepage-credibility__grid">
+            {strategyCopy.credibilityItems.map((item) => (
+              <article key={item.title} className="homepage-proof-card">
+                <SectionIcon iconName={item.icon} />
+                <h3 className="homepage-proof-card__title">{item.title}</h3>
+                <p className="homepage-proof-card__detail">{item.detail}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section
+          className="homepage-highlights"
+          aria-labelledby="homepage-highlights-title"
+          dir={isRTL ? "rtl" : "ltr"}>
+          <h2 id="homepage-highlights-title" className="homepage-section-title">
+            {strategyCopy.highlightsTitle}
+          </h2>
+          <p className="homepage-highlights__intro">{strategyCopy.highlightsIntro}</p>
+          <div className="homepage-highlights__grid">
+            {strategyCopy.highlights.map((item) => (
+              <article key={item.heading} className="homepage-highlight-card">
+                <h3 className="homepage-highlight-card__title">{item.heading}</h3>
+                <dl className="homepage-highlight-card__details">
+                  <dt>{isRTL ? "التحدي" : "Challenge"}</dt>
+                  <dd>{item.challenge}</dd>
+                  <dt>{isRTL ? "الدور" : "Role"}</dt>
+                  <dd>{item.role}</dd>
+                  <dt>{isRTL ? "النتيجة" : "Outcome"}</dt>
+                  <dd>{item.outcome}</dd>
+                </dl>
+                <Link href="/government-ux" className="homepage-highlight-card__cta">
+                  {strategyCopy.highlightsCta}
+                </Link>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section
+          className="homepage-authority"
+          aria-labelledby="homepage-authority-title"
+          dir={isRTL ? "rtl" : "ltr"}>
+          <h2 id="homepage-authority-title" className="homepage-section-title">
+            {strategyCopy.authorityTitle}
+          </h2>
+          <div className="homepage-authority__grid">
+            {strategyCopy.authorityItems.map((item) => (
+              <article key={item.title} className="homepage-authority-card">
+                <SectionIcon iconName={item.icon} />
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+                <Link href={item.href} className="homepage-authority-card__link">
+                  {strategyCopy.authorityCta}
+                </Link>
+              </article>
+            ))}
+          </div>
+
+          <div className="homepage-impact">
+            <h3 className="homepage-impact__title">{strategyCopy.impactTitle}</h3>
+            <div className="homepage-impact__grid">
+              {strategyCopy.impactItems.map((impact) => (
+                <article key={impact.title} className="homepage-impact-card">
+                  <SectionIcon iconName={impact.icon} />
+                  <h4>{impact.title}</h4>
+                  <p>{impact.detail}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
