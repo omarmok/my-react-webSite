@@ -378,6 +378,8 @@ export const translations = {
         label: "Main navigation",
         open: "Open menu",
         close: "Close menu",
+        buttonOpen: "Menu",
+        buttonClose: "Close",
       },
     },
     footer: {
@@ -1201,6 +1203,8 @@ export const translations = {
         label: "القائمة الرئيسية",
         open: "افتح القائمة",
         close: "أغلق القائمة",
+        buttonOpen: "القائمة",
+        buttonClose: "إغلاق",
       },
     },
     footer: {

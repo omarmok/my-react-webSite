@@ -79,7 +79,6 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
   const mobileNavRef = useRef(null);
   const moreMenuRef = useRef(null);
   const moreButtonRef = useRef(null);
-  const morePointerDownRef = useRef(false);
   const prevMenuOpenRef = useRef(isMenuOpen);
 
   useEffect(() => {
@@ -282,30 +281,6 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
     setIsMoreOpen((prev) => !prev);
   };
 
-  const handleMorePointerDown = () => {
-    morePointerDownRef.current = true;
-    if (typeof window !== "undefined") {
-      window.requestAnimationFrame(() => {
-        morePointerDownRef.current = false;
-      });
-    }
-  };
-
-  const handleMoreFocus = () => {
-    if (morePointerDownRef.current) {
-      return;
-    }
-    setIsMoreOpen(true);
-  };
-
-  const handleMoreBlur = (event) => {
-    const nextFocused = event.relatedTarget;
-    if (nextFocused && moreMenuRef.current?.contains(nextFocused)) {
-      return;
-    }
-    setIsMoreOpen(false);
-  };
-
   const handleMoreKeyDown = (event) => {
     if (event.key === "ArrowDown") {
       event.preventDefault();
@@ -328,15 +303,12 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
       <li
         className="nav-item nav-item--more"
         ref={moreMenuRef}
-        onBlur={handleMoreBlur}
         role="none">
         <button
           type="button"
           ref={moreButtonRef}
           className={`nav-link nav-link--button ${isMoreActive ? "active" : ""}`}
-          onMouseDown={handleMorePointerDown}
           onClick={handleMoreToggle}
-          onFocus={handleMoreFocus}
           onKeyDown={handleMoreKeyDown}
           aria-label={moreToggleAria}
           aria-haspopup="menu"
@@ -381,6 +353,9 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
   const toggleLabel = isMenuOpen
     ? (t("nav.mobileMenu.close") ?? "Close menu")
     : (t("nav.mobileMenu.open") ?? "Open menu");
+  const mobileToggleText = isMenuOpen
+    ? (t("nav.mobileMenu.buttonClose") ?? "Close")
+    : (t("nav.mobileMenu.buttonOpen") ?? "Menu");
 
   const desktopNavLinksSection = (
     <div
@@ -440,7 +415,15 @@ const Nav = ({ onToggleLanguage = () => {} }) => {
         aria-expanded={isMenuOpen}
         aria-label={toggleLabel}
         onClick={toggleMenu}>
-        {isMenuOpen ? closeIcon : menuIcon}
+        <span className="navbar__toggle-icon" aria-hidden="true">
+          {isMenuOpen ? closeIcon : menuIcon}
+        </span>
+        <span className="navbar__toggle-text">{mobileToggleText}</span>
+        <span
+          className={`navbar__toggle-chevron ${isMenuOpen ? "is-open" : ""}`}
+          aria-hidden="true">
+          ▾
+        </span>
       </button>
     </div>
   );
