@@ -7,84 +7,224 @@ import photoAVIF from "../public/images/omar.avif";
 
 const REDIRECT_URL = "/PS-Design/DesignSystemDocumentation/index.html";
 
-import {
-  FaBehance,
-  FaGithub,
-  FaEnvelope,
-  FaLinkedin,
-} from "react-icons/fa";
+import { FaBehance, FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
 import { useTranslation } from "../src/i18n/useTranslation";
 import ResumeDownloadMenu from "../components/ResumeDownloadMenu";
 
 const ICON_LIBRARY = {
   calendar: (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-      <rect x="3" y="5" width="18" height="16" rx="2.5" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M8 3v4M16 3v4M3 10h18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <rect
+        x="3"
+        y="5"
+        width="18"
+        height="16"
+        rx="2.5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M8 3v4M16 3v4M3 10h18"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
     </svg>
   ),
   building: (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-      <path d="M3 10h18L12 4 3 10Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-      <path d="M5 10v8M9 10v8M15 10v8M19 10v8M3 18h18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path
+        d="M3 10h18L12 4 3 10Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5 10v8M9 10v8M15 10v8M19 10v8M3 18h18"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
     </svg>
   ),
   layers: (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-      <path d="m12 3 8 4-8 4-8-4 8-4Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-      <path d="m4 12 8 4 8-4m-16 5 8 4 8-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="m12 3 8 4-8 4-8-4 8-4Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="m4 12 8 4 8-4m-16 5 8 4 8-4"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
   workflow: (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-      <rect x="3" y="4" width="7" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
-      <rect x="14" y="4" width="7" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
-      <rect x="8.5" y="14" width="7" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M10 7h4M12 10v4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <rect
+        x="3"
+        y="4"
+        width="7"
+        height="6"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <rect
+        x="14"
+        y="4"
+        width="7"
+        height="6"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <rect
+        x="8.5"
+        y="14"
+        width="7"
+        height="6"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M10 7h4M12 10v4"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
     </svg>
   ),
   certificate: (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-      <rect x="4" y="3.5" width="16" height="17" rx="2" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      <circle cx="17.5" cy="16.5" r="2.5" stroke="currentColor" strokeWidth="1.6" />
+      <rect
+        x="4"
+        y="3.5"
+        width="16"
+        height="17"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M8 8h8M8 12h8M8 16h5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <circle
+        cx="17.5"
+        cy="16.5"
+        r="2.5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
     </svg>
   ),
   code: (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-      <path d="m8 8-4 4 4 4m8-8 4 4-4 4m-4-11-2 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="m8 8-4 4 4 4m8-8 4 4-4 4m-4-11-2 14"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
   implementation: (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-      <rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M8 21h8M12 18v3M8.5 10.5 7 12l1.5 1.5m7-3L17 12l-1.5 1.5m-5-4 3 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <rect
+        x="3"
+        y="4"
+        width="18"
+        height="14"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M8 21h8M12 18v3M8.5 10.5 7 12l1.5 1.5m7-3L17 12l-1.5 1.5m-5-4 3 5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
   team: (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
       <circle cx="8" cy="8" r="2.5" stroke="currentColor" strokeWidth="1.8" />
-      <circle cx="16.5" cy="7.5" r="2" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M3.5 19a4.5 4.5 0 0 1 9 0m1 0a3.5 3.5 0 0 1 7 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <circle
+        cx="16.5"
+        cy="7.5"
+        r="2"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M3.5 19a4.5 4.5 0 0 1 9 0m1 0a3.5 3.5 0 0 1 7 0"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
     </svg>
   ),
   governance: (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-      <path d="M12 3 4.5 6v5c0 4.6 3.2 8.9 7.5 10 4.3-1.1 7.5-5.4 7.5-10V6L12 3Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-      <path d="m9.5 12.5 1.8 1.8 3.4-3.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M12 3 4.5 6v5c0 4.6 3.2 8.9 7.5 10 4.3-1.1 7.5-5.4 7.5-10V6L12 3Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="m9.5 12.5 1.8 1.8 3.4-3.8"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
   leadership: (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-      <path d="M12 4 9.2 9h5.6L12 4Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      <path
+        d="M12 4 9.2 9h5.6L12 4Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
       <circle cx="12" cy="14" r="3" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M6 21a6 6 0 0 1 12 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path
+        d="M6 21a6 6 0 0 1 12 0"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
     </svg>
   ),
   impact: (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-      <path d="M4 18V9m6 9V5m6 13v-7m4 7H2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="m6 9 4-4 4 3 5-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M4 18V9m6 9V5m6 13v-7m4 7H2"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <path
+        d="m6 9 4-4 4 3 5-4"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
 };
@@ -214,8 +354,7 @@ export default function Home() {
         designSystemAccess: {
           label: "طلب الوصول",
           title: "الدخول إلى عرض نظام التصميم",
-          body:
-            "إذا كان لديك كلمة مرور، أدخلها أدناه للمتابعة إلى عرض نظام التصميم الخاص.",
+          body: "إذا كان لديك كلمة مرور، أدخلها أدناه للمتابعة إلى عرض نظام التصميم الخاص.",
           buttonLabel: "الوصول إلى نظام التصميم",
           learnMoreLabel: "استكشف نظام التصميم →",
           learnMoreHref: "/design-system",
@@ -237,16 +376,14 @@ export default function Home() {
             heading: "توحيد تجربة منصة خدمات متعددة المجالات",
             challenge:
               "تعدد مسارات الخدمة واختلاف منطق الواجهات بين فرق وقطاعات مختلفة.",
-            role:
-              "قيادة استراتيجية UX وتوجيه قرارات التصميم وتنسيق التنفيذ مع فرق التطوير.",
+            role: "قيادة استراتيجية UX وتوجيه قرارات التصميم وتنسيق التنفيذ مع فرق التطوير.",
             outcome: "تحسين وضوح الرحلات ورفع اتساق التجربة بين الخدمات.",
           },
           {
             heading: "تفعيل DesignOps لمنظومة تصميم مؤسسية",
             challenge:
               "تفاوت جودة القرارات التصميمية وصعوبة الحفاظ على الاتساق عبر الإصدارات.",
-            role:
-              "قيادة DesignOps وأنظمة التصميم مع مواءمة مسار التصميم إلى التطوير.",
+            role: "قيادة DesignOps وأنظمة التصميم مع مواءمة مسار التصميم إلى التطوير.",
             outcome: "تقليل التباين بين الإصدارات وتحسين سرعة وجودة التسليم.",
           },
         ],
@@ -256,29 +393,25 @@ export default function Home() {
           {
             icon: "building",
             title: "تجربة المستخدم الحكومية",
-            body:
-              "تصميم خدمات رقمية حكومية واضحة وموثوقة.",
+            body: "تصميم خدمات رقمية حكومية واضحة وموثوقة.",
             href: "/government-ux",
           },
           {
             icon: "layers",
             title: "Design System",
-            body:
-              "أنظمة مكونات قابلة للتوسع والاتساق.",
+            body: "أنظمة مكونات قابلة للتوسع والاتساق.",
             href: "/design-system",
           },
           {
             icon: "workflow",
             title: "DesignOps",
-            body:
-              "تشغيل تصميم يربط UX بالتطوير بكفاءة.",
+            body: "تشغيل تصميم يربط UX بالتطوير بكفاءة.",
             href: "/designops",
           },
           {
             icon: "leadership",
             title: "قيادة UX",
-            body:
-              "قيادة فرق متعددة التخصصات نحو قرارات فعّالة.",
+            body: "قيادة فرق متعددة التخصصات نحو قرارات فعّالة.",
             href: "/ux-lead",
           },
         ],
@@ -288,26 +421,22 @@ export default function Home() {
           {
             icon: "layers",
             title: "خفض الازدواجية",
-            detail:
-              "تقليل تكرار الواجهات عبر مكونات موحدة.",
+            detail: "تقليل تكرار الواجهات عبر مكونات موحدة.",
           },
           {
             icon: "workflow",
             title: "تسريع دورات التسليم",
-            detail:
-              "تسريع التحويل من التصميم إلى التنفيذ.",
+            detail: "تسريع التحويل من التصميم إلى التنفيذ.",
           },
           {
             icon: "governance",
             title: "رفع الاتساق",
-            detail:
-              "رفع اتساق التجربة بين المنتجات والشاشات.",
+            detail: "رفع اتساق التجربة بين المنتجات والشاشات.",
           },
           {
             icon: "team",
             title: "تعزيز التعاون بين التصميم والتطوير",
-            detail:
-              "تقليل فجوات الفهم عبر مراجعات مشتركة وUX QA.",
+            detail: "تقليل فجوات الفهم عبر مراجعات مشتركة وUX QA.",
           },
         ],
       }
@@ -319,32 +448,27 @@ export default function Home() {
           {
             icon: "certificate",
             title: "Google UX Certification",
-            detail:
-              "Industry-recognized UX credential.",
+            detail: "Industry-recognized UX credential.",
           },
           {
             icon: "code",
             title: "Design-to-Code Experience",
-            detail:
-              "Bridging design and implementation.",
+            detail: "Bridging design and implementation.",
           },
           {
             icon: "implementation",
             title: "Front-End Implementation",
-            detail:
-              "HTML, CSS, and JavaScript expertise.",
+            detail: "HTML, CSS, and JavaScript expertise.",
           },
           {
             icon: "team",
             title: "Cross-Functional Leadership",
-            detail:
-              "Product, engineering, and UX alignment.",
+            detail: "Product, engineering, and UX alignment.",
           },
           {
             icon: "governance",
             title: "UX Governance",
-            detail:
-              "Scalable quality standards.",
+            detail: "Scalable quality standards.",
           },
         ],
         designSystemTitle: "Design System Showcase",
@@ -377,15 +501,14 @@ export default function Home() {
           "Design Tokens",
           "Component Library",
           "Documentation",
-          "Accessibility Standards",
+
           "Design-to-Code Workflow",
           "Governance",
         ],
         designSystemAccess: {
           label: "Request Access",
           title: "Access the Design System Showcase",
-          body:
-            "If you have received an access password, enter it below to continue to the private Design System showcase.",
+          body: "If you have received an access password, enter it below to continue to the private Design System showcase.",
           buttonLabel: "Access Design System",
           learnMoreLabel: "Explore Design System →",
           learnMoreHref: "/design-system",
@@ -407,8 +530,7 @@ export default function Home() {
             heading: "Multi-domain Government Service Experience Unification",
             challenge:
               "Service journeys were fragmented, with uneven interaction models across multiple teams and modules.",
-            role:
-              "UX Lead responsible for experience direction, decision governance, and delivery alignment.",
+            role: "UX Lead responsible for experience direction, decision governance, and delivery alignment.",
             outcome:
               "Improved clarity in critical journeys and strengthened cross-service consistency.",
           },
@@ -416,8 +538,7 @@ export default function Home() {
             heading: "Enterprise DesignOps Operating Model Enablement",
             challenge:
               "Design decisions were decentralized, creating quality variance between release cycles.",
-            role:
-              "DesignOps Practitioner and Design System Lead bridging UX strategy with implementation discipline.",
+            role: "DesignOps Practitioner and Design System Lead bridging UX strategy with implementation discipline.",
             outcome:
               "Reduced release variance and improved delivery speed with stronger quality controls.",
           },
@@ -428,29 +549,25 @@ export default function Home() {
           {
             icon: "building",
             title: "Government UX",
-            body:
-              "UX leadership for public-sector digital services.",
+            body: "UX leadership for public-sector digital services.",
             href: "/government-ux",
           },
           {
             icon: "layers",
             title: "Design Systems",
-            body:
-              "Scalable component systems for consistency and reuse.",
+            body: "Scalable component systems for consistency and reuse.",
             href: "/design-system",
           },
           {
             icon: "workflow",
             title: "DesignOps",
-            body:
-              "Operational workflows connecting UX strategy to delivery.",
+            body: "Operational workflows connecting UX strategy to delivery.",
             href: "/designops",
           },
           {
             icon: "leadership",
             title: "UX Leadership",
-            body:
-              "Cross-functional decision-making for UX outcomes.",
+            body: "Cross-functional decision-making for UX outcomes.",
             href: "/ux-lead",
           },
         ],
@@ -460,14 +577,12 @@ export default function Home() {
           {
             icon: "layers",
             title: "Reduced Duplication",
-            detail:
-              "Reduced repetitive UI patterns through shared standards.",
+            detail: "Reduced repetitive UI patterns through shared standards.",
           },
           {
             icon: "workflow",
             title: "Faster Delivery Cycles",
-            detail:
-              "Improved speed from design to implementation.",
+            detail: "Improved speed from design to implementation.",
           },
           {
             icon: "governance",
@@ -478,8 +593,7 @@ export default function Home() {
           {
             icon: "team",
             title: "Stronger Design–Development Collaboration",
-            detail:
-              "Reduced ambiguity through joint reviews and UX QA.",
+            detail: "Reduced ambiguity through joint reviews and UX QA.",
           },
         ],
       };
@@ -502,7 +616,11 @@ export default function Home() {
           window.history &&
           typeof window.history.replaceState === "function"
         ) {
-          window.history.replaceState({ source: "design-system-login" }, "", "/");
+          window.history.replaceState(
+            { source: "design-system-login" },
+            "",
+            "/",
+          );
         }
         window.location.assign(REDIRECT_URL);
         return;
@@ -648,7 +766,9 @@ export default function Home() {
                       className="hero-footer__stats"
                       aria-label="Profile highlights">
                       {stats.map((stat, i) => (
-                        <article key={`stat-${i}`} className="hero-footer__item">
+                        <article
+                          key={`stat-${i}`}
+                          className="hero-footer__item">
                           <HeroStatIcon iconName={stat.icon} />
                           <div className="hero-footer__item-text">
                             <span className="hero-footer__value">
@@ -700,10 +820,14 @@ export default function Home() {
           className="homepage-credibility"
           aria-labelledby="homepage-credibility-title"
           dir={isRTL ? "rtl" : "ltr"}>
-          <h2 id="homepage-credibility-title" className="homepage-section-title">
+          <h2
+            id="homepage-credibility-title"
+            className="homepage-section-title">
             {strategyCopy.credibilityTitle}
           </h2>
-          <p className="homepage-credibility__intro">{strategyCopy.credibilityIntro}</p>
+          <p className="homepage-credibility__intro">
+            {strategyCopy.credibilityIntro}
+          </p>
           <div className="homepage-credibility__grid">
             {strategyCopy.credibilityItems.map((item) => (
               <article key={item.title} className="homepage-proof-card">
@@ -721,7 +845,9 @@ export default function Home() {
           dir={isRTL ? "rtl" : "ltr"}>
           <div className="homepage-designsystem__columns">
             <div className="homepage-designsystem__content">
-              <h2 id="homepage-designsystem-title" className="homepage-section-title">
+              <h2
+                id="homepage-designsystem-title"
+                className="homepage-section-title">
                 {strategyCopy.designSystemTitle}
               </h2>
               <p className="homepage-designsystem__subtitle">
@@ -737,13 +863,15 @@ export default function Home() {
                 {strategyCopy.designSystemAccess.learnMoreLabel}
               </Link>
 
-              <ul className="homepage-designsystem__features" aria-label={isRTL ? "ما يتضمنه نظام التصميم" : "What's included"}>
+              <ul
+                className="homepage-designsystem__features"
+                aria-label={
+                  isRTL ? "ما يتضمنه نظام التصميم" : "What's included"
+                }>
                 {strategyCopy.designSystemFeatures.map((feature) => (
                   <li key={feature}>{feature}</li>
                 ))}
               </ul>
-
-
             </div>
 
             <div className="homepage-designsystem__access-panel">
@@ -783,7 +911,9 @@ export default function Home() {
                     type="submit"
                     className="btn btn-warning homepage-designsystem__access-button"
                     disabled={isLoading}>
-                    {isLoading ? "..." : strategyCopy.designSystemAccess.buttonLabel}
+                    {isLoading
+                      ? "..."
+                      : strategyCopy.designSystemAccess.buttonLabel}
                   </button>
                   {showError ? (
                     <p
@@ -807,11 +937,15 @@ export default function Home() {
           <h2 id="homepage-highlights-title" className="homepage-section-title">
             {strategyCopy.highlightsTitle}
           </h2>
-          <p className="homepage-highlights__intro">{strategyCopy.highlightsIntro}</p>
+          <p className="homepage-highlights__intro">
+            {strategyCopy.highlightsIntro}
+          </p>
           <div className="homepage-highlights__grid">
             {strategyCopy.highlights.map((item) => (
               <article key={item.heading} className="homepage-highlight-card">
-                <h3 className="homepage-highlight-card__title">{item.heading}</h3>
+                <h3 className="homepage-highlight-card__title">
+                  {item.heading}
+                </h3>
                 <dl className="homepage-highlight-card__details">
                   <dt>{isRTL ? "التحدي" : "Challenge"}</dt>
                   <dd>{item.challenge}</dd>
@@ -820,7 +954,9 @@ export default function Home() {
                   <dt>{isRTL ? "النتيجة" : "Outcome"}</dt>
                   <dd>{item.outcome}</dd>
                 </dl>
-                <Link href="/government-ux" className="homepage-highlight-card__cta">
+                <Link
+                  href="/government-ux"
+                  className="homepage-highlight-card__cta">
                   {strategyCopy.highlightsCta}
                 </Link>
               </article>
@@ -841,7 +977,9 @@ export default function Home() {
                 <SectionIcon iconName={item.icon} />
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
-                <Link href={item.href} className="homepage-authority-card__link">
+                <Link
+                  href={item.href}
+                  className="homepage-authority-card__link">
                   {strategyCopy.authorityCta}
                 </Link>
               </article>
@@ -849,7 +987,9 @@ export default function Home() {
           </div>
 
           <div className="homepage-impact">
-            <h3 className="homepage-impact__title">{strategyCopy.impactTitle}</h3>
+            <h3 className="homepage-impact__title">
+              {strategyCopy.impactTitle}
+            </h3>
             <div className="homepage-impact__grid">
               {strategyCopy.impactItems.map((impact) => (
                 <article key={impact.title} className="homepage-impact-card">
