@@ -388,6 +388,7 @@ export default function Home() {
           },
         ],
         highlightsCta: "عرض الخبرة",
+        highlightsSectionCta: "استكشف خبرة UX الحكومية →",
         authorityTitle: "مجالات الخبرة الأساسية",
         authorityItems: [
           {
@@ -544,6 +545,7 @@ export default function Home() {
           },
         ],
         highlightsCta: "View Experience",
+        highlightsSectionCta: "Explore Government UX →",
         authorityTitle: "Core Practice Areas",
         authorityItems: [
           {
@@ -690,6 +692,22 @@ export default function Home() {
                     ))}
                   </ul>
                 )}
+
+                {/* Quick navigation — surfaces key portfolio pages early */}
+                <div
+                  className="homepage-hero-nav"
+                  aria-label={isRTL ? "روابط سريعة" : "Quick navigation"}>
+                  <Link
+                    href="/design-system"
+                    className="homepage-hero-nav__cta homepage-hero-nav__cta--primary">
+                    {isRTL ? "استكشف نظام التصميم" : "Explore Design System"} →
+                  </Link>
+                  <Link
+                    href="/government-ux"
+                    className="homepage-hero-nav__cta homepage-hero-nav__cta--secondary">
+                    {isRTL ? "استكشف UX الحكومية" : "Explore Government UX"} →
+                  </Link>
+                </div>
 
                 {/* 3 · Professional summary */}
                 <div className="hero-summary">
@@ -954,13 +972,15 @@ export default function Home() {
                   <dt>{isRTL ? "النتيجة" : "Outcome"}</dt>
                   <dd>{item.outcome}</dd>
                 </dl>
-                <Link
-                  href="/government-ux"
-                  className="homepage-highlight-card__cta">
-                  {strategyCopy.highlightsCta}
-                </Link>
               </article>
             ))}
+          </div>
+          <div className="homepage-highlights__footer">
+            <Link
+              href="/government-ux"
+              className="homepage-highlights__cta">
+              {strategyCopy.highlightsSectionCta}
+            </Link>
           </div>
         </section>
 
