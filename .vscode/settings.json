@@ -1,0 +1,10 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "identify": true,
+    "brew": true,
+    "/^node scripts/optimize-hero-image\\.js$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  }
+}

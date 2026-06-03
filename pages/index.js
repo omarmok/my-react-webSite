@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import photo from "../public/images/omar.png";
+import photoWebP from "../public/images/omar.webp";
+import photoAVIF from "../public/images/omar.avif";
 
 import {
   FaBehance,
@@ -383,15 +385,24 @@ export default function Home() {
               <div className="profile-left">
                 <div className="home-image">
                   <div className="overlay" aria-hidden="true" />
-                  <Image
-                    alt={imageAlt}
-                    src={photo}
-                    loading="eager"
-                    priority
-                    quality={80}
-                    sizes="(min-width: 1400px) 340px, (min-width: 1200px) 300px, (min-width: 992px) 280px, 100vw"
-                    style={{ width: "100%", height: "100%", display: "block" }}
-                  />
+                  <picture>
+                    <source srcSet={photoAVIF.src} type="image/avif" />
+                    <source srcSet={photoWebP.src} type="image/webp" />
+                    <Image
+                      alt={imageAlt}
+                      src={photo}
+                      loading="eager"
+                      priority
+                      quality={85}
+                      sizes="(min-width: 1400px) 340px, (min-width: 1200px) 300px, (min-width: 992px) 280px, 100vw"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        display: "block",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </picture>
                   <div className="downloadresume">
                     <ResumeDownloadMenu />
                   </div>

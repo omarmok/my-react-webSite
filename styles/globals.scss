@@ -662,16 +662,24 @@ html.rtl .navtitle {
   .home-expertise__tag {
     display: inline-flex;
     align-items: center;
-    background: rgba(107, 71, 245, 0.06);
-    color: #334155;
-    border: 1px solid rgba(107, 71, 245, 0.18);
-    border-radius: 5px;
-    padding: 4px 11px;
-    font-size: 12.5px;
-    font-weight: 600;
+    background: #f1f5fb;
+    color: #475569;
+    border: 1px solid #cbd5e8;
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
     line-height: 1.4;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.02em;
     white-space: nowrap;
+    transition: none;
+    cursor: default;
+  }
+
+  .home-expertise__tag:hover {
+    background: #f1f5fb;
+    border-color: #cbd5e8;
+    transform: none;
   }
 
   // Professional summary — full width (no sidebar), clean line length
@@ -705,12 +713,16 @@ html.rtl .navtitle {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0;
-    border: 1px solid #d8e2f0;
+    border: 1px solid #e5e7eb;
     border-radius: 12px;
     overflow: hidden;
-    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
     grid-auto-rows: 1fr;
+  }
+
+  .hero-footer__item:last-child {
+    border-inline-end: 0;
   }
 
   .hero-footer__item {
@@ -723,15 +735,12 @@ html.rtl .navtitle {
     min-height: 72px;
     height: 100%;
     min-width: 0;
-    transition: background-color 0.18s ease;
+    transition: none;
+    cursor: default;
+  }
 
-    &:hover {
-      background: rgba(107, 71, 245, 0.035);
-    }
-
-    &:last-child {
-      border-inline-end: 0;
-    }
+  .hero-footer__item:hover {
+    background: transparent;
   }
 
   .hero-footer__icon {
@@ -787,40 +796,46 @@ html.rtl .navtitle {
   .hero-social {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 6px;
 
     a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       border-radius: 8px;
       text-decoration: none;
       transition:
         background-color 0.18s ease,
         transform 0.12s ease;
+      cursor: pointer;
 
       &:hover {
-        background: rgba(107, 71, 245, 0.1);
-        transform: translateY(-1px);
+        background: rgba(107, 71, 245, 0.08);
+        transform: translateY(-2px);
 
         svg {
-          fill: $mainColor;
+          fill: #6b47f5;
         }
       }
 
       &:focus-visible {
-        outline: 3px solid rgba(107, 71, 245, 0.35);
+        outline: 2px solid #6b47f5;
         outline-offset: 2px;
+      }
+
+      &:active {
+        transform: translateY(0);
       }
     }
 
     svg {
-      width: 20px;
-      height: 20px;
-      fill: #64748b;
+      width: 18px;
+      height: 18px;
+      fill: #94a3b8;
       flex-shrink: 0;
+      transition: fill 0.18s ease;
     }
   }
 }
@@ -1018,20 +1033,35 @@ html.rtl .navtitle {
 .homepage-highlight-card__cta {
   width: fit-content;
   min-height: 36px;
-  padding: 7px 11px;
+  padding: 7px 14px;
   border-radius: 8px;
-  border: 1px solid #d3deec;
-  background: #f4f8fd;
-  color: #1e293b;
+  border: 1.5px solid #6b47f5;
+  background: transparent;
+  color: #6b47f5;
   font-size: 13px;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+  cursor: pointer;
 
   &:hover {
-    background: #eaf1fb;
+    background: rgba(107, 71, 245, 0.08);
+    border-color: #6b47f5;
     text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #6b47f5;
+    outline-offset: 2px;
+  }
+
+  &:active {
+    background: rgba(107, 71, 245, 0.15);
   }
 }
 
@@ -1086,9 +1116,9 @@ html.rtl .navtitle {
   width: 100%;
   min-height: 42px;
   border-radius: 9px;
-  border: 1px solid #d6e2f0;
-  background: #f4f8fd;
-  color: #1e293b;
+  border: 1.5px solid #6b47f5;
+  background: #6b47f5;
+  color: #ffffff;
   font-size: 13.5px;
   font-weight: 700;
   display: inline-flex;
@@ -1098,17 +1128,23 @@ html.rtl .navtitle {
     border-color 0.2s ease,
     background-color 0.2s ease,
     color 0.2s ease;
+  cursor: pointer;
 
   &:hover {
-    border-color: #c6d3e8;
-    background: #eaf1fb;
-    color: #0f172a;
+    border-color: #5a38d4;
+    background: #5a38d4;
+    color: #ffffff;
     text-decoration: none;
   }
 
   &:focus-visible {
-    outline: 3px solid rgba(107, 71, 245, 0.35);
+    outline: 2px solid #6b47f5;
     outline-offset: 2px;
+  }
+
+  &:active {
+    background: #4a2bc0;
+    border-color: #4a2bc0;
   }
 }
 
@@ -1295,8 +1331,67 @@ html.rtl .navtitle {
     grid-template-columns: 1fr;
   }
 
+  .homepage-authority-card__link {
+    min-height: 48px;
+    font-size: 14px;
+  }
+
+  .homepage-highlight-card__cta {
+    min-height: 40px;
+    padding: 8px 16px;
+  }
+
   .homepage-impact__grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-footer {
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .index__details .hero-footer__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: auto;
+  }
+
+  .index__details .hero-footer__item {
+    border-inline-end: 1px solid #e1e8f3;
+    border-bottom: 1px solid #e1e8f3;
+    min-height: 64px;
+    padding: 12px;
+  }
+
+  .index__details .hero-footer__item:nth-child(2n) {
+    border-inline-end: 0;
+  }
+
+  .index__details .hero-footer__item:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .hero-social {
+    gap: 4px;
+
+    a {
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  .resume-cta {
+    width: 100%;
+    max-width: none;
+    min-height: 48px;
+    padding: 14px 16px 13px;
+
+    &__label {
+      font-size: 15px;
+    }
+
+    &__sub {
+      font-size: 12px;
+    }
   }
 
   .footer {
@@ -1590,12 +1685,15 @@ html.rtl .navtitle {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  box-shadow: 0px 10px 30px rgba(15, 23, 42, 0.06);
+  box-shadow: 0px 4px 12px rgba(15, 23, 42, 0.04);
   background-color: #ffffff;
   position: relative;
   overflow: hidden;
   border-radius: 8px;
+  border: 1px solid #e5e7eb;
   text-align: start;
+  transition: none;
+  cursor: default;
 
   &__details {
     font-size: 18px;
@@ -2239,7 +2337,7 @@ p {
   }
 }
 
-// Resume CTA — glass button overlaid on gradient
+// Resume CTA — primary action button with enhanced visibility
 .resume-cta {
   display: inline-flex;
   flex-direction: column;
@@ -2247,28 +2345,36 @@ p {
   gap: 3px;
   width: calc(100% - 16px);
   max-width: 280px;
-  padding: 11px 20px 10px;
-  background: rgba(255, 255, 255, 0.14);
+  padding: 12px 22px 11px;
+  background: #6b47f5;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.32);
+  border: 1.5px solid #6b47f5;
   border-radius: 10px;
   color: #fff !important;
   text-decoration: none !important;
   cursor: pointer;
   transition:
     background 0.2s ease,
-    border-color 0.2s ease;
+    border-color 0.2s ease,
+    transform 0.12s ease;
+  font-weight: 700;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.24);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: #5a38d4;
+    border-color: #5a38d4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(107, 71, 245, 0.3);
   }
 
   &:focus-visible {
     outline: 2px solid rgba(255, 255, 255, 0.8);
     outline-offset: 3px;
     border-radius: 10px;
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   &__label {
@@ -2289,8 +2395,8 @@ p {
 
   &__sub {
     font-size: 11px;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.72);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.88);
     line-height: 1;
   }
 }
