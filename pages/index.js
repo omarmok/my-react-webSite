@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import photo from "../public/images/omar.png";
 import photoWebP from "../public/images/omar.webp";
 import photoAVIF from "../public/images/omar.avif";
+
+const REDIRECT_URL = "/PS-Design/DesignSystemDocumentation/index.html";
 
 import {
   FaBehance,
@@ -139,6 +141,9 @@ export default function Home() {
   const { hero, paragraphs, focusAreas, stats, social, imageAlt } =
     dictionary.home;
   const isRTL = language === "ar";
+  const [password, setPassword] = useState("");
+  const [showError, setShowError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const strategyCopy = isRTL
     ? {
@@ -172,6 +177,58 @@ export default function Home() {
             detail: "معايير جودة قابلة للتوسع والاستدامة.",
           },
         ],
+        designSystemTitle: "عرض نظام التصميم",
+        designSystemIntro:
+          "نظرة أعمق على خبرتي في بناء أنظمة تصميم قابلة للتوسع، مكونات قابلة لإعادة الاستخدام، التوثيق، الحوكمة، معايير الوصول، والتعاون بين التصميم والترميز.",
+        designSystemDescription:
+          "يسلط هذا القسم الضوء على كيف أخلق أنظمة تصميم تدعم الموثوقية والتسليم السريع مع اتساق بصري ومواصفات تنفيذية واضحة.",
+        designSystemCta: "الوصول إلى قسم نظام التصميم →",
+        designSystemCards: [
+          {
+            icon: "certificate",
+            title: "الأساسيات",
+            detail:
+              "الرموز، الطباعة، المساحات، الألوان، قواعد الوصول، والتناسق البصري.",
+          },
+          {
+            icon: "layers",
+            title: "المكونات",
+            detail:
+              "مكونات واجهة قابلة لإعادة الاستخدام، المتغيرات، الحالات، الاستجابة، وأنماط جاهزة للتطبيق.",
+          },
+          {
+            icon: "governance",
+            title: "الحوكمة والتوثيق",
+            detail:
+              "إرشادات الاستخدام، تسليم التصميم، معايير الجودة، والتعاون بين الفرق.",
+          },
+        ],
+        designSystemFeatures: [
+          "رموز التصميم",
+          "مكتبة المكونات",
+          "التوثيق",
+          "معايير الوصولية",
+          "سير عمل التصميم إلى الكود",
+          "الحوكمة",
+        ],
+        designSystemAccess: {
+          label: "طلب الوصول",
+          title: "الدخول إلى عرض نظام التصميم",
+          body:
+            "إذا كان لديك كلمة مرور، أدخلها أدناه للمتابعة إلى عرض نظام التصميم الخاص.",
+          buttonLabel: "الوصول إلى نظام التصميم",
+          learnMoreLabel: "استكشف نظام التصميم →",
+          learnMoreHref: "/design-system",
+          contactTitle: "هل تحتاج إلى صلاحية الوصول؟",
+          contactBody:
+            "يتم منح صلاحيات الوصول بشكل فردي لتقييم قدرات النظام والمراجعات المهنية.",
+          contactBody2:
+            "إذا كنت ترغب في الوصول أو استعراض النظام، يمكنك التواصل عبر واتساب باستخدام رمز QR أدناه.",
+          qrHint: "امسح الرمز للتواصل مباشرة",
+          qrAlt: "رمز QR للتواصل عبر واتساب",
+          whatsappLabel: "التواصل عبر واتساب",
+          whatsappAria: "التواصل عبر واتساب",
+        },
         highlightsTitle: "خبرة تجربة المستخدم الحكومية",
         highlightsIntro:
           "ملخصات مختصرة بصياغة تراعي السرية، تركز على التحدي والدور والنتيجة.",
@@ -290,6 +347,58 @@ export default function Home() {
               "Scalable quality standards.",
           },
         ],
+        designSystemTitle: "Design System Showcase",
+        designSystemIntro:
+          "A closer look at my experience building scalable design systems, reusable components, documentation, governance, accessibility standards, and design-to-code collaboration.",
+        designSystemDescription:
+          "A portfolio highlight that explains why design systems are one of my strongest areas — built to support consistent experiences, faster delivery, and collaborative product teams.",
+        designSystemCta: "Access the Design System Showcase →",
+        designSystemCards: [
+          {
+            icon: "certificate",
+            title: "Foundations",
+            detail:
+              "Tokens, typography, spacing, colors, accessibility rules, and visual consistency.",
+          },
+          {
+            icon: "layers",
+            title: "Components",
+            detail:
+              "Reusable UI components, variants, states, responsive behavior, and implementation-ready patterns.",
+          },
+          {
+            icon: "governance",
+            title: "Governance & Documentation",
+            detail:
+              "Usage guidelines, design handoff, QA standards, documentation, and collaboration between design and development teams.",
+          },
+        ],
+        designSystemFeatures: [
+          "Design Tokens",
+          "Component Library",
+          "Documentation",
+          "Accessibility Standards",
+          "Design-to-Code Workflow",
+          "Governance",
+        ],
+        designSystemAccess: {
+          label: "Request Access",
+          title: "Access the Design System Showcase",
+          body:
+            "If you have received an access password, enter it below to continue to the private Design System showcase.",
+          buttonLabel: "Access Design System",
+          learnMoreLabel: "Explore Design System →",
+          learnMoreHref: "/design-system",
+          contactTitle: "Need Access?",
+          contactBody:
+            "Access credentials are shared individually for evaluation, hiring discussions, and professional walkthroughs.",
+          contactBody2:
+            "If you would like access or a guided overview of the system, you can contact me directly by scanning the QR code below.",
+          qrHint: "Scan to contact directly",
+          qrAlt: "QR code to contact via WhatsApp",
+          whatsappLabel: "Contact via WhatsApp",
+          whatsappAria: "Contact via WhatsApp",
+        },
         highlightsTitle: "Government UX Experience Highlights",
         highlightsIntro:
           "Confidentiality-safe summaries focused on challenge, role, and outcome.",
@@ -374,6 +483,38 @@ export default function Home() {
           },
         ],
       };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+    setShowError(false);
+
+    try {
+      const response = await fetch("/api/design-system-login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
+
+      if (response.ok) {
+        if (
+          typeof window !== "undefined" &&
+          window.history &&
+          typeof window.history.replaceState === "function"
+        ) {
+          window.history.replaceState({ source: "design-system-login" }, "", "/");
+        }
+        window.location.assign(REDIRECT_URL);
+        return;
+      }
+    } catch {
+      // network error falls through to error state
+    }
+
+    setIsLoading(false);
+    setShowError(true);
+    setPassword("");
+  };
 
   return (
     <div className="home-main">
@@ -571,6 +712,91 @@ export default function Home() {
                 <p className="homepage-proof-card__detail">{item.detail}</p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section
+          className="homepage-designsystem"
+          aria-labelledby="homepage-designsystem-title"
+          dir={isRTL ? "rtl" : "ltr"}>
+          <div className="homepage-designsystem__columns">
+            <div className="homepage-designsystem__content">
+              <h2 id="homepage-designsystem-title" className="homepage-section-title">
+                {strategyCopy.designSystemTitle}
+              </h2>
+              <p className="homepage-designsystem__subtitle">
+                {strategyCopy.designSystemIntro}
+              </p>
+              <p className="homepage-designsystem__description">
+                {strategyCopy.designSystemDescription}
+              </p>
+
+              <Link
+                href={strategyCopy.designSystemAccess.learnMoreHref}
+                className="homepage-designsystem__secondary-cta">
+                {strategyCopy.designSystemAccess.learnMoreLabel}
+              </Link>
+
+              <ul className="homepage-designsystem__features" aria-label={isRTL ? "ما يتضمنه نظام التصميم" : "What's included"}>
+                {strategyCopy.designSystemFeatures.map((feature) => (
+                  <li key={feature}>{feature}</li>
+                ))}
+              </ul>
+
+
+            </div>
+
+            <div className="homepage-designsystem__access-panel">
+              <div className="homepage-designsystem__access-panel-inner">
+                <h3 className="homepage-designsystem__access-title">
+                  {strategyCopy.designSystemAccess.title}
+                </h3>
+                <p className="homepage-designsystem__access-body">
+                  {strategyCopy.designSystemAccess.body}
+                </p>
+
+                <form onSubmit={handleSubmit} noValidate>
+                  <label
+                    htmlFor="designsystem-password"
+                    className="homepage-designsystem__access-label-input">
+                    {dictionary.casebook.access.passwordLabel}
+                  </label>
+                  <input
+                    id="designsystem-password"
+                    name="designsystem-password"
+                    type="password"
+                    autoComplete="current-password"
+                    className="form-control homepage-designsystem__access-input"
+                    value={password}
+                    onChange={(event) => {
+                      setPassword(event.target.value);
+                      if (showError) {
+                        setShowError(false);
+                      }
+                    }}
+                    placeholder={dictionary.casebook.access.passwordPlaceholder}
+                    aria-describedby={
+                      showError ? "designsystem-password-error" : undefined
+                    }
+                  />
+                  <button
+                    type="submit"
+                    className="btn btn-warning homepage-designsystem__access-button"
+                    disabled={isLoading}>
+                    {isLoading ? "..." : strategyCopy.designSystemAccess.buttonLabel}
+                  </button>
+                  {showError ? (
+                    <p
+                      id="designsystem-password-error"
+                      className="homepage-designsystem__access-error"
+                      role="alert"
+                      aria-live="assertive">
+                      {dictionary.casebook.access.passwordError}
+                    </p>
+                  ) : null}
+                </form>
+              </div>
+            </div>
           </div>
         </section>
 
