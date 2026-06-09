@@ -4,9 +4,14 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Loader from "../components/Loader";
 import PageHeader from "../components/PageHeader";
+import DesignSystemPreviewGallery from "../components/DesignSystemPreviewGallery";
 import { useTranslation } from "../src/i18n/useTranslation";
-import whatsappIcon from "../public/images/whatsapp.png";
 import whatsappQr from "../public/images/whatsapp-qr.png";
+import designSystemPreviewOne from "../public/images/ds-1.png";
+import designSystemPreviewTwo from "../public/images/ds-2.png";
+import designSystemPreviewThree from "../public/images/ds-3.png";
+import designSystemPreviewFour from "../public/images/ds-4.png";
+import designSystemPreviewFive from "../public/images/ds-5.png";
 
 const REDIRECT_URL = "/PS-Design/DesignSystemDocumentation/index.html";
 const WHATSAPP_URL = "https://wa.me/+966535468309";
@@ -148,6 +153,43 @@ const DesignSystemPage = () => {
         ],
         beyondClose:
           "وتوضح الأمثلة المختارة كيف يتم الربط بين مكونات Figma وDesign Tokens والتوثيق والتنفيذ البرمجي لبناء نظام تصميم قابل للتوسع والاستدامة.",
+        previewLabel: "لمحة من التوثيق",
+        previewTitle: "معاينة نظام التصميم",
+        previewBody:
+          "معاينة صغيرة من توثيق نظام PS Design System، تشمل التوكنز، والمكونات، وإرشادات التنفيذ، وأمثلة تسليم العمل للمطورين.",
+        previewOpenLabel: "فتح معاينة نظام التصميم",
+        previewCloseLabel: "إغلاق المعاينة",
+        previewImages: [
+          {
+            src: designSystemPreviewOne,
+            alt: "معاينة من توثيق نظام التصميم - الشاشة الأولى",
+          },
+          {
+            src: designSystemPreviewTwo,
+            alt: "معاينة من توثيق نظام التصميم - الشاشة الثانية",
+          },
+          {
+            src: designSystemPreviewThree,
+            alt: "معاينة من توثيق نظام التصميم - الشاشة الثالثة",
+          },
+          {
+            src: designSystemPreviewFour,
+            alt: "معاينة من توثيق نظام التصميم - الشاشة الرابعة",
+          },
+          {
+            src: designSystemPreviewFive,
+            alt: "معاينة من توثيق نظام التصميم - الشاشة الخامسة",
+          },
+        ],
+        previewHighlightsTitle: "أبرز ما يقدمه PS Design System",
+        previewHighlights: [
+          "توثيق Design Tokens",
+          "مكتبة مكونات",
+          "إرشادات الاستخدام",
+          "أمثلة Design-to-Code",
+          "دعم تسليم العمل للمطورين",
+          "جاهز لـ RTL والتصميم المتجاوب",
+        ],
         accessLabel: "Request Access",
         accessTitle: "الدخول إلى عرض نظام التصميم",
         accessBody:
@@ -211,6 +253,43 @@ const DesignSystemPage = () => {
         ],
         beyondClose:
           "Selected examples demonstrate how Figma components, design tokens, documentation, and front-end implementation are connected to support a scalable design system.",
+        previewLabel: "Documentation Preview",
+        previewTitle: "Design System Preview",
+        previewBody:
+          "A small preview of the PS Design System documentation, including tokens, components, implementation guidance, and developer handoff examples.",
+        previewOpenLabel: "Open design system preview",
+        previewCloseLabel: "Close preview",
+        previewImages: [
+          {
+            src: designSystemPreviewOne,
+            alt: "Preview of the PS Design System documentation, screen one",
+          },
+          {
+            src: designSystemPreviewTwo,
+            alt: "Preview of the PS Design System documentation, screen two",
+          },
+          {
+            src: designSystemPreviewThree,
+            alt: "Preview of the PS Design System documentation, screen three",
+          },
+          {
+            src: designSystemPreviewFour,
+            alt: "Preview of the PS Design System documentation, screen four",
+          },
+          {
+            src: designSystemPreviewFive,
+            alt: "Preview of the PS Design System documentation, screen five",
+          },
+        ],
+        previewHighlightsTitle: "PS Design System Highlights",
+        previewHighlights: [
+          "Design Tokens Documentation",
+          "Components Library",
+          "Usage Guidelines",
+          "Design-to-Code Examples",
+          "Developer Handoff Support",
+          "RTL & Responsive Ready",
+        ],
         accessLabel: "Request Access",
         accessTitle: "Access the Design System Showcase",
         accessBody:
@@ -433,6 +512,22 @@ const DesignSystemPage = () => {
             </Link>
           ))}
         </div>
+      </SectionWrap>
+
+      <SectionWrap background={bg}>
+        <SectionLabel>{copy.previewLabel}</SectionLabel>
+        <SectionTitle>{copy.previewTitle}</SectionTitle>
+        <SectionRule />
+        <SectionBody style={{ maxWidth: "74ch", marginBottom: 24 }}>
+          {copy.previewBody}
+        </SectionBody>
+        <DesignSystemPreviewGallery
+          items={copy.previewImages}
+          highlightsTitle={copy.previewHighlightsTitle}
+          highlights={copy.previewHighlights}
+          openLabel={copy.previewOpenLabel}
+          closeLabel={copy.previewCloseLabel}
+        />
       </SectionWrap>
 
       <SectionWrap>
