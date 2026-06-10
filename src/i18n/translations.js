@@ -132,7 +132,7 @@ Work closely with product owners, business analysts, developers, and QA to trans
 Collaborate directly with the development team on front-end implementation using HTML, CSS, and JavaScript — bridging design intent with production-quality delivery.`,
     },
     2: {
-      date: "Jan 2025 - July 2025",
+      date: "Jan 2023 - July 2025",
       jobtitle: "UI/UX Designer",
       companyname: "Confidential Government",
       role: `Contributed to the UX improvement process for an enterprise platform and companion mobile application. Built core components of the platform's design system and collaborated with business analysts, developers, and QA to ensure accurate implementation of UX and UI specifications.
@@ -415,8 +415,7 @@ export const translations = {
     },
     home: {
       hero: {
-        role:
-          "Government UX Leader · Design Systems Lead · DesignOps Practitioner · Design-to-Code Professional",
+        role: "Government UX Leader · Design Systems Lead · DesignOps Practitioner · Design-to-Code Professional",
         certificationBadge: "Google UX Design Professional Certificate Holder",
         certificationTitle: "Google UX Design Professional Certificate",
         certVerified: "Verified",
@@ -1252,8 +1251,7 @@ export const translations = {
     },
     home: {
       hero: {
-        role:
-          "قائد تجربة المستخدم الحكومية · قائد أنظمة التصميم · ممارس DesignOps · متخصص Design-to-Code",
+        role: "قائد تجربة المستخدم الحكومية · قائد أنظمة التصميم · ممارس DesignOps · متخصص Design-to-Code",
         certificationBadge:
           "حاصل على شهادة جوجل المهنية في تصميم تجربة المستخدم",
         certificationTitle: "شهادة جوجل في تصميم تجربة المستخدم",
