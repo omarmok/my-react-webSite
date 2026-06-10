@@ -4,9 +4,17 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import '../styles/globals.scss';
 import Layouts from '../components/Layouts';
+import ThemeToggle from "../components/ThemeToggle";
 import { TranslationProvider, useTranslation } from '../src/i18n/useTranslation';
 import { ibmPlexSansArabic } from "../src/fonts";
 import { initHotjar } from "../lib/analytics/hotjar";
+import {
+  applyTheme,
+  DARK_THEME,
+  LIGHT_THEME,
+  persistTheme,
+  resolveInitialTheme,
+} from "../src/theme/theme";
 config.autoAddCss = false;
 
 const WhatsAppLink = () => {
@@ -32,6 +40,25 @@ const WhatsAppLink = () => {
   );
 };
 
+const FloatingThemeToggle = ({ theme, onToggle }) => {
+  const { t } = useTranslation();
+  const ariaLabel =
+    theme === DARK_THEME
+      ? (t("nav.themeToggle.switchToLight") ?? "Switch to light mode")
+      : (t("nav.themeToggle.switchToDark") ?? "Switch to dark mode");
+
+  return (
+    <div className="theme-toggle-floating">
+      <ThemeToggle
+        theme={theme}
+        onToggle={onToggle}
+        ariaLabel={ariaLabel}
+        orientation="vertical"
+      />
+    </div>
+  );
+};
+
 const WAVEFORM_BARS = [3, 8, 14, 20, 16, 10, 22, 18, 12, 24, 16, 8, 20, 14, 10, 18, 12, 6];
 
 const fmt = (s) => {
@@ -43,10 +70,19 @@ const fmt = (s) => {
 
 const AudioCard = ({ isPlaying, onClick, audioRef }) => {
   const { t, language } = useTranslation();
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const isRTL = language === 'ar';
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return undefined;
+    }
+
+    setIsExpanded(window.innerWidth >= 992);
+    return undefined;
+  }, []);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -171,6 +207,7 @@ function MyApp({ Component, pageProps }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [language, setLanguage] = useState('en');
+  const [theme, setTheme] = useState(LIGHT_THEME);
   const hotjarId = 1978942;
   const hotjarVersion = 6;
 
@@ -269,6 +306,15 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return undefined;
+    }
+
+    setTheme(resolveInitialTheme());
+    return undefined;
+  }, []);
+
+  useEffect(() => {
     if (typeof document === 'undefined') {
       return undefined;
     }
@@ -282,12 +328,24 @@ function MyApp({ Component, pageProps }) {
     return undefined;
   }, [language]);
 
+  useEffect(() => {
+    applyTheme(theme);
+  }, [theme]);
+
   const toggleLanguage = () => {
     setLanguage((prev) => {
       const next = prev === 'en' ? 'ar' : 'en';
       if (typeof window !== 'undefined') {
         window.localStorage.setItem('site_lang', next);
       }
+      return next;
+    });
+  };
+
+  const toggleTheme = () => {
+    setTheme((prev) => {
+      const next = prev === DARK_THEME ? LIGHT_THEME : DARK_THEME;
+      persistTheme(next);
       return next;
     });
   };
@@ -315,7 +373,10 @@ function MyApp({ Component, pageProps }) {
       <Layouts
         fontClass={`${ibmPlexSansArabic.className} ${ibmPlexSansArabic.variable} font-ibm-plex-sans-arabic`}
         onToggleLanguage={toggleLanguage}
+        onToggleTheme={toggleTheme}
+        theme={theme}
       >
+        <FloatingThemeToggle theme={theme} onToggle={toggleTheme} />
         <WhatsAppLink />
 
         <AudioCard isPlaying={isPlaying} onClick={playAudio} audioRef={audioRef} />

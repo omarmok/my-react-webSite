@@ -117,13 +117,13 @@ const DesignSystemPreviewGallery = ({
 
         .ds-preview__card {
           appearance: none;
-          border: 1px solid rgba(15, 23, 42, 0.1);
+          border: 1px solid var(--theme-border);
           border-radius: 20px;
-          background: #ffffff;
+          background: var(--theme-bg-card);
           padding: 10px;
           margin: 0;
           cursor: pointer;
-          box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+          box-shadow: var(--theme-shadow-card);
           transition:
             transform 0.22s ease,
             box-shadow 0.22s ease,
@@ -134,13 +134,13 @@ const DesignSystemPreviewGallery = ({
 
         .ds-preview__card:hover {
           transform: translateY(-4px);
-          border-color: rgba(107, 71, 245, 0.24);
-          box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
+          border-color: var(--theme-brand-soft-strong);
+          box-shadow: var(--theme-shadow-raised);
         }
 
         .ds-preview__card:focus-visible,
         .ds-preview__lightbox-close:focus-visible {
-          outline: 3px solid rgba(107, 71, 245, 0.35);
+          outline: 3px solid var(--theme-focus-ring);
           outline-offset: 3px;
         }
 
@@ -151,8 +151,11 @@ const DesignSystemPreviewGallery = ({
           aspect-ratio: 16 / 10;
           overflow: hidden;
           border-radius: 14px;
-          background:
-            linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 247, 255, 1));
+          background: linear-gradient(
+            180deg,
+            var(--theme-bg-surface),
+            var(--theme-bg-subtle)
+          );
         }
 
         .ds-preview__image {
@@ -165,16 +168,16 @@ const DesignSystemPreviewGallery = ({
         }
 
         .ds-preview__highlights {
-          border: 1px solid rgba(15, 23, 42, 0.08);
+          border: 1px solid var(--theme-border);
           border-radius: 18px;
-          background: #ffffff;
+          background: var(--theme-bg-card);
           padding: 22px;
-          box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+          box-shadow: var(--theme-shadow-card);
         }
 
         .ds-preview__highlights-title {
           margin: 0 0 16px;
-          color: #0f172a;
+          color: var(--theme-text-primary);
           font-size: 1.05rem;
           font-weight: 800;
           line-height: 1.35;
@@ -190,7 +193,7 @@ const DesignSystemPreviewGallery = ({
           display: flex;
           align-items: flex-start;
           gap: 10px;
-          color: #334155;
+          color: var(--theme-text-secondary);
           font-size: 0.96rem;
           line-height: 1.6;
         }
@@ -201,14 +204,14 @@ const DesignSystemPreviewGallery = ({
           margin-top: 9px;
           flex-shrink: 0;
           border-radius: 999px;
-          background: #6b47f5;
+          background: var(--theme-brand-primary);
         }
 
         .ds-preview__lightbox {
           position: fixed;
           inset: 0;
           z-index: ${overlayZIndex};
-          background: rgba(15, 23, 42, 0.82);
+          background: var(--theme-bg-overlay);
           padding: 32px 20px;
           display: flex;
           align-items: center;
@@ -221,9 +224,9 @@ const DesignSystemPreviewGallery = ({
           max-height: calc(100vh - 96px);
           border-radius: 22px;
           overflow: hidden;
-          border: 1px solid rgba(255, 255, 255, 0.16);
-          box-shadow: 0 28px 60px rgba(0, 0, 0, 0.28);
-          background: #ffffff;
+          border: 1px solid var(--theme-border-strong);
+          box-shadow: var(--theme-shadow-raised);
+          background: var(--theme-bg-surface);
         }
 
         .ds-preview__lightbox-image {
@@ -232,7 +235,7 @@ const DesignSystemPreviewGallery = ({
           height: auto;
           max-height: calc(100vh - 96px);
           object-fit: contain;
-          background: #ffffff;
+          background: var(--theme-bg-surface);
         }
 
         .ds-preview__lightbox-close {
@@ -242,7 +245,7 @@ const DesignSystemPreviewGallery = ({
           z-index: ${overlayZIndex + 1};
           width: 48px;
           height: 48px;
-          border: 1px solid rgba(255, 255, 255, 0.24);
+          border: 1px solid var(--theme-border-strong);
           border-radius: 999px;
           background: rgba(255, 255, 255, 0.12);
           color: #ffffff;

@@ -16,14 +16,16 @@ import designSystemPreviewFive from "../public/images/ds-5.png";
 const REDIRECT_URL = "/PS-Design/DesignSystemDocumentation/index.html";
 const WHATSAPP_URL = "https://wa.me/+966535468309";
 
-const purple = "#6b47f5";
-const ink = "#0f172a";
-const inkMid = "#334155";
-const inkLight = "#64748b";
-const border = "#e2e8f0";
-const bg = "#f8f7ff";
+const purple = "var(--theme-brand-primary)";
+const ink = "var(--theme-text-primary)";
+const inkMid = "var(--theme-text-secondary)";
+const inkLight = "var(--theme-text-muted)";
+const border = "var(--theme-border)";
+const bg = "var(--theme-bg-subtle)";
+const surface = "var(--theme-bg-surface)";
+const card = "var(--theme-bg-card)";
 
-const SectionWrap = ({ children, background = "#fff" }) => (
+const SectionWrap = ({ children, background = surface }) => (
   <section style={{ background, padding: "48px 0" }}>
     <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
       {children}
@@ -97,7 +99,7 @@ const SectionBody = ({ children, style = {} }) => (
 );
 
 const teaserBulletStyle = {
-  background: "#fff",
+  background: surface,
   border: `1px solid ${border}`,
   borderRadius: 10,
   padding: "14px 16px",
@@ -388,7 +390,7 @@ const DesignSystemPage = () => {
         <SectionRule />
         <div
           style={{
-            background: "#fff",
+            background: card,
             border: `1px solid ${border}`,
             borderRadius: 14,
             padding: "24px",
@@ -498,7 +500,7 @@ const DesignSystemPage = () => {
               href={link.href}
               {...buildSupportLinkProps(link.href)}
               style={{
-                background: "#fff",
+                background: surface,
                 border: `1px solid ${border}`,
                 borderRadius: 10,
                 padding: "14px 16px",
@@ -536,7 +538,7 @@ const DesignSystemPage = () => {
         <SectionRule />
         <div
           style={{
-            background: "#fff",
+            background: card,
             border: `1px solid ${border}`,
             borderRadius: 14,
             padding: "22px",
@@ -629,7 +631,7 @@ const DesignSystemPage = () => {
                 style={{ display: "inline-block", textDecoration: "none" }}>
                 <div
                   style={{
-                    background: "#fff",
+                    background: surface,
                     border: `1px solid ${border}`,
                     borderRadius: 10,
                     padding: 10,

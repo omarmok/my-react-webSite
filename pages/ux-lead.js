@@ -2,12 +2,14 @@ import Link from "next/link";
 import PageHeader from "../components/PageHeader";
 import { useTranslation } from "../src/i18n/useTranslation";
 
-const accent = "#6b47f5";
-const ink = "#0f172a";
-const inkMid = "#334155";
-const bg = "#f8f7ff";
-const purpleLight = "#ede9fd";
-const border = "#e2e8f0";
+const accent = "var(--theme-brand-primary)";
+const ink = "var(--theme-text-primary)";
+const inkMid = "var(--theme-text-secondary)";
+const bg = "var(--theme-bg-subtle)";
+const purpleLight = "var(--theme-brand-soft)";
+const border = "var(--theme-border)";
+const surface = "var(--theme-bg-surface)";
+const card = "var(--theme-bg-card)";
 
 const SectionLabel = ({ children }) => (
   <p
@@ -83,7 +85,7 @@ export default function UXLead() {
       />
 
       {/* What UX Leadership Means */}
-      <section style={{ background: "#fff", padding: "64px 0" }}>
+      <section style={{ background: surface, padding: "64px 0" }}>
         <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
           <SectionLabel>{isRTL ? "نهج العمل" : "Approach"}</SectionLabel>
           <h2
@@ -195,7 +197,7 @@ export default function UXLead() {
               <div
                 key={item.title}
                 style={{
-                  background: "#fff",
+                  background: card,
                   borderRadius: 12,
                   padding: 24,
                   border: `1px solid ${border}`,
@@ -225,7 +227,7 @@ export default function UXLead() {
       </section>
 
       {/* Track Record */}
-      <section style={{ background: "#fff", padding: "64px 0" }}>
+      <section style={{ background: surface, padding: "64px 0" }}>
         <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
           <SectionLabel>
             {isRTL ? "المسار المهني" : "Track Record"}
@@ -305,7 +307,7 @@ export default function UXLead() {
       {/* CTA */}
       <section
         style={{
-          background: `linear-gradient(135deg, ${accent} 0%, #4f35c4 100%)`,
+          background: `linear-gradient(135deg, ${accent} 0%, var(--theme-brand-strong) 100%)`,
           padding: "64px 0",
         }}>
         <div
@@ -347,7 +349,7 @@ export default function UXLead() {
             <Link
               href="/projects"
               style={{
-                background: "#fff",
+                background: card,
                 color: accent,
                 padding: "14px 28px",
                 borderRadius: 8,

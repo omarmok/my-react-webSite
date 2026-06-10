@@ -7,7 +7,13 @@ import Footer from "./Footer";
 import { useTranslation } from "../src/i18n/useTranslation";
 import { translations } from "../src/i18n/translations";
 
-const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
+const Layouts = ({
+  children,
+  fontClass = "",
+  onToggleLanguage = () => {},
+  onToggleTheme = () => {},
+  theme = "light",
+}) => {
   const router = useRouter();
   const { dictionary, language } = useTranslation();
   const fallbackMeta = translations.en?.meta ?? {};
@@ -286,7 +292,7 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
         <meta name="geo.region" content="SA" />
         <meta name="geo.country" content="Saudi Arabia" />
         <meta name="geo.placename" content="Saudi Arabia" />
-        <meta name="theme-color" content="#0f172a" />
+        <meta name="theme-color" content="#f2f3f5" />
 
         {/* Performance & Security */}
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -396,7 +402,11 @@ const Layouts = ({ children, fontClass = "", onToggleLanguage = () => {} }) => {
           }}
         />
       </Head>
-      <Nav onToggleLanguage={onToggleLanguage} />
+      <Nav
+        onToggleLanguage={onToggleLanguage}
+        onToggleTheme={onToggleTheme}
+        theme={theme}
+      />
       <main id="main-content">
         {children}
       </main>

@@ -5,13 +5,15 @@ import PageHeader from "../components/PageHeader";
 import { useTranslation } from "../src/i18n/useTranslation";
 
 /* ── shared values ─────────────────────────────────────────────────────── */
-const purple = "#6b47f5";
-const ink = "#0f172a";
-const inkMid = "#334155";
-const inkLight = "#64748b";
-const border = "#e2e8f0";
-const bg = "#f8f7ff";
-const purpleLight = "#ede9fd";
+const purple = "var(--theme-brand-primary)";
+const ink = "var(--theme-text-primary)";
+const inkMid = "var(--theme-text-secondary)";
+const inkLight = "var(--theme-text-muted)";
+const border = "var(--theme-border)";
+const bg = "var(--theme-bg-subtle)";
+const purpleLight = "var(--theme-brand-soft)";
+const surface = "var(--theme-bg-surface)";
+const card = "var(--theme-bg-card)";
 
 /* ── tiny reusable pieces ──────────────────────────────────────────────── */
 const Label = ({ children }) => (
@@ -80,7 +82,7 @@ const Rule = () => (
   />
 );
 
-const Wrap = ({ children, bg: background = "#fff", style = {} }) => (
+const Wrap = ({ children, bg: background = surface, style = {} }) => (
   <section style={{ background: background, padding: "48px 0", ...style }}>
     <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
       {children}
@@ -212,7 +214,7 @@ const CaseStudy = () => {
             <div
               key={title}
               style={{
-                background: "#fff",
+                background: card,
                 border: `1px solid ${border}`,
                 borderRadius: 12,
                 padding: "20px 18px",
@@ -395,7 +397,7 @@ const CaseStudy = () => {
       </Wrap>
 
       {/* ── KEY FEATURES ─────────────────────────────────────────────────── */}
-      <Wrap bg="#fff">
+      <Wrap bg={surface}>
         <Label>{cs.features.label}</Label>
         <H2>{cs.features.h2}</H2>
         <Rule />
