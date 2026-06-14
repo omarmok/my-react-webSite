@@ -672,7 +672,7 @@ export default function Home() {
             </div>
 
             {/* ── Right column: content ── */}
-            <div className="col-lg-8 col-12">
+            <div className="col-lg-8 col-12 hero-content-column">
               <div className="hero-content">
                 {/* 1 · Name + title */}
                 <div className="title">
