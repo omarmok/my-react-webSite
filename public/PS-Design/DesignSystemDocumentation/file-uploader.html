@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File Uploader | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+      color: #1f2a37;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .docs-sidebar {
+      z-index: 2;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      position: relative;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .sidebar-nav a.is-active {
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+    }
+
+    .sidebar-nav a.is-active::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-inline-start: 4px solid #1c8354;
+      border-radius: 10px;
+      mix-blend-mode: screen;
+    }
+
+    .lang-toggle {
+      margin-top: 12px;
+      width: 100%;
+      background: #fff;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+      direction: ltr;
+      flex-direction: row;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #cbd5f5;
+      box-shadow: 0 14px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .lang-toggle svg {
+      width: 20px;
+      height: 20px;
+      order: 0;
+    }
+
+    .lang-toggle span {
+      order: 1;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .page-header .code-inline {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .two-col {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .two-col h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .two-col ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .variant-case {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .example-shell {
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 18px 28px rgba(15, 23, 42, 0.06);
+    }
+
+    .example-panel {
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 16px;
+      background: #fefefe;
+      margin-top: 20px;
+    }
+
+    .example-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #4b5563;
+      margin-bottom: 12px;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .example-label::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      display: inline-block;
+    }
+
+    .example-caption {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+
+    .anatomy-diagram {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .diagram-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .diagram-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .diagram-box {
+      flex: 1;
+      min-width: 200px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+      padding: 16px;
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .diagram-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .diagram-desc {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #4d5761;
+    }
+
+    .do-dont-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .do-block,
+    .dont-block {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      background: #fff;
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .block-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .do-icon,
+    .dont-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .do-icon {
+      background: #1c8354;
+    }
+
+    .dont-icon {
+      background: #dc2626;
+    }
+
+    .do-block ul,
+    .dont-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .do-block li,
+    .dont-block li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-weight: 600;
+      color: #1f2a37;
+    }
+
+    .do-block li span[data-i18n],
+    .dont-block li span[data-i18n] {
+      display: inline;
+      font-weight: 400;
+    }
+
+    .li-icon {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 10px;
+      flex-shrink: 0;
+      background: #1c8354;
+    }
+
+    .dont-block .li-icon {
+      background: #dc2626;
+    }
+
+    .governance-grid {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .governance-pillar {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      background: #fff;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.05);
+    }
+
+    .governance-pillar h3 {
+      margin-top: 0;
+    }
+
+    .qa-note,
+    .aria-note {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: #f5f7fb;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.9rem;
+      color: #1f2a37;
+    }
+
+    .qa-note strong,
+    .aria-note strong {
+      font-weight: 600;
+    }
+
+    .accessibility-list {
+      margin-top: 16px;
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .accessibility-list li {
+      padding-left: 24px;
+      position: relative;
+      line-height: 1.5;
+      color: #1f2a37;
+    }
+
+    .accessibility-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.35em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #1c8354;
+    }
+
+    .docs-table {
+      width: 100%;
+      margin-top: 16px;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .docs-table th,
+    .docs-table td {
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .docs-table th {
+      background: #f9fafb;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .docs-table tbody tr:nth-child(even) {
+      background: #fafbfc;
+    }
+
+    .preview-support-table-wrap {
+      margin-top: 16px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .docs-table--preview-support {
+      margin-top: 0;
+      table-layout: fixed;
+    }
+
+    .docs-table--preview-support col:first-child {
+      width: 24%;
+    }
+
+    .docs-table--preview-support col:nth-child(2) {
+      width: 18%;
+    }
+
+    .docs-table--preview-support th,
+    .docs-table--preview-support td {
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    .docs-table--preview-support td {
+      unicode-bidi: plaintext;
+    }
+
+    .docs-table--preview-support .code-inline {
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .docs-bidi-ltr {
+      direction: ltr;
+      unicode-bidi: isolate;
+      display: inline-block;
+      max-width: 100%;
+      text-align: start;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .code-block {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #0f172a;
+      padding: 16px;
+      overflow-x: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      direction: ltr;
+      text-align: left;
+    }
+
+    .code-inline {
+      font-family: SFMono-Regular, Consolas, monospace;
+      font-size: 0.85em;
+      background: #f3f4f6;
+      border-radius: 4px;
+      padding: 1px 6px;
+    }
+
+    .copy-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .copy-status {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .page-layout {
+      direction: rtl;
+    }
+
+    html[dir="rtl"] .page-content,
+    html[dir="rtl"] .page-header,
+    html[dir="rtl"] .section-card {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .top-actions {
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+    }
+
+    html[dir="rtl"] .sidebar-nav a {
+      text-align: right;
+    }
+
+    html[dir="rtl"] .sidebar-nav a.is-active::after {
+      border-inline-start: 0;
+      border-inline-end: 4px solid #1c8354;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table--preview-support {
+      direction: rtl;
+    }
+
+    html[dir="rtl"] .docs-table--preview-support .docs-bidi-ltr {
+      text-align: left;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline,
+    html[dir="rtl"] .code-block pre {
+      direction: ltr;
+      text-align: left;
+    }
+
+    html[dir="rtl"] .moi-file-uploader {
+      direction: rtl;
+    }
+
+    .demo-fixed-reset {
+      position: relative !important;
+      inset: auto !important;
+      background: transparent !important;
+      padding: 0 !important;
+      display: block !important;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .copy-tooltip {
+      position: fixed;
+      z-index: 1000;
+      background: #111827;
+      color: #f9fafb;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .copy-tooltip.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./file-uploader.html" class="is-active" data-i18n data-ar="رافع الملفات">File Uploader</a>
+        </nav>
+      </div>
+    </aside>
+
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><svg width="24"
+            height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.05469 1.25C9.42218 1.24998 10.5247 1.24968 11.3916 1.36621C12.2917 1.48723 13.0495 1.74672 13.6514 2.34863C14.2533 2.95055 14.5128 3.70829 14.6338 4.6084C14.7503 5.47534 14.75 6.57782 14.75 7.94531V9.25488C15.1235 9.25143 15.5218 9.24999 15.9453 9.25H16.0547C17.4222 9.24998 18.5247 9.24968 19.3916 9.36621C20.2917 9.48723 21.0495 9.74672 21.6514 10.3486C22.2533 10.9505 22.5128 11.7083 22.6338 12.6084C22.7503 13.4753 22.75 14.5778 22.75 15.9453V16.0547C22.75 17.4222 22.7503 18.5247 22.6338 19.3916C22.5128 20.2917 22.2533 21.0495 21.6514 21.6514C21.0495 22.2533 20.2917 22.5128 19.3916 22.6338C18.5247 22.7503 17.4222 22.75 16.0547 22.75H15.9453C14.5778 22.75 13.4753 22.7503 12.6084 22.6338C11.7083 22.5128 10.9505 22.2533 10.3486 21.6514C9.74672 21.0495 9.48723 20.2917 9.36621 19.3916C9.24968 18.5247 9.24998 17.4222 9.25 16.0547V15.9453C9.24999 15.5218 9.25143 15.1235 9.25488 14.75H7.94531C6.57782 14.75 5.47534 14.7503 4.6084 14.6338C3.70829 14.5128 2.95055 14.2533 2.34863 13.6514C1.74672 13.0495 1.48723 12.2917 1.36621 11.3916C1.24968 10.5247 1.24998 9.42218 1.25 8.05469V7.94531C1.24998 6.57782 1.24968 5.47534 1.36621 4.6084C1.48723 3.70829 1.74672 2.95055 2.34863 2.34863C2.95055 1.74672 3.70829 1.48723 4.6084 1.36621C5.47534 1.24968 6.57782 1.24998 7.94531 1.25H8.05469Z"
+              fill="currentColor"></path>
+          </svg><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.9975 3.25C11.624 3.25 11.2774 3.41565 11.0172 3.57252C10.7364 3.7418 10.4464 3.96944 10.1638 4.21918C9.59669 4.72018 8.98771 5.37387 8.43684 6.00823L11.999 20Z"
+              fill="white"></path>
+          </svg><span data-i18n data-ar="أعلى">Top</span>
+        </button>
+      </div>
+
+      <div class="page-header">
+        <div class="eyebrow" data-i18n data-ar="PS Design / المكوّنات">PS Design / Components</div>
+        <h1 class="mt-2 mb-2" data-i18n data-ar="رافع الملفات">File Uploader</h1>
+        <p class="section-note mb-0" data-i18n data-ar="مكوّن لرفع المرفقات يجمع بين اسم وصفي إلزامي، منطقة سحب وإفلات، شريط تقدم، قائمة ملفات، ومعاينة كاملة لكل نوع ملف — مبني بالكامل على توكنات PS-Design.">
+          A document-upload component pairing a required descriptive name with a drag-and-drop zone, live progress,
+          a file list, and a type-aware preview modal — built entirely on PS-Design tokens.
+        </p>
+      </div>
+      <div class="metadata-row">
+        <span class="metadata-pill" data-i18n data-ar="المكوّن: رافع الملفات">Component: File Uploader</span>
+        <span class="metadata-pill" data-i18n data-ar="الإصدار: 1.2 (تحسينات الوصول والمعاينة)">Version: 1.2 (Accessibility &amp; Preview enhancements)</span>
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 16 يونيو 2026">Last updated: June 16, 2026</span>
+      </div>
+
+      <section class="section" id="overview">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="لمحة عامة">Overview</h2>
+          <p class="section-note" data-i18n data-ar="رافع الملفات (.moi-file-uploader) هو المكوّن الرسمي لرفع المرفقات في الأنظمة الحكومية. يربط كل ملف باسم وصفي يدخله المستخدم قبل الرفع، ويمنع الرفع حتى يتم إدخال هذا الاسم، مما يضمن أن كل وثيقة في النظام مسمّاة بشكل ذي معنى منذ لحظة وصولها.">
+          <code class="code-inline">.moi-file-uploader</code> is the official attachment-upload component for
+          government systems. It binds every file to a descriptive name the user must enter before the dropzone
+          unlocks, so every document that enters the system already has a meaningful name from the moment it
+          arrives — not just whatever filename the user's device happened to assign it.
+          </p>
+
+          <div class="two-col">
+            <div>
+              <h4 data-i18n data-ar="متى تستخدمه">When to use it</h4>
+              <ul>
+                <li data-i18n data-ar="عند طلب مرفق رسمي واحد أو عدة مرفقات يجب تسميتها بوضوح (هوية، عقد، تقرير، دليل).">Requesting one or more official attachments that must be clearly named (ID scan, contract, report,
+                  evidence file).</li>
+                <li data-i18n data-ar="عند الحاجة لمعاينة الملف داخل الصفحة دون مغادرتها أو تثبيت برنامج خارجي.">The reviewer needs to preview the file in-page, without leaving the screen or opening a separate
+                  application.</li>
+                <li data-i18n data-ar="عند الحاجة لقيود واضحة على نوع وحجم الملفات المقبولة قبل وصولها للخادم.">You need clear client-side limits on accepted file types/size before anything reaches the server.</li>
+              </ul>
+            </div>
+            <div>
+              <h4 data-i18n data-ar="متى لا تستخدمه">When not to use it</h4>
+              <ul>
+                <li data-i18n data-ar="لرفع صورة شخصية واحدة بسيطة فقط (افضل استخدام حقل رفع صورة مخصص وأخف).">A single simple avatar/profile-picture upload — use a lighter, dedicated image-upload control instead.</li>
+                <li data-i18n data-ar="عندما لا تحتاج لاسم وصفي للملف على الإطلاق (المكوّن يفرض هذا الحقل دائمًا).">Flows that never need a descriptive name — this component always requires one by design.</li>
+                <li data-i18n data-ar="لرفع ملفات ضخمة تتجاوز ميجابايتات قليلة بشكل اعتيادي (الحد الافتراضي هو 5 ميجابايت).">Routine uploads of very large files — the built-in limit is 5&nbsp;MB per file.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h4 class="mt-4" data-i18n data-ar="حالات استخدام نموذجية">Typical use cases</h4>
+          <ul>
+            <li data-i18n data-ar="البوابات الحكومية — استمارات تتطلب مرفقات رسمية باسم وصفي واضح.">Government portals — forms that require official attachments with a clear descriptive name.</li>
+            <li data-i18n data-ar="خدمات المواطن — تقديم وثائق هوية أو مستندات داعمة لطلب خدمة.">Citizen services — submitting ID documents or supporting paperwork for a service request.</li>
+            <li data-i18n data-ar="الأنظمة الداخلية للموظفين — رفع تقارير، نماذج، أو مرفقات إدارية.">Internal employee systems — uploading reports, forms, or administrative attachments.</li>
+            <li data-i18n data-ar="أنظمة إدارة القضايا — ربط كل مستند بقضية محددة باسم وصفي يسهل تتبعه لاحقًا.">Case management systems — attaching documents to a specific case with a name that stays traceable later.</li>
+            <li data-i18n data-ar="تقديم الأدلة والمستندات — حيث تكون دقة التسمية والثبات في السلوك أمرًا حساسًا.">Evidence/document submission — where naming accuracy and predictable behavior matter most.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="anatomy">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="بنية المكوّن">Component Anatomy</h2>
+          <p class="section-note" data-i18n data-ar="يتكوّن المكوّن من بطاقتين مستقلتين (حقل الاسم/منطقة الرفع، وقائمة الملفات المرفوعة) ونافذة معاينة منبثقة، وكلها مبنية بنمط BEM تحت الفئة الجذرية .moi-file-uploader.">
+            The component is two independent cards (name field/dropzone, and the uploaded-files list) plus a preview
+            modal, all built in BEM under the root <code class="code-inline">.moi-file-uploader</code> class.
+          </p>
+
+          <div class="anatomy-diagram">
+            <div class="diagram-row">
+              <div class="diagram-box">
+                <span class="diagram-label" data-i18n data-ar="العنوان والوصف">Title &amp; Description</span>
+                <p class="diagram-desc" data-i18n data-ar="ترويسة الصفحة (خارج المكوّن نفسه) تشرح الغرض من الرفع قبل أن يبدأ المستخدم.">The page heading and intro line (outside the component itself) explain the purpose of the upload before
+                  the user starts.</p>
+              </div>
+              <div class="diagram-box">
+                <span class="diagram-label" data-i18n data-ar="حقل الاسم الوصفي">Name Field</span>
+                <p class="diagram-desc" data-i18n data-ar="حقل نصي إلزامي (.moi-file-uploader__input) يخزن الاسم الوصفي. لا يمكن فتح منطقة الرفع قبل تعبئته.">A required text input (<code class="code-inline">.moi-file-uploader__input</code>) holding the descriptive
+                  name. The dropzone stays disabled until it's filled.</p>
+              </div>
+              <div class="diagram-box">
+                <span class="diagram-label" data-i18n data-ar="حالة التحقق">Validation State</span>
+                <p class="diagram-desc" data-i18n data-ar="حالتا is-err و is-ok على الحقل، مع رسالة خطأ (role=&quot;alert&quot; ضمنيًا عبر التبديل) ورمز aria-invalid متزامن.">
+                  <code class="code-inline">.is-err</code> / <code class="code-inline">.is-ok</code> modifier
+                  classes on the input, paired with a live error hint and a synced <code
+                    class="code-inline">aria-invalid</code> attribute.</p>
+              </div>
+              <div class="diagram-box">
+                <span class="diagram-label" data-i18n data-ar="حالة النجاح">Success State</span>
+                <p class="diagram-desc" data-i18n data-ar="أيقونة صح داخل الحقل + رسالة &quot;تم حفظ الاسم&quot;. تُمسح كلاهما تلقائيًا بعد اكتمال أول رفع بنجاح.">A checkmark inside the input plus a "اسم محفوظ" hint. Both are automatically cleared once the first
+                  upload completes, via <code class="code-inline">resetNameField()</code>.</p>
+              </div>
+            </div>
+            <div class="diagram-row">
+              <div class="diagram-box">
+                <span class="diagram-label" data-i18n data-ar="منطقة السحب والإفلات">Dropzone</span>
+                <p class="diagram-desc" data-i18n data-ar="عنصر قابل للنقر والسحب والإفلات (role=&quot;button&quot; tabindex=&quot;0&quot;) معطل بصريًا ووظيفيًا (aria-disabled) حتى يصبح الاسم صالحًا.">A click + drag-and-drop target (<code class="code-inline">role="button" tabindex="0"</code>), visually
+                  and semantically disabled (<code class="code-inline">aria-disabled</code>) until the name is
+                  valid.</p>
+              </div>
+              <div class="diagram-box">
+                <span class="diagram-label" data-i18n data-ar="شريط تقدم الرفع">Upload Progress</span>
+                <p class="diagram-desc" data-i18n data-ar="صف مؤقت لكل ملف قيد الرفع، مع role=&quot;progressbar&quot; وaria-valuenow متزامن، وزر إلغاء فوري للرفع الجاري.">A temporary row per in-flight file with a real <code class="code-inline">role="progressbar"</code> and
+                  live <code class="code-inline">aria-valuenow</code>, plus an immediate cancel action.</p>
+              </div>
+              <div class="diagram-box">
+                <span class="diagram-label" data-i18n data-ar="قائمة الملفات المرفوعة">Uploaded Files List</span>
+                <p class="diagram-desc" data-i18n data-ar="بطاقة مستقلة (#filesSection) تبقى مخفية تمامًا حتى ينجح أول رفع، وتُخفى مجددًا إن حُذفت كل الملفات.">An independent card (<code class="code-inline">#filesSection</code>) that stays fully hidden until the
+                  first upload succeeds, and hides again if every file is deleted.</p>
+              </div>
+              <div class="diagram-box">
+                <span class="diagram-label" data-i18n data-ar="إجراءات الملف">File Actions</span>
+                <p class="diagram-desc" data-i18n data-ar="زرا معاينة وحذف لكل صف. الحذف يستخدم تأكيدًا بضغطتين (.armed) بدلاً من نافذة تأكيد منفصلة.">A preview and a delete button per row. Delete uses a two-tap "armed" confirmation
+                  (<code class="code-inline">.armed</code>) instead of a separate confirmation dialog.</p>
+              </div>
+            </div>
+            <div class="diagram-row">
+              <div class="diagram-box">
+                <span class="diagram-label" data-i18n data-ar="نافذة المعاينة">Preview Modal</span>
+                <p class="diagram-desc" data-i18n data-ar="حوار (role=&quot;dialog&quot; aria-modal) كبير القياس مع فخ تركيز كامل، يعرض أفضل معاينة ممكنة حسب نوع الملف.">A large <code class="code-inline">role="dialog" aria-modal</code> with a full focus trap, rendering the
+                  best possible preview for the file's detected type.</p>
+              </div>
+              <div class="diagram-box">
+                <span class="diagram-label" data-i18n data-ar="إجراء التنزيل">Download Action</span>
+                <p class="diagram-desc" data-i18n data-ar="زر في تذييل النافذة يعيد بناء الملف الأصلي من الكائن File المخزَّن ويُنزّله باسمه الأصلي.">A footer button that rebuilds the original file from the stored <code class="code-inline">File</code>
+                  object and downloads it under its original filename.</p>
+              </div>
+              <div class="diagram-box">
+                <span class="diagram-label" data-i18n data-ar="إجراء الحذف">Delete Action</span>
+                <p class="diagram-desc" data-i18n data-ar="زر في تذييل النافذة بنفس نمط التأكيد بضغطتين، يحذف الملف ويغلق النافذة معًا.">A footer button using the same two-tap confirm pattern, which deletes the file and closes the modal in
+                  one step.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="variants">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="المتغيّرات">Variants</h2>
+          <p class="section-note" data-i18n data-ar="جميع الأمثلة أدناه عبارة عن ترميز فعلي يستخدم فئات CSS الحقيقية للمكوّن (وليس صور توضيحية)، لذا تُعرض بدقة بصرية مماثلة للمكوّن الحقيقي.">
+            Every example below is real markup using the component's actual CSS classes (not illustrative
+            screenshots), so it renders pixel-accurate to the live component.
+          </p>
+
+          <div class="variant-case">
+            <h3 data-i18n data-ar="١. الحالة الافتراضية">1. Default</h3>
+            <div class="example-panel">
+              <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
+              <div class="example-shell">
+                <div class="moi-file-uploader" style="max-width:100%;" dir="rtl">
+                  <div class="moi-file-uploader__card moi-card">
+                    <div class="moi-file-uploader__body">
+                      <div class="moi-file-uploader__field">
+                        <label class="moi-file-uploader__label">الاسم الوصفي للملف <span
+                            class="moi-file-uploader__required">*</span></label>
+                        <div class="moi-file-uploader__input-wrap">
+                          <input class="form-control moi-file-uploader__input" type="text"
+                            placeholder="مثال: صورة الهوية الوطنية" readonly>
+                        </div>
+                      </div>
+                      <div class="moi-file-uploader__dropzone off">
+                        <svg class="moi-file-uploader__dropzone-icon" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="1.5">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                          <polyline points="17 8 12 3 7 8" />
+                          <line x1="12" y1="3" x2="12" y2="15" />
+                        </svg>
+                        <p class="moi-file-uploader__dropzone-title">اسحب الملف هنا أو <span
+                            class="moi-file-uploader__dropzone-link">اختر من جهازك</span></p>
+                        <p class="moi-file-uploader__dropzone-subtitle">PDF، صور، Office، ملفات نصية — حد أقصى 5
+                          ميجابايت</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="example-caption" data-i18n data-ar="منطقة الرفع معطلة بصريًا حتى يُملأ حقل الاسم الوصفي — هذا هو السلوك النهائي المقصود، وليس عطلاً.">The dropzone is intentionally dimmed and disabled until the descriptive name is filled in — this is the
+                final intended behavior, not a bug.</p>
+            </div>
+          </div>
+
+          <div class="variant-case">
+            <h3 data-i18n data-ar="٢. القائمة الفارغة">2. Empty</h3>
+            <div class="example-panel">
+              <div class="example-label" data-i18n data-ar="مثال مرئي (للتوضيح فقط)">Rendered example (illustrative only)</div>
+              <div class="example-shell">
+                <div class="moi-file-uploader" style="max-width:100%;" dir="rtl">
+                  <div class="moi-file-uploader__card moi-file-uploader__list moi-card">
+                    <div class="moi-file-uploader__list-header">
+                      <p class="moi-file-uploader__list-title">الملفات المرفوعة</p>
+                      <span class="moi-file-uploader__count">0 ملف</span>
+                    </div>
+                    <div class="moi-file-uploader__list-body">
+                      <div class="moi-file-uploader__empty">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+                          <polyline points="13 2 13 9 20 9" />
+                        </svg>
+                        لا توجد ملفات مرفقة بعد
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="example-caption" data-i18n data-ar="في التطبيق الفعلي، بطاقة القائمة بأكملها (#filesSection) تُخفى بالكامل بسمة hidden قبل أول رفع ناجح — هذا المربع الفارغ لا يظهر للمستخدم أبدًا. الصورة هنا توضيحية فقط لشرح ترميز .moi-file-uploader__empty.">In the live component the entire list card (<code class="code-inline">#filesSection</code>) carries the
+                <code class="code-inline">hidden</code> attribute and never renders before the first successful
+                upload — end users never see this empty box. It's shown here only to document the
+                <code class="code-inline">.moi-file-uploader__empty</code> markup.</p>
+            </div>
+          </div>
+
+          <div class="variant-case">
+            <h3 data-i18n data-ar="٣. حالة الرفع الجاري">3. Uploading</h3>
+            <div class="example-panel">
+              <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
+              <div class="example-shell">
+                <div class="moi-file-uploader" style="max-width:100%;" dir="rtl">
+                  <div class="moi-file-uploader__card moi-file-uploader__list moi-card">
+                    <div class="moi-file-uploader__list-header">
+                      <p class="moi-file-uploader__list-title">الملفات المرفوعة</p>
+                      <span class="moi-file-uploader__count show">1 ملف</span>
+                    </div>
+                    <div class="moi-file-uploader__list-body">
+                      <div class="moi-file-uploader__rows">
+                        <div class="moi-file-uploader__uploading-row">
+                          <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--pdf">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z" />
+                              <polyline points="14 2 14 8 20 8" />
+                            </svg>
+                          </div>
+                          <div class="moi-file-uploader__progress">
+                            <div class="moi-file-uploader__file-name">عقد التوريد النهائي</div>
+                            <div class="moi-file-uploader__progress-track">
+                              <div class="moi-file-uploader__progress-bar" style="width:64%;"></div>
+                            </div>
+                          </div>
+                          <span class="moi-file-uploader__progress-percentage">64%</span>
+                          <div class="moi-file-uploader__actions">
+                            <button class="moi-file-uploader__action del" type="button" aria-label="إلغاء رفع الملف">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="example-caption" data-i18n data-ar="كل صف رفع له هدف إلغاء فوري، ويُحدَّث aria-valuenow على عنصر شريط التقدم كل 55 مللي ثانية تقريبًا.">Every uploading row has an immediate cancel target, and <code class="code-inline">aria-valuenow</code> on
+                the progress-bar element updates roughly every 55ms.</p>
+            </div>
+          </div>
+
+          <div class="variant-case">
+            <h3 data-i18n data-ar="٤. حالة النجاح">4. Success</h3>
+            <div class="example-panel">
+              <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
+              <div class="example-shell">
+                <div class="moi-file-uploader" style="max-width:100%;" dir="rtl">
+                  <div class="moi-file-uploader__card moi-file-uploader__list moi-card">
+                    <div class="moi-file-uploader__list-header">
+                      <p class="moi-file-uploader__list-title">الملفات المرفوعة</p>
+                      <span class="moi-file-uploader__count show">1 ملف</span>
+                    </div>
+                    <div class="moi-file-uploader__list-body">
+                      <div class="moi-file-uploader__rows">
+                        <div class="moi-file-uploader__file-row">
+                          <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--pdf">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z" />
+                              <polyline points="14 2 14 8 20 8" />
+                            </svg>
+                          </div>
+                          <div class="moi-file-uploader__file-meta">
+                            <div class="moi-file-uploader__file-name">عقد التوريد النهائي</div>
+                            <div class="moi-file-uploader__file-details">
+                              <span class="moi-file-uploader__file-badge moi-file-uploader__file-badge--pdf">PDF</span>
+                              <span class="moi-file-uploader__dot-separator"></span>
+                              <span class="moi-file-uploader__file-size">842 KB</span>
+                              <span class="moi-file-uploader__dot-separator"></span>
+                              <span class="moi-file-uploader__file-original">contract_final_v3.pdf</span>
+                            </div>
+                          </div>
+                          <div class="moi-file-uploader__actions">
+                            <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                <circle cx="12" cy="12" r="3" />
+                              </svg>
+                            </button>
+                            <button class="moi-file-uploader__action del" type="button" aria-label="حذف الملف">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="3 6 5 6 21 6" />
+                                <path d="M19 6l-1 14H6L5 6" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="variant-case">
+            <h3 data-i18n data-ar="٥. خطأ في التحقق">5. Validation Error</h3>
+            <div class="example-panel">
+              <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
+              <div class="example-shell">
+                <div class="moi-file-uploader" style="max-width:100%;" dir="rtl">
+                  <div class="moi-file-uploader__card moi-card">
+                    <div class="moi-file-uploader__body">
+                      <div class="moi-file-uploader__field">
+                        <label class="moi-file-uploader__label">الاسم الوصفي للملف <span
+                            class="moi-file-uploader__required">*</span></label>
+                        <div class="moi-file-uploader__input-wrap">
+                          <input class="form-control moi-file-uploader__input is-err" type="text"
+                            placeholder="مثال: صورة الهوية الوطنية" aria-invalid="true" readonly>
+                        </div>
+                        <div class="moi-file-uploader__hint">
+                          <span class="moi-file-uploader__hint-error show">هذا الحقل مطلوب — أدخل اسمًا قبل رفع
+                            الملف</span>
+                        </div>
+                      </div>
+                      <div class="moi-file-uploader__error show" role="alert">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="12" cy="12" r="10" />
+                          <line x1="12" y1="8" x2="12" y2="12" />
+                          <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        نوع الملف غير مدعوم — المسموح: PDF، صور، ملفات Office، ملفات نصية
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="example-caption" data-i18n data-ar="رسائل الخطأ تستخدم role=&quot;alert&quot; حقيقي، وaria-invalid يتزامن مع الفئة is-err على الحقل نفسه.">Error banners use a real <code class="code-inline">role="alert"</code>, and
+                <code class="code-inline">aria-invalid</code> stays in sync with the <code
+                  class="code-inline">.is-err</code> class on the input itself.</p>
+            </div>
+          </div>
+
+          <div class="variant-case">
+            <h3 data-i18n data-ar="٦. ملفات متعددة">6. Multiple Files</h3>
+            <div class="example-panel">
+              <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
+              <div class="example-shell">
+                <div class="moi-file-uploader" style="max-width:100%;" dir="rtl">
+                  <div class="moi-file-uploader__card moi-file-uploader__list moi-card">
+                    <div class="moi-file-uploader__list-header">
+                      <p class="moi-file-uploader__list-title">الملفات المرفوعة</p>
+                      <span class="moi-file-uploader__count show">3 ملفات</span>
+                    </div>
+                    <div class="moi-file-uploader__list-body">
+                      <div class="moi-file-uploader__rows">
+                        <div class="moi-file-uploader__file-row">
+                          <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--img">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <rect x="3" y="3" width="18" height="18" rx="2" />
+                              <circle cx="8.5" cy="8.5" r="1.5" />
+                              <polyline points="21 15 16 10 5 21" />
+                            </svg>
+                          </div>
+                          <div class="moi-file-uploader__file-meta">
+                            <div class="moi-file-uploader__file-name">صورة الهوية الوطنية</div>
+                            <div class="moi-file-uploader__file-details">
+                              <span class="moi-file-uploader__file-badge moi-file-uploader__file-badge--img">صورة</span>
+                              <span class="moi-file-uploader__dot-separator"></span>
+                              <span class="moi-file-uploader__file-size">410 KB</span>
+                            </div>
+                          </div>
+                          <div class="moi-file-uploader__actions">
+                            <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="moi-file-uploader__file-row">
+                          <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--xls">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z" />
+                            </svg>
+                          </div>
+                          <div class="moi-file-uploader__file-meta">
+                            <div class="moi-file-uploader__file-name">جدول البيانات المالية</div>
+                            <div class="moi-file-uploader__file-details">
+                              <span class="moi-file-uploader__file-badge moi-file-uploader__file-badge--xls">Excel</span>
+                              <span class="moi-file-uploader__dot-separator"></span>
+                              <span class="moi-file-uploader__file-size">96 KB</span>
+                            </div>
+                          </div>
+                          <div class="moi-file-uploader__actions">
+                            <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="moi-file-uploader__file-row">
+                          <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--pdf">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z" />
+                            </svg>
+                          </div>
+                          <div class="moi-file-uploader__file-meta">
+                            <div class="moi-file-uploader__file-name">عقد التوريد النهائي</div>
+                            <div class="moi-file-uploader__file-details">
+                              <span class="moi-file-uploader__file-badge moi-file-uploader__file-badge--pdf">PDF</span>
+                              <span class="moi-file-uploader__dot-separator"></span>
+                              <span class="moi-file-uploader__file-size">842 KB</span>
+                            </div>
+                          </div>
+                          <div class="moi-file-uploader__actions">
+                            <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="variant-case">
+            <h3 data-i18n data-ar="٧. حالة المعاينة">7. Preview State</h3>
+            <div class="example-panel">
+              <div class="example-label" data-i18n data-ar="مثال مرئي (نافذة المعاينة بدون التراكب الثابت)">Rendered example (modal box, overlay positioning neutralized for inline docs)</div>
+              <div class="example-shell">
+                <div class="moi-file-uploader" dir="rtl">
+                  <div class="moi-file-uploader__modal-overlay demo-fixed-reset open" style="visibility:visible;opacity:1;">
+                    <div class="moi-file-uploader__modal-dialog" style="max-width:560px;">
+                      <div class="moi-file-uploader__modal" style="transform:none;">
+                        <div class="moi-file-uploader__modal-header">
+                          <div class="moi-file-uploader__type-icon moi-file-uploader__modal-icon moi-file-uploader__type-icon--img">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <rect x="3" y="3" width="18" height="18" rx="2" />
+                              <circle cx="8.5" cy="8.5" r="1.5" />
+                              <polyline points="21 15 16 10 5 21" />
+                            </svg>
+                          </div>
+                          <div class="moi-file-uploader__modal-name">
+                            <div class="moi-file-uploader__modal-display">صورة الهوية الوطنية</div>
+                            <div class="moi-file-uploader__modal-original">national_id.jpg &nbsp;·&nbsp; 410 KB</div>
+                          </div>
+                          <button class="moi-file-uploader__modal-close" type="button" aria-label="إغلاق">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <line x1="18" y1="6" x2="6" y2="18" />
+                              <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg>
+                          </button>
+                        </div>
+                        <div class="moi-file-uploader__modal-body">
+                          <div class="moi-file-uploader__preview-image-wrap" style="height:260px;">
+                            <div class="moi-file-uploader__preview-generic-icon moi-file-uploader__type-icon--img" style="margin:0;width:64px;height:64px;display:flex;align-items:center;justify-content:center;">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" />
+                                <polyline points="21 15 16 10 5 21" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div class="moi-file-uploader__preview-meta">
+                            <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">النوع</div><div class="moi-file-uploader__meta-value">صورة</div></div>
+                            <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">الحجم</div><div class="moi-file-uploader__meta-value">410 KB</div></div>
+                          </div>
+                        </div>
+                        <div class="moi-file-uploader__modal-footer">
+                          <button class="btn moi-btn--Neutral--outline" data-size="sm" type="button">إغلاق</button>
+                          <button class="btn moi-btn--Info--outline" data-size="sm" type="button">تنزيل الملف</button>
+                          <button class="btn moi-btn--Error--solid" data-size="sm" type="button">حذف الملف</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="example-caption" data-i18n data-ar="في الاستخدام الحقيقي تكون .moi-file-uploader__modal-overlay ثابتة (position:fixed) وتغطي الشاشة كاملة؛ هنا فقط تم تحييد ذلك مؤقتًا لعرضها داخل سياق الصفحة الوثائقية.">In real usage <code class="code-inline">.moi-file-uploader__modal-overlay</code> is
+                <code class="code-inline">position: fixed</code> and covers the full viewport; that positioning is
+                neutralized here only so the modal can render inline within this documentation page.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="interaction-states">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="حالات التفاعل">Interaction States</h2>
+          <p class="section-note" data-i18n data-ar="لأن حالات :hover/:focus/:active حالات مؤقتة لا يمكن تجميدها في لقطة شاشة ثابتة بدقة، يوثّق الجدول التالي كل حالة بالقيمة الفعلية من ملف _file-uploader.scss بدلاً من محاولة تزييفها بصريًا.">
+            Because <code class="code-inline">:hover</code>/<code class="code-inline">:focus</code>/<code
+              class="code-inline">:active</code> are transient and can't be frozen accurately in a static
+            screenshot, the table below documents every state with its real value straight from
+            <code class="code-inline">_file-uploader.scss</code> rather than faking it visually.
+          </p>
+
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="الحالة">State</th>
+                <th data-i18n data-ar="ينطبق على">Applies to</th>
+                <th data-i18n data-ar="المعالجة البصرية">Visual treatment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n data-ar="افتراضي">Default</td>
+                <td>Dropzone / Input / Action buttons</td>
+                <td data-i18n data-ar="حدود متقطعة Neutral-300 لمنطقة الرفع، حدود Neutral-300 للحقل، أيقونة Neutral-500 للأزرار.">Dashed <code class="code-inline">Neutral-300</code> border on the dropzone, solid
+                  <code class="code-inline">Neutral-300</code> on the input, <code
+                    class="code-inline">Neutral-500</code> icon on action buttons.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="تمرير الفأرة">Hover</td>
+                <td>Dropzone (enabled) / Action buttons / File row</td>
+                <td data-i18n data-ar="خلفية Neutral-25 وحدود Info-300 للمنطقة المفعّلة؛ خلفية Info-50 وأيقونة Info-800 للأزرار؛ خلفية Neutral-25 للصف.">Background <code class="code-inline">Neutral-25</code> + border <code
+                    class="code-inline">Info-300</code> on an enabled dropzone; <code class="code-inline">Info-50</code>
+                  background + <code class="code-inline">Info-800</code> icon on action buttons; <code
+                    class="code-inline">Neutral-25</code> on a file row.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="التركيز">Focus</td>
+                <td>Dropzone / Input / Action buttons / Modal close</td>
+                <td data-i18n data-ar="حلقة تركيز box-shadow 3px بشفافية 8-12% فوق Info-600 (أو Error-500 لأزرار الحذف)، تظهر فقط مع :focus-visible.">A 3px <code class="code-inline">box-shadow</code> focus ring at 8–12% opacity over
+                  <code class="code-inline">Info-600</code> (or <code class="code-inline">Error-500</code> for
+                  delete buttons), shown only on <code class="code-inline">:focus-visible</code> — never on a plain
+                  mouse click.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="النشط/المضغوط">Active / Pressed</td>
+                <td>Action buttons</td>
+                <td data-i18n data-ar="تصغير بسيط scale(0.94) عند :active لإعطاء استجابة لمسية فورية.">A subtle <code class="code-inline">transform: scale(0.94)</code> on
+                  <code class="code-inline">:active</code> for instant tactile feedback.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="معطّل">Disabled</td>
+                <td>Dropzone</td>
+                <td data-i18n data-ar="عتامة 0.44 ومؤشر not-allowed، مع aria-disabled=&quot;true&quot; — العنصر يبقى قابلاً للوصول بلوحة المفاتيح فيرشد المستخدم لحقل الاسم بدلاً من تجاهله.">
+                  <code class="code-inline">opacity: 0.44</code> + <code class="code-inline">cursor:
+                    not-allowed</code>, with <code class="code-inline">aria-disabled="true"</code> — the element
+                  stays keyboard-reachable and redirects the user to the name field instead of silently doing
+                  nothing.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="خطأ">Error</td>
+                <td>Input / Dropzone link / Error banner / Delete (armed)</td>
+                <td data-i18n data-ar="حدود وظل Error-500 للحقل، خلفية Error-50 ونص Error-600 للتنبيه، وحالة .armed دائمة (ليست hover) بنفس ألوان الخطأ لتأكيد الحذف.">
+                  <code class="code-inline">Error-500</code> border/shadow on the input, <code
+                    class="code-inline">Error-50</code> background + <code class="code-inline">Error-600</code>
+                  text on the banner, and a persistent (not hover-only) <code class="code-inline">.armed</code>
+                  state reusing the same error tones for delete confirmation.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="نجاح">Success</td>
+                <td>Input / Hint / Saved icon</td>
+                <td data-i18n data-ar="حدود Primary-500 للحقل، أيقونة وتنبيه Primary-700/500، وكلاهما يُمسح تلقائيًا فور اكتمال الرفع لتحضير الحقل للملف التالي.">
+                  <code class="code-inline">Primary-500</code> border on the input, <code
+                    class="code-inline">Primary-700</code>/<code class="code-inline">Primary-500</code> hint and
+                  icon — both auto-cleared the moment the upload completes, to ready the field for the next file.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="preview-support">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="دعم معاينة الملفات">File Preview Support</h2>
+          <p class="section-note" data-i18n data-ar="يحدّد <code>getPreviewKind()</code> نوع المعاينة عبر فحص MIME الحقيقي للملف (f.file.type) أولًا، ثم يعود للامتداد إذا لم يكن النوع متاحًا أو موثوقًا.">
+            <code class="code-inline">getPreviewKind(f)</code> decides the preview type by checking the file's real
+            MIME type (<code class="code-inline">f.file.type</code>) first, then falling back to the extension when
+            the MIME type is missing or unreliable — exactly as implemented in the final component.
+          </p>
+
+          <div class="table-responsive preview-support-table-wrap">
+            <table class="docs-table docs-table--preview-support">
+              <colgroup>
+                <col />
+                <col />
+                <col />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th data-i18n data-ar="نوع الملف">File Type</th>
+                  <th data-i18n data-ar="دعم المعاينة">Preview Support</th>
+                  <th data-i18n data-ar="السلوك">Behavior</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="docs-bidi-ltr">JPG / JPEG / PNG</span></td>
+                  <td data-i18n data-ar="معاينة مباشرة">Inline preview</td>
+                  <td data-i18n data-ar="عرض &lt;img&gt; كبير داخل .preview-image-wrap (ارتفاع متجاوب يصل حتى 680px) باستخدام object URL تم إنشاؤه عند الرفع وتخزينه في f.dataUrl.">Rendered as a large <code class="code-inline">&lt;img&gt;</code> inside
+                    <code class="code-inline">.preview-image-wrap</code> (responsive height up to 680px), using the
+                    object URL created at upload time and stored as <code class="code-inline">f.dataUrl</code>.</td>
+                </tr>
+                <tr>
+                  <td><span class="docs-bidi-ltr">PDF</span></td>
+                  <td data-i18n data-ar="معاينة مباشرة">Inline preview</td>
+                  <td data-i18n data-ar="عنصر &lt;object type=&quot;application/pdf&quot;&gt; بكائن URL طازج (#view=FitH) داخل منطقة كبيرة (.preview-pdf-wrap، حتى 680px)؛ يُنشأ ويُلغى مع كل فتح/إغلاق للنافذة.">An <code class="code-inline">&lt;object type="application/pdf"&gt;</code> with a fresh object URL
+                    (<code class="code-inline">#view=FitH</code>) in a large area
+                    (<code class="code-inline">.preview-pdf-wrap</code>, up to 680px); created and revoked on every
+                    modal open/close.</td>
+                </tr>
+                <tr>
+                  <td><span class="docs-bidi-ltr">TXT / CSV / JSON / XML / HTML / CSS / JS / SCSS / MD</span></td>
+                  <td data-i18n data-ar="معاينة نصية آمنة">Safe text preview</td>
+                  <td data-i18n data-ar="يُقرأ الملف عبر FileReader.readAsText، ويُحقن المحتوى داخل &lt;pre&gt;&lt;code&gt; باستخدام textContent (ليس innerHTML) — وهو ما يضمن تهريبًا تلقائيًا لأي HTML/سكربت في المحتوى. تُقتصَّ المعاينة عند 50,000 حرف، وتُفرَض اتجاه LTR للكود.">Read via <code class="code-inline">FileReader.readAsText</code>; content is injected into
+                    <code class="code-inline">&lt;pre&gt;&lt;code&gt;</code> using <code
+                      class="code-inline">textContent</code> (never <code class="code-inline">innerHTML</code>), which
+                    guarantees any HTML/script inside the file is auto-escaped, not executed. Truncated at 50,000
+                    characters; code is forced to LTR direction regardless of the page's RTL context.</td>
+                </tr>
+                <tr>
+                  <td><span class="docs-bidi-ltr">DOCX / XLSX / PPTX / DOC / XLS / PPT</span></td>
+                  <td data-i18n data-ar="محاولة + نسخة احتياطية">Attempt + fallback</td>
+                  <td data-i18n data-ar="يُلَف لوحة المعلومات داخل &lt;object data=&quot;blob:...&quot; type=&quot;mime الرسمي&quot;&gt;. إن لم يدعم المتصفح هذا النوع (وهو الوضع الفعلي في معظم المتصفحات اليوم)، يعرض المتصفح تلقائيًا محتوى الرجوع — لوحة معلومات واضحة + رسالة + إجراء التنزيل في التذييل.">The fallback panel is wrapped inside <code class="code-inline">&lt;object data="blob:..." type="&lt;official
+                      mime&gt;"&gt;</code>. If the browser can't render that type inline (true for virtually all
+                    mainstream browsers today), the browser's own native fallback mechanism kicks in and shows the
+                    panel — clear metadata + the required message + the footer's download action.</td>
+                </tr>
+                <tr>
+                  <td data-i18n data-ar="ملفات أخرى غير مدعومة">Other / unsupported files</td>
+                  <td data-i18n data-ar="معاينة بيانات وصفية">Metadata fallback</td>
+                  <td data-i18n data-ar="لوحة معلومات وصفية (الاسم الوصفي، الاسم الأصلي، النوع، الحجم) مع نفس رسالة عدم الدعم وزر التنزيل — لا تظهر نافذة فارغة أو مكسورة لأي نوع ملف.">A metadata panel (descriptive name, original name, type, size) with the same unsupported-type message
+                    and the footer download button — no file type ever produces an empty or broken modal.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 class="mt-4" data-i18n data-ar="رسالة الرجوع الموحّدة">Unified fallback message</h4>
+          <p class="section-note" data-i18n data-ar="تستخدم كل من معاينة ملفات Office والملفات غير المدعومة نفس النص العربي بالضبط: «لا يمكن عرض هذا النوع داخل المتصفح مباشرة، يمكنك تحميل الملف أو فتحه من جهازك.» — لا تخترع صفحات أو فرق أخرى نصًا مختلفًا لهذه الحالة.">Both the Office-file branch and the truly-unsupported branch render the exact same Arabic copy: <em>"لا
+            يمكن عرض هذا النوع داخل المتصفح مباشرة، يمكنك تحميل الملف أو فتحه من جهازك."</em> Do not invent a
+            different message for this case in other pages or teams.</p>
+        </div>
+      </section>
+
+      <section class="section" id="accessibility">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2>
+          <p class="section-note" data-i18n data-ar="هذا قسم مخصص لتوثيق كل قرار وصولي مطبَّق فعليًا في الكود النهائي، وليس قائمة أمنيات.">
+            This section documents every accessibility decision that is actually implemented in the final code —
+            not a wishlist.
+          </p>
+
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="دعم RTL: الصفحة الحاملة للمكوّن تستخدم &lt;html lang=&quot;ar&quot; dir=&quot;rtl&quot;&gt;، وكل خصائص الموضع في SCSS تعتمد خصائص منطقية (inset-inline-start/end، padding-inline-start/end) بدل left/right، فتنعكس تلقائيًا وبشكل صحيح.">
+              <strong>RTL support</strong> — the hosting page declares
+              <code class="code-inline">&lt;html lang="ar" dir="rtl"&gt;</code>, and every positioning rule in the
+              SCSS uses logical properties (<code class="code-inline">inset-inline-start/end</code>,
+              <code class="code-inline">padding-inline-start/end</code>) instead of <code
+                class="code-inline">left</code>/<code class="code-inline">right</code>, so it mirrors correctly
+              with zero RTL-specific overrides.</li>
+            <li data-i18n data-ar="لوحة المفاتيح: كل عنصر تفاعلي (الحقل، منطقة الرفع، أزرار المعاينة/الحذف/الإلغاء/التنزيل، أزرار التذييل) قابل للوصول بـ Tab وله ترتيب تركيز منطقي يتبع ترتيب DOM.">
+              <strong>Keyboard navigation</strong> — every interactive element (the field, the dropzone, the
+              preview/delete/cancel/download buttons, the footer buttons) is reachable by <kbd>Tab</kbd> in a logical
+              order that follows DOM order.</li>
+            <li data-i18n data-ar="منطقة الرفع بلوحة المفاتيح: العنصر يحمل role=&quot;button&quot; tabindex=&quot;0&quot;، ويستجيب لـ Enter وSpace عبر onZoneKeydown(). عند التعطيل (aria-disabled=&quot;true&quot;) يبقى قابلاً للتركيز، وكل من الضغط بالفأرة أو لوحة المفاتيح يوجّه المستخدم لحقل الاسم نفسه — لا فرق في السلوك بين الإدخالين.">
+              <strong>Dropzone keyboard support</strong> — the element carries
+              <code class="code-inline">role="button" tabindex="0"</code> and responds to <kbd>Enter</kbd> and
+              <kbd>Space</kbd> via <code class="code-inline">onZoneKeydown()</code>. While disabled
+              (<code class="code-inline">aria-disabled="true"</code>) it stays focusable, and both mouse and
+              keyboard activation redirect the user to the name field identically — there's no behavioral gap
+              between input methods.</li>
+            <li data-i18n data-ar="إدارة التركيز: عند فتح المعاينة يُحفظ العنصر المُشغِّل (lastTrigger) وتُمنح المربعَ الحواري نفسه (tabindex=&quot;-1&quot;) التركيز فورًا؛ وعند الإغلاق يُعاد التركيز تلقائيًا لذلك العنصر تمامًا.">
+              <strong>Focus management</strong> — opening the preview stores the triggering element
+              (<code class="code-inline">lastTrigger</code>) and immediately focuses the dialog box itself
+              (<code class="code-inline">tabindex="-1"</code>); closing it returns focus to that exact element.</li>
+            <li data-i18n data-ar="فخ التركيز في النافذة: مستمع keydown عام يحسب العناصر القابلة للتركيز ضمن #modalBox فقط أثناء الفتح، ويعيد توجيه Tab/Shift+Tab بين أول وآخر عنصر فيها — لا يمكن للـ Tab أن يهرب لمحتوى الصفحة خلف النافذة.">
+              <strong>Modal focus trap</strong> — a single global <code class="code-inline">keydown</code> listener
+              computes the focusable elements inside <code class="code-inline">#modalBox</code> only while it's
+              open, and redirects <kbd>Tab</kbd>/<kbd>Shift+Tab</kbd> between the first and last one — focus can
+              never escape to the page content behind the modal.</li>
+            <li data-i18n data-ar="إغلاق بـ Escape: مستمع لوحة مفاتيح عام يغلق النافذة فورًا عند الضغط على Escape، بصرف النظر عن العنصر الذي يحمل التركيز حاليًا داخلها.">
+              <strong>Escape close</strong> — the same global listener closes the modal immediately on
+              <kbd>Escape</kbd>, regardless of which element inside it currently has focus.</li>
+            <li data-i18n data-ar="دعم قارئ الشاشة: منطقة #uploaderStatus مخفية بصريًا (sr-only) بـ role=&quot;status&quot; aria-live=&quot;polite&quot;، تُعلن بدء/نجاح/إلغاء/حذف كل ملف — وهي إعلانات لا تظهر بصريًا أبدًا لأنها ليست مخصصة للمستخدمين المُشاهدين.">
+              <strong>Screen reader support</strong> — a visually-hidden (<code
+                class="code-inline">sr-only</code>) <code class="code-inline">#uploaderStatus</code> region with
+              <code class="code-inline">role="status" aria-live="polite"</code> announces each file's start /
+              success / cancel / delete — announcements that are never meant to be seen, only heard.</li>
+            <li data-i18n data-ar="دلالة الحقل الإلزامي: المدخل يحمل required وaria-required=&quot;true&quot;، وaria-invalid يتزامن حيًا مع حالتي is-err/is-ok بدلاً من الاعتماد على اللون فقط.">
+              <strong>Required field semantics</strong> — the input carries
+              <code class="code-inline">required</code> and <code class="code-inline">aria-required="true"</code>,
+              with <code class="code-inline">aria-invalid</code> kept live-synced to the
+              <code class="code-inline">.is-err</code>/<code class="code-inline">.is-ok</code> state instead of
+              relying on color alone.</li>
+            <li data-i18n data-ar="وصولية شريط التقدم: كل صف رفع له role=&quot;progressbar&quot; حقيقي مع aria-valuemin/max/now يتحدث مباشرة، بالإضافة لـ aria-label يحمل اسم الملف — فتجربة قارئ الشاشة تطابق ما يراه المستخدم المُشاهد.">
+              <strong>Upload progress accessibility</strong> — every uploading row has a real
+              <code class="code-inline">role="progressbar"</code> with live
+              <code class="code-inline">aria-valuemin/max/now</code>, plus an <code
+                class="code-inline">aria-label</code> carrying the filename — the screen-reader experience matches
+              what a sighted user sees, not a silent gap.</li>
+            <li data-i18n data-ar="تسميات ARIA: كل زر أيقونة فقط (معاينة، حذف، إلغاء، إغلاق) يحمل aria-label نصيًا واضحًا ولا يعتمد فقط على title، وكل أيقونة زخرفية تحمل aria-hidden=&quot;true&quot;.">
+              <strong>ARIA labels</strong> — every icon-only button (preview, delete, cancel, close) carries an
+              explicit text <code class="code-inline">aria-label</code> rather than relying on
+              <code class="code-inline">title</code> alone, and every purely decorative icon carries
+              <code class="code-inline">aria-hidden="true"</code>.</li>
+            <li data-i18n data-ar="اعتبارات WCAG 2.1 AA: تباين النص الثانوي رُفع من Neutral-400 إلى Neutral-500 (من 2.51:1 إلى 4.78:1) لتجاوز الحد 4.5:1، وأيقونات الأزرار من Neutral-400 إلى Neutral-500 لتجاوز حد 3:1 للعناصر غير النصية — تم فحص جميع الأزواج الأخرى (الشارات، أيقونات النوع) ووُجدت فوق 7:1.">
+              <strong>WCAG 2.1 AA considerations</strong> — secondary text color was raised from
+              <code class="code-inline">Neutral-400</code> to <code class="code-inline">Neutral-500</code> (2.51:1
+              → 4.78:1) to clear the 4.5:1 text threshold, and the same change was applied to action-button icons to
+              clear the 3:1 non-text threshold; every other badge/icon color pair was checked and sits above 7:1.</li>
+          </ul>
+
+          <div class="aria-note mt-4">
+            <strong data-i18n data-ar="إرشاد للتطبيق">Implementation guidance</strong>
+            <span data-i18n data-ar="إن استنسخت هذا المكوّن في صفحة أخرى، انسخ كتلة JavaScript بالكامل — منطق فخ التركيز وaria-disabled وresetNameField مرتبط ببعضه، ونسخ جزء من الترميز فقط دون السكربت المرافق يكسر إمكانية الوصول بصمت.">If you clone this component onto another page, copy the entire JavaScript block with it — the focus-trap
+              logic, the <code class="code-inline">aria-disabled</code> syncing, and
+              <code class="code-inline">resetNameField()</code> are interdependent, and copying only the markup
+              without its script silently breaks accessibility.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="content-guidelines">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إرشادات المحتوى">Content Guidelines</h2>
+
+          <h3 class="section-title mt-3" data-i18n data-ar="أسماء الملفات">File Names</h3>
+          <ul>
+            <li data-i18n data-ar="اطلب اسمًا يصف محتوى الملف، لا نوعه أو مصدره فقط — &quot;صورة الهوية الوطنية&quot; وليس &quot;صورة&quot; أو &quot;مستند1&quot;.">Ask for a name that describes the file's content, not just its type or source — "صورة الهوية الوطنية"
+              ("National ID photo"), not "صورة" ("Image") or "مستند1" ("Document1").</li>
+            <li data-i18n data-ar="استخدم placeholder يوضح مثالًا حقيقيًا (مثال: صورة الهوية الوطنية) بدلاً من نص تعليمي عام مثل &quot;اكتب هنا&quot;.">Use a placeholder showing a real example ("مثال: صورة الهوية الوطنية") instead of generic instructional
+              text like "اكتب هنا" ("Type here").</li>
+            <li data-i18n data-ar="عند تكرار نفس الاسم الوصفي، يُرقَّم الاسم تلقائيًا (الاسم (٢))، مع تنبيه عابر يوضح أن الترقيم تم تلقائيًا — لا تُسكِت هذا التغيير عن المستخدم.">When the same descriptive name repeats, it is auto-numbered ("name (2)") with a brief tip explaining the
+              auto-rename happened — never make this change silently.</li>
+            <li data-i18n data-ar="اسم الملف الأصلي (originalName) يبقى محفوظًا ومعروضًا دائمًا بجانب الاسم الوصفي، فلا يُفقَد أي سياق فني للمراجع اللاحق.">The original filename is always preserved and shown alongside the descriptive name, so no technical
+              context is lost for a later reviewer.</li>
+          </ul>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="رسائل الخطأ">Error Messages</h3>
+          <ul>
+            <li data-i18n data-ar="اذكر القيد المخالف والنتيجة معًا في جملة واحدة قصيرة: &quot;ملف تجاوز الحد الأقصى (٥ ميجابايت) — لم يتم رفعه&quot;.">State the violated constraint and the consequence together in one short sentence: "ملف تجاوز الحد
+              الأقصى (5 ميجابايت) — لم يتم رفعه" ("File exceeds the maximum (5 MB) — it was not uploaded").</li>
+            <li data-i18n data-ar="عند رفض نوع ملف، اذكر الأنواع المسموحة فعليًا — لا تكتب &quot;نوع غير مدعوم&quot; فقط دون توضيح البديل.">When a file type is rejected, name the types that actually are allowed — never just "نوع غير مدعوم"
+              ("Unsupported type") with no indication of what would work instead.</li>
+            <li data-i18n data-ar="رسائل الحقل الإلزامي يجب أن تذكر الفعل المطلوب: &quot;أدخل اسمًا قبل رفع الملف&quot; لا &quot;حقل غير صالح&quot;.">Required-field messages must name the action needed: "أدخل اسمًا قبل رفع الملف" ("Enter a name before
+              uploading"), not "حقل غير صالح" ("Invalid field").</li>
+            <li data-i18n data-ar="كل تنبيه خطأ يجب أن يصل لقارئ الشاشة عبر role=&quot;alert&quot; حقيقي، وليس عبر تغيير لون النص فقط.">Every error must reach screen-reader users via a real <code class="code-inline">role="alert"</code>,
+              never through a color change alone.</li>
+          </ul>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="نصوص التوجيه">Upload Instructions</h3>
+          <ul>
+            <li data-i18n data-ar="ابدأ بالفعل (اسحب، اختر) ثم اذكر القيد (الأنواع المسموحة، الحجم الأقصى) في سطر ثانٍ أخف بصريًا.">Lead with the verb ("اسحب", "اختر" — "drag", "choose"), then state the constraint (allowed types,
+              max size) on a visually lighter second line.</li>
+            <li data-i18n data-ar="اجعل نص القيد (الأنواع/الحجم) ظاهرًا دائمًا في منطقة الرفع، لا فقط بعد رفض ملف — المستخدم يجب أن يعرف القيد قبل المحاولة.">Keep the constraint text (types/size) permanently visible in the dropzone, not only after a rejection —
+              users should know the limit before they try, not after they fail.</li>
+            <li data-i18n data-ar="عند تعطيل منطقة الرفع لعدم وجود اسم، وجّه المستخدم صريحًا لحقل الاسم بدل ترك المنطقة معطلة بلا تفسير.">When the dropzone is disabled for lack of a name, explicitly redirect the user to the name field rather
+              than leaving it disabled with no explanation.</li>
+          </ul>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="رسائل النجاح">Success Messages</h3>
+          <ul>
+            <li data-i18n data-ar="اجعل تأكيد النجاح هادئًا وغير مُعطِّل (أيقونة صح + جملة قصيرة)، لا نافذة منبثقة لكل عملية رفع منخفضة الخطورة.">Keep success confirmation calm and non-blocking (a checkmark + a short phrase), not a popup dialog for
+              every low-stakes upload.</li>
+            <li data-i18n data-ar="بعد اكتمال الرفع بنجاح، أعِد الحقل لحالته الأولية تلقائيًا (مسح الاسم، إخفاء النجاح، تعطيل المنطقة) ليكون المستخدم جاهزًا لاسم جديد لملف لاحق دون أن يحمل اسم الملف السابق سهوًا.">After a successful upload, reset the field to its initial state automatically (clear the name, hide the
+              success state, re-disable the dropzone) so the user is ready to type a fresh name for the next file
+              instead of accidentally reusing the previous one.</li>
+            <li data-i18n data-ar="أعلن النجاح أيضًا لقارئ الشاشة عبر منطقة aria-live، لا فقط عبر تغيّر بصري في القائمة.">Announce success to screen-reader users too, through the live region — not only via a visual change in
+              the list.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="governance">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="حوكمة نظام التصميم">Design System Governance</h2>
+
+          <div class="governance-grid">
+            <div class="governance-pillar">
+              <h3 class="section-title" data-i18n data-ar="الغرض">Purpose</h3>
+              <p data-i18n data-ar="يوجد هذا المكوّن لإزالة الحاجة لإعادة بناء منطق رفع الملفات (اسم وصفي، تحقق، تقدم، معاينة متعددة الأنواع، حذف آمن) في كل نظام حكومي على حدة. كل فريق يطبّق هذه المتطلبات بنفسه يعيد ارتكاب أخطاء وصولية تم حلها هنا مرة واحدة.">This component exists to remove the need to rebuild upload logic (descriptive naming, validation,
+                progress, multi-type preview, safe deletion) from scratch in every government system. A team that
+                reimplements these requirements on its own re-introduces the accessibility gaps already solved
+                here once.</p>
+            </div>
+            <div class="governance-pillar">
+              <h3 class="section-title" data-i18n data-ar="التوحيد">Standardization</h3>
+              <ul>
+                <li data-i18n data-ar="استخدم .moi-file-uploader كما هو دون تعديل الترميز الجذري — أضف أنواع ملفات جديدة عبر TYPE/ALLOWED فقط.">Use <code class="code-inline">.moi-file-uploader</code> as-is without modifying the root markup — add new
+                  file types only through the <code class="code-inline">TYPE</code>/<code
+                    class="code-inline">ALLOWED</code> tables.</li>
+                <li data-i18n data-ar="لا تستنسخ جزءًا من الترميز دون السكربت المرافق له — الحالة (savedName، blurred، uploadJobs) محسوبة بالكامل في JavaScript.">Never clone a markup fragment without its script — state (<code class="code-inline">savedName</code>,
+                  <code class="code-inline">blurred</code>, <code class="code-inline">uploadJobs</code>) lives
+                  entirely in JavaScript.</li>
+                <li data-i18n data-ar="الألوان والمسافات والحواف كلها توكنات PS-Design (Neutral/Info/Primary/Warning/Lavender/Error) — لا قيم سداسية ثابتة جديدة.">Colors, spacing, and radii are all PS-Design tokens (Neutral/Info/Primary/Warning/Lavender/Error) — no
+                  new hard-coded hex values.</li>
+              </ul>
+            </div>
+            <div class="governance-pillar">
+              <h3 class="section-title" data-i18n data-ar="قواعد إعادة الاستخدام">Reuse Rules</h3>
+              <p data-i18n data-ar="أعِد استخدام المكوّن كما هو لأي نموذج رفع مرفق واحد أو متعدد بحاجة لاسم وصفي. أنشئ متغيرًا جديدًا فقط إذا اختلفت قاعدة عمل جوهرية — مثل عدم وجود اسم وصفي إطلاقًا، أو رفع بدون تحقق من النوع/الحجم. لا تنسخ الملف لمجرد تغيير نص أو لون؛ هذه تُمرَّر كقيم.">Reuse the component as-is for any single- or multi-attachment flow that needs a descriptive name. Create
+                a new variant only when a core business rule actually differs — e.g. no descriptive name at all, or
+                uploads with no type/size validation. Never fork the file just to change copy or a color; those are
+                passed-in values, not reasons to diverge.</p>
+            </div>
+            <div class="governance-pillar">
+              <h3 class="section-title" data-i18n data-ar="الجودة ومعايير القبول">QA / Acceptance Criteria</h3>
+              <ul>
+                <li data-i18n data-ar="الرفع يعمل: يبدأ شريط التقدم، يكتمل، وينتقل الملف لقائمة المنجَز تلقائيًا.">Upload works — the progress bar starts, completes, and the file moves into the done list
+                  automatically.</li>
+                <li data-i18n data-ar="التحقق يعمل: لا يمكن فتح منطقة الرفع بدون اسم وصفي صالح، ورسائل الخطأ تظهر وتُختفي بشكل صحيح.">Validation works — the dropzone cannot open without a valid descriptive name, and error messages show
+                  and hide correctly.</li>
+                <li data-i18n data-ar="الوصولية تعمل: لوحة المفاتيح كاملة، فخ التركيز يعمل، Escape يغلق، وقارئ الشاشة يسمع كل الإعلانات الحية.">Accessibility works — full keyboard support, the focus trap holds, Escape closes, and a screen reader
+                  hears every live announcement.</li>
+                <li data-i18n data-ar="المعاينة تعمل: كل نوع ملف مدعوم (صور، PDF، نصوص، Office، غير مدعوم) يعرض محتوى مفيدًا دون نافذة فارغة أو مكسورة.">Preview works — every supported category (images, PDF, text, Office, unsupported) renders useful
+                  content with no empty or broken modal.</li>
+                <li data-i18n data-ar="التنزيل يعمل: زر التنزيل في التذييل يُعيد الملف الأصلي بامتداده واسمه الصحيحين لكل الأنواع.">Download works — the footer download button restores the original file with its correct extension and
+                  name, for every type.</li>
+                <li data-i18n data-ar="RTL يعمل: لا انعكاس بصري خاطئ، والأيقونة والنص لا يتداخلان في الحقل.">RTL works — no mirrored-incorrectly visuals, and the icon never overlaps the input text.</li>
+                <li data-i18n data-ar="الموبايل يعمل: تذييل النافذة يلتف لعرض كامل، ومناطق المعاينة تتقلص بشكل متجاوب عبر نقاط التوقف الثلاث.">Mobile works — the modal footer wraps to full-width buttons, and preview areas shrink responsively
+                  across the three breakpoints.</li>
+              </ul>
+            </div>
+            <div class="governance-pillar">
+              <h3 class="section-title" data-i18n data-ar="الصيانة">Maintenance</h3>
+              <ul>
+                <li data-i18n data-ar="عند إضافة نوع ملف جديد، حدّث TYPE/ALLOWED/OFFICE_MIME معًا، وحدّث نص منطقة الرفع ورسالة الخطأ لتبقى صادقة مع القائمة الفعلية.">When adding a new file type, update <code class="code-inline">TYPE</code>/<code
+                    class="code-inline">ALLOWED</code>/<code class="code-inline">OFFICE_MIME</code> together, and
+                  update the dropzone subtitle and error copy so they stay honest about the actual allowed list.</li>
+                <li data-i18n data-ar="عند تغيير أي توكن لون لمعالجة تباين، أعِد فحص النسبة فعليًا (لا تقدير بصري) وسجّل القيمة القديمة والجديدة في سجل التغييرات.">When changing a color token to fix contrast, re-check the actual ratio (never eyeball it) and record the
+                  old/new value in the changelog.</li>
+                <li data-i18n data-ar="حدّث هذه الصفحة عند أي تغيير سلوكي في المكوّن — الوثيقة تصف الإصدار النهائي المطبَّق، لا الإصدار الأصلي.">Update this page whenever the component's behavior changes — it documents the final, currently-shipped
+                  version, not the original one.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="do-dont">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="افعل ولا تفعل">Do &amp; Don't</h2>
+          <div class="do-dont-grid">
+            <div class="do-block">
+              <div class="block-header">
+                <span class="do-icon" aria-hidden="true">✔</span>
+                <h4 data-i18n data-ar="افعل">Do</h4>
+              </div>
+              <ul>
+                <li>
+                  <span class="li-icon" aria-hidden="true"></span>
+                  <span data-i18n data-ar="اطلب اسمًا وصفيًا حقيقيًا: &quot;عقد التوريد النهائي 2026&quot;.">Use a real descriptive name: "عقد التوريد النهائي 2026" ("Final 2026 supply contract").</span>
+                </li>
+                <li>
+                  <span class="li-icon" aria-hidden="true"></span>
+                  <span data-i18n data-ar="اترك منطقة الرفع معطلة حتى يصبح الاسم صالحًا — هذا هو السلوك المقصود لا خلل.">Leave the dropzone disabled until the name is valid — that's intended behavior, not a bug.</span>
+                </li>
+                <li>
+                  <span class="li-icon" aria-hidden="true"></span>
+                  <span data-i18n data-ar="أضف aria-label واضحًا لكل زر أيقونة فقط جديد تضيفه لصف الملف.">Add a clear <code class="code-inline">aria-label</code> to any new icon-only button you add to a file
+                    row.</span>
+                </li>
+                <li>
+                  <span class="li-icon" aria-hidden="true"></span>
+                  <span data-i18n data-ar="انسخ الترميز والسكربت معًا عند إعادة استخدام المكوّن في صفحة أخرى.">Copy the markup and the script together when reusing the component on another page.</span>
+                </li>
+              </ul>
+            </div>
+            <div class="dont-block">
+              <div class="block-header">
+                <span class="dont-icon" aria-hidden="true">✕</span>
+                <h4 data-i18n data-ar="لا تفعل">Don't</h4>
+              </div>
+              <ul>
+                <li>
+                  <span class="li-icon" aria-hidden="true"></span>
+                  <span data-i18n data-ar="لا تستخدم أسماء عامة مثل &quot;ملف&quot; أو &quot;مستند1&quot; أو اسم الملف الأصلي كما هو.">Don't use generic names like "ملف" ("File"), "مستند1" ("Document1"), or just reusing the raw original
+                    filename.</span>
+                </li>
+                <li>
+                  <span class="li-icon" aria-hidden="true"></span>
+                  <span data-i18n data-ar="لا تحذف ملفًا فورًا بنقرة واحدة — استخدم نمط التأكيد بضغطتين الموجود (.armed).">Don't delete a file on a single click — use the existing two-tap
+                    (<code class="code-inline">.armed</code>) confirmation pattern.</span>
+                </li>
+                <li>
+                  <span class="li-icon" aria-hidden="true"></span>
+                  <span data-i18n data-ar="لا تعتمد على اللون فقط لإظهار الخطأ أو النجاح — أبقِ النص وaria-invalid متزامنين دائمًا.">Don't rely on color alone to show error or success — always keep the text and
+                    <code class="code-inline">aria-invalid</code> in sync.</span>
+                </li>
+                <li>
+                  <span class="li-icon" aria-hidden="true"></span>
+                  <span data-i18n data-ar="لا تُظهر بطاقة الملفات قبل أول رفع ناجح — هذا يكسر سلوك الإظهار التدريجي المقصود في الإصدار النهائي.">Don't show the files card before the first successful upload — that breaks the progressive-disclosure
+                    behavior intentionally built into the final version.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="two-col mt-4">
+            <div>
+              <h4 data-i18n data-ar="سلوك رفع صحيح">Correct upload behavior</h4>
+              <p class="section-note" data-i18n data-ar="ملف واحد محقَّق بالحجم والنوع، يبدأ تقدّمه فورًا، ويُنقل لقائمة المنجَز تلقائيًا، وتُمسح حالة الحقل تلقائيًا بعده.">A file that's validated for size and type, starts progress immediately, moves itself into the done
+                list, and clears the name field afterward — no manual cleanup step needed.</p>
+            </div>
+            <div>
+              <h4 data-i18n data-ar="سلوك رفع خاطئ">Incorrect upload behavior</h4>
+              <p class="section-note" data-i18n data-ar="رفع ملف يتجاوز الحجم أو النوع المسموح، أو السماح برفعه دون اسم وصفي صالح — كلاهما يجب أن يُرفض قبل وصول الملف للخادم، لا بعده.">Uploading a file past the size/type limit, or allowing it through without a valid descriptive name —
+                both must be rejected before the file ever reaches the server, not after.</p>
+            </div>
+            <div>
+              <h4 data-i18n data-ar="استخدام يدعم الوصولية">Accessible usage</h4>
+              <p class="section-note" data-i18n data-ar="فتح منطقة الرفع بـ Enter/Space، التنقل بـ Tab حتى زر التنزيل، وسماع &quot;تم رفع الملف بنجاح&quot; من قارئ الشاشة دون النظر للشاشة.">Opening the dropzone with <kbd>Enter</kbd>/<kbd>Space</kbd>, tabbing all the way to the download button,
+                and hearing "تم رفع الملف بنجاح" from a screen reader without looking at the screen at all.</p>
+            </div>
+            <div>
+              <h4 data-i18n data-ar="استخدام لا يدعم الوصولية">Inaccessible usage</h4>
+              <p class="section-note" data-i18n data-ar="إضافة زر أيقونة جديد بدون aria-label، أو إزالة سمة hidden عن قائمة الملفات دون تحديث تركيز قارئ الشاشة، أو الاعتماد على title وحده كاسم متاح للزر.">Adding a new icon button with no <code class="code-inline">aria-label</code>, removing the
+                <code class="code-inline">hidden</code> attribute from the files list without updating
+                screen-reader focus, or relying on <code class="code-inline">title</code> alone as the button's
+                accessible name.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="code-examples">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="أمثلة الكود">Code Examples</h2>
+          <p class="section-note" data-i18n data-ar="كل مثال أدناه ترميز حقيقي مأخوذ من الإصدار النهائي لـ file-uploader.html. زر &quot;نسخ الكود&quot; ينسخ HTML الفعلي المعروض، بنفس آلية النسخ المستخدمة في صفحات التوثيق الأخرى.">
+            Every example below is real markup taken from the final <code class="code-inline">file-uploader.html</code>.
+            The "Copy code" button copies the actual rendered HTML, using the same copy mechanism as the other
+            documentation pages.
+          </p>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="الاستخدام الأساسي">Basic Usage</h3>
+          <p class="section-note" data-i18n data-ar="حقل الاسم الوصفي ومنطقة الرفع، بأبسط شكلهما الإلزامي.">The descriptive-name field and the dropzone, in their minimum required form.</p>
+          <div class="example-panel" data-example>
+            <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
+            <div class="example-shell">
+              <div class="copy-toolbar">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود">Copy code</button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+              <div class="example-content">
+                <div class="moi-file-uploader" style="max-width:100%;" dir="rtl">
+                  <div class="moi-file-uploader__card moi-card">
+                    <div class="moi-file-uploader__body">
+                      <div class="moi-file-uploader__field">
+                        <label class="moi-file-uploader__label" for="docs-fu-name-basic">الاسم الوصفي للملف <span
+                            class="moi-file-uploader__required">*</span></label>
+                        <div class="moi-file-uploader__input-wrap">
+                          <input class="form-control moi-file-uploader__input" type="text" id="docs-fu-name-basic"
+                            placeholder="مثال: صورة الهوية الوطنية" autocomplete="off" required aria-required="true"
+                            aria-invalid="false">
+                        </div>
+                      </div>
+                      <div class="moi-file-uploader__dropzone off" role="button" tabindex="0" aria-disabled="true">
+                        <svg class="moi-file-uploader__dropzone-icon" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                          <polyline points="17 8 12 3 7 8" />
+                          <line x1="12" y1="3" x2="12" y2="15" />
+                        </svg>
+                        <p class="moi-file-uploader__dropzone-title">اسحب الملف هنا أو <span
+                            class="moi-file-uploader__dropzone-link">اختر من جهازك</span></p>
+                        <p class="moi-file-uploader__dropzone-subtitle">PDF، صور، Office، ملفات نصية — حد أقصى 5
+                          ميجابايت</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="ملفات متعددة">Multiple Files</h3>
+          <p class="section-note" data-i18n data-ar="بنية صف ملف منجَز متكرر داخل .moi-file-uploader__rows — كرّر هذا الصف لكل ملف في الحالة files[].">The repeated finished-row structure inside <code class="code-inline">.moi-file-uploader__rows</code> —
+            repeat this row once per file in the <code class="code-inline">files[]</code> state array.</p>
+          <div class="example-panel" data-example>
+            <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
+            <div class="example-shell">
+              <div class="copy-toolbar">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود">Copy code</button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+              <div class="example-content">
+                <div class="moi-file-uploader__rows" dir="rtl">
+                  <div class="moi-file-uploader__file-row">
+                    <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--img">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <circle cx="8.5" cy="8.5" r="1.5" />
+                        <polyline points="21 15 16 10 5 21" />
+                      </svg>
+                    </div>
+                    <div class="moi-file-uploader__file-meta">
+                      <div class="moi-file-uploader__file-name">صورة الهوية الوطنية</div>
+                      <div class="moi-file-uploader__file-details">
+                        <span class="moi-file-uploader__file-badge moi-file-uploader__file-badge--img">صورة</span>
+                        <span class="moi-file-uploader__dot-separator"></span>
+                        <span class="moi-file-uploader__file-size">410 KB</span>
+                      </div>
+                    </div>
+                    <div class="moi-file-uploader__actions">
+                      <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="12" cy="12" r="3" />
+                        </svg>
+                      </button>
+                      <button class="moi-file-uploader__action del" type="button" aria-label="حذف الملف">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="3 6 5 6 21 6" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="moi-file-uploader__file-row">
+                    <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--pdf">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z" />
+                      </svg>
+                    </div>
+                    <div class="moi-file-uploader__file-meta">
+                      <div class="moi-file-uploader__file-name">عقد التوريد النهائي</div>
+                      <div class="moi-file-uploader__file-details">
+                        <span class="moi-file-uploader__file-badge moi-file-uploader__file-badge--pdf">PDF</span>
+                        <span class="moi-file-uploader__dot-separator"></span>
+                        <span class="moi-file-uploader__file-size">842 KB</span>
+                      </div>
+                    </div>
+                    <div class="moi-file-uploader__actions">
+                      <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="12" cy="12" r="3" />
+                        </svg>
+                      </button>
+                      <button class="moi-file-uploader__action del" type="button" aria-label="حذف الملف">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="3 6 5 6 21 6" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="مثال التحقق">Validation Example</h3>
+          <p class="section-note" data-i18n data-ar="حالة الحقل غير الصالح: is-err، aria-invalid=&quot;true&quot;، ورسالة خطأ ظاهرة عبر فئة show.">The invalid-field state: <code class="code-inline">.is-err</code>,
+            <code class="code-inline">aria-invalid="true"</code>, and an error hint exposed via the
+            <code class="code-inline">.show</code> class.</p>
+          <div class="example-panel" data-example>
+            <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
+            <div class="example-shell">
+              <div class="copy-toolbar">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود">Copy code</button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+              <div class="example-content">
+                <div class="moi-file-uploader__field" dir="rtl">
+                  <label class="moi-file-uploader__label" for="docs-fu-name-err">الاسم الوصفي للملف <span
+                      class="moi-file-uploader__required">*</span></label>
+                  <div class="moi-file-uploader__input-wrap">
+                    <input class="form-control moi-file-uploader__input is-err" type="text" id="docs-fu-name-err"
+                      placeholder="مثال: صورة الهوية الوطنية" required aria-required="true" aria-invalid="true">
+                  </div>
+                  <div class="moi-file-uploader__hint" aria-live="polite">
+                    <span class="moi-file-uploader__hint-error show">هذا الحقل مطلوب — أدخل اسمًا قبل رفع الملف</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="مثال المعاينة">Preview Example</h3>
+          <p class="section-note" data-i18n data-ar="رأس النافذة وجسمها لنوع صورة، مع تذييل يحوي الإغلاق والتنزيل والحذف.">The modal header and body for an image type, with a footer holding close, download, and delete.</p>
+          <div class="example-panel" data-example>
+            <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
+            <div class="example-shell">
+              <div class="copy-toolbar">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود">Copy code</button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+              <div class="example-content">
+                <div class="moi-file-uploader__modal" style="max-width:480px;" dir="rtl" role="dialog"
+                  aria-modal="true" aria-labelledby="docs-fu-mname" tabindex="-1">
+                  <div class="moi-file-uploader__modal-header">
+                    <div
+                      class="moi-file-uploader__type-icon moi-file-uploader__modal-icon moi-file-uploader__type-icon--img">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <circle cx="8.5" cy="8.5" r="1.5" />
+                        <polyline points="21 15 16 10 5 21" />
+                      </svg>
+                    </div>
+                    <div class="moi-file-uploader__modal-name">
+                      <div class="moi-file-uploader__modal-display" id="docs-fu-mname">صورة الهوية الوطنية</div>
+                      <div class="moi-file-uploader__modal-original">national_id.jpg &nbsp;·&nbsp; 410 KB</div>
+                    </div>
+                    <button class="moi-file-uploader__modal-close" type="button" aria-label="إغلاق">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="moi-file-uploader__modal-footer">
+                    <button class="btn moi-btn--Neutral--outline" data-size="sm" type="button">إغلاق</button>
+                    <button class="btn moi-btn--Info--outline" data-size="sm" type="button">تنزيل الملف</button>
+                    <button class="btn moi-btn--Error--solid" data-size="sm" type="button">حذف الملف</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="مثال الوصولية">Accessibility Example</h3>
+          <p class="section-note" data-i18n data-ar="ترميز منطقة الرفع وشريط التقدم بكل سمات ARIA المطبَّقة فعليًا في الإصدار النهائي.">The dropzone and progress-bar markup with every ARIA attribute that's actually live in the final
+            version.</p>
+          <div class="example-panel" data-example>
+            <div class="example-label" data-i18n data-ar="الكود">Code</div>
+            <div class="example-shell">
+              <div class="copy-toolbar">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود">Copy code</button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+              <div class="code-block example-content"><pre><code>&lt;div class="moi-file-uploader__dropzone off" role="button" tabindex="0"
+     aria-disabled="true" aria-labelledby="dropZoneTitle" aria-describedby="dropZoneSubtitle"
+     onclick="onZoneClick()" onkeydown="onZoneKeydown(event)"
+     ondragover="onDragOver(event)" ondragleave="onDragLeave()" ondrop="onDrop(event)"&gt;
+  ...
+&lt;/div&gt;
+
+&lt;div class="moi-file-uploader__progress-track" role="progressbar"
+     aria-valuemin="0" aria-valuemax="100" aria-valuenow="64"
+     aria-label="جارٍ رفع عقد التوريد النهائي"&gt;
+  &lt;div class="moi-file-uploader__progress-bar" style="width:64%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="uploaderStatus" class="moi-file-uploader__sr-only"
+     role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/div&gt;</code></pre></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="best-practices">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="أفضل الممارسات">Best Practices</h2>
+          <ul>
+            <li data-i18n data-ar="لا تُعدّل MAX_SIZE وALLOWED بشكل منفصل عن نص منطقة الرفع ورسالة الخطأ — القيم الثلاث يجب أن تبقى متطابقة دائمًا.">Never change <code class="code-inline">MAX_SIZE</code> or <code class="code-inline">ALLOWED</code>
+              without also updating the dropzone subtitle and the type-error copy — all three must always stay in
+              sync.</li>
+            <li data-i18n data-ar="عند إضافة نوع ملف جديد لقائمة Office، أضف امتداده الصحيح في OFFICE_MIME أيضًا — وإلا سيُستخدم application/octet-stream الذي يمنع المتصفح من أي محاولة عرض حقيقية.">When adding a new type to the Office list, also add its correct MIME in
+              <code class="code-inline">OFFICE_MIME</code> — otherwise it falls back to
+              <code class="code-inline">application/octet-stream</code>, which stops the browser from even
+              attempting a real render.</li>
+            <li data-i18n data-ar="لا تستبدل textContent بـ innerHTML في معاينة الملفات النصية مهما كان السبب — هذا هو ما يجعل المعاينة آمنة من الحقن.">Never swap <code class="code-inline">textContent</code> for <code class="code-inline">innerHTML</code>
+              in the text-file preview for any reason — that's precisely what keeps it safe from injection.</li>
+            <li data-i18n data-ar="أي زر جديد تضيفه داخل نافذة المعاينة سيُدرج تلقائيًا في فخ التركيز لأن getFocusable() تستعلم العناصر القابلة للتركيز ديناميكيًا — لا حاجة لتعديل منطق الفخ نفسه.">Any new button you add inside the preview modal is automatically included in the focus trap, because
+              <code class="code-inline">getFocusable()</code> queries focusable elements dynamically — you never
+              need to touch the trap logic itself.</li>
+            <li data-i18n data-ar="عند تخصيص الألوان لنوع ملف جديد، استخدم مجموعة توكن لونية لم تُستخدم بعد في هذا المكوّن (مثل Gold أو Brown) بدل إعادة استخدام Error المحجوزة لحالات الخطأ فعليًا.">When assigning a color to a new file type, pick a token family not already used in this component (e.g.
+              Gold or Brown) instead of reusing <code class="code-inline">Error</code>, which is reserved for
+              actual error states.</li>
+            <li data-i18n data-ar="اختبر كل تغيير بإعادة بناء main.css (sass) قبل افتراض أنه يعمل — الكثير من القواعد هنا تعتمد على ترتيب الـ cascade (مثل [hidden] فوق .moi-card).">Recompile <code class="code-inline">main.css</code> (via <code class="code-inline">sass</code>) and
+              verify before assuming a change works — several rules here depend on cascade order (e.g.
+              <code class="code-inline">[hidden]</code> needing to out-specificity <code
+                class="code-inline">.moi-card</code>'s <code class="code-inline">display: flex</code>).</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      let statusTimer = null;
+      let tooltip = null;
+
+      function showTooltip(target, message) {
+        if (!tooltip) {
+          tooltip = document.createElement('div');
+          tooltip.className = 'copy-tooltip';
+          document.body.appendChild(tooltip);
+        }
+
+        tooltip.textContent = message;
+        const rect = target.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const top = Math.max(8, rect.top - tooltipRect.height - 10);
+        const left = Math.min(
+          window.innerWidth - tooltipRect.width - 8,
+          Math.max(8, rect.left + rect.width / 2 - tooltipRect.width / 2)
+        );
+        tooltip.style.top = `${top}px`;
+        tooltip.style.left = `${left}px`;
+
+        tooltip.classList.add('is-visible');
+        clearTimeout(statusTimer);
+        statusTimer = setTimeout(() => {
+          tooltip.classList.remove('is-visible');
+        }, 1600);
+      }
+
+      const feedbackTimers = new WeakMap();
+
+      const getLabelForButton = (button) => {
+        const useArabic = document.documentElement.lang === 'ar';
+        if (useArabic) {
+          return button.dataset.ar || button.dataset.en || button.textContent;
+        }
+        return button.dataset.en || button.dataset.ar || button.textContent;
+      };
+
+      const setButtonFeedback = (button, statusEl, message, keep = false) => {
+        if (statusEl) {
+          statusEl.textContent = message;
+        }
+        button.textContent = message;
+        if (feedbackTimers.has(button)) {
+          clearTimeout(feedbackTimers.get(button));
+        }
+        if (!keep) {
+          const timer = setTimeout(() => {
+            button.textContent = getLabelForButton(button);
+            if (statusEl) {
+              statusEl.textContent = '';
+            }
+          }, 1400);
+          feedbackTimers.set(button, timer);
+        }
+      };
+
+      const fallbackCopy = (html) => {
+        return new Promise((resolve, reject) => {
+          const textarea = document.createElement('textarea');
+          textarea.value = html;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'fixed';
+          textarea.style.top = '-9999px';
+          document.body.appendChild(textarea);
+          textarea.select();
+          let ok = false;
+          try {
+            ok = document.execCommand('copy');
+          } catch (error) {
+            ok = false;
+          }
+          document.body.removeChild(textarea);
+          if (ok) {
+            resolve();
+          } else {
+            reject(new Error('Fallback copy failed'));
+          }
+        });
+      };
+
+      const copyHtmlToClipboard = (html) => {
+        if (!html || !html.trim()) {
+          return Promise.reject(new Error('Empty HTML generated'));
+        }
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard.writeText(html).catch(() => fallbackCopy(html));
+        }
+        return fallbackCopy(html);
+      };
+
+      document.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-copy-target]');
+        if (!button) {
+          return;
+        }
+
+        const status = button.closest('.copy-toolbar')?.querySelector('.copy-status');
+        const example = button.closest('[data-example]');
+        const selector = button.getAttribute('data-copy-target') || '.example-content';
+        const target = example ? example.querySelector(selector) : document.querySelector(selector);
+        if (!target) {
+          const errorMessage = document.documentElement.lang === 'ar' ? 'الهدف غير موجود' : 'Target not found';
+          showTooltip(button, errorMessage);
+          setButtonFeedback(button, status, errorMessage);
+          return;
+        }
+
+        const html = target.tagName.toLowerCase() === 'code'
+          ? target.textContent
+          : target.outerHTML;
+
+        copyHtmlToClipboard(html)
+          .then(() => {
+            const successMessage = document.documentElement.lang === 'ar' ? 'تم النسخ' : 'Copied';
+            showTooltip(button, successMessage);
+            setButtonFeedback(button, status, successMessage);
+          })
+          .catch((error) => {
+            const failMessage = error?.message || (document.documentElement.lang === 'ar' ? 'فشل النسخ' : 'Copy failed');
+            showTooltip(button, failMessage);
+            setButtonFeedback(button, status, failMessage);
+          });
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

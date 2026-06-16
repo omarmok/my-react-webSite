@@ -1,0 +1,842 @@
+@use "../_helpers" as *;
+@use "../common/buttons" as buttons;
+
+@keyframes moi-file-uploader-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.moi-file-uploader {
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: $gap-xl;
+
+  &,
+  * {
+    box-sizing: border-box;
+  }
+
+  &__card {
+    gap: $gap-none;
+    padding: $padding-none;
+    border: 1px solid $Neutral-200;
+    border-radius: $radius-md;
+    box-shadow: $shadow-sm;
+    overflow: hidden;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-lg;
+    padding: $padding-xl;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xs;
+    margin-bottom: $margin-none;
+  }
+
+  &__label {
+    @include meduimfont-reg-12;
+    display: flex;
+    align-items: center;
+    gap: $gap-xxs;
+    margin-bottom: $margin-none !important;
+    color: $Neutral-600;
+  }
+
+  &__required {
+    color: $Error-500;
+  }
+
+  &__input-wrap {
+    position: relative;
+  }
+
+  &__input.form-control {
+    @include meduimfont-reg-12;
+    min-height: 38px;
+    height: 38px;
+    padding-block: 9px;
+    padding-inline-start: $padding-lg;
+    padding-inline-end: 38px;
+    color: $Neutral-900;
+    background-color: $white-100;
+    border-color: $Neutral-300;
+
+    &:focus {
+      border-color: $Info-600;
+      box-shadow: 0 0 0 3px rgba($Info-600, 0.08);
+    }
+
+    &.is-err {
+      border-color: $Error-500;
+      box-shadow: 0 0 0 3px rgba($Error-500, 0.08);
+    }
+
+    &.is-ok {
+      border-color: $Primary-500;
+    }
+  }
+
+  &__saved-icon {
+    position: absolute;
+    inset-inline-end: 10px;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    color: $Primary-500;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: opacity 0.2s ease;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+
+  &__hint {
+    @include smallfont-reg-10;
+    min-height: 16px;
+    display: flex;
+    align-items: center;
+    gap: $gap-xs;
+  }
+
+  &__hint-error {
+    display: none;
+    color: $Error-600;
+
+    &.show {
+      display: flex;
+    }
+  }
+
+  &__sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  &__hint-success {
+    display: none;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: $gap-xs;
+    color: $Primary-700;
+
+    &.show {
+      display: flex;
+    }
+  }
+
+  &__dropzone {
+    min-height: 170px;
+    padding: $padding-xl;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $gap-xs;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    background-color: $white-100;
+    border: 2px dashed $Neutral-300;
+    border-radius: $radius-md;
+    transition:
+      background-color 0.18s ease,
+      border-color 0.18s ease,
+      opacity 0.18s ease;
+
+    &.on:hover {
+      background-color: $Neutral-25;
+      border-color: $Info-300;
+    }
+
+    &.off {
+      opacity: 0.44;
+      cursor: not-allowed;
+    }
+
+    &.drag-over {
+      background-color: $Info-25;
+      border-color: $Info-600;
+    }
+
+    &:focus-visible {
+      border-color: $Info-600;
+      box-shadow: 0 0 0 3px rgba($Info-600, 0.08);
+    }
+  }
+
+  &__dropzone-icon {
+    width: 22px;
+    height: 22px;
+    color: $Neutral-400;
+  }
+
+  &__dropzone-title {
+    @include meduimfont-reg-12;
+    margin: 0;
+    color: $Neutral-600;
+  }
+
+  &__dropzone-link {
+    color: $Info-600;
+  }
+
+  &__dropzone-subtitle {
+    @include smallfont-reg-10;
+    margin: 0;
+    color: $Neutral-500;
+  }
+
+  &__dropzone-blocked {
+    @include smallfont-reg-10;
+    margin-top: $margin-xxs;
+    color: $Error-600;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+
+  &__error {
+    @include smallfont-reg-10;
+    display: none;
+    align-items: center;
+    gap: $gap-sm;
+    margin-top: $margin-xs;
+    padding: $padding-sm $padding-md;
+    color: $Error-600;
+    background-color: $Error-50;
+    border-radius: $radius-sm;
+
+    &.show {
+      display: flex;
+    }
+
+    svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $padding-lg $padding-xl;
+    background-color: $Neutral-50;
+    border-bottom: 1px solid $Neutral-200;
+  }
+
+  &__list-title {
+    @include meduimfont-reg-12;
+    margin: 0;
+    color: $Neutral-600;
+  }
+
+  &__count {
+    @include smallfont-reg-10;
+    padding: 2px $padding-md;
+    font-weight: 500;
+    color: $Info-800;
+    background-color: $Info-50;
+    border-radius: $Radius-100;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+
+  &__list-body {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xs;
+    padding: $padding-md;
+  }
+
+  &__rows {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xs;
+  }
+
+  &__empty {
+    @include font-sm-500;
+    padding: $padding-2xl;
+    text-align: center;
+    color: $Neutral-500;
+
+    svg {
+      width: 28px;
+      height: 28px;
+      display: block;
+      margin: 0 auto $margin-md;
+      color: $Neutral-300;
+    }
+  }
+
+  &__uploading-row,
+  &__file-row {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: $gap-10;
+    padding: 9px 10px;
+    background-color: $white-100;
+    border: 1px solid $Neutral-200;
+    border-radius: $radius-sm;
+    animation: moi-file-uploader-fade-up 0.2s ease;
+  }
+
+  &__file-row {
+    cursor: default;
+
+    &:hover {
+      background-color: $Neutral-25;
+    }
+  }
+
+  &__progress {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-4;
+  }
+
+  &__progress-track {
+    height: 4px;
+    overflow: hidden;
+    background-color: $Neutral-100;
+    border-radius: $radius-xxs;
+  }
+
+  &__progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: $Info-600;
+    border-radius: $radius-xxs;
+    transition: width 0.06s linear;
+  }
+
+  &__progress-percentage {
+    @include smallfont;
+    min-width: 28px;
+    flex-shrink: 0;
+    color: $Info-600;
+    text-align: start;
+  }
+
+  &__type-icon {
+    @include font-xs-600;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 7px;
+
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__type-icon--pdf,
+  &__file-badge--pdf {
+    color: $Warning-800;
+    background-color: $Warning-50;
+  }
+
+  &__type-icon--img,
+  &__file-badge--img {
+    color: $Primary-800;
+    background-color: $Primary-100;
+  }
+
+  &__type-icon--doc,
+  &__file-badge--doc {
+    color: $Info-800;
+    background-color: $Info-50;
+  }
+
+  &__type-icon--xls,
+  &__file-badge--xls {
+    color: $Primary-900;
+    background-color: $Primary-50;
+  }
+
+  &__type-icon--ppt,
+  &__file-badge--ppt {
+    color: $Lavender-800;
+    background-color: $Lavender-100;
+  }
+
+  &__type-icon--other,
+  &__file-badge--other {
+    color: $Neutral-700;
+    background-color: $Neutral-100;
+  }
+
+  &__file-meta {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__file-name {
+    @include meduimfont-reg-12;
+    max-width: 100%;
+    color: $Neutral-900;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__file-details {
+    display: flex;
+    align-items: center;
+    gap: $gap-xs;
+    flex-wrap: wrap;
+    margin-top: $margin-xxs;
+  }
+
+  &__file-badge {
+    @include smallfont;
+    padding: 1px $padding-sm;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: $radius-xs;
+  }
+
+  &__file-size,
+  &__file-original {
+    @include smallfont-reg-10;
+    color: $Neutral-500;
+  }
+
+  &__file-original {
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__dot-separator {
+    width: 3px;
+    height: 3px;
+    flex-shrink: 0;
+    background-color: $Neutral-300;
+    border-radius: 50%;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $gap-xxs;
+    flex-shrink: 0;
+  }
+
+  &__action {
+    @include buttons.moi-focus-ring;
+    width: 28px;
+    height: 28px;
+    padding: $padding-none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $Neutral-500;
+    background: transparent;
+    border: none;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition:
+      color 0.12s ease,
+      background-color 0.12s ease,
+      transform 0.12s ease,
+      box-shadow 0.12s ease;
+
+    &:hover {
+      color: $Info-800;
+      background-color: $Info-50;
+    }
+
+    &:active {
+      transform: scale(0.94);
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 3px rgba($Info-600, 0.12);
+    }
+
+    &.del:hover {
+      color: $Error-900;
+      background-color: $Error-50;
+    }
+
+    &.del:focus-visible {
+      box-shadow: 0 0 0 3px rgba($Error-500, 0.12);
+    }
+
+    &.armed {
+      color: $Error-900;
+      background-color: $Error-50;
+      box-shadow: 0 0 0 3px rgba($Error-500, 0.12);
+    }
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &__modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $padding-xl;
+    background: rgba($Neutral-950, 0.55);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.2s ease,
+      visibility 0.2s ease;
+
+    &.open {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__modal-dialog {
+    width: 100%;
+    max-width: 920px;
+    margin: $margin-none;
+    pointer-events: auto;
+  }
+
+  &__modal {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: $white-100;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-2xl;
+    transform: scale(0.96) translateY(6px);
+    transition: transform 0.2s ease;
+  }
+
+  &__modal-overlay.open &__modal {
+    transform: scale(1) translateY(0);
+  }
+
+  &__modal-header {
+    display: flex;
+    align-items: center;
+    gap: $gap-10;
+    padding: $padding-lg $padding-xl;
+    border-bottom: 1px solid $Neutral-200;
+    flex-shrink: 0;
+  }
+
+  &__modal-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-md;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__modal-name {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__modal-display {
+    @include meduimfont-reg-14;
+    color: $Neutral-900;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__modal-original {
+    @include smallfont-reg-10;
+    margin-top: 1px;
+    color: $Neutral-500;
+  }
+
+  &__modal-close {
+    @include buttons.moi-focus-ring;
+    width: 30px;
+    height: 30px;
+    padding: $padding-none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: $Neutral-600;
+    background-color: $Neutral-100;
+    border: none;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition:
+      color 0.12s ease,
+      background-color 0.12s ease,
+      box-shadow 0.12s ease;
+
+    &:hover {
+      color: $Error-900;
+      background-color: $Error-50;
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 3px rgba($Error-500, 0.12);
+    }
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &__modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: $padding-lg;
+  }
+
+  &__preview-image-wrap {
+    height: clamp(420px, 68vh, 680px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $padding-sm;
+    text-align: center;
+    background-color: $Neutral-100;
+    border-radius: $radius-sm;
+  }
+
+  &__preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: $radius-sm;
+  }
+
+  &__preview-pdf-wrap {
+    height: clamp(560px, 72vh, 680px);
+    overflow: hidden;
+    background-color: $Neutral-100;
+    border-radius: $radius-sm;
+  }
+
+  &__preview-pdf {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+    border-radius: $radius-sm;
+  }
+
+  &__preview-pdf-fallback {
+    height: 100%;
+    padding: $padding-4xl;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $gap-sm;
+    text-align: center;
+    color: $Neutral-500;
+  }
+
+  &__preview-text-wrap {
+    height: clamp(320px, 60vh, 560px);
+    overflow: auto;
+    background-color: $Neutral-100;
+    border-radius: $radius-sm;
+    padding: $padding-lg;
+  }
+
+  &__preview-text {
+    @include meduimfont-reg-12;
+    margin: 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: $Neutral-900;
+    white-space: pre-wrap;
+    word-break: break-word;
+    direction: ltr;
+    text-align: start;
+  }
+
+  &__preview-meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: $gap-md;
+    margin-top: $margin-md;
+  }
+
+  &__meta-card {
+    min-width: 0;
+    padding: $padding-md $padding-lg;
+    background-color: $Neutral-50;
+    border: 1px solid $Neutral-200;
+    border-radius: $radius-sm;
+  }
+
+  &__meta-label {
+    @include smallfont-reg-10;
+    margin-bottom: $margin-xxs;
+    color: $Neutral-500;
+  }
+
+  &__meta-value {
+    @include meduimfont-reg-12;
+    color: $Neutral-900;
+    overflow-wrap: anywhere;
+
+    &--compact {
+      @include font-sm-500;
+    }
+  }
+
+  &__preview-generic {
+    padding: $padding-3xl $padding-2xl;
+    text-align: center;
+    color: $Neutral-500;
+  }
+
+  &__preview-generic-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto $margin-lg;
+    border-radius: $radius-lg;
+
+    svg {
+      width: 26px;
+      height: 26px;
+    }
+  }
+
+  &__preview-generic-title {
+    @include meduimfont-reg-14;
+    margin-bottom: $margin-sm;
+    color: $Neutral-900;
+  }
+
+  &__preview-generic-text {
+    @include meduimfont-reg-12;
+    margin-bottom: $margin-none;
+
+    &--spaced {
+      margin-top: $margin-xs;
+    }
+  }
+
+  &__modal-footer {
+    display: flex;
+    justify-content: flex-start;
+    gap: $gap-md;
+    flex-shrink: 0;
+    padding: $padding-lg $padding-xl;
+    border-top: 1px solid $Neutral-200;
+  }
+
+  @media (max-width: 991.98px) {
+    &__modal-dialog {
+      max-width: 820px;
+    }
+
+    &__preview-image-wrap {
+      height: clamp(360px, 60vh, 560px);
+    }
+
+    &__preview-pdf-wrap {
+      height: clamp(500px, 66vh, 620px);
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    &__modal-overlay {
+      padding: $padding-md;
+    }
+
+    &__modal-dialog {
+      max-width: 100%;
+    }
+
+    &__modal-body {
+      padding: $padding-md;
+    }
+
+    &__preview-image-wrap {
+      height: clamp(280px, 48vh, 420px);
+      padding: $padding-xs;
+    }
+
+    &__preview-pdf-wrap {
+      height: clamp(420px, 58vh, 560px);
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    &__preview-meta {
+      grid-template-columns: 1fr;
+    }
+
+    &__modal-footer {
+      flex-wrap: wrap;
+
+      .btn[class*="moi-btn--"] {
+        width: 100%;
+      }
+    }
+  }
+}

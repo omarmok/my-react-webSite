@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="../css/bootstrap-v5.css" rel="stylesheet">
+	<link href="../css/slick.css" rel="stylesheet">
+	<link href="../css/slick-theme.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+	<link href="../css/hover-min.css" rel="stylesheet">
+	<link href="../css/main.css" rel="stylesheet">
+	<script src="../js/jquery-3.6.0.min.js">
+	</script>
+	<script src="../js/popper.min.js">
+	</script>
+	<script src="../js/bootstrap.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/jquery.steps.min.js">
+	</script>
+
+
+<style>
+	.caseTimeline {
+		display: flex;
+		position: fixed;
+    z-index: 999;
+		left: 0;
+		height: 100%;
+		background: #ffff;
+		padding: 15px;
+		box-shadow: rgb(92 92 92) 7px 24px 51px -44px;
+		border-radius: 0 20px 20px 0;
+	
+		top:25%;
+	}
+
+	.timeline-page {
+    height: 770px;
+		overflow: scroll;
+		padding: 15px;
+	}
+
+		.caseTimeline h3 {
+			font-weight: 600;
+			font-size: 18px;
+			margin-bottom: 40px;
+			border-bottom: 1px solid #f8f6f2;
+			padding: 18px;
+			background: #f8f6f2;
+			position: sticky;
+			top: -15px;
+			z-index: 99999;
+		}
+	
+</style>
+
+</head>
+<body data-spy="scroll" data-target=".navbar" id="fullscreendiv">
+	<section class="content">
+		<section class="wapper">
+			<div class="breadcrumb-container px-3 mt-4">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item homebread">
+							<a href="/"><img alt="" src="../images/house-door.svg"> الرئيسية</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="/"><img alt="" src="../images/house-door.svg"> ادارة المستخدمين</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a class="currant__page" href="/"><img alt="" src="../images/house-door.svg"> اضافة مستخدم جديد</a>
+						</li>
+					</ol>
+				</nav>
+			</div>
+			<div class="page__title">
+				<h3> اختبار قضية</h3>
+        <div class="btn moi-btn--primary me-2 addlass">السجل الزمني للقضية</div>
+			</div>
+
+
+
+
+       
+       <div class="d-none  animate__animated animate__fadeInLeft animate__delay-0.5s caseTimeline">
+      
+      
+      
+        <div class="timeline-page ">
+          <div class="iq-timeline2  position-relative">
+            <h3>السجل الزمني للقضية</h3>
+            <ul class="list-inline p-0 m-0">
+      
+      
+              <li class="bg-Date-currant animate animated fadeInUp">
+                <div class="content-date  ">
+                  <span class="date">16</span>
+                  <span class="month">يناير</span>
+                </div>
+      
+                <div class="content content-block p-2">
+                  <div class="d-flex justify-content-between conttitle p-3">
+                    <h6 class="mb-2">استقبال إتصال من 911</h6>
+                    <small class="">
+      
+                      <i class="fa fa-calendar"></i>
+                      05/06/2023 10:21:00 ص
+                    </small>
+                  </div>
+                  <div class="timecontent w-100 p-2">
+                    <p>
+                      تم استقبال بلاغ رقم 1455544
+      
+                    </p>
+                    <div class="writenBy">
+                      <img src="../images/person.png" alt="">
+      
+                      <div class="by">
+                        بواسطة
+                        <span>أحمد محمد علي</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+      
+              </li>
+      
+      
+      
+              <li class="animate animated fadeInRight">
+                <div class="content-date bg-Date">
+                  <span class="date">18</span>
+                  <span class="month">يناير</span>
+                </div>
+      
+                <div class="content content-block p-2">
+                  <div class="d-flex justify-content-between conttitle p-3">
+                    <h6 class="mb-2">إسناد بلاغ  للدوريات الامنية</h6>
+                    <small class="">
+      
+                      <i class="fa fa-calendar"></i>
+                      018/06/2023 09:21:00 ص
+                    </small>
+                  </div>
+                  <div class="timecontent w-100 p-2">
+                    <p>
+                      1455544 تم اسناد البلاغ رقم
+                      لدورية فرع حي الياسمين بالرياض
+      
+                    </p>
+                    <div class="writenBy">
+                      <img src="../images/soliman.jpg" alt="">
+      
+                      <div class="by">
+                        بواسطة
+                        <span>سليمان محمد عوض الشهري</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+      
+              </li>
+      
+      
+      
+              <li class="animate animated fadeInRight">
+                <div class="content-date bg-Date">
+                  <span class="date">25</span>
+                  <span class="month">يناير</span>
+                </div>
+      
+                <div class="content content-block p-2">
+                  <div class="d-flex justify-content-between conttitle p-3">
+                    <h6 class="mb-2">استلام البلاغ والمباشره من قبل الدوريات الأمنية</h6>
+                    <small class="">
+      
+                      <i class="fa fa-calendar"></i>
+                      1442/01/09 10:09 ص
+                    </small>
+                  </div>
+                  <div class="timecontent w-100 p-2">
+                    <p>
+                      تم استلام البلاغ من قبل دورية  الشرطة بحي الياسمين والتي تحمل نداء 125 وتم الانتقال الي  مكان الحادث
+                    </p>
+                    <div class="writenBy">
+                      <img src="../images/mosa.png" alt="">
+      
+                      <div class="by">
+                        بواسطة
+                        <span>محمد احمد موسى الزعيقى</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+      
+              </li>
+      
+      
+      
+      
+      
+      
+              <li class="animate animated fadeInRight">
+                <div class="content-date bg-Date">
+                  <span class="date">25</span>
+                  <span class="month">يناير</span>
+                </div>
+      
+                <div class="content content-block p-2">
+                  <div class="d-flex justify-content-between conttitle p-3">
+                    <h6 class="mb-2">إدخال الحالة الأمنية</h6>
+                    <small class="">
+      
+                      <i class="fa fa-calendar"></i>
+                      1442/01/09 10:09 ص
+                    </small>
+                  </div>
+                  <div class="timecontent w-100 p-2">
+                    <p>
+                      تم ادخال الحالة الامنية التي تحمل رقم 125452
+                    </p>
+                    <div class="writenBy">
+                      <img src="../images/mosa.png" alt="">
+      
+                      <div class="by">
+                        بواسطة
+                        <span>محمد احمد موسى الزعيقى</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+      
+              </li>
+      
+      
+      
+      
+      
+              <li class="animate animated fadeInRight">
+                <div class="content-date bg-Date">
+                  <span class="date">26</span>
+                  <span class="month">يناير</span>
+                </div>
+      
+                <div class="content content-block p-2">
+                  <div class="d-flex justify-content-between conttitle p-3">
+                    <h6 class="mb-2">تحويل الحالة الامنية الي مركز الشرطة</h6>
+                    <small class="">
+      
+                      <i class="fa fa-calendar"></i>
+                      1442/01/09 10:09 ص
+                    </small>
+                  </div>
+                  <div class="timecontent w-100 p-2">
+                    <p>
+                      تم تحويل الحالة الامنية التي تحمل رقم
+                      125452
+                      الي مركز الشرطه بحي الياسمين
+                    </p>
+                    <div class="writenBy">
+                      <img src="../images/abdul.png" alt="">
+      
+                      <div class="by">
+                        بواسطة
+                        <span>محمود سعيد عبدالقادر عيد</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+      
+              </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+              <li class="animate animated fadeInRight">
+                <div class="content-date bg-Date">
+                  <span class="date">27</span>
+                  <span class="month">يناير</span>
+                </div>
+      
+                <div class="content content-block p-2">
+                  <div class="d-flex justify-content-between conttitle p-3">
+                    <h6 class="mb-2">استلام الحالة الامنية من مركزالشرطة تحويلها لقضية</h6>
+                    <small class="">
+      
+                      <i class="fa fa-calendar"></i>
+                      1442/01/09 10:09 ص
+                    </small>
+                  </div>
+                  <div class="timecontent w-100 p-2">
+                    <p>
+                      تم تحويل الحالة الامنية التي تحمل رقم
+                      125452
+                      الي مركز الشرطه بحي الياسمين
+                    </p>
+                    <div class="writenBy">
+                      <img src="../images/azam.png" alt="">
+      
+                      <div class="by">
+                        بواسطة
+                        <span>ياسين محمد حسن حمزه</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+      
+              </li>
+      
+      
+      
+              <li class="animate animated fadeInRight">
+                <div class="content-date bg-Date">
+                  <span class="date">28</span>
+                  <span class="month">يناير</span>
+                </div>
+      
+                <div class="content content-block p-2">
+                  <div class="d-flex justify-content-between conttitle p-3">
+                    <h6 class="mb-2">إضافة سماع اقوال للمبلغ</h6>
+                    <small class="">
+      
+                      <i class="fa fa-calendar"></i>
+                      1442/01/09 10:09 ص
+                    </small>
+                  </div>
+                  <div class="timecontent w-100 p-2">
+                    <p>
+                      تم سماع المبلغ
+                      احمد محمد علي خالد يحمل هوية
+                      10258757
+                    </p>
+                    <div class="writenBy">
+                      <img src="../images/soliman.jpg" alt="">
+      
+                      <div class="by">
+                        بواسطة
+                        <span>سليمان محمد عوض الشهري</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+      
+              </li>
+      
+      
+      
+      
+      
+      
+              <li class="animate animated fadeInRight">
+                <div class="content-date bg-Date">
+                  <span class="date">29</span>
+                  <span class="month">يناير</span>
+                </div>
+      
+                <div class="content content-block p-2">
+                  <div class="d-flex justify-content-between conttitle p-3">
+                    <h6 class="mb-2">إضافة سماع اقوال المتهم </h6>
+                    <small class="">
+      
+                      <i class="fa fa-calendar"></i>
+                      1442/01/09 10:09 ص
+                    </small>
+                  </div>
+                  <div class="timecontent w-100 p-2">
+                    <p>
+                      تم سماع المتهم
+                      محمد خالد محمد يحمل هويه رقم
+                      102154444
+                    </p>
+                    <div class="writenBy">
+                      <img src="../images/person.png" alt="">
+      
+                      <div class="by">
+                        بواسطة
+                        <span>
+                          أحمد محمد علي
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+      
+              </li>
+      
+      
+      
+              <li class="animate animated fadeInRight">
+                <div class="content-date bg-Date">
+                  <span class="date">30</span>
+                  <span class="month">يناير</span>
+                </div>
+      
+                <div class="content content-block p-2">
+                  <div class="d-flex justify-content-between conttitle p-3">
+                    <h6 class="mb-2">إرسال اشعار للنيابة</h6>
+                    <small class="">
+      
+                      <i class="fa fa-calendar"></i>
+                      1442/01/09 10:09 ص
+                    </small>
+                  </div>
+                  <div class="timecontent w-100 p-2">
+                    <p>
+                      تم ارسال اشعار الي النيابه بتفاصيل القضية
+                    </p>
+                    <div class="writenBy">
+                      <img src="../images/person.png" alt="">
+      
+                      <div class="by">
+                        بواسطة
+                        <span>
+                          أحمد محمد علي
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+      
+              </li>
+      
+      
+      
+      
+              <li class="animate animated fadeInRight">
+                <div class="content-date bg-Date">
+                  <span class="date">1</span>
+                  <span class="month">فبراير</span>
+                </div>
+      
+                <div class="content content-block p-2">
+                  <div class="d-flex justify-content-between conttitle p-3">
+                    <h6 class="mb-2">طلب تحريات البحث الجنائي</h6>
+                    <small class="">
+      
+                      <i class="fa fa-calendar"></i>
+                      1442/01/09 10:09 ص
+                    </small>
+                  </div>
+                  <div class="timecontent w-100 p-2">
+                    <p>
+                      تم ارسال طلب تحريات الي وحدة البحث الجنائي
+                    </p>
+                    <div class="writenBy">
+                      <img src="../images/person.png" alt="">
+      
+                      <div class="by">
+                        بواسطة
+                        <span>
+                          أحمد محمد علي
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+      
+              </li>
+      
+      
+      
+              <li class="animate animated fadeInRight">
+                <div class="content-date bg-Date">
+                  <span class="date">3</span>
+                  <span class="month">فبراير</span>
+                </div>
+      
+                <div class="content content-block p-2">
+                  <div class="d-flex justify-content-between conttitle p-3">
+                    <h6 class="mb-2">إرسال ملفات القضية الي النيابة العامة</h6>
+                    <small class="">
+      
+                      <i class="fa fa-calendar"></i>
+                      1442/01/09 10:09 ص
+                    </small>
+                  </div>
+                  <div class="timecontent w-100 p-2">
+                    <p>
+                      تم ارسال كافة ملفات القضيه الي النيابة العامة
+                    </p>
+                    <div class="writenBy">
+                      <img src="../images/person.png" alt="">
+      
+                      <div class="by">
+                        بواسطة
+                        <span>
+                          أحمد محمد علي
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+      
+              </li>
+      
+      
+      
+      
+      
+      
+      
+      
+            </ul>
+          </div>
+        </div>
+      
+      
+      
+       </div>
+      
+
+
+            <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+   -->
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">سجل القضية</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+    
+
+
+            <div class="timeline-page ">
+                <div class="iq-timeline2  position-relative">
+                   <ul class="list-inline p-0 m-0">
+
+
+                    <li class="bg-Date-currant animate animated fadeInUp">
+                        <div class="content-date  "> <span class="date">16</span>
+                            <span class="month">يناير</span>
+                         </div>
+                         
+                         <div class="content content-block p-2">
+                        <div class="d-flex justify-content-between conttitle p-3">
+                            <h6 class="mb-2">اضافة متهم القضية</h6>
+                            <small class="">
+                                
+                                <i class="fa fa-calendar"></i>
+                                05/06/2023 10:21:00 ص</small>
+                        </div>
+                        <div class="timecontent w-100 p-2">
+                          <p>
+                         تم اضافة المتهم الذي يحمل رقم هوية
+                         2365698685
+                         كطرف في القضية
+
+                               </p>
+                              <div class="writenBy">
+                                <img src="../images/person.png" alt="">
+                             
+                                <div class="by">
+                                    بواسطة
+                                    <span>أحمد محمد علي</span>
+                                </div>
+                              </div>
+                            </div>
+                         </div>
+
+                       
+                      </li>
+
+
+                      
+                      <li class="animate animated fadeInRight">
+                        <div class="content-date bg-Date"> <span class="date">18</span>
+                            <span class="month">يناير</span>
+                         </div>
+                         
+                         <div class="content content-block p-2">
+                          <div class="d-flex justify-content-between conttitle p-3">
+                            <h6 class="mb-2">تحويل خطاب موجه لرئيس شعبة البحث والتحري بالمركز</h6>
+                            <small class="">
+                                
+                                <i class="fa fa-calendar"></i>
+                                018/06/2023 09:21:00 ص</small>
+                        </div>
+                        <div class="timecontent w-100 p-2">
+                          <p>
+                                نأمل القبض علي المتهمينت المذكورين اعلاه وللتنسيق في ذلك يرجي التواصل 
+
+                               </p>
+                              <div class="writenBy">
+                                <img src="../images/soliman.jpg" alt="">
+                             
+                                <div class="by">
+                                    بواسطة
+                                    <span>سليمان محمد عوض الشهري</span>
+                                </div>
+                              </div>
+                            </div>
+                         </div>
+
+                       
+                      </li>
+
+
+    
+                      <li class="animate animated fadeInRight">
+                        <div class="content-date bg-Date"> <span class="date">25</span>
+                            <span class="month">يناير</span>
+                         </div>
+                         
+                         <div class="content content-block p-2">
+                          <div class="d-flex justify-content-between conttitle p-3">
+                            <h6 class="mb-2">إحالة للنيابة العامة	</h6>
+                            <small class="">
+                                
+                                <i class="fa fa-calendar"></i>
+                                1442/01/09 10:09 ص</small>
+                        </div>
+                            <div class="timecontent w-100 p-2">
+                               <p>
+                                إستمارة التسجيل الجنائي
+                                خطاب للمستشفي	
+                                خطاب موجه لرئيس شعبة البحث والتحري بالمركز	
+
+                               </p>
+                              <div class="writenBy">
+                                <img src="../images/mosa.png" alt="">
+                             
+                                <div class="by">
+                                    بواسطة
+                                    <span>محمد احمد موسى الزعيقى</span>
+                                </div>
+                              </div>
+                            </div>
+                         </div>
+
+                       
+                      </li>
+
+
+                  
+                   </ul>
+                </div>
+             </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn moi-btn--secondary--outline" data-bs-dismiss="modal">اغلاق</button>
+ 
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+             
+
+
+
+
+
+		</section>
+	</section>
+	<script src="/PS-Design/js/app.js">
+	</script>
+  <script>
+    
+	$(".addlass").click(function () {
+		$(".caseTimeline").toggleClass("d-none");
+
+	});
+
+  </script>
+
+</body>
+</html>

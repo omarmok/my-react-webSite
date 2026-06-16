@@ -1,0 +1,536 @@
+{
+  "components": [
+    {
+      "name": "Button",
+      "anatomy": [
+        "Container (.moi-btn) with built-in hit-area / pseudo focus ring",
+        "Label / text node",
+        "Icon slot (svg) that inherits currentColor",
+        "Optional icon-only layout that collapses horizontal padding"
+      ],
+      "variants": [
+        {
+          "name": "Primary",
+          "styles": {
+            "ghost": {
+              "default": {
+                "background": "{color.primary.500}",
+                "border": "{color.primary.500}",
+                "text": "{color.primary.25}"
+              },
+              "hover": {
+                "background": "{color.primary.100}",
+                "text": "{color.primary.600}"
+              },
+              "active": {
+                "background": "{color.primary.200}",
+                "border": "{color.primary.500}"
+              }
+            },
+            "solid": {
+              "default": {
+                "background": "{color.primary.25}",
+                "border": "{color.primary.25}",
+                "text": "{color.primary.700}"
+              },
+              "hover": {
+                "background": "{color.primary.600}",
+                "text": "{color.primary.25}"
+              },
+              "active": {
+                "background": "{color.primary.700}"
+              }
+            },
+            "outline": {
+              "default": {
+                "background": "{color.base.white}",
+                "border": "{color.primary.700}",
+                "text": "{color.primary.700}"
+              },
+              "hover": {
+                "background": "{color.primary.50}"
+              },
+              "active": {
+                "background": "{color.primary.100}"
+              }
+            }
+          }
+        },
+        {
+          "name": "Neutral",
+          "styles": {
+            "ghost": {
+              "default": {
+                "background": "{color.neutral.50}",
+                "border": "{color.neutral.50}",
+                "text": "{color.neutral.900}"
+              },
+              "hover": {
+                "background": "{color.neutral.100}"
+              },
+              "active": {
+                "background": "{color.neutral.200}",
+                "border": "{color.neutral.900}",
+                "opacity": "0.8"
+              }
+            },
+            "solid": {
+              "default": {
+                "background": "{color.neutral.100}",
+                "border": "{color.neutral.100}",
+                "text": "{color.neutral.900}"
+              },
+              "hover": {
+                "background": "{color.neutral.300}"
+              },
+              "active": {
+                "background": "{color.neutral.400}",
+                "border": "{color.neutral.900}"
+              }
+            },
+            "outline": {
+              "default": {
+                "background": "{color.base.white}",
+                "border": "{color.neutral.300}",
+                "text": "{color.neutral.900}"
+              },
+              "hover": {
+                "background": "{color.neutral.100}"
+              },
+              "active": {
+                "background": "{color.neutral.50}"
+              }
+            }
+          }
+        },
+        {
+          "name": "Info",
+          "styles": {
+            "ghost": {
+              "default": {
+                "background": "{color.info.500}",
+                "border": "{color.info.500}",
+                "text": "{color.info.25}"
+              },
+              "hover": {
+                "background": "{color.info.100}",
+                "text": "{color.info.600}"
+              },
+              "active": {
+                "background": "{color.info.200}"
+              }
+            },
+            "solid": {
+              "default": {
+                "background": "{color.info.25}",
+                "border": "{color.info.25}",
+                "text": "{color.info.700}"
+              },
+              "hover": {
+                "background": "{color.info.600}",
+                "text": "{color.info.25}"
+              }
+            },
+            "outline": {
+              "default": {
+                "background": "{color.base.white}",
+                "border": "{color.info.700}",
+                "text": "{color.info.700}"
+              },
+              "hover": {
+                "background": "{color.info.50}"
+              }
+            }
+          }
+        }
+      ],
+      "sizeTokens": {
+        "sm": {
+          "height": "{buttons.size.sm.height}",
+          "paddingX": "{buttons.size.sm.paddingX}",
+          "fontSize": "{buttons.size.sm.fontSize}",
+          "radius": "{buttons.size.sm.radius}",
+          "gap": "{buttons.size.sm.gap}",
+          "iconSize": "{buttons.size.sm.iconSize}",
+          "lineHeight": "{buttons.size.sm.lineHeight}"
+        },
+        "md": {
+          "height": "{buttons.size.md.height}",
+          "paddingX": "{buttons.size.md.paddingX}",
+          "fontSize": "{buttons.size.md.fontSize}",
+          "radius": "{buttons.size.md.radius}",
+          "gap": "{buttons.size.md.gap}",
+          "iconSize": "{buttons.size.md.iconSize}",
+          "lineHeight": "{buttons.size.md.lineHeight}"
+        },
+        "lg": {
+          "height": "{buttons.size.lg.height}",
+          "paddingX": "{buttons.size.lg.paddingX}",
+          "fontSize": "{buttons.size.lg.fontSize}",
+          "radius": "{buttons.size.lg.radius}",
+          "gap": "{buttons.size.lg.gap}",
+          "iconSize": "{buttons.size.lg.iconSize}",
+          "lineHeight": "{buttons.size.lg.lineHeight}"
+        },
+        "xl": {
+          "height": "{buttons.size.xl.height}",
+          "paddingX": "{buttons.size.xl.paddingX}",
+          "fontSize": "{buttons.size.xl.fontSize}",
+          "radius": "{buttons.size.xl.radius}",
+          "gap": "{buttons.size.xl.gap}",
+          "iconSize": "{buttons.size.xl.iconSize}",
+          "lineHeight": "{buttons.size.xl.lineHeight}"
+        }
+      },
+      "states": {
+        "focus": {
+          "outerRing": "rgba({color.primary.700}, 0.35) via --moi-focus-outer",
+          "innerRing": "rgba({color.primary.700}, 0.75) via --moi-focus-inner",
+          "outline": "2px solid currentColor"
+        },
+        "disabled": {
+          "background": "{color.neutral.100}",
+          "border": "{color.neutral.300}",
+          "text": "{color.neutral.400}",
+          "cursor": "not-allowed"
+        }
+      },
+      "notes": [
+        "Lavender, Warning and Error tokens mirror the Primary and Neutral patterns (solid/outline) but swap color.* scales.",
+        "Icon-only buttons drop horizontal padding but maintain the height and radius tokens from buttons.size.<size>.",
+        "Active state opacity (0.8) and focus ring opacity (rgba overlays) currently hardcoded and should become dedicated shadow/opacity tokens."
+      ]
+    },
+    {
+      "name": "Input Field",
+      "anatomy": [
+        "Label",
+        "Input / textarea (.form-control)",
+        "Helper text (e.g. .wanted-to or .form-group-info)",
+        "Prefix / suffix icons and text (icons + .input-group-text)"
+      ],
+      "variants": [
+        {
+          "name": "Sizes",
+          "tokens": {
+            "default": "{forms.input.size.default}",
+            "sm": "{forms.input.size.sm}",
+            "md": "{forms.input.size.md}",
+            "lg": "{forms.input.size.lg}",
+            "xl": "{forms.input.size.xl}"
+          }
+        }
+      ],
+      "states": {
+        "default": {
+          "background": "{color.base.white}",
+          "border": "{color.neutral.400}",
+          "text": "{color.neutral.900}",
+          "placeholder": "{color.neutral.500}",
+          "transition": "border-color 0.3s, box-shadow 0.3s"
+        },
+        "focus": {
+          "border": "{color.primary.500}",
+          "boxShadow": "0 0 0 2px rgba({color.primary.500}, 0.12) (needs tokenized opacity)"
+        },
+        "disabled": {
+          "background": "{color.neutral.50}",
+          "border": "{color.neutral.200}",
+          "text": "{color.neutral.500}",
+          "cursor": "not-allowed"
+        }
+      },
+      "notes": [
+        "Helper text uses typography.mixins (meduimfont) so rely on typography.fontSize.sm + fontWeight.600.",
+        "Select2 dropdown items reuse form-control padding but still rely on hard-coded border colors (#bababa).",
+        "Textarea height is hard-coded (150px) and might benefit from spacing tokens if reused."
+      ]
+    },
+    {
+      "name": "Alert",
+      "anatomy": [
+        "Container (.alert)",
+        "Optional title / body content",
+        "Close button / custom slots"
+      ],
+      "variants": [
+        {
+          "name": "Primary",
+          "default": {
+            "background": "{color.primary.50}",
+            "border": "{color.primary.100}",
+            "text": "{color.primary.600}",
+            "lineHeight": "1.9"
+          }
+        },
+        {
+          "name": "Danger",
+          "default": {
+            "background": "rgba({color.error.500}, 0.05)",
+            "border": "{color.error.100}",
+            "text": "{color.error.500}"
+          }
+        }
+      ],
+      "notes": [
+        "Page-specific helpers (custom-danger-alert/custom-alert-primary) still use raw hex (#d9272d, #0d60da).",
+        "Backgrounds should map to color.*.50 tokens instead of hard-coded values for easier theming."
+      ]
+    },
+    {
+      "name": "Badge / Priority Pill",
+      "anatomy": [
+        "Container (.defualtprioroty)",
+        "Status dot (::before)",
+        "Optional filled state"
+      ],
+      "variants": [
+        {
+          "name": "Default",
+          "default": {
+            "background": "{color.neutral.50}",
+            "border": "{color.neutral.200}",
+            "text": "{color.neutral.600}",
+            "dot": "{color.neutral.600}"
+          }
+        },
+        {
+          "name": "High",
+          "default": {
+            "background": "{color.error.50}",
+            "border": "{color.error.200}",
+            "text": "{color.error.600}",
+            "dot": "{color.error.600}"
+          },
+          "filled": {
+            "background": "{color.error.500}",
+            "border": "{color.error.500}",
+            "text": "{color.base.white}",
+            "dot": "{color.base.white}"
+          }
+        },
+        {
+          "name": "Warning",
+          "default": {
+            "background": "{color.warning.50}",
+            "border": "{color.warning.300}",
+            "text": "{color.warning.600}",
+            "dot": "{color.warning.600}"
+          },
+          "filled": {
+            "background": "{color.warning.600}",
+            "border": "{color.warning.600}",
+            "text": "{color.base.white}",
+            "dot": "{color.base.white}"
+          }
+        },
+        {
+          "name": "Info",
+          "default": {
+            "background": "{color.info.50}",
+            "border": "{color.info.200}",
+            "text": "{color.info.600}",
+            "dot": "{color.info.600}"
+          },
+          "filled": {
+            "background": "{color.info.500}",
+            "border": "{color.info.500}",
+            "text": "{color.base.white}",
+            "dot": "{color.base.white}"
+          }
+        }
+      ],
+      "states": {
+        "glyph": "::before uses same tone as text/border",
+        "filled": "Solid OOTD variant flips text to {color.base.white}."
+      },
+      "notes": [
+        "UnderProgress / Returned use raw #6929c4 / #3f739b backgrounds; create tokens for those purple gradients.",
+        "Priority pills leverage radius.{radius-100} for pill shape and spacing.$padding-8 for padding."
+      ]
+    },
+    {
+      "name": "Table",
+      "anatomy": [
+        "Toolbar (.table__search)",
+        "Table shell (.tablecontainer > .table)",
+        "Header cells (thead th)",
+        "Body rows (tbody td)",
+        "Pagination toolbar"
+      ],
+      "variants": [
+        {
+          "name": "Search panel",
+          "default": {
+            "background": "{color.base.white}",
+            "boxShadow": "0px 2px 4px 0px rgba(239, 241, 249, 1) (needs token)"
+          }
+        },
+        {
+          "name": "Table header",
+          "default": {
+            "background": "#f4f5fb (align to color.neutral.100)",
+            "border": "{color.neutral.300}",
+            "text": "{color.neutral.600}"
+          },
+          "hover": {
+            "background": "#efe3cf (pending token)",
+            "text": "#704214"
+          }
+        },
+        {
+          "name": "Row body",
+          "default": {
+            "border": "#f6f5f1 (needs token)",
+            "text": "{color.neutral.900}"
+          },
+          "hover": {
+            "background": "var(--bs-table-accent-bg, rgb(248, 250, 254))"
+          },
+          "badge": {
+            "danger": {
+              "background": "{color.error.25}",
+              "border": "#ffd1d1",
+              "text": "{color.error.500}"
+            }
+          }
+        }
+      ],
+      "notes": [
+        "Multiple raw colors (#fff, #f4f5fb, #f6f5f1) and shadows should map to color/shadow tokens for predictable theming.",
+        "Pagination container uses 0px 8px 20px #f1f1f1 shadow; align to shadow tokens or create dedicated table-shadow token."
+      ]
+    },
+    {
+      "name": "Modal",
+      "anatomy": [
+        "Backdrop (.modal + .modal-backdrop)",
+        "Content (.modal-content)",
+        "Header (.modal-header / .modal-info-header / .modal-danger-header)",
+        "Body (.modal-body)",
+        "Footer (.modal-footer)"
+      ],
+      "variants": [
+        {
+          "name": "Info banner",
+          "default": {
+            "headerBackground": "{color.info.50}",
+            "headerText": "{color.info.600}"
+          }
+        },
+        {
+          "name": "Danger banner",
+          "default": {
+            "headerBackground": "{color.error.500}",
+            "headerText": "{color.base.white}"
+          }
+        }
+      ],
+      "states": {
+        "body": {
+          "background": "{color.neutral.100}",
+          "borderRadius": "{radius.md}",
+          "gap": "{spacing.gap.14}",
+          "padding": "{spacing.padding.14}"
+        }
+      },
+      "notes": [
+        "Close buttons extend %modal-close-button and reuse {color.neutral.800} icons with neutral shadows.",
+        "Danger and info headers already map to color tokens; keep focus on replacing any remaining raw colors (e.g., #baige) inside modals."
+      ]
+    },
+    {
+      "name": "Dropdown",
+      "anatomy": [
+        "Toggle (.dropdown-toggle)",
+        "Menu (.dropdown-menu)",
+        "Items (.dropdown-item)",
+        "Decorative → arrow (::after)"
+      ],
+      "variants": [
+        {
+          "name": "User drop-down",
+          "default": {
+            "background": "{color.base.white}",
+            "boxShadow": "0px 2px 14px 0px rgba(235, 235, 235, 1)",
+            "padding": "25px",
+            "border": "none"
+          }
+        },
+        {
+          "name": "Seating drop-down",
+          "default": {
+            "background": "{color.base.white}",
+            "boxShadow": "0px 2px 14px 0px rgba(235, 235, 235, 1)",
+            "padding": "25px",
+            "menuArrow": "custom pseudo (::before) uses {color.base.white}"
+          }
+        }
+      ],
+      "notes": [
+        "Box-shadow and padding are hard-coded (25px); prefer spacing.padding.14 / shadow tokens for consistency.",
+        "Toggle arrow remains an svg asset (../images/dovwn-arrow.svg); consider replacing with tokenized icon color {color.neutral.600}."
+      ]
+    },
+    {
+      "name": "Checkbox",
+      "anatomy": [
+        "Input square (.form-check-input)",
+        "Label (.form-check-label)"
+      ],
+      "states": {
+        "default": {
+          "size": "15px",
+          "border": "{color.neutral.300}",
+          "background": "transparent"
+        },
+        "checked": {
+          "background": "{color.primary.500}",
+          "border": "{color.primary.500}"
+        },
+        "focus": {
+          "outline": "0",
+          "boxShadow": "0 0 0 2px rgba({color.primary.500}, 0.2)"
+        }
+      },
+      "notes": [
+        "Constrain checkbox size to spacing tokens (15px currently hard-coded).",
+        "Focus shadow uses rgba with primary; create an opacity token for reuse."
+      ]
+    },
+    {
+      "name": "Radio",
+      "anatomy": [
+        "Label (.radio)",
+        "Custom circle (::before)",
+        "Inner dot (::after)"
+      ],
+      "states": {
+        "default": {
+          "border": "{color.neutral.900}",
+          "background": "{color.base.white}"
+        },
+        "hover": {
+          "border": "{color.primary.600}"
+        },
+        "checked": {
+          "dotBackground": "{color.primary.500}",
+          "border": "{color.primary.200}"
+        }
+      },
+      "notes": [
+        "Definitions live under #Accidents; generalize to work outside that scope and keep colors tokenized."
+      ]
+    }
+  ],
+  "missingComponents": [
+    {
+      "name": "Chip",
+      "reason": "No dedicated SCSS component (only priority badges). Recommend introducing a token-bound chip class for reusable pill states."
+    },
+    {
+      "name": "Card",
+      "reason": "Card styles are scattered across page-specific SCSS (cards in dashboard, landing, etc.) with raw colors; centralize a card component tied to color.neutral and shadow tokens."
+    }
+  ]
+}

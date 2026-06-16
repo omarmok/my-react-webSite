@@ -1,0 +1,237 @@
+
+<html >
+    <head>
+        <title></title>
+        <link href="./css/bootstrap-v5.css" rel="stylesheet">
+        <link href="./css/slick.css" rel="stylesheet">
+        <link href="./css/slick-theme.css" rel="stylesheet">
+        <link href="./css/animate.css" rel="stylesheet">
+        <link href="./css/font-awesome.min.css" rel="stylesheet">
+        <link href="./css/hover-min.css" rel="stylesheet">
+        <link href="./css/main.css" rel="stylesheet">
+        <script src="./js/jquery-3.6.0.min.js">
+        </script>
+        <script src="./js/popper.min.js">
+        </script>
+        <script src="./js/bootstrap.min.js">
+        </script>
+        <script src="./js/slick.min.js">
+        </script>
+        <script src="./js/slick.min.js">
+        </script>
+        <script src="./js/jquery.steps.min.js">
+        </script>
+    </head>
+
+<body>
+
+
+  
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="tablecontainer">
+                    <div class=" tableSeetings">
+                    
+                        <div class="action-items">
+
+                            <button  class="btn moi-btn--secondary" data-bs-target="#vehicle" data-bs-toggle="modal"  >
+                        استعلام عن الاسلحة
+                            </button>
+
+                            <button  class="btn moi-btn--secondary--outline"   >
+                           اضافة سلاح مجهول
+                                    </button>
+
+                            
+                   
+                        </div>
+                    </div>
+                
+                </div>
+
+                <img src="../PS-Design/images/Modal-wepoon.png" class="w-75 d-block mx-auto" alt="">
+    
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div aria-hidden="true" aria-labelledby="vehicleLabel" class="modal fade" id="vehicle" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="vehicleLabel">بيانات الاسلحة</h5><button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="searchfields">
+                        <div class="form-group">
+                            <div class="d-flex" style="gap: 10px;">
+                                <div class="d-flex flex-column">
+                                    <label class="required">نوع البحث</label> <select class="form-select">
+                                        <option selected>
+                                            اختر نوع البحث
+                                        </option>
+                                        <option value="1">
+                         الرقم التسلسلي
+                                        </option>
+                                        <option value="1">
+                                       رقم هوية المالك
+                                                           </option>
+                                    
+                                    </select>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <label class="required">نوع التسجل</label> <select class="form-select" required="" title="اختر نوع تسجيل لوحة المركبة">
+                                        <option selected>
+                                            خاص
+                                        </option>
+                                        <option>
+                                            نقل عام
+                                        </option>
+                                        <option>
+                                            نقل خاص
+                                        </option>
+                                        <option>
+                                            حافلة صغيرة عامة
+                                        </option>
+                                        <option>
+                                            حافلة صغيرة خاصة
+                                        </option>
+                                        <option>
+                                            أجرة
+                                        </option>
+                                        <option>
+                                            أشغال عامة
+                                        </option>
+                                        <option>
+                                            تصدير
+                                        </option>
+                                        <option>
+                                            دبلوماسي
+                                        </option>
+                                        <option>
+                                            دراجة آلية
+                                        </option>
+                                        <option>
+                                            مؤقت
+                                        </option>
+                                        <option>
+                                            اقتناء تاريخي
+                                        </option>
+                                    </select>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+               
+                    <div class="tablecontainer">
+                        <table class="mt-3 table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>الرقم التسلسلي	</th>
+                                    <th>نوع السلاح	</th>
+                                    <th>عيار السلاح	</th>
+                                    <th>قم هوية حامل الرخصة</th>
+                                    <th>نوع هوية حامل الرخصة</th>
+                                    <th>تاريخ انتهاء الرخصة</th>
+                                    <th>اختيار</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2854 س ك أ</td>
+                                    <td>تويوتا</td>
+                                    <td>2007</td>
+                                    <td>ابيض</td>
+                                    <td>7211800</td>
+                                    <td>MR0AX12G570009644</td>
+                                  
+                                    <td><a href="./weapon-form-after.html" class="moi-btn--text-icon" data-bs-dismiss="modal"><img alt="" src="../PS-Design/images/icon-plus-circle-gold.svg" title="اضافة "></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <nav aria-label="..." class="paginationContainer justify-content-between">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link"><img alt="" src="../images/icon-arrow-right-pagenation.svg"></a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">1</a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">2</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">3</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">4</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">....</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">11</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">12</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#"><img alt="" src="../images/icon-arrow-left-pagenation.svg"></a>
+                                </li>
+                            </ul>
+                            <div class="d-flex leftnav">
+                                <div class="d-flex align-items-center pages_number">
+                                    <label class="form-label" for="exampleFormControlInput1">إظهار</label> <select>
+                                        <option selected>
+                                            10
+                                        </option>
+                                        <option value="20">
+                                            20
+                                        </option>
+                                        <option value="50">
+                                            50
+                                        </option>
+                                        <option value="100">
+                                            100
+                                        </option>
+                                    </select> <label class="form-label" for="exampleFormControlInput1">من <span>68</span></label>
+                                </div>
+                                <div class="d-flex align-items-center goto">
+                                    <label class="form-label" for="exampleFormControlInput1">الذهاب الي صفحة</label> <input class="form-control" placeholder="2" type="text"> <button class="btn moi-btn--outline" type="submit">ذهاب</button>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn moi-btn--secondary--outline" data-bs-dismiss="modal" type="button">اغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div><!--end  vehicle Modal -->
+
+
+
+
+<script>
+    $(document).ready(function(){
+      $(".chooseToClose").click(function(){
+        $(".togglevisabile").toggleClass("d-none");
+      });
+    });
+    </script>
+
+    <script src="js/app.js"></script>
+</body>
+
+
+

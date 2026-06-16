@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="../css/bootstrap-v5.css" rel="stylesheet">
+	<link href="../css/slick.css" rel="stylesheet">
+	<link href="../css/slick-theme.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+	<link href="../css/hover-min.css" rel="stylesheet">
+	<link href="../css/main.css" rel="stylesheet">
+	<script src="../js/jquery-3.6.0.min.js">
+	</script>
+	<script src="../js/popper.min.js">
+	</script>
+	<script src="../js/bootstrap.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/jquery.steps.min.js">
+	</script>
+</head>
+<body data-spy="scroll" data-target=".navbar" id="fullscreendiv">
+	<section class="content">
+		<section class="wapper">
+			<div class="breadcrumb-container px-3 mt-4">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item homebread">
+							<a href="/"><img alt="" src="../images/house-door.svg"> الرئيسية</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="/"><img alt="" src="../images/house-door.svg"> الصلاحيات</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a class="currant__page" href="/"><img alt="" src="../images/house-door.svg"> اضافة الصلاحيات</a>
+						</li>
+					</ol>
+				</nav>
+			</div>
+			<div class="page__title">
+				<h3><img alt="" src="../images/icon-violition.svg"> الصلاحيات<img alt="" src="../images/arrow-left-title.svg"> مدراء التقنية في شرط المناطق</h3>
+				<div class="permissions_top__details">
+					<div class="caseDate">
+						<div class="block">
+							عدد المجموعات
+							<div class="content">
+								23 من 12
+							</div>
+						</div>
+					</div>
+					<div class="caseDate">
+						<div class="block">
+							عدد الصلاحيات
+							<div class="content">
+								23 من 1547
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="searchfields m-3 mb-4">
+				<div class="form-group">
+					<div class="d-flex" style="gap: 10px;">
+						<div class="d-flex flex-column">
+							<label class="required">البحث عن مجموعة</label> <input class="form-control" type="" value="">
+						</div>
+						<div class="d-flex flex-column">
+							<label class="required">البحث عن صلاحية</label> <input class="form-control" type="" value="">
+						</div>
+						<div class="d-flex flex-column">
+							<label class="required" style="visibility: hidden;">...</label> <button class="btn moi-btn--secondary--outline ms-2"><img src="/PS-Design/images/icon-searchtitle.svg"> بحث</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid UserManagement-Rols">
+				<div class="row">
+					<div class="col-lg-9 col-12">
+						<div class=" UserManagement-Rols__permissions">
+							<div class="d-flex align-items-start">
+								<div aria-orientation="vertical" class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist">
+									<button aria-controls="v-pills-home" aria-selected="true" class="nav-link active" data-bs-target="#v-pills-home" data-bs-toggle="pill" id="v-pills-home-tab" role="tab" type="button">
+									<div>
+										<img alt="" src="/PS-Design/images/icon-folder-open-per.svg"> Administrators
+									</div>
+									<div class="leftnav">
+										<div class="permissionsNO">
+											10
+										</div><input class="form-check-input" id="flexCheckChecked" type="checkbox" value="">
+									</div></button> <button aria-controls="v-pills-profile" aria-selected="false" class="nav-link" data-bs-target="#v-pills-profile" data-bs-toggle="pill" id="v-pills-profile-tab" role="tab" type="button">
+									<div>
+										<img alt="" src="/PS-Design/images/icon-folder-open-per.svg"> حجز المركبات
+									</div>
+									<div class="leftnav">
+										<div class="permissionsNO">
+											36
+										</div><input class="form-check-input" id="flexCheckChecked" type="checkbox" value="">
+									</div></button> <button aria-controls="v-pills-messages" aria-selected="false" class="nav-link" data-bs-target="#v-pills-messages" data-bs-toggle="pill" id="v-pills-messages-tab" role="tab" type="button">
+									<div>
+										<img alt="" src="/PS-Design/images/icon-folder-open-per.svg"> مدير الحالات الأمنية قطاعات مدير الحالات الأمنية قطاعات
+									</div>
+									<div class="leftnav">
+										<div class="permissionsNO">
+											56
+										</div><input class="form-check-input" id="flexCheckChecked" type="checkbox" value="">
+									</div></button> <button aria-controls="v-pills-settings" aria-selected="false" class="nav-link" data-bs-target="#v-pills-settings" data-bs-toggle="pill" id="v-pills-settings-tab" role="tab" type="button">
+									<div>
+										<img alt="" src="/PS-Design/images/icon-folder-open-per.svg"> مدير الحالات الأمنية قطاعات مدير الحالات الأمنية قطاعات
+									</div>
+									<div class="leftnav">
+										<div class="permissionsNO">
+											1457
+										</div><input class="form-check-input" id="flexCheckChecked" type="checkbox" value="">
+									</div></button>
+								</div>
+								<div class="tab-content" id="v-pills-tabContent">
+									<div aria-labelledby="v-pills-home-tab" class="tab-pane fade show active" id="v-pills-home" role="tabpanel">
+										<div class="permissionContentTitle">
+										<div class="d-flex flex-column">
+											صلاحيات مجموعة
+											<span>	Administrators</span>
+										</div>
+											<input type="text" class="form-control text-right" id="exampleFormControlInput1" placeholder="البحث عن صلاحية">
+											</div>
+										
+
+											<div class="permissionsList">
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+													<label class="form-check-label" for="flexCheckDefault">
+														عرض صندوق الوارد
+													</label>
+												  </div>
+
+												  <div class="form-check checkChild">
+													<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+													<label class="form-check-label" for="flexCheckDefault">
+														نظام التراسل الآلي
+													</label>
+												  </div>
+												  <div class="form-check checkChild-sub">
+													<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+													<label class="form-check-label" for="flexCheckDefault">
+														نظام التراسل الآلي-2
+													</label>
+												  </div>
+												  
+												  <div class="form-check checkChild">
+													<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+													<label class="form-check-label" for="flexCheckDefault">
+														عرض
+													</label>
+												  </div>
+
+												  <div class="form-check ">
+													<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+													<label class="form-check-label" for="flexCheckDefault">
+													نظام المخالفات
+													</label>
+												  </div>
+												  
+												
+
+
+											</div>
+
+
+
+									</div>
+									<div aria-labelledby="v-pills-profile-tab" class="tab-pane fade" id="v-pills-profile" role="tabpanel">
+										حجز المركبات
+									</div>
+									<div aria-labelledby="v-pills-messages-tab" class="tab-pane fade" id="v-pills-messages" role="tabpanel">
+										مدير الحالات الأمنية قطاعات
+									</div>
+									<div aria-labelledby="v-pills-settings-tab" class="tab-pane fade" id="v-pills-settings" role="tabpanel">
+										Administrators
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-12">
+						<div class="UserManagement-Rols__roles">
+							<div class="title">
+								<img alt="" src="/PS-Design/images/icon-person-key.svg">
+								<div class="block">
+									الصلاحيات المضافة لدور: <span>مدراء التقنية في شرط المناطق</span>
+								</div>
+							</div>
+							<div class="text-center mt-3 details">
+
+
+
+								<div class="accordion" id="accordionExample">
+									<div class="accordion-item">
+									  <h2 class="accordion-header">
+										<button class="accordion-button active" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										  
+												<div class="d-flex align-items-center ">
+													<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+													<label class="form-check-label" for="flexCheckDefault">
+														Administrators
+													</label>
+								
+												</div>
+											
+										
+										</button>
+									  </h2>
+									  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+
+											<div class="permissionsList">
+											<div class="form-check">
+												<div class="d-flex">
+													<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+													<label class="form-check-label" for="flexCheckDefault">
+														عرض صندوق الوارد
+													</label>
+												</div>
+												<button class="moi-btn--text-icon ">
+													<img src="/PS-Design/images/icon-x-circle-title.svg" alt="">
+												</button>
+												  </div>
+			
+												  <div class="form-check checkChild">
+												
+			
+													<div class="d-flex">
+														<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+														<label class="form-check-label" for="flexCheckDefault">
+															نظام التراسل الآلي
+														</label>
+													</div>
+													<button class="moi-btn--text-icon ">
+														<img src="/PS-Design/images/icon-x-circle-title.svg" alt="">
+													</button>
+			
+												  </div>
+												  <div class="form-check checkChild-sub">
+													
+			
+													
+													<div class="d-flex">
+														<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+														<label class="form-check-label" for="flexCheckDefault">
+															نظام التراسل الآلي-2
+														</label>
+													</div>
+													<button class="moi-btn--text-icon ">
+														<img src="/PS-Design/images/icon-x-circle-title.svg" alt="">
+													</button>
+			
+												  </div>
+												  
+												  <div class="form-check checkChild">
+												
+			
+													<div class="d-flex">
+														<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+														<label class="form-check-label" for="flexCheckDefault">
+															عرض
+														</label>
+													</div>
+													<button class="moi-btn--text-icon ">
+														<img src="/PS-Design/images/icon-x-circle-title.svg" alt="">
+													</button>
+			
+												  </div>
+			
+												  <div class="form-check ">
+												
+													
+													<div class="d-flex">
+														<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+														<label class="form-check-label" for="flexCheckDefault">
+															نظام المخالفات
+														</label>
+													</div>
+													<button class="moi-btn--text-icon ">
+														<img src="/PS-Design/images/icon-x-circle-title.svg" alt="">
+													</button>
+			
+												  </div>
+											
+												</div>		</div>
+									  </div>
+									</div>
+									<div class="accordion-item">
+									  <h2 class="accordion-header">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+											<div class="d-flex align-items-center ">
+												<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+												<label class="form-check-label" for="flexCheckDefault">
+													Administrators
+												</label>
+							
+											</div>
+										</button>
+									  </h2>
+									  <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<div class="permissionsList">
+												<div class="form-check">
+													<div class="d-flex">
+														<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+														<label class="form-check-label" for="flexCheckDefault">
+															عرض صندوق الوارد
+														</label>
+													</div>
+													<button class="moi-btn--text-icon ">
+														<img src="/PS-Design/images/icon-x-circle-title.svg" alt="">
+													</button>
+													  </div>
+				
+													  <div class="form-check checkChild">
+													
+				
+														<div class="d-flex">
+															<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+															<label class="form-check-label" for="flexCheckDefault">
+																نظام التراسل الآلي
+															</label>
+														</div>
+														<button class="moi-btn--text-icon ">
+															<img src="/PS-Design/images/icon-x-circle-title.svg" alt="">
+														</button>
+				
+													  </div>
+													  <div class="form-check checkChild-sub">
+														
+				
+														
+														<div class="d-flex">
+															<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+															<label class="form-check-label" for="flexCheckDefault">
+																نظام التراسل الآلي-2
+															</label>
+														</div>
+														<button class="moi-btn--text-icon ">
+															<img src="/PS-Design/images/icon-x-circle-title.svg" alt="">
+														</button>
+				
+													  </div>
+													  
+													  <div class="form-check checkChild">
+													
+				
+														<div class="d-flex">
+															<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+															<label class="form-check-label" for="flexCheckDefault">
+																عرض
+															</label>
+														</div>
+														<button class="moi-btn--text-icon ">
+															<img src="/PS-Design/images/icon-x-circle-title.svg" alt="">
+														</button>
+				
+													  </div>
+				
+													  <div class="form-check ">
+													
+														
+														<div class="d-flex">
+															<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+															<label class="form-check-label" for="flexCheckDefault">
+																نظام المخالفات
+															</label>
+														</div>
+														<button class="moi-btn--text-icon ">
+															<img src="/PS-Design/images/icon-x-circle-title.svg" alt="">
+														</button>
+				
+													  </div>
+												
+													</div>											</div>
+									  </div>
+									</div>
+									<div class="accordion-item">
+									  <h2 class="accordion-header">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+											<div class="d-flex align-items-center ">
+												<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+												<label class="form-check-label" for="flexCheckDefault">
+													Administrators
+												</label>
+							
+											</div>
+										</button>
+									  </h2>
+									  <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<div class="permissionsList">
+												<div class="form-check">
+													<div class="d-flex">
+														<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+														<label class="form-check-label" for="flexCheckDefault">
+															عرض صندوق الوارد
+														</label>
+													</div>
+													<button class="moi-btn--text-icon ">
+														<img src="/PS-Design/images/icon-x-circle-title.svg" alt="">
+													</button>
+													  </div>
+				
+													  <div class="form-check checkChild">
+													
+				
+														<div class="d-flex">
+															<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+															<label class="form-check-label" for="flexCheckDefault">
+																نظام التراسل الآلي
+															</label>
+														</div>
+														<button class="moi-btn--text-icon ">
+															<img src="/PS-Design/images/icon-x-circle-title.svg" alt="">
+														</button>
+				
+													  </div>
+													  <div class="form-check checkChild-sub">
+														
+				
+														
+														<div class="d-flex">
+															<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+															<label class="form-check-label" for="flexCheckDefault">
+																نظام التراسل الآلي-2
+															</label>
+														</div>
+														<button class="moi-btn--text-icon ">
+															<img src="/PS-Design/images/icon-x-circle-title.svg" alt="">
+														</button>
+				
+													  </div>
+													  
+													  <div class="form-check checkChild">
+													
+				
+														<div class="d-flex">
+															<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+															<label class="form-check-label" for="flexCheckDefault">
+																عرض
+															</label>
+														</div>
+														<button class="moi-btn--text-icon ">
+															<img src="/PS-Design/images/icon-x-circle-title.svg" alt="">
+														</button>
+				
+													  </div>
+				
+													  <div class="form-check ">
+													
+														
+														<div class="d-flex">
+															<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+															<label class="form-check-label" for="flexCheckDefault">
+																نظام المخالفات
+															</label>
+														</div>
+														<button class="moi-btn--text-icon ">
+															<img src="/PS-Design/images/icon-x-circle-title.svg" alt="">
+														</button>
+				
+													  </div>
+												
+													</div>											</div>
+									  </div>
+									</div>
+								  </div>
+
+
+
+
+								<img alt="" class="nodata" src="/PS-Design/images/noDataAvailable.gif">
+								<p>لم يتم اضافة صلاحيات لهذا الدور</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</section>
+	<script src="../js/app.js">
+	</script>
+</body>
+</html>
