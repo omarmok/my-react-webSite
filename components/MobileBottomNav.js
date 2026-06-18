@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { mobileMoreNavLinks } from "../src/data/navigation";
 import ThemeToggle from "./ThemeToggle";
 
 const bottomNavItems = [
@@ -8,16 +9,6 @@ const bottomNavItems = [
   { key: "work", href: "/projects", icon: "work" },
   { key: "casebook", href: "/design-system", icon: "casebook" },
   { key: "more", icon: "more" },
-];
-
-const sheetLinks = [
-  { key: "governmentUx", href: "/government-ux", icon: "governmentUx" },
-  { key: "designopsNav", href: "/designops", icon: "designopsNav" },
-  { key: "uxLead", href: "/ux-lead", icon: "uxLead" },
-  { key: "certifications", href: "/certifications", icon: "certifications" },
-  { key: "recommendations", href: "/recommendations", icon: "recommendations" },
-  { key: "blog", href: "/blog", icon: "blog" },
-  { key: "contact", href: "/contact", icon: "contact" },
 ];
 
 const iconProps = {
@@ -246,7 +237,7 @@ const MobileBottomNav = ({
 
   const isRTL = language === "ar";
   const moreSheetId = "mobile-more-sheet";
-  const moreActive = sheetLinks.some((link) => pathname === link.href);
+  const moreActive = mobileMoreNavLinks.some((link) => pathname === link.href);
   const buttonLabel =
     t("nav.languageToggleButton") ||
     (language === "en" ? "العربية" : "English");
@@ -388,7 +379,7 @@ const MobileBottomNav = ({
         </div>
 
         <div className="mobile-app-nav__sheet-grid">
-          {sheetLinks.map((link) => {
+          {mobileMoreNavLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link

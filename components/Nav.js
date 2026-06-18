@@ -4,29 +4,15 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import mylogo from "../public/images/mylogo.png";
 import { useTranslation } from "../src/i18n/useTranslation";
+import {
+  contactNavLink,
+  mainNavLinks,
+  moreNavLinks,
+} from "../src/data/navigation";
 import MobileBottomNav from "./MobileBottomNav";
 
 const SCROLL_THRESHOLD = 48;
 const MORE_MENU_ID = "more-menu";
-
-const mainNavLinks = [
-  { key: "home", href: "/" },
-  { key: "about", href: "/about" },
-  { key: "work", href: "/projects" },
-  { key: "casebook", href: "/design-system" },
-];
-
-const moreNavLinks = [
-  { key: "recommendations", href: "/recommendations" },
-  { key: "certifications", href: "/certifications" },
-  { key: "blog", href: "/blog" },
-  { key: "governmentUx", href: "/government-ux" },
-];
-
-const contactNavLink = {
-  key: "contact",
-  href: "/contact",
-};
 
 const Nav = ({
   onToggleLanguage = () => {},
