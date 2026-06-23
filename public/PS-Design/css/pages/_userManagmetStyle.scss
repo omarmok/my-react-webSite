@@ -1,4 +1,5 @@
 @use '../helpers' as *;
+@use '../common/form' as form;
 .userManagmetStyle {
   padding-bottom: 50px;
 
@@ -63,8 +64,7 @@
       }
 
       .form-control:focus {
-          background: #fff;
-          border: 1px solid #05bbc9;
+          @include form.user-management-style-search-focus-control;
       }
 
       .custom-input {
@@ -124,10 +124,7 @@
       }
 
       .form-control {
-          height: 40px;
-          width: 30px;
-          text-align: center;
-          padding: 0;
+          @include form.user-management-style-verification-control;
       }
   }
 }

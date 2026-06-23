@@ -1,22 +1,6 @@
 @use "sass:map";
 @use "../helpers" as *;
-@mixin placeholder {
-  &::placeholder {
-    @content;
-  }
-  &::-webkit-input-placeholder {
-    @content;
-  }
-  &::-moz-placeholder {
-    @content;
-  }
-  &:-ms-input-placeholder {
-    @content;
-  }
-  &:-moz-placeholder {
-    @content;
-  }
-}
+@use "./form" as form;
 
 body {
   height: 100%;
@@ -98,174 +82,9 @@ textarea {
   border: 1px solid $Neutral-400;
 }
 
-input,
-textarea,
-.form-control {
-  @include placeholder {
-    @include meduimfont-reg-12;
-    color: $Neutral-500;
-    opacity: 1;
-  }
-}
-
-.form-control {
-  @include meduimfont-14;
-  height: $form-control-height;
-  padding: $padding-10;
-  border-radius: $Radius-6;
-  -webkit-border-radius: $Radius-6;
-  -moz-border-radius: $Radius-6;
-  -ms-border-radius: $Radius-6;
-  -o-border-radius: $Radius-6;
-  border: 1px solid $Neutral-400;
-  display: flex;
-  align-items: center;
-  transition:
-    border-color var(--tran-05, 0.3s),
-    box-shadow var(--tran-05, 0.3s),
-    background-color var(--tran-05, 0.3s);
-}
-
-.form-control:focus {
-  color: $Neutral-700;
-  background: $white-100;
-  outline: 0 solid transparent;
-  border: 1px solid $Primary-500;
-  box-shadow: 0 0 0 2px rgba($Primary-500, 0.12);
-}
-
-textarea.form-control {
-  height: 150px;
-}
-
-.form-control[data-size="sm"] {
-  height: 2.25rem;
-  padding-inline: 0.75rem;
-  font-size: 0.875rem;
-  line-height: 1.4;
-
-  i,
-  svg {
-    font-size: 1rem;
-  }
-
-  .input-group & {
-    + .input-group-text,
-    ~ .input-group-text {
-      font-size: 0.875rem;
-    }
-  }
-
-  &.form-control {
-    height: auto;
-    min-height: 2.25rem;
-  }
-
-  textarea.form-control {
-    height: auto;
-    min-height: 2.25rem;
-  }
-}
-
-.form-control[data-size="md"] {
-  height: 2.5rem;
-  padding-inline: 1rem;
-  font-size: 1rem;
-  line-height: 1.45;
-
-  i,
-  svg {
-    font-size: 1.125rem;
-  }
-
-  .input-group & {
-    + .input-group-text,
-    ~ .input-group-text {
-      font-size: 1rem;
-    }
-  }
-
-  &.form-control {
-    height: auto;
-    min-height: 2.5rem;
-  }
-
-  textarea.form-control {
-    height: auto;
-    min-height: 2.5rem;
-  }
-}
-
-.form-control[data-size="lg"] {
-  height: 2.75rem;
-  padding-inline: 1.125rem;
-  font-size: 1.125rem;
-  line-height: 1.5;
-
-  i,
-  svg {
-    font-size: 1.25rem;
-  }
-
-  .input-group & {
-    + .input-group-text,
-    ~ .input-group-text {
-      font-size: 1.125rem;
-    }
-  }
-
-  &.form-control {
-    height: auto;
-    min-height: 2.75rem;
-  }
-
-  textarea.form-control {
-    height: auto;
-    min-height: 2.75rem;
-  }
-}
-
-.form-control[data-size="xl"] {
-  height: 3rem;
-  padding-inline: 1.25rem;
-  font-size: 1.25rem;
-  line-height: 1.55;
-
-  i,
-  svg {
-    font-size: 1.375rem;
-  }
-
-  .input-group & {
-    + .input-group-text,
-    ~ .input-group-text {
-      font-size: 1.25rem;
-    }
-  }
-
-  &.form-control {
-    height: auto;
-    min-height: 3rem;
-  }
-
-  textarea.form-control {
-    height: auto;
-    min-height: 3rem;
-  }
-}
-
-.form-control[data-size="sm"] .icon {
-  font-size: map.get($moi-icon-sizes, sm);
-}
-.form-control[data-size="md"] .icon {
-  font-size: map.get($moi-icon-sizes, md);
-}
-.form-control[data-size="lg"] .icon {
-  font-size: map.get($moi-icon-sizes, lg);
-}
-.form-control[data-size="xl"] .icon {
-  font-size: map.get($moi-icon-sizes, xl);
-}
+@include form.common-placeholder-form-control;
+@include form.common-base-form-control;
+@include form.common-sized-form-control;
 
 .custom-file-label::after {
   color: $white-100;
@@ -325,9 +144,7 @@ textarea.form-control {
     right: 10px;
   }
 
-  .form-control {
-    text-indent: 20px;
-  }
+  @include form.form-content-control;
 }
 
 .required:after {
@@ -772,11 +589,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   width: 100% !important;
 }
 
-.form-control:disabled {
-  background-color: #f8f9fa;
-  border: 1px solid #e2e7eb;
-  cursor: not-allowed;
-}
+@include form.disabled-form-control;
 
 .dropdown-item {
   @include font-sm-500;
@@ -1533,12 +1346,7 @@ a.cke_combo_button {
     display: flex;
     gap: 40px;
 
-    .form-control {
-      height: 70px;
-      width: 70px;
-      text-align: center;
-      font-weight: 600;
-    }
+    @include form.common-verification-control;
   }
 
   .absher {

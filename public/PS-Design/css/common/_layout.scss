@@ -1,4 +1,5 @@
 @use "../helpers" as *;
+@use "./form" as form;
 
 .sidebar {
   position: fixed;
@@ -1048,9 +1049,7 @@ header {
   display: none;
   width: 420px;
 
-  textarea.form-control {
-    height: 80px !important;
-  }
+  @include form.layout-textarea-form-control;
 
   .nodataTable {
     padding: 0 !important;

@@ -242,12 +242,6 @@
       transform: translateY(0);
     }
 
-    .closable-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
     .tag-close {
       display: inline-flex;
       align-items: center;
@@ -671,21 +665,23 @@
           Use <code>.moi-tag</code> to display status, priority, progress, and compact labels.
         </p>
         <div class="sample-grid">
-          <span class="moi-tag moi-tag--md" data-status="highpriority">
+          <span class="moi-tag" data-size="md" data-status="highpriority">
             <span class="moi-label">High Priority</span>
           </span>
-          <span class="moi-tag moi-tag--md" data-status="UnderProgress">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path
-                d="M9.75 15.5859L5.53076 11.3668L4.46924 12.4283L9.75 17.709L20.0308 7.42825L18.9692 6.36676L9.75 15.5859Z"
-                fill="currentColor" />
-            </svg>
+          <span class="moi-tag" data-size="md" data-status="underprogress">
+            <span class="icon icon-md">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path
+                  d="M9.75 15.5859L5.53076 11.3668L4.46924 12.4283L9.75 17.709L20.0308 7.42825L18.9692 6.36676L9.75 15.5859Z"
+                  fill="currentColor" />
+              </svg>
+            </span>
             <span class="moi-label">In Review</span>
           </span>
-          <span class="moi-tag moi-tag--md moi-tag--filled" data-status="regpriority">
+          <span class="moi-tag" data-size="md" data-variant="filled" data-status="regpriority">
             <span class="moi-label">Filled</span>
           </span>
-          <span class="moi-tag moi-tag--md moi-tag--rounded" data-status="Returned">
+          <span class="moi-tag" data-size="md" data-shape="rounded" data-status="returned">
             <span class="moi-label">Rounded</span>
           </span>
         </div>
@@ -712,14 +708,14 @@
               <h2 class="section-title" data-i18n data-ar="قيم الحالات (نسخ سريع)" data-en="Status values (quick copy)">
                 Status values (quick copy)
               </h2>
-              <p class="section-note" data-i18n data-ar="انقر على أي قيمة لنسخها، أو انسخ القائمة كاملة كنص."
-                data-en="Click any value to copy it, or copy the full list as plain text.">
-                Click any value to copy it, or copy the full list as plain text.
+              <p class="section-note" data-i18n data-ar="راجع القيم أدناه أو انسخ القائمة كاملة كنص."
+                data-en="Review the values below or copy the full list as plain text.">
+                Review the values below or copy the full list as plain text.
               </p>
             </div>
 
             <button class="btn moi-btn--Info" type="button"
-              data-copy="defualtprioroty&#10;highpriority&#10;mediumpriority&#10;regpriority&#10;infoprioroty&#10;primaryprioroty&#10;UnderProgress&#10;Returned"
+              data-copy="defualtprioroty&#10;highpriority&#10;mediumpriority&#10;regpriority&#10;infoprioroty&#10;primaryprioroty&#10;underprogress&#10;returned"
               data-copy-success="Copied all status values" data-copy-success-ar="تم نسخ جميع قيم الحالة" data-i18n
               data-ar="نسخ جميع قيم الحالة" data-en="Copy all status values">
               Copy all status values
@@ -727,29 +723,29 @@
           </div>
 
           <div class="sample-grid mt-3">
-            <span class="moi-tag moi-tag--sm" data-status="defualtprioroty" data-copy="defualtprioroty">
+            <span class="moi-tag" data-size="sm" data-status="defualtprioroty">
               <span class="moi-label">defualtprioroty</span>
             </span>
-            <span class="moi-tag moi-tag--sm" data-status="highpriority" data-copy="highpriority">
+            <span class="moi-tag" data-size="sm" data-status="highpriority">
               <span class="moi-label">highpriority</span>
             </span>
-            <span class="moi-tag moi-tag--sm" data-status="mediumpriority" data-copy="mediumpriority">
+            <span class="moi-tag" data-size="sm" data-status="mediumpriority">
               <span class="moi-label">mediumpriority</span>
             </span>
-            <span class="moi-tag moi-tag--sm" data-status="regpriority" data-copy="regpriority">
+            <span class="moi-tag" data-size="sm" data-status="regpriority">
               <span class="moi-label">regpriority</span>
             </span>
-            <span class="moi-tag moi-tag--sm" data-status="infoprioroty" data-copy="infoprioroty">
+            <span class="moi-tag" data-size="sm" data-status="infoprioroty">
               <span class="moi-label">infoprioroty</span>
             </span>
-            <span class="moi-tag moi-tag--sm" data-status="primaryprioroty" data-copy="primaryprioroty">
+            <span class="moi-tag" data-size="sm" data-status="primaryprioroty">
               <span class="moi-label">primaryprioroty</span>
             </span>
-            <span class="moi-tag moi-tag--sm" data-status="UnderProgress" data-copy="UnderProgress">
-              <span class="moi-label">UnderProgress</span>
+            <span class="moi-tag" data-size="sm" data-status="underprogress">
+              <span class="moi-label">underprogress</span>
             </span>
-            <span class="moi-tag moi-tag--sm" data-status="Returned" data-copy="Returned">
-              <span class="moi-label">Returned</span>
+            <span class="moi-tag" data-size="sm" data-status="returned">
+              <span class="moi-label">returned</span>
             </span>
           </div>
         </div>
@@ -795,7 +791,7 @@
           </div>
           <div class="example-split">
             <div class="example-preview">
-              <span class="moi-tag moi-tag--md" data-status="highpriority">
+              <span class="moi-tag" data-size="md" data-status="highpriority">
                 <span class="moi-label">High Priority</span>
               </span>
             </div>
@@ -809,8 +805,8 @@
           <div class="example-head">
             <div class="example-meta">
               <h3 class="section-title" data-i18n data-ar="الأحجام" data-en="Sizes">Sizes</h3>
-              <p class="section-note" data-i18n data-ar="غيّر ارتفاع الوسم باستخدام مُعدِّلات الحجم.">
-                Change the tag height using size modifier classes.
+              <p class="section-note" data-i18n data-ar="غيّر ارتفاع الوسم باستخدام الخاصية <code>data-size</code>.">
+                Change the tag height using the <code>data-size</code> attribute.
               </p>
             </div>
             <button class="btn moi-btn--Info" type="button" data-copy-template="tag-example-sizes" data-i18n
@@ -818,13 +814,13 @@
           </div>
           <div class="example-split">
             <div class="example-preview">
-              <span class="moi-tag moi-tag--sm" data-status="highpriority"><span class="moi-label">SM</span></span>
-              <span class="moi-tag moi-tag--md" data-status="highpriority"><span class="moi-label">MD</span></span>
-              <span class="moi-tag moi-tag--lg" data-status="highpriority"><span class="moi-label">LG</span></span>
-              <span class="moi-tag moi-tag--xl" data-status="highpriority"><span class="moi-label">XL</span></span>
-              <span class="moi-tag moi-tag--2xl" data-status="highpriority"><span class="moi-label">2XL</span></span>
-              <span class="moi-tag moi-tag--3xl" data-status="highpriority"><span class="moi-label">3XL</span></span>
-              <span class="moi-tag moi-tag--4xl" data-status="highpriority"><span class="moi-label">4XL</span></span>
+              <span class="moi-tag" data-size="sm" data-status="highpriority"><span class="moi-label">SM</span></span>
+              <span class="moi-tag" data-size="md" data-status="highpriority"><span class="moi-label">MD</span></span>
+              <span class="moi-tag" data-size="lg" data-status="highpriority"><span class="moi-label">LG</span></span>
+              <span class="moi-tag" data-size="xl" data-status="highpriority"><span class="moi-label">XL</span></span>
+              <span class="moi-tag" data-size="2xl" data-status="highpriority"><span class="moi-label">2XL</span></span>
+              <span class="moi-tag" data-size="3xl" data-status="highpriority"><span class="moi-label">3XL</span></span>
+              <span class="moi-tag" data-size="4xl" data-status="highpriority"><span class="moi-label">4XL</span></span>
             </div>
             <div class="code-block">
               <pre><code class="language-html" data-code-template="tag-example-sizes"></code></pre>
@@ -848,18 +844,18 @@
           </div>
           <div class="example-split">
             <div class="example-preview">
-              <span class="moi-tag moi-tag--md" data-status="defualtprioroty"><span
+              <span class="moi-tag" data-size="md" data-status="defualtprioroty"><span
                   class="moi-label">Default</span></span>
-              <span class="moi-tag moi-tag--md" data-status="highpriority"><span class="moi-label">High</span></span>
-              <span class="moi-tag moi-tag--md" data-status="mediumpriority"><span
+              <span class="moi-tag" data-size="md" data-status="highpriority"><span class="moi-label">High</span></span>
+              <span class="moi-tag" data-size="md" data-status="mediumpriority"><span
                   class="moi-label">Medium</span></span>
-              <span class="moi-tag moi-tag--md" data-status="regpriority"><span class="moi-label">Regular</span></span>
-              <span class="moi-tag moi-tag--md" data-status="infoprioroty"><span class="moi-label">Info</span></span>
-              <span class="moi-tag moi-tag--md" data-status="primaryprioroty"><span
+              <span class="moi-tag" data-size="md" data-status="regpriority"><span class="moi-label">Regular</span></span>
+              <span class="moi-tag" data-size="md" data-status="infoprioroty"><span class="moi-label">Info</span></span>
+              <span class="moi-tag" data-size="md" data-status="primaryprioroty"><span
                   class="moi-label">Primary</span></span>
-              <span class="moi-tag moi-tag--md" data-status="UnderProgress"><span
-                  class="moi-label">UnderProgress</span></span>
-              <span class="moi-tag moi-tag--md" data-status="Returned"><span class="moi-label">Returned</span></span>
+              <span class="moi-tag" data-size="md" data-status="underprogress"><span
+                  class="moi-label">underprogress</span></span>
+              <span class="moi-tag" data-size="md" data-status="returned"><span class="moi-label">returned</span></span>
             </div>
             <div class="code-block">
               <pre><code class="language-html" data-code-template="tag-example-statuses"></code></pre>
@@ -871,8 +867,9 @@
           <div class="example-head">
             <div class="example-meta">
               <h3 class="section-title" data-i18n data-ar="ممتلئ" data-en="Filled">Filled</h3>
-              <p class="section-note" data-i18n data-ar="استخدم .moi-tag--filled لخلفية ممتلئة وإبراز أعلى.">
-                Use <code>.moi-tag--filled</code> for a solid background and stronger emphasis.
+              <p class="section-note" data-i18n
+                data-ar="استخدم <code>data-variant=&quot;filled&quot;</code> لخلفية ممتلئة وإبراز أعلى.">
+                Use <code>data-variant="filled"</code> for a solid background and stronger emphasis.
               </p>
             </div>
             <button class="btn moi-btn--Info" type="button" data-copy-template="tag-example-filled" data-i18n
@@ -880,7 +877,7 @@
           </div>
           <div class="example-split">
             <div class="example-preview">
-              <span class="moi-tag moi-tag--md moi-tag--filled" data-status="highpriority">
+              <span class="moi-tag" data-size="md" data-variant="filled" data-status="highpriority">
                 <span class="moi-label">High Priority</span>
               </span>
             </div>
@@ -894,8 +891,9 @@
           <div class="example-head">
             <div class="example-meta">
               <h3 class="section-title" data-i18n data-ar="مستدير" data-en="Rounded">Rounded</h3>
-              <p class="section-note" data-i18n data-ar="استخدم .moi-tag--rounded لشكل كبسولة.">
-                Use <code>.moi-tag--rounded</code> for a pill shape.
+              <p class="section-note" data-i18n
+                data-ar="استخدم <code>data-shape=&quot;rounded&quot;</code> لشكل كبسولة.">
+                Use <code>data-shape="rounded"</code> for a pill shape.
               </p>
             </div>
             <button class="btn moi-btn--Info" type="button" data-copy-template="tag-example-rounded" data-i18n
@@ -903,7 +901,7 @@
           </div>
           <div class="example-split">
             <div class="example-preview">
-              <span class="moi-tag moi-tag--md moi-tag--rounded" data-status="highpriority">
+              <span class="moi-tag" data-size="md" data-shape="rounded" data-status="highpriority">
                 <span class="moi-label">High Priority</span>
               </span>
             </div>
@@ -918,8 +916,9 @@
             <div class="example-meta">
               <h3 class="section-title" data-i18n data-ar="ممتلئ + مستدير" data-en="Filled + Rounded">Filled + Rounded
               </h3>
-              <p class="section-note" data-i18n data-ar="ادمج .moi-tag--filled و .moi-tag--rounded معًا.">
-                Combine <code>.moi-tag--filled</code> and <code>.moi-tag--rounded</code>.
+              <p class="section-note" data-i18n
+                data-ar="ادمج <code>data-variant=&quot;filled&quot;</code> مع <code>data-shape=&quot;rounded&quot;</code>.">
+                Combine <code>data-variant="filled"</code> with <code>data-shape="rounded"</code>.
               </p>
             </div>
             <button class="btn moi-btn--Info" type="button" data-copy-template="tag-example-filled-rounded" data-i18n
@@ -927,7 +926,8 @@
           </div>
           <div class="example-split">
             <div class="example-preview">
-              <span class="moi-tag moi-tag--md moi-tag--filled moi-tag--rounded" data-status="highpriority">
+              <span class="moi-tag" data-size="md" data-variant="filled" data-shape="rounded"
+                data-status="highpriority">
                 <span class="moi-label">Filled Rounded</span>
               </span>
             </div>
@@ -942,9 +942,9 @@
             <div class="example-meta">
               <h3 class="section-title" data-i18n data-ar="مع أيقونة" data-en="With leading icon">With leading icon</h3>
               <p class="section-note" data-i18n
-                data-ar="وجود SVG/IMG قيادي مباشر يخفي النقطة والأيقونات ترث currentColor.">
-                A direct leading <code>svg</code>/<code>img</code> hides the dot; icons inherit
-                <code>currentColor</code>.
+                data-ar="ضع عنصر <code>.icon</code> كأول طفل مباشر وطابق حجمه مع <code>data-size</code> لإخفاء النقطة وضبط المحاذاة.">
+                Place an <code>.icon</code> as the first direct child and match its size to <code>data-size</code> to
+                hide the dot and keep alignment correct.
               </p>
             </div>
             <button class="btn moi-btn--Info" type="button" data-copy-template="tag-example-with-icon" data-i18n
@@ -952,12 +952,14 @@
           </div>
           <div class="example-split">
             <div class="example-preview">
-              <span class="moi-tag moi-tag--md" data-status="highpriority">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill="currentColor"
-                    d="M9.75 15.5859L5.53076 11.3668L4.46924 12.4283L9.75 17.709L20.0308 7.42825L18.9692 6.36676L9.75 15.5859Z">
-                  </path>
-                </svg>
+              <span class="moi-tag" data-size="md" data-status="highpriority">
+                <span class="icon icon-md">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor"
+                      d="M9.75 15.5859L5.53076 11.3668L4.46924 12.4283L9.75 17.709L20.0308 7.42825L18.9692 6.36676L9.75 15.5859Z">
+                    </path>
+                  </svg>
+                </span>
                 <span class="moi-label">With Icon</span>
               </span>
             </div>
@@ -971,8 +973,10 @@
           <div class="example-head">
             <div class="example-meta">
               <h3 class="section-title" data-i18n data-ar="قابل للإزالة" data-en="Closable tag">Closable tag</h3>
-              <p class="section-note" data-i18n data-ar="أضف .closable-tag مع زر .tag-close لإزالة الوسم.">
-                Add <code>.closable-tag</code> with a <code>.tag-close</code> button to remove the tag.
+              <p class="section-note" data-i18n
+                data-ar="أضف زر <code>.tag-close</code> داخل الوسم، واستخدم <code>.icon</code> بالحجم المطابق لرمز الإزالة.">
+                Add a <code>.tag-close</code> button inside the tag and use a size-matched <code>.icon</code> for the
+                remove symbol.
               </p>
             </div>
             <button class="btn moi-btn--Info" type="button" data-copy-template="tag-example-closable" data-i18n
@@ -980,14 +984,16 @@
           </div>
           <div class="example-split">
             <div class="example-preview">
-              <span class="moi-tag moi-tag--md closable-tag" data-status="highpriority">
+              <span class="moi-tag" data-size="md" data-status="highpriority">
                 <span class="moi-label">Removable</span>
                 <button type="button" class="tag-close" aria-label="Remove tag">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill="currentColor"
-                      d="M4.46967 4.46955C4.76256 4.17665 5.23744 4.17665 5.53033 4.46955L12 10.9392L18.4697 4.46955C18.7626 4.17665 19.2374 4.17665 19.5303 4.46955C19.8232 4.76244 19.8232 5.23731 19.5303 5.53021L13.0607 11.9999L19.5303 18.4695C19.8232 18.7624 19.8232 19.2373 19.5303 19.5302C19.2374 19.8231 18.7626 19.8231 18.4697 19.5302L12 13.0605L5.53033 19.5302C5.23744 19.8231 4.76256 19.8231 4.46967 19.5302C4.17678 19.2373 4.17678 18.7624 4.46967 18.4695L10.9393 11.9999L4.46967 5.53021C4.17678 5.23731 4.17678 4.76244 4.46967 4.46955Z">
-                    </path>
-                  </svg>
+                  <span class="icon icon-md">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path fill="currentColor"
+                        d="M4.46967 4.46955C4.76256 4.17665 5.23744 4.17665 5.53033 4.46955L12 10.9392L18.4697 4.46955C18.7626 4.17665 19.2374 4.17665 19.5303 4.46955C19.8232 4.76244 19.8232 5.23731 19.5303 5.53021L13.0607 11.9999L19.5303 18.4695C19.8232 18.7624 19.8232 19.2373 19.5303 19.5302C19.2374 19.8231 18.7626 19.8231 18.4697 19.5302L12 13.0605L5.53033 19.5302C5.23744 19.8231 4.76256 19.8231 4.46967 19.5302C4.17678 19.2373 4.17678 18.7624 4.46967 18.4695L10.9393 11.9999L4.46967 5.53021C4.17678 5.23731 4.17678 4.76244 4.46967 4.46955Z">
+                      </path>
+                    </svg>
+                  </span>
                 </button>
               </span>
             </div>
@@ -1026,71 +1032,76 @@
 
         <!-- Copy sources (unescaped + minimal markup) -->
         <template id="tag-example-base">
-          <span class="moi-tag moi-tag--md" data-status="highpriority">
+          <span class="moi-tag" data-size="md" data-status="highpriority">
             <span class="moi-label">High Priority</span>
           </span>
         </template>
 
         <template id="tag-example-sizes">
-          <span class="moi-tag moi-tag--sm" data-status="highpriority"><span class="moi-label">SM</span></span>
-          <span class="moi-tag moi-tag--md" data-status="highpriority"><span class="moi-label">MD</span></span>
-          <span class="moi-tag moi-tag--lg" data-status="highpriority"><span class="moi-label">LG</span></span>
-          <span class="moi-tag moi-tag--xl" data-status="highpriority"><span class="moi-label">XL</span></span>
-          <span class="moi-tag moi-tag--2xl" data-status="highpriority"><span class="moi-label">2XL</span></span>
-          <span class="moi-tag moi-tag--3xl" data-status="highpriority"><span class="moi-label">3XL</span></span>
-          <span class="moi-tag moi-tag--4xl" data-status="highpriority"><span class="moi-label">4XL</span></span>
+          <span class="moi-tag" data-size="sm" data-status="highpriority"><span class="moi-label">SM</span></span>
+          <span class="moi-tag" data-size="md" data-status="highpriority"><span class="moi-label">MD</span></span>
+          <span class="moi-tag" data-size="lg" data-status="highpriority"><span class="moi-label">LG</span></span>
+          <span class="moi-tag" data-size="xl" data-status="highpriority"><span class="moi-label">XL</span></span>
+          <span class="moi-tag" data-size="2xl" data-status="highpriority"><span class="moi-label">2XL</span></span>
+          <span class="moi-tag" data-size="3xl" data-status="highpriority"><span class="moi-label">3XL</span></span>
+          <span class="moi-tag" data-size="4xl" data-status="highpriority"><span class="moi-label">4XL</span></span>
         </template>
 
         <template id="tag-example-statuses">
-          <span class="moi-tag moi-tag--md" data-status="defualtprioroty"><span class="moi-label">Default</span></span>
-          <span class="moi-tag moi-tag--md" data-status="highpriority"><span class="moi-label">High</span></span>
-          <span class="moi-tag moi-tag--md" data-status="mediumpriority"><span class="moi-label">Medium</span></span>
-          <span class="moi-tag moi-tag--md" data-status="regpriority"><span class="moi-label">Regular</span></span>
-          <span class="moi-tag moi-tag--md" data-status="infoprioroty"><span class="moi-label">Info</span></span>
-          <span class="moi-tag moi-tag--md" data-status="primaryprioroty"><span class="moi-label">Primary</span></span>
-          <span class="moi-tag moi-tag--md" data-status="UnderProgress"><span
-              class="moi-label">UnderProgress</span></span>
-          <span class="moi-tag moi-tag--md" data-status="Returned"><span class="moi-label">Returned</span></span>
+          <span class="moi-tag" data-size="md" data-status="defualtprioroty"><span class="moi-label">Default</span></span>
+          <span class="moi-tag" data-size="md" data-status="highpriority"><span class="moi-label">High</span></span>
+          <span class="moi-tag" data-size="md" data-status="mediumpriority"><span class="moi-label">Medium</span></span>
+          <span class="moi-tag" data-size="md" data-status="regpriority"><span class="moi-label">Regular</span></span>
+          <span class="moi-tag" data-size="md" data-status="infoprioroty"><span class="moi-label">Info</span></span>
+          <span class="moi-tag" data-size="md" data-status="primaryprioroty"><span class="moi-label">Primary</span></span>
+          <span class="moi-tag" data-size="md" data-status="underprogress"><span
+              class="moi-label">underprogress</span></span>
+          <span class="moi-tag" data-size="md" data-status="returned"><span class="moi-label">returned</span></span>
         </template>
 
         <template id="tag-example-filled">
-          <span class="moi-tag moi-tag--md moi-tag--filled" data-status="highpriority">
+          <span class="moi-tag" data-size="md" data-variant="filled" data-status="highpriority">
             <span class="moi-label">High Priority</span>
           </span>
         </template>
 
         <template id="tag-example-rounded">
-          <span class="moi-tag moi-tag--md moi-tag--rounded" data-status="highpriority">
+          <span class="moi-tag" data-size="md" data-shape="rounded" data-status="highpriority">
             <span class="moi-label">High Priority</span>
           </span>
         </template>
 
         <template id="tag-example-filled-rounded">
-          <span class="moi-tag moi-tag--md moi-tag--filled moi-tag--rounded" data-status="highpriority">
+          <span class="moi-tag" data-size="md" data-variant="filled" data-shape="rounded"
+            data-status="highpriority">
             <span class="moi-label">Filled Rounded</span>
           </span>
         </template>
 
         <template id="tag-example-with-icon">
-          <span class="moi-tag moi-tag--md" data-status="highpriority">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="currentColor"
-                d="M9.75 15.5859L5.53076 11.3668L4.46924 12.4283L9.75 17.709L20.0308 7.42825L18.9692 6.36676L9.75 15.5859Z">
-              </path>
-            </svg>
+          <span class="moi-tag" data-size="md" data-status="highpriority">
+            <span class="icon icon-md">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor"
+                  d="M9.75 15.5859L5.53076 11.3668L4.46924 12.4283L9.75 17.709L20.0308 7.42825L18.9692 6.36676L9.75 15.5859Z">
+                </path>
+              </svg>
+            </span>
             <span class="moi-label">With Icon</span>
           </span>
         </template>
 
         <template id="tag-example-closable">
-          <span class="moi-tag moi-tag--md closable-tag" data-status="highpriority">
+          <span class="moi-tag" data-size="md" data-status="highpriority">
             <span class="moi-label">Removable</span>
             <button type="button" class="tag-close" aria-label="Remove tag">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor"
-                  d="M4.46967 4.46955C4.76256 4.17665 5.23744 4.17665 5.53033 4.46955L12 10.9392L18.4697 4.46955C18.7626 4.17665 19.2374 4.17665 19.5303 4.46955C19.8232 4.76244 19.8232 5.23731 19.5303 5.53021L13.0607 11.9999L19.5303 18.4695C19.8232 18.7624 19.8232 19.2373 19.5303 19.5302C19.2374 19.8231 18.7626 19.8231 18.4697 19.5302L12 13.0605L5.53033 19.5302C5.23744 19.8231 4.76256 19.8231 4.46967 19.5302C4.17678 19.2373 4.17678 18.7624 4.46967 18.4695L10.9393 11.9999L4.46967 5.53021C4.17678 5.23731 4.17678 4.76244 4.46967 4.46955Z">
-                </path>
-              </svg>
+              <span class="icon icon-md">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor"
+                    d="M4.46967 4.46955C4.76256 4.17665 5.23744 4.17665 5.53033 4.46955L12 10.9392L18.4697 4.46955C18.7626 4.17665 19.2374 4.17665 19.5303 4.46955C19.8232 4.76244 19.8232 5.23731 19.5303 5.53021L13.0607 11.9999L19.5303 18.4695C19.8232 18.7624 19.8232 19.2373 19.5303 19.5302C19.2374 19.8231 18.7626 19.8231 18.4697 19.5302L12 13.0605L5.53033 19.5302C5.23744 19.8231 4.76256 19.8231 4.46967 19.5302C4.17678 19.2373 4.17678 18.7624 4.46967 18.4695L10.9393 11.9999L4.46967 5.53021C4.17678 5.23731 4.17678 4.76244 4.46967 4.46955Z">
+                  </path>
+                </svg>
+              </span>
             </button>
           </span>
         </template>
@@ -1105,73 +1116,78 @@
 
         <template id="tag-example-all">
           <div>
-            <span class="moi-tag moi-tag--md" data-status="highpriority">
+            <span class="moi-tag" data-size="md" data-status="highpriority">
               <span class="moi-label">High Priority</span>
             </span>
           </div>
 
           <div>
-            <span class="moi-tag moi-tag--sm" data-status="highpriority"><span class="moi-label">SM</span></span>
-            <span class="moi-tag moi-tag--md" data-status="highpriority"><span class="moi-label">MD</span></span>
-            <span class="moi-tag moi-tag--lg" data-status="highpriority"><span class="moi-label">LG</span></span>
-            <span class="moi-tag moi-tag--xl" data-status="highpriority"><span class="moi-label">XL</span></span>
-            <span class="moi-tag moi-tag--2xl" data-status="highpriority"><span class="moi-label">2XL</span></span>
-            <span class="moi-tag moi-tag--3xl" data-status="highpriority"><span class="moi-label">3XL</span></span>
-            <span class="moi-tag moi-tag--4xl" data-status="highpriority"><span class="moi-label">4XL</span></span>
+            <span class="moi-tag" data-size="sm" data-status="highpriority"><span class="moi-label">SM</span></span>
+            <span class="moi-tag" data-size="md" data-status="highpriority"><span class="moi-label">MD</span></span>
+            <span class="moi-tag" data-size="lg" data-status="highpriority"><span class="moi-label">LG</span></span>
+            <span class="moi-tag" data-size="xl" data-status="highpriority"><span class="moi-label">XL</span></span>
+            <span class="moi-tag" data-size="2xl" data-status="highpriority"><span class="moi-label">2XL</span></span>
+            <span class="moi-tag" data-size="3xl" data-status="highpriority"><span class="moi-label">3XL</span></span>
+            <span class="moi-tag" data-size="4xl" data-status="highpriority"><span class="moi-label">4XL</span></span>
           </div>
 
           <div>
-            <span class="moi-tag moi-tag--md" data-status="defualtprioroty"><span
+            <span class="moi-tag" data-size="md" data-status="defualtprioroty"><span
                 class="moi-label">Default</span></span>
-            <span class="moi-tag moi-tag--md" data-status="highpriority"><span class="moi-label">High</span></span>
-            <span class="moi-tag moi-tag--md" data-status="mediumpriority"><span class="moi-label">Medium</span></span>
-            <span class="moi-tag moi-tag--md" data-status="regpriority"><span class="moi-label">Regular</span></span>
-            <span class="moi-tag moi-tag--md" data-status="infoprioroty"><span class="moi-label">Info</span></span>
-            <span class="moi-tag moi-tag--md" data-status="primaryprioroty"><span
+            <span class="moi-tag" data-size="md" data-status="highpriority"><span class="moi-label">High</span></span>
+            <span class="moi-tag" data-size="md" data-status="mediumpriority"><span class="moi-label">Medium</span></span>
+            <span class="moi-tag" data-size="md" data-status="regpriority"><span class="moi-label">Regular</span></span>
+            <span class="moi-tag" data-size="md" data-status="infoprioroty"><span class="moi-label">Info</span></span>
+            <span class="moi-tag" data-size="md" data-status="primaryprioroty"><span
                 class="moi-label">Primary</span></span>
-            <span class="moi-tag moi-tag--md" data-status="UnderProgress"><span
-                class="moi-label">UnderProgress</span></span>
-            <span class="moi-tag moi-tag--md" data-status="Returned"><span class="moi-label">Returned</span></span>
+            <span class="moi-tag" data-size="md" data-status="underprogress"><span
+                class="moi-label">underprogress</span></span>
+            <span class="moi-tag" data-size="md" data-status="returned"><span class="moi-label">returned</span></span>
           </div>
 
           <div>
-            <span class="moi-tag moi-tag--md" data-status="highpriority">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor"
-                  d="M9.75 15.5859L5.53076 11.3668L4.46924 12.4283L9.75 17.709L20.0308 7.42825L18.9692 6.36676L9.75 15.5859Z">
-                </path>
-              </svg>
+            <span class="moi-tag" data-size="md" data-status="highpriority">
+              <span class="icon icon-md">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor"
+                    d="M9.75 15.5859L5.53076 11.3668L4.46924 12.4283L9.75 17.709L20.0308 7.42825L18.9692 6.36676L9.75 15.5859Z">
+                  </path>
+                </svg>
+              </span>
               <span class="moi-label">With Icon</span>
             </span>
           </div>
 
           <div>
-            <span class="moi-tag moi-tag--md moi-tag--filled" data-status="highpriority">
+            <span class="moi-tag" data-size="md" data-variant="filled" data-status="highpriority">
               <span class="moi-label">High Priority</span>
             </span>
           </div>
 
           <div>
-            <span class="moi-tag moi-tag--md moi-tag--rounded" data-status="highpriority">
+            <span class="moi-tag" data-size="md" data-shape="rounded" data-status="highpriority">
               <span class="moi-label">High Priority</span>
             </span>
           </div>
 
           <div>
-            <span class="moi-tag moi-tag--md moi-tag--filled moi-tag--rounded" data-status="highpriority">
+            <span class="moi-tag" data-size="md" data-variant="filled" data-shape="rounded"
+              data-status="highpriority">
               <span class="moi-label">Filled Rounded</span>
             </span>
           </div>
 
           <div>
-            <span class="moi-tag moi-tag--md closable-tag" data-status="highpriority">
+            <span class="moi-tag" data-size="md" data-status="highpriority">
               <span class="moi-label">Removable</span>
               <button type="button" class="tag-close" aria-label="Remove tag">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill="currentColor"
-                    d="M4.46967 4.46955C4.76256 4.17665 5.23744 4.17665 5.53033 4.46955L12 10.9392L18.4697 4.46955C18.7626 4.17665 19.2374 4.17665 19.5303 4.46955C19.8232 4.76244 19.8232 5.23731 19.5303 5.53021L13.0607 11.9999L19.5303 18.4695C19.8232 18.7624 19.8232 19.2373 19.5303 19.5302C19.2374 19.8231 18.7626 19.8231 18.4697 19.5302L12 13.0605L5.53033 19.5302C5.23744 19.8231 4.76256 19.8231 4.46967 19.5302C4.17678 19.2373 4.17678 18.7624 4.46967 18.4695L10.9393 11.9999L4.46967 5.53021C4.17678 5.23731 4.17678 4.76244 4.46967 4.46955Z">
-                  </path>
-                </svg>
+                <span class="icon icon-md">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor"
+                      d="M4.46967 4.46955C4.76256 4.17665 5.23744 4.17665 5.53033 4.46955L12 10.9392L18.4697 4.46955C18.7626 4.17665 19.2374 4.17665 19.5303 4.46955C19.8232 4.76244 19.8232 5.23731 19.5303 5.53021L13.0607 11.9999L19.5303 18.4695C19.8232 18.7624 19.8232 19.2373 19.5303 19.5302C19.2374 19.8231 18.7626 19.8231 18.4697 19.5302L12 13.0605L5.53033 19.5302C5.23744 19.8231 4.76256 19.8231 4.46967 19.5302C4.17678 19.2373 4.17678 18.7624 4.46967 18.4695L10.9393 11.9999L4.46967 5.53021C4.17678 5.23731 4.17678 4.76244 4.46967 4.46955Z">
+                    </path>
+                  </svg>
+                </span>
               </button>
             </span>
           </div>
@@ -1186,25 +1202,27 @@
         </template>
 
         <template id="tag-example-inquiry-view">
-          <span class="moi-tag moi-tag--md" data-status="UnderProgress" role="status">
+          <span class="moi-tag" data-size="md" data-status="underprogress" role="status">
             <span class="moi-label">In review</span>
           </span>
         </template>
 
         <template id="tag-example-interaction">
-          <button type="button" class="moi-tag moi-tag--md moi-tag--rounded" data-status="primaryprioroty"
+          <button type="button" class="moi-tag" data-size="md" data-shape="rounded" data-status="primaryprioroty"
             aria-pressed="false">
             <span class="moi-label">Filter by owner</span>
           </button>
 
-          <span class="moi-tag moi-tag--md closable-tag" data-status="highpriority">
+          <span class="moi-tag" data-size="md" data-status="highpriority">
             <span class="moi-label">Assigned</span>
             <button type="button" class="tag-close" aria-label="Remove Assigned filter">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor"
-                  d="M4.46967 4.46955C4.76256 4.17665 5.23744 4.17665 5.53033 4.46955L12 10.9392L18.4697 4.46955C18.7626 4.17665 19.2374 4.17665 19.5303 4.46955C19.8232 4.76244 19.8232 5.23731 19.5303 5.53021L13.0607 11.9999L19.5303 18.4695C19.8232 18.7624 19.8232 19.2373 19.5303 19.5302C19.2374 19.8231 18.7626 19.8231 18.4697 19.5302L12 13.0605L5.53033 19.5302C5.23744 19.8231 4.76256 19.8231 4.46967 19.5302C4.17678 19.2373 4.17678 18.7624 4.46967 18.4695L10.9393 11.9999L4.46967 5.53021C4.17678 5.23731 4.17678 4.76244 4.46967 4.46955Z">
-                </path>
-              </svg>
+              <span class="icon icon-md">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor"
+                    d="M4.46967 4.46955C4.76256 4.17665 5.23744 4.17665 5.53033 4.46955L12 10.9392L18.4697 4.46955C18.7626 4.17665 19.2374 4.17665 19.5303 4.46955C19.8232 4.76244 19.8232 5.23731 19.5303 5.53021L13.0607 11.9999L19.5303 18.4695C19.8232 18.7624 19.8232 19.2373 19.5303 19.5302C19.2374 19.8231 18.7626 19.8231 18.4697 19.5302L12 13.0605L5.53033 19.5302C5.23744 19.8231 4.76256 19.8231 4.46967 19.5302C4.17678 19.2373 4.17678 18.7624 4.46967 18.4695L10.9393 11.9999L4.46967 5.53021C4.17678 5.23731 4.17678 4.76244 4.46967 4.46955Z">
+                  </path>
+                </svg>
+              </span>
             </button>
           </span>
         </template>
@@ -1389,7 +1407,7 @@
                 <td data-i18n="" data-ar="محايد / افتراضي" data-en="Default / Neutral">محايد / افتراضي</td>
                 <td><code class="code-inline">defualtprioroty</code></td>
                 <td>
-                  <span class="moi-tag moi-tag--md" data-status="defualtprioroty"><span class="moi-label" data-i18n
+                  <span class="moi-tag" data-size="md" data-status="defualtprioroty"><span class="moi-label" data-i18n
                       data-ar="محايد" data-en="Neutral">Neutral</span></span>
                   <p class="section-note mt-1 mb-0" data-i18n data-ar="التصنيف العام والحالات غير الحرجة."
                     data-en="General classification, non-critical states.">General classification, non-critical states.
@@ -1400,7 +1418,7 @@
                 <td data-i18n="" data-ar="أولوية عالية" data-en="High Priority">أولوية عالية</td>
                 <td><code class="code-inline">highpriority</code></td>
                 <td>
-                  <span class="moi-tag moi-tag--md" data-status="highpriority"><span class="moi-label" data-i18n
+                  <span class="moi-tag" data-size="md" data-status="highpriority"><span class="moi-label" data-i18n
                       data-ar="عالي" data-en="High">High</span></span>
                   <p class="section-note mt-1 mb-0" data-i18n data-ar="الحالات الحرجة والأخطاء العاجلة."
                     data-en="Critical states or urgent errors.">Critical states or urgent errors.</p>
@@ -1410,7 +1428,7 @@
                 <td data-i18n="" data-ar="أولوية متوسطة" data-en="Medium Priority">أولوية متوسطة</td>
                 <td><code class="code-inline">mediumpriority</code></td>
                 <td>
-                  <span class="moi-tag moi-tag--md" data-status="mediumpriority"><span class="moi-label" data-i18n
+                  <span class="moi-tag" data-size="md" data-status="mediumpriority"><span class="moi-label" data-i18n
                       data-ar="متوسط" data-en="Medium">Medium</span></span>
                   <p class="section-note mt-1 mb-0" data-i18n data-ar="الحالات التي تتطلب الحذر أو مراجعة بسيطة."
                     data-en="States requiring caution or a minor review.">States requiring caution or a minor review.
@@ -1421,7 +1439,7 @@
                 <td data-i18n="" data-ar="أولوية عادية" data-en="Regular Priority">أولوية عادية</td>
                 <td><code class="code-inline">regpriority</code></td>
                 <td>
-                  <span class="moi-tag moi-tag--md" data-status="regpriority"><span class="moi-label" data-i18n
+                  <span class="moi-tag" data-size="md" data-status="regpriority"><span class="moi-label" data-i18n
                       data-ar="عادي" data-en="Regular">Regular</span></span>
                   <p class="section-note mt-1 mb-0" data-i18n data-ar="المعلومات الإيجابية أو الإجراءات الناجحة."
                     data-en="Positive information or successful actions.">Positive information or successful actions.
@@ -1432,7 +1450,7 @@
                 <td data-i18n="" data-ar="معلوماتي" data-en="Info">معلوماتي</td>
                 <td><code class="code-inline">infoprioroty</code></td>
                 <td>
-                  <span class="moi-tag moi-tag--md" data-status="infoprioroty"><span class="moi-label" data-i18n
+                  <span class="moi-tag" data-size="md" data-status="infoprioroty"><span class="moi-label" data-i18n
                       data-ar="معلومة" data-en="Info">Info</span></span>
                   <p class="section-note mt-1 mb-0" data-i18n data-ar="معلومات محايدة أو توضيحات إضافية."
                     data-en="Neutral information or additional explanations.">Neutral information or additional
@@ -1443,7 +1461,7 @@
                 <td data-i18n="" data-ar="أساسي" data-en="Primary">أساسي</td>
                 <td><code class="code-inline">primaryprioroty</code></td>
                 <td>
-                  <span class="moi-tag moi-tag--md" data-status="primaryprioroty"><span class="moi-label" data-i18n
+                  <span class="moi-tag" data-size="md" data-status="primaryprioroty"><span class="moi-label" data-i18n
                       data-ar="أساسي" data-en="Primary">Primary</span></span>
                   <p class="section-note mt-1 mb-0" data-i18n data-ar="المحتوى المميز أو عناصر العلامة التجارية."
                     data-en="Highlighted content or brand-level elements.">Highlighted content or brand-level elements.
@@ -1452,9 +1470,9 @@
               </tr>
               <tr>
                 <td data-i18n="" data-ar="قيد المراجعة" data-en="In Review">قيد المراجعة</td>
-                <td><code class="code-inline">UnderProgress</code></td>
+                <td><code class="code-inline">underprogress</code></td>
                 <td>
-                  <span class="moi-tag moi-tag--md" data-status="UnderProgress"><span class="moi-label" data-i18n
+                  <span class="moi-tag" data-size="md" data-status="underprogress"><span class="moi-label" data-i18n
                       data-ar="قيد المراجعة" data-en="In Review">In Review</span></span>
                   <p class="section-note mt-1 mb-0" data-i18n data-ar="العناصر الجارية معالجتها أو مراجعتها."
                     data-en="Items currently being processed or reviewed.">Items currently being processed or reviewed.
@@ -1463,9 +1481,9 @@
               </tr>
               <tr>
                 <td data-i18n="" data-ar="مُعاد / إعادة عمل" data-en="Returned / Rework">مُعاد / إعادة عمل</td>
-                <td><code class="code-inline">Returned</code></td>
+                <td><code class="code-inline">returned</code></td>
                 <td>
-                  <span class="moi-tag moi-tag--md" data-status="Returned"><span class="moi-label" data-i18n
+                  <span class="moi-tag" data-size="md" data-status="returned"><span class="moi-label" data-i18n
                       data-ar="مُعاد" data-en="Returned">Returned</span></span>
                   <p class="section-note mt-1 mb-0" data-i18n data-ar="العناصر المُعادة للتعديل أو المراجعة."
                     data-en="Items returned for revision or rework.">Items returned for revision or rework.</p>
@@ -1510,8 +1528,8 @@
       <section class="section" id="styles">
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="عائلات الأنماط">Style families</h2>
-          <p class="section-note copy-hint" data-i18n data-ar="انقر أي وسم لنسخ قائمة الفئات.">Click any tag to copy its
-            class list.</p>
+          <p class="section-note copy-hint" data-i18n data-ar="راجع الأنماط أدناه وانسخ البنية من عمود النمط.">Review
+            the variants below and copy the markup from the pattern column.</p>
 
           <div class="tag-legend">
             <div class="legend-card">
@@ -1519,9 +1537,9 @@
               <p class="legend-note" data-i18n data-ar="للعلامات الثانوية في الجداول والقوائم.">For secondary labels in
                 tables and lists.</p>
               <div class="legend-samples">
-                <span class="defualtprioroty" data-copy="defualtprioroty" data-i18n data-ar="محايد">Neutral</span>
-                <span class="infoprioroty" data-copy="infoprioroty" data-i18n data-ar="معلومة">Info</span>
-                <span class="primaryprioroty" data-copy="primaryprioroty" data-i18n data-ar="أساسي">Primary</span>
+                <span class="defualtprioroty" data-i18n data-ar="محايد">Neutral</span>
+                <span class="infoprioroty" data-i18n data-ar="معلومة">Info</span>
+                <span class="primaryprioroty" data-i18n data-ar="أساسي">Primary</span>
               </div>
             </div>
 
@@ -1530,11 +1548,11 @@
               <p class="legend-note" data-i18n data-ar="للتقدم أو المخاطر دون تشتيت قوي.">For progress or risk without
                 heavy emphasis.</p>
               <div class="legend-samples">
-                <span class="highpriority" data-copy="highpriority" data-i18n data-ar="عالي">High</span>
-                <span class="mediumpriority" data-copy="mediumpriority" data-i18n data-ar="متوسط">Medium</span>
-                <span class="regpriority" data-copy="regpriority" data-i18n data-ar="عادي">Regular</span>
-                <span class="UnderProgress" data-copy="UnderProgress" data-i18n data-ar="قيد المراجعة">In review</span>
-                <span class="Returned" data-copy="Returned" data-i18n data-ar="مُعاد">Returned</span>
+                <span class="highpriority" data-i18n data-ar="عالي">High</span>
+                <span class="mediumpriority" data-i18n data-ar="متوسط">Medium</span>
+                <span class="regpriority" data-i18n data-ar="عادي">Regular</span>
+                <span class="UnderProgress" data-i18n data-ar="قيد المراجعة">In review</span>
+                <span class="Returned" data-i18n data-ar="مُعاد">Returned</span>
               </div>
             </div>
 
@@ -1543,15 +1561,15 @@
               <p class="legend-note" data-i18n data-ar="حسب نمط كاربون، استخدمها للنقاط الحرجة أو التصفية المفعلة.">Per
                 Carbon, reserve for critical states or active filters.</p>
               <div class="legend-samples">
-                <span class="moi-tag moi-tag--md moi-tag--filled" data-status="highpriority"><span class="moi-label"
+                <span class="moi-tag" data-size="md" data-variant="filled" data-status="highpriority"><span class="moi-label"
                     data-i18n data-ar="عالي ممتلئ" data-en="High filled">High filled</span></span>
-                <span class="moi-tag moi-tag--md moi-tag--filled" data-status="mediumpriority"><span class="moi-label"
+                <span class="moi-tag" data-size="md" data-variant="filled" data-status="mediumpriority"><span class="moi-label"
                     data-i18n data-ar="متوسط ممتلئ" data-en="Medium filled">Medium filled</span></span>
-                <span class="moi-tag moi-tag--md moi-tag--filled" data-status="regpriority"><span class="moi-label"
+                <span class="moi-tag" data-size="md" data-variant="filled" data-status="regpriority"><span class="moi-label"
                     data-i18n data-ar="عادي ممتلئ" data-en="Regular filled">Regular filled</span></span>
-                <span class="moi-tag moi-tag--md moi-tag--filled" data-status="infoprioroty"><span class="moi-label"
+                <span class="moi-tag" data-size="md" data-variant="filled" data-status="infoprioroty"><span class="moi-label"
                     data-i18n data-ar="معلومة ممتلئ" data-en="Info filled">Info filled</span></span>
-                <span class="moi-tag moi-tag--md moi-tag--filled" data-status="UnderProgress"><span class="moi-label"
+                <span class="moi-tag" data-size="md" data-variant="filled" data-status="underprogress"><span class="moi-label"
                     data-i18n data-ar="قيد المراجعة ممتلئ" data-en="In review filled">In review filled</span></span>
               </div>
             </div>
@@ -1561,15 +1579,15 @@
               <p class="legend-note" data-i18n data-ar="عندما تريد مطابقة رقاقات أو شرائح مستديرة.">Match other rounded
                 chips when needed.</p>
               <div class="legend-samples">
-                <span class="moi-tag moi-tag--md moi-tag--rounded" data-status="highpriority"><span class="moi-label"
+                <span class="moi-tag" data-size="md" data-shape="rounded" data-status="highpriority"><span class="moi-label"
                     data-i18n data-ar="عالي مستدير" data-en="High rounded">High rounded</span></span>
-                <span class="moi-tag moi-tag--md moi-tag--rounded" data-status="regpriority"><span class="moi-label"
+                <span class="moi-tag" data-size="md" data-shape="rounded" data-status="regpriority"><span class="moi-label"
                     data-i18n data-ar="عادي مستدير" data-en="Regular rounded">Regular rounded</span></span>
-                <span class="moi-tag moi-tag--md moi-tag--rounded" data-status="defualtprioroty"><span class="moi-label"
+                <span class="moi-tag" data-size="md" data-shape="rounded" data-status="defualtprioroty"><span class="moi-label"
                     data-i18n data-ar="محايد مستدير" data-en="Neutral rounded">Neutral rounded</span></span>
-                <span class="moi-tag moi-tag--md moi-tag--rounded" data-status="primaryprioroty"><span class="moi-label"
+                <span class="moi-tag" data-size="md" data-shape="rounded" data-status="primaryprioroty"><span class="moi-label"
                     data-i18n data-ar="أساسي مستدير" data-en="Primary rounded">Primary rounded</span></span>
-                <span class="moi-tag moi-tag--md moi-tag--rounded" data-status="Returned"><span class="moi-label"
+                <span class="moi-tag" data-size="md" data-shape="rounded" data-status="returned"><span class="moi-label"
                     data-i18n data-ar="مُعاد مستدير" data-en="Returned rounded">Returned rounded</span></span>
               </div>
             </div>
@@ -1578,8 +1596,8 @@
           <div class="section-divider"></div>
 
           <div class="sample-stack">
-            <h3 class="section-title" data-i18n data-ar="مرجع الفئات (انقر للنسخ)"
-              data-en="Class reference (click to copy)">مرجع الفئات (انقر للنسخ)</h3>
+            <h3 class="section-title" data-i18n data-ar="مرجع الأنماط"
+              data-en="Pattern reference">مرجع الأنماط</h3>
             <p class="section-note" data-i18n
               data-ar="جميع أنماط الوسوم المعرّفة في &lt;span class=&quot;code-inline&quot;&gt;_tags.scss&lt;/span&gt;."
               data-en="All tag variants defined in &lt;span class=&quot;code-inline&quot;&gt;_tags.scss&lt;/span&gt;.">
@@ -1589,9 +1607,9 @@
               <thead>
                 <tr>
                   <th data-i18n data-ar="المجموعة" data-en="Group">Group</th>
-                  <th data-i18n data-ar="النمط (انقر للنسخ)" data-en="Pattern (click to copy)">Pattern (click to copy)
+                  <th data-i18n data-ar="النمط (نسخ)" data-en="Pattern (copy)">Pattern (copy)
                   </th>
-                  <th data-i18n data-ar="أمثلة (انقر للنسخ)" data-en="Samples (click to copy)">Samples (click to copy)
+                  <th data-i18n data-ar="أمثلة" data-en="Samples">Samples
                   </th>
                 </tr>
               </thead>
@@ -1603,68 +1621,68 @@
                     name directly.</td>
                   <td>
                     <div class="sample-grid">
-                      <span class="defualtprioroty" data-copy="defualtprioroty">defualtprioroty</span>
-                      <span class="infoprioroty" data-copy="infoprioroty">infoprioroty</span>
-                      <span class="primaryprioroty" data-copy="primaryprioroty">primaryprioroty</span>
-                      <span class="highpriority" data-copy="highpriority">highpriority</span>
-                      <span class="mediumpriority" data-copy="mediumpriority">mediumpriority</span>
-                      <span class="regpriority" data-copy="regpriority">regpriority</span>
-                      <span class="UnderProgress" data-copy="UnderProgress">UnderProgress</span>
-                      <span class="Returned" data-copy="Returned">Returned</span>
+                      <span class="defualtprioroty">defualtprioroty</span>
+                      <span class="infoprioroty">infoprioroty</span>
+                      <span class="primaryprioroty">primaryprioroty</span>
+                      <span class="highpriority">highpriority</span>
+                      <span class="mediumpriority">mediumpriority</span>
+                      <span class="regpriority">regpriority</span>
+                      <span class="UnderProgress">UnderProgress</span>
+                      <span class="Returned">Returned</span>
                     </div>
                   </td>
                 </tr>
 
                 <tr>
                   <td data-i18n data-ar="ممتلئ" data-en="Filled">Filled</td>
-                  <td data-copy='class="moi-tag moi-tag--sm moi-tag--filled" data-status="highpriority"'>
+                  <td data-copy='class="moi-tag" data-size="sm" data-variant="filled" data-status="highpriority"'>
                     <code
-                      class="code-inline">class="moi-tag moi-tag--sm moi-tag--filled" data-status="highpriority"</code>
+                      class="code-inline">class="moi-tag" data-size="sm" data-variant="filled" data-status="highpriority"</code>
                   </td>
                   <td>
                     <div class="sample-grid">
-                      <span class="moi-tag moi-tag--sm moi-tag--filled" data-status="highpriority"
-                        data-copy='data-status="highpriority"'><span class="moi-label">highpriority</span></span>
-                      <span class="moi-tag moi-tag--sm moi-tag--filled" data-status="mediumpriority"
-                        data-copy='data-status="mediumpriority"'><span class="moi-label">mediumpriority</span></span>
-                      <span class="moi-tag moi-tag--sm moi-tag--filled" data-status="regpriority"
-                        data-copy='data-status="regpriority"'><span class="moi-label">regpriority</span></span>
-                      <span class="moi-tag moi-tag--sm moi-tag--filled" data-status="infoprioroty"
-                        data-copy='data-status="infoprioroty"'><span class="moi-label">infoprioroty</span></span>
-                      <span class="moi-tag moi-tag--sm moi-tag--filled" data-status="defualtprioroty"
-                        data-copy='data-status="defualtprioroty"'><span class="moi-label">defualtprioroty</span></span>
-                      <span class="moi-tag moi-tag--sm moi-tag--filled" data-status="UnderProgress"
-                        data-copy='data-status="UnderProgress"'><span class="moi-label">UnderProgress</span></span>
-                      <span class="moi-tag moi-tag--sm moi-tag--filled" data-status="Returned"
-                        data-copy='data-status="Returned"'><span class="moi-label">Returned</span></span>
+                      <span class="moi-tag" data-size="sm" data-variant="filled" data-status="highpriority"
+                       ><span class="moi-label">highpriority</span></span>
+                      <span class="moi-tag" data-size="sm" data-variant="filled" data-status="mediumpriority"
+                       ><span class="moi-label">mediumpriority</span></span>
+                      <span class="moi-tag" data-size="sm" data-variant="filled" data-status="regpriority"
+                       ><span class="moi-label">regpriority</span></span>
+                      <span class="moi-tag" data-size="sm" data-variant="filled" data-status="infoprioroty"
+                       ><span class="moi-label">infoprioroty</span></span>
+                      <span class="moi-tag" data-size="sm" data-variant="filled" data-status="defualtprioroty"
+                       ><span class="moi-label">defualtprioroty</span></span>
+                      <span class="moi-tag" data-size="sm" data-variant="filled" data-status="underprogress"
+                       ><span class="moi-label">underprogress</span></span>
+                      <span class="moi-tag" data-size="sm" data-variant="filled" data-status="returned"
+                       ><span class="moi-label">returned</span></span>
                     </div>
                   </td>
                 </tr>
 
                 <tr>
                   <td data-i18n data-ar="مستدير" data-en="Rounded">Rounded</td>
-                  <td data-copy='class="moi-tag moi-tag--sm moi-tag--rounded" data-status="highpriority"'>
+                  <td data-copy='class="moi-tag" data-size="sm" data-shape="rounded" data-status="highpriority"'>
                     <code
-                      class="code-inline">class="moi-tag moi-tag--sm moi-tag--rounded" data-status="highpriority"</code>
+                      class="code-inline">class="moi-tag" data-size="sm" data-shape="rounded" data-status="highpriority"</code>
                   </td>
                   <td>
                     <div class="sample-grid">
-                      <span class="moi-tag moi-tag--sm moi-tag--rounded" data-status="highpriority"
-                        data-copy='data-status="highpriority"'><span class="moi-label">highpriority</span></span>
-                      <span class="moi-tag moi-tag--sm moi-tag--rounded" data-status="mediumpriority"
-                        data-copy='data-status="mediumpriority"'><span class="moi-label">mediumpriority</span></span>
-                      <span class="moi-tag moi-tag--sm moi-tag--rounded" data-status="regpriority"
-                        data-copy='data-status="regpriority"'><span class="moi-label">regpriority</span></span>
-                      <span class="moi-tag moi-tag--sm moi-tag--rounded" data-status="infoprioroty"
-                        data-copy='data-status="infoprioroty"'><span class="moi-label">infoprioroty</span></span>
-                      <span class="moi-tag moi-tag--sm moi-tag--rounded" data-status="defualtprioroty"
-                        data-copy='data-status="defualtprioroty"'><span class="moi-label">defualtprioroty</span></span>
-                      <span class="moi-tag moi-tag--sm moi-tag--rounded" data-status="primaryprioroty"
-                        data-copy='data-status="primaryprioroty"'><span class="moi-label">primaryprioroty</span></span>
-                      <span class="moi-tag moi-tag--sm moi-tag--rounded" data-status="UnderProgress"
-                        data-copy='data-status="UnderProgress"'><span class="moi-label">UnderProgress</span></span>
-                      <span class="moi-tag moi-tag--sm moi-tag--rounded" data-status="Returned"
-                        data-copy='data-status="Returned"'><span class="moi-label">Returned</span></span>
+                      <span class="moi-tag" data-size="sm" data-shape="rounded" data-status="highpriority"
+                       ><span class="moi-label">highpriority</span></span>
+                      <span class="moi-tag" data-size="sm" data-shape="rounded" data-status="mediumpriority"
+                       ><span class="moi-label">mediumpriority</span></span>
+                      <span class="moi-tag" data-size="sm" data-shape="rounded" data-status="regpriority"
+                       ><span class="moi-label">regpriority</span></span>
+                      <span class="moi-tag" data-size="sm" data-shape="rounded" data-status="infoprioroty"
+                       ><span class="moi-label">infoprioroty</span></span>
+                      <span class="moi-tag" data-size="sm" data-shape="rounded" data-status="defualtprioroty"
+                       ><span class="moi-label">defualtprioroty</span></span>
+                      <span class="moi-tag" data-size="sm" data-shape="rounded" data-status="primaryprioroty"
+                       ><span class="moi-label">primaryprioroty</span></span>
+                      <span class="moi-tag" data-size="sm" data-shape="rounded" data-status="underprogress"
+                       ><span class="moi-label">underprogress</span></span>
+                      <span class="moi-tag" data-size="sm" data-shape="rounded" data-status="returned"
+                       ><span class="moi-label">returned</span></span>
                     </div>
                   </td>
                 </tr>
@@ -1672,16 +1690,16 @@
                 <tr>
                   <td data-i18n data-ar="ممتلئ + مستدير" data-en="Filled + Rounded">Filled + Rounded</td>
                   <td
-                    data-copy='class="moi-tag moi-tag--sm moi-tag--filled moi-tag--rounded" data-status="highpriority"'>
+                    data-copy='class="moi-tag" data-size="sm" data-variant="filled" data-shape="rounded" data-status="highpriority"'>
                     <code
-                      class="code-inline">class="moi-tag moi-tag--sm moi-tag--filled moi-tag--rounded" data-status="highpriority"</code>
+                      class="code-inline">class="moi-tag" data-size="sm" data-variant="filled" data-shape="rounded" data-status="highpriority"</code>
                   </td>
                   <td>
                     <div class="sample-grid">
-                      <span class="moi-tag moi-tag--sm moi-tag--filled moi-tag--rounded" data-status="highpriority"
-                        data-copy='data-status="highpriority"'><span class="moi-label">highpriority</span></span>
-                      <span class="moi-tag moi-tag--sm moi-tag--filled moi-tag--rounded" data-status="regpriority"
-                        data-copy='data-status="regpriority"'><span class="moi-label">regpriority</span></span>
+                      <span class="moi-tag" data-size="sm" data-variant="filled" data-shape="rounded" data-status="highpriority"
+                       ><span class="moi-label">highpriority</span></span>
+                      <span class="moi-tag" data-size="sm" data-variant="filled" data-shape="rounded" data-status="regpriority"
+                       ><span class="moi-label">regpriority</span></span>
                     </div>
                   </td>
                 </tr>
@@ -1693,42 +1711,47 @@
 
           <h3 class="section-title" data-i18n data-ar="أيقونات داخل الوسوم">Icons inside tags</h3>
           <p class="section-note" data-i18n
-            data-ar="ضع SVG/IMG قيادي مباشر كأول طفل مباشر داخل الوسم — تُخفى النقطة تلقائيًا. الأيقونات ترث currentColor (وفي .moi-tag حجم الأيقونة يتبع حجم الوسم).">
-            Place a direct leading <code>svg</code>/<code>img</code> as the first direct child inside the tag — the dot
-            hides automatically. Icons inherit <code>currentColor</code> (and in <code>.moi-tag</code>, icon size
-            follows
-            the tag size).</p>
+            data-ar="ضع عنصر <code>.icon</code> كأول طفل مباشر داخل <code>.moi-tag</code> وطابق فئة الأيقونة مع <code>data-size</code> لإخفاء النقطة والمحافظة على المحاذاة.">
+            Place an <code>.icon</code> as the first direct child inside <code>.moi-tag</code> and match its
+            <code>.icon-*</code> class to <code>data-size</code> so the dot hides and the icon stays aligned.
+          </p>
 
           <div class="sample-grid">
-            <span class="regpriority" data-copy="regpriority + svg">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true">
-                <path
-                  d="M9.75 15.5859L5.53076 11.3668L4.46924 12.4283L9.75 17.709L20.0308 7.42825L18.9692 6.36676L9.75 15.5859Z"
-                  fill="currentColor" />
-              </svg>
-              <span data-i18n data-ar="موثق">Verified</span>
-            </span>
-
-            <span class="infoprioroty" data-copy="infoprioroty + svg">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true">
-                <path
-                  d="M16.085 4.05057C17.152 2.9835 18.8822 2.9835 19.9492 4.05057C21.0162 5.11764 21.0163 6.84778 19.9492 7.91483L10.2334 17.6306C9.26501 18.5993 8.673 19.1912 7.94434 19.5984C7.53799 19.8255 6.92166 20.0235 6.29102 20.199C5.64202 20.3796 4.89446 20.5576 4.18164 20.7273L4.17383 20.7293C3.92049 20.7896 3.65389 20.7142 3.46973 20.5301C3.28556 20.3459 3.21018 20.0793 3.27051 19.826L3.27246 19.8172C3.44215 19.1045 3.61924 18.3576 3.7998 17.7088C3.97533 17.078 4.1743 16.4619 4.40137 16.0555C4.80854 15.3268 5.40053 14.7348 6.36914 13.7664L16.085 4.05057Z"
-                  fill="currentColor" />
-              </svg>
-              <span data-i18n data-ar="معلومة">Info</span>
-            </span>
-
-            <span class="regpriority closable-tag">
-              <span data-i18n data-ar="قابل للإزالة">Removable</span>
-              <button type="button" class="tag-close" aria-label="Remove tag">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M4.46967 4.46955C4.76256 4.17665 5.23744 4.17665 5.53033 4.46955L12 10.9392L18.4697 4.46955C18.7626 4.17665 19.2374 4.17665 19.5303 4.46955C19.8232 4.76244 19.8232 5.23731 19.5303 5.53021L13.0607 11.9999L19.5303 18.4695C19.8232 18.7624 19.8232 19.2373 19.5303 19.5302C19.2374 19.8231 18.7626 19.8231 18.4697 19.5302L12 13.0605L5.53033 19.5302C5.23744 19.8231 4.76256 19.8231 4.46967 19.5302C4.17678 19.2373 4.17678 18.7624 4.46967 18.4695L10.9393 11.9999L4.46967 5.53021C4.17678 5.23731 4.17678 4.76244 4.46967 4.46955Z"
+            <span class="moi-tag" data-size="md" data-status="regpriority"
+             >
+              <span class="icon icon-md">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path
+                    d="M9.75 15.5859L5.53076 11.3668L4.46924 12.4283L9.75 17.709L20.0308 7.42825L18.9692 6.36676L9.75 15.5859Z"
                     fill="currentColor" />
                 </svg>
+              </span>
+              <span class="moi-label" data-i18n data-ar="موثق">Verified</span>
+            </span>
+
+            <span class="moi-tag" data-size="md" data-status="infoprioroty"
+             >
+              <span class="icon icon-md">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path
+                    d="M16.085 4.05057C17.152 2.9835 18.8822 2.9835 19.9492 4.05057C21.0162 5.11764 21.0163 6.84778 19.9492 7.91483L10.2334 17.6306C9.26501 18.5993 8.673 19.1912 7.94434 19.5984C7.53799 19.8255 6.92166 20.0235 6.29102 20.199C5.64202 20.3796 4.89446 20.5576 4.18164 20.7273L4.17383 20.7293C3.92049 20.7896 3.65389 20.7142 3.46973 20.5301C3.28556 20.3459 3.21018 20.0793 3.27051 19.826L3.27246 19.8172C3.44215 19.1045 3.61924 18.3576 3.7998 17.7088C3.97533 17.078 4.1743 16.4619 4.40137 16.0555C4.80854 15.3268 5.40053 14.7348 6.36914 13.7664L16.085 4.05057Z"
+                    fill="currentColor" />
+                </svg>
+              </span>
+              <span class="moi-label" data-i18n data-ar="معلومة">Info</span>
+            </span>
+
+            <span class="moi-tag" data-size="md" data-status="regpriority"
+             >
+              <span class="moi-label" data-i18n data-ar="قابل للإزالة">Removable</span>
+              <button type="button" class="tag-close" aria-label="Remove tag">
+                <span class="icon icon-md">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M4.46967 4.46955C4.76256 4.17665 5.23744 4.17665 5.53033 4.46955L12 10.9392L18.4697 4.46955C18.7626 4.17665 19.2374 4.17665 19.5303 4.46955C19.8232 4.76244 19.8232 5.23731 19.5303 5.53021L13.0607 11.9999L19.5303 18.4695C19.8232 18.7624 19.8232 19.2373 19.5303 19.5302C19.2374 19.8231 18.7626 19.8231 18.4697 19.5302L12 13.0605L5.53033 19.5302C5.23744 19.8231 4.76256 19.8231 4.46967 19.5302C4.17678 19.2373 4.17678 18.7624 4.46967 18.4695L10.9393 11.9999L4.46967 5.53021C4.17678 5.23731 4.17678 4.76244 4.46967 4.46955Z"
+                      fill="currentColor" />
+                  </svg>
+                </span>
               </button>
             </span>
           </div>
@@ -1737,13 +1760,13 @@
 
           <div class="code-block">
             <pre><code class="language-html">&lt;!-- Subtle (default) --&gt;
-&lt;span class=&quot;moi-tag moi-tag--md&quot; data-status=&quot;regpriority&quot;&gt;&lt;span class=&quot;moi-label&quot;&gt;Queued&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;moi-tag&quot; data-size=&quot;md&quot; data-status=&quot;regpriority&quot;&gt;&lt;span class=&quot;moi-label&quot;&gt;Queued&lt;/span&gt;&lt;/span&gt;
 &lt;!-- Filled variant --&gt;
-&lt;span class=&quot;moi-tag moi-tag--md moi-tag--filled&quot; data-status=&quot;regpriority&quot;&gt;&lt;span class=&quot;moi-label&quot;&gt;Queued&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;moi-tag&quot; data-size=&quot;md&quot; data-variant=&quot;filled&quot; data-status=&quot;regpriority&quot;&gt;&lt;span class=&quot;moi-label&quot;&gt;Queued&lt;/span&gt;&lt;/span&gt;
 &lt;!-- Rounded variant --&gt;
-&lt;span class=&quot;moi-tag moi-tag--md moi-tag--rounded&quot; data-status=&quot;regpriority&quot;&gt;&lt;span class=&quot;moi-label&quot;&gt;Queued&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;moi-tag&quot; data-size=&quot;md&quot; data-shape=&quot;rounded&quot; data-status=&quot;regpriority&quot;&gt;&lt;span class=&quot;moi-label&quot;&gt;Queued&lt;/span&gt;&lt;/span&gt;
 &lt;!-- Filled + Rounded --&gt;
-&lt;span class=&quot;moi-tag moi-tag--md moi-tag--filled moi-tag--rounded&quot; data-status=&quot;regpriority&quot;&gt;&lt;span class=&quot;moi-label&quot;&gt;Queued&lt;/span&gt;&lt;/span&gt;</code></pre>
+&lt;span class=&quot;moi-tag&quot; data-size=&quot;md&quot; data-variant=&quot;filled&quot; data-shape=&quot;rounded&quot; data-status=&quot;regpriority&quot;&gt;&lt;span class=&quot;moi-label&quot;&gt;Queued&lt;/span&gt;&lt;/span&gt;</code></pre>
           </div>
         </div>
       </section>
@@ -1812,10 +1835,10 @@
               </div>
               <div class="example-split">
                 <div class="example-preview">
-                  <span class="moi-tag moi-tag--md" data-status="UnderProgress" role="status">
+                  <span class="moi-tag" data-size="md" data-status="underprogress" role="status">
                     <span class="moi-label" data-i18n data-ar="قيد المراجعة" data-en="In review">In review</span>
                   </span>
-                  <span class="moi-tag moi-tag--md moi-tag--rounded" data-status="Returned" role="status">
+                  <span class="moi-tag" data-size="md" data-shape="rounded" data-status="returned" role="status">
                     <span class="moi-label" data-i18n data-ar="مُعاد" data-en="Returned">Returned</span>
                   </span>
                 </div>
@@ -1907,19 +1930,21 @@
               </div>
               <div class="example-split">
                 <div class="example-preview">
-                  <button type="button" class="moi-tag moi-tag--md moi-tag--rounded" data-status="primaryprioroty"
+                  <button type="button" class="moi-tag" data-size="md" data-shape="rounded" data-status="primaryprioroty"
                     aria-pressed="false">
                     <span class="moi-label" data-i18n data-ar="تصفية حسب المالك" data-en="Filter by owner">Filter by
                       owner</span>
                   </button>
-                  <span class="moi-tag moi-tag--md closable-tag" data-status="highpriority">
+                  <span class="moi-tag" data-size="md" data-status="highpriority">
                     <span class="moi-label" data-i18n data-ar="مُسند" data-en="Assigned">Assigned</span>
                     <button type="button" class="tag-close" aria-label="Remove Assigned filter">
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill="currentColor"
-                          d="M4.46967 4.46955C4.76256 4.17665 5.23744 4.17665 5.53033 4.46955L12 10.9392L18.4697 4.46955C18.7626 4.17665 19.2374 4.17665 19.5303 4.46955C19.8232 4.76244 19.8232 5.23731 19.5303 5.53021L13.0607 11.9999L19.5303 18.4695C19.8232 18.7624 19.8232 19.2373 19.5303 19.5302C19.2374 19.8231 18.7626 19.8231 18.4697 19.5302L12 13.0605L5.53033 19.5302C5.23744 19.8231 4.76256 19.8231 4.46967 19.5302C4.17678 19.2373 4.17678 18.7624 4.46967 18.4695L10.9393 11.9999L4.46967 5.53021C4.17678 5.23731 4.17678 4.76244 4.46967 4.46955Z">
-                        </path>
-                      </svg>
+                      <span class="icon icon-md">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path fill="currentColor"
+                            d="M4.46967 4.46955C4.76256 4.17665 5.23744 4.17665 5.53033 4.46955L12 10.9392L18.4697 4.46955C18.7626 4.17665 19.2374 4.17665 19.5303 4.46955C19.8232 4.76244 19.8232 5.23731 19.5303 5.53021L13.0607 11.9999L19.5303 18.4695C19.8232 18.7624 19.8232 19.2373 19.5303 19.5302C19.2374 19.8231 18.7626 19.8231 18.4697 19.5302L12 13.0605L5.53033 19.5302C5.23744 19.8231 4.76256 19.8231 4.46967 19.5302C4.17678 19.2373 4.17678 18.7624 4.46967 18.4695L10.9393 11.9999L4.46967 5.53021C4.17678 5.23731 4.17678 4.76244 4.46967 4.46955Z">
+                          </path>
+                        </svg>
+                      </span>
                     </button>
                   </span>
                 </div>
@@ -2005,9 +2030,9 @@
                 instruction sentence or long explanation.
               </li>
               <li data-i18n
-                data-ar="<strong>لا تعرض الأكواد التقنية:</strong> لا تُظهر قيمًا مثل <code>UnderProgress</code> أو <code>highpriority</code> للمستخدم النهائي."
-                data-en="<strong>Do not show technical codes:</strong> Never expose values such as <code>UnderProgress</code> or <code>highpriority</code> to end users.">
-                <strong>Do not show technical codes:</strong> Never expose values such as <code>UnderProgress</code> or
+                data-ar="<strong>لا تعرض الأكواد التقنية:</strong> لا تُظهر قيمًا مثل <code>underprogress</code> أو <code>highpriority</code> للمستخدم النهائي."
+                data-en="<strong>Do not show technical codes:</strong> Never expose values such as <code>underprogress</code> or <code>highpriority</code> to end users.">
+                <strong>Do not show technical codes:</strong> Never expose values such as <code>underprogress</code> or
                 <code>highpriority</code> to end users.
               </li>
               <li data-i18n
@@ -2059,7 +2084,7 @@
                       The legacy <code>data-status</code> value used only for implementation, integration, and mapping
                       logic.
                     </td>
-                    <td><code>UnderProgress</code></td>
+                    <td><code>underprogress</code></td>
                   </tr>
                 </tbody>
               </table>
@@ -2302,18 +2327,20 @@
           </p>
           <div class="code-block">
             <pre><code class="language-html">&lt;!-- Interactive tag with icon and close button --&gt;
-&lt;span class="moi-tag moi-tag--md closable-tag" data-status="UnderProgress"&gt;
+&lt;span class="moi-tag" data-size="md" data-status="underprogress"&gt;
   &lt;span class="moi-label"&gt;In review&lt;/span&gt;
   &lt;button class="tag-close" type="button" aria-label="Remove tag"&gt;
-    &lt;svg viewBox="0 0 24 24" aria-hidden="true"&gt;...&lt;/svg&gt;
+    &lt;span class="icon icon-md"&gt;&lt;svg viewBox="0 0 24 24" aria-hidden="true"&gt;...&lt;/svg&gt;&lt;/span&gt;
   &lt;/button&gt;
 &lt;/span&gt;
 &lt;!-- Passive pill --&gt;
-&lt;span class="moi-tag moi-tag--md" data-status="defualtprioroty"&gt;&lt;span class="moi-label"&gt;Neutral&lt;/span&gt;&lt;/span&gt;</code></pre>
+&lt;span class="moi-tag" data-size="md" data-status="defualtprioroty"&gt;&lt;span class="moi-label"&gt;Neutral&lt;/span&gt;&lt;/span&gt;</code></pre>
           </div>
           <ul class="accessibility-list mt-3">
-            <li data-i18n data-ar="كل وسام يستخدم <code>.moi-tag</code> مع موديفير حالة واحد فقط.">Each tag uses
-              <code>.moi-tag</code> plus a single state modifier.
+            <li data-i18n
+              data-ar="كل وسم يستخدم <code>.moi-tag</code> مع قيم <code>data-status</code> وسمات النمط الاختيارية فقط.">
+              Each tag uses <code>.moi-tag</code> with <code>data-status</code> and only the optional data attributes
+              it needs.
             </li>
             <li data-i18n data-ar="إضافة زر إزالة يتطلب <code>aria-label</code> ونقطة تركيز للوصول عبر الكيبورد.">The
               remove button needs an <code>aria-label</code> and focusable target for keyboard users.</li>
@@ -2330,55 +2357,55 @@
           <table class="docs-table">
             <thead>
               <tr>
-                <th data-i18n data-ar="الكلاس" data-en="Class">Class</th>
+                <th data-i18n data-ar="الخاصية" data-en="Attribute">Attribute</th>
                 <th data-i18n data-ar="القيمة" data-en="Value">Value</th>
                 <th data-i18n data-ar="الاستخدام" data-en="Usage">Usage</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td data-copy="moi-tag--sm"><code class="code-inline">moi-tag--sm</code></td>
+                <td data-copy='data-size="sm"'><code class="code-inline">data-size="sm"</code></td>
                 <td><code class="code-inline">1rem</code></td>
                 <td data-i18n data-ar="وسم صغير ضمن جداول/قوائم كثيفة."
                   data-en="Compact tags inside dense tables/lists.">
                   Compact tags inside dense tables/lists.</td>
               </tr>
               <tr>
-                <td data-copy="moi-tag--md"><code class="code-inline">moi-tag--md</code></td>
+                <td data-copy='data-size="md"'><code class="code-inline">data-size="md"</code></td>
                 <td><code class="code-inline">1.25rem</code></td>
                 <td data-i18n data-ar="الحجم الافتراضي لمعظم الاستخدامات." data-en="Default size for most use cases.">
                   Default size for most use cases.</td>
               </tr>
               <tr>
-                <td data-copy="moi-tag--lg"><code class="code-inline">moi-tag--lg</code></td>
+                <td data-copy='data-size="lg"'><code class="code-inline">data-size="lg"</code></td>
                 <td><code class="code-inline">1.5rem</code></td>
                 <td data-i18n data-ar="مناسب للبطاقات والمسافات المريحة."
                   data-en="Comfortable size for cards and roomy layouts.">
                   Comfortable size for cards and roomy layouts.</td>
               </tr>
               <tr>
-                <td data-copy="moi-tag--xl"><code class="code-inline">moi-tag--xl</code></td>
+                <td data-copy='data-size="xl"'><code class="code-inline">data-size="xl"</code></td>
                 <td><code class="code-inline">2rem</code></td>
                 <td data-i18n data-ar="لإبراز الحالة داخل الهيدر أو الأقسام."
                   data-en="Emphasis in headers or section summaries.">
                   Emphasis in headers or section summaries.</td>
               </tr>
               <tr>
-                <td data-copy="moi-tag--2xl"><code class="code-inline">moi-tag--2xl</code></td>
+                <td data-copy='data-size="2xl"'><code class="code-inline">data-size="2xl"</code></td>
                 <td><code class="code-inline">2.5rem</code></td>
                 <td data-i18n data-ar="لوسوم الفلاتر الكبيرة أو الشرائح البارزة."
                   data-en="Prominent filter chips or featured tags.">
                   Prominent filter chips or featured tags.</td>
               </tr>
               <tr>
-                <td data-copy="moi-tag--3xl"><code class="code-inline">moi-tag--3xl</code></td>
+                <td data-copy='data-size="3xl"'><code class="code-inline">data-size="3xl"</code></td>
                 <td><code class="code-inline">3rem</code></td>
                 <td data-i18n data-ar="يستخدم بحذر: سياقات عرض قوية فقط."
                   data-en="Use sparingly: only for strong display contexts.">
                   Use sparingly: only for strong display contexts.</td>
               </tr>
               <tr>
-                <td data-copy="moi-tag--4xl"><code class="code-inline">moi-tag--4xl</code></td>
+                <td data-copy='data-size="4xl"'><code class="code-inline">data-size="4xl"</code></td>
                 <td><code class="code-inline">4rem</code></td>
                 <td data-i18n data-ar="نادر: لعرض تجريبي أو حالات خاصة جدًا."
                   data-en="Rare: demo-only or very special cases.">
@@ -2438,14 +2465,14 @@
                   Highlighted or brand-aligned items.</td>
               </tr>
               <tr>
-                <td data-copy="UnderProgress"><code class="code-inline">UnderProgress</code></td>
+                <td data-copy="underprogress"><code class="code-inline">underprogress</code></td>
                 <td data-i18n data-ar="قيد المراجعة" data-en="Under progress / in review">Under progress / in review
                 </td>
                 <td data-i18n data-ar="قيد المعالجة أو المراجعة." data-en="Being processed or reviewed.">
                   Being processed or reviewed.</td>
               </tr>
               <tr>
-                <td data-copy="Returned"><code class="code-inline">Returned</code></td>
+                <td data-copy="returned"><code class="code-inline">returned</code></td>
                 <td data-i18n data-ar="مُعاد" data-en="Returned / rework">Returned / rework</td>
                 <td data-i18n data-ar="أعيد للتعديل أو إعادة العمل." data-en="Sent back for revision or rework.">
                   Sent back for revision or rework.</td>
@@ -2460,7 +2487,7 @@
             <thead>
               <tr>
                 <th data-i18n data-ar="النمط" data-en="Variant">Variant</th>
-                <th data-i18n data-ar="الكلاس / النمط" data-en="Class / Pattern">Class / Pattern</th>
+                <th data-i18n data-ar="السمات / النمط" data-en="Attributes / Pattern">Attributes / Pattern</th>
                 <th data-i18n data-ar="ملاحظات" data-en="Notes">Notes</th>
               </tr>
             </thead>
@@ -2474,43 +2501,43 @@
               </tr>
               <tr>
                 <td data-i18n data-ar="ممتلئ" data-en="Filled">Filled</td>
-                <td data-copy=".moi-tag--filled + data-status"><code class="code-inline">.moi-tag--filled</code> + <code
-                    class="code-inline">data-status</code></td>
+                <td data-copy='data-variant="filled" + data-status'><code class="code-inline">data-variant="filled"</code> +
+                  <code class="code-inline">data-status</code></td>
                 <td data-i18n data-ar="خلفية قوية للتأكيد." data-en="Strong emphasis with solid background.">
                   Strong emphasis with solid background.</td>
               </tr>
               <tr>
                 <td data-i18n data-ar="مستدير" data-en="Rounded">Rounded</td>
-                <td data-copy=".moi-tag--rounded + data-status"><code class="code-inline">.moi-tag--rounded</code> +
+                <td data-copy='data-shape="rounded" + data-status'><code class="code-inline">data-shape="rounded"</code> +
                   <code class="code-inline">data-status</code></td>
                 <td data-i18n data-ar="شكل كبسولة كامل." data-en="Capsule/pill shape.">Capsule/pill shape.</td>
               </tr>
               <tr>
                 <td data-i18n data-ar="ممتلئ + مستدير" data-en="Filled + Rounded">Filled + Rounded</td>
-                <td data-copy=".moi-tag--filled .moi-tag--rounded + data-status"><code
-                    class="code-inline">.moi-tag--filled</code> <code class="code-inline">.moi-tag--rounded</code> +
-                  <code class="code-inline">data-status</code></td>
+                <td data-copy='data-variant="filled" + data-shape="rounded" + data-status'><code
+                    class="code-inline">data-variant="filled"</code> + <code
+                    class="code-inline">data-shape="rounded"</code> + <code class="code-inline">data-status</code></td>
                 <td data-i18n
-                  data-ar="ادمج <code>.moi-tag--filled</code> و <code>.moi-tag--rounded</code> معًا (لا يوجد مُعدِّل مركّب)."
-                  data-en="Combine <code>.moi-tag--filled</code> + <code>.moi-tag--rounded</code> (no combined modifier class).">
-                  Combine <code>.moi-tag--filled</code> + <code>.moi-tag--rounded</code> (no combined modifier class).
+                  data-ar="ادمج <code>data-variant=&quot;filled&quot;</code> مع <code>data-shape=&quot;rounded&quot;</code> عند الحاجة.">
+                  Combine <code>data-variant="filled"</code> with <code>data-shape="rounded"</code> when needed.
                 </td>
               </tr>
               <tr>
                 <td data-i18n data-ar="قابل للإزالة" data-en="Closable">Closable</td>
-                <td data-copy=".closable-tag + .tag-close"><code class="code-inline">.closable-tag</code> + <code
-                    class="code-inline">.tag-close</code></td>
+                <td data-copy=".moi-tag + .tag-close + .icon"><code class="code-inline">.moi-tag</code> + <code
+                    class="code-inline">.tag-close</code> + <code class="code-inline">.icon</code></td>
                 <td data-i18n data-ar="زر الإغلاق لا يخفي النقطة." data-en="Close button does not hide the dot.">
                   Close button does not hide the dot.</td>
               </tr>
               <tr>
                 <td data-i18n data-ar="مع أيقونة" data-en="With icon">With icon</td>
-                <td data-copy="direct leading svg/img" data-i18n data-ar="عنصر SVG/IMG مباشر في البداية"
-                  data-en="Direct leading svg/img">
-                  Direct leading <code class="code-inline">svg</code>/<code class="code-inline">img</code></td>
-                <td data-i18n data-ar="وجود SVG/IMG كأول ابن مباشر يخفي النقطة."
-                  data-en="A direct leading svg/img hides the dot.">
-                  A direct leading <code>svg</code>/<code>img</code> hides the dot.</td>
+                <td data-copy=".icon + .icon-* + data-size" data-i18n data-ar="عنصر .icon مباشر في البداية"
+                  data-en="Leading .icon">
+                  Leading <code class="code-inline">.icon</code></td>
+                <td data-i18n
+                  data-ar="وجود عنصر <code>.icon</code> كأول ابن مباشر مع حجم مطابق لـ <code>data-size</code> يخفي النقطة."
+                  data-en="A leading <code>.icon</code> with a size that matches <code>data-size</code> hides the dot.">
+                  A leading <code>.icon</code> with a size that matches <code>data-size</code> hides the dot.</td>
               </tr>
             </tbody>
           </table>
@@ -2769,7 +2796,7 @@
 
         const closeBtn = event.target.closest('.tag-close');
         if (closeBtn) {
-          const closableHost = closeBtn.closest('.closable-tag');
+          const closableHost = closeBtn.closest('.moi-tag');
           if (closableHost) {
             event.stopPropagation();
             closableHost.remove();

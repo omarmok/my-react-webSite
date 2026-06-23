@@ -1,0 +1,370 @@
+@use "sass:map";
+@use "../helpers" as *;
+
+// 1. Placeholder
+
+@mixin placeholder {
+  &::placeholder {
+    @content;
+  }
+
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+}
+
+@mixin common-placeholder-form-control {
+  input,
+  textarea,
+  .form-control {
+    @include placeholder {
+      @include meduimfont-reg-12;
+      color: $Neutral-500;
+      opacity: 1;
+    }
+  }
+}
+
+// 2. Shared Helpers
+// DS token gaps: helpers do not expose standalone line-height tokens,
+// and some form-control heights remain fixed because there are no exact semantic size tokens.
+
+$form-control-sizes: (
+  sm: (
+    height: 36px,
+    padding-inline: $padding-lg,
+    font-size: map.get($font-sizes, md),
+    line-height: 1.4,
+    icon-size: map.get($moi-icon-sizes, sm),
+    icon-token: sm,
+  ),
+  md: (
+    height: 40px,
+    padding-inline: $padding-xl,
+    font-size: map.get($font-sizes, lg),
+    line-height: 1.45,
+    icon-size: map.get($moi-icon-sizes, md),
+    icon-token: md,
+  ),
+  lg: (
+    height: $form-control-height,
+    padding-inline: 18px, // Legacy icon offset: no exact DS spacing token
+    font-size: 1.125rem, // DS exception: no exact typography token between lg and xl
+    line-height: 1.5,
+    icon-size: map.get($moi-icon-sizes, lg),
+    icon-token: lg,
+  ),
+  xl: (
+    height: 48px,
+    padding-inline: $padding-2xl,
+    font-size: map.get($font-sizes, xl),
+    line-height: 1.55,
+    icon-size: map.get($moi-icon-sizes, xl),
+    icon-token: xl,
+  ),
+);
+
+// DS token gaps: helpers do not expose focus-ring width, alpha, or semantic border-width tokens.
+@mixin _form-control-ring($border-color, $alpha: 0.16) {
+  border-color: $border-color;
+  box-shadow: 0 0 0 $padding-xxs rgba($border-color, $alpha);
+}
+
+@mixin _form-control-border($border-color) {
+  border: 1px solid $border-color;
+}
+
+@mixin _form-control-status(
+  $selectors,
+  $color,
+  $alpha: 0.16
+) {
+  #{$selectors} {
+    border-color: $color;
+  }
+
+  #{$selectors}:focus,
+  #{$selectors}:focus-visible {
+    @include _form-control-ring($color, $alpha);
+  }
+}
+
+@mixin _form-control-size($name, $config) {
+  $height: map.get($config, height);
+  $padding-inline: map.get($config, padding-inline);
+  $font-size: map.get($config, font-size);
+  $line-height: map.get($config, line-height);
+  $icon-size: map.get($config, icon-size);
+  $icon-token: map.get($config, icon-token);
+
+  .form-control[data-size="#{$name}"] {
+    min-height: $height;
+    height: $height;
+    padding-inline: $padding-inline;
+    font-size: $font-size;
+    line-height: $line-height;
+
+    i,
+    svg {
+      font-size: $icon-size;
+    }
+
+    .input-group & {
+      + .input-group-text,
+      ~ .input-group-text {
+        font-size: $font-size;
+      }
+    }
+  }
+
+  textarea.form-control[data-size="#{$name}"] {
+    height: auto;
+    min-height: $height;
+  }
+
+  .form-control[data-size="#{$name}"] .icon {
+    font-size: map.get($moi-icon-sizes, $icon-token);
+  }
+}
+
+@mixin _common-form-control-validation-states {
+  @include _form-control-status(
+    ".form-control:is(.is-err, .is-invalid), .was-validated .form-control:invalid",
+    $Error-500
+  );
+
+  @include _form-control-status(
+    ".form-control:is(.is-ok, .is-valid), .was-validated .form-control:valid",
+    $Primary-500
+  );
+}
+
+@mixin _common-textarea-form-control {
+  textarea.form-control {
+    min-height: 150px;
+    height: 150px;
+    display: block;
+    resize: vertical;
+  }
+}
+
+// 3. Base
+
+@mixin common-base-form-control {
+  .form-control {
+    @include meduimfont-14;
+    width: 100%;
+    min-height: $form-control-height;
+    height: $form-control-height;
+    padding: $padding-md;
+    color: $Neutral-900;
+    background-color: $white-100;
+    background-clip: padding-box;
+    @include _form-control-border($Neutral-400);
+    border-radius: $radius-sm;
+    box-shadow: none;
+    display: block;
+    transition:
+      border-color var(--tran-05, var(--tran-04)),
+      box-shadow var(--tran-05, var(--tran-04)),
+      background-color var(--tran-05, var(--tran-04)),
+      color var(--tran-05, var(--tran-04));
+  }
+
+  .form-control:focus,
+  .form-control:focus-visible {
+    color: $Neutral-900;
+    background-color: $white-100;
+    outline: 0 solid transparent;
+    @include _form-control-ring($Primary-500);
+  }
+
+  @include _common-form-control-validation-states;
+  @include _common-textarea-form-control;
+}
+
+// 4. Sizes
+
+@mixin common-sized-form-control {
+  @each $name, $config in $form-control-sizes {
+    @include _form-control-size($name, $config);
+  }
+}
+
+// 5. States
+
+@mixin disabled-form-control {
+  .form-control:disabled,
+  .form-control[disabled] {
+    color: $Neutral-500;
+    background-color: $Neutral-100;
+    border-color: $Neutral-200;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 1;
+
+    @include placeholder {
+      color: $Neutral-400;
+    }
+  }
+
+  .form-control[readonly] {
+    color: $Neutral-700;
+    background-color: $Neutral-50;
+    border-color: $Neutral-300;
+    box-shadow: none;
+    cursor: default;
+  }
+
+  .form-control[readonly]:focus,
+  .form-control[readonly]:focus-visible {
+    background-color: $Neutral-50;
+    color: $Neutral-700;
+    outline: 0 solid transparent;
+    @include _form-control-ring($Neutral-400, 0.14);
+  }
+}
+
+// 6. Textarea
+// Legacy textarea heights remain fixed because there are no exact semantic DS size tokens.
+
+@mixin form-content-control {
+  .form-control {
+    text-indent: $padding-2xl;
+  }
+}
+
+@mixin layout-textarea-form-control {
+  textarea.form-control {
+    height: 80px !important;
+  }
+}
+
+// 7. Special Cases / Legacy Overrides
+// Legacy dimensions below remain fixed because there are no exact semantic DS size tokens.
+
+@mixin common-verification-control {
+  .form-control {
+    height: 70px;
+    width: 70px;
+    text-align: center;
+    font-weight: 600;
+  }
+}
+
+@mixin reset-password-verification-control {
+  height: 45px;
+  width: 40px;
+  padding: $padding-xs;
+}
+
+@mixin login-form-control {
+  border-radius: $radius-xs;
+  padding-right: 18px; // Legacy icon offset: no exact DS spacing token
+}
+
+@mixin login-password-form-control {
+  width: 100%;
+  padding: $padding-lg 45px $padding-lg $padding-lg; // Legacy icon offset: no exact DS spacing token
+  @include meduimfont-14;
+}
+
+@mixin file-uploader-input-form-control {
+  @include meduimfont-reg-12;
+  min-height: 38px;
+  height: 38px;
+  padding-block: $padding-md;
+  padding-inline-start: $padding-lg;
+  padding-inline-end: 38px; // Legacy icon offset: no exact DS spacing token
+  color: $Neutral-900;
+  background-color: $white-100;
+  border-color: $Neutral-300;
+
+  &:focus,
+  &:focus-visible {
+    @include _form-control-ring($Info-600, 0.08);
+  }
+
+  &:is(.is-err, .is-invalid) {
+    @include _form-control-ring($Error-500, 0.08);
+  }
+
+  &:is(.is-ok, .is-valid) {
+    @include _form-control-ring($Primary-500, 0.08);
+  }
+}
+
+@mixin person-form-control {
+  background-color: $Neutral-50;
+  @include _form-control-border($Neutral-200);
+}
+
+@mixin person-form-control-focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+@mixin hearing-textarea-form-control {
+  height: 160px;
+}
+
+@mixin vehicleafteradding-form-control {
+  span {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+}
+
+@mixin vehicles-restriction-textarea-form-control {
+  height: 50px;
+}
+
+@mixin user-management-style-search-focus-control {
+  background: $white-100;
+  @include _form-control-border($Info-500);
+}
+
+@mixin user-management-style-verification-control {
+  height: 40px;
+  width: 30px;
+  text-align: center;
+  padding: $padding-none;
+}
+
+@mixin otarr-right-textarea-form-control {
+  height: 60px;
+}
+
+@mixin otarr-left-textarea-form-control {
+  height: 45px;
+}
+
+@mixin security-case-minus-plus-control {
+  border-radius: $radius-none;
+  @include _form-control-border($Neutral-300);
+  height: 35px;
+}
+
+@mixin user-management-roles-control {
+  @include font-md-500;
+  height: 45px;
+  line-height: 45px;
+  color: $Neutral-600;
+  background: $Neutral-25;
+  @include _form-control-border($Neutral-100);
+  border-radius: $radius-md;
+  box-shadow: none;
+}

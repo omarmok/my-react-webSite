@@ -1,5 +1,6 @@
 @use '../helpers' as *;
 @use './insertUserComponent' as *;
+@use '../common/form' as form;
 .hearing {
     @extend .insertUser;
 
@@ -78,7 +79,7 @@
         }
 
         textarea.form-control {
-            height: 160px;
+            @include form.hearing-textarea-form-control;
         }
     }
 

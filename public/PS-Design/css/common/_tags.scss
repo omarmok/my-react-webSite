@@ -278,16 +278,6 @@ $moi-tag-sizes: (
   4xl: 4rem,
 );
 
-$moi-tag-icon-sizes: (
-  sm: 0.75rem,
-  md: 0.875rem,
-  lg: 1rem,
-  xl: 1.25rem,
-  2xl: 1.5rem,
-  3xl: 1.75rem,
-  4xl: 2rem,
-);
-
 .moi-tag {
   display: inline-flex;
   white-space: nowrap;
@@ -327,7 +317,8 @@ $moi-tag-icon-sizes: (
   }
 
   &:has(> svg:first-child),
-  &:has(> img:first-child) {
+  &:has(> img:first-child),
+  &:has(> .icon:first-child) {
     &::before {
       display: none;
     }
@@ -339,19 +330,16 @@ $moi-tag-icon-sizes: (
 // =============================================================================
 
 @each $size, $value in $moi-tag-sizes {
-  $icon-size: map.get($moi-tag-icon-sizes, $size);
-
-  .moi-tag--#{$size} {
+  .moi-tag[data-size="#{$size}"] {
     height: $value;
     min-height: $value;
     line-height: $value;
+  }
 
-    > svg:first-child,
-    > img:first-child,
-    .tag-close svg {
-      width: $icon-size;
-      height: $icon-size;
-    }
+  .moi-tag[data-size="#{$size}"] > svg:first-child,
+  .moi-tag[data-size="#{$size}"] > img:first-child,
+  .moi-tag[data-size="#{$size}"] .tag-close svg {
+    @extend .icon-#{$size};
   }
 }
 
@@ -422,6 +410,28 @@ $_moi-tag-statuses: (
     dot: $Primary-600,
     has-filled: false,
   ),
+  underprogress: (
+    color: #6929c4,
+    bg: #f1e8ff,
+    border: #d6c8ec,
+    dot: #6929c4,
+    has-filled: true,
+    filled-color: $white-100,
+    filled-bg: #6929c4,
+    filled-border: #6929c4,
+    filled-dot: $white-100,
+  ),
+  returned: (
+    color: #3f739b,
+    bg: #d2ebff,
+    border: #c0e1fa,
+    dot: #3f739b,
+    has-filled: true,
+    filled-color: $white-100,
+    filled-bg: #3f739b,
+    filled-border: #3f739b,
+    filled-dot: $white-100,
+  ),
   UnderProgress: (
     color: #6929c4,
     bg: #f1e8ff,
@@ -458,6 +468,7 @@ $_moi-tag-statuses: (
   }
 
   @if map.get($colors, has-filled) {
+    .moi-tag[data-variant="filled"][data-status="#{$status}"],
     .moi-tag--filled[data-status="#{$status}"] {
       color: map.get($colors, filled-color);
       background: map.get($colors, filled-bg);
@@ -468,6 +479,7 @@ $_moi-tag-statuses: (
       }
     }
 
+    .moi-tag[data-variant="filled"][data-shape="rounded"][data-status="#{$status}"],
     .moi-tag--filled.moi-tag--rounded[data-status="#{$status}"] {
       color: map.get($colors, filled-color);
       background: map.get($colors, filled-bg);
@@ -480,6 +492,7 @@ $_moi-tag-statuses: (
     }
   }
 
+  .moi-tag[data-shape="rounded"][data-status="#{$status}"],
   .moi-tag--rounded[data-status="#{$status}"] {
     border-radius: $radius-sm;
   }
