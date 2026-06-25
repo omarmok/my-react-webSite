@@ -9,6 +9,7 @@
   <link href="../css/animate.css" rel="stylesheet" />
   <link href="../css/font-awesome.min.css" rel="stylesheet" />
   <link href="../css/main.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
   <style>
     :root {
       --page-max: 1100px;
@@ -1355,26 +1356,10 @@
       }
 
       .docs-sidebar {
-        position: sticky;
-        top: 0;
-        z-index: 100;
         background: white;
         padding: 16px;
         border-bottom: 1px solid #e5e7eb;
         margin-bottom: 24px;
-      }
-
-      .sidebar-nav {
-        display: none;
-      }
-
-      .sidebar-nav.is-open {
-        display: grid;
-        margin-top: 16px;
-      }
-
-      .mobile-nav-toggle {
-        display: flex;
       }
 
       .swatch-grid {
@@ -4334,18 +4319,6 @@
           }
         });
       };
-
-      const navToggle = document.querySelector('.mobile-nav-toggle');
-      const sidebarNav = document.querySelector('.sidebar-nav');
-      if (navToggle && sidebarNav) {
-        navToggle.addEventListener('click', () => {
-          sidebarNav.classList.toggle('is-open');
-          const icon = navToggle.querySelector('.toggle-icon');
-          if (icon) {
-            icon.textContent = sidebarNav.classList.contains('is-open') ? '▲' : '▼';
-          }
-        });
-      }
 
       const codeTabs = document.querySelectorAll('.code-tab');
       const codePanels = document.querySelectorAll('.code-panel');
