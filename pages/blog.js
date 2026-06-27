@@ -7,8 +7,7 @@ import { useTranslation } from "../src/i18n/useTranslation";
 const blogImages = {
   levels:
     "https://s3.eu-north-1.amazonaws.com/cdn-site.mediaplanet.com/app/uploads/sites/105/2021/09/08000229/MainImage_A9-888x500.jpg",
-  svg:
-    "https://www.adobe.com/creativecloud/file-types/image/vector/media_1c840d54c0c6d35eb38bebd13dec2f908cf9a275e.png?width=2000&format=webply&optimize=medium",
+  svg: "https://www.adobe.com/creativecloud/file-types/image/vector/media_1c840d54c0c6d35eb38bebd13dec2f908cf9a275e.png?width=2000&format=webply&optimize=medium",
 };
 
 const Blog = () => {
@@ -60,7 +59,7 @@ const Blog = () => {
                 <div className="d-flex align-items-center">
                   <Image
                     src="/images/omar.png"
-                    alt="Omar Mokhtar"
+                    alt={isRTL ? "عمر مختار عايد" : "Omar Mokhtar Ayed"}
                     width={40}
                     height={40}
                     className="rounded-circle me-2"
@@ -72,7 +71,9 @@ const Blog = () => {
 
               <div className="mycard__details flex-column">
                 {post.intro.map((paragraph, index) => (
-                  <p className="w-100 blog-content" key={`${post.id}-intro-${index}`}>
+                  <p
+                    className="w-100 blog-content"
+                    key={`${post.id}-intro-${index}`}>
                     {paragraph}
                   </p>
                 ))}
@@ -84,7 +85,8 @@ const Blog = () => {
                         {definition.heading}
                         <br />
                         {definition.lines.map((line, lineIndex) => (
-                          <React.Fragment key={`${definition.heading}-${lineIndex}`}>
+                          <React.Fragment
+                            key={`${definition.heading}-${lineIndex}`}>
                             {line}
                             <br />
                           </React.Fragment>
@@ -104,7 +106,8 @@ const Blog = () => {
                         <strong>{t("blog.positiveLabel")}</strong>
                         <br />
                         {method.positives.map((positive, idx) => (
-                          <React.Fragment key={`${method.heading}-positive-${idx}`}>
+                          <React.Fragment
+                            key={`${method.heading}-positive-${idx}`}>
                             {positive}
                             <br />
                           </React.Fragment>
@@ -113,7 +116,8 @@ const Blog = () => {
                         <strong>{t("blog.negativeLabel")}</strong>
                         <br />
                         {method.negatives.map((negative, idx) => (
-                          <React.Fragment key={`${method.heading}-negative-${idx}`}>
+                          <React.Fragment
+                            key={`${method.heading}-negative-${idx}`}>
                             {negative}
                             <br />
                           </React.Fragment>

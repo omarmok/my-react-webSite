@@ -7,7 +7,7 @@ export const recommendations = [
       "Backend Developer | ASP.NET Core | Microservices | Software Architecture",
     image:
       "https://media.licdn.com/dms/image/v2/D4D03AQFTbvpmtP7_Pg/profile-displayphoto-crop_800_800/B4DZ3qZ24SGwAQ-/0/1777754141645",
-    text: `I have had the pleasure of working closely with Omar Mokhtar and can attest to his exceptional talents as a User Experience Lead.
+    text: `I have had the pleasure of working closely with Omar Mokhtar Ayed and can attest to his exceptional talents as a User Experience Lead.
 
 Omar's collaborative nature, paired with his excellent communication skills and dedication to continuous learning, make him a truly invaluable asset to any team focused on delivering outstanding user-centric solutions.
 

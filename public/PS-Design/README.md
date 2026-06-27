@@ -55,7 +55,7 @@ Always reference:
 ## الحوكمة والملكية
 
 - **Design System Owner:**  
-  **Omar Mokhtar (عمر مختار)** – UX Team Lead – Public Security  
+  **Omar Mokhtar Ayed (عمر مختار)** – UX Team Lead – Public Security  
   (مالك نظام التصميم وقائد فريق تجربة المستخدم بالأمن العام)
 
   Omar holds final authority over:

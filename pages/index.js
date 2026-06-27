@@ -676,7 +676,7 @@ export default function Home() {
               <div className="hero-content">
                 {/* 1 · Name + title */}
                 <div className="title">
-                  <h1 className="myname fw-bold">Omar Mokhtar</h1>
+                  <h1 className="myname fw-bold">{hero.name}</h1>
                   <span className="hero-role">{hero.role}</span>
                 </div>
 
@@ -705,7 +705,7 @@ export default function Home() {
                   <Link
                     href="/government-ux"
                     className="homepage-hero-nav__cta homepage-hero-nav__cta--secondary">
-                    {isRTL ? "استكشف UX الحكومية" : "Explore Government UX"} →
+                    {isRTL ? "استكشف خبراتي الحكومية" : "Explore Government UX"} →
                   </Link>
                 </div>
 
@@ -976,9 +976,7 @@ export default function Home() {
             ))}
           </div>
           <div className="homepage-highlights__footer">
-            <Link
-              href="/government-ux"
-              className="homepage-highlights__cta">
+            <Link href="/government-ux" className="homepage-highlights__cta">
               {strategyCopy.highlightsSectionCta}
             </Link>
           </div>

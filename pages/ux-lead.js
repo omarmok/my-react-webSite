@@ -78,7 +78,7 @@ export default function UXLead() {
           },
           {
             href: "/contact",
-            label: isRTL ? "تواصل مع عمر مختار" : "تواصل معي",
+            label: isRTL ? "تواصل مع عمر مختار عايد" : "Contact Me",
             variant: "ghost",
           },
         ]}
@@ -373,7 +373,7 @@ export default function UXLead() {
                 textDecoration: "none",
                 border: "1px solid rgba(255,255,255,0.3)",
               }}>
-              {isRTL ? "تواصل مع عمر مختار" : "تواصل معي"}
+              {isRTL ? "تواصل مع عمر مختار عايد" : "Contact Me"}
             </Link>
           </div>
           <nav
@@ -407,7 +407,7 @@ export default function UXLead() {
                 },
                 {
                   href: "/designops",
-                  label: isRTL ? "حوكمة DesignOps" : "DesignOps Governance",
+                  label: isRTL ? "حوكمة عمليات التصميم" : "DesignOps Governance",
                 },
                 {
                   href: "/casestudy",

@@ -23,7 +23,7 @@ This document defines the ownership, decision authority, and governance workflow
 
 ## ملكية النظام
 
-- **Design System Owner:** Omar Mokhtar (عمر مختار) – UX Team Lead – Public Security
+- **Design System Owner:** Omar Mokhtar Ayed (عمر مختار) – UX Team Lead – Public Security
 - **مالك نظام التصميم:** عمر مختار – قائد فريق تجربة المستخدم – الأمن العام
 
 Responsibilities and authority:  
@@ -132,7 +132,7 @@ Breaking changes must:
    يتطلب اعتماد مصمم ومطور على الأقل.
 
 6. **Final Approval**  
-   Omar Mokhtar reviews breaking, governance, and major changes before merge.  
+   Omar Mokhtar Ayed reviews breaking, governance, and major changes before merge.  
    يراجع عمر مختار التغييرات الجذرية والحوكمية قبل الدمج.
 
 7. **Release**  
@@ -165,7 +165,7 @@ When standard workflow cannot be followed:
 
 1. Document the business justification, scope, and duration.
 2. Submit an exception request to the working group.
-3. Escalate to **Omar Mokhtar** if unresolved.
+3. Escalate to **Omar Mokhtar Ayed** if unresolved.
 
 Exception approvals are temporary, scoped, and reviewed during retrospectives to prevent system drift.  
 الاستثناءات مؤقتة ومحدودة النطاق، ويتم مراجعتها لاحقًا لضمان عدم انحراف النظام.

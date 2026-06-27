@@ -46,7 +46,9 @@ const Layouts = ({
     const isRTL = language === "ar";
     const crumbMap = {
       "/about": isRTL ? "من أنا" : "About",
-      "/certifications": isRTL ? "الشهادات المهنية" : "Professional Certifications",
+      "/certifications": isRTL
+        ? "الشهادات المهنية"
+        : "Professional Certifications",
       "/projects": isRTL ? "المشاريع" : "Portfolio",
       "/blog": isRTL ? "المدونة" : "Blog",
       "/recommendations": isRTL ? "التوصيات" : "Recommendations",
@@ -67,7 +69,12 @@ const Layouts = ({
           name: isRTL ? "الرئيسية" : "Home",
           item: "https://omarmokhtar.com",
         },
-        { "@type": "ListItem", position: 2, name: crumbMap[router.pathname], item: canonical },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: crumbMap[router.pathname],
+          item: canonical,
+        },
       ],
     };
   })();
@@ -75,8 +82,8 @@ const Layouts = ({
   const supplementalStructuredData = (() => {
     const personRef = {
       "@type": "Person",
-      name: "Omar Mokhtar",
-      alternateName: ["Omar Mokhtar", "Omar M. Mokhtar", "عمر مختار"],
+      name: "Omar Mokhtar Ayed",
+      alternateName: ["Omar Mokhtar Ayed", "Omar M. Mokhtar", "عمر مختار عايد"],
       jobTitle: "UX & DesignOps Lead",
       description:
         "UX Design Lead with 19+ years of experience in government digital transformation, enterprise UX, and design systems across Saudi Arabia",
@@ -272,7 +279,7 @@ const Layouts = ({
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={title} />
         <meta property="og:url" content={canonical} />
-        <meta property="og:site_name" content="Omar Mokhtar" />
+        <meta property="og:site_name" content="Omar Mokhtar Ayed" />
         <meta property="og:locale" content={ogLocale ?? "en_US"} />
 
         {/* Twitter Card Meta Tags */}
@@ -285,9 +292,9 @@ const Layouts = ({
         <meta name="twitter:image:alt" content={title} />
 
         {/* Additional SEO Meta Tags */}
-        <meta name="author" content="Omar Mokhtar" />
-        <meta name="publisher" content="Omar Mokhtar" />
-        <meta name="copyright" content="Omar Mokhtar" />
+        <meta name="author" content="Omar Mokhtar Ayed" />
+        <meta name="publisher" content="Omar Mokhtar Ayed" />
+        <meta name="copyright" content="Omar Mokhtar Ayed" />
         <meta name="language" content={metaLanguage ?? "English"} />
         <meta name="geo.region" content="SA" />
         <meta name="geo.country" content="Saudi Arabia" />
@@ -328,9 +335,9 @@ const Layouts = ({
             __html: jsonLd({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "Omar Mokhtar — UX Design Lead Saudi Arabia",
+              name: "Omar Mokhtar Ayed — UX Design Lead Saudi Arabia",
               description:
-                "Portfolio and expertise showcase of Omar Mokhtar, UX Design Lead and DesignOps specialist with 19+ years across Saudi Arabia's government, enterprise, and education sectors.",
+                "Portfolio and expertise showcase of Omar Mokhtar Ayed, UX Design Lead and DesignOps specialist with 19+ years across Saudi Arabia's government, enterprise, and education sectors.",
               url: "https://omarmokhtar.com",
               inLanguage: ["en", "ar"],
               about: [
@@ -344,12 +351,12 @@ const Layouts = ({
               ],
               author: {
                 "@type": "Person",
-                name: "Omar Mokhtar",
+                name: "Omar Mokhtar Ayed",
                 url: "https://omarmokhtar.com",
               },
               publisher: {
                 "@type": "Organization",
-                name: "Omar Mokhtar",
+                name: "Omar Mokhtar Ayed",
                 url: "https://omarmokhtar.com",
                 logo: {
                   "@type": "ImageObject",
@@ -365,7 +372,7 @@ const Layouts = ({
             __html: jsonLd({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Omar Mokhtar",
+              name: "Omar Mokhtar Ayed",
               url: "https://omarmokhtar.com",
               logo: "https://omarmokhtar.com/images/mylogo.png",
               sameAs: [
@@ -382,11 +389,11 @@ const Layouts = ({
             __html: jsonLd({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
-              name: "Omar Mokhtar UX Leadership Services",
+              name: "Omar Mokhtar Ayed UX Leadership Services",
               url: "https://omarmokhtar.com",
               provider: {
                 "@type": "Person",
-                name: "Omar Mokhtar",
+                name: "Omar Mokhtar Ayed",
                 url: "https://omarmokhtar.com",
               },
               areaServed: ["Saudi Arabia", "GCC"],
@@ -407,9 +414,7 @@ const Layouts = ({
         onToggleTheme={onToggleTheme}
         theme={theme}
       />
-      <main id="main-content">
-        {children}
-      </main>
+      <main id="main-content">{children}</main>
       <Footer />
       <Analytics />
     </div>

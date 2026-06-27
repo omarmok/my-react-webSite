@@ -21,7 +21,10 @@ export default function CertificationsPage({ certifications = [] }) {
 
       <div className="container">
         <div className="page__container">
-          <Certifications certifications={certifications} showSectionHeader={false} />
+          <Certifications
+            certifications={certifications}
+            showSectionHeader={false}
+          />
 
           <div className="mycard mt-4">
             <h2 className="section__title--maintitle mb-3">
@@ -31,20 +34,22 @@ export default function CertificationsPage({ certifications = [] }) {
               <li>
                 <Link href="/ux-lead">
                   {isRTL
-                    ? "خبرة عمر مختار في قيادة تجربة المستخدم"
-                    : "Omar Mokhtar UX Leadership Experience"}
+                    ? "خبرة عمر مختار عايد في قيادة تجربة المستخدم"
+                    : "Omar Mokhtar Ayed UX Leadership Experience"}
                 </Link>
               </li>
               <li>
                 <Link href="/designops">
                   {isRTL
-                    ? "ممارسة عمر مختار في DesignOps"
-                    : "Omar Mokhtar DesignOps Practice"}
+                    ? "ممارسة عمر مختار عايد في عمليات التصميم"
+                    : "Omar Mokhtar Ayed DesignOps Practice"}
                 </Link>
               </li>
               <li>
                 <Link href="/government-ux">
-                  {isRTL ? "مشاريع تجربة المستخدم الحكومية" : "Government UX Projects"}
+                  {isRTL
+                    ? "مشاريع تجربة المستخدم الحكومية"
+                    : "Government UX Projects"}
                 </Link>
               </li>
               <li>
@@ -56,7 +61,9 @@ export default function CertificationsPage({ certifications = [] }) {
               </li>
               <li>
                 <Link href="/projects">
-                  {isRTL ? "مشاريع تصميم المنتجات وUX" : "Product Design & UX Projects"}
+                  {isRTL
+                    ? "مشاريع تصميم المنتجات وUX"
+                    : "Product Design & UX Projects"}
                 </Link>
               </li>
             </ul>

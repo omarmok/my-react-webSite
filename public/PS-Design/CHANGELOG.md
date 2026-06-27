@@ -14,7 +14,7 @@ The format follows **Keep a Changelog** and adheres to **Semantic Versioning (Se
 
 ### Added
 
-- Governance, contribution, and onboarding documentation authored and maintained by **Omar Mokhtar (UX Team Lead & Design System Owner)**, establishing a clear single source of truth via the canonical documentation directory (`DesignSystemDocumentation/`).
+- Governance, contribution, and onboarding documentation authored and maintained by **Omar Mokhtar Ayed (UX Team Lead & Design System Owner)**, establishing a clear single source of truth via the canonical documentation directory (`DesignSystemDocumentation/`).
 - إضافة وثائق الحوكمة والمشاركة وبدء الاستخدام، بإشراف وإدارة **عمر مختار (قائد تجربة المستخدم ومالك نظام التصميم)**، مع اعتماد مجلد التوثيق الرسمي كمصدر وحيد للحقيقة.
 
 - Developer and designer getting-started guides defining dependencies, token usage rules, component consumption standards, and strict non-customization principles.
@@ -66,7 +66,7 @@ The format follows **Keep a Changelog** and adheres to **Semantic Versioning (Se
 
 - **Initial Governance and Ownership Definition**
   - `README.md`: Established the design system documentation as the single source of truth and clarified project status.
-  - `GOVERNANCE.md`: Defined system ownership (**Omar Mokhtar – UX Team Lead**), roles, responsibilities, versioning rules, and review workflows.
+  - `GOVERNANCE.md`: Defined system ownership (**Omar Mokhtar Ayed – UX Team Lead**), roles, responsibilities, versioning rules, and review workflows.
   - `CONTRIBUTING.md`: Documented the official process for reporting issues and proposing enhancements.
   - `CHANGELOG.md`: Introduced this file to ensure transparent tracking of all future changes.
 

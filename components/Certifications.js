@@ -12,7 +12,7 @@ const parseIssued = (str) => {
   if (!str) return { date: "", noExpiry: false };
   const [date, ...rest] = str.split("·").map((s) => s.trim());
   const noExpiry = rest.some(
-    (s) => /no expiration/i.test(s) || /بدون تاريخ/i.test(s)
+    (s) => /no expiration/i.test(s) || /بدون تاريخ/i.test(s),
   );
   return { date: date || "", noExpiry };
 };
@@ -22,8 +22,8 @@ const getAltText = (item, language, isFeatured) => {
   const name = item.info || "Certification";
   if (isFeatured) {
     return language === "ar"
-      ? `شهادة ${name} صادرة باسم عمر مختار`
-      : `${name} certificate issued to Omar Mokhtar`;
+      ? `شهادة ${name} صادرة باسم عمر مختار عايد`
+      : `${name} certificate issued to Omar Mokhtar Ayed`;
   }
   return language === "ar"
     ? `شارة شهادة ${name}`
@@ -32,7 +32,13 @@ const getAltText = (item, language, isFeatured) => {
 
 // ─── Premium featured card: full-width image preview + body ──────────────────
 
-const FeaturedCertCard = ({ item, t, language, fallbackActive, onFallback }) => {
+const FeaturedCertCard = ({
+  item,
+  t,
+  language,
+  fallbackActive,
+  onFallback,
+}) => {
   const isBase64 =
     typeof item.image === "string" && item.image.startsWith("data:image");
   const imgSrc = fallbackActive || !item.image ? placeholderImage : item.image;
@@ -43,8 +49,7 @@ const FeaturedCertCard = ({ item, t, language, fallbackActive, onFallback }) => 
     <div
       className="mycard Certificationscard cert-card--featured"
       data-aos="fade-up"
-      data-aos-duration="2000"
-    >
+      data-aos-duration="2000">
       {/* Floating badge overlaid on image */}
       <span className="cert-featured-badge" aria-hidden="true">
         {t("certifications.featuredBadge")}
@@ -86,8 +91,7 @@ const FeaturedCertCard = ({ item, t, language, fallbackActive, onFallback }) => 
         {Array.isArray(item.skills) && item.skills.length > 0 && (
           <ul
             className="cert-skills"
-            aria-label={t("certifications.skillsLabel")}
-          >
+            aria-label={t("certifications.skillsLabel")}>
             {item.skills.map((skill) => (
               <li key={skill} className="cert-skill-tag">
                 {skill}
@@ -101,9 +105,7 @@ const FeaturedCertCard = ({ item, t, language, fallbackActive, onFallback }) => 
 
         {/* 4. No Expiration Date */}
         {noExpiry && (
-          <p className="cert-no-expiry">
-            {t("certifications.noExpiration")}
-          </p>
+          <p className="cert-no-expiry">{t("certifications.noExpiration")}</p>
         )}
 
         {/* 5. View Credential CTA */}
@@ -114,8 +116,7 @@ const FeaturedCertCard = ({ item, t, language, fallbackActive, onFallback }) => 
             rel="noopener noreferrer"
             target="_blank"
             title={t("certifications.showCredentialTitle")}
-            aria-label={`${t("certifications.showCredential")}: ${item.info || ""}`}
-          >
+            aria-label={`${t("certifications.showCredential")}: ${item.info || ""}`}>
             {t("certifications.showCredential")}
             <FaExternalLinkSquareAlt aria-hidden="true" focusable="false" />
           </a>
@@ -138,8 +139,7 @@ const RegularCertCard = ({ item, t, language, fallbackActive, onFallback }) => {
     <div
       className="mycard p-3 Certificationscard"
       data-aos="fade-up"
-      data-aos-duration="2000"
-    >
+      data-aos-duration="2000">
       <div className="mycard__details m-0 p-0">
         <div className="d-flex flex-column gap-1">
           <div className="mycard__details--jobtitle">{item.info}</div>
@@ -161,8 +161,7 @@ const RegularCertCard = ({ item, t, language, fallbackActive, onFallback }) => {
               title={t("certifications.showCredentialTitle")}
               rel="noopener noreferrer"
               target="_blank"
-              aria-label={`${t("certifications.showCredential")}: ${item.info || ""}`}
-            >
+              aria-label={`${t("certifications.showCredential")}: ${item.info || ""}`}>
               {t("certifications.showCredential")}{" "}
               <FaExternalLinkSquareAlt aria-hidden="true" focusable="false" />
             </a>
@@ -214,7 +213,7 @@ const Certifications = ({ certifications, showSectionHeader = true }) => {
     : [];
 
   const localizedCertificationData = Array.isArray(
-    translations?.[language]?.data?.certifications
+    translations?.[language]?.data?.certifications,
   )
     ? translations[language].data.certifications
     : null;
@@ -268,8 +267,7 @@ const Certifications = ({ certifications, showSectionHeader = true }) => {
         <div
           className="section__title mt-5 flex-column align-items-start cert-section-header"
           data-aos="fade-right"
-          data-aos-duration="2000"
-        >
+          data-aos-duration="2000">
           <h2 className="section__title--maintitle" style={{ margin: 0 }}>
             {t("certifications.title")}
           </h2>

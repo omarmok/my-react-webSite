@@ -112,8 +112,8 @@ const RecommendationsSection = ({
           className="recommendations-section__linkedin-btn"
           aria-label={
             isRTL
-              ? "عرض ملف عمر مختار على لينكدإن"
-              : "View Omar Mokhtar LinkedIn profile"
+              ? "عرض ملف عمر مختار عايد على لينكدإن"
+              : "View Omar Mokhtar Ayed LinkedIn profile"
           }>
           {isRTL ? "عرض ملف لينكدإن" : "View LinkedIn Profile"}
         </a>
@@ -121,14 +121,20 @@ const RecommendationsSection = ({
       <div className="recommendations-grid">
         {items.map((recommendation) => (
           <RecommendationCard
-            key={recommendation.id ?? recommendation.linkedinUrl ?? recommendation.name}
+            key={
+              recommendation.id ??
+              recommendation.linkedinUrl ??
+              recommendation.name
+            }
             recommendation={recommendation}
             isRTL={isRTL}
           />
         ))}
       </div>
       {showViewAllLink && isTruncated ? (
-        <Link className="recommendations-section__view-all" href="/recommendations">
+        <Link
+          className="recommendations-section__view-all"
+          href="/recommendations">
           {isRTL ? "عرض جميع التوصيات" : "View all recommendations"}
         </Link>
       ) : null}

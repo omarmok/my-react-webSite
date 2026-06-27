@@ -59,7 +59,7 @@ export default function DesignOps() {
         eyebrow={isRTL ? "عمليات التصميم" : "Design Operations"}
         title={
           isRTL
-            ? "حوكمة DesignOps وعمليات التصميم"
+            ? "حوكمة عمليات التصميم وممارساتها"
             : "DesignOps Governance & Design Operations"
         }
         description={
@@ -71,13 +71,13 @@ export default function DesignOps() {
           {
             href: "/casestudy",
             label: isRTL
-              ? "مراجعة دراسات حالة DesignOps"
+              ? "مراجعة دراسات حالة عمليات التصميم"
               : "Review DesignOps Case Studies",
             variant: "solid",
           },
           {
             href: "/contact",
-            label: isRTL ? "تواصل مع عمر مختار" : "تواصل معي",
+            label: isRTL ? "تواصل مع عمر مختار عايد" : "Contact Me",
             variant: "ghost",
           },
         ]}
@@ -94,7 +94,7 @@ export default function DesignOps() {
               color: ink,
               margin: "0 0 16px",
             }}>
-            {isRTL ? "ما هو DesignOps؟" : "What is DesignOps?"}
+            {isRTL ? "ما هي عمليات التصميم؟" : "What is DesignOps?"}
           </h2>
           <Rule />
           <p
@@ -106,7 +106,7 @@ export default function DesignOps() {
               maxWidth: "68ch",
             }}>
             {isRTL
-              ? "DesignOps — عمليات التصميم — هي الطبقة التشغيلية التي تمكّن فرق التصميم من العمل بفاعلية وكفاءة واتساق على نطاق واسع. إنها مجموعة العمليات والمعايير والبنية التحتية التي تدعم نقل التصميم من الفكرة إلى الإنتاج بتعقيد أقل وتأثير أكبر."
+              ? "عمليات التصميم هي الطبقة التشغيلية التي تمكّن فرق التصميم من العمل بفاعلية وكفاءة واتساق على نطاق واسع. إنها مجموعة العمليات والمعايير والبنية التحتية التي تدعم نقل التصميم من الفكرة إلى الإنتاج بتعقيد أقل وتأثير أكبر."
               : "DesignOps is the operational layer that enables design teams to work effectively, efficiently, and consistently at scale. It is the set of processes, standards, and infrastructure that supports moving design from idea to production with less friction and greater impact."}
           </p>
           <p
@@ -118,7 +118,7 @@ export default function DesignOps() {
               maxWidth: "68ch",
             }}>
             {isRTL
-              ? "في البيئات المؤسسية والحكومية — حيث تتعدد الأنظمة والفرق وأصحاب المصلحة — يصبح DesignOps ضرورة استراتيجية لا مجرد ممارسة تشغيلية. يضمن أن قرارات التصميم متسقة ومحكومة وقابلة للصيانة عبر منتجات ودورات إصدار متعددة."
+              ? "في البيئات المؤسسية والحكومية — حيث تتعدد الأنظمة والفرق وأصحاب المصلحة — تصبح عمليات التصميم ضرورة استراتيجية لا مجرد ممارسة تشغيلية. فهي تضمن أن تكون قرارات التصميم متسقة ومحكومة وقابلة للصيانة عبر منتجات ودورات إصدار متعددة."
               : "In enterprise and government environments — where systems, teams, and stakeholders multiply — DesignOps becomes a strategic necessity rather than an operational nicety. It ensures design decisions are consistent, governed, and maintainable across multiple products and release cycles."}
           </p>
         </div>
@@ -135,7 +135,7 @@ export default function DesignOps() {
               color: ink,
               margin: "0 0 16px",
             }}>
-            {isRTL ? "إطار حوكمة DesignOps" : "DesignOps Governance Framework"}
+            {isRTL ? "إطار حوكمة عمليات التصميم" : "DesignOps Governance Framework"}
           </h2>
           <Rule />
           <div
@@ -232,7 +232,7 @@ export default function DesignOps() {
               margin: "0 0 16px",
             }}>
             {isRTL
-              ? "ما يُحقّقه DesignOps الفعّال"
+              ? "ما تحققه عمليات التصميم الفعّالة"
               : "What Effective DesignOps Governance Delivers"}
           </h2>
           <Rule />
@@ -294,7 +294,7 @@ export default function DesignOps() {
               margin: "0 0 16px",
             }}>
             {isRTL
-              ? "مراجعة إطار حوكمة DesignOps"
+              ? "مراجعة إطار حوكمة عمليات التصميم"
               : "Review the DesignOps Governance Framework"}
           </h2>
           <p
@@ -306,7 +306,7 @@ export default function DesignOps() {
               lineHeight: 1.7,
             }}>
             {isRTL
-              ? "من وضع عملية التسليم الأولى إلى إنشاء إطار DesignOps كامل — استعرض دراسات الحالة أو تواصل مباشرةً."
+              ? "من وضع عملية التسليم الأولى إلى إنشاء إطار كامل لعمليات التصميم — استعرض دراسات الحالة أو تواصل مباشرةً."
               : "From establishing your first delivery process to building a full DesignOps framework — review case studies or reach out directly."}
           </p>
           <div
@@ -328,7 +328,7 @@ export default function DesignOps() {
                 textDecoration: "none",
               }}>
               {isRTL
-                ? "مراجعة دراسات حالة DesignOps"
+                ? "مراجعة دراسات حالة عمليات التصميم"
                 : "Review DesignOps Case Studies"}
             </Link>
             <Link
@@ -343,7 +343,7 @@ export default function DesignOps() {
                 textDecoration: "none",
                 border: "1px solid rgba(255,255,255,0.3)",
               }}>
-              {isRTL ? "تواصل مع عمر مختار" : "تواصل معي"}
+              {isRTL ? "تواصل مع عمر مختار عايد" : "Contact Me"}
             </Link>
           </div>
           <nav

@@ -9,13 +9,8 @@ import { useTranslation } from "../src/i18n/useTranslation";
 function About({ experience = [] }) {
   const { dictionary, language } = useTranslation();
   const experienceList = dictionary.data.experience ?? experience;
-  const {
-    title,
-    downloadButton,
-    downloadTitle,
-    videoLink,
-    emptyExperience,
-  } = dictionary.about;
+  const { title, downloadButton, downloadTitle, videoLink, emptyExperience } =
+    dictionary.about;
   const isRTL = language === "ar";
   const headerDescription = isRTL
     ? "مسيرة مهنية تمتد لأكثر من 19 عامًا في تصميم تجربة المستخدم وقيادة أنظمة التصميم وعمليات التصميم عبر قطاعات حكومية ومؤسسية وتعليمية."
@@ -78,18 +73,22 @@ function About({ experience = [] }) {
               <li>
                 <Link href="/ux-lead">
                   {isRTL
-                    ? "خبرة عمر مختار في قيادة تجربة المستخدم"
-                    : "Omar Mokhtar UX Leadership Experience"}
+                    ? "خبرة عمر مختار عايد في قيادة تجربة المستخدم"
+                    : "Omar Mokhtar Ayed UX Leadership Experience"}
                 </Link>
               </li>
               <li>
                 <Link href="/government-ux">
-                  {isRTL ? "مشاريع تجربة المستخدم الحكومية" : "Government UX Projects"}
+                  {isRTL
+                    ? "مشاريع تجربة المستخدم الحكومية"
+                    : "Government UX Projects"}
                 </Link>
               </li>
               <li>
                 <Link href="/designops">
-                  {isRTL ? "ممارسة عمر مختار في DesignOps" : "DesignOps Practice"}
+                  {isRTL
+                    ? "ممارسة عمر مختار عايد في عمليات التصميم"
+                    : "DesignOps Practice"}
                 </Link>
               </li>
               <li>
@@ -102,9 +101,7 @@ function About({ experience = [] }) {
             </ul>
           </div>
 
-          <div className="mt-5 section__title--maintitle">
-            {videoLink}
-          </div>
+          <div className="mt-5 section__title--maintitle">{videoLink}</div>
           <div className="mb-3 mycard aos-init aos-animate findMore">
             <iframe
               width="100%"
@@ -115,8 +112,7 @@ function About({ experience = [] }) {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               loading="lazy"
               referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
+              allowFullScreen></iframe>
           </div>
         </div>
       </div>

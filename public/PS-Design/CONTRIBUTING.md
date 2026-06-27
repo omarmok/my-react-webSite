@@ -1,9 +1,11 @@
 # How to Contribute
+
 # كيفية المساهمة
 
 We welcome contributions from anyone who cares about the Public Security Design System. To keep the system stable, governed, and audit-ready, follow the instructions below before making a change.
 
 ## Before You Start
+
 ## قبل أن تبدأ
 
 - Review `GOVERNANCE.md` to understand the roles, responsibilities, versioning, breaking change policy, exception process, and documentation rules.  
@@ -13,6 +15,7 @@ We welcome contributions from anyone who cares about the Public Security Design 
 - Search issues, docs, and token catalogs to confirm the request is new. This prevents duplicate work and keeps the system lean.
 
 ## Reporting a Bug
+
 ## الإبلاغ عن خطأ
 
 1. Open a new issue using the **Bug Report** template (link to the governance issue board).  
@@ -22,6 +25,7 @@ We welcome contributions from anyone who cares about the Public Security Design 
 3. Mention whether the bug touches tokens, layout, or behavior; this helps classify the change as breaking or not.
 
 ## Proposing a Feature or Component
+
 ## اقتراح ميزة أو مكوّن جديد
 
 1. Use the **Feature Request** template and focus on the underlying problem rather than a specific solution.  
@@ -31,6 +35,7 @@ We welcome contributions from anyone who cares about the Public Security Design 
 3. The working group evaluates feasibility, documentation needs, and accessibility impact before approval.
 
 ## Contribution Workflow
+
 ## سير عملية المساهمة
 
 1. **Fork** the repository if you are not a direct collaborator.  
@@ -43,12 +48,14 @@ We welcome contributions from anyone who cares about the Public Security Design 
    اربط الـ PR بـ Issue واكتب وصفًا واضحًا.
 5. **Review**: at least one designer and one engineer from the working group must approve after verifying documentation, tokens, and accessibility.  
    التوثيق لا يُعتمد إلا بعد مراجعة فريق DesignOps.
-6. **Owner Approval**: Omar Mokhtar signs off on breaking or high-impact changes before merging.
+6. **Owner Approval**: Omar Mokhtar Ayed signs off on breaking or high-impact changes before merging.
 
 ## Documentation Changes
+
 ## تعديلات التوثيق
 
 Documentation is part of the product.
+
 - Document component changes inside `DesignSystemDocumentation/` (foundation, component, and index pages).  
   سجّل كل تغيير في المجلد الأساسي.
 - Include token mappings (colors, spacing, typography, icon names) and usage guidance (when to use, do/don’t, accessibility, RTL notes).  
@@ -60,6 +67,7 @@ Documentation is part of the product.
 - Update `CHANGELOG.md` with the release version and summary whenever you merge meaningful changes.
 
 ## What Not to Customize
+
 ## ما لا يجب تخصيصه
 
 - Do not invent new color palettes, fonts, or token names. Use the SCSS variables in `css/helpers/_variables.scss` and typography helpers in `css/helpers/_mixins.scss`.  
@@ -69,20 +77,23 @@ Documentation is part of the product.
 - Do not remove or replace icons without updating `icons.svg` and `icons.js`. Treat icons as a shared sprite with documented names.
 
 ## Exception & Escalation
+
 ## الاستثناءات والتصعيد
 
 If you cannot wait for the regular cycle (e.g., a security requirement or enterprise directive):
+
 1. Capture the business justification, scope, and duration in the exception request.  
    وثّق الحاجة والمدة والتأثير.
 2. Share the request with the working group and await their feedback.  
    شارك الطلب مع مجموعة العمل للحصول على تعليقات سريعة.
-3. If a solution is not reached, escalate to **Omar Mokhtar** for the final ruling.  
+3. If a solution is not reached, escalate to **Omar Mokhtar Ayed** for the final ruling.  
    في حال عدم الوصول لحل، اصعد القرار إلى عمر مختار.
 
 ## Ownership & Approval
+
 ## الملكية والموافقة
 
 Design System Owner:  
-**Omar Mokhtar (عمر مختار)**  
+**Omar Mokhtar Ayed (عمر مختار)**  
 UX Team Lead – Public Security  
 All contributions require final approval per the governance model.

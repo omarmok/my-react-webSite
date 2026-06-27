@@ -379,7 +379,7 @@ export const translations = {
       themeLight: "Light mode",
       themeDark: "Dark mode",
       brand: "UX & DesignOps Lead",
-      logoAlt: "Omar Mokhtar personal logo",
+      logoAlt: "Omar Mokhtar Ayed personal logo",
       languageToggleButton: "العربية",
       languageToggleAria: "Switch language to Arabic",
       themeToggle: {
@@ -395,8 +395,28 @@ export const translations = {
       },
     },
     footer: {
-      madeWithLove: "© Omar Mokhtar — Designed and built from scratch",
-      ariaLabel: "Visit Omar Mokhtar personal website",
+      name: "Omar Mokhtar Ayed",
+      nameAriaLabel: "Omar Mokhtar Ayed — Homepage",
+      subtitle: "UX/UI Lead · Design Systems · DesignOps",
+      navAriaLabel: "Footer navigation",
+      links: {
+        caseStudies: "Case Studies",
+        certifications: "Certifications",
+        blog: "Blog",
+        recommendations: "Recommendations",
+        governmentUx: "Government UX",
+        designOps: "DesignOps",
+        uxLeadership: "UX Leadership",
+      },
+      socialAriaLabel: "Social links",
+      social: {
+        linkedinAria: "LinkedIn profile",
+        behanceAria: "Behance profile",
+        githubAria: "GitHub profile",
+        emailAria: "Send email to Omar Mokhtar Ayed",
+        emailText: "Email",
+      },
+      copyright: "© 2026 Omar Mokhtar Ayed. All rights reserved.",
     },
     loader: {
       loading: "Loading…",
@@ -407,7 +427,7 @@ export const translations = {
       playButton: "Listen to My Summary",
       pauseButton: "Stop",
       fallbackText: "Your browser does not support audio playback.",
-      cardTitle: "🎙️ About Omar Mokhtar",
+      cardTitle: "🎙️ About Omar Mokhtar Ayed",
       cardDesc:
         "Listen to a short introduction covering my experience in UX leadership, Design Systems, DesignOps, and government digital products.",
       collapseLabel: "Minimize audio player",
@@ -415,12 +435,13 @@ export const translations = {
     },
     home: {
       hero: {
+        name: "Omar Mokhtar Ayed",
         role: "Government UX Leader · Design Systems Lead · DesignOps Practitioner · Design-to-Code Professional",
         certificationBadge: "Google UX Design Professional Certificate Holder",
         certificationTitle: "Google UX Design Professional Certificate",
         certVerified: "Verified",
         downloadButton: "Download Resume",
-        downloadTitle: "Download Omar Mokhtar resume",
+        downloadTitle: "Download Omar Mokhtar Ayed resume",
         resumeSubtext: "Available in PDF and Word formats",
         resumeOptionPdf: "Download PDF Resume",
         resumeOptionDocx: "Download Word Resume (.docx)",
@@ -451,17 +472,17 @@ export const translations = {
         { icon: "layers", value: "Design System", label: "Leadership" },
       ],
       social: {
-        behance: "Visit Omar Mokhtar on Behance",
-        github: "Visit Omar Mokhtar on GitHub",
-        linkedin: "Visit Omar Mokhtar on LinkedIn",
-        email: "Send an email to Omar Mokhtar",
+        behance: "Visit Omar Mokhtar Ayed on Behance",
+        github: "Visit Omar Mokhtar Ayed on GitHub",
+        linkedin: "Visit Omar Mokhtar Ayed on LinkedIn",
+        email: "Send an email to Omar Mokhtar Ayed",
       },
-      imageAlt: "Portrait of Omar Mokhtar",
+      imageAlt: "Portrait of Omar Mokhtar Ayed",
     },
     about: {
       title: "About",
       downloadButton: "Download Resume",
-      downloadTitle: "Download Omar Mokhtar resume",
+      downloadTitle: "Download Omar Mokhtar Ayed resume",
       videoLink: "Watch a brief overview of my background and approach.",
       emptyExperience: "Experience data is currently unavailable.",
       certificationsTeaserTitle: "Professional Certifications",
@@ -489,7 +510,7 @@ export const translations = {
       title: "Tools",
     },
     blog: {
-      byLine: "By Omar Mokhtar",
+      byLine: "By Omar Mokhtar Ayed",
       ctaText: "Read Original LinkedIn Post",
       positiveLabel: "Positives:",
       negativeLabel: "Limitations:",
@@ -660,7 +681,7 @@ export const translations = {
       moreProjectsTitle: "Additional Projects",
       linkedInButton: {
         text: "View more on LinkedIn",
-        aria: "Open Omar Mokhtar LinkedIn profile for additional projects",
+        aria: "Open Omar Mokhtar Ayed LinkedIn profile for additional projects",
       },
       projectCtaLabel: "View Project Details",
       projectTagsAria: "Project tags for {{project}}",
@@ -879,7 +900,7 @@ export const translations = {
         submitAria: "Send message through contact form",
       },
       whatsapp: "Reach me directly on WhatsApp.",
-      whatsappAria: "Open WhatsApp chat with Omar Mokhtar",
+      whatsappAria: "Open WhatsApp chat with Omar Mokhtar Ayed",
       successAlert: "✅ Message sent successfully!",
       failureAlert:
         "Sorry, your message could not be sent right now. Please try again later or contact me directly via WhatsApp.",
@@ -996,11 +1017,11 @@ export const translations = {
     meta: {
       "/": {
         title:
-          "Omar Mokhtar — UX Design Lead Saudi Arabia | DesignOps & Government UX Expert",
+          "Omar Mokhtar Ayed — UX Design Lead Saudi Arabia | DesignOps & Government UX Expert",
         description:
           "UX Design Lead and DesignOps practitioner in Saudi Arabia with 19+ years across government digital transformation, enterprise platforms, and scalable design systems. Google UX Design Certificate holder.",
         keywords:
-          "UX Design Lead Saudi Arabia, UI UX Expert Saudi Arabia, DesignOps Specialist Saudi Arabia, Government UX Expert, Design System Lead, Government Digital Transformation, Enterprise UX Designer, Arabic UX Design, Design Systems Saudi Arabia, Omar Mokhtar, مصمم تجربة مستخدم السعودية, قائد تجربة المستخدم, خبير UX حكومي, قائد DesignOps الخليج, تحول رقمي رؤية 2030, نظام تصميم مؤسسي, تجربة المستخدم الحكومية, تصميم الأنظمة الحكومية, UX السعودية, UX الخليج, Government UX Saudi Arabia",
+          "UX Design Lead Saudi Arabia, UI UX Expert Saudi Arabia, DesignOps Specialist Saudi Arabia, Government UX Expert, Design System Lead, Government Digital Transformation, Enterprise UX Designer, Arabic UX Design, Design Systems Saudi Arabia, Omar Mokhtar Ayed, مصمم تجربة مستخدم السعودية, قائد تجربة المستخدم, خبير UX حكومي, قائد DesignOps الخليج, تحول رقمي رؤية 2030, نظام تصميم مؤسسي, تجربة المستخدم الحكومية, تصميم الأنظمة الحكومية, UX السعودية, UX الخليج, Government UX Saudi Arabia",
         canonical: baseUrl,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "en_US",
@@ -1008,8 +1029,8 @@ export const translations = {
         structuredData: {
           "@context": "https://schema.org",
           "@type": "Person",
-          name: "Omar Mokhtar",
-          alternateName: ["Omar Mokhtar", "Omar M. Mokhtar", "عمر مختار"],
+          name: "Omar Mokhtar Ayed",
+          alternateName: ["Omar Mokhtar Ayed", "Omar M. Mokhtar", "عمر مختار"],
           jobTitle: "UX & DesignOps Lead",
           description:
             "UX & DesignOps Lead with 19+ years of experience in government digital transformation, enterprise UX, and scalable design systems across Saudi Arabia",
@@ -1046,20 +1067,21 @@ export const translations = {
       },
       "/about": {
         title:
-          "Omar Mokhtar — UX Design Lead, DesignOps & Government UX | Career & Experience",
+          "Omar Mokhtar Ayed — UX Design Lead, DesignOps & Government UX | Career & Experience",
         description:
           "19+ years of UX leadership across Saudi Arabia's government, education, and enterprise sectors. Expert in design systems, DesignOps, and government digital transformation. Google UX Design Certificate holder.",
         keywords:
-          "Omar Mokhtar, Omar Mokhtar UX Lead, Omar Mokhtar Design Systems, Omar Mokhtar DesignOps, Omar Mokhtar Government UX, UX Design Lead Saudi Arabia",
+          "Omar Mokhtar Ayed, Omar Mokhtar Ayed UX Lead, Omar Mokhtar Ayed Design Systems, Omar Mokhtar Ayed DesignOps, Omar Mokhtar Ayed Government UX, UX Design Lead Saudi Arabia",
         canonical: `${baseUrl}/about`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "en_US",
         language: "English",
       },
       "/blog": {
-        title: "UX Design Insights — Omar Mokhtar | Design Blog & Articles",
+        title:
+          "UX Design Insights — Omar Mokhtar Ayed | Design Blog & Articles",
         description:
-          "UX and UI design insights from Omar Mokhtar — covering design thinking, user empathy, SVG implementation, and front-end development best practices.",
+          "UX and UI design insights from Omar Mokhtar Ayed — covering design thinking, user empathy, SVG implementation, and front-end development best practices.",
         keywords:
           "UX Design Blog, UI Design Articles, Design Thinking Saudi Arabia, User Empathy UX, SVG Web Development, Design Insights",
         canonical: `${baseUrl}/blog`,
@@ -1069,11 +1091,11 @@ export const translations = {
       },
       "/projects": {
         title:
-          "UX Portfolio — Omar Mokhtar | Government & Enterprise UX Case Studies",
+          "UX Portfolio — Omar Mokhtar Ayed | Government & Enterprise UX Case Studies",
         description:
-          "Portfolio of UX case studies by Omar Mokhtar — government platforms, design systems, university portals, and enterprise product design across Saudi Arabia.",
+          "Portfolio of UX case studies by Omar Mokhtar Ayed — government platforms, design systems, university portals, and enterprise product design across Saudi Arabia.",
         keywords:
-          "Omar Mokhtar UX, Omar Mokhtar Product Design, Government UX Projects Saudi Arabia, Enterprise UX Projects, Design Systems Saudi Arabia, Arabic UX Design, Government UX Saudi Arabia, مصمم تجربة مستخدم السعودية, نظام تصميم مؤسسي, تجربة المستخدم الحكومية, خبير UX حكومي",
+          "Omar Mokhtar Ayed UX, Omar Mokhtar Ayed Product Design, Government UX Projects Saudi Arabia, Enterprise UX Projects, Design Systems Saudi Arabia, Arabic UX Design, Government UX Saudi Arabia, مصمم تجربة مستخدم السعودية, نظام تصميم مؤسسي, تجربة المستخدم الحكومية, خبير UX حكومي",
         canonical: `${baseUrl}/projects`,
         ogImage: `${baseUrl}/images/projects-hero.jpg`,
         ogLocale: "en_US",
@@ -1081,9 +1103,9 @@ export const translations = {
       },
       "/contact": {
         title:
-          "Contact Omar Mokhtar — UX Design Lead & DesignOps Consultant | Saudi Arabia",
+          "Contact Omar Mokhtar Ayed — UX Design Lead & DesignOps Consultant | Saudi Arabia",
         description:
-          "Get in touch with Omar Mokhtar for UX collaboration, design system consultation, government digital experience projects, or enterprise product design inquiries.",
+          "Get in touch with Omar Mokhtar Ayed for UX collaboration, design system consultation, government digital experience projects, or enterprise product design inquiries.",
         keywords:
           "Contact UX Design Lead Saudi Arabia, Design Consultation Saudi Arabia, Government UX Consultant, DesignOps Services, Hire UX Designer Saudi Arabia",
         canonical: `${baseUrl}/contact`,
@@ -1092,22 +1114,22 @@ export const translations = {
         language: "English",
       },
       "/recommendations": {
-        title: "Recommendations | Omar Mokhtar",
+        title: "Recommendations | Omar Mokhtar Ayed",
         description:
-          "Professional recommendations and testimonials for Omar Mokhtar, UX Design Lead and DesignOps practitioner.",
+          "Professional recommendations and testimonials for Omar Mokhtar Ayed, UX Design Lead and DesignOps practitioner.",
         keywords:
-          "Omar Mokhtar recommendations, UX testimonials, DesignOps testimonials, LinkedIn recommendations",
+          "Omar Mokhtar Ayed recommendations, UX testimonials, DesignOps testimonials, LinkedIn recommendations",
         canonical: `${baseUrl}/recommendations`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "en_US",
         language: "English",
       },
       "/certifications": {
-        title: "Professional Certifications | Omar Mokhtar",
+        title: "Professional Certifications | Omar Mokhtar Ayed",
         description:
-          "Selected professional certifications in UX Design, Design Systems, DesignOps, User Research, and Digital Product Design by Omar Mokhtar.",
+          "Selected professional certifications in UX Design, Design Systems, DesignOps, User Research, and Digital Product Design by Omar Mokhtar Ayed.",
         keywords:
-          "Omar Mokhtar certifications, Omar Mokhtar UX certifications, Design System Bootcamp, Google UX Design Professional Certificate, DesignOps, User Research",
+          "Omar Mokhtar Ayed certifications, Omar Mokhtar Ayed UX certifications, Design System Bootcamp, Google UX Design Professional Certificate, DesignOps, User Research",
         canonical: `${baseUrl}/certifications`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "en_US",
@@ -1115,7 +1137,7 @@ export const translations = {
       },
       "/casestudy": {
         title:
-          "Majmaah University Student Portal — UX Case Study | Omar Mokhtar",
+          "Majmaah University Student Portal — UX Case Study | Omar Mokhtar Ayed",
         description:
           "UX case study: consolidating 7 university systems into a single RTL-first student portal for Majmaah University. Covers research, design decisions, accessibility, and measurable outcomes.",
         keywords:
@@ -1127,11 +1149,11 @@ export const translations = {
       },
       "/ux-lead": {
         title:
-          "UX Design Lead Saudi Arabia — Omar Mokhtar | UX Strategy & Delivery",
+          "UX Design Lead Saudi Arabia — Omar Mokhtar Ayed | UX Strategy & Delivery",
         description:
-          "Omar Mokhtar leads UX strategy, design governance, and end-to-end product delivery for enterprise and government platforms in Saudi Arabia. 19+ years of UX leadership experience.",
+          "Omar Mokhtar Ayed leads UX strategy, design governance, and end-to-end product delivery for enterprise and government platforms in Saudi Arabia. 19+ years of UX leadership experience.",
         keywords:
-          "Omar Mokhtar UX Lead, UX Design Lead Saudi Arabia, Omar Mokhtar UX Leadership Experience, UX Strategy Saudi Arabia, Design Governance, Arabic UX Design, Government UX Saudi Arabia, مصمم تجربة مستخدم السعودية, خبير UX حكومي, قائد DesignOps الخليج",
+          "Omar Mokhtar Ayed UX Lead, UX Design Lead Saudi Arabia, Omar Mokhtar Ayed UX Leadership Experience, UX Strategy Saudi Arabia, Design Governance, Arabic UX Design, Government UX Saudi Arabia, مصمم تجربة مستخدم السعودية, خبير UX حكومي, قائد DesignOps الخليج",
         canonical: `${baseUrl}/ux-lead`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "en_US",
@@ -1139,11 +1161,11 @@ export const translations = {
       },
       "/designops": {
         title:
-          "DesignOps Specialist Saudi Arabia — Omar Mokhtar | Design Operations",
+          "DesignOps Specialist Saudi Arabia — Omar Mokhtar Ayed | Design Operations",
         description:
-          "Design operations, governance, and scalable processes for enterprise teams. Omar Mokhtar builds DesignOps frameworks that connect design intent to production-quality delivery in Saudi Arabia.",
+          "Design operations, governance, and scalable processes for enterprise teams. Omar Mokhtar Ayed builds DesignOps frameworks that connect design intent to production-quality delivery in Saudi Arabia.",
         keywords:
-          "Omar Mokhtar DesignOps, DesignOps Saudi Arabia, DesignOps Practitioner Saudi Arabia, Design Operations Specialist, Design System Operations, Design Systems Saudi Arabia, قائد DesignOps الخليج, نظام تصميم مؤسسي, تحول رقمي رؤية 2030, مصمم تجربة مستخدم السعودية",
+          "Omar Mokhtar Ayed DesignOps, DesignOps Saudi Arabia, DesignOps Practitioner Saudi Arabia, Design Operations Specialist, Design System Operations, Design Systems Saudi Arabia, قائد DesignOps الخليج, نظام تصميم مؤسسي, تحول رقمي رؤية 2030, مصمم تجربة مستخدم السعودية",
         canonical: `${baseUrl}/designops`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "en_US",
@@ -1151,18 +1173,18 @@ export const translations = {
       },
       "/government-ux": {
         title:
-          "Government UX Expert Saudi Arabia — Omar Mokhtar | Digital Transformation",
+          "Government UX Expert Saudi Arabia — Omar Mokhtar Ayed | Digital Transformation",
         description:
-          "Specialist in Saudi Arabia government digital experience design. Omar Mokhtar has led UX for government platforms including HRC, NHC, and national-scale enterprise systems aligned with Vision 2030.",
+          "Specialist in Saudi Arabia government digital experience design. Omar Mokhtar Ayed has led UX for government platforms including HRC, NHC, and national-scale enterprise systems aligned with Vision 2030.",
         keywords:
-          "Omar Mokhtar Government UX, Government UX Saudi Arabia, Saudi Vision 2030 UX, Government Digital Transformation UX, Public Sector UX Design, Arabic UX Design, Design Systems Saudi Arabia, خبير UX حكومي, تحول رقمي رؤية 2030, تجربة المستخدم الحكومية, تصميم الأنظمة الحكومية, مصمم تجربة مستخدم السعودية",
+          "Omar Mokhtar Ayed Government UX, Government UX Saudi Arabia, Saudi Vision 2030 UX, Government Digital Transformation UX, Public Sector UX Design, Arabic UX Design, Design Systems Saudi Arabia, خبير UX حكومي, تحول رقمي رؤية 2030, تجربة المستخدم الحكومية, تصميم الأنظمة الحكومية, مصمم تجربة مستخدم السعودية",
         canonical: `${baseUrl}/government-ux`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "en_US",
         language: "English",
       },
       "/design-system": {
-        title: "Design System Showcase | Omar Mokhtar",
+        title: "Design System Showcase | Omar Mokhtar Ayed",
         description:
           "Private showcase access page for selected professional walkthrough requests.",
         keywords: "Private Showcase, Request Access, UX Leadership, DesignOps",
@@ -1175,7 +1197,7 @@ export const translations = {
         googlebot: "noindex, nofollow",
       },
       default: {
-        title: "Omar Mokhtar — UX Design Lead & DesignOps Specialist",
+        title: "Omar Mokhtar Ayed — UX Design Lead & DesignOps Specialist",
         description:
           "UX Design Lead with 19+ years of experience in government digital transformation, enterprise platforms, and scalable design systems across Saudi Arabia.",
         keywords:
@@ -1201,7 +1223,7 @@ export const translations = {
         recommendations: "التوصيات",
         contact: "تواصل",
         governmentUx: "تجربة المستخدم الحكومية",
-        designopsNav: "DesignOps",
+        designopsNav: "عمليات التصميم",
         uxLead: "قيادة UX",
       },
       more: "المزيد",
@@ -1214,8 +1236,8 @@ export const translations = {
       themeLabel: "المظهر",
       themeLight: "الوضع الفاتح",
       themeDark: "الوضع الداكن",
-      brand: "قائد UX & DesignOps",
-      logoAlt: "شعار عمر مختار الشخصي",
+      brand: "قائد تجربة المستخدم وعمليات التصميم",
+      logoAlt: "شعار عمر مختار عايد الشخصي",
       languageToggleButton: "English",
       languageToggleAria: "التبديل إلى اللغة الإنجليزية",
       themeToggle: {
@@ -1231,8 +1253,28 @@ export const translations = {
       },
     },
     footer: {
-      madeWithLove: "© عمر مختار — مُصمَّم ومطوَّر من الصفر",
-      ariaLabel: "زيارة موقع عمر مختار الشخصي",
+      name: "عمر مختار عايد",
+      nameAriaLabel: "عمر مختار عايد — الصفحة الرئيسية",
+      subtitle: "قائد تصميم تجربة وواجهة المستخدم · أنظمة التصميم · عمليات التصميم",
+      navAriaLabel: "روابط أسفل الصفحة",
+      links: {
+        caseStudies: "دراسات الحالة",
+        certifications: "الشهادات",
+        blog: "المدونة",
+        recommendations: "التوصيات",
+        governmentUx: "تجربة المستخدم الحكومية",
+        designOps: "عمليات التصميم",
+        uxLeadership: "قيادة UX",
+      },
+      socialAriaLabel: "روابط التواصل الاجتماعي",
+      social: {
+        linkedinAria: "حساب LinkedIn",
+        behanceAria: "حساب Behance",
+        githubAria: "حساب GitHub",
+        emailAria: "إرسال بريد إلكتروني إلى عمر مختار عايد",
+        emailText: "البريد الإلكتروني",
+      },
+      copyright: "© 2026 عمر مختار عايد. جميع الحقوق محفوظة.",
     },
     loader: {
       loading: "جاري التحميل…",
@@ -1243,7 +1285,7 @@ export const translations = {
       playButton: "استمع إلى ملخصي",
       pauseButton: "إيقاف",
       fallbackText: "المتصفح لا يدعم تشغيل الصوت.",
-      cardTitle: "🎙️ نبذة صوتية عن عمر مختار",
+      cardTitle: "🎙️ نبذة صوتية عن عمر مختار عايد",
       cardDesc:
         "استمع إلى مقدمة قصيرة أشارك فيها خبرتي في قيادة تجربة المستخدم، وأنظمة التصميم، وعمليات التصميم، والعمل على المنتجات والمنصات الرقمية.",
       collapseLabel: "تصغير مشغل الصوت",
@@ -1251,13 +1293,14 @@ export const translations = {
     },
     home: {
       hero: {
-        role: "قائد تجربة المستخدم الحكومية · قائد أنظمة التصميم · ممارس DesignOps · متخصص Design-to-Code",
+        name: "عمر مختار عايد",
+        role: "قائد تجربة المستخدم الحكومية · قائد أنظمة التصميم · ممارس عمليات التصميم · متخصص تحويل التصميم إلى كود",
         certificationBadge:
           "حاصل على شهادة جوجل المهنية في تصميم تجربة المستخدم",
         certificationTitle: "شهادة جوجل في تصميم تجربة المستخدم",
         certVerified: "موثّق",
         downloadButton: "تحميل السيرة الذاتية",
-        downloadTitle: "تحميل سيرة عمر مختار الذاتية",
+        downloadTitle: "تحميل سيرة عمر مختار عايد الذاتية",
         resumeSubtext: "متاحة بصيغتي PDF و Word",
         resumeOptionPdf: "تحميل السيرة الذاتية PDF",
         resumeOptionDocx: "تحميل السيرة الذاتية Word (.docx)",
@@ -1269,9 +1312,9 @@ export const translations = {
             "أقود تجربة المستخدم للمنصات الحكومية والمؤسسية في السعودية بخبرة تتجاوز 19 عامًا تشمل تصميم الخدمات، وتسليم المنتجات، وتنفيذ الواجهة الأمامية.",
         },
         {
-          text: "قيمتي المهنية ترتكز على قيادة UX، وتوسيع أنظمة التصميم، وتفعيل DesignOps، وربط التصميم بالتنفيذ الفعلي لتحسين الاتساق وسرعة التسليم وجودة المخرجات.",
+          text: "قيمتي المهنية ترتكز على قيادة تجربة المستخدم، وتوسيع أنظمة التصميم، وتفعيل عمليات التصميم، وربط التصميم بالتنفيذ الفعلي لتحسين الاتساق وسرعة التسليم وجودة المخرجات.",
           tooltip:
-            "قيمتي المهنية ترتكز على قيادة UX، وتوسيع أنظمة التصميم، وتفعيل DesignOps، وربط التصميم بالتنفيذ الفعلي لتحسين الاتساق وسرعة التسليم وجودة المخرجات.",
+            "قيمتي المهنية ترتكز على قيادة تجربة المستخدم، وتوسيع أنظمة التصميم، وتفعيل عمليات التصميم، وربط التصميم بالتنفيذ الفعلي لتحسين الاتساق وسرعة التسليم وجودة المخرجات.",
         },
       ],
       focusAreas: [
@@ -1288,17 +1331,17 @@ export const translations = {
         { icon: "layers", value: "نظام التصميم", label: "قيادة" },
       ],
       social: {
-        behance: "زيارة عمر مختار على Behance",
-        github: "زيارة عمر مختار على GitHub",
-        linkedin: "زيارة عمر مختار على LinkedIn",
-        email: "إرسال بريد إلكتروني إلى عمر مختار",
+        behance: "زيارة عمر مختار عايد على Behance",
+        github: "زيارة عمر مختار عايد على GitHub",
+        linkedin: "زيارة عمر مختار عايد على LinkedIn",
+        email: "إرسال بريد إلكتروني إلى عمر مختار عايد",
       },
-      imageAlt: "صورة عمر مختار",
+      imageAlt: "صورة عمر مختار عايد",
     },
     about: {
       title: "من أنا",
       downloadButton: "تحميل السيرة الذاتية",
-      downloadTitle: "تحميل سيرة عمر مختار الذاتية",
+      downloadTitle: "تحميل سيرة عمر مختار عايد الذاتية",
       videoLink:
         "للاطلاع على نبذة موجزة عن خلفيتي وأسلوب عملي، يمكنك مشاهدة هذا الفيديو.",
       emptyExperience: "بيانات الخبرة غير متوفرة حاليًا.",
@@ -1326,7 +1369,7 @@ export const translations = {
       title: "الأدوات",
     },
     blog: {
-      byLine: "بقلم عمر مختار",
+      byLine: "بقلم عمر مختار عايد",
       ctaText: "اقرأ منشور لينكدإن الأصلي",
       positiveLabel: "الإيجابيات:",
       negativeLabel: "السلبيات:",
@@ -1498,7 +1541,7 @@ export const translations = {
       moreProjectsTitle: "مشاريع إضافية",
       linkedInButton: {
         text: "اكتشف المزيد على لينكدإن",
-        aria: "زيارة حساب عمر مختار على لينكدإن لمزيد من المشاريع",
+        aria: "زيارة حساب عمر مختار عايد على لينكدإن لمزيد من المشاريع",
       },
       projectCtaLabel: "عرض تفاصيل المشروع",
       projectTagsAria: "وسوم المشروع {{project}}",
@@ -1716,7 +1759,7 @@ export const translations = {
         submitAria: "إرسال رسالة عبر نموذج التواصل",
       },
       whatsapp: "تواصل معي مباشرة عبر واتساب.",
-      whatsappAria: "افتح محادثة واتساب مع عمر مختار",
+      whatsappAria: "افتح محادثة واتساب مع عمر مختار عايد",
       successAlert: "✅ تم إرسال الرسالة بنجاح!",
       failureAlert:
         "عذرًا، تعذر إرسال رسالتك الآن. يرجى المحاولة لاحقًا أو التواصل معي مباشرة عبر واتساب.",
@@ -1833,11 +1876,11 @@ export const translations = {
     meta: {
       "/": {
         title:
-          "عمر مختار — قائد تصميم تجربة المستخدم في السعودية | DesignOps وتحويل رقمي حكومي",
+          "عمر مختار عايد — قائد تصميم تجربة المستخدم في السعودية | عمليات التصميم وتحويل رقمي حكومي",
         description:
           "قائد تجربة المستخدم وعمليات التصميم في المملكة العربية السعودية، بخبرة تزيد على 19 عامًا في المنصات الحكومية الرقمية وأنظمة التصميم والمنتجات المؤسسية. حاصل على شهادة جوجل المهنية في UX.",
         keywords:
-          "مصمم تجربة مستخدم السعودية, قائد تجربة المستخدم, خبير UX حكومي, قائد DesignOps الخليج, تحول رقمي رؤية 2030, نظام تصميم مؤسسي, تجربة المستخدم الحكومية, تصميم الأنظمة الحكومية, UX السعودية, UX الخليج, Government UX Saudi Arabia, Arabic UX Design, Design Systems Saudi Arabia, قائد تصميم تجربة المستخدم السعودية, التحويل الرقمي الحكومي, عمر مختار",
+          "مصمم تجربة مستخدم السعودية, قائد تجربة المستخدم, خبير UX حكومي, قائد عمليات التصميم في الخليج, تحول رقمي رؤية 2030, نظام تصميم مؤسسي, تجربة المستخدم الحكومية, تصميم الأنظمة الحكومية, UX السعودية, UX الخليج, Government UX Saudi Arabia, Arabic UX Design, أنظمة التصميم في السعودية, قائد تصميم تجربة المستخدم السعودية, التحويل الرقمي الحكومي, عمر مختار عايد",
         canonical: baseUrl,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "ar_SA",
@@ -1845,18 +1888,18 @@ export const translations = {
         structuredData: {
           "@context": "https://schema.org",
           "@type": "Person",
-          name: "Omar Mokhtar",
-          alternateName: ["Omar Mokhtar", "Omar M. Mokhtar", "عمر مختار"],
+          name: "عمر مختار عايد",
+          alternateName: ["Omar Mokhtar Ayed", "Omar M. Mokhtar", "عمر مختار عايد"],
           jobTitle: "قائد تصميم تجربة المستخدم وعمليات التصميم",
           description:
             "قائد تجربة المستخدم بخبرة أكثر من 19 عامًا في التحويل الرقمي الحكومي والمنصات المؤسسية وأنظمة التصميم في المملكة العربية السعودية",
           url: baseUrl,
           image: `${baseUrl}/images/omar.png`,
           hasOccupation: [
-            { "@type": "Occupation", name: "UX & DesignOps Lead" },
-            { "@type": "Occupation", name: "Design Systems Specialist" },
-            { "@type": "Occupation", name: "DesignOps Practitioner" },
-            { "@type": "Occupation", name: "Government UX Specialist" },
+            { "@type": "Occupation", name: "قائد تصميم تجربة وواجهة المستخدم وعمليات التصميم" },
+            { "@type": "Occupation", name: "متخصص أنظمة التصميم" },
+            { "@type": "Occupation", name: "ممارس عمليات التصميم" },
+            { "@type": "Occupation", name: "متخصص تجربة المستخدم الحكومية" },
           ],
           nationality: { "@type": "Country", name: "Saudi Arabia" },
           address: {
@@ -1883,20 +1926,20 @@ export const translations = {
       },
       "/about": {
         title:
-          "عمر مختار — قائد UX وDesignOps وخبير التجربة الحكومية | الخبرة والمسار",
+          "عمر مختار عايد — قائد تصميم تجربة المستخدم وعمليات التصميم وخبير التجربة الحكومية | الخبرة والمسار",
         description:
           "أكثر من 19 عامًا من قيادة تجربة المستخدم عبر القطاعات الحكومية والتعليمية والمؤسسية في المملكة العربية السعودية. خبرة متعمقة في أنظمة التصميم وعمليات التصميم والتحويل الرقمي. حاصل على شهادة جوجل المهنية في UX.",
         keywords:
-          "عمر مختار, عمر مختار تجربة المستخدم, عمر مختار مصمم تجربة المستخدم, عمر مختار أنظمة التصميم, عمر مختار DesignOps, عمر مختار السعودية",
+          "عمر مختار عايد, عمر مختار عايد تجربة المستخدم, عمر مختار عايد مصمم تجربة المستخدم, عمر مختار عايد أنظمة التصميم, عمر مختار عايد عمليات التصميم, عمر مختار عايد السعودية",
         canonical: `${baseUrl}/about`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "ar_SA",
         language: "Arabic",
       },
       "/blog": {
-        title: "رؤى تصميم UX — عمر مختار | مقالات ومدونة التصميم",
+        title: "رؤى تصميم UX — عمر مختار عايد | مقالات ومدونة التصميم",
         description:
-          "رؤى وأفكار في تصميم UX/UI من عمر مختار — التفكير التصميمي، التعاطف مع المستخدم، تطوير الويب SVG، وأفضل ممارسات تطوير الواجهة الأمامية.",
+          "رؤى وأفكار في تصميم UX/UI من عمر مختار عايد — التفكير التصميمي، التعاطف مع المستخدم، تطوير الويب SVG، وأفضل ممارسات تطوير الواجهة الأمامية.",
         keywords:
           "مدونة UX السعودية, مقالات تصميم تجربة المستخدم, التفكير التصميمي, تعاطف UX, SVG ويب, رؤى التصميم",
         canonical: `${baseUrl}/blog`,
@@ -1905,53 +1948,53 @@ export const translations = {
         language: "Arabic",
       },
       "/projects": {
-        title: "محفظة UX — عمر مختار | دراسات حالة حكومية ومؤسسية",
+        title: "محفظة UX — عمر مختار عايد | دراسات حالة حكومية ومؤسسية",
         description:
-          "محفظة دراسات حالة UX لعمر مختار — المنصات الحكومية وأنظمة التصميم والبوابات الجامعية وتصميم المنتجات المؤسسية في المملكة العربية السعودية.",
+          "محفظة دراسات حالة UX لعمر مختار عايد — المنصات الحكومية وأنظمة التصميم والبوابات الجامعية وتصميم المنتجات المؤسسية في المملكة العربية السعودية.",
         keywords:
-          "عمر مختار UX, مشاريع تجربة المستخدم الحكومية, دراسات حالة UX السعودية, عمر مختار تصميم تجربة المستخدم, نظام تصميم مؤسسي, تصميم الأنظمة الحكومية, مصمم تجربة مستخدم السعودية, خبير UX حكومي, تحول رقمي رؤية 2030",
+          "عمر مختار عايد UX, مشاريع تجربة المستخدم الحكومية, دراسات حالة UX السعودية, عمر مختار عايد تصميم تجربة المستخدم, نظام تصميم مؤسسي, تصميم الأنظمة الحكومية, مصمم تجربة مستخدم السعودية, خبير UX حكومي, تحول رقمي رؤية 2030",
         canonical: `${baseUrl}/projects`,
         ogImage: `${baseUrl}/images/projects-hero.jpg`,
         ogLocale: "ar_SA",
         language: "Arabic",
       },
       "/contact": {
-        title: "تواصل مع عمر مختار — قائد UX ومستشار DesignOps | السعودية",
+        title: "تواصل مع عمر مختار عايد — قائد UX ومستشار عمليات التصميم | السعودية",
         description:
-          "تواصل مع عمر مختار للتعاون في مشاريع UX، استشارات نظام التصميم، مشاريع التجربة الرقمية الحكومية، أو استفسارات تصميم المنتجات المؤسسية.",
+          "تواصل مع عمر مختار عايد للتعاون في مشاريع UX، استشارات نظام التصميم، مشاريع التجربة الرقمية الحكومية، أو استفسارات تصميم المنتجات المؤسسية.",
         keywords:
-          "تواصل قائد UX السعودية, استشارات التصميم السعودية, مستشار UX حكومي, خدمات DesignOps, توظيف مصمم UX السعودية",
+          "تواصل قائد UX السعودية, استشارات التصميم السعودية, مستشار UX حكومي, خدمات عمليات التصميم, توظيف مصمم UX السعودية",
         canonical: `${baseUrl}/contact`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "ar_SA",
         language: "Arabic",
       },
       "/recommendations": {
-        title: "التوصيات المهنية | عمر مختار",
+        title: "التوصيات المهنية | عمر مختار عايد",
         description:
-          "توصيات وشهادات مهنية لعمر مختار في قيادة تجربة المستخدم وعمليات التصميم.",
+          "توصيات وشهادات مهنية لعمر مختار عايد في قيادة تجربة المستخدم وعمليات التصميم.",
         keywords:
-          "توصيات عمر مختار, شهادات مهنية UX, توصيات لينكدإن, توصيات DesignOps",
+          "توصيات عمر مختار عايد, شهادات مهنية UX, توصيات لينكدإن, توصيات عمليات التصميم",
         canonical: `${baseUrl}/recommendations`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "ar_SA",
         language: "Arabic",
       },
       "/certifications": {
-        title: "الشهادات المهنية | عمر مختار",
+        title: "الشهادات المهنية | عمر مختار عايد",
         description:
-          "شهادات مهنية مختارة في تصميم تجربة المستخدم، وأنظمة التصميم، وعمليات التصميم، وأبحاث المستخدم، وتصميم المنتجات الرقمية لدى عمر مختار.",
+          "شهادات مهنية مختارة في تصميم تجربة المستخدم، وأنظمة التصميم، وعمليات التصميم، وأبحاث المستخدم، وتصميم المنتجات الرقمية لدى عمر مختار عايد.",
         keywords:
-          "شهادات عمر مختار المهنية, عمر مختار UX, معسكر نظام التصميم, شهادة جوجل المهنية في تصميم تجربة المستخدم, عمر مختار أنظمة التصميم",
+          "شهادات عمر مختار عايد المهنية, عمر مختار عايد UX, معسكر نظام التصميم, شهادة جوجل المهنية في تصميم تجربة المستخدم, عمر مختار عايد أنظمة التصميم",
         canonical: `${baseUrl}/certifications`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "ar_SA",
         language: "Arabic",
       },
       "/design-system": {
-        title: "عرض نظام التصميم | عمر مختار",
+        title: "عرض نظام التصميم | عمر مختار عايد",
         description: "صفحة وصول خاصة لطلب استعراض نظام التصميم بشكل انتقائي.",
-        keywords: "عرض خاص, طلب وصول, قيادة UX, DesignOps",
+        keywords: "عرض خاص, طلب وصول, قيادة UX، عمليات التصميم",
         canonical: `${baseUrl}/design-system`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "ar_SA",
@@ -1961,7 +2004,7 @@ export const translations = {
         googlebot: "noindex, nofollow",
       },
       "/casestudy": {
-        title: "بوابة طلاب جامعة المجمعة — دراسة حالة UX | عمر مختار",
+        title: "بوابة طلاب جامعة المجمعة — دراسة حالة UX | عمر مختار عايد",
         description:
           "دراسة حالة UX: توحيد 7 أنظمة جامعية في بوابة طلابية واحدة بدعم RTL أصلي لجامعة المجمعة. تشمل البحث وقرارات التصميم وإمكانية الوصول والنتائج الفعلية.",
         keywords:
@@ -1973,44 +2016,44 @@ export const translations = {
       },
       "/ux-lead": {
         title:
-          "قائد تصميم تجربة المستخدم في السعودية — عمر مختار | استراتيجية وتسليم UX",
+          "قائد تصميم تجربة المستخدم في السعودية — عمر مختار عايد | استراتيجية وتسليم UX",
         description:
-          "عمر مختار يقود استراتيجية تجربة المستخدم وحوكمة التصميم وتسليم المنتج الشامل للمنصات الحكومية والمؤسسية في المملكة العربية السعودية. خبرة 19+ عامًا في قيادة UX.",
+          "عمر مختار عايد يقود استراتيجية تجربة المستخدم وحوكمة التصميم وتسليم المنتج الشامل للمنصات الحكومية والمؤسسية في المملكة العربية السعودية. خبرة 19+ عامًا في قيادة UX.",
         keywords:
-          "عمر مختار قائد تجربة المستخدم, قائد UX السعودية, استراتيجية UX السعودية, قيادة UX حكومي, حوكمة التصميم, مصمم تجربة مستخدم السعودية, خبير UX حكومي, قائد DesignOps الخليج, نظام تصميم مؤسسي",
+          "عمر مختار عايد قائد تجربة المستخدم, قائد UX السعودية, استراتيجية UX السعودية, قيادة UX حكومي, حوكمة التصميم, مصمم تجربة مستخدم السعودية, خبير UX حكومي, قائد عمليات التصميم في الخليج, نظام تصميم مؤسسي",
         canonical: `${baseUrl}/ux-lead`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "ar_SA",
         language: "Arabic",
       },
       "/designops": {
-        title: "متخصص DesignOps في السعودية — عمر مختار | عمليات التصميم",
+        title: "متخصص عمليات التصميم في السعودية — عمر مختار عايد | عمليات التصميم",
         description:
-          "عمليات التصميم والحوكمة والعمليات القابلة للتوسع للفرق المؤسسية. عمر مختار يبني أطر DesignOps التي تربط نية التصميم بالتسليم الإنتاجي في المملكة العربية السعودية.",
+          "عمليات التصميم والحوكمة والعمليات القابلة للتوسع للفرق المؤسسية. عمر مختار عايد يبني أطر عمليات التصميم التي تربط نية التصميم بالتسليم الإنتاجي في المملكة العربية السعودية.",
         keywords:
-          "عمر مختار DesignOps, DesignOps السعودية, متخصص عمليات التصميم, عمليات نظام التصميم, ممارس DesignOps السعودية, قائد DesignOps الخليج, نظام تصميم مؤسسي, تحول رقمي رؤية 2030, مصمم تجربة مستخدم السعودية",
+          "عمر مختار عايد عمليات التصميم, عمليات التصميم في السعودية, متخصص عمليات التصميم, عمليات نظام التصميم, ممارس عمليات التصميم في السعودية, قائد عمليات التصميم في الخليج, نظام تصميم مؤسسي, تحول رقمي رؤية 2030, مصمم تجربة مستخدم السعودية",
         canonical: `${baseUrl}/designops`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "ar_SA",
         language: "Arabic",
       },
       "/government-ux": {
-        title: "خبير UX الحكومي السعودي — عمر مختار | التحويل الرقمي",
+        title: "خبير UX الحكومي السعودي — عمر مختار عايد | التحويل الرقمي",
         description:
-          "متخصص في تصميم التجربة الرقمية الحكومية السعودية. قاد عمر مختار UX لمنصات حكومية تشمل هيئة حقوق الإنسان والشركة الوطنية للإسكان وأنظمة مؤسسية كبيرة متوافقة مع رؤية 2030.",
+          "متخصص في تصميم التجربة الرقمية الحكومية السعودية. قاد عمر مختار عايد UX لمنصات حكومية تشمل هيئة حقوق الإنسان والشركة الوطنية للإسكان وأنظمة مؤسسية كبيرة متوافقة مع رؤية 2030.",
         keywords:
-          "عمر مختار تجربة المستخدم الحكومية, UX حكومي السعودية, رؤية 2030 UX, التحويل الرقمي الحكومي UX, خبير UX حكومي, تحول رقمي رؤية 2030, تجربة المستخدم الحكومية, تصميم الأنظمة الحكومية, مصمم تجربة مستخدم السعودية, عمر مختار السعودية",
+          "عمر مختار عايد تجربة المستخدم الحكومية, UX حكومي السعودية, رؤية 2030 UX, التحويل الرقمي الحكومي UX, خبير UX حكومي, تحول رقمي رؤية 2030, تجربة المستخدم الحكومية, تصميم الأنظمة الحكومية, مصمم تجربة مستخدم السعودية, عمر مختار عايد السعودية",
         canonical: `${baseUrl}/government-ux`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "ar_SA",
         language: "Arabic",
       },
       default: {
-        title: "عمر مختار — قائد تصميم تجربة المستخدم وعمليات التصميم",
+        title: "عمر مختار عايد — قائد تصميم تجربة المستخدم وعمليات التصميم",
         description:
           "قائد تجربة المستخدم بخبرة أكثر من 19 عامًا في التحويل الرقمي الحكومي والمنصات المؤسسية وأنظمة التصميم في المملكة العربية السعودية.",
         keywords:
-          "مصمم UX السعودية, مصمم واجهات المستخدم, تجربة المستخدم, DesignOps",
+          "مصمم UX السعودية, مصمم واجهات المستخدم, تجربة المستخدم، عمليات التصميم",
         canonical: baseUrl,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "ar_SA",
