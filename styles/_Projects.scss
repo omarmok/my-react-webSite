@@ -40,7 +40,7 @@
     margin-left: 0;
     flex: 1 1 0px;
     .title {
-      color: $mainColor;
+      color: var(--theme-brand-primary);
       font-weight: 600;
       font-size: 28px;
       margin-bottom: 12px;
