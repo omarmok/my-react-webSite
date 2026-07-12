@@ -1,3 +1,8 @@
+/* Keep the mobile nav toggle hidden unless the mobile docs breakpoint is active. */
+.docs-sidebar .mobile-nav-toggle {
+  display: none !important;
+}
+
 @media (max-width: 768px) {
   body.docs-mobile-sidebar-ready .docs-sidebar {
     position: relative !important;

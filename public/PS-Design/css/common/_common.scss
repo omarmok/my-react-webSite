@@ -1,6 +1,23 @@
 @use "sass:map";
 @use "../helpers" as *;
-@use "./form" as form;
+@use "./buttons" as *;
+@mixin placeholder {
+  &::placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+}
 
 body {
   height: 100%;
@@ -82,9 +99,174 @@ textarea {
   border: 1px solid $Neutral-400;
 }
 
-@include form.common-placeholder-form-control;
-@include form.common-base-form-control;
-@include form.common-sized-form-control;
+input,
+textarea,
+.form-control {
+  @include placeholder {
+    @include meduimfont-reg-12;
+    color: $Neutral-500;
+    opacity: 1;
+  }
+}
+
+.form-control {
+  @include meduimfont-14;
+  height: $form-control-height;
+  padding: $padding-10;
+  border-radius: $Radius-6;
+  -webkit-border-radius: $Radius-6;
+  -moz-border-radius: $Radius-6;
+  -ms-border-radius: $Radius-6;
+  -o-border-radius: $Radius-6;
+  border: 1px solid $Neutral-400;
+  display: flex;
+  align-items: center;
+  transition:
+    border-color var(--tran-05, 0.3s),
+    box-shadow var(--tran-05, 0.3s),
+    background-color var(--tran-05, 0.3s);
+}
+
+.form-control:focus {
+  color: $Neutral-700;
+  background: $white-100;
+  outline: 0 solid transparent;
+  border: 1px solid $Primary-500;
+  box-shadow: 0 0 0 2px rgba($Primary-500, 0.12);
+}
+
+textarea.form-control {
+  height: 150px;
+}
+
+.form-control[data-size="sm"] {
+  height: 2.25rem;
+  padding-inline: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+
+  i,
+  svg {
+    font-size: 1rem;
+  }
+
+  .input-group & {
+    + .input-group-text,
+    ~ .input-group-text {
+      font-size: 0.875rem;
+    }
+  }
+
+  &.form-control {
+    height: auto;
+    min-height: 2.25rem;
+  }
+
+  textarea.form-control {
+    height: auto;
+    min-height: 2.25rem;
+  }
+}
+
+.form-control[data-size="md"] {
+  height: 2.5rem;
+  padding-inline: 1rem;
+  font-size: 1rem;
+  line-height: 1.45;
+
+  i,
+  svg {
+    font-size: 1.125rem;
+  }
+
+  .input-group & {
+    + .input-group-text,
+    ~ .input-group-text {
+      font-size: 1rem;
+    }
+  }
+
+  &.form-control {
+    height: auto;
+    min-height: 2.5rem;
+  }
+
+  textarea.form-control {
+    height: auto;
+    min-height: 2.5rem;
+  }
+}
+
+.form-control[data-size="lg"] {
+  height: 2.75rem;
+  padding-inline: 1.125rem;
+  font-size: 1.125rem;
+  line-height: 1.5;
+
+  i,
+  svg {
+    font-size: 1.25rem;
+  }
+
+  .input-group & {
+    + .input-group-text,
+    ~ .input-group-text {
+      font-size: 1.125rem;
+    }
+  }
+
+  &.form-control {
+    height: auto;
+    min-height: 2.75rem;
+  }
+
+  textarea.form-control {
+    height: auto;
+    min-height: 2.75rem;
+  }
+}
+
+.form-control[data-size="xl"] {
+  height: 3rem;
+  padding-inline: 1.25rem;
+  font-size: 1.25rem;
+  line-height: 1.55;
+
+  i,
+  svg {
+    font-size: 1.375rem;
+  }
+
+  .input-group & {
+    + .input-group-text,
+    ~ .input-group-text {
+      font-size: 1.25rem;
+    }
+  }
+
+  &.form-control {
+    height: auto;
+    min-height: 3rem;
+  }
+
+  textarea.form-control {
+    height: auto;
+    min-height: 3rem;
+  }
+}
+
+.form-control[data-size="sm"] .icon {
+  font-size: map.get($moi-icon-sizes, sm);
+}
+.form-control[data-size="md"] .icon {
+  font-size: map.get($moi-icon-sizes, md);
+}
+.form-control[data-size="lg"] .icon {
+  font-size: map.get($moi-icon-sizes, lg);
+}
+.form-control[data-size="xl"] .icon {
+  font-size: map.get($moi-icon-sizes, xl);
+}
 
 .custom-file-label::after {
   color: $white-100;
@@ -144,7 +326,9 @@ textarea {
     right: 10px;
   }
 
-  @include form.form-content-control;
+  .form-control {
+    text-indent: 20px;
+  }
 }
 
 .required:after {
@@ -251,44 +435,55 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .page__title {
-  background-color: var(--theme-primary) !important;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: $padding-14;
-  margin: 15px;
-  box-shadow: $shadow-lg;
-  border-radius: 5px;
-
-  h1,
-  h3 {
-    @include boldfont-18;
-    color: $white-100;
-    margin: 0;
+    background-color: var(--theme-primary) !important;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 5px;
+    padding: $padding-14;
+    margin: 15px;
+    box-shadow: $shadow-lg;
+    border-radius: 5px;
 
-    svg {
-      fill: $white-100;
-      height: 3rem;
-      width: auto;
-      margin-inline-start: 5px;
+    h1,
+    h3 {
+        @include boldfont-18;
+        color: $white-100;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        svg {
+            fill: $white-100;
+            height: 3rem;
+            width: auto;
+            margin-inline-start: 5px;
+        }
+
+        img,
+        .titleimg {
+            height: 40px;
+            filter: brightness(0) invert(1);
+        }
     }
 
-    img,
-    .titleimg {
-      height: 40px;
-      filter: brightness(0) invert(1);
-    }
-  }
+    .moi-btn--white {
+        /*   @extend .moi-btn--Neutral;*/
+        color: $Neutral-800 !important;
+        background-color: $Neutral-25 !important;
+        border: 1px solid #f9fafb;
+        --moi-focus-outer: rgba(37, 37, 37, 0.35);
+        --moi-focus-inner: rgba(255, 255, 255, 0.95);
 
-  .moi-btn--white {
-    background: $white-100 !important;
+
+        &:hover:not(:disabled):not([aria-disabled=true]) {
+            color: $Primary-800 !important;
+            background-color: $Primary-100 !important;
+        }
+        /*    background: $white-100 !important;
     border: 1px solid rgba(255, 255, 255, 0.29);
-    box-shadow: -6px 6px 0px rgba(255, 255, 255, 0.29);
-
-    &:hover {
+    box-shadow: -6px 6px 0px rgba(255, 255, 255, 0.29);*/
+        /*   &:hover {
       background: var(--color_change, 0.5) !important;
       color: $white-100 !important;
       box-shadow: 6px -6px 0px rgba(255, 255, 255, 0.29);
@@ -300,8 +495,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
       svg {
         fill: $white-100 !important;
       }
+    }*/
     }
-  }
 }
 
 .page__title--inner {
@@ -589,7 +784,11 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   width: 100% !important;
 }
 
-@include form.disabled-form-control;
+.form-control:disabled {
+  background-color: #f8f9fa;
+  border: 1px solid #e2e7eb;
+  cursor: not-allowed;
+}
 
 .dropdown-item {
   @include font-sm-500;
@@ -1346,7 +1545,12 @@ a.cke_combo_button {
     display: flex;
     gap: 40px;
 
-    @include form.common-verification-control;
+    .form-control {
+      height: 70px;
+      width: 70px;
+      text-align: center;
+      font-weight: 600;
+    }
   }
 
   .absher {
@@ -1885,36 +2089,7 @@ input:checked + .slider:before {
     display: none;
   }
 
-  .generalCasesStyle__cases__left--tab-content
-    .pills-coreactions-tab
-    .nav-item {
-    width: 20.3%;
-  }
-
-  .generalCasesStyle__cases__left--tab-content
-    .pills-coreactions-tab
-    .nav-item
-    .nav-link {
-    text-align: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ede2d4;
-    background-color: #fdfdfd !important;
-  }
-
-  .generalCasesStyle__cases__left--tab-content
-    .pills-coreactions-tab
-    .nav-item
-    .nav-link:hover {
-    transform: scale(1.04);
-    background: #a38664 !important;
-    color: $white-100 !important;
-
-    svg {
-      fill: $white-100 !important;
-    }
-  }
+ 
 
   .reportscontainer {
     .col-4 {
@@ -2156,14 +2331,6 @@ hr {
   }
 }
 
-.alert {
-  border-radius: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border: none;
-}
 
 // documentation
 

@@ -486,12 +486,6 @@ const FORM_CONTROL_SELECTORS = [
   "input:not([type=checkbox]):not([type=radio])",
   "select",
   "textarea",
-  "button",
-  ".btn",
-  ".moi-btn",
-  ".btn-size",
-  ".Resizefont .btn",
-  ".accessibilityPraghraphtools .btn-size",
 ];
 
 let activeSize = DEFAULT_SIZE_KEY;
@@ -500,6 +494,8 @@ let activeFontClass = DEFAULT_FONT_CLASS;
 let fontControlsInitialized = false;
 let fontAnchorObserver = null;
 let pxToFontClassMap = null;
+const dataSizeWeightState = new WeakMap();
+const boundResizeFontButtons = new WeakSet();
 
 function buildFontClass(size, weight) {
   return `font-${size}-${weight}`;
@@ -603,6 +599,14 @@ function applyFontClass(className, { persist = true } = {}) {
   }
 }
 
+function isButtonLikeElement(element) {
+  return !!(
+    element &&
+    element.matches &&
+    element.matches("button, .btn, .moi-btn")
+  );
+}
+
 function shiftFontSize(step) {
   const currentIndex = SIZE_KEYS.indexOf(activeSize);
   const baseIndex =
@@ -669,32 +673,38 @@ function normalizeFormControls(root = document) {
 }
 
 function ensureDataSizeBaseline(element) {
+  if (isButtonLikeElement(element)) return;
+
   const sizeValue = element.getAttribute("data-size");
   if (!SIZE_KEYS.includes(sizeValue)) return;
 
   const existing = findFontClassOnNode(element);
   if (existing) {
-    element.dataset.originalWeight = existing.weight;
+    dataSizeWeightState.set(element, existing.weight);
     return;
   }
 
-  const fallbackWeight = element.dataset.originalWeight || DEFAULT_WEIGHT_KEY;
-  element.dataset.originalWeight = fallbackWeight;
+  const fallbackWeight =
+    dataSizeWeightState.get(element) || DEFAULT_WEIGHT_KEY;
+  dataSizeWeightState.set(element, fallbackWeight);
+
   clearFontClasses(element);
   element.classList.add(buildFontClass(sizeValue, fallbackWeight));
 }
 
 function normalizeDataSizeElement(element) {
+  if (isButtonLikeElement(element)) return;
+
   const sizeValue = element.getAttribute("data-size");
   if (!SIZE_KEYS.includes(sizeValue)) return;
 
   const existing = findFontClassOnNode(element);
-  let weight = element.dataset.originalWeight;
+  let weight = dataSizeWeightState.get(element);
   if (existing) {
     weight = existing.weight;
   }
   weight = weight || DEFAULT_WEIGHT_KEY;
-  element.dataset.originalWeight = weight;
+  dataSizeWeightState.set(element, weight);
 
   clearFontClasses(element);
   element.classList.add(buildFontClass(activeSize, weight));
@@ -749,8 +759,8 @@ function handleResizeFontButton(btn) {
 
 function bindResizeFontButtons() {
   document.querySelectorAll(".Resizefont .btn").forEach((btn) => {
-    if (btn.dataset.fontBound === "true") return;
-    btn.dataset.fontBound = "true";
+    if (boundResizeFontButtons.has(btn)) return;
+    boundResizeFontButtons.add(btn);
     btn.addEventListener("click", (event) => {
       event.preventDefault();
       handleResizeFontButton(btn);

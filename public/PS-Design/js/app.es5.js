@@ -366,7 +366,7 @@ var DEFAULT_SIZE_KEY = "md";
 var DEFAULT_WEIGHT_KEY = "400";
 var DEFAULT_FONT_CLASS = "font-" + DEFAULT_SIZE_KEY + "-" + DEFAULT_WEIGHT_KEY;
 var FONT_STORAGE_KEY = "fontSize";
-var FORM_CONTROL_SELECTORS = [".form-control", ".form-select", ".input-group-text", "input:not([type=checkbox]):not([type=radio])", "select", "textarea", "button", ".btn", ".moi-btn", ".btn-size", ".Resizefont .btn", ".accessibilityPraghraphtools .btn-size"];
+var FORM_CONTROL_SELECTORS = [".form-control", ".form-select", ".input-group-text", "input:not([type=checkbox]):not([type=radio])", "select", "textarea"];
 
 var activeSize = DEFAULT_SIZE_KEY;
 var activeWeight = DEFAULT_WEIGHT_KEY;
@@ -374,6 +374,8 @@ var activeFontClass = DEFAULT_FONT_CLASS;
 var fontControlsInitialized = false;
 var fontAnchorObserver = null;
 var pxToFontClassMap = null;
+var dataSizeWeightState = new WeakMap();
+var boundResizeFontButtons = new WeakSet();
 
 function buildFontClass(size, weight) {
     return "font-" + size + "-" + weight;
@@ -428,6 +430,10 @@ function clearFontClasses(node) {
             node.classList.remove(cls);
         }
     });
+}
+
+function isButtonLikeElement(element) {
+    return !!(element && element.matches && element.matches("button, .btn, .moi-btn"));
 }
 
 function mapPxValueToClass(value) {
@@ -567,32 +573,37 @@ function normalizeFormControls() {
 }
 
 function ensureDataSizeBaseline(element) {
+    if (isButtonLikeElement(element)) return;
+
     var sizeValue = element.getAttribute("data-size");
     if (!SIZE_KEYS.includes(sizeValue)) return;
 
     var existing = findFontClassOnNode(element);
     if (existing) {
-        element.dataset.originalWeight = existing.weight;
+        dataSizeWeightState.set(element, existing.weight);
         return;
     }
 
-    var fallbackWeight = element.dataset.originalWeight || DEFAULT_WEIGHT_KEY;
-    element.dataset.originalWeight = fallbackWeight;
+    var fallbackWeight = dataSizeWeightState.get(element) || DEFAULT_WEIGHT_KEY;
+    dataSizeWeightState.set(element, fallbackWeight);
+
     clearFontClasses(element);
     element.classList.add(buildFontClass(sizeValue, fallbackWeight));
 }
 
 function normalizeDataSizeElement(element) {
+    if (isButtonLikeElement(element)) return;
+
     var sizeValue = element.getAttribute("data-size");
     if (!SIZE_KEYS.includes(sizeValue)) return;
 
     var existing = findFontClassOnNode(element);
-    var weight = element.dataset.originalWeight;
+    var weight = dataSizeWeightState.get(element);
     if (existing) {
         weight = existing.weight;
     }
     weight = weight || DEFAULT_WEIGHT_KEY;
-    element.dataset.originalWeight = weight;
+    dataSizeWeightState.set(element, weight);
 
     clearFontClasses(element);
     element.classList.add(buildFontClass(activeSize, weight));
@@ -642,8 +653,8 @@ function handleResizeFontButton(btn) {
 
 function bindResizeFontButtons() {
     document.querySelectorAll(".Resizefont .btn").forEach(function (btn) {
-        if (btn.dataset.fontBound === "true") return;
-        btn.dataset.fontBound = "true";
+        if (boundResizeFontButtons.has(btn)) return;
+        boundResizeFontButtons.add(btn);
         btn.addEventListener("click", function (event) {
             event.preventDefault();
             handleResizeFontButton(btn);

@@ -1,5 +1,4 @@
 @use '../helpers' as *;
-@use '../common/form' as form;
 .newIms {
     &--inquiry {
 
@@ -410,6 +409,10 @@
     }
 
     .form-control {
-        @include form.vehicleafteradding-form-control;
+        span {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+        }
     }
 }

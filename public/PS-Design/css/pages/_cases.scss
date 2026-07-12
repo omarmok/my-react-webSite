@@ -218,193 +218,193 @@
         }
     }
 
-    &__cases__left {
-        padding: 0;
-        background: transparent;
-        box-shadow: none;
+    //&__cases__left {
+    //    padding: 0;
+    //    background: transparent;
+    //    box-shadow: none;
 
-        &--mainTabs {
-            .nav-item {
-                margin: 0 8px;
+    //    &--mainTabs {
+    //        .nav-item {
+    //            margin: 0 8px;
 
-                .nav-link {
-                    border-radius: 8px;
-                    border: none;
-                    color: #445464;
-                    font-weight: 600;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    position: relative;
+    //            .nav-link {
+    //                border-radius: 8px;
+    //                border: none;
+    //                color: #445464;
+    //                font-weight: 600;
+    //                display: flex;
+    //                flex-direction: column;
+    //                align-items: center;
+    //                position: relative;
 
-                    img {
-                        height: 20px;
-                        margin-bottom: 2px;
-                    }
+    //                img {
+    //                    height: 20px;
+    //                    margin-bottom: 2px;
+    //                }
 
-                    &.active {
-                        background-color: #a38664;
-                        border: 1px solid $Primary-500;
-                        color: #fff;
+    //                &.active {
+    //                    background-color: #a38664;
+    //                    border: 1px solid $Primary-500;
+    //                    color: #fff;
 
-                        img {
-                            filter: brightness(0) invert(1);
-                        }
+    //                    img {
+    //                        filter: brightness(0) invert(1);
+    //                    }
 
-                        .totlal {
-                            background: #fff;
-                            color: var(--theme-primary) !important;
-                        }
-                    }
-                }
+    //                    .totlal {
+    //                        background: #fff;
+    //                        color: var(--theme-primary) !important;
+    //                    }
+    //                }
+    //            }
 
-                .addmore {
-                    border: 1px dashed $Primary-500;
-                    color: $Primary-500;
-                    background: #fff;
+    //            .addmore {
+    //                border: 1px dashed $Primary-500;
+    //                color: $Primary-500;
+    //                background: #fff;
 
-                    &.active {
-                        background: $Primary-500;
-                        color: #fff;
+    //                &.active {
+    //                    background: $Primary-500;
+    //                    color: #fff;
 
-                        img {
-                            filter: brightness(0) invert(1);
-                        }
-                    }
-                }
-            }
-        }
+    //                    img {
+    //                        filter: brightness(0) invert(1);
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
 
-        &--tab-content {
-            background: white;
-            padding: $padding-14;
-            box-shadow: 0 0 68px 0 rgba(174, 175, 175, 0.17);
-            border-radius: 8px;
-            margin-top: 10px;
+    //    &--tab-content {
+    //        background: white;
+    //        padding: $padding-14;
+    //        box-shadow: 0 0 68px 0 rgba(174, 175, 175, 0.17);
+    //        border-radius: 8px;
+    //        margin-top: 10px;
 
-            .personsTab {
-                background: $baige;
-                padding: $padding-14;
+    //        .personsTab {
+    //            background: $baige;
+    //            padding: $padding-14;
 
-                .nav-item {
-                    margin: 0 5px;
+    //            .nav-item {
+    //                margin: 0 5px;
 
-                    .nav-link {
-                        border: none;
-                        color: #445464;
-                        background: white;
-                        position: relative;
-                        font-weight: 600;
-                        width: auto;
-                        height: auto;
+    //                .nav-link {
+    //                    border: none;
+    //                    color: #445464;
+    //                    background: white;
+    //                    position: relative;
+    //                    font-weight: 600;
+    //                    width: auto;
+    //                    height: auto;
 
-                        &.active {
-                            background: #a38766;
-                            color: #fff;
-                            border: none;
-                        }
-                    }
-                }
-            }
+    //                    &.active {
+    //                        background: #a38766;
+    //                        color: #fff;
+    //                        border: none;
+    //                    }
+    //                }
+    //            }
+    //        }
 
-            .personscontent {
-                .persondetailsTab {
-                    margin-bottom: 25px;
+    //        .personscontent {
+    //            .persondetailsTab {
+    //                margin-bottom: 25px;
 
-                    .nav-item {
-                        margin: 0 5px;
+    //                .nav-item {
+    //                    margin: 0 5px;
 
-                        .nav-link {
-                            border-radius: 10px 10px 0 0;
-                            border: 1px dashed #445464;
-                            color: #445464;
-                            font-weight: 600;
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            position: relative;
-                            border-bottom: none;
+    //                    .nav-link {
+    //                        border-radius: 10px 10px 0 0;
+    //                        border: 1px dashed #445464;
+    //                        color: #445464;
+    //                        font-weight: 600;
+    //                        display: flex;
+    //                        flex-direction: column;
+    //                        align-items: center;
+    //                        position: relative;
+    //                        border-bottom: none;
 
-                            &.active {
-                                background-color: $baige;
-                                color: #9f8544;
-                                border: 1px solid $baige;
-                            }
-                        }
-                    }
+    //                        &.active {
+    //                            background-color: $baige;
+    //                            color: #9f8544;
+    //                            border: 1px solid $baige;
+    //                        }
+    //                    }
+    //                }
 
-                    .tab-content {
-                        background: white;
-                        border: 1px solid #d7d7d7;
-                        border-radius: 6px;
-                        padding: 5px;
+    //                .tab-content {
+    //                    background: white;
+    //                    border: 1px solid #d7d7d7;
+    //                    border-radius: 6px;
+    //                    padding: 5px;
 
-                        .createViolitionContainer--creatviolition--person {
-                            box-shadow: none;
-                            background: transparent;
+    //                    .createViolitionContainer--creatviolition--person {
+    //                        box-shadow: none;
+    //                        background: transparent;
 
-                            .block .user__image img {
-                                border-radius: 10px;
-                                box-shadow: none;
-                            }
-                        }
-                    }
-                }
-            }
+    //                        .block .user__image img {
+    //                            border-radius: 10px;
+    //                            box-shadow: none;
+    //                        }
+    //                    }
+    //                }
+    //            }
+    //        }
 
-            .pills-coreactions-tab {
-                ul {
-                    /*    background: #f7fdf9;
-                    padding: $padding-14;*/
-                }
+    //        .pills-coreactions-tab {
+    //            ul {
+    //                /*    background: #f7fdf9;
+    //                padding: $padding-14;*/
+    //            }
 
-                .nav-item {
-                    margin: 0 5px;
+    //            .nav-item {
+    //                margin: 0 5px;
 
-                    .nav-link {
-                        background: #ffffff;
-                        color: #445464;
-                        position: relative;
-                        font-weight: 600;
-                        min-width: 120px;
-                        border-radius: 5px;
-                        border: none;
-                        width: auto;
-                        height: auto;
-                        border: 1px solid #d0d0d0;
+    //                .nav-link {
+    //                    background: #ffffff;
+    //                    color: #445464;
+    //                    position: relative;
+    //                    font-weight: 600;
+    //                    min-width: 120px;
+    //                    border-radius: 5px;
+    //                    border: none;
+    //                    width: auto;
+    //                    height: auto;
+    //                    border: 1px solid #d0d0d0;
 
-                        &.active {
-                            background-color: var(--theme-primary) !important;
-                            color: #fff;
-                            border: none;
-                        }
-                    }
-                }
+    //                    &.active {
+    //                        background-color: var(--theme-primary) !important;
+    //                        color: #fff;
+    //                        border: none;
+    //                    }
+    //                }
+    //            }
 
-                .tab-pane {
-                    h5 {
-                        font-weight: 600;
-                        @include font-sm-500;
-                        margin-top: 30px;
-                        border-bottom: none;
-                        padding: 16px;
-                        background-color: #ffffff;
-                        color: #232323;
-                        border-radius: 0.375rem;
-                        text-align: center;
+    //            .tab-pane {
+    //                h5 {
+    //                    font-weight: 600;
+    //                    @include font-sm-500;
+    //                    margin-top: 30px;
+    //                    border-bottom: none;
+    //                    padding: 16px;
+    //                    background-color: #ffffff;
+    //                    color: #232323;
+    //                    border-radius: 0.375rem;
+    //                    text-align: center;
 
-                        span {
-                            color: #232323;
-                            background: #ffffff;
-                            padding: 2px 12px;
-                            border-radius: 4px;
-                            margin-right: 5px;
-                        }
-                    }
-                }
-            }
-        }
-    }
+    //                    span {
+    //                        color: #232323;
+    //                        background: #ffffff;
+    //                        padding: 2px 12px;
+    //                        border-radius: 4px;
+    //                        margin-right: 5px;
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
 }
 
 #addmoreActionsModal {
@@ -837,32 +837,9 @@
     z-index: 99999;*/
 }
 
-.generalCasesStyle__cases__left--mainTabs .nav-item .nav-link {
-  
-
-}
-
-.generalCasesStyle__cases__left--mainTabs .nav-item .nav-link img {
-    margin-left: 10px;
-    height: 24px;
-    filter: invert(27%) sepia(100%) saturate(100%) hue-rotate(360deg) brightness(93%) contrast(77%);
-}
-
-.generalCasesStyle__cases__left--mainTabs .nav-item {
-    margin: 0;
-}
-
 .generalCasesStyle__cases__left--mainTabs .nav-item .addmore {
     border-left: 0;
 }
-
-.generalCasesStyle__cases__left--mainTabs .nav-item .nav-link.active {
-    background-color: var(--theme-primary) !important;
-    border: 1px solid var(--theme-primary) !important !important;
-    color: #ffffff;
-    // box-shadow: 0px 4px 4px 0px rgba(13, 143, 117, 0.19);
-}
-
 
 
 .CloseGeneralCases {
@@ -905,7 +882,7 @@
 .tab-content > .active {
     width: 100%;
 }
-
+/*
 .generalCasesStyle__cases__left--tab-content
 .pills-profile-tab
 .nav-item
@@ -925,7 +902,7 @@
 .nav-link {
     width: 100%;
     white-space: nowrap !important;
-}
+}*/
 
 .custommaintabs {
     background: transparent;

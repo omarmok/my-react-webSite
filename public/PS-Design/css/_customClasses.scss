@@ -1641,3 +1641,8 @@ border colors */
 .font-7xl-500 { @include font-7xl-500; }
 .font-7xl-600 { @include font-7xl-600; }
 .font-7xl-700 { @include font-7xl-700; }
+
+
+.w-content {
+    width: fit-content;
+}

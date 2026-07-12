@@ -1,5 +1,4 @@
 @use '../helpers' as *;
-@use '../common/form' as form;
 .OtarrContainer {
     &--right {
         display: flex;
@@ -16,7 +15,7 @@
             width: 100%;
 
             textarea.form-control {
-                @include form.otarr-right-textarea-form-control;
+                height: 60px;
             }
         }
     }
@@ -51,7 +50,7 @@
                     width: 100%;
 
                     textarea.form-control {
-                        @include form.otarr-left-textarea-form-control;
+                        height: 45px;
                     }
 
                     .form-select {

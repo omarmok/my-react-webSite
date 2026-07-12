@@ -1,5 +1,4 @@
 @use '../helpers' as *;
-@use '../common/form' as form;
 .permissions_top__details {
   display: flex;
   gap: 20px;
@@ -266,7 +265,18 @@
   }
 
   .form-control {
-    @include form.user-management-roles-control;
+    height: 45px;
+    line-height: 45px;
+    background: #fafbfe;
+    border: 1px solid #f1f1f1;
+    @include font-md-500;
+    color: #535f6b;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    box-shadow: none;
   }
 
   .card {

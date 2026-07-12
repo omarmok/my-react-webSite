@@ -1,5 +1,4 @@
 @use '../helpers' as *;
-@use '../common/form' as form;
 .VehiclesRestriction {
   h4 {
     @include font-md-500;
@@ -8,7 +7,7 @@
     padding: $padding-14;
   }
   textarea.form-control {
-    @include form.vehicles-restriction-textarea-form-control;
+    height: 50px;
   }
 
   .detailsContainer {

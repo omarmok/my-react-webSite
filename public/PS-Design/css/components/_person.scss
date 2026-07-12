@@ -1,5 +1,4 @@
 @use '../helpers' as *;
-@use '../common/form' as form;
 .person {
   margin: 15px;
   &__image {
@@ -55,10 +54,12 @@
         display: flex;
         gap: 20px;
         .form-control {
-          @include form.person-form-control;
+          background-color: #f9f9f9;
+          border: 1px solid #ededed;
         }
         .form-control:focus {
-          @include form.person-form-control-focus;
+          outline: 0;
+          box-shadow: none;
         }
       }
     }

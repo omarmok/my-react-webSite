@@ -1,5 +1,4 @@
 @use "../helpers" as *;
-@use "../common/form" as form;
 
 .abp-account-container {
   /* height: 100vh; */
@@ -75,7 +74,8 @@
     }
 
     .form-control {
-      @include form.login-form-control;
+      border-radius: 4px;
+      padding-right: 18px;
     }
     /* =========================
        Password Toggle (FULL)
@@ -85,7 +85,9 @@
       width: 100%;
       // Bootstrap input داخل الـ password wrapper
       input.form-control {
-        @include form.login-password-form-control;
+        width: 100%;
+        padding: 12px 45px 12px 12px;
+        font-size: 14px;
       }
 
       .fa {

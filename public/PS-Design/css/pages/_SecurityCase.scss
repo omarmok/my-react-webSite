@@ -1,5 +1,4 @@
 @use "../helpers" as *;
-@use "../common/form" as form;
 .caseTimeDate {
   display: flex;
   justify-content: space-between;
@@ -732,7 +731,9 @@
 
 .minus-pluse {
   .form-control {
-    @include form.security-case-minus-plus-control;
+    border-radius: 0;
+    border: 1px solid #d0ccde;
+    height: 35px;
   }
 
   .minus {
