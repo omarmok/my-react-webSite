@@ -238,11 +238,10 @@ const Nav = ({
                   <Image
                     alt={t("nav.logoAlt")}
                     src={mylogo}
-                    width={48}
-                    height={48}
-                    sizes="(min-width: 992px) 48px, 40px"
+                    fill
+                    sizes="44px"
                     quality={70}
-                    style={{ width: "100%", height: "auto", maxWidth: 48 }}
+                    style={{ objectFit: "contain" }}
                     loading="eager"
                   />
                 </Link>

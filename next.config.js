@@ -22,6 +22,7 @@ if (process.env.NODE_ENV !== 'production' && isDesignSystemPasswordMissing) {
 }
 
 const nextConfig = {
+  allowedDevOrigins: ['127.0.0.1', 'localhost'],
   experimental: {
     turbopackFileSystemCacheForDev: false,
     turbopackFileSystemCacheForBuild: false,
@@ -73,7 +74,7 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    qualities: [65, 70, 75],
+    qualities: [65, 70, 75, 80, 85, 90],
   },
   outputFileTracingRoot: path.join(__dirname),
 };
