@@ -59,8 +59,7 @@ html[data-theme="light"] {
   --mobile-sheet-border: rgba(255, 255, 255, 0.14);
   --mobile-sheet-inner-edge: rgba(255, 255, 255, 0.28);
   --mobile-sheet-shadow:
-    0 8px 22px rgba(28, 34, 40, 0.05),
-    0 22px 42px rgba(28, 34, 40, 0.09),
+    0 8px 22px rgba(28, 34, 40, 0.05), 0 22px 42px rgba(28, 34, 40, 0.09),
     0 1px 0 rgba(255, 255, 255, 0.18) inset;
   --mobile-sheet-filter: saturate(165%) blur(22px) brightness(1.03)
     contrast(1.01);
@@ -97,8 +96,7 @@ html[data-theme="light"] {
       rgba(12, 18, 25, 0.18) 0%,
       rgba(12, 18, 25, 0.28) 100%
     );
-  --mobile-sheet-backdrop-filter: saturate(145%) blur(12px)
-    brightness(0.96);
+  --mobile-sheet-backdrop-filter: saturate(145%) blur(12px) brightness(0.96);
   --nav-bg-glass: rgba(253, 251, 247, 0.92);
   --nav-bg-solid: rgba(253, 251, 247, 0.98);
   --nav-border-color: var(--theme-border);
@@ -170,8 +168,7 @@ html[data-theme="dark"] {
   --mobile-sheet-border: rgba(255, 255, 255, 0.07);
   --mobile-sheet-inner-edge: rgba(255, 255, 255, 0.12);
   --mobile-sheet-shadow:
-    0 10px 22px rgba(0, 0, 0, 0.16),
-    0 24px 52px rgba(0, 0, 0, 0.22),
+    0 10px 22px rgba(0, 0, 0, 0.16), 0 24px 52px rgba(0, 0, 0, 0.22),
     0 1px 0 rgba(255, 255, 255, 0.08) inset;
   --mobile-sheet-filter: saturate(160%) blur(20px) brightness(0.97)
     contrast(1.04);
@@ -203,13 +200,8 @@ html[data-theme="dark"] {
       rgba(90, 118, 104, 0.12) 0%,
       rgba(90, 118, 104, 0) 38%
     ),
-    linear-gradient(
-      180deg,
-      rgba(5, 8, 7, 0.28) 0%,
-      rgba(5, 8, 7, 0.38) 100%
-    );
-  --mobile-sheet-backdrop-filter: saturate(150%) blur(12px)
-    brightness(0.84);
+    linear-gradient(180deg, rgba(5, 8, 7, 0.28) 0%, rgba(5, 8, 7, 0.38) 100%);
+  --mobile-sheet-backdrop-filter: saturate(150%) blur(12px) brightness(0.84);
   --nav-bg-glass: rgba(10, 13, 10, 0.84);
   --nav-bg-solid: rgba(17, 20, 16, 0.95);
   --nav-border-color: var(--theme-border);
@@ -238,7 +230,9 @@ html[data-theme="dark"] {
   background: var(--liquid-glass-surface, #{$surface});
   box-shadow: var(--liquid-glass-shadow, #{$shadow});
 
-  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  @supports (
+    (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+  ) {
     backdrop-filter: var(
       --liquid-glass-filter,
       saturate(var(--glass-saturate)) blur(var(--glass-blur))
@@ -306,7 +300,16 @@ body,
   color: #ffffff;
 }
 
-:where(a, button, input, textarea, select, summary, [role="button"], [role="switch"]) {
+:where(
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  summary,
+  [role="button"],
+  [role="switch"]
+) {
   transition:
     background-color 0.18s ease,
     border-color 0.18s ease,
@@ -1027,7 +1030,9 @@ html.rtl .navtitle {
     opacity 220ms cubic-bezier(0.32, 0.72, 0, 1),
     visibility 0s linear 220ms;
 
-  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  @supports (
+    (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+  ) {
     backdrop-filter: var(--mobile-sheet-backdrop-filter);
     -webkit-backdrop-filter: var(--mobile-sheet-backdrop-filter);
   }
@@ -1052,7 +1057,9 @@ html.rtl .navtitle {
   --liquid-glass-reflection-opacity: var(--mobile-sheet-reflection-opacity);
   position: fixed;
   left: 50%;
-  bottom: calc(var(--mobile-bottom-nav-height) + env(safe-area-inset-bottom, 0px) + 18px);
+  bottom: calc(
+    var(--mobile-bottom-nav-height) + env(safe-area-inset-bottom, 0px) + 18px
+  );
   width: min(calc(100% - 24px), 560px);
   max-height: min(72vh, 620px);
   @include liquid-glass-panel(
@@ -1080,9 +1087,7 @@ html.rtl .navtitle {
 }
 
 .mobile-app-nav__sheet::before {
-  background:
-    var(--mobile-sheet-top-highlight),
-    var(--liquid-glass-reflection);
+  background: var(--mobile-sheet-top-highlight), var(--liquid-glass-reflection);
 }
 
 .mobile-app-nav__sheet::after {
@@ -1403,7 +1408,10 @@ html.rtl .mobile-app-nav__sheet-link-arrow {
     font-weight: 700;
     text-decoration: none;
     white-space: nowrap;
-    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease,
+      color 0.15s ease;
 
     &--primary {
       background: var(--theme-brand-primary);
@@ -1758,7 +1766,6 @@ html.rtl .mobile-app-nav__sheet-link-arrow {
   outline-offset: 2px;
 }
 
-
 .homepage-proof-card {
   border: 1px solid var(--theme-border);
   border-radius: 12px;
@@ -1796,7 +1803,6 @@ html.rtl .mobile-app-nav__sheet-link-arrow {
   gap: 40px;
   align-items: start;
 }
-
 
 .homepage-designsystem__access-panel {
   display: flex;
@@ -2016,7 +2022,9 @@ html.rtl .mobile-app-nav__sheet-link-arrow {
   font-size: 0.95rem;
   font-weight: 700;
   text-decoration: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 
   &:hover {
     background: var(--theme-brand-strong);
@@ -2766,7 +2774,11 @@ html.rtl .mobile-app-nav__sheet-link-arrow {
       transform 0.12s ease;
 
     &:hover {
-      background-color: color-mix(in srgb, var(--theme-bg-elevated) 80%, #ffffff 20%);
+      background-color: color-mix(
+        in srgb,
+        var(--theme-bg-elevated) 80%,
+        #ffffff 20%
+      );
       transform: translateY(-1px);
     }
 
@@ -3526,7 +3538,11 @@ p {
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--theme-brand-primary), var(--theme-brand-light));
+  background: linear-gradient(
+    135deg,
+    var(--theme-brand-primary),
+    var(--theme-brand-light)
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4192,7 +4208,11 @@ p {
     width: 2.5px;
     height: 3px;
     border-radius: 2px;
-    background: color-mix(in srgb, var(--theme-text-secondary) 26%, transparent);
+    background: color-mix(
+      in srgb,
+      var(--theme-text-secondary) 26%,
+      transparent
+    );
     transition: background 0.3s ease;
 
     &.is-active {
@@ -4660,7 +4680,13 @@ html[data-theme="dark"] .recommendation-card__profile,
 html[data-theme="dark"] .homepage-authority-card__link,
 html[data-theme="dark"] .cert-card__cta,
 html[data-theme="dark"] .portfolio-links .btn,
-html[data-theme="dark"] .page__container a:not(.btn):not(.page-header__action):not(.navbar-brand):not(.nav-link):not(.footer__link):not(.homepage-hero-nav__cta):not(.homepage-designsystem__secondary-cta):not(.homepage-authority-card__link):not(.homepage-highlights__cta) {
+html[data-theme="dark"]
+  .page__container
+  a:not(.btn):not(.page-header__action):not(.navbar-brand):not(.nav-link):not(
+    .footer__link
+  ):not(.homepage-hero-nav__cta):not(.homepage-designsystem__secondary-cta):not(
+    .homepage-authority-card__link
+  ):not(.homepage-highlights__cta) {
   color: var(--theme-brand-primary);
 }
 
@@ -5087,7 +5113,9 @@ html[data-theme="dark"] .case-study-hero-image {
   .mobile-app-nav__sheet {
     left: 50%;
     width: calc(100% - 20px);
-    bottom: calc(var(--mobile-bottom-nav-height) + env(safe-area-inset-bottom, 0px) + 14px);
+    bottom: calc(
+      var(--mobile-bottom-nav-height) + env(safe-area-inset-bottom, 0px) + 14px
+    );
     padding: 16px;
   }
 
