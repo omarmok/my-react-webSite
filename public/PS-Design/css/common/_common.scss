@@ -19,6 +19,70 @@
   }
 }
 
+:root {
+  --app-font-size: 0.875rem;
+  --app-font-scale: 1;
+}
+
+:root[data-size="xs"] {
+  --app-font-size: 0.625rem;
+  --app-font-scale: 0.7142857143;
+}
+
+:root[data-size="sm"] {
+  --app-font-size: 0.75rem;
+  --app-font-scale: 0.8571428571;
+}
+
+:root[data-size="md"] {
+  --app-font-size: 0.875rem;
+  --app-font-scale: 1;
+}
+
+:root[data-size="lg"] {
+  --app-font-size: 1rem;
+  --app-font-scale: 1.1428571429;
+}
+
+:root[data-size="xl"] {
+  --app-font-size: 1.25rem;
+  --app-font-scale: 1.4285714286;
+}
+
+:root[data-size="2xl"] {
+  --app-font-size: 1.5rem;
+  --app-font-scale: 1.7142857143;
+}
+
+:root[data-size="3xl"] {
+  --app-font-size: 1.875rem;
+  --app-font-scale: 2.1428571429;
+}
+
+:root[data-size="4xl"] {
+  --app-font-size: 2.25rem;
+  --app-font-scale: 2.5714285714;
+}
+
+:root[data-size="5xl"] {
+  --app-font-size: 3rem;
+  --app-font-scale: 3.4285714286;
+}
+
+:root[data-size="6xl"] {
+  --app-font-size: 3.75rem;
+  --app-font-scale: 4.2857142857;
+}
+
+:root[data-size="7xl"] {
+  --app-font-size: 4.5rem;
+  --app-font-scale: 5.1428571429;
+}
+
+html {
+  font-size: var(--app-font-size, 0.875rem);
+}
+
 body {
   height: 100%;
   padding: 0;

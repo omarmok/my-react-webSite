@@ -1,274 +1,8 @@
 @use "sass:map";
 @use "../helpers" as *;
 
-// =============================================================================
-// Legacy (UNCHANGED)
-// =============================================================================
-
-.defualtprioroty {
-  display: flex;
-  white-space: nowrap;
-  width: max-content;
-  margin: 0 auto;
-  height: 36px;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: $padding-8;
-  border-radius: $Radius-100;
-  line-height: 36px;
-  @include font-lg-500;
-  font-weight: 600 !important;
-  color: $Neutral-600 !important;
-  background: $Neutral-50 !important;
-  border: 1px solid $Neutral-200 !important;
-
-  &::before {
-    content: "";
-    width: 10px;
-    height: 10px;
-    background: $Neutral-600 !important;
-    border-radius: $Radius-100;
-    margin-left: 5px;
-  }
-}
-
-.highpriority {
-  @extend .defualtprioroty;
-  color: $Error-600 !important;
-  background: $Error-50 !important;
-  border: 1px solid $Error-200 !important;
-
-  &::before {
-    background: $Error-600 !important;
-  }
-}
-
-.mediumpriority {
-  @extend .defualtprioroty;
-  border: 1px solid $Warning-300 !important;
-  color: $Warning-600 !important;
-  background: $Warning-50 !important;
-
-  &::before {
-    background: $Warning-600 !important;
-  }
-}
-
-.regpriority {
-  @extend .defualtprioroty;
-  border: 1px solid $Primary-200 !important;
-  color: $Primary-600 !important;
-  background: $Primary-50 !important;
-
-  &::before {
-    background: $Primary-600 !important;
-  }
-}
-
-.infoprioroty {
-  @extend .defualtprioroty;
-  border: 1px solid $Info-200 !important;
-  color: $Info-600 !important;
-  background: $Info-50 !important;
-
-  &::before {
-    background: $Info-600 !important;
-  }
-}
-
-.primaryprioroty {
-  @extend .defualtprioroty;
-  border: 1px solid $Primary-200 !important;
-  color: $Primary-600 !important;
-  background: $Primary-50 !important;
-
-  &::before {
-    background: $Primary-600 !important;
-  }
-}
-
-//In Review
-.UnderProgress {
-  @extend .defualtprioroty;
-  border: 1px solid #d6c8ec !important;
-  color: #6929c4 !important;
-  background: #f1e8ff !important;
-
-  &::before {
-    background: #6929c4 !important;
-  }
-}
-
-//Rework
-.Returned {
-  @extend .defualtprioroty;
-  border: 1px solid #c0e1fa !important;
-  color: #3f739b !important;
-  background: #d2ebff !important;
-
-  &::before {
-    background: #3f739b !important;
-  }
-}
-
-// =============================================================================
-// SVG behavior (legacy - unchanged)
-// =============================================================================
-
-.defualtprioroty:has(svg),
-.highpriority:has(svg),
-.mediumpriority:has(svg),
-.regpriority:has(svg),
-.infoprioroty:has(svg),
-.primaryprioroty:has(svg),
-.UnderProgress:has(svg),
-.Returned:has(svg) {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  &::before {
-    display: none !important;
-  }
-
-  svg {
-    flex: 0 0 auto;
-    fill: currentColor;
-  }
-}
-
-.highpriority-filled {
-  @extend .defualtprioroty;
-  border: 1px solid $Error-500 !important;
-  color: $white-100 !important;
-  background: $Error-500 !important;
-
-  &::before {
-    background: $white-100 !important;
-  }
-}
-
-.regpriority-filled {
-  @extend .defualtprioroty;
-  border: 1px solid $Primary-500 !important;
-  color: $white-100 !important;
-  background: $Primary-500 !important;
-
-  &::before {
-    background: $white-100 !important;
-  }
-}
-
-.defualtprioroty-filled {
-  @extend .defualtprioroty;
-  border: 1px solid $Neutral-100 !important;
-  color: $Neutral-100 !important;
-  background: $Neutral-900 !important;
-
-  &::before {
-    background: $Neutral-100 !important;
-  }
-}
-
-.infoprioroty-filled {
-  @extend .defualtprioroty;
-  border: 1px solid $Info-500 !important;
-  color: $white-100 !important;
-  background: $Info-500 !important;
-
-  &::before {
-    background: $white-100 !important;
-  }
-}
-
-.mediumpriority-filled {
-  @extend .defualtprioroty;
-  border: 1px solid $Warning-600 !important;
-  color: $white-100 !important;
-  background: $Warning-600 !important;
-
-  &::before {
-    background: $white-100 !important;
-  }
-}
-
-.UnderProgress-filled {
-  @extend .defualtprioroty;
-  border: 1px solid #6929c4 !important;
-  color: $white-100 !important;
-  background: #6929c4 !important;
-
-  &::before {
-    background: $white-100 !important;
-  }
-}
-
-.Returned-filled {
-  @extend .defualtprioroty;
-  border: 1px solid #3f739b !important;
-  color: $white-100 !important;
-  background: #3f739b !important;
-
-  &::before {
-    background: $white-100 !important;
-  }
-}
-
-.highpriority-rounded {
-  @extend .defualtprioroty;
-  border-radius: $radius-sm;
-  @extend .highpriority;
-}
-
-.mediumpriority-rounded {
-  @extend .defualtprioroty;
-  @extend .mediumpriority;
-  @extend .highpriority-rounded;
-}
-
-.regpriority-rounded {
-  @extend .defualtprioroty;
-  @extend .regpriority;
-  @extend .highpriority-rounded;
-}
-
-.infoprioroty-rounded {
-  @extend .defualtprioroty;
-  @extend .infoprioroty;
-  @extend .highpriority-rounded;
-}
-
-.defualtprioroty-rounded {
-  @extend .defualtprioroty;
-  @extend .defualtprioroty;
-  border-radius: $radius-sm;
-}
-
-.primaryprioroty-rounded {
-  @extend .defualtprioroty;
-  @extend .primaryprioroty;
-  @extend .highpriority-rounded;
-}
-
-.UnderProgress-rounded {
-  @extend .defualtprioroty;
-  @extend .UnderProgress;
-  @extend .highpriority-rounded;
-}
-
-.Returned-rounded {
-  @extend .defualtprioroty;
-  @extend .Returned;
-  @extend .highpriority-rounded;
-}
-
-// =============================================================================
-// Modern .moi-tag
-// =============================================================================
-
-$moi-tag-sizes: (
+$moi-tag-control-sizes: (
+  default: 36px,
   sm: 1rem,
   md: 1.25rem,
   lg: 1.5rem,
@@ -278,88 +12,32 @@ $moi-tag-sizes: (
   4xl: 4rem,
 );
 
-$moi-tag-icon-sizes: (
-  sm: 0.75rem,
-  md: 0.875rem,
-  lg: 1rem,
-  xl: 1.25rem,
-  2xl: 1.5rem,
-  3xl: 1.75rem,
-  4xl: 2rem,
+$moi-tag-indicator-sizes: (
+  default: 10px,
 );
 
-.moi-tag {
-  display: inline-flex;
-  white-space: nowrap;
-  width: max-content;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+$moi-tag-remove-sizes: (
+  radius: 2px,
+  focus-outline: 2px,
+  focus-offset: 2px,
+);
 
-  position: relative;
-  height: 36px;
-  padding: $padding-8;
-  border-radius: $Radius-100;
-  line-height: 36px;
+$moi-tag-gap: (
+  default: 8px,
+  legacy-indicator-offset: 5px,
+);
 
-  // @include font-lg-500;
-  // font-weight: 600;
+$moi-tag-padding: (
+  default: $padding-8,
+);
 
-  color: $Neutral-600;
-  background: $Neutral-50;
-  border: 1px solid $Neutral-200;
+$moi-tag-radius: (
+  pill: $Radius-100,
+  rounded: $radius-sm,
+  indicator: 50%,
+);
 
-  &::before {
-    content: "";
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background: currentColor;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  svg,
-  img {
-    flex: 0 0 auto;
-    fill: currentColor;
-  }
-
-  &:has(> svg:first-child),
-  &:has(> img:first-child) {
-    &::before {
-      display: none;
-    }
-  }
-}
-
-// =============================================================================
-// Sizes
-// =============================================================================
-
-@each $size, $value in $moi-tag-sizes {
-  $icon-size: map.get($moi-tag-icon-sizes, $size);
-
-  .moi-tag--#{$size} {
-    height: $value;
-    min-height: $value;
-    line-height: $value;
-
-    > svg:first-child,
-    > img:first-child,
-    .tag-close svg {
-      width: $icon-size;
-      height: $icon-size;
-    }
-  }
-}
-
-// =============================================================================
-// Status colors (data-status API)
-// =============================================================================
-
-$_moi-tag-statuses: (
+$moi-tag-statuses: (
   defualtprioroty: (
     color: $Neutral-600,
     bg: $Neutral-50,
@@ -446,43 +124,319 @@ $_moi-tag-statuses: (
   ),
 );
 
-@each $status, $colors in $_moi-tag-statuses {
-  .moi-tag[data-status="#{$status}"] {
-    color: map.get($colors, color);
-    background: map.get($colors, bg);
-    border: 1px solid map.get($colors, border);
+@mixin _moi-tag-declaration($property, $value, $important: false) {
+  @if $important {
+    #{$property}: $value !important;
+  } @else {
+    #{$property}: $value;
+  }
+}
 
-    &::before {
-      background: map.get($colors, dot);
+@mixin _moi-tag-base($display, $gap: null, $align-content: null, $logical: false) {
+  $base-size: map.get($moi-tag-control-sizes, default);
+  $base-padding: map.get($moi-tag-padding, default);
+
+  display: $display;
+  white-space: nowrap;
+  width: max-content;
+
+  @if $logical {
+    inline-size: max-content;
+  }
+
+  margin: 0 auto;
+
+  @if $align-content != null {
+    align-content: $align-content;
+  }
+
+  align-items: center;
+  justify-content: center;
+
+  @if $gap != null {
+    gap: $gap;
+  }
+
+  position: relative;
+  height: $base-size;
+
+  @if $logical {
+    block-size: $base-size;
+    min-block-size: $base-size;
+    padding-block: $base-padding;
+    padding-inline: $base-padding;
+  } @else {
+    padding: $base-padding;
+  }
+
+  border-radius: map.get($moi-tag-radius, pill);
+  line-height: $base-size;
+}
+
+@mixin _moi-tag-indicator(
+  $background,
+  $radius,
+  $margin-left: null,
+  $display: null,
+  $flex-shrink: null,
+  $important: false
+) {
+  $indicator-size: map.get($moi-tag-indicator-sizes, default);
+
+  content: "";
+  width: $indicator-size;
+  height: $indicator-size;
+
+  @if $display != null {
+    display: $display;
+  }
+
+  @include _moi-tag-declaration(background, $background, $important);
+  border-radius: $radius;
+
+  @if $margin-left != null {
+    margin-left: $margin-left;
+  }
+
+  @if $flex-shrink != null {
+    flex-shrink: $flex-shrink;
+  }
+}
+
+@mixin _moi-tag-theme($color, $background, $border-color, $dot-color, $important: false) {
+  @include _moi-tag-declaration(color, $color, $important);
+  @include _moi-tag-declaration(background, $background, $important);
+  @include _moi-tag-declaration(border, 1px solid $border-color, $important);
+
+  &::before {
+    @include _moi-tag-declaration(background, $dot-color, $important);
+  }
+}
+
+@mixin _moi-tag-size($size-token) {
+  $control-size: map.get($moi-tag-control-sizes, $size-token);
+  $icon-size: map.get($moi-icon-sizes, $size-token);
+
+  height: $control-size;
+  block-size: $control-size;
+  min-height: $control-size;
+  min-block-size: $control-size;
+  line-height: $control-size;
+
+  > svg:first-child,
+  > img:first-child,
+  .tag-close svg {
+    width: $icon-size;
+    height: $icon-size;
+    inline-size: $icon-size;
+    block-size: $icon-size;
+  }
+}
+
+@mixin _moi-tag-rounded {
+  border-radius: map.get($moi-tag-radius, rounded);
+}
+
+@mixin _moi-tag-legacy-base {
+  @include _moi-tag-base(flex, $align-content: center);
+  @include font-lg-500;
+  font-weight: 600 !important;
+
+  &::before {
+    @include _moi-tag-indicator(
+      $Neutral-600,
+      map.get($moi-tag-radius, pill),
+      $margin-left: map.get($moi-tag-gap, legacy-indicator-offset),
+      $important: true
+    );
+  }
+}
+
+@mixin _moi-tag-modern-base {
+  @include _moi-tag-base(
+    inline-flex,
+    $gap: map.get($moi-tag-gap, default),
+    $logical: true
+  );
+
+  &::before {
+    @include _moi-tag-indicator(
+      currentColor,
+      map.get($moi-tag-radius, indicator),
+      $display: inline-block,
+      $flex-shrink: 0
+    );
+  }
+}
+
+// =============================================================================
+// Legacy API — kept for backward compatibility.
+// Do not use in new implementations.
+// =============================================================================
+
+@each $status, $colors in $moi-tag-statuses {
+  .#{$status} {
+    @include _moi-tag-legacy-base;
+    @include _moi-tag-theme(
+      map.get($colors, color),
+      map.get($colors, bg),
+      map.get($colors, border),
+      map.get($colors, dot),
+      $important: true
+    );
+  }
+}
+
+// =============================================================================
+// Legacy API — kept for backward compatibility.
+// Do not use in new implementations.
+// =============================================================================
+
+.defualtprioroty:has(svg),
+.defualtprioroty-filled:has(svg),
+.defualtprioroty-rounded:has(svg),
+.highpriority:has(svg),
+.highpriority-filled:has(svg),
+.highpriority-rounded:has(svg),
+.mediumpriority:has(svg),
+.mediumpriority-filled:has(svg),
+.mediumpriority-rounded:has(svg),
+.regpriority:has(svg),
+.regpriority-filled:has(svg),
+.regpriority-rounded:has(svg),
+.infoprioroty:has(svg),
+.infoprioroty-filled:has(svg),
+.infoprioroty-rounded:has(svg),
+.primaryprioroty:has(svg),
+.primaryprioroty-rounded:has(svg),
+.UnderProgress:has(svg),
+.UnderProgress-filled:has(svg),
+.UnderProgress-rounded:has(svg),
+.Returned:has(svg),
+.Returned-filled:has(svg),
+.Returned-rounded:has(svg) {
+  display: inline-flex;
+  align-items: center;
+  gap: map.get($moi-tag-gap, default);
+
+  &::before {
+    display: none !important;
+  }
+
+  svg {
+    flex: 0 0 auto;
+    fill: currentColor;
+  }
+}
+
+// =============================================================================
+// Legacy API — kept for backward compatibility.
+// Do not use in new implementations.
+// =============================================================================
+
+@each $status, $colors in $moi-tag-statuses {
+  @if map.get($colors, has-filled) {
+    .#{$status}-filled {
+      @include _moi-tag-legacy-base;
+      @include _moi-tag-theme(
+        map.get($colors, filled-color),
+        map.get($colors, filled-bg),
+        map.get($colors, filled-border),
+        map.get($colors, filled-dot),
+        $important: true
+      );
     }
+  }
+}
+
+// =============================================================================
+// Legacy API — kept for backward compatibility.
+// Do not use in new implementations.
+// =============================================================================
+
+@each $status, $colors in $moi-tag-statuses {
+  .#{$status}-rounded {
+    @include _moi-tag-legacy-base;
+    @include _moi-tag-theme(
+      map.get($colors, color),
+      map.get($colors, bg),
+      map.get($colors, border),
+      map.get($colors, dot),
+      $important: true
+    );
+    @include _moi-tag-rounded;
+  }
+}
+
+// =============================================================================
+// Modern .moi-tag
+// =============================================================================
+
+.moi-tag {
+  @include _moi-tag-modern-base;
+  @include _moi-tag-theme($Neutral-600, $Neutral-50, $Neutral-200, $Neutral-600);
+
+  svg,
+  img {
+    flex: 0 0 auto;
+    fill: currentColor;
+  }
+
+  &:has(> svg:first-child),
+  &:has(> img:first-child) {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+// =============================================================================
+// Sizes
+// =============================================================================
+
+@each $size, $value in $moi-tag-control-sizes {
+  @if $size != default {
+    .moi-tag[data-size="#{$size}"],
+    .moi-tag--#{$size} {
+      @include _moi-tag-size($size);
+    }
+  }
+}
+
+// =============================================================================
+// Status colors
+// =============================================================================
+
+@each $status, $colors in $moi-tag-statuses {
+  .moi-tag[data-status="#{$status}"] {
+    @include _moi-tag-theme(
+      map.get($colors, color),
+      map.get($colors, bg),
+      map.get($colors, border),
+      map.get($colors, dot)
+    );
   }
 
   @if map.get($colors, has-filled) {
-    .moi-tag--filled[data-status="#{$status}"] {
-      color: map.get($colors, filled-color);
-      background: map.get($colors, filled-bg);
-      border: 1px solid map.get($colors, filled-border);
-
-      &::before {
-        background: map.get($colors, filled-dot);
-      }
-    }
-
+    .moi-tag[data-variant="filled"][data-status="#{$status}"],
+    .moi-tag--filled[data-status="#{$status}"],
     .moi-tag--filled.moi-tag--rounded[data-status="#{$status}"] {
-      color: map.get($colors, filled-color);
-      background: map.get($colors, filled-bg);
-      border: 1px solid map.get($colors, filled-border);
-      border-radius: $radius-sm;
-
-      &::before {
-        background: map.get($colors, filled-dot);
-      }
+      @include _moi-tag-theme(
+        map.get($colors, filled-color),
+        map.get($colors, filled-bg),
+        map.get($colors, filled-border),
+        map.get($colors, filled-dot)
+      );
     }
   }
 
   .moi-tag--rounded[data-status="#{$status}"] {
-    border-radius: $radius-sm;
+    @include _moi-tag-rounded;
   }
+}
+
+.moi-tag[data-shape="rounded"] {
+  @include _moi-tag-rounded;
 }
 
 // =============================================================================
@@ -513,7 +467,7 @@ $_moi-tag-statuses: (
 
   color: inherit;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: map.get($moi-tag-remove-sizes, radius);
   transition: opacity 0.15s ease;
 
   svg {
@@ -526,8 +480,8 @@ $_moi-tag-statuses: (
   }
 
   &:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 2px;
+    outline: map.get($moi-tag-remove-sizes, focus-outline) solid currentColor;
+    outline-offset: map.get($moi-tag-remove-sizes, focus-offset);
   }
 
   &:focus:not(:focus-visible) {

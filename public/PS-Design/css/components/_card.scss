@@ -1,21 +1,11 @@
 @use "../_helpers" as *;
 @use "sass:map";
 
-// NOTE (Card internal-quality pass — read before touching this line):
-// This legacy `@import "../customclasses";` is REQUIRED and must not be
-// removed or replaced with `@use`. `_customClasses.scss` is also pulled in
-// globally via `css/main.scss`'s own `@use "./customClasses";`, which is
-// why removing this line looks tempting (it appears to just double-compile
-// `_customClasses.scss`). It was tested in an isolated sandbox copy of this
-// project: removing this `@import` makes the `@extend .bg-Neutral-50;` call
-// below (in `&__content--block`) fail to compile with
-// "The target selector was not found." Dart Sass's `@extend` only resolves
-// against selectors visible to the file doing the extending, and this file
-// never `@use`s `customClasses` itself — only this `@import` makes
-// `.bg-Neutral-50` / `.border-Neutral-100` / `.radius-sm` / `.padding-md`
-// extendable from here. Do not remove without also restructuring the
-// `@extend` calls below (a separate, Owner-approval-gated change).
-@import "../customclasses";
+// NOTE:
+// This file still needs direct visibility of the utility selectors referenced
+// by the `@extend` calls below. `@use` keeps those selectors visible here
+// without relying on deprecated Sass `@import`.
+@use "../customclasses";
 
 // =========================================================================
 // Root
@@ -193,7 +183,7 @@
             // `label`/`span` are bare element selectors rather than
             // component-specific classes (e.g. `.moi-card__content-label`).
             // Replacing them would require an HTML markup change, which is
-            // out of scope for an internal-quality-only pass — recorded as
+            // out of scope for an internal-quality-only pass - recorded as
             // a Needs Owner Approval recommendation in
             // .ai/IMPROVEMENT_BACKLOG.md instead of changed here.
             label {

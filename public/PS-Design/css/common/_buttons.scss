@@ -454,7 +454,7 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
     @include moi-btn-size-vars;
     @include buttonStyles;
     @include moi-focus-ring;
-    --btn-icon-size: 24px;
+    --btn-icon-size: calc(24px * var(--app-font-scale, 1));
     height: var(--btn-height) !important;
     min-height: var(--btn-height) !important;
     padding-inline: var(--btn-px) !important;
