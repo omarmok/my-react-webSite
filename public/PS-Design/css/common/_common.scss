@@ -296,28 +296,9 @@ textarea.form-control {
   }
 }
 
-.form-check-input {
-  width: 15px;
-  height: 15px;
-  margin-top: 0;
-  margin-left: 5px;
-  border: 1px solid $Neutral-300;
-}
-
-.form-check-input:checked {
-  background-color: $Primary-500;
-  border-color: $Primary-500;
-}
-
-.form-check-input:focus {
-  outline: 0;
-  box-shadow: 0 0 0 2px rgba($Primary-500, 0.2);
-  border-color: $Primary-500;
-}
-
-.form-check-label {
-  margin-right: $gap-20;
-}
+// Checkbox rules (.form-check-input / .form-check-label) moved to the
+// centralized css/common/_checkbox.scss (Priority 6 SCSS improvement pass).
+// Compiled output verified byte-identical before/after the move.
 
 .form-content {
   img {

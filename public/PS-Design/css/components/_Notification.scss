@@ -1,4 +1,5 @@
 @use "../_helpers" as *;
+@use "sass:map";
 
 @mixin moi-notification-btn-variant(
   $color,
@@ -187,9 +188,12 @@
     color: var(--moi-notification-icon-color);
     fill: currentColor;
 
+    // Icon Size Migration: already rem-based and exactly equal to
+    // $moi-icon-sizes' `lg` (1.5rem) — swapped the literal for the map
+    // reference (zero-risk: same unit, same compiled value).
     svg {
-      width: 1.5rem;
-      height: 1.5rem;
+      width: map.get($moi-icon-sizes, lg);
+      height: map.get($moi-icon-sizes, lg);
       fill: currentColor;
     }
   }
@@ -220,9 +224,11 @@
     line-height: 1;
     white-space: nowrap;
 
+    // Icon Size Migration: already rem-based, exactly equal to
+    // $moi-icon-sizes' `lg` — swapped literal for the map reference.
     svg {
-      width: 1.5rem;
-      height: 1.5rem;
+      width: map.get($moi-icon-sizes, lg);
+      height: map.get($moi-icon-sizes, lg);
       fill: currentColor;
     }
   }
@@ -239,6 +245,8 @@
     border: 0;
     cursor: pointer;
 
+    // Icon Size Migration: 0.75rem (12px) has no entry in $moi-icon-sizes
+    // (smallest is `sm` at 1rem/16px) — left unchanged, no exact token.
     svg {
       width: 0.75rem;
       height: 0.75rem;

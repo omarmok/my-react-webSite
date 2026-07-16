@@ -1,0 +1,43 @@
+@use "../helpers" as *;
+
+// =========================================================================
+// Checkbox (centralized) — Priority 6 SCSS improvement pass
+// =========================================================================
+// Relocated from css/common/_common.scss. Same selectors, same values —
+// compiled output verified byte-identical before/after the move (see
+// implementation report). This was the only genuinely shared, reusable
+// checkbox rule found; page-specific checkbox layout overrides (background,
+// borders, spacing tweaks per page) intentionally remain in their own
+// page-level SCSS files and were not touched.
+//
+// Radio: NOT centralized here. Per PS-Design Public API Protection Rules,
+// no new public class/wrapper may be introduced without owner approval.
+// A prior attempt introduced a new wrapper class (.moi-radio-group) — this
+// was reverted. The only existing radio implementation project-wide
+// remains scoped inside `#Accidents { ... }` in css/common/_common.scss,
+// left completely untouched. Status: Missing Components — Needs Owner
+// Approval before any centralization is attempted.
+
+/* Checkbox (.form-check-input) */
+.form-check-input {
+  width: 15px;
+  height: 15px;
+  margin-top: 0;
+  margin-left: 5px;
+  border: 1px solid $Neutral-300;
+}
+
+.form-check-input:checked {
+  background-color: $Primary-500;
+  border-color: $Primary-500;
+}
+
+.form-check-input:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba($Primary-500, 0.2);
+  border-color: $Primary-500;
+}
+
+.form-check-label {
+  margin-right: $gap-20;
+}

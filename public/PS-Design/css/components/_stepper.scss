@@ -1,4 +1,5 @@
 @use "../helpers" as *;
+@use "sass:map";
 
 .steps {
   background: $white-100;
@@ -15,8 +16,10 @@
       content: "";
       background: url("./../images/arrow-left-title.svg");
       position: absolute;
-      width: 20px;
-      height: 20px;
+      // Icon Size Migration: 20px matched $moi-icon-sizes' `md` (1.25rem)
+      // exactly — swapped literal for the map reference.
+      width: map.get($moi-icon-sizes, md);
+      height: map.get($moi-icon-sizes, md);
       left: -17px;
       top: 25%;
     }
@@ -77,9 +80,11 @@
       background: $white-100;
       padding: $padding-2;
 
+      // Icon Size Migration: 20px matched $moi-icon-sizes' `md` (1.25rem)
+      // exactly — swapped literal for the map reference.
       svg {
-        width: 20px;
-        height: 20px;
+        width: map.get($moi-icon-sizes, md);
+        height: map.get($moi-icon-sizes, md);
         fill: $white-100;
       }
     }

@@ -1112,9 +1112,9 @@ border colors */
     border-color: $Lavender-950 !important;
 }
 
-.border-Lavender-25 {
-    border-color: $Lavender-25 !important;
-}
+// .border-Lavender-25 is already defined above (line ~1067) with an
+// identical declaration (border-color: $Lavender-25 !important). This was
+// a byte-identical duplicate; removed as dead code, zero visual change.
 
 .border-Primary-50 {
     border-color: $Primary-50 !important;
@@ -1517,9 +1517,12 @@ border colors */
 
 
 
-.radius-none {
-    border-radius: $radius-none;
-}
+// .radius-none is already defined above (line ~1355) with `!important`,
+// which always wins the cascade over this non-important duplicate
+// regardless of source order — this second definition was fully inert.
+// Removed as dead code; the live rule (with !important, still required
+// since some consumers pair .radius-none with components that also use
+// !important for border-radius) is unchanged.
 
 .radius-xxs {
     border-radius: $radius-xxs;

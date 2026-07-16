@@ -1,65 +1,64 @@
-
-@use '../helpers' as *;
+@use "sass:map";
+@use "../helpers" as *;
 .nav-tabs {
-    --bs-nav-tabs-border-color: transparent;
+  --bs-nav-tabs-border-color: transparent;
 
-    .nav-item {
-        margin: 5px 5px 0;
-    }
+  .nav-item {
+    margin: $margin-md $margin-md 0;
+  }
 }
 
 nav {
-    padding-right: $padding-20;
+  padding-right: $padding-xl;
 }
 
 .nav-link {
-    background: $Neutral-100 !important;
-    color: $Neutral-800 !important;
-    border: none !important;
-    border-radius: 6px 6px 0 0 !important;
-    display: flex;
-    align-items: center;
-    position: relative;
-    gap: $gap-8;
-    padding: 12px !important;
-    cursor: pointer !important;
-    border-bottom: 0 !important;
-    display: flex;
-    flex-direction: row !important;
-    align-items: center;
-    cursor: pointer;
-    @include boldfont-16;
+  background: $Neutral-100 !important;
+  color: $Neutral-800 !important;
+  border: none !important;
+  border-radius: $radius-lg $radius-lg $Radius-none $Radius-none !important;
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: $gap-lg;
+  padding: $padding-lg !important;
+  cursor: pointer !important;
+  border-bottom: 0 !important;
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  cursor: pointer;
+  @include boldfont-16;
 
-    .new-total {
-        background: $Neutral-25 !important;
-        color: $Neutral-900 !important;
-        padding: $padding-2;
-        border-radius: $Radius-100;
-        min-width: 50px;
-    }
+  .new-total {
+    background: $Neutral-25 !important;
+    color: $Neutral-900 !important;
+    padding: $padding-sm;
+    border-radius: $Radius-100;
+    min-width: 50px;
+  }
 
-    svg {
-        width: 24px;
-        height: 24px;
-        fill: $Neutral-900;
-    }
+  svg {
+    width: map.get($moi-icon-sizes, lg);
+    height: map.get($moi-icon-sizes, lg);
+    fill: $Neutral-900;
+  }
 }
 
-    .nav-link.active {
-        background: $Primary-800 !important;
-        color: $white-100 !important;
+.nav-link.active {
+  background: $Primary-800 !important;
+  color: $white-100 !important;
 
-        .new-total {
-            background: rgb(255 255 255 / 36%) !important;
-            color: $white-100 !important;
-        }
+  .new-total {
+    background: rgb(255 255 255 / 36%) !important;
+    color: $white-100 !important;
+  }
 
-        svg {
-            fill: $white-100 !important;
-        }
+  svg {
+    fill: $white-100 !important;
+  }
 
-
-     /*   &::after {
+  /*   &::after {
             content: "";
             display: block;
             opacity: 1;
@@ -77,30 +76,26 @@ nav {
             -o-border-radius: $Radius-100;
             background: $Neutral-25;
         }*/
-    }
-
-
-.tab-content {
-    border: 1px solid #1b8354;
-    border-radius: $Radius-6;
-        -webkit-border-radius: $Radius-6;
-        -moz-border-radius: $Radius-6;
-        -ms-border-radius: $Radius-6;
-        -o-border-radius: $Radius-6;
-    padding: $padding-14;
-
 }
 
+.tab-content {
+  border: 1px solid #1b8354;
+  border-radius: $radius-lg;
+  -webkit-border-radius: $radius-lg;
+  -moz-border-radius: $radius-lg;
+  -ms-border-radius: $radius-lg;
+  -o-border-radius: $radius-lg;
+  padding: $padding-lg;
+  background: $white-100;
+}
 
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
-    background-color: var(--theme-primary) !important ;
-    border: 1px solid var(--theme-primary) !important ;
-    color: $white-100 !important;
+  background: $Primary-800 !important;
+  border: 1px solid $Primary-800 !important ;
+  color: $white-100 !important;
 }
 
-
-
 .nav-link:focus-visible {
-    box-shadow: 0 0 0 .25rem rgb(0 0 0 / 1%);
+  box-shadow: 0 0 0 0.25rem rgb(0 0 0 / 1%);
 }

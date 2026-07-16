@@ -1,4 +1,5 @@
 @use '../helpers' as *;
+@use "sass:map";
 .table__search {
     background: #fff;
     box-shadow: rgb(239 241 249) 0px 2px 4px 0px;
@@ -182,10 +183,13 @@
                 .moi-btn--text-icon {
                     cursor: pointer;
 
+                    // Icon Size Migration: 24px matched $moi-icon-sizes'
+                    // `lg` (1.5rem) exactly — swapped literal for the map
+                    // reference.
                     svg {
                         fill: $Neutral-900;
-                        width: 24px;
-                        height: 24px;
+                        width: map.get($moi-icon-sizes, lg);
+                        height: map.get($moi-icon-sizes, lg);
                     }
 
                     &:hover {
@@ -235,8 +239,11 @@
             font-weight: 600;
             cursor: pointer;
 
+            // Icon Size Migration: 24px height matched $moi-icon-sizes'
+            // `lg` (1.5rem) exactly — swapped literal for the map
+            // reference (width was not explicitly set, unchanged).
             img {
-                height: 24px;
+                height: map.get($moi-icon-sizes, lg);
             }
 
             &:hover {

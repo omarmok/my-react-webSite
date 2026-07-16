@@ -1,5 +1,25 @@
 @use "../_helpers" as *;
+@use "sass:map";
+
+// NOTE (Card internal-quality pass — read before touching this line):
+// This legacy `@import "../customclasses";` is REQUIRED and must not be
+// removed or replaced with `@use`. `_customClasses.scss` is also pulled in
+// globally via `css/main.scss`'s own `@use "./customClasses";`, which is
+// why removing this line looks tempting (it appears to just double-compile
+// `_customClasses.scss`). It was tested in an isolated sandbox copy of this
+// project: removing this `@import` makes the `@extend .bg-Neutral-50;` call
+// below (in `&__content--block`) fail to compile with
+// "The target selector was not found." Dart Sass's `@extend` only resolves
+// against selectors visible to the file doing the extending, and this file
+// never `@use`s `customClasses` itself — only this `@import` makes
+// `.bg-Neutral-50` / `.border-Neutral-100` / `.radius-sm` / `.padding-md`
+// extendable from here. Do not remove without also restructuring the
+// `@extend` calls below (a separate, Owner-approval-gated change).
 @import "../customclasses";
+
+// =========================================================================
+// Root
+// =========================================================================
 .moi-card {
     min-width: 0;
     display: flex;
@@ -10,6 +30,17 @@
     border-radius: $radius-md;
     box-shadow: $shadow-md;
 
+    // ---------------------------------------------------------------------
+    // Status Variants (create / edit / details)
+    // Each variant recolors the header background plus title/icon/detail-
+    // label text for its status. Values differ per variant (and "create"
+    // shares one color across title/icon/detail-label while "edit" and
+    // "details" use two), so the three blocks below are not safely
+    // mergeable without introducing a new combined selector into the
+    // compiled CSS — left as three separate blocks to keep compiled output
+    // byte-identical. `--legacy-*` modifier classes are kept as literal
+    // legacy aliases; do not remove.
+    // ---------------------------------------------------------------------
     &[data-status="create"],
     &--legacy-create {
         .moi-card__header {
@@ -55,6 +86,9 @@
         }
     }
 
+    // ---------------------------------------------------------------------
+    // Header
+    // ---------------------------------------------------------------------
     &__header {
         display: flex;
         align-items: center;
@@ -74,19 +108,36 @@
         padding: $padding-md;
     }
 
+    // Icon Size Migration (Design System Icon Size Migration pass):
+    // 24px matched css/helpers/_icons.scss's $moi-icon-sizes map exactly —
+    // `lg: 1.5rem` (documented there as "~24px", true at the browser's
+    // default 16px root font-size). Migrated to map.get($moi-icon-sizes,
+    // lg) so this component reads its icon size from the single shared
+    // source of truth instead of a re-typed literal, per explicit Owner
+    // instruction to consolidate icon sizing project-wide (this reverses
+    // the more conservative "leave unchanged" call from the earlier,
+    // narrower Card-only pass — see .ai/KNOWN_DECISIONS.md for the
+    // reasoning behind the change). Caveat kept on record: since the token
+    // is `rem`-based, the icon will now scale with the user's root
+    // font-size/browser zoom, whereas the old literal `24px` did not —
+    // visually identical at default settings, per the Owner's "effectively
+    // identical" acceptance bar for this migration. The wrapper and its
+    // inner <svg> still each need their own explicit width/height (not
+    // safely mergeable via `width: inherit` without changing the declared
+    // value).
     &__icon {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         flex: 0 0 auto;
-        width: 24px;
-        height: 24px;
+        width: map.get($moi-icon-sizes, lg);
+        height: map.get($moi-icon-sizes, lg);
         line-height: 0;
 
         svg {
             display: block;
-            width: 24px;
-            height: 24px;
+            width: map.get($moi-icon-sizes, lg);
+            height: map.get($moi-icon-sizes, lg);
         }
 
         path {
@@ -103,6 +154,9 @@
         margin: 0;
     }
 
+    // ---------------------------------------------------------------------
+    // Body
+    // ---------------------------------------------------------------------
     &__body {
         display: flex;
         flex-direction: column;
@@ -110,6 +164,9 @@
         min-width: 0;
     }
 
+    // ---------------------------------------------------------------------
+    // Content
+    // ---------------------------------------------------------------------
     &__content {
         display: flex;
         flex-wrap: wrap;
@@ -118,6 +175,13 @@
         min-width: 0;
 
         &--block {
+            // These 4 @extend calls are intentional and confirmed safe:
+            // .bg-Neutral-50 / .border-Neutral-100 (css/_customClasses.scss)
+            // and .radius-sm / .padding-md (css/helpers/_spacing.scss,
+            // _variables.scss) are real, existing utility classes, not
+            // placeholders. Do not remove — see the `@import` note at the
+            // top of this file for why they can only resolve here because
+            // of that import.
             @extend .bg-Neutral-50;
             @extend .border-Neutral-100;
             @extend .radius-sm;
@@ -126,6 +190,12 @@
             flex-direction: column;
             width: 100%;
 
+            // `label`/`span` are bare element selectors rather than
+            // component-specific classes (e.g. `.moi-card__content-label`).
+            // Replacing them would require an HTML markup change, which is
+            // out of scope for an internal-quality-only pass — recorded as
+            // a Needs Owner Approval recommendation in
+            // .ai/IMPROVEMENT_BACKLOG.md instead of changed here.
             label {
                 color: $Primary-600;
             }
@@ -141,8 +211,9 @@
         }
     }
 
-
-
+    // ---------------------------------------------------------------------
+    // Actions
+    // ---------------------------------------------------------------------
     &__actions {
         display: flex;
         flex: 1 0 100%;
@@ -160,6 +231,9 @@
         opacity: 1;
     }
 
+    // ---------------------------------------------------------------------
+    // Footer
+    // ---------------------------------------------------------------------
     &__footer {
         display: flex;
         align-items: center;
@@ -169,6 +243,9 @@
         padding: $padding-md;
     }
 
+    // ---------------------------------------------------------------------
+    // Details
+    // ---------------------------------------------------------------------
     &__details {
         display: flex;
         flex-wrap: wrap;
@@ -179,6 +256,8 @@
         padding: $padding-sm;
     }
 
+    // min-height: 120px has no matching Design Token (spacing/gap/radius
+    // scales don't reach this value) — kept literal, not approximated.
     &__detail-item {
         display: flex;
         flex-direction: column;
@@ -202,6 +281,12 @@
         background-color: $Neutral-100;
     }
 
+    // ---------------------------------------------------------------------
+    // Responsive
+    // 991.98px / 767.98px are standard Bootstrap lg/md breakpoints, used
+    // literally elsewhere throughout the project — no breakpoint token
+    // exists in css/helpers/_variables.scss, so these are kept as-is.
+    // ---------------------------------------------------------------------
     @media (max-width: 991.98px) {
         &__detail-column {
             width: 50%;

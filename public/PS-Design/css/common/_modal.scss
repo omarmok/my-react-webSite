@@ -1,6 +1,10 @@
 @use '../helpers' as *;
+@use "sass:map";
 $modal-z-index: 99999 !default;
-$modal-close-size: 1rem !default;
+// Icon Size Migration: 1rem was already exactly equal to $moi-icon-sizes'
+// `sm` token — swapped the literal for the map reference (zero-risk: same
+// unit, same compiled value, same !default overridability).
+$modal-close-size: map.get($moi-icon-sizes, sm) !default;
 $modal-info-header-bg: $Info-50 !default;
 $modal-info-header-color: $Info-600 !default;
 $modal-danger-header-bg: $Error-500 !default;

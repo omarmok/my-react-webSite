@@ -1,5 +1,6 @@
 @use "../_helpers" as *;
 @use "../common/buttons" as buttons;
+@use "sass:map";
 
 @keyframes moi-file-uploader-fade-up {
   from {
@@ -583,13 +584,16 @@
   }
 
   &__modal-icon {
+    // 36px badge wrapper has no $moi-icon-sizes match — left unchanged.
     width: 36px;
     height: 36px;
     border-radius: $radius-md;
 
+    // Icon Size Migration: 16px matches $moi-icon-sizes' `sm` (1rem)
+    // exactly at default root font-size.
     svg {
-      width: 16px;
-      height: 16px;
+      width: map.get($moi-icon-sizes, sm);
+      height: map.get($moi-icon-sizes, sm);
     }
   }
 

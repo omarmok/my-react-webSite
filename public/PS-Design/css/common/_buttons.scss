@@ -410,6 +410,40 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
             background: $Error-200;
         }
     }
+    // Text (ported from legacy css/common/_oldButtons.scss so the documented
+    // .moi-btn--text example is served by the current button architecture.
+    // Values kept identical to the legacy rule to preserve current visual
+    // output; #000 and 5px have no exact matching token so they are kept
+    // literal rather than approximated. Disabled/aria-disabled handling is
+    // inherited from moi-focus-ring above, same as every other variant.
+    &--text {
+        background: transparent;
+        border: none;
+        color: #000;
+        padding: 0;
+        height: auto;
+
+        svg {
+            margin-left: 5px;
+
+            path {
+                stroke: currentColor !important;
+            }
+        }
+
+        &:hover:not(:disabled):not([aria-disabled="true"]) {
+            background: transparent;
+            opacity: 0.8;
+        }
+
+        &:active:not(:disabled):not([aria-disabled="true"]) {
+            opacity: 0.7;
+        }
+
+        &:focus-visible {
+            outline-color: currentColor;
+        }
+    }
 }
 
 /* =========================
