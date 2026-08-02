@@ -44,7 +44,7 @@
 }
 
 .success-icon {
-  background: #fff;
+  background: $white-100;
   padding: 30px;
   border-radius: 50%;
   box-shadow: #efefef 0 3px 15px 4px;
@@ -59,7 +59,7 @@
   padding: $padding-14;
   border-radius: 10px;
   margin: 5px;
-  background: #fafbff;
+  // background: #fafbff;
   width: 100%;
   border: 1px solid #e6e6e6;
 }

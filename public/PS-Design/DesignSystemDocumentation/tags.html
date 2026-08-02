@@ -9,7 +9,6 @@
   <link href="../css/animate.css" rel="stylesheet" />
   <link href="../css/font-awesome.min.css" rel="stylesheet" />
   <link href="../css/main.css" rel="stylesheet" />
-  <link href="./css/top-actions.css" rel="stylesheet" />
   <style>
     :root {
       --page-max: 1100px;
@@ -605,10 +604,11 @@
       overflow: auto;
     }
   </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
 </head>
 
 <body>
-  <main class="container page-layout">
+  <main class="docs-shell container page-layout">
     <aside class="docs-sidebar">
       <div class="sidebar-card">
         <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
@@ -668,7 +668,7 @@
           <span class="moi-tag" data-size="md" data-status="highpriority">
             <span class="moi-label">High Priority</span>
           </span>
-          <span class="moi-tag" data-size="md" data-status="underprogress">
+          <span class="moi-tag" data-size="md" data-status="UnderProgress">
             <span class="icon icon-md">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path
@@ -681,7 +681,7 @@
           <span class="moi-tag" data-size="md" data-variant="filled" data-status="regpriority">
             <span class="moi-label">Filled</span>
           </span>
-          <span class="moi-tag" data-size="md" data-shape="rounded" data-status="returned">
+          <span class="moi-tag" data-size="md" data-shape="rounded" data-status="Returned">
             <span class="moi-label">Rounded</span>
           </span>
         </div>
@@ -695,9 +695,9 @@
           الإصدار: قيد التحديث
         </span>
 
-        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 28 يناير 2026"
-          data-en="Last updated: January 28, 2026">
-          آخر تحديث: 28 يناير 2026
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 2 أغسطس 2026"
+          data-en="Last updated: August 2, 2026">
+          آخر تحديث: 2 أغسطس 2026
         </span>
       </div>
 
@@ -715,7 +715,7 @@
             </div>
 
             <button class="btn moi-btn--Info" type="button"
-              data-copy="defualtprioroty&#10;highpriority&#10;mediumpriority&#10;regpriority&#10;infoprioroty&#10;primaryprioroty&#10;underprogress&#10;returned"
+              data-copy="defualtprioroty&#10;highpriority&#10;mediumpriority&#10;regpriority&#10;infoprioroty&#10;primaryprioroty&#10;UnderProgress&#10;Returned"
               data-copy-success="Copied all status values" data-copy-success-ar="تم نسخ جميع قيم الحالة" data-i18n
               data-ar="نسخ جميع قيم الحالة" data-en="Copy all status values">
               Copy all status values
@@ -741,11 +741,11 @@
             <span class="moi-tag" data-size="sm" data-status="primaryprioroty">
               <span class="moi-label">primaryprioroty</span>
             </span>
-            <span class="moi-tag" data-size="sm" data-status="underprogress">
-              <span class="moi-label">underprogress</span>
+            <span class="moi-tag" data-size="sm" data-status="UnderProgress">
+              <span class="moi-label">UnderProgress</span>
             </span>
-            <span class="moi-tag" data-size="sm" data-status="returned">
-              <span class="moi-label">returned</span>
+            <span class="moi-tag" data-size="sm" data-status="Returned">
+              <span class="moi-label">Returned</span>
             </span>
           </div>
         </div>
@@ -853,9 +853,9 @@
               <span class="moi-tag" data-size="md" data-status="infoprioroty"><span class="moi-label">Info</span></span>
               <span class="moi-tag" data-size="md" data-status="primaryprioroty"><span
                   class="moi-label">Primary</span></span>
-              <span class="moi-tag" data-size="md" data-status="underprogress"><span
-                  class="moi-label">underprogress</span></span>
-              <span class="moi-tag" data-size="md" data-status="returned"><span class="moi-label">returned</span></span>
+              <span class="moi-tag" data-size="md" data-status="UnderProgress"><span
+                  class="moi-label">UnderProgress</span></span>
+              <span class="moi-tag" data-size="md" data-status="Returned"><span class="moi-label">Returned</span></span>
             </div>
             <div class="code-block">
               <pre><code class="language-html" data-code-template="tag-example-statuses"></code></pre>
@@ -893,7 +893,7 @@
               <h3 class="section-title" data-i18n data-ar="مستدير" data-en="Rounded">Rounded</h3>
               <p class="section-note" data-i18n
                 data-ar="استخدم <code>data-shape=&quot;rounded&quot;</code> لشكل كبسولة.">
-                Use <code>data-shape="rounded"</code> for a pill shape.
+                Use <code>data-shape="rounded"</code> for a rounded-corner shape.
               </p>
             </div>
             <button class="btn moi-btn--Info" type="button" data-copy-template="tag-example-rounded" data-i18n
@@ -1054,9 +1054,9 @@
           <span class="moi-tag" data-size="md" data-status="regpriority"><span class="moi-label">Regular</span></span>
           <span class="moi-tag" data-size="md" data-status="infoprioroty"><span class="moi-label">Info</span></span>
           <span class="moi-tag" data-size="md" data-status="primaryprioroty"><span class="moi-label">Primary</span></span>
-          <span class="moi-tag" data-size="md" data-status="underprogress"><span
-              class="moi-label">underprogress</span></span>
-          <span class="moi-tag" data-size="md" data-status="returned"><span class="moi-label">returned</span></span>
+          <span class="moi-tag" data-size="md" data-status="UnderProgress"><span
+              class="moi-label">UnderProgress</span></span>
+          <span class="moi-tag" data-size="md" data-status="Returned"><span class="moi-label">Returned</span></span>
         </template>
 
         <template id="tag-example-filled">
@@ -1140,9 +1140,9 @@
             <span class="moi-tag" data-size="md" data-status="infoprioroty"><span class="moi-label">Info</span></span>
             <span class="moi-tag" data-size="md" data-status="primaryprioroty"><span
                 class="moi-label">Primary</span></span>
-            <span class="moi-tag" data-size="md" data-status="underprogress"><span
-                class="moi-label">underprogress</span></span>
-            <span class="moi-tag" data-size="md" data-status="returned"><span class="moi-label">returned</span></span>
+            <span class="moi-tag" data-size="md" data-status="UnderProgress"><span
+                class="moi-label">UnderProgress</span></span>
+            <span class="moi-tag" data-size="md" data-status="Returned"><span class="moi-label">Returned</span></span>
           </div>
 
           <div>
@@ -1202,7 +1202,7 @@
         </template>
 
         <template id="tag-example-inquiry-view">
-          <span class="moi-tag" data-size="md" data-status="underprogress" role="status">
+          <span class="moi-tag" data-size="md" data-status="UnderProgress" role="status">
             <span class="moi-label">In review</span>
           </span>
         </template>
@@ -1470,9 +1470,9 @@
               </tr>
               <tr>
                 <td data-i18n="" data-ar="قيد المراجعة" data-en="In Review">قيد المراجعة</td>
-                <td><code class="code-inline">underprogress</code></td>
+                <td><code class="code-inline">UnderProgress</code></td>
                 <td>
-                  <span class="moi-tag" data-size="md" data-status="underprogress"><span class="moi-label" data-i18n
+                  <span class="moi-tag" data-size="md" data-status="UnderProgress"><span class="moi-label" data-i18n
                       data-ar="قيد المراجعة" data-en="In Review">In Review</span></span>
                   <p class="section-note mt-1 mb-0" data-i18n data-ar="العناصر الجارية معالجتها أو مراجعتها."
                     data-en="Items currently being processed or reviewed.">Items currently being processed or reviewed.
@@ -1481,9 +1481,9 @@
               </tr>
               <tr>
                 <td data-i18n="" data-ar="مُعاد / إعادة عمل" data-en="Returned / Rework">مُعاد / إعادة عمل</td>
-                <td><code class="code-inline">returned</code></td>
+                <td><code class="code-inline">Returned</code></td>
                 <td>
-                  <span class="moi-tag" data-size="md" data-status="returned"><span class="moi-label" data-i18n
+                  <span class="moi-tag" data-size="md" data-status="Returned"><span class="moi-label" data-i18n
                       data-ar="مُعاد" data-en="Returned">Returned</span></span>
                   <p class="section-note mt-1 mb-0" data-i18n data-ar="العناصر المُعادة للتعديل أو المراجعة."
                     data-en="Items returned for revision or rework.">Items returned for revision or rework.</p>
@@ -1569,7 +1569,7 @@
                     data-i18n data-ar="عادي ممتلئ" data-en="Regular filled">Regular filled</span></span>
                 <span class="moi-tag" data-size="md" data-variant="filled" data-status="infoprioroty"><span class="moi-label"
                     data-i18n data-ar="معلومة ممتلئ" data-en="Info filled">Info filled</span></span>
-                <span class="moi-tag" data-size="md" data-variant="filled" data-status="underprogress"><span class="moi-label"
+                <span class="moi-tag" data-size="md" data-variant="filled" data-status="UnderProgress"><span class="moi-label"
                     data-i18n data-ar="قيد المراجعة ممتلئ" data-en="In review filled">In review filled</span></span>
               </div>
             </div>
@@ -1587,7 +1587,7 @@
                     data-i18n data-ar="محايد مستدير" data-en="Neutral rounded">Neutral rounded</span></span>
                 <span class="moi-tag" data-size="md" data-shape="rounded" data-status="primaryprioroty"><span class="moi-label"
                     data-i18n data-ar="أساسي مستدير" data-en="Primary rounded">Primary rounded</span></span>
-                <span class="moi-tag" data-size="md" data-shape="rounded" data-status="returned"><span class="moi-label"
+                <span class="moi-tag" data-size="md" data-shape="rounded" data-status="Returned"><span class="moi-label"
                     data-i18n data-ar="مُعاد مستدير" data-en="Returned rounded">Returned rounded</span></span>
               </div>
             </div>
@@ -1651,10 +1651,10 @@
                        ><span class="moi-label">infoprioroty</span></span>
                       <span class="moi-tag" data-size="sm" data-variant="filled" data-status="defualtprioroty"
                        ><span class="moi-label">defualtprioroty</span></span>
-                      <span class="moi-tag" data-size="sm" data-variant="filled" data-status="underprogress"
-                       ><span class="moi-label">underprogress</span></span>
-                      <span class="moi-tag" data-size="sm" data-variant="filled" data-status="returned"
-                       ><span class="moi-label">returned</span></span>
+                      <span class="moi-tag" data-size="sm" data-variant="filled" data-status="UnderProgress"
+                       ><span class="moi-label">UnderProgress</span></span>
+                      <span class="moi-tag" data-size="sm" data-variant="filled" data-status="Returned"
+                       ><span class="moi-label">Returned</span></span>
                     </div>
                   </td>
                 </tr>
@@ -1679,10 +1679,10 @@
                        ><span class="moi-label">defualtprioroty</span></span>
                       <span class="moi-tag" data-size="sm" data-shape="rounded" data-status="primaryprioroty"
                        ><span class="moi-label">primaryprioroty</span></span>
-                      <span class="moi-tag" data-size="sm" data-shape="rounded" data-status="underprogress"
-                       ><span class="moi-label">underprogress</span></span>
-                      <span class="moi-tag" data-size="sm" data-shape="rounded" data-status="returned"
-                       ><span class="moi-label">returned</span></span>
+                      <span class="moi-tag" data-size="sm" data-shape="rounded" data-status="UnderProgress"
+                       ><span class="moi-label">UnderProgress</span></span>
+                      <span class="moi-tag" data-size="sm" data-shape="rounded" data-status="Returned"
+                       ><span class="moi-label">Returned</span></span>
                     </div>
                   </td>
                 </tr>
@@ -1835,10 +1835,10 @@
               </div>
               <div class="example-split">
                 <div class="example-preview">
-                  <span class="moi-tag" data-size="md" data-status="underprogress" role="status">
+                  <span class="moi-tag" data-size="md" data-status="UnderProgress" role="status">
                     <span class="moi-label" data-i18n data-ar="قيد المراجعة" data-en="In review">In review</span>
                   </span>
-                  <span class="moi-tag" data-size="md" data-shape="rounded" data-status="returned" role="status">
+                  <span class="moi-tag" data-size="md" data-shape="rounded" data-status="Returned" role="status">
                     <span class="moi-label" data-i18n data-ar="مُعاد" data-en="Returned">Returned</span>
                   </span>
                 </div>
@@ -2030,9 +2030,9 @@
                 instruction sentence or long explanation.
               </li>
               <li data-i18n
-                data-ar="<strong>لا تعرض الأكواد التقنية:</strong> لا تُظهر قيمًا مثل <code>underprogress</code> أو <code>highpriority</code> للمستخدم النهائي."
-                data-en="<strong>Do not show technical codes:</strong> Never expose values such as <code>underprogress</code> or <code>highpriority</code> to end users.">
-                <strong>Do not show technical codes:</strong> Never expose values such as <code>underprogress</code> or
+                data-ar="<strong>لا تعرض الأكواد التقنية:</strong> لا تُظهر قيمًا مثل <code>UnderProgress</code> أو <code>highpriority</code> للمستخدم النهائي."
+                data-en="<strong>Do not show technical codes:</strong> Never expose values such as <code>UnderProgress</code> or <code>highpriority</code> to end users.">
+                <strong>Do not show technical codes:</strong> Never expose values such as <code>UnderProgress</code> or
                 <code>highpriority</code> to end users.
               </li>
               <li data-i18n
@@ -2084,7 +2084,7 @@
                       The legacy <code>data-status</code> value used only for implementation, integration, and mapping
                       logic.
                     </td>
-                    <td><code>underprogress</code></td>
+                    <td><code>UnderProgress</code></td>
                   </tr>
                 </tbody>
               </table>
@@ -2327,7 +2327,7 @@
           </p>
           <div class="code-block">
             <pre><code class="language-html">&lt;!-- Interactive tag with icon and close button --&gt;
-&lt;span class="moi-tag" data-size="md" data-status="underprogress"&gt;
+&lt;span class="moi-tag" data-size="md" data-status="UnderProgress"&gt;
   &lt;span class="moi-label"&gt;In review&lt;/span&gt;
   &lt;button class="tag-close" type="button" aria-label="Remove tag"&gt;
     &lt;span class="icon icon-md"&gt;&lt;svg viewBox="0 0 24 24" aria-hidden="true"&gt;...&lt;/svg&gt;&lt;/span&gt;
@@ -2465,14 +2465,14 @@
                   Highlighted or brand-aligned items.</td>
               </tr>
               <tr>
-                <td data-copy="underprogress"><code class="code-inline">underprogress</code></td>
+                <td data-copy="UnderProgress"><code class="code-inline">UnderProgress</code></td>
                 <td data-i18n data-ar="قيد المراجعة" data-en="Under progress / in review">Under progress / in review
                 </td>
                 <td data-i18n data-ar="قيد المعالجة أو المراجعة." data-en="Being processed or reviewed.">
                   Being processed or reviewed.</td>
               </tr>
               <tr>
-                <td data-copy="returned"><code class="code-inline">returned</code></td>
+                <td data-copy="Returned"><code class="code-inline">Returned</code></td>
                 <td data-i18n data-ar="مُعاد" data-en="Returned / rework">Returned / rework</td>
                 <td data-i18n data-ar="أعيد للتعديل أو إعادة العمل." data-en="Sent back for revision or rework.">
                   Sent back for revision or rework.</td>
@@ -2510,7 +2510,7 @@
                 <td data-i18n data-ar="مستدير" data-en="Rounded">Rounded</td>
                 <td data-copy='data-shape="rounded" + data-status'><code class="code-inline">data-shape="rounded"</code> +
                   <code class="code-inline">data-status</code></td>
-                <td data-i18n data-ar="شكل كبسولة كامل." data-en="Capsule/pill shape.">Capsule/pill shape.</td>
+                <td data-i18n data-ar="زوايا مستديرة بدل الشكل الكبسولي الكامل." data-en="Rounded corners instead of the full pill shape.">Rounded corners instead of the full pill shape.</td>
               </tr>
               <tr>
                 <td data-i18n data-ar="ممتلئ + مستدير" data-en="Filled + Rounded">Filled + Rounded</td>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabs | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .sidebar-nav a.is-active {
+      background: #111827;
+      border-color: #111827;
+      color: #f9fafb;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" class="is-active" data-i18n data-ar="التبويبات">Tabs</a>
+        </nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language">
+          <span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top">
+          <span data-i18n="" data-ar="أعلى" data-en="Top">Top</span>
+        </button>
+      </div>
+
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="المكونات / التبويبات">Components / Tabs</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="التبويبات">Tabs</h1>
+        <p class="text-muted mb-0" data-i18n
+          data-ar="التبويبات تعرض عدة أقسام محتوى ضمن نفس المساحة، مع إظهار قسم واحد في كل مرة. يوجد نمطان منفصلان في المشروع، كلاهما مبني فوق تبويبات Bootstrap الأصلية (nav-tabs وtab-content).">
+          Tabs display several content sections in the same space, showing one section at a time. The project has two
+          separate patterns, both layered on top of Bootstrap's native tabs
+          (<code class="code-inline">.nav-tabs</code> / <code class="code-inline">.tab-content</code>).</p>
+      </header>
+
+      <div class="metadata-row">
+        <span class="metadata-pill" data-i18n data-ar="المكوّن: التبويبات" data-en="Component: Tabs">
+          المكوّن: التبويبات
+        </span>
+        <span class="metadata-pill" data-i18n data-ar="الملفات: _tabs.scss, _tabsDesign.scss"
+          data-en="Files: _tabs.scss, _tabsDesign.scss">
+          الملفات: _tabs.scss, _tabsDesign.scss
+        </span>
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 16 يوليو 2026" data-en="Last updated: July 16, 2026">
+          آخر تحديث: 16 يوليو 2026
+        </span>
+      </div>
+
+      <section class="section" id="overview">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="الهدف / متى تستخدم">Purpose &amp; when to use</h2>
+          <p class="section-note" data-i18n
+            data-ar="اختر النمط المناسب حسب السياق: create__tabs لتبويبات دائرية بأيقونات (مثل خطوات إنشاء سجل)، وtabsDesign لتبويبات بطاقة مؤطرة بمحتوى نصي/جدولي.">
+            Choose the pattern that fits the context: <code class="code-inline">.create__tabs</code> for circular
+            icon-style tabs (e.g. record-creation steps), and <code class="code-inline">.tabsDesign</code> for a
+            bordered card-style tab panel with text/table content.</p>
+        </div>
+      </section>
+
+      <section class="section" id="anatomy">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2>
+
+          <h3 class="section-title mt-2" data-i18n data-ar="نمط 1: create__tabs">Pattern 1: .create__tabs</h3>
+          <p class="section-note" data-i18n
+            data-ar="تبويبات دائرية (80×80) بإطار متقطع، توضع فوق nav-tabs الأصلية من Bootstrap.">
+            Circular tabs (80×80) with a dashed border, layered on Bootstrap's native
+            <code class="code-inline">.nav-tabs</code>.</p>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="العنصر">Element</th>
+                <th data-i18n data-ar="الفئة">Class</th>
+                <th data-i18n data-ar="الوصف">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n data-ar="الجذر">Root</td>
+                <td><code class="code-inline">.create__tabs</code></td>
+                <td data-i18n data-ar="حاوية الجذر التي تُطبّق النمط الدائري على nav-tabs .nav-link الداخلية.">Root
+                  wrapper that applies the circular styling to the inner
+                  <code class="code-inline">.nav-tabs .nav-link</code>.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="الحالة النشطة">Active state</td>
+                <td><code class="code-inline">.nav-link.active</code></td>
+                <td data-i18n data-ar="خلفية وحدود مصمتة بدل المتقطعة عند التفعيل (فئة Bootstrap القياسية).">Solid
+                  background/border instead of dashed when active (standard Bootstrap class).</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="حالة التعطيل">Disabled state</td>
+                <td><code class="code-inline">.nav-link.disabled</code></td>
+                <td data-i18n data-ar="إطار متقطع بلون أفتح ومؤشر not-allowed (فئة Bootstrap القياسية).">Lighter
+                  dashed border and a not-allowed cursor (standard Bootstrap class).</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="نمط 2: tabsDesign">Pattern 2: .tabsDesign</h3>
+          <p class="section-note" data-i18n
+            data-ar="لوحة تبويبات مؤطرة بحدود ولون خلفية فاتح، توضع فوق nav وtab-content الأصليين من Bootstrap.">
+            A bordered tab panel with a light background, layered on Bootstrap's native
+            <code class="code-inline">nav</code> and <code class="code-inline">.tab-content</code>.</p>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="العنصر">Element</th>
+                <th data-i18n data-ar="الفئة">Class</th>
+                <th data-i18n data-ar="الوصف">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n data-ar="الجذر">Root</td>
+                <td><code class="code-inline">.tabsDesign</code></td>
+                <td data-i18n data-ar="الحاوية الجذرية.">Root wrapper.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="شريط التبويبات">Tab bar</td>
+                <td><code class="code-inline">.tabsDesign nav</code></td>
+                <td data-i18n data-ar="شريط التبويبات نفسه، بخلفية فاتحة.">The tab bar itself, with a light
+                  background.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="لوحة المحتوى">Content panel</td>
+                <td><code class="code-inline">.tab-content</code></td>
+                <td data-i18n data-ar="حاوية محتوى التبويب، بحدود ونصف قطر حواف.">Tab content container, with a
+                  border and rounded corners.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="اللوحة النشطة">Active pane</td>
+                <td><code class="code-inline">.tab-content &gt; .active</code></td>
+                <td data-i18n data-ar="اللوحة الظاهرة حاليًا؛ تُعرض كـ flex بخلفية بيضاء وظل خفيف.">The currently
+                  visible pane; displayed as flex with a white background and soft shadow.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="usage-rules">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="لا تخلط بين create__tabs وtabsDesign داخل نفس مجموعة التبويبات — كل نمط مستقل بصريًا وبنيويًا.">
+              Do not mix <code class="code-inline">.create__tabs</code> and <code class="code-inline">.tabsDesign</code>
+              within the same tab group — each pattern is visually and structurally independent.</li>
+            <li data-i18n data-ar="استخدم سلوك Bootstrap القياسي للتبويبات (data-bs-toggle=tab) للتبديل بين اللوحات؛ لا يوجد سلوك JavaScript خاص بهذين النمطين.">
+              Use standard Bootstrap tab behavior (<code class="code-inline">data-bs-toggle="tab"</code>) to switch
+              panes; neither pattern has its own custom JavaScript behavior.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="accessibility-guidance">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إرشادات إمكانية الوصول">Accessibility Guidance</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="اتبع بنية Bootstrap/ARIA القياسية للتبويبات: role=tablist على nav، role=tab على كل رابط، role=tabpanel على كل لوحة، وaria-selected للحالة النشطة.">
+              Follow standard Bootstrap/ARIA tab markup: <code class="code-inline">role="tablist"</code> on the nav,
+              <code class="code-inline">role="tab"</code> on each link, <code class="code-inline">role="tabpanel"</code>
+              on each pane, and <code class="code-inline">aria-selected</code> for the active state.</li>
+            <li data-i18n data-ar="لتبويبات create__tabs الدائرية بأيقونات، أضف aria-label أو نصًا مخفيًا لوصف كل تبويب لمستخدمي قارئ الشاشة.">
+              For the icon-only circular <code class="code-inline">.create__tabs</code>, add an
+              <code class="code-inline">aria-label</code> or visually-hidden text describing each tab for screen
+              reader users.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="developer-api">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="واجهة برمجة التطبيقات للمطورين (Developer API)">Developer API
+          </h2>
+          <p class="section-note" data-i18n
+            data-ar="أمثلة الشيفرة أدناه تعكس البنية الفعلية في _tabs.scss و_tabsDesign.scss.">The code samples below
+            reflect the real structure in <code class="code-inline">_tabs.scss</code> and
+            <code class="code-inline">_tabsDesign.scss</code>.</p>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="create__tabs">.create__tabs</h3>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;div class="create__tabs"&gt;
+  &lt;ul class="nav nav-tabs" role="tablist"&gt;
+    &lt;li class="nav-item" role="presentation"&gt;
+      &lt;button class="nav-link active" data-bs-toggle="tab" data-bs-target="#step1"
+        type="button" role="tab" aria-selected="true"&gt;
+        &lt;img src="icon-1.svg" alt="" /&gt;
+        &lt;span&gt;الخطوة 1&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/li&gt;
+    &lt;li class="nav-item" role="presentation"&gt;
+      &lt;button class="nav-link" data-bs-toggle="tab" data-bs-target="#step2"
+        type="button" role="tab" aria-selected="false"&gt;
+        &lt;img src="icon-2.svg" alt="" /&gt;
+        &lt;span&gt;الخطوة 2&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="tabsDesign">.tabsDesign</h3>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;div class="tabsDesign"&gt;
+  &lt;nav&gt;
+    &lt;div class="nav nav-tabs" role="tablist"&gt;
+      &lt;button class="nav-link active" data-bs-toggle="tab" data-bs-target="#overview"
+        type="button" role="tab" aria-selected="true"&gt;نظرة عامة&lt;/button&gt;
+      &lt;button class="nav-link" data-bs-toggle="tab" data-bs-target="#details"
+        type="button" role="tab" aria-selected="false"&gt;تفاصيل&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+  &lt;div class="tab-content"&gt;
+    &lt;div class="tab-pane active" id="overview" role="tabpanel"&gt;محتوى نظرة عامة&lt;/div&gt;
+    &lt;div class="tab-pane" id="details" role="tabpanel"&gt;محتوى التفاصيل&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

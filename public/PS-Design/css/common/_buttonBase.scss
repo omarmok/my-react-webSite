@@ -8,7 +8,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  // Autonomous Maintainer pass: 8px matched $gap-md exactly — reused the
+  // existing spacing token instead of the literal (zero-risk, same value).
+  gap: $gap-md;
 
 
   svg {

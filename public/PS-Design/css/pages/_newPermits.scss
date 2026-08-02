@@ -3,7 +3,7 @@
     &--inquiry {
         .nav-tabs {
             .nav-link {
-                background: #f3f0eb;
+                background: $table-th;
                 color: rgb(0, 0, 0);
                 border: none;
                 @include font-sm-500;
@@ -19,10 +19,10 @@
 
             .nav-link.active {
                 background: $green-100;
-                color: #fff;
+                color: $white-100;
 
                 svg {
-                    fill: #fff;
+                    fill: $white-100;
                 }
             }
         }
@@ -46,10 +46,10 @@
             display: flex;
             padding: 10px;
             flex-direction: column;
-            gap: 10px;
-            border-radius: 8px;
+            gap: $gap-10;
+            border-radius: $radius-md;
             border: 1px solid #d8e0e9;
-            /* box-shadow: 0px 0px 0px 0px #fff, 0px 0px 10px 0px rgb(213 213 227 / 40%);*/
+            /* box-shadow: 0px 0px 0px 0px $white-100, 0px 0px 10px 0px rgb(213 213 227 / 40%);*/
             background: white;
             width: 100%;
             margin: 0 auto;
@@ -63,17 +63,17 @@
             }
 
             &--top {
-                border-radius: 8px;
-                border: 1px solid #f3f0eb;
+                border-radius: $radius-md;
+                border: 1px solid $table-th;
                 background: rgba(248, 246, 242, 0.5);
-                padding: 4px;
+                padding: $padding-xs;
                 display: flex;
                 align-items: flex-start;
-                gap: 20px;
+                gap: $gap-20;
                 justify-content: space-between;
 
                 &__userImage {
-                    border-radius: 8px;
+                    border-radius: $radius-md;
                     border: 1px solid;
                     border-color: #1abc9c #1abc9c #cba983 #c3996b !important;
                     padding: 5px;
@@ -84,14 +84,14 @@
                         object-fit: cover;
                         width: 100%;
                         height: 100%;
-                        border-radius: 8px;
+                        border-radius: $radius-md;
                     }
                 }
 
                 &__basicData {
                     display: flex;
                     flex-direction: column;
-                    gap: 10px;
+                    gap: $gap-10;
                     justify-content: center;
 
                     .stutus {
@@ -101,7 +101,7 @@
                         padding: 10px;
                         justify-content: center;
                         align-items: center;
-                        gap: 10px;
+                        gap: $gap-10;
                         border-radius: 5px;
                         @include font-sm-500;
                         font-weight: bold !important;
@@ -113,7 +113,7 @@
                     }
 
                     .danger {
-                        color: #fff;
+                        color: $white-100;
                         background: #c31833;
                     }
 
@@ -191,7 +191,7 @@
                         margin: 5px;
                         color: $darkBlue;
                         font-weight: 600;
-                        border-radius: 6px;
+                        border-radius: $radius-sm;
                         border: 1px solid $darkBlue;
                         display: flex;
                         align-items: center;
@@ -209,7 +209,7 @@
                         border: 1px solid $green-100;
 
                         svg {
-                            fill: #fff;
+                            fill: $white-100;
                         }
                     }
                 }
@@ -265,7 +265,7 @@
             &--footer {
                 display: flex;
                 justify-content: space-between;
-                gap: 10px;
+                gap: $gap-10;
 
                 &__shortCutAction {
                     width: 100%;
@@ -273,8 +273,8 @@
                     padding: 10px;
                     flex-direction: column;
                     align-items: center;
-                    gap: 8px;
-                    border-radius: 8px;
+                    gap: $gap-8;
+                    border-radius: $radius-md;
                     border: 1px solid #cef6ed;
                     background: #f3fdfb;
                     text-decoration: none;
@@ -289,13 +289,13 @@
                         border-radius: 50%;
                         display: flex;
                         align-items: center;
-                        background: #fff;
-                        padding: 8px;
+                        background: $white-100;
+                        padding: $padding-md;
                     }
 
                     &:hover {
                         background: $green-100;
-                        color: #fff;
+                        color: $white-100;
                     }
                 }
             }
@@ -320,7 +320,7 @@
 
 .generalCasesStyle__cases__left--mainTabs .customtab {
     .nav-link {
-        color: #fff;
+        color: $white-100;
 
         .new-total {
             color: #000;
@@ -342,14 +342,14 @@
         position: relative;
         border-bottom: none;
         margin: 0 5px;
-        background: #F8F6F2;
-        padding: 12px;
+        background: $baige;
+        padding: $padding-lg;
         font-size: 10px;
         cursor: pointer;
         border-bottom: 0 !important;
 
         .new-total {
-            color: #fff;
+            color: $white-100;
             background: rgb(255 255 255 / 12%);
             margin: 0;
             margin-right: 5px;
@@ -364,7 +364,7 @@
         cursor: pointer;
 
         .new-total {
-            color: #ffffff !important;
+            color: $white-100 !important;
             background: #e78b2f;
         }
 
@@ -380,18 +380,18 @@
     cursor: pointer;
 
     .new-total {
-        color: #00367e;
+        color: $darkBlue;
     }
 }
 
 .generalCasesStyle__cases__left--mainTabs .nav-item .mediumpriority.active {
     background: #e78b2f !important;
-    color: #fff !important;
+    color: $white-100 !important;
     cursor: pointer;
 
     .new-total {
         background: #ffa953 !important;
-        color: #fff;
+        color: $white-100;
     }
 }
 
@@ -402,7 +402,7 @@
 
     .new-total {
         background: #000000 !important;
-        color: #fff;
+        color: $white-100;
     }
 }
 
@@ -414,7 +414,7 @@
 
     .new-total {
         background: #484848 !important;
-        color: #fff;
+        color: $white-100;
     }
 }
 
@@ -425,40 +425,40 @@
 
     .new-total {
         background: #0e8f76 !important;
-        color: #fff;
+        color: $white-100;
     }
 }
 
 .generalCasesStyle__cases__left--mainTabs .nav-item .green-100.active {
     background-color: #0d8f75 !important;
-    color: #ffffff;
+    color: $white-100;
     cursor: pointer;
 
     .new-total {
-        background: #fff !important;
+        background: $white-100 !important;
         color: #0e8f76;
     }
 }
 
 .generalCasesStyle__cases__left--mainTabs .nav-item .darkBlue {
     background-color: #eaf3ff !important;
-    color: #00367e;
+    color: $darkBlue;
     cursor: pointer;
 
     .new-total {
-        background: #00367e !important;
-        color: #fff;
+        background: $darkBlue !important;
+        color: $white-100;
     }
 }
 
 .generalCasesStyle__cases__left--mainTabs .nav-item .darkBlue.active {
-    background-color: #00367e !important;
-    color: #fff;
+    background-color: $darkBlue !important;
+    color: $white-100;
     cursor: pointer;
 
     .new-total {
         background: #dfedff !important;
-        color: #00367e;
+        color: $darkBlue;
     }
 }
 
@@ -468,12 +468,12 @@
 
 .new-personrecord {
     .newPermits--inquiryDs--card {
-        gap: 8px;
+        gap: $gap-8;
     }
 
     .newPermits--inquiryDs--card--top {
         padding: 5px;
-        gap: 8px;
+        gap: $gap-8;
     }
 
     .newPermits--inquiryDs--card--top__userImage {

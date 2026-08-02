@@ -1,183 +1,183 @@
 @use '../helpers' as *;
 .gap-10 {
-  gap: 10px;
+  gap: $gap-10;
 }
 
 .userauthentication {
-  h4 {
-    @include boldfont;
-    background: #f8f6f2;
-    padding: 10px;
-    display: inline-block;
-    margin: 0;
-    border-radius: 10px 10px 0 0;
-    color: $Brown-500;
-    margin-right: 10px;
-  }
+    h4 {
+        @include boldfont;
+        background: $Primary-50;
+        padding: 10px;
+        display: inline-block;
+        margin: 0;
+        border-radius: 10px 10px 0 0;
+        color: $Primary-700;
+        margin-right: 10px;
+    }
 
-  .personImage {
-    height: 60px !important;
-    width: 60px !important;
-    cursor: zoom-in;
-  }
+    .personImage {
+        height: 60px !important;
+        width: 60px !important;
+        cursor: zoom-in;
+    }
 
-  .zoomimage {
-    background: #ffffff;
-    right: 5%;
-    top: 50%;
-  }
+    .zoomimage {
+        background: $white-100;
+        right: 5%;
+        top: 50%;
+    }
 
-  .gap-10 {
-    gap: 10px;
-  }
+    .gap-10 {
+        gap: $gap-10;
+    }
 
-  &--userblock {
-    width: 32.5%;
-    background: #fff;
-    gap: 10px;
-    display: flex;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0 0 68px 0 rgba(174, 175, 175, 0.17);
-    border-radius: 10px;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #e7dfdc;
-
-    &--personalDetails {
-      display: flex;
-      gap: 0 !important;
-
-      &__photo {
-        margin-left: 10px;
-      }
-
-      &__name {
-        @include meduimfont;
-      }
-
-      &__id {
-        @include meduimfont;
-        color: #929191;
-      }
-
-      &__role {
-        @include smallfont;
-        padding: 5px 10px;
-        background: #f8f6f2;
+    &--userblock {
+        width: 32.5%;
+        background: $white-100;
+        gap: $gap-10;
         display: flex;
-        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 10px;
         align-items: center;
-        justify-content: center;
-        line-height: 1.3;
-        width: fit-content;
-        color: $Brown-500;
-      }
+        justify-content: space-between;
+        border: 1px solid $Neutral-100;
+        box-shadow: $shadow-sm;
+
+        &--personalDetails {
+            display: flex;
+            gap: 0 !important;
+
+            &__photo {
+                margin-left: 10px;
+            }
+
+            &__name {
+                @include meduimfont;
+            }
+
+            &__id {
+                @include meduimfont;
+                color: #929191;
+            }
+
+            &__role {
+                @include smallfont;
+                padding: 5px 10px;
+                background: $baige;
+                display: flex;
+                border-radius: $radius-xs;
+                align-items: center;
+                justify-content: center;
+                line-height: 1.3;
+                width: fit-content;
+                color: $Brown-500;
+            }
+        }
+
+        &--actions {
+            display: flex;
+            gap: $gap-10;
+        }
     }
 
-    &--actions {
-      display: flex;
-      gap: 10px;
-    }
-  }
+    .userauthenticAtionactionBg {
+        background: transparent;
+        border: 1px solid $white-100;
+        @include smallfont;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 10px;
+        border-radius: $radius-sm;
+        flex-direction: column;
+        /*width: 140px;*/
+        /*   height: 80px;*/
+        position: relative;
+        overflow: hidden;
 
-  .userauthenticAtionactionBg {
-    background: transparent;
-    border: 1px solid #fff;
-    @include smallfont;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 10px;
-    border-radius: 6px;
-    flex-direction: column;
-    /*width: 140px;*/
-    /*   height: 80px;*/
-    position: relative;
-    overflow: hidden;
+        img {
+            height: 24px;
+        }
 
-    img {
-      height: 24px;
-    }
+        &:hover {
+            background: $Primary-500;
 
-    &:hover {
-      background: $Primary-500;
+            img {
+                filter: brightness(0) invert(1);
+            }
 
-      img {
-        filter: brightness(0) invert(1);
-      }
+            span {
+                color: $white-100;
+            }
+        }
 
-      span {
-        color: #fff;
-      }
-    }
+        .file-button {
+            height: 80px;
+            width: 140px;
+            position: absolute;
+            cursor: pointer;
+            top: 0;
 
-    .file-button {
-      height: 80px;
-      width: 140px;
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-
-      img {
-        position: absolute;
-        right: 38%;
-        top: 20%;
-      }
-    }
-  }
-
-  .userauthenticAtionactionDisabeld {
-    @extend .userauthenticAtionactionBg;
-    background: transparent;
-    cursor: not-allowed;
-
-    img {
-      opacity: 0.3;
+            img {
+                position: absolute;
+                right: 38%;
+                top: 20%;
+            }
+        }
     }
 
-    span {
-      color: #d1d9e1;
+    .userauthenticAtionactionDisabeld {
+        @extend .userauthenticAtionactionBg;
+        background: transparent;
+        cursor: not-allowed;
+
+        img {
+            opacity: 0.3;
+        }
+
+        span {
+            color: #d1d9e1;
+        }
+
+        &:hover {
+            background: #f8f9fa;
+            cursor: not-allowed;
+
+            img {
+                opacity: 0.3;
+                filter: brightness(0) invert(0);
+            }
+
+            span {
+                color: #d1d9e1;
+            }
+        }
     }
 
-    &:hover {
-      background: #f8f9fa;
-      cursor: not-allowed;
+    .userauthenticAtionactionsuccess {
+        @extend .userauthenticAtionactionBg;
+        background: transparent;
 
-      img {
-        opacity: 0.3;
-        filter: brightness(0) invert(0);
-      }
+        &:hover {
+            background: transparent;
 
-      span {
-        color: #d1d9e1;
-      }
+            img {
+                filter: none;
+            }
+
+            span {
+                color: #000;
+            }
+        }
     }
-  }
-
-  .userauthenticAtionactionsuccess {
-    @extend .userauthenticAtionactionBg;
-    background: transparent;
-
-    &:hover {
-      background: transparent;
-
-      img {
-        filter: none;
-      }
-
-      span {
-        color: #000;
-      }
-    }
-  }
 }
 
 .personauth {
   background: rgb(242 255 252);
   box-shadow: none;
   border: 1px solid rgb(221 246 240);
-  margin-bottom: 20px;
+  margin-bottom: $margin-2xl;
 
   .userauthenticAtionactionBg {
     background: transparent;
@@ -185,7 +185,7 @@
   }
 
   .userauthentication--userblock--personalDetails__role {
-    color: #ffffff;
+    color: $white-100;
     background: #0d8f75;
   }
 
@@ -196,7 +196,7 @@
 
 .personinline {
   display: flex;
-  gap: 10px;
+  gap: $gap-10;
 
   .mt-3 {
     width: 100%;

@@ -5,7 +5,7 @@
 
 .volitionConfiguration {
   &__card {
-    background: #fff;
+    background: $white-100;
     box-shadow: $shadow-100;
     margin: 15px;
     border-radius: 5px;
@@ -14,15 +14,15 @@
     flex-direction: column;
     padding: $padding-14;
     margin-bottom: 30px;
-    gap: 20px;
+    gap: $gap-20;
     height: 470px;
 
     &__top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #f8f6f2;
-      padding: 16px;
+      background: $baige;
+      padding: $padding-xl;
 
       .form-check {
         align-items: center;
@@ -92,7 +92,7 @@
       background: #f4f8fa;
       padding: $padding-14;
       @include smallfont;
-      gap: 10px;
+      gap: $gap-10;
 
       &--numberofcreated {
         color: $Primary-500;
@@ -106,7 +106,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 10px;
+        gap: $gap-10;
 
         img {
           height: 20px;
@@ -185,14 +185,14 @@
     text-align: center;
 
     span {
-      background: #fff;
+      background: $white-100;
       border-radius: 50%;
       padding: $padding-14;
       display: flex;
       align-content: center;
       align-items: center;
-      box-shadow: 2px 10px 13px #e4e4e4, -13px -13px 20px #ffffff;
-      margin-bottom: 20px;
+      box-shadow: 2px 10px 13px #e4e4e4, -13px -13px 20px $white-100;
+      margin-bottom: $margin-2xl;
     }
 
     img {

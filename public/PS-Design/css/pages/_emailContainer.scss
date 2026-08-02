@@ -2,7 +2,7 @@
 .emailContainer {
   .rightArea {
     .subbtn {
-      background: #fff;
+      background: $white-100;
       display: flex;
       justify-content: space-between;
       width: 100%;
@@ -68,7 +68,7 @@
       background: transparent;
       color: #a38664;
 
-      border-radius: 4px;
+      border-radius: $radius-xs;
       padding: 0 !important;
       text-align: right;
     }
@@ -78,9 +78,9 @@
     .emailsettings {
       display: flex;
       justify-content: space-between;
-      background: #f8f6f2;
+      background: $baige;
       margin-bottom: 5px;
-      padding: 10px 16px;
+      padding: 10px $padding-xl;
       align-items: center;
 
       h3 {
@@ -111,7 +111,7 @@
         }
 
         .searchemail {
-          background: #ffffff;
+          background: $white-100;
           border-color: #d0d0d0;
         }
       }
@@ -120,7 +120,7 @@
     .mail {
       background: #fafbff;
       margin-left: 10px;
-      border-radius: 4px;
+      border-radius: $radius-xs;
       padding: 10px;
       border: 1px solid #e0e1ea;
       margin-bottom: 5px;
@@ -152,11 +152,11 @@
       &:hover {
         background: #0d8f75;
         border: 1px solid #0d8f75;
-        color: #fff;
+        color: $white-100;
         box-shadow: 0px 0px 7px 0px rgb(13 143 117);
 
         .time {
-          color: #fff;
+          color: $white-100;
           background: rgb(28 194 160);
         }
       }
@@ -165,7 +165,7 @@
     .details {
       background: rgb(255 255 255 / 67%);
       padding: 10px;
-      border-radius: 4px;
+      border-radius: $radius-xs;
       box-shadow: 0px 5px 35px 0px rgb(127 127 127 / 22%);
       border: 1px solid rgb(0 0 0 / 11%);
     }
@@ -183,7 +183,7 @@
             font-weight: 600;
             width: 18px;
             height: 18px;
-            color: #fff;
+            color: $white-100;
         }
     }
 
@@ -191,11 +191,11 @@
         right: -194px !important;
         top: 160%;
         width: 500px;
-        padding: 16px !important;
+        padding: $padding-xl !important;
 
         .emailnavcontainer {
             padding: 0;
-            border-radius: 8px;
+            border-radius: $radius-md;
             background: rgb(248 246 242 / 54%);
             margin-bottom: 5px;
             border: none;
@@ -207,10 +207,10 @@
             .sendernametime {
                 display: flex;
                 justify-content: flex-start;
-                padding: 8px;
+                padding: $padding-md;
                 gap: 5px;
                 border: 1px solid #c8c8c8;
-                border-radius: 6px;
+                border-radius: $radius-sm;
 
                 svg {
                     fill: #a38664;
@@ -247,7 +247,7 @@
         }
 
         .odd {
-            background: #fff;
+            background: $white-100;
 
             .sendernametime {
                 svg {

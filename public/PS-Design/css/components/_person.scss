@@ -4,35 +4,35 @@
   &__image {
     background: #f4f8fa;
     padding: $padding-14;
-    border-radius: 8px;
+    border-radius: $radius-md;
     img {
       width: 100%;
       height: 150px;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: $radius-md;
     }
   }
 
   &__tabs {
     .nav-tabs {
-      padding-right: 20px;
+      padding-right: $padding-2xl;
       .nav-link {
-        background: #fff;
+        background: $white-100;
         color: #000;
         border: 1px dashed #bbc7dc;
         border-bottom: none;
         margin: 0 5px;
         @include boldfont;
-        border-radius: 6px 6px 0 0;
-        padding: 10px 20px;
+        border-radius: $radius-sm $radius-sm $radius-none $radius-none;
+        padding: 10px $padding-2xl;
         img {
           filter: grayscale(1);
           height: 24px;
         }
       }
       .active {
-        background: #f8f6f2;
-        border: 1px solid #f8f6f2;
+        background: $baige;
+        border: 1px solid $baige;
         color: #9f8544;
         border-bottom: 0;
         img {
@@ -43,16 +43,16 @@
     }
 
     .tab-content {
-      background: #fff;
-      padding: 20px;
+      background: $white-100;
+      padding: $padding-2xl;
       border: 1px solid #e9f0fc;
     /*  box-shadow: #eff1f9 0 3px 8px 4px;*/
-      border-radius: 8px;
+      border-radius: $radius-md;
       margin-top: -1px;
 
       .form-control-rows {
         display: flex;
-        gap: 20px;
+        gap: $gap-20;
         .form-control {
           background-color: #f9f9f9;
           border: 1px solid #ededed;

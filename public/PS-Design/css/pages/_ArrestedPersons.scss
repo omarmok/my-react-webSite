@@ -7,7 +7,7 @@
         border-top: 0;
 
         .arrtime {
-            gap: 10px;
+            gap: $gap-10;
         }
     }
 
@@ -26,7 +26,7 @@
     /*.ArrestedPersonsTabs {
         .nav-link {
             border-radius: 10px 10px 0 0;
-            border: 1px solid #F3F0EB;
+            border: 1px solid $table-th;
             color: #A38664;
             font-weight: 600;
             display: flex;
@@ -34,8 +34,8 @@
             position: relative;
             border-bottom: none;
             margin: 0 5px;
-            background: #F8F6F2;
-            padding: 12px;
+            background: $baige;
+            padding: $padding-lg;
 
             svg {
                 fill: #A38664;
@@ -45,31 +45,31 @@
 
         .nav-link.active {
             background: var(--theme-primary) !important;
-            color: #fff;
+            color: $white-100;
             border: none;
 
             svg {
-                fill: #fff;
+                fill: $white-100;
             }
         }
 
         .tab-content {
-            background: #fff;*/
-           /* box-shadow: -10px -10px 30px 0px #fff, 10px 10px 30px 0px rgba(174, 174, 192, 0.4);*/
+            background: $white-100;*/
+           /* box-shadow: -10px -10px 30px 0px $white-100, 10px 10px 30px 0px rgba(174, 174, 192, 0.4);*/
             /*padding: $padding-14;
             border: 1px solid #00a991;
-            border-radius: 8px;
+            border-radius: $radius-md;
             margin-top: -1px;
         }
     }*/
 
     .highpriority {
-        padding: 5px 20px !important;
+        padding: 5px $padding-2xl !important;
         @include font-sm-500;
     }
 
     .regpriority {
-        padding: 5px 20px !important;
+        padding: 5px $padding-2xl !important;
         @include font-sm-500;
     }
 }
@@ -81,7 +81,7 @@
         margin-bottom: 30px !important;
 
         h3 {
-            color: #fff;
+            color: $white-100;
 
             img {
                 filter: brightness(0) invert(1);
@@ -92,7 +92,7 @@
 
 
 .arrestedstuff {
-    background: rgb(248 246 242);
+    background: $baige;
     gap: 5px;
     padding: 0px 5px;
     align-items: center;

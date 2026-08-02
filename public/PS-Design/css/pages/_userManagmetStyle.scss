@@ -3,7 +3,7 @@
   padding-bottom: 50px;
 
   &--card {
-      margin-bottom: 24px;
+      margin-bottom: $margin-3xl;
       box-shadow: 0 0 68px 0 rgba(174, 175, 175, 0.17);
       height: 380px;
       max-height: 380px;
@@ -21,14 +21,14 @@
       &--rolelist {
           ul {
               li {
-                  padding: 5px 20px;
+                  padding: 5px $padding-2xl;
                   position: relative;
                   color: #78829d;
                   @include meduimfont-reg-14;
 
                   &::before {
                       content: "";
-                      border-radius: 6px;
+                      border-radius: $radius-sm;
                       width: 10px;
                       height: 4px;
                       position: absolute;
@@ -46,7 +46,7 @@
 
   &--table-search {
       border-radius: 0;
-      box-shadow: 0px 5px 35px 0px rgba(0, 27, 175, 0.05);
+      box-shadow: $shadow-2;
 
       .searchicon {
           position: absolute;
@@ -63,14 +63,14 @@
       }
 
       .form-control:focus {
-          background: #fff;
+          background: $white-100;
           border: 1px solid #05bbc9;
       }
 
       .custom-input {
           background: #f9f9f9;
           border: none;
-          border-radius: 6px;
+          border-radius: $radius-sm;
           color: #98a1b7;
           width: 330px;
       }
@@ -116,7 +116,7 @@
 
   .verficationinterviewerContainer {
       .inputs {
-          gap: 10px;
+          gap: $gap-10;
       }
 
       .absher img {
@@ -183,7 +183,7 @@
                 .form-check {
                     background: #fafcff;
                     border: 1px solid #f0f4fa;
-                    border-radius: 4px;
+                    border-radius: $radius-xs;
                     min-width: 130px;
                     padding: 10px;
                     align-items: center;
@@ -211,7 +211,7 @@
     }
 
     .form-check-input[type="checkbox"] {
-        border-radius: 4px;
+        border-radius: $radius-xs;
     }
 
     .form-check-input:checked {
@@ -221,7 +221,7 @@
     .accordion-button {
         background: #fafcff;
         border: 1px solid #f0f4fa;
-        border-radius: 4px;
+        border-radius: $radius-xs;
 
         &:focus {
             box-shadow: none;
@@ -230,11 +230,11 @@
 
     .accordion-button:not(.collapsed) {
         background: #0d8f75 !important;
-        color: #ffffff !important;
+        color: $white-100 !important;
 
         .form-check {
             label {
-                color: #fff;
+                color: $white-100;
             }
         }
     }
@@ -249,7 +249,7 @@
             border: 1px solid transparent !important;
 
             label {
-                color: #ffffff !important;
+                color: $white-100 !important;
             }
         }
     }
@@ -258,11 +258,11 @@
         display: flex;
         flex-direction: column;
         padding: $padding-14;
-        gap: 14px;
+        gap: $gap-14;
 
         &--user {
             img {
-                border-radius: 16px;
+                border-radius: $radius-xl;
                 width: 100px;
                 height: 100px;
                 object-fit: cover;
@@ -283,7 +283,7 @@
                 @include meduimfont;
                 background: $Neutral-50;
                 width: 100%;
-                padding: 16px;
+                padding: $padding-xl;
                 border-bottom: 1px solid $Neutral-200;
 
                 span {
@@ -304,7 +304,7 @@
 
         &--rolespackage {
             display: flex;
-            gap: 12px;
+            gap: $gap-lg;
             padding: $padding-14;
             background: var(--Disable, #f8f9fa);
             flex-direction: column;
@@ -326,7 +326,7 @@
 
                 &--form-check {
                     border-bottom: 1px dashed #cdcdcd;
-                    background: var(--white-100, #fff);
+                    background: var(--white-100, $white-100);
                     width: 33%;
                     padding: 10px;
                     margin-right: 0px;
@@ -368,7 +368,7 @@
                 .badge {
                     @include font-sm-500;
                     background: #e5e5e5;
-                    padding: 10px 20px;
+                    padding: 10px $padding-2xl;
                     color: #4a4a4a;
                     border: 1px solid #c9c9c9;
                 }
@@ -394,7 +394,7 @@
       justify-content: center;
 
       .icon {
-          background: #F3F0EB;
+          background: $table-th;
           box-shadow: 0px 8px 30px rgb(181 181 181 / 18%);
           width: 60px;
           height: 60px;
@@ -418,7 +418,7 @@
 
       &:hover {
           .icon {
-              background: #ffffff;
+              background: $white-100;
               border: 1px solid;
               border-color: #1abc9c #1abc9c #cba983 #c3996b !important;
           }

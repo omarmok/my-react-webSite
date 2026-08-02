@@ -1,23 +1,30 @@
 @use '../helpers' as *;
 .tabsDesign {
     nav {
-        background: #f8f6f2;
+        // Autonomous Maintainer pass: #f8f6f2 matched $baige exactly.
+        background: $baige;
         padding: $padding-14;
     }
 
     .tab-content {
-        border: 1px solid #1b8354;
-        border-radius: 6px;
+        // Autonomous Maintainer pass: #1b8354 matched $Primary-600 exactly;
+        // 6px matched $radius-sm exactly.
+        border: 1px solid $Primary-600;
+        border-radius: $radius-sm;
         padding: $padding-14;
     }
 
     .tab-content > .active {
-        display: block;
+        // Autonomous Maintainer pass: removed a dead `display: block;` —
+        // it was always overridden by the `display: flex;` below in this
+        // same rule, so it never took visual effect. Zero computed-style
+        // change. `border-radius: 8px` matched $radius-md exactly.
         padding: $padding-14;
         display: flex;
-        border-radius: 8px;
+        border-radius: $radius-md;
         box-shadow: 0px 8px 30px rgba(181, 181, 181, 0.08);
         flex-direction: column;
-        background: #fff;
+        // Autonomous Maintainer pass: #fff matched $white-100 exactly.
+        background: $white-100;
     }
 }

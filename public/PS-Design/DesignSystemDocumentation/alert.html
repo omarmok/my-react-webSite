@@ -9,7 +9,6 @@
   <link href="../css/animate.css" rel="stylesheet" />
   <link href="../css/font-awesome.min.css" rel="stylesheet" />
   <link href="../css/main.css" rel="stylesheet" />
-  <link href="./css/top-actions.css" rel="stylesheet" />
   <style>
     :root {
       --page-max: 1100px;
@@ -414,10 +413,11 @@
       transform: translateY(0);
     }
   </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
 </head>
 
 <body>
-  <main class="container page-layout">
+  <main class="docs-shell container page-layout">
     <aside class="docs-sidebar">
       <div class="sidebar-card">
         <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
@@ -1124,9 +1124,84 @@
 &lt;/div&gt;</code></pre>
             </div>
           </div>
+        </div>
       </section>
 
+      <section class="section" id="legacy-alerts">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="التنبيهات القديمة (Legacy)">Legacy Alerts</h2>
+          <p class="section-note" data-i18n
+            data-ar="بجانب moi-notification، يحتوي المشروع على نظام تنبيهات أقدم مبني مباشرة على فئة alert من Bootstrap: alert-primary وalert-danger (فئات Bootstrap القياسية بتخصيص لوني) وcustom-alert-primary وcustom-danger-alert (فئات إضافية خاصة بالمشروع). هذا النظام قديم (Legacy) ومدعوم للتوافق مع الإصدارات السابقة فقط، وهو مستخدم فعليًا في عدة صفحات إنتاج قائمة. لا يُنصح باستخدامه في أي تطوير جديد — استخدم moi-notification بدلاً منه.">
+            Alongside <code class="code-inline">.moi-notification</code>, the project also has an older alert system
+            built directly on Bootstrap's <code class="code-inline">.alert</code> class: <code
+              class="code-inline">.alert-primary</code> and <code class="code-inline">.alert-danger</code> (Bootstrap's
+            own alert classes with project color overrides) plus <code class="code-inline">.custom-alert-primary</code>
+            and <code class="code-inline">.custom-danger-alert</code> (additional project-specific classes). This
+            system is <strong>legacy</strong>, kept for backward compatibility, and is confirmed in active use across
+            several existing production pages. It is <strong>not recommended for new development</strong> — use <code
+              class="code-inline">.moi-notification</code> for all new work.
+          </p>
 
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="الفئة">Class</th>
+                <th data-i18n data-ar="الأساس">Base</th>
+                <th data-i18n data-ar="الحالة">Status</th>
+                <th data-i18n data-ar="ملاحظة">Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code class="code-inline">.alert-primary</code></td>
+                <td><code class="code-inline">.alert</code> (Bootstrap)</td>
+                <td data-i18n data-ar="قديم — للتوافق فقط">Legacy — backward compatibility only</td>
+                <td data-i18n data-ar="إعادة تلوين لفئة Bootstrap القياسية alert-primary.">Recolors Bootstrap's standard <code class="code-inline">alert-primary</code>.</td>
+              </tr>
+              <tr>
+                <td><code class="code-inline">.alert-danger</code></td>
+                <td><code class="code-inline">.alert</code> (Bootstrap)</td>
+                <td data-i18n data-ar="قديم — للتوافق فقط">Legacy — backward compatibility only</td>
+                <td data-i18n data-ar="إعادة تلوين لفئة Bootstrap القياسية alert-danger.">Recolors Bootstrap's standard <code class="code-inline">alert-danger</code>.</td>
+              </tr>
+              <tr>
+                <td><code class="code-inline">.custom-alert-primary</code></td>
+                <td><code class="code-inline">.alert</code> (Bootstrap)</td>
+                <td data-i18n data-ar="قديم — للتوافق فقط">Legacy — backward compatibility only</td>
+                <td data-i18n data-ar="فئة إضافية خاصة بالمشروع، تُستخدم مع alert.">Project-specific addition, used alongside <code class="code-inline">.alert</code>.</td>
+              </tr>
+              <tr>
+                <td><code class="code-inline">.custom-danger-alert</code></td>
+                <td><code class="code-inline">.alert</code> (Bootstrap)</td>
+                <td data-i18n data-ar="قديم — للتوافق فقط">Legacy — backward compatibility only</td>
+                <td data-i18n data-ar="فئة إضافية خاصة بالمشروع، غالبًا تُستخدم مع alert alert-danger معًا.">Project-specific addition, commonly combined with <code class="code-inline">.alert.alert-danger</code> together.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="code-block mt-3">
+            <pre><code class="language-html">&lt;!-- Legacy — kept for backward compatibility, not for new work --&gt;
+&lt;div class="alert custom-alert-primary" role="alert"&gt;
+  نص التنبيه هنا
+&lt;/div&gt;
+
+&lt;div class="alert alert-danger custom-danger-alert" role="alert"&gt;
+  نص التنبيه هنا
+&lt;/div&gt;
+
+&lt;!-- Recommended for new development --&gt;
+&lt;div class="moi-notification" data-status="error" role="alert"&gt;
+  &lt;!-- see Developer API above for the full moi-notification structure --&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+
+          <ul class="accessibility-list mt-3">
+            <li data-i18n data-ar="لا تُزل أو تُعدّل هذه الفئات — إزالتها قد تكسر صفحات إنتاج قائمة تعتمد عليها فعليًا.">Do not remove or rename these classes — doing so may break existing production pages that rely on them.</li>
+            <li data-i18n data-ar="لا تحاول إعادة تلوين هذه الفئات لتطابق التوكنات الحالية لأن ألوانها لا تطابق أي Design Token موجود تمامًا؛ تقريب القيمة غير مسموح.">Do not attempt to recolor these classes to match current tokens — their colors do not exactly match any existing Design Token, and approximating a token value is not permitted.</li>
+            <li data-i18n data-ar="لاستخدامات جديدة، استخدم moi-notification مع data-status المناسب بدلاً من هذا النظام القديم.">For new usage, use <code class="code-inline">.moi-notification</code> with the appropriate <code class="code-inline">data-status</code> instead of this legacy system.</li>
+          </ul>
+        </div>
+      </section>
 
     </div>
   </main>

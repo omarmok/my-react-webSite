@@ -7,7 +7,7 @@
     margin: 15px;
     align-items: center;
     border-radius: 5px;
-    background: #f8f6f2;
+    background: $baige;
 
     h3 {
       color: $darkBlue;
@@ -35,7 +35,7 @@
 
     .actions {
       display: flex;
-      gap: 10px;
+      gap: $gap-10;
       margin-top: 15px;
 
       .btn {
@@ -51,7 +51,7 @@
 
   .pageActions {
     display: flex;
-    gap: 10px;
+    gap: $gap-10;
     justify-content: space-between;
   }
 
@@ -66,7 +66,7 @@
 
     .actions {
       display: flex;
-      gap: 10px;
+      gap: $gap-10;
       margin-top: 0;
 
       .btn {

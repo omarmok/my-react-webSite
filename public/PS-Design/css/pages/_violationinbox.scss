@@ -2,19 +2,19 @@
 .violationinbox {
     .budget {
         display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
+        gap: $gap-10;
+        margin-bottom: $margin-2xl;
 
         .card {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: $padding-2xl;
             background: #f5faf8;
-            border: 1px solid #25935F;
+            border: 1px solid $Primary-500;
             box-shadow: 0px 8px 20px #E2E8F0;
-            border-radius: 8px;
+            border-radius: $radius-md;
             font-weight: 600;
             color: rgb(0 0 0 / 40%);
 
@@ -46,16 +46,16 @@
     .details {
         .rightDetails {
             padding: 10px;
-            border-radius: 8px;
+            border-radius: $radius-md;
             border: 1px solid #C6C6DC;
-            background: #fff;
+            background: $white-100;
 
             .top {
                 padding: 14px;
                 border: 1px solid #C0D6ED;
                 background: rgba(241, 247, 255, 0.4);
-                border-radius: 8px;
-                gap: 14px;
+                border-radius: $radius-md;
+                gap: $gap-14;
                 display: flex;
                 flex-direction: column;
             }
@@ -78,7 +78,7 @@
             }
 
             .block {
-                background: #ffffff;
+                background: $white-100;
                 font-size: 10px;
 
                 p {
@@ -91,11 +91,11 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            padding: 16px;
-            gap: 10px;
+            padding: $padding-xl;
+            gap: $gap-10;
             background: #F1F6FB;
             border: 1px solid #CEDEEB;
-            border-radius: 8px;
+            border-radius: $radius-md;
         }
     }
 }

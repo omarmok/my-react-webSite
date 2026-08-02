@@ -7,7 +7,7 @@
       background: transparent;
       padding: $padding-14;
       display: flex;
-      border-radius: 8px;
+      border-radius: $radius-md;
       box-shadow: $shadow-100;
       flex-direction: column;
 
@@ -88,12 +88,12 @@
           h4 {
               margin: 0;
               @include meduimfont;
-              color: #fff;
+              color: $white-100;
           }
       }
 
       &--body {
-          background: #fff;
+          background: $white-100;
           padding: $padding-14;
           border-radius: 5px;
           margin-top: 10px;
@@ -213,10 +213,10 @@
           }
 
           &__actionButtons {
-              margin-top: 20px;
+              margin-top: $margin-2xl;
               display: flex;
               justify-content: space-between;
-              gap: 10px;
+              gap: $gap-10;
           }
       }
   }
@@ -235,7 +235,7 @@
   }
 
   .success-icon {
-      background: #fff;
+      background: $white-100;
       box-shadow: 0px 8px 30px rgb(189 200 214 / 70%);
       display: block;
       border-radius: 50%;
@@ -252,7 +252,7 @@
 .modalin-title h5 {
   @include meduimfont;
   color: #000;
-  margin-bottom: 20px;
+  margin-bottom: $margin-2xl;
 }
 
 .raletedvehicle {
@@ -266,7 +266,7 @@
       padding: 10px;
       border-radius: 5px;
       display: flex;
-      gap: 2px;
+      gap: $gap-2;
       border: 1px solid #f7f7f7;
       margin: 15px 0;
 
@@ -295,7 +295,7 @@
 
       &--details {
           display: flex;
-          gap: 2px;
+          gap: $gap-2;
           @include smallfont-reg-10;
           flex-wrap: wrap;
 
@@ -304,7 +304,7 @@
               flex-direction: column;
               align-items: center;
               border: 1px solid #F5F5F5;
-              padding: 6px;
+              padding: $padding-sm;
               width: 49%;
           }
 

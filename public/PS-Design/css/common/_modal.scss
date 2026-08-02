@@ -23,16 +23,11 @@ $modal-danger-close-icon-path: "../../images/icon-x-circle.svg" !default;
     background-color: transparent;
 }
 
-%modal-header-heading {
-
-   @include font-lg-500;
-    color: $white-100;
-    margin: 0;
-    padding: $padding-0;
-    border: 0;
-    background-color: transparent;
-    border-radius: 0;
-}
+// Autonomous Maintainer pass (2026-07-16): `%modal-header-heading` was
+// removed here — confirmed via project-wide grep that it was never
+// `@extend`ed anywhere in the codebase, so it compiled to zero CSS output.
+// Its removal has no effect on compiled output (verified via isolated
+// compile diff: 0 lines changed anywhere in the resulting CSS).
 
 .modal {
     z-index: $modal-z-index;
@@ -73,7 +68,10 @@ $modal-danger-close-icon-path: "../../images/icon-x-circle.svg" !default;
         .modal-header {
             align-items: center;
             background: $Neutral-100;
-            padding: $gap-16;
+            // Autonomous Maintainer pass: was $gap-16 (a gap-category token
+            // on a padding property) — same 16px value, reused the
+            // semantically-correct $padding-xl instead.
+            padding: $padding-xl;
             color: $Neutral-800;
             border: none;
 
@@ -124,7 +122,10 @@ $modal-danger-close-icon-path: "../../images/icon-x-circle.svg" !default;
             .form-check {
                 margin-bottom: 0;
                // border-bottom: 1px solid $Neutral-200;
-                padding: 10px 1.5rem 5px 5px;
+                // Autonomous Maintainer pass: 1.5rem (24px) matched
+                // $padding-3xl exactly — the other 3 values (10px, 5px,
+                // 5px) have no exact token match, kept literal.
+                padding: 10px $padding-3xl 5px 5px;
                 display: flex;
                 gap: $gap-10;
                 align-items: center;

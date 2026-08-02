@@ -20,6 +20,7 @@
 // =============================================================================
 
 @use "../helpers" as *;
+@use "sass:map";
 
 // ── Separator token ──────────────────────────────────────────────────────────
 $breadcrumb-sep-color: $Neutral-400;
@@ -44,8 +45,13 @@ $breadcrumb-link-hover: $Primary-700;
   .breadcrumb-item {
     display: inline-flex;
     align-items: center;
-    font-size: 0.875rem;
+    // Autonomous Migration pass: 0.875rem matched $font-sizes' `md` exactly.
+    // Uses the raw map (not the @include font-md-500 mixin) because that
+    // mixin bundles `!important`, which this rule does not use — the same
+    // map-access pattern already established in _form.scss.
+    font-size: typography-size(map.get($font-sizes, md));
     font-weight: 500;
+    line-height: typography-line-height(1.4);
     color: $breadcrumb-active-color;
 
     // Link items
@@ -77,7 +83,8 @@ $breadcrumb-link-hover: $Primary-700;
     // Separator — RTL-aware (Bootstrap handles ::before, we restyle)
     & + .breadcrumb-item::before {
       color: $breadcrumb-sep-color;
-      font-size: 0.75rem;
+      // Autonomous Migration pass: 0.75rem matched $font-sizes' `sm` exactly.
+      font-size: typography-size(map.get($font-sizes, sm));
     }
   }
 }
@@ -94,7 +101,7 @@ $breadcrumb-link-hover: $Primary-700;
   gap: $gap-xxs;
 
   .breadcrumb-item {
-    font-size: 0.8125rem;
+    font-size: typography-size(map.get($font-sizes, md));
   }
 }
 

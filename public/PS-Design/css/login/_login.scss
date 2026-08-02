@@ -13,12 +13,12 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0px 8px 20px 0px #e2e8f0;
-    border-radius: 20px;
+    border-radius: $radius-2xl;
     width: 80%;
     margin: 5% auto;
-    padding: 20px;
-    background: #fff;
-    background: url(../images/logimage.svg) #fff no-repeat -270px -20%;
+    padding: $padding-2xl;
+    background: $white-100;
+    background: url(../images/logimage.svg) $white-100 no-repeat -270px -20%;
 
     &__title {
       img {
@@ -39,14 +39,14 @@
     }
 
     &--logintitle {
-      margin-top: 20px;
+      margin-top: $margin-2xl;
       color: #000;
       @include titles;
     }
 
     .copyRights {
       font-size: 10px;
-      margin-top: 20px;
+      margin-top: $margin-2xl;
       color: $Neutral-950;
     }
 
@@ -63,7 +63,7 @@
 
     .input-group {
       .input-group-text {
-        background: #fff;
+        background: $white-100;
         border-left: 0;
         padding-left: 0;
       }
@@ -74,7 +74,7 @@
     }
 
     .form-control {
-      border-radius: 4px;
+      border-radius: $radius-xs;
       padding-right: 18px;
     }
     /* =========================
@@ -86,7 +86,7 @@
       // Bootstrap input داخل الـ password wrapper
       input.form-control {
         width: 100%;
-        padding: 12px 45px 12px 12px;
+        padding: $padding-lg 45px $padding-lg $padding-lg;
         font-size: 14px;
       }
 
@@ -224,7 +224,11 @@
 
   .loginBody__right__area .ordiv .titlebettween {
     padding: 10px;
-    border-radius: 4px;
+    border-radius: $radius-xs;
+    // Autonomous Migration pass note: #a38664 left unchanged -- matches
+    // $Brown-100 by name, but _variables.scss defines $Brown-100 twice with
+    // contradictory values (see .ai/KNOWN_DECISIONS.md); substituting would
+    // silently change the rendered color. Needs Owner Approval.
     color: #a38664;
     z-index: 1;
     min-width: max-content;

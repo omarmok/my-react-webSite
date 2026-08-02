@@ -13,52 +13,62 @@ nav {
 }
 
 .nav-link {
-  background: $Neutral-100 !important;
-  color: $Neutral-800 !important;
-  border: none !important;
-  border-radius: $radius-lg $radius-lg $Radius-none $Radius-none !important;
-  display: flex;
-  align-items: center;
-  position: relative;
-  gap: $gap-lg;
-  padding: $padding-lg !important;
-  cursor: pointer !important;
-  border-bottom: 0 !important;
-  display: flex;
-  flex-direction: row !important;
-  align-items: center;
-  cursor: pointer;
-  @include boldfont-16;
+    background: $Neutral-100 !important;
+    color: $Neutral-800 !important;
+    border: none !important;
+    border-radius: $radius-lg $radius-lg $Radius-none $Radius-none !important;
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: $gap-lg;
+    padding: $padding-lg !important;
+    cursor: pointer !important;
+    border-bottom: 0 !important;
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    cursor: pointer;
+    @include boldfont-16;
+    width: 100%;
 
-  .new-total {
-    background: $Neutral-25 !important;
-    color: $Neutral-900 !important;
-    padding: $padding-sm;
-    border-radius: $Radius-100;
-    min-width: 50px;
-  }
+    .new-total {
+        background: $Neutral-25 !important;
+        color: $Neutral-900 !important;
+        padding: $padding-sm;
+        border-radius: $Radius-100;
+        min-width: 50px;
+    }
 
-  svg {
-    width: map.get($moi-icon-sizes, lg);
-    height: map.get($moi-icon-sizes, lg);
-    fill: $Neutral-900;
-  }
+    img {
+        width: map.get($moi-icon-sizes, xl);
+        height: map.get($moi-icon-sizes, xl);
+    }
+
+    svg {
+        width: map.get($moi-icon-sizes, xl);
+        height: map.get($moi-icon-sizes, xl);
+        fill: $Neutral-900;
+    }
 }
 
-.nav-link.active {
-  background: $Primary-800 !important;
-  color: $white-100 !important;
+    .nav-link.active {
+        background: $Primary-800 !important;
+        color: $white-100 !important;
 
-  .new-total {
-    background: rgb(255 255 255 / 36%) !important;
-    color: $white-100 !important;
-  }
+        .new-total {
+            background: rgb(255 255 255 / 36%) !important;
+            color: $white-100 !important;
+        }
 
-  svg {
-    fill: $white-100 !important;
-  }
+        img {
+            filter: invert(1) brightness(2);
+   
+        }
 
-  /*   &::after {
+        svg {
+            fill: $white-100 !important;
+        }
+        /*   &::after {
             content: "";
             display: block;
             opacity: 1;
@@ -76,10 +86,12 @@ nav {
             -o-border-radius: $Radius-100;
             background: $Neutral-25;
         }*/
-}
+    }
 
 .tab-content {
-  border: 1px solid #1b8354;
+  // Autonomous Migration pass: #1b8354 matched $Primary-600 exactly (same
+  // token substitution already established for .tabsDesign .tab-content).
+  border: 1px solid $Primary-600;
   border-radius: $radius-lg;
   -webkit-border-radius: $radius-lg;
   -moz-border-radius: $radius-lg;

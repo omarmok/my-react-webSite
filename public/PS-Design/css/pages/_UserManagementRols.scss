@@ -1,7 +1,7 @@
 @use '../helpers' as *;
 .permissions_top__details {
   display: flex;
-  gap: 20px;
+  gap: $gap-2xl;
   .caseDate {
     text-align: center;
     border-left: 1px solid #e8dfdf;
@@ -11,10 +11,10 @@
     }
     .block {
       @include meduimfont;
-      color: #fff;
+      color: $white-100;
       .content {
         @include meduimfont;
-        color: #fff;
+        color: $white-100;
       }
     }
   }
@@ -32,7 +32,7 @@
       box-shadow: rgb(239, 241, 249) 0px 2px 4px 0px;
       margin-bottom: 10px;
       text-align: right;
-      border: 10px solid #fff;
+      border: 10px solid $white-100;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -43,10 +43,10 @@
       .leftnav {
         display: flex;
         align-items: center;
-        margin-right: 20px;
+        margin-right: $margin-2xl;
         .permissionsNO {
           background: #08c28d;
-          color: #fff;
+          color: $white-100;
           border-radius: 5px;
           padding: 5px;
           margin-left: 5px;
@@ -70,13 +70,13 @@
         border-radius: 5px;
         padding: 5px;
         margin-left: 5px;
-        color: #ffffff;
+        color: $white-100;
       }
     }
 
     .tab-content {
       padding: $padding-14;
-      background: #fff;
+      background: $white-100;
       border-radius: 5px;
       width: 100%;
       .permissionContentTitle {
@@ -121,7 +121,7 @@
 
   &__roles {
     padding: $padding-14;
-    background: #fff;
+    background: $white-100;
     border-radius: 5px;
 
     .title {
@@ -129,8 +129,8 @@
       display: flex;
       align-items: center;
       padding: $padding-14;
-      border-radius: 8px;
-      gap: 10px;
+      border-radius: $radius-md;
+      gap: $gap-10;
       img {
         height: 24px;
       }
@@ -161,7 +161,7 @@
           align-items: center;
           justify-content: space-between;
           label {
-            color: #fff;
+            color: $white-100;
           }
           img {
             filter: brightness(0) invert(1);
@@ -174,7 +174,7 @@
           display: flex;
           align-items: center;
           border: 1px solid #beeeda;
-          border-radius: 6px;
+          border-radius: $radius-sm;
           margin-bottom: 5px;
           justify-content: space-between;
 
@@ -220,7 +220,7 @@
         background-color: #08c28d !important;
         border: 10px solid #08c28d;
         label {
-          color: #fff;
+          color: $white-100;
         }
       }
 
@@ -271,17 +271,17 @@
     border: 1px solid #f1f1f1;
     @include font-md-500;
     color: #535f6b;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
-    border-radius: 8px;
+    -webkit-border-radius: $radius-md;
+    -moz-border-radius: $radius-md;
+    -ms-border-radius: $radius-md;
+    -o-border-radius: $radius-md;
+    border-radius: $radius-md;
     box-shadow: none;
   }
 
   .card {
     border: 1px solid #efefef;
-    box-shadow: 0px 8px 30px rgba(181, 181, 181, 0.08);
+    box-shadow: $shadow-100;
   }
 
   .vue-treeselect__control {
@@ -307,8 +307,8 @@
     border: none;
     line-height: 0;
     /* margin: -5px !important; */
-    background: #fff !important;
-    border-radius: 8px;
+    background: $white-100 !important;
+    border-radius: $radius-md;
     box-shadow: none;
   }
 
@@ -335,8 +335,8 @@
     border: none;
     line-height: 0;
     /* margin: -5px !important; */
-    background: #fff !important;
-    border-radius: 8px;
+    background: $white-100 !important;
+    border-radius: $radius-md;
     box-shadow: none;
   }
 
@@ -347,7 +347,7 @@
   }
 
   .form-select {
-    background: #fff;
+    background: $white-100;
     border: 1px solid #bababa;
     height: 45px;
     line-height: 45px;
@@ -358,7 +358,7 @@
   .violitionDetails--right h3 {
     background: var(--theme-primary) !important;
     padding: $padding-14;
-    color: #fff;
+    color: $white-100;
     border-radius: 5px;
   }
 

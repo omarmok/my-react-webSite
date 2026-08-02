@@ -1549,6 +1549,7 @@
       box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
     }
   </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -1568,36 +1569,7 @@
     </button>
   </div>
 
-  <main class="container page-layout">
-    <div class="fixed-search-colors" id="fixedColorSearch">
-      <div class="bg-white radius-xl  padding-xl shadow-lg  search-box">
-        <label for="colorSearch" data-i18n data-ar="ابحث عن الألوان">
-          Search colors
-        </label>
-        <input type="search" id="colorSearch" placeholder="Search colors..." data-i18n data-ar="ابحث عن الألوان..."
-          aria-label="Search color tokens" aria-controls="colorSearchResults" aria-expanded="false" />
-
-        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
-          <path
-            d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-        </svg>
-      </div>
-      <div class="search-results-panel" id="colorSearchPanel" role="region" aria-label="Color search results">
-        <div class=" search-results-hint font-md-600 Info-900 bg-Info-25   padding-sm" data-i18n
-          data-ar="يمكنك نسخ اسم الكلاس بالضغط على النتائج">
-          <svg width="24" height="24" class="Info-900" viewBox="0 0 24 24" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM11.2764 10.25C11.4815 10.2499 11.7034 10.2502 11.8906 10.2754C12.1099 10.3049 12.3902 10.3804 12.626 10.6162C12.8618 10.852 12.9373 11.1322 12.9668 11.3516C12.992 11.5388 12.9923 11.7607 12.9922 11.9658V17C12.9922 17.4142 12.6564 17.75 12.2422 17.75C11.828 17.75 11.4922 17.4142 11.4922 17V12C11.4922 11.9009 11.4923 11.8204 11.4912 11.751C11.4218 11.7499 11.3413 11.75 11.2422 11.75C10.828 11.75 10.4922 11.4142 10.4922 11C10.4922 10.5858 10.828 10.25 11.2422 10.25C11.2535 10.25 11.2649 10.25 11.2764 10.25ZM12.001 7C12.5533 7 13.001 7.44772 13.001 8C13.001 8.55228 12.5533 9 12.001 9H11.9922C11.4399 9 10.9922 8.55228 10.9922 8C10.9922 7.44772 11.4399 7 11.9922 7H12.001Z" />
-          </svg>
-
-          You can copy the class name by clicking on the results
-        </div>
-        <div class="search-results" id="colorSearchResults" tabindex="-1" aria-live="polite">
-        </div>
-      </div>
-    </div>
+  <main class="docs-shell container page-layout">
     <aside class="docs-sidebar">
       <div class="sidebar-card-with-results">
         <div class="sidebar-card">
@@ -1627,14 +1599,39 @@
         </div>
 
       </div>
-      <button class="mobile-nav-toggle" type="button" aria-label="Toggle navigation">
-        <span data-i18n data-ar="القائمة">Menu</span>
-        <span class="toggle-icon">▼</span>
-      </button>
 
     </aside>
 
     <div class="page-content">
+      <div class="fixed-search-colors" id="fixedColorSearch">
+      <div class="bg-white radius-xl  padding-xl shadow-lg  search-box">
+        <label for="colorSearch" data-i18n data-ar="ابحث عن الألوان">
+          Search colors
+        </label>
+        <input type="search" id="colorSearch" placeholder="Search colors..." data-i18n data-ar="ابحث عن الألوان..."
+          aria-label="Search color tokens" aria-controls="colorSearchResults" aria-expanded="false" />
+
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </div>
+      <div class="search-results-panel" id="colorSearchPanel" role="region" aria-label="Color search results">
+        <div class=" search-results-hint font-md-600 Info-900 bg-Info-25   padding-sm" data-i18n
+          data-ar="يمكنك نسخ اسم الكلاس بالضغط على النتائج">
+          <svg width="24" height="24" class="Info-900" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM11.2764 10.25C11.4815 10.2499 11.7034 10.2502 11.8906 10.2754C12.1099 10.3049 12.3902 10.3804 12.626 10.6162C12.8618 10.852 12.9373 11.1322 12.9668 11.3516C12.992 11.5388 12.9923 11.7607 12.9922 11.9658V17C12.9922 17.4142 12.6564 17.75 12.2422 17.75C11.828 17.75 11.4922 17.4142 11.4922 17V12C11.4922 11.9009 11.4923 11.8204 11.4912 11.751C11.4218 11.7499 11.3413 11.75 11.2422 11.75C10.828 11.75 10.4922 11.4142 10.4922 11C10.4922 10.5858 10.828 10.25 11.2422 10.25C11.2535 10.25 11.2649 10.25 11.2764 10.25ZM12.001 7C12.5533 7 13.001 7.44772 13.001 8C13.001 8.55228 12.5533 9 12.001 9H11.9922C11.4399 9 10.9922 8.55228 10.9922 8C10.9922 7.44772 11.4399 7 11.9922 7H12.001Z" />
+          </svg>
+
+          You can copy the class name by clicking on the results
+        </div>
+        <div class="search-results" id="colorSearchResults" tabindex="-1" aria-live="polite">
+        </div>
+      </div>
+    </div>
       <header class="page-header">
         <div class="eyebrow" data-i18n data-ar="الأسس / الرموز">Foundations / Tokens</div>
         <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="نظام الألوان">Color System</h1>

@@ -30,7 +30,7 @@
   textarea,
   .form-control {
     @include placeholder {
-      @include meduimfont-reg-12;
+      @include meduimfont-reg-14;
       color: $Neutral-500;
       opacity: 1;
     }
@@ -113,8 +113,8 @@ $form-control-sizes: (
     min-height: $height;
     height: $height;
     padding-inline: $padding-inline;
-    font-size: $font-size;
-    line-height: $line-height;
+    font-size: typography-size($font-size);
+    line-height: typography-line-height($line-height);
 
     i,
     svg {
@@ -124,7 +124,7 @@ $form-control-sizes: (
     .input-group & {
       + .input-group-text,
       ~ .input-group-text {
-        font-size: $font-size;
+        font-size: typography-size($font-size);
       }
     }
   }
@@ -164,7 +164,8 @@ $form-control-sizes: (
 
 @mixin common-base-form-control {
   .form-control {
-    @include meduimfont-14;
+    @include font-lg-500;
+    line-height: typography-line-height(1.45);
     width: 100%;
     min-height: $form-control-height;
     height: $form-control-height;

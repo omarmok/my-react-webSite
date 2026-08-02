@@ -9,7 +9,6 @@
   <link href="../css/animate.css" rel="stylesheet" />
   <link href="../css/font-awesome.min.css" rel="stylesheet" />
   <link href="../css/main.css" rel="stylesheet" />
-  <link href="./css/top-actions.css" rel="stylesheet" />
   <style>
     :root {
       --page-max: 1100px;
@@ -465,10 +464,11 @@
     }
 
   </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
 </head>
 
 <body>
-  <main class="container page-layout">
+  <main class="docs-shell container page-layout">
     <aside class="docs-sidebar">
       <div class="sidebar-card">
         <div class="sidebar-title" data-i18n data-ar="التوثيق">
@@ -541,9 +541,9 @@
 
         <span class="metadata-pill"
               data-i18n
-              data-ar="آخر تحديث: 28 يناير 2026"
-              data-en="Last updated: January 28, 2026">
-          آخر تحديث: 28 يناير 2026
+              data-ar="آخر تحديث: 2 أغسطس 2026"
+              data-en="Last updated: August 2, 2026">
+          آخر تحديث: 2 أغسطس 2026
         </span>
       </div>
 
@@ -1428,74 +1428,89 @@
                   &gt;&lt;/path&gt;
                 &lt;/svg&gt;
               &lt;/button&gt;
-              &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;dropdownMenuButton1&quot;&gt;
-                &lt;div class=&quot;Resizefont&quot;&gt;
-                  تكبير وتصغير الخط
-                  &lt;div class=&quot;d-flex align-items-center w-100 mt-2&quot;&gt;
-                    &lt;div class=&quot;btn btn-14&quot;&gt;-A&lt;/div&gt;
-                    &lt;div class=&quot;btn btn-16&quot;&gt;A&lt;/div&gt;
-                    &lt;div class=&quot;btn btn-18&quot; title=&quot;يمكنك تكبير الخط بشكل أكبر&quot;&gt;
-                      A++
-                    &lt;/div&gt;
-                  &lt;/div&gt;
+              &lt;div class=&quot;dropdown-menu settings-dropdown&quot; aria-labelledby=&quot;dropdownMenuButton1&quot;&gt;
+                &lt;div class=&quot;accessibility-panel__header&quot;&gt;
+                  &lt;h2 class=&quot;accessibility-panel__title&quot;&gt;إعدادات إمكانية الوصول&lt;/h2&gt;
+                  &lt;p class=&quot;accessibility-panel__intro&quot;&gt;اضبط الخط واللون من موضع واحد.&lt;/p&gt;
                 &lt;/div&gt;
-                &lt;hr /&gt;
-                &lt;div class=&quot;changefont&quot;&gt;
-                  تغيير الخط
-                  &lt;div
-                    class=&quot;d-flex justify-content-between align-items-center w-100 mt-2&quot;
-                  &gt;
-                    &lt;!-- &lt;div class=&quot;btn moi-btn--primary font defualtFont &quot;&gt;الخط الافتراضي&lt;/div&gt; --&gt;
-
-                    &lt;div
-                      class=&quot;btn moi-btn--secondary--outline font anotherFont ms-2&quot;
-                    &gt;
-                      &lt;img src=&quot;../PS-Design/images/rotate-right.svg&quot; alt=&quot;&quot; /&gt;
-
-                      تغيير الخط
+                &lt;section class=&quot;Resizefont accessibility-panel__section accessibility-panel__section--font-size&quot; aria-labelledby=&quot;accessibility-font-title&quot;&gt;
+                  &lt;div class=&quot;accessibility-panel__section-layout&quot;&gt;
+                    &lt;div class=&quot;accessibility-panel__section-summary&quot;&gt;
+                      &lt;span class=&quot;accessibility-panel__section-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;...&lt;/svg&gt;&lt;/span&gt;
+                      &lt;div class=&quot;accessibility-panel__section-copy&quot;&gt;
+                        &lt;h3 class=&quot;accessibility-panel__section-title&quot; id=&quot;accessibility-font-title&quot;&gt;حجم الخط&lt;/h3&gt;
+                        &lt;p class=&quot;accessibility-panel__section-description&quot;&gt;تغيير حجم النص ومقاسات عناصر الواجهة في جميع صفحات النظام&lt;/p&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;accessibility-panel__section-controls accessibility-panel__section-controls--stack&quot;&gt;
+                      &lt;div class=&quot;accessibility-panel__font-buttons&quot; role=&quot;group&quot; aria-label=&quot;حجم الخط&quot;&gt;
+                        &lt;button class=&quot;btn moi-btn moi-btn--Neutral--outline accessibility-panel__size-btn&quot; type=&quot;button&quot; data-font-action=&quot;decrease&quot; data-size=&quot;md&quot;&gt;
+                          &lt;span class=&quot;accessibility-panel__size-label&quot; data-font-label&gt;A-&lt;/span&gt;
+                          &lt;span class=&quot;accessibility-panel__size-caption&quot;&gt;تصغير&lt;/span&gt;
+                        &lt;/button&gt;
+                        &lt;button class=&quot;btn moi-btn moi-btn--Neutral--outline accessibility-panel__size-btn&quot; type=&quot;button&quot; data-font-action=&quot;reset&quot; data-size=&quot;md&quot;&gt;
+                          &lt;span class=&quot;accessibility-panel__size-label&quot; data-font-label&gt;A&lt;/span&gt;
+                          &lt;span class=&quot;accessibility-panel__size-caption&quot;&gt;افتراضي&lt;/span&gt;
+                        &lt;/button&gt;
+                        &lt;button class=&quot;btn moi-btn moi-btn--Neutral--outline accessibility-panel__size-btn&quot; type=&quot;button&quot; data-font-action=&quot;increase&quot; data-size=&quot;md&quot; title=&quot;يمكنك تكبير الخط بشكل أكبر&quot;&gt;
+                          &lt;span class=&quot;accessibility-panel__size-label&quot; data-font-label&gt;A+&lt;/span&gt;
+                          &lt;span class=&quot;accessibility-panel__size-caption&quot;&gt;تكبير&lt;/span&gt;
+                        &lt;/button&gt;
+                      &lt;/div&gt;
+                      &lt;button class=&quot;btn moi-btn moi-btn--Neutral--outline accessibility-panel__reset-btn&quot; type=&quot;button&quot; data-font-reset data-size=&quot;md&quot;&gt;
+                        &lt;span class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;...&lt;/svg&gt;&lt;/span&gt;
+                        &lt;span&gt;استعادة الحجم الافتراضي&lt;/span&gt;
+                      &lt;/button&gt;
                     &lt;/div&gt;
                   &lt;/div&gt;
-                &lt;/div&gt;
-                &lt;hr /&gt;
-                &lt;div class=&quot;d-lex flex-column align-items-start color__change&quot;&gt;
-                  &lt;div class=&quot;d-flex align-items-center&quot;&gt;
-                    &lt;div class=&quot;color__container&quot;&gt;
-                      &lt;svg
-                        xmlns=&quot;http://www.w3.org/2000/svg&quot;
-                        viewBox=&quot;0 0 464.7 464.7&quot;
-                      &gt;
-                        &lt;path
-                          d=&quot;M446.6 18.1a62 62 0 00-87.6 0L342.3 35a23 23 0 10-32.5 32.5l5.4 5.4-180.6 180.6L71.9 316c-5 5-8 11.6-8.2 18.7l-.2 3.3-2.5 56.7a9.4 9.4 0 009.4 9.8h.4l30-1.3 18.4-.8 8.3-.4a37 37 0 0024.5-10.8l240.9-240.9 4.5 4.6a23 23 0 0032.5 0c9-9 9-23.6 0-32.6l16.7-16.7a62 62 0 000-87.6zm-174 209.2l-84.6 16 138-138 34.4 34.3-87.8 87.7zM64.5 423.9C28.9 423.9 0 433 0 444.3c0 11.3 28.9 20.4 64.5 20.4s64.5-9.1 64.5-20.4C129 433 100 424 64.5 424z&quot;
-                        &gt;&lt;/path&gt;
-                      &lt;/svg&gt;
-
-                      &lt;input
-                        type=&quot;color&quot;
-                        value=&quot;#4d76fd&quot;
-                        class=&quot;colorpicker&quot;
-                        id=&quot;colorpicker&quot;
-                        title=&quot;اختيار اللون&quot;
-                      /&gt;
+                &lt;/section&gt;
+                &lt;hr class=&quot;accessibility-panel__divider&quot; /&gt;
+                &lt;section class=&quot;changefont accessibility-panel__section accessibility-panel__section--font-family&quot; aria-labelledby=&quot;accessibility-font-family-title&quot;&gt;
+                  &lt;div class=&quot;accessibility-panel__section-layout&quot;&gt;
+                    &lt;div class=&quot;accessibility-panel__section-summary&quot;&gt;
+                      &lt;span class=&quot;accessibility-panel__section-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;...&lt;/svg&gt;&lt;/span&gt;
+                      &lt;div class=&quot;accessibility-panel__section-copy&quot;&gt;
+                        &lt;h3 class=&quot;accessibility-panel__section-title&quot; id=&quot;accessibility-font-family-title&quot;&gt;تغيير نوع الخط&lt;/h3&gt;
+                        &lt;p class=&quot;accessibility-panel__section-description&quot;&gt;تبديل الخط المستخدم في واجهة النظام&lt;/p&gt;
+                      &lt;/div&gt;
                     &lt;/div&gt;
-                    &lt;label for=&quot;&quot;&gt; اختيار الالوان&lt;/label&gt;
-                  &lt;/div&gt;
-                  &lt;div class=&quot;d-flex align-items-center mt-3&quot;&gt;
-                    &lt;button
-                      class=&quot;btn moi-btn--secondary--outline&quot;
-                      type=&quot;button&quot;
-                      data-reset-theme-color
-                    &gt;
-                      اعادة تعيين اللون الافتراضي
-                    &lt;/button&gt;
-                  &lt;/div&gt;
-                  &lt;div class=&quot;d-flex align-items-center mt-3&quot;&gt;
-                    &lt;div class=&quot;bg-secondary rounded-5 text-white p-2 ms-2&quot;&gt;
-                      &lt;i class=&quot;fa fa-eye darkmode&quot;&gt;&lt;/i&gt;
+                    &lt;div class=&quot;accessibility-panel__section-controls&quot;&gt;
+                      &lt;div class=&quot;accessibility-panel__toggle-group&quot;&gt;
+                        &lt;div class=&quot;form-check form-switch accessibility-panel__switch&quot;&gt;
+                          &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; role=&quot;switch&quot; id=&quot;accessibilityFontFamilySwitch&quot; data-accessibility-font-switch=&quot;true&quot; aria-label=&quot;تغيير نوع الخط&quot; /&gt;
+                          &lt;label class=&quot;visually-hidden&quot; for=&quot;accessibilityFontFamilySwitch&quot;&gt;تغيير نوع الخط&lt;/label&gt;
+                        &lt;/div&gt;
+                        &lt;span class=&quot;accessibility-panel__switch-status&quot; data-accessibility-font-status&gt;متوقف&lt;/span&gt;
+                      &lt;/div&gt;
                     &lt;/div&gt;
-
-                    &lt;label for=&quot;&quot;&gt; عمي الالوان&lt;/label&gt;
                   &lt;/div&gt;
-                &lt;/div&gt;
+                &lt;/section&gt;
+                &lt;hr class=&quot;accessibility-panel__divider&quot; /&gt;
+                &lt;section class=&quot;color__change accessibility-panel__section accessibility-panel__section--color&quot; aria-labelledby=&quot;accessibility-color-title&quot;&gt;
+                  &lt;div class=&quot;accessibility-panel__section-layout&quot;&gt;
+                    &lt;div class=&quot;accessibility-panel__section-summary&quot;&gt;
+                      &lt;span class=&quot;accessibility-panel__section-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;...&lt;/svg&gt;&lt;/span&gt;
+                      &lt;div class=&quot;accessibility-panel__section-copy&quot;&gt;
+                        &lt;h3 class=&quot;accessibility-panel__section-title&quot; id=&quot;accessibility-color-title&quot;&gt;اللون الأساسي&lt;/h3&gt;
+                        &lt;p class=&quot;accessibility-panel__section-description&quot;&gt;اختر اللون المناسب لواجهة النظام&lt;/p&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;accessibility-panel__section-controls accessibility-panel__section-controls--stack&quot;&gt;
+                      &lt;div class=&quot;accessibility-panel__color-field&quot;&gt;
+                        &lt;label class=&quot;accessibility-panel__color-trigger&quot; for=&quot;colorpicker&quot;&gt;
+                          &lt;span class=&quot;color__container&quot; aria-hidden=&quot;true&quot;&gt;
+                            &lt;input type=&quot;color&quot; value=&quot;#4d76fd&quot; class=&quot;colorpicker&quot; id=&quot;colorpicker&quot; title=&quot;اختيار اللون&quot; /&gt;
+                          &lt;/span&gt;
+                          &lt;span class=&quot;accessibility-panel__color-chevron&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;...&lt;/svg&gt;&lt;/span&gt;
+                        &lt;/label&gt;
+                      &lt;/div&gt;
+                      &lt;button class=&quot;btn moi-btn moi-btn--Neutral--outline accessibility-panel__reset-btn&quot; type=&quot;button&quot; data-reset-theme-color data-size=&quot;md&quot;&gt;
+                        &lt;span class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;...&lt;/svg&gt;&lt;/span&gt;
+                        &lt;span&gt;إعادة اللون الافتراضي&lt;/span&gt;
+                      &lt;/button&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/section&gt;
               &lt;/div&gt;
             &lt;/div&gt;
 

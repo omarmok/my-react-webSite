@@ -1,7 +1,7 @@
 @use '../helpers' as *;
 @use "sass:map";
 .table__search {
-    background: #fff;
+    background: $white-100;
     box-shadow: rgb(239 241 249) 0px 2px 4px 0px;
     margin: 15px;
     border-radius: 5px;
@@ -39,8 +39,11 @@
             .btn {
                 margin-left: 5px;
 
+                // Autonomous Maintainer pass (Icon Size Migration
+                // follow-up): 20px matched $moi-icon-sizes' `md` (1.25rem)
+                // exactly — swapped literal for the map reference.
                 img {
-                    height: 20px;
+                    height: map.get($moi-icon-sizes, md);
                     margin-left: 5px;
                 }
 
@@ -105,8 +108,9 @@
                     color: $Neutral-600;
                     border: 1px solid $Neutral-300;
                     --bs-table-accent-bg: transparent;
-                    font-size: 0.875rem;
-                    font-weight: 900;
+                    font-size: typography-size(map.get($font-sizes, lg));
+                    font-weight: 600;
+                    line-height: typography-line-height(1.4);
 
                     svg {
                         fill: $Neutral-600;
@@ -142,7 +146,8 @@
                 padding: 5px;
                 border: 1px solid #f6f5f1;
                 //background: #f5f5f6;
-                font-size: 0.875rem;
+                font-size: typography-size(map.get($font-sizes, lg));
+                line-height: typography-line-height(1.45);
                 //white-space: nowrap;
                 gap: 0;
 
@@ -226,10 +231,10 @@
         margin: 0;
         display: flex;
         align-items: center;
-        background: #fff !important;
+        background: $white-100 !important;
 
         a {
-            @include meduimfont-reg-12;
+            @include meduimfont-reg-14;
         }
 
         .page-link {
@@ -254,7 +259,7 @@
         .active > .page-link,
         .page-link.active {
             background: var(--theme-primary) !important;
-            color: #fff;
+            color: $white-100;
             // box-shadow: 0px 2px 4px #bfb9b9;
         }
     }
@@ -270,9 +275,11 @@
         }
 
         select {
-            font-size: 10px;
+            font-size: typography-size(map.get($font-sizes, md));
+            // Autonomous Maintainer pass: removed a byte-identical duplicate
+            // `font-weight: 500;` declaration — zero computed-style change.
             font-weight: 500;
-            font-weight: 500;
+            line-height: typography-line-height(1.4);
             height: 40px;
             padding: 10px;
             border-radius: 5px;
@@ -280,7 +287,7 @@
             margin: 0 5px;
         }
 
-        gap: 10px;
+        gap: $gap-10; // Autonomous Maintainer pass: exact token match (10px)
         justify-content: flex-end;
 
         .pages_number {
@@ -289,7 +296,7 @@
         }
 
         .goto {
-            gap: 10px;
+            gap: $gap-10; // Autonomous Maintainer pass: exact token match (10px)
             justify-content: flex-end;
         }
     }
@@ -299,7 +306,8 @@
     background: white;
     padding: $padding-14;
 
-    border-radius: 8px;
+    // Autonomous Maintainer pass: 8px matched $radius-md exactly.
+    border-radius: $radius-md;
     z-index: 0;
     /*    position: relative;*/
 
@@ -332,7 +340,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 10px;
+        gap: $gap-10; // Autonomous Maintainer pass: exact token match (10px)
     }
 }
 
@@ -345,7 +353,7 @@
 .memberListModal {
     .resualt {
         display: flex;
-        gap: 10px;
+        gap: $gap-10; // Autonomous Maintainer pass: exact token match (10px)
         @include smallfont;
 
         .approved {
@@ -420,7 +428,8 @@
         td {
             height: 50px;
             vertical-align: middle;
-            padding: 8px;
+            // Autonomous Maintainer pass: 8px matched $padding-md exactly.
+            padding: $padding-md;
             overflow: hidden;
             position: relative;
 
@@ -467,7 +476,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #fff;
+    background: $white-100;
     padding-bottom: 15px;
 
     h5 {
@@ -486,7 +495,7 @@
 
     .d-flex {
         display: flex;
-        gap: 10px;
+        gap: $gap-10; // Autonomous Maintainer pass: exact token match (10px)
         margin-bottom: 10px;
         flex: 1 1 0px;
     }
@@ -501,7 +510,7 @@ td.ellipsistd {
 
 .table-striped > tbody > tr:nth-of-type(odd) > * {
     --bs-table-accent-bg: transparent;
-    background: #fff;
+    background: $white-100;
 }
 
 
@@ -516,7 +525,8 @@ td.ellipsistd {
         border: none;
         padding: $padding-14;
         box-shadow: 0 0 68px 0 rgb(122 122 122 / 16%);
-        border-radius: 8px;
+        // Autonomous Maintainer pass: 8px matched $radius-md exactly.
+        border-radius: $radius-md;
         min-width: 200px;
         max-width: 400px;
 
@@ -524,7 +534,8 @@ td.ellipsistd {
             font-weight: 600;
             @include font-sm-500;
             background: $baige;
-            padding: 20px;
+            // Autonomous Maintainer pass: 20px matched $padding-2xl exactly.
+            padding: $padding-2xl;
         }
 
         ul {
@@ -535,8 +546,12 @@ td.ellipsistd {
         }
 
         .dropdown-item {
-            margin-bottom: 4px;
-            border-radius: 5px;
+            // Autonomous Maintainer pass: 4px matched $margin-xs exactly.
+            margin-bottom: $margin-xs;
+            // Autonomous Maintainer pass: removed a dead `border-radius: 5px;`
+            // declaration — it was always overridden by the `border-radius: 0;`
+            // later in this same rule (same selector, later wins), so it never
+            // took visual effect. Zero computed-style change.
 
             &:hover {
                 background-color: #f8f8f8;
@@ -594,7 +609,7 @@ td.ellipsistd {
         width: 270px;
         border-radius: 5px;
         background-color: #000000;
-        color: #fff;
+        color: $white-100;
         content: attr(data-tooltip);
         text-align: center;
         font-size: 10px;
@@ -608,7 +623,9 @@ td.ellipsistd {
         left: 50%;
         margin-left: -5px;
         width: 0;
-        border-top: 5px solid #000000;
+        // Autonomous Maintainer pass: removed a byte-identical duplicate
+        // `border-top: 5px solid #000000;` declaration — zero computed-style
+        // change.
         border-top: 5px solid #000000;
         border-right: 5px solid transparent;
         border-left: 5px solid transparent;
@@ -643,7 +660,7 @@ td.ellipsistd {
     // display: flex;
     // justify-content: center;
     display: flex;
-    gap: 10px;
+    gap: $gap-10; // Autonomous Maintainer pass: exact token match (10px)
     align-items: center;
     justify-content: center;
 
@@ -655,7 +672,8 @@ td.ellipsistd {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 2px;
+        // Autonomous Maintainer pass: 2px matched $margin-xxs exactly.
+        margin: 0 $margin-xxs;
         display: inline-block;
     }
 }
@@ -664,7 +682,7 @@ td.ellipsistd {
     position: absolute;
     top: 90px;
     right: 10px;
-    background: #ffffff;
+    background: $white-100;
     border-radius: 60%;
     display: flex;
     align-items: center;
@@ -672,9 +690,12 @@ td.ellipsistd {
     padding: 3px;
     box-shadow: 0 0 12px 0 rgb(218 218 218);
 
+    // Autonomous Maintainer pass (Icon Size Migration follow-up): 24px
+    // matched $moi-icon-sizes' `lg` (1.5rem) exactly — swapped literal for
+    // the map reference, `!important` preserved unchanged.
     img {
-        height: 24px !important;
-        width: 24px !important;
+        height: map.get($moi-icon-sizes, lg) !important;
+        width: map.get($moi-icon-sizes, lg) !important;
     }
 }
 
@@ -692,6 +713,13 @@ td.ellipsistd {
 
 
 .table-success {
+    // Autonomous Migration pass note: $Primary-25/$Warning-25/$Error-50 are
+    // exact-value matches for these three hex literals, but this is a CSS
+    // custom-property declaration (--bs-table-bg). Sass does not resolve a
+    // bare $variable inside a custom-property value (would require #{}
+    // interpolation, a syntax change outside this migration's minimal-diff
+    // scope) -- reverted to the literal value to avoid emitting an
+    // unresolved token name into the compiled CSS.
     --bs-table-bg: #f7fdf9;
 
 }

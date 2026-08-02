@@ -9,13 +9,32 @@
 // above, so current and legacy buttons read from the same source of truth.
 // All size values are unchanged.
 
-:root {
-  --moi-focus-inner: rgba(255, 255, 255, 0.95);
-  --moi-focus-outer: rgba(255, 255, 255, 0.55);
-  --moi-focus-gap: 3px;
-  --moi-focus-inner-width: 1px;
-}
-
+// Autonomous Maintainer pass (2026-07-16): this file previously also
+// re-declared its own byte-identical copies of the standalone `:root {
+// --moi-focus-* }` rule, the icon-sizing `@each` loop, and `@mixin
+// moi-focus-ring` — all already provided by `@use "./buttons" as *;` above.
+// Verified via isolated compile diff that all 3 blocks were a 100% literal
+// duplicate (same selectors, same values) of what `_buttons.scss` already
+// emits once into the compiled output; removed the local re-declarations
+// here, `@include moi-focus-ring;` below now resolves to `_buttons.scss`'s
+// copy via the existing `@use "./buttons" as *;` import — zero compiled-
+// output change.
+//
+// `@mixin moi-btn-size-vars` below is NOT a duplicate removed by this pass —
+// it must stay local. `css/helpers/_mixins.scss` independently defines a
+// third `moi-btn-size-vars` mixin (reached via `@use "../helpers" as *;`
+// above) with a different, stronger 3-selector cascade pattern. With both
+// `_buttons.scss` and `helpers/_mixins.scss` exposing a same-named mixin
+// through `as *`, Sass cannot resolve `@include moi-btn-size-vars;` without
+// a local definition to disambiguate (confirmed by an isolated compile
+// attempt that failed with "This mixin is available from multiple global
+// modules" once the local copy was removed). Keeping this local copy,
+// value-identical to `_buttons.scss`'s version, is the safest available fix
+// — logged as an Architecture Opportunity in KNOWN_DECISIONS.md rather than
+// resolved outright, since removing the ambiguity for good would mean either
+// deleting/renaming the helpers copy (a shared-file change with unknown
+// consumers) or converting every consumer to namespaced `@use ... as x;`
+// imports (touches several files) — both out of scope for a safe, minimal fix.
 @mixin moi-btn-size-vars {
   --btn-height: 2.75rem;
   --btn-px: 1rem;
@@ -39,47 +58,6 @@
   }
 }
 
-/* Icon sizing inside buttons (matches button size map) */
-@each $name, $props in $moi-btn-sizes {
-  .moi-btn--#{$name},
-  .moi-btn[data-size="#{$name}"] {
-    .icon {
-      font-size: #{map.get($props, icon)};
-    }
-  }
-}
-
-@mixin moi-focus-ring {
-  position: relative;
-  isolation: isolate;
-  overflow: visible;
-
-  &:focus,
-  &:focus-visible {
-    outline: 0 !important;
-  }
-
-  &:focus::before,
-  &:focus-visible::before {
-    content: "" !important;
-    position: absolute;
-    inset: 1px;
-    border: var(--moi-focus-inner-width) solid var(--moi-focus-inner);
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  &:disabled,
-  &[aria-disabled="true"] {
-    box-shadow: none !important;
-
-    &::before {
-      content: none !important;
-    }
-  }
-}
-
 /*  MOI Buttons*/
 .moi-btn {
     @include moi-btn-size-vars;
@@ -89,8 +67,8 @@
     min-height: var(--btn-height) !important;
     padding-inline: var(--btn-px) !important;
     padding-block: var(--btn-py) !important;
-    font-size: var(--btn-font-size) !important;
-    line-height: var(--btn-line-height) !important;
+    font-size: typography-size(var(--btn-font-size, 1rem)) !important;
+    line-height: typography-line-height(var(--btn-line-height, 1.5)) !important;
     border-radius: var(--btn-radius) !important;
     gap: var(--btn-gap);
     /* ✅ SVG sizing from vars */
@@ -1034,41 +1012,41 @@
     &--infoFilled {
         background: #f1f7ff;
         border: 1px solid #cde2ff;
-        color: #0652c2;
+        color: $blueColor;
 
         svg {
             fill: currentColor;
         }
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: #0652c2;
-            border-color: #0652c2;
+            background: $blueColor;
+            border-color: $blueColor;
             color: $white-100;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: #0652c2;
+            background: $blueColor;
             opacity: 0.9;
             color: $white-100;
-            border-color: #0652c2;
+            border-color: $blueColor;
         }
 
         &:focus-visible {
-            outline-color: #0652c2;
+            outline-color: $blueColor;
         }
     }
 
     &--info--outline {
         background: transparent;
-        border: 1px solid #0652c2;
-        color: #0652c2;
+        border: 1px solid $blueColor;
+        color: $blueColor;
 
         svg {
             fill: currentColor;
         }
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: #0652c2;
+            background: $blueColor;
             opacity: 0.8;
             color: $white-100;
 
@@ -1078,7 +1056,7 @@
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: #0652c2;
+            background: $blueColor;
             opacity: 0.8;
             color: $white-100;
 
@@ -1088,7 +1066,7 @@
         }
 
         &:focus-visible {
-            outline-color: #0652c2;
+            outline-color: $blueColor;
         }
     }
 

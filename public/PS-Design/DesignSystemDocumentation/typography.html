@@ -9,7 +9,6 @@
   <link href="../css/animate.css" rel="stylesheet" />
   <link href="../css/font-awesome.min.css" rel="stylesheet" />
   <link href="../css/main.css" rel="stylesheet" />
-  <link href="./css/top-actions.css" rel="stylesheet" />
   <style>
     :root {
       --page-max: 1100px;
@@ -413,10 +412,11 @@
     }
 
   </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
 </head>
 
 <body>
-  <main class="container page-layout">
+  <main class="docs-shell container page-layout">
     <aside class="docs-sidebar">
       <div class="sidebar-card">
         <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
@@ -469,11 +469,13 @@
         <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="الطباعة">Typography</h1>
 
         <p class="text-muted mb-4" data-i18n
-          data-ar="يعتمد نظام الطباعة على خط <span class=&quot;code-inline&quot;>IBMPlexSansArabic</span> من <span class=&quot;code-inline&quot;>_changeFont.scss</span>. تتوفر أيضًا عائلة <span class=&quot;code-inline&quot;>29LT Bukra</span> عبر <span class=&quot;code-inline&quot;>_fonts.scss</span>، ويتم تخزين الملفات داخل مجلد <span class=&quot;code-inline&quot;>/fonts</span>.">
-          The typography system uses the <span class="code-inline">IBMPlexSansArabic</span> family from
-          <span class="code-inline">_changeFont.scss</span>. The <span class="code-inline">29LT Bukra</span> family is
-          also available via <span class="code-inline">_fonts.scss</span>, and the files live in the
-          <span class="code-inline">/fonts</span> folder.
+          data-ar="يعتمد نظام الطباعة على خط <span class=&quot;code-inline&quot;>IBMPlexSansArabic</span> وفئته <span class=&quot;code-inline&quot;>.cairo</span> من <span class=&quot;code-inline&quot;>_changeFont.scss</span>. تتوفر أيضًا عائلة <span class=&quot;code-inline&quot;>29LT Bukra</span> عبر <span class=&quot;code-inline&quot;>_fonts.scss</span> ويمكن استعادتها بفئة <span class=&quot;code-inline&quot;>.defualtFont</span>، مع تخزين الملفات داخل مجلد <span class=&quot;code-inline&quot;>/fonts</span>.">
+          The typography system uses <span class="code-inline">IBMPlexSansArabic</span> and the
+          <span class="code-inline">.cairo</span> switch from <span class="code-inline">_changeFont.scss</span>. The
+          <span class="code-inline">29LT Bukra</span> family is also available via
+          <span class="code-inline">_fonts.scss</span> and restored through
+          <span class="code-inline">.defualtFont</span>, with font files stored in <span
+            class="code-inline">/fonts</span>.
         </p>
       </header>
       <div class="metadata-row">
@@ -493,9 +495,9 @@
 
         <span class="metadata-pill"
               data-i18n
-              data-ar="آخر تحديث: 28 يناير 2026"
-              data-en="Last updated: January 28, 2026">
-          آخر تحديث: 28 يناير 2026
+              data-ar="آخر تحديث: 2 أغسطس 2026"
+              data-en="Last updated: August 2, 2026">
+          آخر تحديث: 2 أغسطس 2026
         </span>
       </div>
 
@@ -513,9 +515,11 @@
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="رسم خرائط الرموز">Token mapping</h2>
           <p class="section-note" data-i18n
-            data-ar="تم تعريف الأحجام والأوزان في <code>css/helpers/_mixins.scss</code> وهذه التنسيقات متاحة كفئات <code>font-*-*</code>.">
+            data-ar="تم تعريف الأحجام والأوزان في <code>css/helpers/_mixins.scss</code> وهذه التنسيقات متاحة كفئات <code>font-*-*</code>. كما تمر جميع الأحجام عبر <code>--font-family-scale</code> و<code>--accessibility-font-scale</code>، بينما يمر ارتفاع السطر عبر <code>--font-family-line-height</code>.">
             Sizes and weights are defined inside <code>css/helpers/_mixins.scss</code> and exposed via the
-            <code>font-*-*</code> utilities.
+            <code>font-*-*</code> utilities. All sizes flow through <code>--font-family-scale</code> and
+            <code>--accessibility-font-scale</code>, while line height flows through
+            <code>--font-family-line-height</code>.
           </p>
           <div class="table-responsive">
             <table class="docs-table" style="direction:ltr;">
@@ -574,12 +578,14 @@
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2>
           <p class="section-note" data-i18n
-            data-ar="يتم توليد فئات الطباعة من <span class=&quot;code-inline&quot;>_mixins.scss</span> عبر نطاقات الأحجام <span class=&quot;code-inline&quot;>xs</span> إلى <span class=&quot;code-inline&quot;>7xl</span> وأوزان 400-700. استخدم <span class=&quot;code-inline&quot;>font-*-*</span> لضبط الحجم والوزن بسرعة، وتقوم فئة <span class=&quot;code-inline&quot;>.cairo</span> في <span class=&quot;code-inline&quot;>_changeFontClasses.scss</span> بتفعيل خط IBM على مستوى الواجهة.">
+            data-ar="تُولَّد فئات الطباعة من <span class=&quot;code-inline&quot;>_mixins.scss</span> عبر نطاقات الأحجام <span class=&quot;code-inline&quot;>xs</span> إلى <span class=&quot;code-inline&quot;>7xl</span> وأوزان 400-700. أمّا عائلة IBM نفسها فهي متاحة بأوزان 100-700 داخل <span class=&quot;code-inline&quot;>_changeFont.scss</span>. استخدم <span class=&quot;code-inline&quot;>font-*-*</span> لضبط الحجم والوزن بسرعة، وتبدّل فئة <span class=&quot;code-inline&quot;>.cairo</span> الخط إلى IBM بينما تعيد <span class=&quot;code-inline&quot;>.defualtFont</span> خط Bukra. يبقى <span class=&quot;code-inline&quot;>_changeFontClasses.scss</span> مسار استيراد فارغًا للتوافق فقط.">
             Typography utilities are generated in <span class="code-inline">_mixins.scss</span> using size steps
-            from <span class="code-inline">xs</span> to <span class="code-inline">7xl</span> and weights 400-700.
-            Use <span class="code-inline">font-*-*</span> to apply size and weight quickly, and the
-            <span class="code-inline">cairo</span> class in <span class="code-inline">_changeFontClasses.scss</span>
-            switches the UI to IBM Plex Sans Arabic.
+            from <span class="code-inline">xs</span> to <span class="code-inline">7xl</span> and utility weights 400-700.
+            The IBM family itself is available at weights 100-700 inside
+            <span class="code-inline">_changeFont.scss</span>. Use <span class="code-inline">font-*-*</span> to apply
+            size and weight quickly; <span class="code-inline">.cairo</span> switches to IBM and
+            <span class="code-inline">.defualtFont</span> restores Bukra. <span
+              class="code-inline">_changeFontClasses.scss</span> remains an empty compatibility import path.
           </p>
         </div>
       </section>
@@ -661,19 +667,23 @@
               <tr>
                 <td>IBMPlexSansArabic</td>
                 <td data-i18n
-                  data-ar="الخط الأساسي للواجهات ثنائية اللغة والعربية، مُعرّف في <code>_changeFont.scss</code>.">
-                  Primary font for bilingual and Arabic UI, defined in <code>_changeFont.scss</code>.
+                  data-ar="الخط الأساسي للواجهات العربية وثنائية اللغة، ويُفعَّل عبر <code>.cairo</code> في <code>_changeFont.scss</code>.">
+                  Primary family for Arabic and bilingual UI, enabled through <code>.cairo</code> in
+                  <code>_changeFont.scss</code>.
                 </td>
                 <td data-i18n
-                  data-ar="ضمن <code>/fonts</code>: IBMPlexSansArabic-Regular.ttf, IBMPlexSansArabic-Medium.ttf, IBMPlexSansArabic-SemiBold.ttf.">
-                  In <code>/fonts</code>: IBMPlexSansArabic-Regular.ttf, IBMPlexSansArabic-Medium.ttf,
-                  IBMPlexSansArabic-SemiBold.ttf.
+                  data-ar="ضمن <code>/fonts</code>: IBMPlexSansArabic-Thin.ttf, IBMPlexSansArabic-ExtraLight.ttf, IBMPlexSansArabic-Light.ttf, IBMPlexSansArabic-Regular.woff2/.ttf, IBMPlexSansArabic-Medium.woff2/.ttf, IBMPlexSansArabic-SemiBold.woff2/.ttf, IBMPlexSansArabic-Bold.woff2/.ttf.">
+                  In <code>/fonts</code>: IBMPlexSansArabic-Thin.ttf, IBMPlexSansArabic-ExtraLight.ttf,
+                  IBMPlexSansArabic-Light.ttf, IBMPlexSansArabic-Regular.woff2/.ttf,
+                  IBMPlexSansArabic-Medium.woff2/.ttf, IBMPlexSansArabic-SemiBold.woff2/.ttf,
+                  IBMPlexSansArabic-Bold.woff2/.ttf.
                 </td>
               </tr>
               <tr>
                 <td>29LT Bukra</td>
-                <td data-i18n data-ar="خط احتياطي/رسمي مُعرّف في <code>_fonts.scss</code>.">
-                  Alternate/legacy family defined in <code>_fonts.scss</code>.
+                <td data-i18n data-ar="خط بديل/رسمي مُعرّف في <code>_fonts.scss</code> ويمكن الرجوع إليه عبر <code>.defualtFont</code>.">
+                  Alternate/official family defined in <code>_fonts.scss</code> and restorable through
+                  <code>.defualtFont</code>.
                 </td>
                 <td data-i18n
                   data-ar="ضمن <code>/fonts</code>: 29LTBukra-Regular.ttf, 29LTBukra-Bold.ttf, 29LTBukra-Light.ttf.">
@@ -688,10 +698,15 @@
       <section class="section" id="weights">
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="أوزان الخط">Font Weights</h2>
-          <p class="section-note" data-i18n data-ar="يُتيح خط IBM Plex Sans Arabic أوزان 200 و300 و400 و500 و600 و700.">
-            IBM Plex Sans Arabic provides weights 200, 300, 400, 500, 600, and 700.
+          <p class="section-note" data-i18n data-ar="يُتيح خط IBM Plex Sans Arabic أوزان 100 و200 و300 و400 و500 و600 و700.">
+            IBM Plex Sans Arabic provides weights 100, 200, 300, 400, 500, 600, and 700.
           </p>
           <div class="weight-grid">
+            <div class="weight-card">
+              <div class="type-label" data-i18n data-ar="وزن 100">Weight 100</div>
+              <div style="font-weight: 100; font-size: 1.125rem;" data-i18n data-ar="عينة نحيفة جدًا">Thin sample</div>
+              <div class="type-meta">100</div>
+            </div>
             <div class="weight-card">
               <div class="type-label" data-i18n data-ar="وزن 200">Weight 200</div>
               <div style="font-weight: 200; font-size: 1.125rem;" data-i18n data-ar="عينة خفيفة جدًا">Extra light sample
@@ -1088,8 +1103,8 @@
           <ul class="accessibility-list">
             <li data-i18n data-ar="رَبط كل عنوان ظاهر برمز دلالي قبل تعديل الوزن أو الحجم.">
               Map every surface-level heading to a semantic token before adjusting weight or size.</li>
-            <li data-i18n data-ar="استخدم <code>font-md-400</code> أو أكبر للفقرات المطولة للحفاظ على حد 16 بكسل.">
-              Use <code>font-md-400</code> or larger for long-form paragraphs to preserve the 16px minimum.</li>
+            <li data-i18n data-ar="استخدم <code>font-lg-400</code> أو أكبر للفقرات المطولة للحفاظ على حد 16 بكسل.">
+              Use <code>font-lg-400</code> or larger for long-form paragraphs to preserve the 16px minimum.</li>
             <li data-i18n data-ar="طبق <code>line-height-body</code> عند تجميع النص مع رموز التباعد المعيارية.">
               Apply <code>line-height-body</code> whenever text is grouped with modular spacing tokens.</li>
             <li data-i18n
@@ -1119,8 +1134,8 @@
                   Don&#39;t create intermediate sizes outside this token set.</li>
                 <li data-i18n data-ar="لا تفرط في تعديل الرموز في سمات المكونات دون موافقة الحوكمة.">
                   Don&#39;t override tokens in component themes without governance approval.</li>
-                <li data-i18n data-ar="لا تقلل نص الفقرات عن <code>font-md-400</code> أو ارتفاع سطر 1.4.">
-                  Don&#39;t shrink body text below <code>font-md-400</code> or line-height 1.4.</li>
+                <li data-i18n data-ar="لا تقلل نص الفقرات عن <code>font-lg-400</code> أو ارتفاع سطر 1.4.">
+                  Don&#39;t shrink body text below <code>font-lg-400</code> or line-height 1.4.</li>
               </ul>
             </div>
           </div>

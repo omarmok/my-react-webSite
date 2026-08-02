@@ -34,15 +34,15 @@
     }
 
     &__cases__right {
-        box-shadow: 0px 8px 30px rgba(181, 181, 181, 0.08);
-        border-radius: 8px;
-        gap: 10px;
+        box-shadow: $shadow-100;
+        border-radius: $radius-md;
+        gap: $gap-10;
         display: flex;
         flex-direction: column;
 
         .hightPriorty {
             background: #c31833;
-            color: #fff;
+            color: $white-100;
         }
 
         &--priority {
@@ -70,7 +70,7 @@
 
             .bolck {
                 padding: 10px;
-                background: #ffffff;
+                background: $white-100;
                 font-weight: 600;
                 border-radius: 5px;
                 border: 1px solid #e2e8f0;
@@ -91,7 +91,7 @@
         &--updates {
             background: #ecf2ff;
             padding: $padding-14;
-            border-radius: 8px;
+            border-radius: $radius-md;
             gap: 5px;
             display: flex;
             flex-direction: column;
@@ -112,7 +112,7 @@
                 display: flex;
                 width: 100%;
                 justify-content: space-between;
-                gap: 10px;
+                gap: $gap-10;
 
                 .btn {
                     width: 100%;
@@ -121,23 +121,23 @@
         }
 
         &--incedentDetails {
-            background: #fff;
+            background: $white-100;
             font-weight: 600;
             border-radius: 5px;
             border: 1px solid #e2e8f0;
             padding: 10px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: $gap-10;
 
             .title {
                 background: #a38664;
                 padding: 10px;
-                color: #fff;
+                color: $white-100;
             }
 
             .incTime {
-                gap: 10px;
+                gap: $gap-10;
             }
 
             .bolck {
@@ -180,20 +180,20 @@
         }
 
         &--officer {
-            background: #fff;
+            background: $white-100;
             font-weight: 600;
             border-radius: 5px;
             border: 1px solid #e2e8f0;
             padding: 10px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            border-radius: 6px;
+            gap: $gap-10;
+            border-radius: $radius-sm;
 
             .title {
-                background: #f8f6f2;
+                background: $baige;
                 padding: 10px;
-                border-radius: 6px;
+                border-radius: $radius-sm;
             }
 
             .bolck {
@@ -412,21 +412,22 @@
         display: flex;
         flex-wrap: wrap;
         width: 100%;
-        gap: 10px;
+        gap: $gap-10;
         flex-direction: row;
 
         .action {
             border-radius: 10px;
-            color: #85683b;
+            color: $Neutral-500;
             font-weight: 600;
             display: flex;
             flex-direction: column;
             align-items: center;
             position: relative;
-            padding: 8px;
+            padding: $padding-md;
             height: auto;
             width: 19.2%;
-            background: #f8f7f4;
+            background: $Neutral-25;
+            border: 1px solid $Neutral-700;
 
             img {
                 height: 40px;
@@ -438,9 +439,9 @@
         }
 
         .selectedAction {
-            background-color: #f9fffe;
-            border: 1px solid #eaf4f2;
-            color: #040404;
+            background-color: $Primary-25;
+            border: 1px solid $Primary-500;
+            color: $Primary-700;
 
             img {
                 background: rgb(224 243 239);
@@ -474,7 +475,7 @@
                 width: 24px;
                 height: 24px;
                 padding: 10px;
-                background: #fff;
+                background: $white-100;
                 border: none;
                 color: #445464;
                 text-align: center;
@@ -491,13 +492,13 @@
     top: 50%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: $gap-10;
 
     .print {
-        background: #fff;
+        background: $white-100;
         padding: $padding-14;
         border-radius: 0 10px 10px 0;
-        box-shadow: 0px 8px 30px rgba(181, 181, 181, 0.08);
+        box-shadow: $shadow-100;
         border: none;
     }
 }
@@ -575,7 +576,7 @@
 
     .block {
         padding: 10px;
-        background: #ffffff;
+        background: $white-100;
         font-weight: 600;
         border-radius: 5px;
         border: 1px solid #e2e8f0;
@@ -609,7 +610,7 @@
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #e3e8f6;
-    box-shadow: 0px 5px 35px 0px rgba(0, 27, 175, 0.05);
+    box-shadow: $shadow-2;
 }
 
 
@@ -635,7 +636,7 @@
     justify-content: center;
     box-shadow: 0px 1px 2px rgb(132 132 132);
     background: var(--theme-primary) !important !important;
-    color: #fff !important;
+    color: $white-100 !important;
     left: -5px !important;
     top: -10px !important;
 }
@@ -681,7 +682,7 @@
             -o-object-fit: cover;
             object-fit: cover;
             border-radius: 50%;
-            border: 3px solid white;
+            border: 3px solid $white-100;
             box-shadow: 0px 2px 4px rgba(220, 220, 220, 0.47);
             margin-left: -10px;
         }
@@ -711,7 +712,7 @@
         width: 270px;
         border-radius: 5px;
         background-color: #000000;
-        color: #fff;
+        color: $white-100;
         content: attr(data-tooltip);
         text-align: center;
         font-size: 10px;
@@ -742,6 +743,7 @@
 }
 
 .generalActionStyle {
+    margin-top:30px;
     .nav-item {
         margin: 0;
 
@@ -749,21 +751,27 @@
             text-align: right;
             display: flex;
             align-items: center;
-            gap: 10px;
-         
+            gap: $gap-10;
             justify-content: space-between;
+            border-radius: $radius-none $radius-md $radius-md $radius-none !important;
+
+            img {
+                height: 32px;
+                width: 32px;
+                filter: brightness(0) invert(0);
+            }
 
             .Agancyimg {
-                border-radius: 8px;
+                border-radius: $radius-md;
                 padding: 7px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: rgb(247 253 249);
+                background: $white-100;
 
                 img {
-                    height: 35px;
-                    width: 35px;
+                    height: 32px;
+                    width: 32px;
                     filter: brightness(0) invert(0);
                 }
             }
@@ -789,11 +797,12 @@
 
             img {
                 filter: brightness(0) invert(1);
+            
             }
         }
 
         .totlaActions {
-            background: white;
+            background: $white-100;
             color: var(--theme-primary) !important;
         }
     }
@@ -822,16 +831,16 @@
 }
 
 .iq-timeline2 {
-    padding: 20px;
+    padding: $padding-2xl;
 }
 
 .caseTimeline .sectiontitle {
     font-weight: 600;
     @include font-xl-500;
-    margin-bottom: 40px;
-    border-bottom: 1px solid #f8f6f2;
+    margin-bottom: $margin-5xl;
+    border-bottom: 1px solid $baige;
     padding: 18px;
-    background: #f8f6f2;
+    background: $baige;
  /*   position: sticky;
     top: -15px;
     z-index: 99999;*/
@@ -856,7 +865,7 @@
     box-shadow: rgb(105 105 105 / 17%) 0px 8px 30px;
     position: absolute;
     z-index: 99999;
-    border-radius: 20px;
+    border-radius: $radius-2xl;
 }
 
 .new-total {
@@ -864,14 +873,14 @@
     padding: 2px 8px;
     border-radius: 5px;
     margin-right: 5px;
-    color: #fff;
+    color: $white-100;
 }
 
 .generalCasesStyle__cases__left--mainTabs
 .nav-item
 .nav-link.active
 .new-total {
-    background: #fff;
+    background: $white-100;
     color: $white-100 !important;
 }
 
@@ -888,7 +897,7 @@
 .nav-item
 .nav-link {
     width: 100%;
-    background: #ffffff;
+    background: $white-100;
     color: #445464;
     font-weight: 600;
     border: none;
@@ -916,11 +925,11 @@
 
 
 .addmorecustome {
-    border: 1px solid var(--theme-primary) !important !important;
-    background: transparent !important;
-    border-radius: 8px;
+    border: 1px solid var(--theme-primary) ;
+    background: transparent ;
+    border-radius: $radius-md;
     border: none;
-    color: var(--theme-primary) !important;
+    color: var(--theme-primary) ;
     font-weight: 600;
     display: flex;
     flex-direction: row;
@@ -930,15 +939,15 @@
 
 
     svg {
-        fill: var(--theme-primary) !important;
+        fill: var(--theme-primary) ;
     }
 
     &:hover {
-        background:var(--theme-primary) !important !important;
-        color: #fff !important;
+        background:var(--theme-primary) ;
+        color: $white-100 ;
 
         svg {
-            fill: #fff;
+            fill: $white-100;
         }
     }
 }
@@ -970,11 +979,11 @@
 .Recordstabs {
     .baige.active {
         background-color: var(--theme-primary) !important !important;
-        color: #fff !important;
+        color: $white-100 !important;
         box-shadow: none;
 
         .new-total {
-            background-color: #fff !important;
+            background-color: $white-100 !important;
             color: $white-100 !important;
         }
     }
@@ -999,7 +1008,7 @@
         width: 300px;
         margin: 0 60px;
         border-radius: 0 0 20px 20px;
-        padding: 8px;
+        padding: $padding-md;
         @include font-md-500;
     }
 
@@ -1009,7 +1018,7 @@
 
 .ArrestedCars .steps {
     margin: 0 !important;
-    margin-bottom: 20px !important;
+    margin-bottom: $margin-2xl !important;
     padding-right: 0;
 }
 
@@ -1023,7 +1032,7 @@
         margin-bottom: 15px;
         overflow: hidden;
         display: flex;
-        gap: 10px;
+        gap: $gap-10;
     }
     /* 
         .new-section-footer .btn {
@@ -1040,7 +1049,7 @@
     }
 
     .main-section-footer {
-        margin-right: 20px;
+        margin-right: $margin-2xl;
     }
 
     .ArrestedPersons .ArrestedPersonsTabs #pills-tabContent {
@@ -1051,7 +1060,7 @@
 
 
 .advancedSearchModalbody {
-    gap: 10px;
+    gap: $gap-10;
     display: flex;
     flex-direction: column;
 
@@ -1062,7 +1071,7 @@
         display: flex;
 
         .form-check-label {
-            margin-right: 20px !important;
+            margin-right: $margin-2xl !important;
         }
     }
 }

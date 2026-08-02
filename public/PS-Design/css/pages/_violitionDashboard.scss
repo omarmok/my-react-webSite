@@ -18,8 +18,8 @@
             width: 100%;
 
             &--card {
-                padding: 8px;
-                background: #fff;
+                padding: $padding-md;
+                background: $white-100;
                 border-radius: 50%;
                 width: 100px;
                 height: 100px;
@@ -128,19 +128,19 @@
                 border: 1px solid #c2d6f3;
 
                 .borderanimation {
-                    border-color: #0652c2;
+                    border-color: $blueColor;
                 }
 
                 svg {
-                    fill: #0652c2;
+                    fill: $blueColor;
                 }
 
                 &__totalenumber {
-                    color: #0652c2;
+                    color: $blueColor;
                 }
 
                 &__categoname {
-                    color: #0652c2;
+                    color: $blueColor;
                 }
             }
         }

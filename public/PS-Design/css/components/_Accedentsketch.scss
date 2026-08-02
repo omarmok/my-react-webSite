@@ -24,7 +24,7 @@
 
 #whiteboard {
     flex: 1;
-    background-color: #ffffff;
+    background-color: $white-100;
     overflow: hidden;
     border: 2px solid #444;
     position: relative;
@@ -34,12 +34,12 @@
     width: 30%;
     height: 450px;
     background-color: #f1f1f1;
-    color: white;
+    color: $white-100;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 20px;
+    gap: $gap-20;
     padding: 10px;
     overflow-y: hidden;
     overflow-x: scroll;
@@ -70,7 +70,7 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    color: white;
+    color: $white-100;
     border: none;
     border-radius: 50%;
     display: flex;
@@ -100,7 +100,7 @@
 }
 
 .previewimage {
-    margin-top: 20px;
+    margin-top: $margin-2xl;
     width: 500px;
     height: 300px;
     border: 2px solid #444;
@@ -118,9 +118,9 @@
     position: absolute;
     bottom: 10px;
     right: 10px;
-    padding: 10px 20px;
+    padding: 10px $padding-2xl;
     background-color: #007bff;
-    color: white;
+    color: $white-100;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -136,7 +136,7 @@
     right: 10px;
     padding: 5px 10px;
     background-color: #dc3545;
-    color: white;
+    color: $white-100;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -175,18 +175,18 @@
 
 #controls {
     display: flex;
-    gap: 10px;
+    gap: $gap-10;
     align-items: flex-end;
 }
 
 #savedImageContainer {
     display: flex;
-    gap: 10px;
+    gap: $gap-10;
 }
 
 #savedImage {
     border: 4px solid #ebebeb;
-    border-radius: 8px;
+    border-radius: $radius-md;
 }
 
 .eraser-circle {
@@ -204,7 +204,7 @@
         flex-direction: column;
 
         .files {
-            gap: 10px;
+            gap: $gap-10;
             display: flex;
             flex-wrap: wrap;
             border: 0.2px solid #acddc7;
@@ -213,7 +213,7 @@
 
             .attatched {
                 width: auto;
-                gap: 40px;
+                gap: $gap-5xl;
                 background: #f5faf8 !important;
                 border: 1px solid #7bddb1 !important;
                 padding: 0 10px;
@@ -223,7 +223,7 @@
                     background: #daede6;
 
                     svg {
-                        fill: #25935F;
+                        fill: $Primary-500;
                     }
                 }
             }
@@ -235,23 +235,23 @@
 .AccidentParties {
     padding: $padding-14;
     margin: 15px;
-    background: #fff;
-    box-shadow: 0px 5px 35px 0px rgba(0, 27, 175, 0.05);
+    background: $white-100;
+    box-shadow: $shadow-2;
 
     .tab-content {
-        border: 1px solid #25935F;
-        border-radius: 6px;
+        border: 1px solid $Primary-500;
+        border-radius: $radius-sm;
         padding: $padding-14;
     }
 
     .personsTab {
         padding: $padding-14;
         width: 20%;
-        background: #f8f6f2;
+        background: $baige;
 
         .nav-link {
             width: 100%;
-            background: #fff;
+            background: $white-100;
             color: #464646;
             height: 50px;
             text-align: right;
@@ -271,16 +271,16 @@
                 width: 30px;
                 height: 30px;
                 border-radius: 5px;
-                color: #ffffff;
+                color: $white-100;
             }
         }
 
         .active {
             background: #A38766 !important;
-            color: #fff;
+            color: $white-100;
 
             svg {
-                fill: #fff;
+                fill: $white-100;
             }
         }
     }
@@ -289,12 +289,12 @@
 
 .respnsiplitypercentage {
     display: flex;
-    gap: 10px;
+    gap: $gap-10;
 
     .responsibilityRatiobutton {
         display: inline-block;
         padding: 14px;
-        border-radius: 6px;
+        border-radius: $radius-sm;
         @include font-lg-500;
         font-weight: bold !important;
         text-align: center;
@@ -306,7 +306,7 @@
     }
 
     .responsibilityRatiobutton.active {
-        background-color: #25935F;
+        background-color: $Primary-500;
         color: white;
         border: 1px solid #24ab6e;
     }

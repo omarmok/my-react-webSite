@@ -46,7 +46,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: $padding-lg;
+  // Autonomous Maintainer pass: $padding-lg and $gap-lg are both 12px;
+  // reused the semantically-correct spacing token for a `gap` property
+  // (zero value change).
+  gap: $gap-lg;
   margin: 0;
   padding: $padding-md;
   color: var(--moi-notification-color);
@@ -176,7 +179,10 @@
   &__actions {
     display: flex;
     align-items: center;
-    gap: $padding-lg;
+    // Autonomous Maintainer pass: $padding-lg and $gap-lg are both 12px;
+  // reused the semantically-correct spacing token for a `gap` property
+  // (zero value change).
+  gap: $gap-lg;
   }
 
   &__content {

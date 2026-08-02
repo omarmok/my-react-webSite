@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 50px;
-  color: #fff;
+  color: $white-100;
 
   img {
     height: 20px;
@@ -15,7 +15,7 @@
     gap: 5px;
 
     .block {
-      gap: 2px;
+      gap: $gap-xxs;
       display: flex;
       flex-direction: column;
       @include smallfont-reg-10;
@@ -39,7 +39,7 @@
   background: transparent;
   padding: $padding-14;
   display: flex;
-  border-radius: 8px;
+  border-radius: $radius-md;
   box-shadow: 0px 8px 30px rgb(181 181 181 / 8%);
 
   .wizard,
@@ -106,7 +106,7 @@
     font-weight: 600;
     padding: 5px 10px;
     border: none;
-    background: #ffffff;
+    background: $white-100;
     color: var(--theme-primary) !important !important;
     box-shadow: rgb(239 241 249) 0px 3px 8px 4px;
     border-radius: 10px;
@@ -130,7 +130,7 @@
   .wizard > .steps .disabled a,
   .wizard > .steps .disabled a:hover,
   .wizard > .steps .disabled a:active {
-    background: #fff;
+    background: $white-100;
     color: #aaa;
     cursor: default;
   }
@@ -139,14 +139,14 @@
   .wizard > .steps .current a:hover,
   .wizard > .steps .current a:active {
     background: var(--theme-primary) !important;
-    color: #ffffff !important;
+    color: $white-100 !important;
     cursor: default;
   }
 
   .wizard > .steps .done a,
   .wizard > .steps .done a:hover,
   .wizard > .steps .done a:active {
-    background: #ffffff;
+    background: $white-100;
     color: var(--theme-primary) !important !important;
   }
 
@@ -154,7 +154,7 @@
   .wizard > .steps .error a:hover,
   .wizard > .steps .error a:active {
     background: #ff3111;
-    color: #fff;
+    color: $white-100;
   }
 
   .wizard > .content {
@@ -222,7 +222,7 @@
     display: block;
     text-align: right;
     width: 100%;
-    margin-top: 20px;
+  margin-top: $margin-2xl;
   }
 
   .wizard.vertical > .actions {
@@ -244,16 +244,16 @@
     padding: 10px 15px;
     font-size: 10px;
     font-weight: bold;
-    border-radius: 6px;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -o-border-radius: 6px;
+    border-radius: $radius-sm;
+    -webkit-border-radius: $radius-sm;
+    -moz-border-radius: $radius-sm;
+    -ms-border-radius: $radius-sm;
+    -o-border-radius: $radius-sm;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 40px;
-    color: #fff;
+    color: $white-100;
     background: var(--theme-primary) !important;
     border: 1px solid var(--theme-primary) !important;
     box-shadow: 0px 8px 30px rgb(181 181 181 / 8%);
@@ -295,12 +295,12 @@
     border: 1px solid $Primary-500;
     box-shadow: 0px 8px 30px rgb(181 181 181 / 8%);
     background: $Primary-500;
-    color: #fff;
+    color: $white-100;
   }
 
   .saveCompleateLater {
     float: left !important;
-    margin-left: 20px !important;
+    margin-left: $margin-2xl !important;
 
     .moi-btn--text-icon {
       background: transparent !important;
@@ -343,7 +343,7 @@
 
   .tabcontrol > .steps > ul {
     position: relative;
-    margin: 6px 0 0 0;
+  margin: $margin-sm 0 0 0;
     top: 1px;
     z-index: 1;
   }
@@ -367,7 +367,7 @@
   }
 
   .tabcontrol > .steps > ul > li.current {
-    background: #fff;
+    background: $white-100;
     border: 1px solid #bbb;
     border-bottom: 0 none;
     padding: 0 0 1px 0;
@@ -398,7 +398,7 @@
     height: 35em;
     overflow: hidden;
     border-top: 1px solid #bbb;
-    padding-top: 20px;
+  padding-top: $padding-2xl;
   }
 
   .tabcontrol > .content > .body {
@@ -462,7 +462,7 @@
     margin-top: 15px;
 
     .createViolitionContainer--creatviolition--Inquire {
-      background: #fff;
+      background: $white-100;
       padding-top: 0;
 
       ul {
@@ -491,11 +491,11 @@
 
       .accordion-item {
         border: none;
-        background: #fff;
+        background: $white-100;
         padding: $padding-14;
         display: flex;
         flex-direction: column;
-        border-radius: 8px;
+        border-radius: $radius-md;
         box-shadow: 0px 8px 30px rgb(181 181 181 / 8%);
         margin-top: 15px;
         border: 1px solid var(--theme-primary) !important;
@@ -504,7 +504,7 @@
           background-color: #ececec;
           border-radius: 50%;
           display: flex;
-          color: #fff;
+          color: $white-100;
           text-align: center;
           width: 30px;
           height: 30px;
@@ -579,7 +579,7 @@
       }
 
       .accordion-button:not(.collapsed) {
-        background-color: #ffffff;
+        background-color: $white-100;
         box-shadow: none;
 
         &::after {
@@ -587,7 +587,7 @@
         }
 
         .block {
-          border: 1px solid #ffffff;
+          border: 1px solid $white-100;
 
           span {
             color: var(--theme-primary) !important;
@@ -600,7 +600,7 @@
 
 .securityCaseDetails {
   padding: $padding-14;
-  background: #fff;
+  background: $white-100;
   border-radius: 5px;
   box-shadow: #e4e4e436 0 3px 8px 4px;
   .importancess {
@@ -634,7 +634,7 @@
 .low {
   background-color: #f0f0f0 !important;
   color: #000000 !important;
-  border: 1px solid #ffffff !important;
+  border: 1px solid $white-100 !important;
   font-weight: 500;
 }
 
@@ -658,8 +658,8 @@
 }
 
 .elementflex {
-  gap: 10px;
-  margin-bottom: 12px;
+  gap: $gap-10;
+  margin-bottom: $margin-lg;
 }
 
 .securityCaseMap {
@@ -691,14 +691,14 @@
 }
 
 .placeDetails {
-  background: #ffffff;
+  background: $white-100;
   padding: $padding-14;
   position: absolute;
   width: 70%;
   left: 56px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: $gap-10;
   z-index: 9999;
   box-shadow: #eff1f9 0 3px 8px 4px;
   border-radius: 10px;
@@ -737,9 +737,9 @@
   }
 
   .minus {
-    background: white;
+    background: $white-100;
     @include font-2xl-500;
-    padding: 6px 10px;
+    padding: $padding-sm 10px;
     border-radius: 0 8px 8px 0;
     font-weight: 600 !important;
     border: 1px solid #d0ccde;
@@ -749,10 +749,10 @@
   }
 
   .plus {
-    background: white;
+    background: $white-100;
     @include font-2xl-500;
-    padding: 6px 10px;
-    border-radius: 8px 0 0 8px;
+    padding: $padding-sm 10px;
+    border-radius: $radius-md 0 0 $radius-md;
     font-weight: 600 !important;
     border: 1px solid #d0ccde;
     line-height: 0.9;

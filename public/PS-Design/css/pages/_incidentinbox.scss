@@ -3,14 +3,14 @@
 
     .tabcontent {
         margin: 0 auto;
-        margin-top: 20px;
+        margin-top: $margin-2xl;
         width: 100%;
         gap: 9px;
         display: flex;
         flex-wrap: wrap;
 
         .card {
-            padding: 8px;
+            padding: $padding-md;
             border-radius: 14px;
             width: 32.9%;
 
@@ -59,7 +59,7 @@
 
 
                 .icon-service {
-                    border-radius: 6px;
+                    border-radius: $radius-sm;
                     background: $white-100;
                     display: flex;
                     align-items: center;
@@ -124,7 +124,7 @@
                     background: $Neutral-50;
                     padding: 7px 10px;
                     line-height: 1.8;
-                    border-radius: 6px;
+                    border-radius: $radius-sm;
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -181,7 +181,7 @@
         .btn-close {
             position: absolute;
             left: -48px;
-            background: #fff;
+            background: $white-100;
             width: 30px;
             height: 30px;
             border-radius: 50%;
@@ -189,13 +189,13 @@
         }
 
         .modal-content {
-            background: #ffffff;
+            background: $white-100;
             border-radius: 25px;
             padding: 0;
 
             .rightDetails {
                 padding: 10px;
-                border-radius: 8px;
+                border-radius: $radius-md;
                 border: 1px solid #C6C6DC;
                 position: -webkit-sticky;
                 position: sticky;
@@ -206,15 +206,15 @@
                     padding: 14px;
                     border: 1px solid #C0D6ED;
                     background: rgba(241, 247, 255, 0.4);
-                    border-radius: 8px;
-                    gap: 14px;
+                    border-radius: $radius-md;
+                    gap: $gap-14;
                     display: flex;
                     flex-direction: column;
 
                     .casenumber {
-                        background: #fff;
+                        background: $white-100;
                         box-shadow: 0px 1px 4px 0px rgb(0 27 175 / 9%);
-                        padding: 8px;
+                        padding: $padding-md;
                         font-size: 10px;
                         font-weight: 600;
                         border-radius: 5px;
@@ -276,9 +276,9 @@
 
             .leftDetails {
                 .mainAction {
-                    background: #fff;
+                    background: $white-100;
                     padding: $padding-14;
-                    box-shadow: 0px 5px 35px 0px rgba(0, 27, 175, 0.05);
+                    box-shadow: $shadow-2;
                     position: -webkit-sticky;
                     position: sticky;
                     top: 0;

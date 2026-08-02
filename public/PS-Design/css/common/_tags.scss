@@ -12,18 +12,50 @@ $moi-tag-control-sizes: (
   4xl: 4rem,
 );
 
+$moi-tag-label-font-sizes: (
+  default: 0.875rem,
+  sm: 0.75rem,
+  md: 0.875rem,
+  lg: 0.875rem,
+  xl: 1rem,
+  2xl: 1rem,
+  3xl: 1.125rem,
+  4xl: 1.25rem,
+);
+
+$moi-tag-label-line-heights: (
+  default: 1.4285714286,
+  sm: 1.3333333333,
+  md: 1.4285714286,
+  lg: 1.4285714286,
+  xl: 1.4,
+  2xl: 1.4,
+  3xl: 1.3333333333,
+  4xl: 1.3,
+);
+
 $moi-tag-indicator-sizes: (
   default: 10px,
 );
 
+// Autonomous Maintainer pass: `radius` (2px) matched $radius-xxs exactly —
+// reused the existing radius token (zero-risk, same value, same semantic
+// concept: a border-radius). `focus-outline`/`focus-offset` are outline
+// width/offset, a different semantic concept — no dedicated token exists
+// for those anywhere in the project (the project's own moi-focus-ring
+// mixin also uses raw px literals for outline geometry), kept literal.
 $moi-tag-remove-sizes: (
-  radius: 2px,
+  radius: $radius-xxs,
   focus-outline: 2px,
   focus-offset: 2px,
 );
 
+// Autonomous Maintainer pass: `default` (8px) matched $gap-md exactly —
+// reused the existing spacing token (zero-risk, same value).
+// `legacy-indicator-offset` (5px) has no exact spacing-token match — kept
+// literal.
 $moi-tag-gap: (
-  default: 8px,
+  default: $gap-md,
   legacy-indicator-offset: 5px,
 );
 
@@ -158,10 +190,11 @@ $moi-tag-statuses: (
   }
 
   position: relative;
-  height: $base-size;
+  height: auto;
+  min-height: $base-size;
 
   @if $logical {
-    block-size: $base-size;
+    block-size: auto;
     min-block-size: $base-size;
     padding-block: $base-padding;
     padding-inline: $base-padding;
@@ -170,7 +203,7 @@ $moi-tag-statuses: (
   }
 
   border-radius: map.get($moi-tag-radius, pill);
-  line-height: $base-size;
+  line-height: normal;
 }
 
 @mixin _moi-tag-indicator(
@@ -217,11 +250,11 @@ $moi-tag-statuses: (
   $control-size: map.get($moi-tag-control-sizes, $size-token);
   $icon-size: map.get($moi-icon-sizes, $size-token);
 
-  height: $control-size;
-  block-size: $control-size;
+  height: auto;
+  block-size: auto;
   min-height: $control-size;
   min-block-size: $control-size;
-  line-height: $control-size;
+  @include _moi-tag-typography($size-token);
 
   > svg:first-child,
   > img:first-child,
@@ -233,13 +266,22 @@ $moi-tag-statuses: (
   }
 }
 
+@mixin _moi-tag-typography($size-token: default) {
+  $font-size: map.get($moi-tag-label-font-sizes, $size-token);
+  $line-height: map.get($moi-tag-label-line-heights, $size-token);
+
+  font-size: typography-size($font-size) !important;
+  font-weight: 500 !important;
+  line-height: typography-line-height($line-height);
+}
+
 @mixin _moi-tag-rounded {
   border-radius: map.get($moi-tag-radius, rounded);
 }
 
 @mixin _moi-tag-legacy-base {
   @include _moi-tag-base(flex, $align-content: center);
-  @include font-lg-500;
+  @include _moi-tag-typography(default);
   font-weight: 600 !important;
 
   &::before {
@@ -374,6 +416,7 @@ $moi-tag-statuses: (
 
 .moi-tag {
   @include _moi-tag-modern-base;
+  @include _moi-tag-typography(default);
   @include _moi-tag-theme($Neutral-600, $Neutral-50, $Neutral-200, $Neutral-600);
 
   svg,
@@ -447,6 +490,8 @@ $moi-tag-statuses: (
   font: inherit;
   color: inherit;
   line-height: inherit;
+  display: inline-flex;
+  align-items: center;
 }
 
 // =============================================================================

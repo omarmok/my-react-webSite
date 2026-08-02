@@ -101,7 +101,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 12px;
+  // Autonomous Maintainer pass: 12px matched $margin-lg exactly.
+  margin-left: $margin-lg;
   box-shadow: 0 3px 8px 4px rgba(239, 241, 249, 1);
   transition: 0.2s ease;
 }

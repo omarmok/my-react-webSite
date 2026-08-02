@@ -4,11 +4,11 @@
   .Verified__user {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: $gap-10;
 
     .top-details {
       align-items: center;
-      gap: 10px;
+      gap: $gap-10;
       width: 100%;
     }
 
@@ -19,7 +19,7 @@
       flex-direction: column;
 
       &--picture {
-        margin-bottom: 20px;
+        margin-bottom: $margin-2xl;
         position: relative;
 
         img {
@@ -41,7 +41,7 @@
 
       &--wantedlabel {
         background: #d9272d;
-        color: #fff;
+        color: $white-100;
         border-radius: 15px;
         padding: 5px 10px;
         position: absolute;
@@ -62,7 +62,7 @@
         display: flex;
         flex-direction: column;
         border-bottom: 1px solid #efefef;
-        padding: 8px 0;
+        padding: $padding-md 0;
         color: #140ddc;
 
         span {

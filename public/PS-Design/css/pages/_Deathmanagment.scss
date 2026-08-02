@@ -50,7 +50,7 @@
             width: 200px;
             height: 55px;
             /*  background: $Brown-25;
-            border: 1px solid #C69C66;*/
+            border: 1px solid $Brown-500;*/
             background: $Brown-25;
             border: 1px solid $Brown-100;
             border-radius: $Radius-8;
@@ -182,7 +182,7 @@
     .deceased-general-desc-template {
         .scroll-container {
             display: flex;
-            gap: 10px;
+            gap: $gap-10;
             overflow-x: auto;
             white-space: nowrap;
             padding: 10px;
@@ -199,20 +199,20 @@
 
             .card:hover {
                 background-color: #0F7043;
-                color: white;
+                color: $white-100;
                 cursor: pointer;
 
                 .card-title {
-                    color: white;
+                    color: $white-100;
                 }
             }
 
         .active-card {
             background-color: #0F7043;
-            color: white;
+            color: $white-100;
 
             .card-title {
-                color: white;
+                color: $white-100;
             }
         }
 
@@ -239,14 +239,14 @@
         }
 
         .color-option {
-            padding: 6px;
+            padding: $padding-sm;
             text-align: center;
             border: 1px solid #ccc;
             cursor: pointer; /* Make it look clickable */
             transition: background-color 0.3s; /* Smooth transition for hover effect */
             @include font-sm-500;
             font-weight: 600 !important;
-            border-radius: 6px;
+            border-radius: $radius-sm;
             width: 140px;
         }
 
@@ -259,7 +259,7 @@
             width: 50px;
             margin: 0 auto 5px;
             border: 1px solid #000;
-            border-radius: 6px;
+            border-radius: $radius-sm;
         }
         /* Specific colors - you can customize these */
         .color-box-1 {
@@ -279,18 +279,18 @@
         }
         /* ???? (Brown/Tan) - Example color */
         .color-box-5 {
-            background-color: #FFFFFF;
+            background-color: $white-100;
         }
         /* ???? (other) - Example color */
         .color-box-6 {
-            background-color: #FFFFFF;
+            background-color: $white-100;
         }
     }
 
     .clothesitem {
         border-radius: $Radius-8;
         background: $white-100;
-        box-shadow: 0px 5px 35px 0px rgba(0, 27, 175, 0.05);
+        box-shadow: $shadow-2;
         border: 1px solid $Neutral-200;
         padding: $padding-10;
         position: relative;
@@ -309,7 +309,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: $gap-10;
             margin: 0;
         }
     }
@@ -319,7 +319,7 @@
 
     .personsearch {
         box-shadow: 0px 8px 30px rgb(231 234 237);
-        border-radius: 8px;
+        border-radius: $radius-md;
 
         .radioin {
             width: 15px;
@@ -333,7 +333,7 @@
         background: transparent;
         padding: 0;
         box-shadow: none;
-        border-radius: 8px;
+        border-radius: $radius-md;
 
         .form-group {
             display: flex;
@@ -346,14 +346,14 @@
 .hands-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: $gap-2xl;
     text-align: center;
 
 }
 
 
 .finger {
-    fill: #ffffff;
+    fill: $white-100;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
@@ -373,7 +373,7 @@
 .deceasedbody {
     display: flex;
     height: 70vh;
-    background-color: #ffffff;
+    background-color: $white-100;
     flex-direction: column;
     position: relative;
 
@@ -397,22 +397,22 @@
 
     #whiteboard {
         flex: 1;
-        background-color: #ffffff;
+        background-color: $white-100;
         overflow: hidden;
         border: 1px solid #a5a5a5;
         position: relative;
-        background-color: #ffffff;
+        background-color: $white-100;
         background-image: url("./../images/whiteboard/deceased.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
         box-shadow: 0px 5px 35px 0px rgb(82 82 82 / 12%);
-        border-radius: 6px;
+        border-radius: $radius-sm;
     }
 
     #itemstoslelect {
         display: flex;
-        gap: 10px;
+        gap: $gap-10;
         padding: 10px;
         overflow-y: hidden;
         overflow-x: hidden;
@@ -443,7 +443,7 @@
         position: absolute;
         width: 20px;
         height: 20px;
-        color: white;
+        color: $white-100;
         border: none;
         border-radius: 50%;
         display: flex;
@@ -469,7 +469,7 @@
     .description-box {
         position: absolute;
         top: 50px;
-        background-color: white;
+        background-color: $white-100;
         border: 1px solid #ccc;
         padding: 10px;
         width: 350px;
@@ -495,7 +495,7 @@
         padding: $padding-10;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: $gap-10;
         align-items: start;
         background: $Info-25;
         border-radius: $Radius-6;

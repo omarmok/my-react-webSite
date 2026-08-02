@@ -96,8 +96,10 @@
     position: absolute;
     inset-inline-end: 10px;
     top: 50%;
-    width: 16px;
-    height: 16px;
+    // Autonomous Maintainer pass (Icon Size Migration follow-up): 16px
+    // matched $moi-icon-sizes' `sm` (1rem) exactly.
+    width: map.get($moi-icon-sizes, sm);
+    height: map.get($moi-icon-sizes, sm);
     color: $Primary-500;
     opacity: 0;
     pointer-events: none;
@@ -272,8 +274,11 @@
 
   &__count {
     @include smallfont-reg-10;
-    padding: 2px $padding-md;
-    font-weight: 500;
+    // Autonomous Maintainer pass: 2px matched $padding-xxs exactly.
+    padding: $padding-xxs $padding-md;
+    // Autonomous Maintainer pass: removed a redundant `font-weight: 500;` —
+    // `smallfont-reg-10` above already sets `font-weight: 500;`, so this was
+    // a same-value, same-specificity no-op. Zero computed-style change.
     color: $Info-800;
     background-color: $Info-50;
     border-radius: $Radius-100;

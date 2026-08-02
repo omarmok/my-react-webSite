@@ -39,5 +39,8 @@
 }
 
 .form-check-label {
-  margin-right: $gap-20;
+  // Autonomous Migration pass: was $gap-20 (a gap-category token on a
+  // margin property) — same 20px value, reused the semantically-correct
+  // $margin-2xl instead.
+  margin-right: $margin-2xl;
 }

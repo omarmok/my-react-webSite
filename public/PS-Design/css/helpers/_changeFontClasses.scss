@@ -1,7 +1,3 @@
-﻿@use "./mixins" as *;
-@use "./variables" as *;
-
-.cairo {
-  font-family: "IBMPlexSansArabic", sans-serif !important;
-  @include font-md-500;
-}
+// Font-family state is defined in `_changeFont.scss`.
+// This partial remains intentionally empty to preserve the existing import path
+// without duplicating global font-size overrides.

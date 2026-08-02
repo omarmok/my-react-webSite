@@ -5,12 +5,12 @@
 
     &__mainDetails {
         background: #fcfbfb;
-        box-shadow: 0px 8px 30px rgba(181, 181, 181, 0.08);
+        box-shadow: $shadow-100;
         border: 1px solid #f3f6ff;
         padding: $padding-14;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: $gap-10;
         position: relative;
         height: 100%;
         border: 1px solid #d8e0e9;
@@ -18,7 +18,7 @@
         border-radius: 10px;
 
         &--block {
-            background: var(--color, #ffffff);
+            background: var(--color, $white-100);
             border-style: solid;
             border-color: var(--long-shadow, #e2e8f0);
             border-width: 1px;
@@ -53,11 +53,11 @@
             display: flex;
             justify-content: space-between;
             padding: $padding-14;
-            border-radius: 6px;
+            border-radius: $radius-sm;
 
             h3 {
                 @include boldfont;
-                color: #fff;
+                color: $white-100;
                 margin-bottom: 0;
             }
         }
@@ -69,12 +69,12 @@
         display: flex;
         padding: $padding-14;
         flex-direction: column;
-        gap: 10px;
+        gap: $gap-10;
 
         &--topblock {
             display: flex;
             align-items: flex-end;
-            gap: 10px;
+            gap: $gap-10;
         }
 
         textarea.form-control {
@@ -92,12 +92,12 @@
             padding: 5px;
 
             .accordion-item {
-                background: #fff;
+                background: $white-100;
                 margin-bottom: 5px;
 
                 .accordion-header {
                     display: flex;
-                    background: #f8f6f2;
+                    background: $baige;
                     border-style: solid;
                     border-color: transparent;
                     border-width: 1px;
@@ -124,7 +124,7 @@
                             justify-content: center;
                             align-items: center;
                             border-radius: 50%;
-                            color: #fff;
+                            color: $white-100;
                             margin-left: 5px;
                         }
 
@@ -143,7 +143,7 @@
 
                 .accordion-body {
                     line-height: 2.1;
-                    padding: 12px;
+                    padding: $padding-lg;
                     border-style: solid;
                     border-color: var(--long-shadow, #e2e8f0);
                     border-width: 1px;
@@ -166,7 +166,7 @@
                 background-position: 7px 6px;
                 background-repeat: no-repeat;
                 margin-top: -4px;
-                border-radius: 8px;
+                border-radius: $radius-md;
                 width: 20px;
                 height: 20px;
                 margin: 0;
@@ -189,7 +189,7 @@
 
     &__Fingerprint {
         .interviewer {
-            background: var(--color, #ffffff);
+            background: var(--color, $white-100);
             border-style: solid;
             border-color: var(--long-shadow, #e2e8f0);
             border-width: 1px;

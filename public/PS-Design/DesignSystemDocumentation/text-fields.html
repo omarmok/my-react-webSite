@@ -9,7 +9,6 @@
   <link href="../css/animate.css" rel="stylesheet" />
   <link href="../css/font-awesome.min.css" rel="stylesheet" />
   <link href="../css/main.css" rel="stylesheet" />
-  <link href="./css/top-actions.css" rel="stylesheet" />
   <style>
     :root {
       --page-max: 1100px;
@@ -487,45 +486,6 @@
       gap: 6px;
     }
 
-    .input-wrapper {
-      position: relative;
-      width: 100%;
-    }
-
-    .input-wrapper.has-leading .form-control {
-      padding-inline-start: 40px;
-    }
-
-    .input-wrapper.has-trailing .form-control {
-      padding-inline-end: 40px;
-    }
-
-    .input-icon {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted);
-      width: 18px;
-      height: 18px;
-      pointer-events: none;
-    }
-
-    .input-icon.leading {
-      inset-inline-start: 12px;
-    }
-
-    .input-icon.trailing {
-      inset-inline-end: 12px;
-    }
-
-    .toggle-password {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      inset-inline-end: 10px;
-      color: var(--muted);
-    }
-
     .helper-text {
       color: var(--muted);
       font-size: 0.85rem;
@@ -536,99 +496,6 @@
 
     .error-text {
       font-size: 0.85rem;
-    }
-
-    .select-field {
-      position: relative;
-      width: 100%;
-    }
-
-    .select-trigger {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      background: #fff;
-    }
-
-    .select-trigger .select-value {
-      flex: 1;
-    }
-
-    .select-trigger .placeholder {
-      color: var(--muted);
-    }
-
-    .select-menu {
-      list-style: none;
-      margin: 0;
-      padding: 8px 0;
-      position: absolute;
-      inset-inline-start: 0;
-      inset-inline-end: 0;
-      top: calc(100% + 6px);
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
-      display: none;
-      z-index: 20;
-    }
-
-    .select-field.is-open .select-menu {
-      display: block;
-    }
-
-    .select-option {
-      padding: 10px 14px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .select-option:hover {
-      background: #f3f4f6;
-    }
-
-    .chevron {
-      transition: transform 0.16s ease;
-    }
-
-    .select-field.is-open .chevron {
-      transform: rotate(180deg);
-    }
-
-    .select-field.is-disabled .form-control {
-      background: #f3f4f6;
-      border: 1px solid #d2d6db;
-      color: #9da4ae;
-      pointer-events: none;
-    }
-
-    .state-hover .form-control {
-      border-color: var(--muted);
-      box-shadow: 0 0 0 1px var(--border);
-    }
-
-    .state-focus .form-control {
-      border-color: var(--color_change, #25935f);
-      box-shadow: 0 0 0 2px rgba(37, 147, 95, 0.12);
-    }
-
-    .state-filled .form-control {
-      color: #111827;
-    }
-
-    .select-field.state-focus .form-control {
-      border-color: var(--color_change, #25935f);
-      box-shadow: 0 0 0 2px rgba(37, 147, 95, 0.12);
-    }
-
-    .select-field .form-control.is-invalid {
-      border-color: var(--bs-danger, #f04438);
-      box-shadow: 0 0 0 2px rgba(240, 68, 56, 0.12);
     }
 
     .field-note {
@@ -656,10 +523,11 @@
     }
 
   </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
 </head>
 
 <body>
-  <main class="container page-layout">
+  <main class="docs-shell container page-layout">
     <aside class="docs-sidebar">
       <div class="sidebar-card">
         <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
@@ -712,10 +580,11 @@
         <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="حقول النص والقوائم">Text Inputs &amp; Selects</h1>
 
         <p class="text-muted mb-4" data-i18n
-          data-ar="تعرض هذه الصفحة الحقول النصية وقوائم الاختيار بنفس هيكل الأزرار. يعتمد كل حقل على الفئات الجاهزة <span class=&quot;code-inline&quot;>.form-control</span> و <span class=&quot;code-inline&quot;>.form-select</span> مع استخدام الأيقونات والنصوص المساعدة عند الحاجة.">
-          This page maps text inputs and dropdown selects using the same layout as buttons. Each field is
-          built on the core <span class="code-inline">.form-control</span> and
-          <span class="code-inline">.form-select</span> styles, layering icons and helper text where needed.
+          data-ar="تعرض هذه الصفحة حقول الإدخال الحالية كما نُفّذت في SCSS عبر <span class=&quot;code-inline&quot;>.form-control</span> و<span class=&quot;code-inline&quot;>.form-select</span> و<span class=&quot;code-inline&quot;>.form-content</span> وحالات التحقق والقراءة فقط والتعطيل.">
+          This page documents the current field implementation from SCSS through
+          <span class="code-inline">.form-control</span>, <span class="code-inline">.form-select</span>,
+          <span class="code-inline">.form-content</span>, and the implemented validation, readonly, and disabled
+          states.
         </p>
 
       </header>
@@ -736,9 +605,9 @@
 
         <span class="metadata-pill"
               data-i18n
-              data-ar="آخر تحديث: 28 يناير 2026"
-              data-en="Last updated: January 28, 2026">
-          آخر تحديث: 28 يناير 2026
+              data-ar="آخر تحديث: 2 أغسطس 2026"
+              data-en="Last updated: August 2, 2026">
+          آخر تحديث: 2 أغسطس 2026
         </span>
       </div>
 
@@ -747,20 +616,30 @@
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2>
           <p class="section-note" data-i18n
-            data-ar="الحقول تستخدم فئات Bootstrap القائمة <span class=&quot;code-inline&quot;>.form-control</span> و <span class=&quot;code-inline&quot;>.form-select</span> مع أيقونات مساعدة داخل <span class=&quot;code-inline&quot;>.form-content</span> ونصوص تحتية باستخدام <span class=&quot;code-inline&quot;>.form-text</span>.">
-            Inputs rely on the shipped Bootstrap styles <span class="code-inline">.form-control</span> and
-            <span class="code-inline">.form-select</span>. Icons sit inside a
-            <span class="code-inline">.form-content</span> wrapper and helper/error messaging uses
-            <span class="code-inline">.form-text</span> or Bootstrap feedback classes.
+            data-ar="تعتمد واجهة الحقول الحالية على <span class=&quot;code-inline&quot;>.form-control</span> و<span class=&quot;code-inline&quot;>.form-select</span> مع أنماط مساعدة حقيقية مثل <span class=&quot;code-inline&quot;>.form-content</span> و<span class=&quot;code-inline&quot;>.input-group-text</span> و<span class=&quot;code-inline&quot;>.input-with-icon</span>. حالات التحقق تُطبَّق عبر <span class=&quot;code-inline&quot;>.is-invalid</span>/<span class=&quot;code-inline&quot;>.is-err</span> و<span class=&quot;code-inline&quot;>.is-valid</span>/<span class=&quot;code-inline&quot;>.is-ok</span> أو عبر <span class=&quot;code-inline&quot;>.was-validated</span>.">
+            The current field API is built on <span class="code-inline">.form-control</span> and
+            <span class="code-inline">.form-select</span>, with real supporting patterns such as
+            <span class="code-inline">.form-content</span>, <span class="code-inline">.input-group-text</span>, and
+            <span class="code-inline">.input-with-icon</span>. Validation is applied through
+            <span class="code-inline">.is-invalid</span>/<span class="code-inline">.is-err</span>,
+            <span class="code-inline">.is-valid</span>/<span class="code-inline">.is-ok</span>, or
+            <span class="code-inline">.was-validated</span>.
           </p>
           <div class="sample-grid">
             <div class="state-cell" data-i18n
-              data-ar="حافظ على ارتفاع 44 بكسل، نصف قطرradius-sm، وحد 1 بكسل كما هو محدد في CSS.">
-              Keep the 44px height, radius-sm , and 1px border defined in CSS.
+              data-ar="الـ <span class=&quot;code-inline&quot;>.form-control</span> يستخدم ارتفاعًا افتراضيًا 44px مع تركيز ولون حد من النظام.">
+              <span class="code-inline">.form-control</span> uses a 44px default control height with system focus and
+              border treatment.
             </div>
             <div class="state-cell" data-i18n
-              data-ar="إشارات الحالة تعتمد على الحدود والظل من الفئات الحالية (تركيز، تعطيل، خطأ).">
-              State cues come from existing border/box-shadow rules (focus, disabled, error).
+              data-ar="الـ <span class=&quot;code-inline&quot;>.form-select</span> يشارك الخط والحشو الحاليين ويدعم <span class=&quot;code-inline&quot;>data-size</span>.">
+              <span class="code-inline">.form-select</span> shares the current DS font/padding rules and supports
+              <span class="code-inline">data-size</span>.
+            </div>
+            <div class="state-cell" data-i18n
+              data-ar="التنفيذ الحالي لا يوفّر API باسم <span class=&quot;code-inline&quot;>.input-wrapper</span> أو <span class=&quot;code-inline&quot;>.select-field</span>.">
+              The current implementation does not expose an API named <span class="code-inline">.input-wrapper</span>
+              or <span class="code-inline">.select-field</span>.
             </div>
           </div>
         </div>
@@ -770,18 +649,30 @@
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2>
           <ul class="accessibility-list">
-            <li data-i18n data-ar="حافظ على ارتفاع 44 بكسل، نصف القطر، وحد 1 بكسل حسب SCSS الأساسي.">Keep the 44px
-              height, radius-sm, and 1px border as defined in the base SCSS.</li>
             <li data-i18n
-              data-ar="استخدم <code>.form-control</code> و<code>.form-select</code> كنقطة انطلاق ثم أضف أيقونات عبر <code>.form-content</code>.">
-              Start with <code>.form-control</code>/<code>.form-select</code> and layer icons inside
-              <code>.form-content</code>.</li>
+              data-ar="ابدأ دائمًا بـ <code>.form-control</code> أو <code>.form-select</code> بدل إنشاء غلاف مخصص جديد للحقل.">
+              Always start from <code>.form-control</code> or <code>.form-select</code> instead of inventing a new field
+              wrapper.</li>
             <li data-i18n
-              data-ar="ارفَع الملاحظات المساعدة بـ <code>aria-describedby</code> لضمان ارتباط نص الخطأ/المساعدة.">Hook
-              helper or error text via <code>aria-describedby</code>.</li>
+              data-ar="استخدم <code>.form-content</code> مع حاوية <code>position-relative</code> عندما تحتاج أيقونة أو صورة قائدة داخل الحقل.">
+              Use <code>.form-content</code> with a <code>position-relative</code> wrapper when a leading image/icon is
+              required inside the field.</li>
             <li data-i18n
-              data-ar="استخدم <code>.has-leading</code> و<code>.has-trailing</code> لتقديم أيقونات بمسافات صحيحة.">Apply
-              <code>.has-leading</code> / <code>.has-trailing</code> to maintain icon spacing.</li>
+              data-ar="يتحكم <code>data-size=&quot;sm|md|lg|xl&quot;</code> بحجم الإدخال والقائمة. وعند غيابه يحتفظ <code>.form-control</code> بحجمه الأساسي الحالي.">
+              <code>data-size="sm|md|lg|xl"</code> controls input and select size. When omitted,
+              <code>.form-control</code> keeps its current base size.</li>
+            <li data-i18n
+              data-ar="استخدم <code>.is-invalid</code>/<code>.is-err</code> و<code>.is-valid</code>/<code>.is-ok</code> أو نمط <code>.was-validated</code> الأصلي للنموذج.">
+              Use <code>.is-invalid</code>/<code>.is-err</code> and <code>.is-valid</code>/<code>.is-ok</code>, or rely
+              on native form validation via <code>.was-validated</code>.</li>
+            <li data-i18n
+              data-ar="فرّق بين <code>readonly</code> و<code>disabled</code>: الأول يبقى قابلاً للتركيز والنسخ، والثاني غير متاح للتفاعل.">
+              Distinguish <code>readonly</code> from <code>disabled</code>: readonly stays focusable/copyable, while
+              disabled is unavailable for interaction.</li>
+            <li data-i18n
+              data-ar="استخدم <code>.input-with-icon</code> و<code>.input-with-icon-time</code> فقط لنمط الخلفية المخصص للتاريخ والوقت الموجود فعليًا في CSS.">
+              Use <code>.input-with-icon</code> and <code>.input-with-icon-time</code> only for the date/time background
+              icon pattern that already exists in CSS.</li>
           </ul>
         </div>
       </section>
@@ -793,26 +684,34 @@
             <div class="usage-card">
               <h4 data-i18n data-ar="افعل">Do</h4>
               <ul>
-                <li data-i18n data-ar="استخدم المستحضر نفسه لكل الحالات بحيث ترجع إلى SCSS الأصلي.">Reuse the existing
-                  SCSS mixins for every state.</li>
                 <li data-i18n
-                  data-ar="اضبط النص المساعد أو الخطأ مع <code>aria-describedby</code> إذا احتجت لهذا السياق.">Link
-                  helper/error text via <code>aria-describedby</code> when needed.</li>
+                  data-ar="اربط النص المساعد ورسائل الخطأ بـ <code>aria-describedby</code> مع <code>label</code> مطابق للحقل.">
+                  Tie helper and error text through <code>aria-describedby</code> and keep a matching
+                  <code>label</code>.</li>
                 <li data-i18n
-                  data-ar="اعتمد على الأيقونات المزخرفة مع <code>aria-hidden=&quot;true&quot;</code> وأعطِ أزرار الإغلاق تسمية واضحة.">
-                  Treat icons as decorative (<code>aria-hidden="true"</code>) and give close buttons a clear label.</li>
+                  data-ar="استخدم <code>.input-group-text</code> عندما تحتاج لاحقة/سابقة مرتبطة بالحقل بدل أيقونات عائمة مخصصة.">
+                  Use <code>.input-group-text</code> for paired prefixes/suffixes instead of custom floating affordances.
+                </li>
+                <li data-i18n
+                  data-ar="احتفظ بالأيقونات الداخلية مزخرفة عبر <code>aria-hidden=&quot;true&quot;</code> ودع النص هو حامل المعنى الأساسي.">
+                  Keep decorative inner icons <code>aria-hidden="true"</code> and let text carry the primary meaning.</li>
               </ul>
             </div>
             <div class="usage-card">
               <h4 data-i18n data-ar="لا تفعل">Don&#39;t</h4>
               <ul>
-                <li data-i18n data-ar="لا تغير الارتفاع أو الحدود داخل العنصر؛ اجعل التغييرات عبر المتغيرات.">Don’t
-                  alter height/borders inline; adjust via variables.</li>
                 <li data-i18n
-                  data-ar="لا تستخدم ألوانًا جديدة لرموز الحالة؛ استخدم <code>$Error-*</code>, <code>$Warning-*</code>، وإلا ستفقد الاتساق.">
-                  Avoid inventing new status colors.</li>
-                <li data-i18n data-ar="لا تزيل أصناف التركيز أو تجهض لوحة المفاتيح.">Do not strip focus styles or
-                  keyboard support.</li>
+                  data-ar="لا تستخدم <code>.input-wrapper</code> أو <code>.has-leading</code> أو <code>.select-field</code>؛ هذه ليست جزءًا من API الحالية.">
+                  Do not use <code>.input-wrapper</code>, <code>.has-leading</code>, or <code>.select-field</code>;
+                  they are not part of the current API.</li>
+                <li data-i18n
+                  data-ar="لا توثق القائمة كزر مخصص مع <code>role=&quot;listbox&quot;</code> ما دمت تستخدم <code>.form-select</code> الأصلي.">
+                  Do not document the select as a custom button/listbox when the real implementation is native
+                  <code>.form-select</code>.</li>
+                <li data-i18n
+                  data-ar="لا تخلط بين <code>readonly</code> و<code>disabled</code> أو تكدّس حالات تحقق متعارضة على الحقل نفسه.">
+                  Do not blur <code>readonly</code> and <code>disabled</code>, and do not stack conflicting validation
+                  states on the same field.</li>
               </ul>
             </div>
           </div>
@@ -823,36 +722,37 @@
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2>
           <p class="section-note" data-i18n
-            data-ar="كل حقل يحتوي على تصنيف أعلى، حاوية، محتوى الإدخال، وأيقونات اختيارية، مع نص مساعد أو خطأ أسفل.">
-            Each field is made of a label, the input container, optional leading/trailing icons, and helper or
-            error text.
+            data-ar="يتكوّن الحقل من تسمية، عنصر إدخال أو قائمة، ونص مساعد أو خطأ. وعند الحاجة إلى أيقونة قائدة يُستخدم <span class=&quot;code-inline&quot;>.form-content</span> داخل حاوية نسبية.">
+            A field is composed of a label, an input/select control, and helper or error text. When a leading icon is
+            needed, <span class="code-inline">.form-content</span> is used inside a relative wrapper.
           </p>
           <div class="row g-4">
             <div class="col-12 col-lg-6">
               <ul class="accessibility-list">
                 <li data-i18n
-                  data-ar="<strong>التصنيف:</strong> استخدم <span class=&quot;code-inline&quot;>&lt;label for&gt;</span> مع معرف مطابق.">
-                  <strong>Label:</strong> Use <span class="code-inline">&lt;label for&gt;</span> that matches the field
-                  id.
+                  data-ar="<strong>التسمية:</strong> استخدم <span class=&quot;code-inline&quot;>&lt;label for&gt;</span> مع معرّف مطابق للحقل.">
+                  <strong>Label:</strong> Use a matching <span class="code-inline">&lt;label for&gt;</span> and field id.
                 </li>
                 <li data-i18n
-                  data-ar="<strong>الحاوية:</strong> <span class=&quot;code-inline&quot;>.form-control</span> أو <span class=&quot;code-inline&quot;>.form-select</span> للحصول على الطول، الحشو، والحد.">
-                  <strong>Container:</strong> <span class="code-inline">.form-control</span> or <span
-                    class="code-inline">.form-select</span> for consistent height, padding, and border.
+                  data-ar="<strong>عنصر التحكم:</strong> <span class=&quot;code-inline&quot;>.form-control</span> للنصوص و<span class=&quot;code-inline&quot;>.form-select</span> للقوائم الأصلية.">
+                  <strong>Control:</strong> <span class="code-inline">.form-control</span> for text entry and
+                  <span class="code-inline">.form-select</span> for native selects.
                 </li>
                 <li data-i18n
-                  data-ar="<strong>أيقونة قيادة:</strong> موضوعة داخل <span class=&quot;code-inline&quot;>.form-content</span> مع إزاحة نصية.">
-                  <strong>Leading icon:</strong> Placed inside <span class="code-inline">.form-content</span> with text
-                  indent.
-                </li>
-                <li data-i18n data-ar="<strong>أيقونة ذيل:</strong> زر أو رمز تفاعل (إظهار/إخفاء، سهم القائمة).">
-                  <strong>Trailing icon:</strong> Action or state affordance (toggle visibility, dropdown chevron).
+                  data-ar="<strong>أيقونة قائدة:</strong> أضف صورة أو أيقونة داخل <span class=&quot;code-inline&quot;>.form-content</span> مع حاوية <span class=&quot;code-inline&quot;>position-relative</span>.">
+                  <strong>Leading icon:</strong> Place an image/icon inside <span class="code-inline">.form-content</span>
+                  within a <span class="code-inline">position-relative</span> wrapper.
                 </li>
                 <li data-i18n
-                  data-ar="<strong>النص المساعد/الخطأ:</strong> استخدم <span class=&quot;code-inline&quot;>.form-text</span> أو <span class=&quot;code-inline&quot;>.invalid-feedback</span> مع <span class=&quot;code-inline&quot;>aria-describedby</span>.">
-                  <strong>Helper/Error:</strong> <span class="code-inline">.form-text</span> or <span
-                    class="code-inline">.invalid-feedback</span> tied via <span
-                    class="code-inline">aria-describedby</span>.
+                  data-ar="<strong>ملحق مرتبط:</strong> استخدم <span class=&quot;code-inline&quot;>.input-group-text</span> عند الحاجة إلى لاحقة أو سابقة مرتبطة.">
+                  <strong>Attached affordance:</strong> Use <span class="code-inline">.input-group-text</span> when a
+                  prefix or suffix is required.
+                </li>
+                <li data-i18n
+                  data-ar="<strong>الرسائل:</strong> استخدم <span class=&quot;code-inline&quot;>.form-text</span> أو <span class=&quot;code-inline&quot;>.invalid-feedback</span> مع <span class=&quot;code-inline&quot;>aria-describedby</span>.">
+                  <strong>Messaging:</strong> Use <span class="code-inline">.form-text</span> or
+                  <span class="code-inline">.invalid-feedback</span> with
+                  <span class="code-inline">aria-describedby</span>.
                 </li>
               </ul>
             </div>
@@ -860,20 +760,52 @@
               <div class="anatomy-frame">
                 <div class="field-shell w-100" style="max-width: 320px;">
                   <label class="form-label mb-1" for="anatomy-input">اسم المستخدم</label>
-                  <div class="input-wrapper has-leading has-trailing">
-                    <span class="input-icon leading" aria-hidden="true">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M6.19434 14.8369C9.74833 12.7209 14.2527 12.7208 17.8066 14.8369C17.9228 14.9061 18.0661 14.9875 18.2285 15.0791C18.9413 15.4812 20.0196 16.089 20.7578 16.8115C21.2195 17.2634 21.6576 17.8593 21.7373 18.5889C21.8221 19.3647 21.4836 20.0924 20.8047 20.7393C19.6332 21.8553 18.2275 22.75 16.4092 22.75H7.59082C5.77262 22.7499 4.36671 21.8553 3.19531 20.7393C2.51651 20.0924 2.17795 19.3646 2.2627 18.5889C2.34244 17.8593 2.7815 17.2634 3.24316 16.8115C3.98132 16.0891 5.05877 15.4812 5.77148 15.0791C5.93409 14.9874 6.07806 14.9062 6.19434 14.8369ZM17.0391 16.126C13.958 14.2914 10.043 14.2915 6.96191 16.126C6.79407 16.2259 6.60964 16.3302 6.41699 16.4395C5.70439 16.8437 4.87208 17.316 4.29199 17.8838C3.93192 18.2363 3.77846 18.5273 3.75391 18.752C3.73447 18.9303 3.78002 19.2242 4.23047 19.6533C5.26624 20.6401 6.31849 21.2499 7.59082 21.25H16.4092C17.6816 21.25 18.7347 20.6402 19.7705 19.6533C20.2207 19.2243 20.2655 18.9303 20.2461 18.752C20.2215 18.5273 20.0681 18.2363 19.708 17.8838C19.1279 17.316 18.2956 16.8437 17.583 16.4395C17.3905 16.3302 17.2068 16.2259 17.0391 16.126ZM12 1.25C14.8995 1.25 17.25 3.6005 17.25 6.5C17.25 9.39949 14.8995 11.75 12 11.75C9.1005 11.75 6.75 9.39949 6.75 6.5C6.75 3.6005 9.1005 1.25 12 1.25ZM12 2.75C9.92893 2.75 8.25 4.42893 8.25 6.5C8.25 8.57107 9.92893 10.25 12 10.25C14.0711 10.25 15.75 8.57107 15.75 6.5C15.75 4.42893 14.0711 2.75 12 2.75Z"
-                          fill="#161616" />
-                      </svg>
-                    </span>
+                  <div class="position-relative form-content">
+                    <img src="../images/icon-user-search.svg" alt="" aria-hidden="true" />
                     <input class="form-control" id="anatomy-input" type="text" placeholder="يرجى إضافة اسم المستخدم"
                       aria-describedby="anatomy-helper" />
-                    <i class="fa fa-check input-icon trailing" aria-hidden="true"></i>
                   </div>
                   <p class="helper-text" id="anatomy-helper">Helper text</p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="sizing">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="الأحجام">Sizing</h2>
+          <p class="section-note" data-i18n
+            data-ar="تدعم الحقول والقوائم السمة <span class=&quot;code-inline&quot;>data-size=&quot;sm|md|lg|xl&quot;</span>. يبقى <span class=&quot;code-inline&quot;>.form-control</span> عند غيابها على حجمه الأساسي الحالي.">
+            Inputs and selects support <span class="code-inline">data-size="sm|md|lg|xl"</span>. When omitted,
+            <span class="code-inline">.form-control</span> keeps its current base size.
+          </p>
+          <div class="visual-grid">
+            <div class="field-shell">
+              <label class="form-label mb-1" for="size-input-sm">Input sizes</label>
+              <div class="field-stack">
+                <input class="form-control" id="size-input-sm" type="text" data-size="sm" placeholder="Small / sm" />
+                <input class="form-control" type="text" data-size="md" placeholder="Medium / md" />
+                <input class="form-control" type="text" data-size="lg" placeholder="Large / lg" />
+                <input class="form-control" type="text" data-size="xl" placeholder="Extra large / xl" />
+              </div>
+            </div>
+            <div class="field-shell">
+              <label class="form-label mb-1" for="size-select-sm">Select sizes</label>
+              <div class="field-stack">
+                <select class="form-select" id="size-select-sm" data-size="sm">
+                  <option selected>Small / sm</option>
+                </select>
+                <select class="form-select" data-size="md">
+                  <option selected>Medium / md</option>
+                </select>
+                <select class="form-select" data-size="lg">
+                  <option selected>Large / lg</option>
+                </select>
+                <select class="form-select" data-size="xl">
+                  <option selected>Extra large / xl</option>
+                </select>
               </div>
             </div>
           </div>
@@ -884,76 +816,57 @@
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="حالات حقل النص">Text Input States</h2>
           <p class="section-note" data-i18n
-            data-ar="تمثيل الحالات الافتراضية والتحويم والتركيز والقيمة والخطأ والتعطيل.">Mapped states for default,
-            hover, focus, filled, error, and disabled.</p>
+            data-ar="تعرض الأمثلة الحالية الحالات المنفذة فعليًا: افتراضي، تركيز، قراءة فقط، معطل، خطأ، وصالح.">
+            The current examples show the implemented states: default, focus, readonly, disabled, error, and valid.
+          </p>
           <div class="state-grid">
             <div class="state-tile">
               <div class="state-label" data-i18n data-ar="افتراضي">Default</div>
               <label class="form-label mb-1" for="input-default">اسم المستخدم</label>
-              <div class="input-wrapper has-leading">
-                <span class="input-icon leading" aria-hidden="true">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.19434 14.8369C9.74833 12.7209 14.2527 12.7208 17.8066 14.8369C17.9228 14.9061 18.0661 14.9875 18.2285 15.0791C18.9413 15.4812 20.0196 16.089 20.7578 16.8115C21.2195 17.2634 21.6576 17.8593 21.7373 18.5889C21.8221 19.3647 21.4836 20.0924 20.8047 20.7393C19.6332 21.8553 18.2275 22.75 16.4092 22.75H7.59082C5.77262 22.7499 4.36671 21.8553 3.19531 20.7393C2.51651 20.0924 2.17795 19.3646 2.2627 18.5889C2.34244 17.8593 2.7815 17.2634 3.24316 16.8115C3.98132 16.0891 5.05877 15.4812 5.77148 15.0791C5.93409 14.9874 6.07806 14.9062 6.19434 14.8369ZM17.0391 16.126C13.958 14.2914 10.043 14.2915 6.96191 16.126C6.79407 16.2259 6.60964 16.3302 6.41699 16.4395C5.70439 16.8437 4.87208 17.316 4.29199 17.8838C3.93192 18.2363 3.77846 18.5273 3.75391 18.752C3.73447 18.9303 3.78002 19.2242 4.23047 19.6533C5.26624 20.6401 6.31849 21.2499 7.59082 21.25H16.4092C17.6816 21.25 18.7347 20.6402 19.7705 19.6533C20.2207 19.2243 20.2655 18.9303 20.2461 18.752C20.2215 18.5273 20.0681 18.2363 19.708 17.8838C19.1279 17.316 18.2956 16.8437 17.583 16.4395C17.3905 16.3302 17.2068 16.2259 17.0391 16.126ZM12 1.25C14.8995 1.25 17.25 3.6005 17.25 6.5C17.25 9.39949 14.8995 11.75 12 11.75C9.1005 11.75 6.75 9.39949 6.75 6.5C6.75 3.6005 9.1005 1.25 12 1.25ZM12 2.75C9.92893 2.75 8.25 4.42893 8.25 6.5C8.25 8.57107 9.92893 10.25 12 10.25C14.0711 10.25 15.75 8.57107 15.75 6.5C15.75 4.42893 14.0711 2.75 12 2.75Z"
-                      fill="#161616" />
-                  </svg>
-                </span>
-                <input class="form-control" id="input-default" type="text" placeholder="يرجى إضافة اسم المستخدم"
-                  aria-describedby="input-default-helper" />
-              </div>
+              <input class="form-control" id="input-default" type="text" placeholder="يرجى إضافة اسم المستخدم"
+                aria-describedby="input-default-helper" />
               <p class="helper-text" id="input-default-helper" data-i18n data-ar="نص مساعد اختياري">Helper text</p>
             </div>
-            <div class="state-tile state-hover">
-              <div class="state-label" data-i18n data-ar="تحويم">Hover</div>
-              <label class="form-label mb-1" for="input-hover">اسم المستخدم</label>
-              <div class="input-wrapper">
-                <input class="form-control" id="input-hover" type="text" placeholder="يرجى إضافة اسم المستخدم"
-                  aria-describedby="input-hover-helper" />
-              </div>
-              <p class="helper-text" id="input-hover-helper" data-i18n data-ar="تحريك المؤشر لمعاينة الحدود">Hover to
-                preview border</p>
-            </div>
-            <div class="state-tile state-focus">
-              <div class="state-label" data-i18n data-ar="تركيز/نشط">Focus / Active</div>
+            <div class="state-tile">
+              <div class="state-label" data-i18n data-ar="تركيز">Focus</div>
               <label class="form-label mb-1" for="input-focus">اسم المستخدم</label>
-              <div class="input-wrapper">
-                <input class="form-control" id="input-focus" type="text" placeholder="يرجى إضافة اسم المستخدم"
-                  aria-describedby="input-focus-helper" />
-              </div>
-              <p class="helper-text" id="input-focus-helper" data-i18n data-ar="ظل و حد بلون السمة عند التركيز">Theme
-                border and glow on focus</p>
-            </div>
-            <div class="state-tile state-filled">
-              <div class="state-label" data-i18n data-ar="معبأ">Filled</div>
-              <label class="form-label mb-1" for="input-filled">اسم المستخدم</label>
-              <div class="input-wrapper has-trailing">
-                <input class="form-control" id="input-filled" type="text" value="عبدالله القحطاني"
-                  aria-describedby="input-filled-helper" />
-                <i class="fa fa-check input-icon trailing text-success" aria-hidden="true"></i>
-              </div>
-              <p class="helper-text" id="input-filled-helper" data-i18n data-ar="قيمة مدخلة مع تأكيد بصري">Value present
-                with confirmation icon</p>
+              <input class="form-control" id="input-focus" type="text" placeholder="اضغط Tab أو انقر للتركيز" autofocus
+                aria-describedby="input-focus-helper" />
+              <p class="helper-text" id="input-focus-helper" data-i18n data-ar="يظهر حد ولون ظل التركيز من النظام.">
+                The DS focus border and ring appear on focus.</p>
             </div>
             <div class="state-tile">
-              <div class="state-label" data-i18n data-ar="خطأ">Error</div>
-              <label class="form-label mb-1" for="input-error">اسم المستخدم</label>
-              <div class="input-wrapper has-trailing">
-                <input class="form-control is-invalid" id="input-error" type="text" aria-invalid="true"
-                  aria-describedby="input-error-helper" placeholder="يرجى إضافة اسم المستخدم" />
-                <i class="fa fa-exclamation-circle input-icon trailing text-danger" aria-hidden="true"></i>
-              </div>
-              <div class="error-text text-danger invalid-feedback d-block" id="input-error-helper" data-i18n
-                data-ar="نص الخطأ">Error text</div>
+              <div class="state-label" data-i18n data-ar="قراءة فقط">Readonly</div>
+              <label class="form-label mb-1" for="input-readonly">رقم البلاغ</label>
+              <input class="form-control" id="input-readonly" type="text" value="INC-2026-00421" readonly
+                aria-describedby="input-readonly-helper" />
+              <p class="helper-text" id="input-readonly-helper" data-i18n data-ar="يبقى الحقل قابلاً للتركيز والنسخ.">
+                The field remains focusable and copyable.</p>
             </div>
             <div class="state-tile">
               <div class="state-label" data-i18n data-ar="معطل">Disabled</div>
               <label class="form-label mb-1" for="input-disabled">اسم المستخدم</label>
-              <div class="input-wrapper">
-                <input class="form-control" id="input-disabled" type="text" placeholder="يرجى إضافة اسم المستخدم"
-                  aria-describedby="input-disabled-helper" disabled />
-              </div>
-              <p class="helper-text" id="input-disabled-helper" data-i18n data-ar="حالة قراءة فقط مع مؤشر تعطيل">
-                Read-only visual state</p>
+              <input class="form-control" id="input-disabled" type="text" placeholder="غير متاح" disabled
+                aria-describedby="input-disabled-helper" />
+              <p class="helper-text" id="input-disabled-helper" data-i18n data-ar="الحقل غير متاح للتفاعل.">
+                The field is unavailable for interaction.</p>
+            </div>
+            <div class="state-tile">
+              <div class="state-label" data-i18n data-ar="خطأ">Error</div>
+              <label class="form-label mb-1" for="input-error">رقم الهوية</label>
+              <input class="form-control is-invalid" id="input-error" type="text" aria-invalid="true"
+                aria-describedby="input-error-helper" value="123" />
+              <div class="error-text text-danger invalid-feedback d-block" id="input-error-helper" data-i18n
+                data-ar="رقم الهوية غير مكتمل">Identity number is incomplete</div>
+            </div>
+            <div class="state-tile">
+              <div class="state-label" data-i18n data-ar="صالح">Valid</div>
+              <label class="form-label mb-1" for="input-valid">رقم الجوال</label>
+              <input class="form-control is-valid" id="input-valid" type="text" value="0551234567"
+                aria-describedby="input-valid-helper" />
+              <p class="helper-text" id="input-valid-helper" data-i18n
+                data-ar="نفس المعالجة البصرية متاحة أيضًا عبر <code>.is-ok</code>.">
+                The same visual mapping is also available through <code>.is-ok</code>.</p>
             </div>
           </div>
         </div>
@@ -961,9 +874,11 @@
 
       <section class="section" id="variants">
         <div class="section-card">
-          <h2 class="section-title" data-i18n data-ar="متغيرات حقل النص">Text Input Variants</h2>
-          <p class="section-note" data-i18n data-ar="إضافات متداخلة للنص المساعد، الأيقونات، وكلمة المرور.">Inline
-            variants for helper messaging, icons, and password reveal.</p>
+          <h2 class="section-title" data-i18n data-ar="أنماط الاستخدام الحالية">Current Field Patterns</h2>
+          <p class="section-note" data-i18n
+            data-ar="تعرض الأمثلة التالية الأنماط الموجودة فعليًا في SCSS الحالي دون wrappers مخصصة إضافية.">
+            The examples below show the patterns that exist in the current SCSS without extra custom wrappers.
+          </p>
           <div class="visual-grid">
             <div class="field-shell">
               <label class="form-label mb-1" for="input-helper">اسم المستخدم</label>
@@ -974,43 +889,39 @@
             </div>
             <div class="field-shell">
               <label class="form-label mb-1" for="input-leading">اسم المستخدم</label>
-              <div class="input-wrapper has-leading">
-                <span class="input-icon leading" aria-hidden="true">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.19434 14.8369C9.74833 12.7209 14.2527 12.7208 17.8066 14.8369C17.9228 14.9061 18.0661 14.9875 18.2285 15.0791C18.9413 15.4812 20.0196 16.089 20.7578 16.8115C21.2195 17.2634 21.6576 17.8593 21.7373 18.5889C21.8221 19.3647 21.4836 20.0924 20.8047 20.7393C19.6332 21.8553 18.2275 22.75 16.4092 22.75H7.59082C5.77262 22.7499 4.36671 21.8553 3.19531 20.7393C2.51651 20.0924 2.17795 19.3646 2.2627 18.5889C2.34244 17.8593 2.7815 17.2634 3.24316 16.8115C3.98132 16.0891 5.05877 15.4812 5.77148 15.0791C5.93409 14.9874 6.07806 14.9062 6.19434 14.8369ZM17.0391 16.126C13.958 14.2914 10.043 14.2915 6.96191 16.126C6.79407 16.2259 6.60964 16.3302 6.41699 16.4395C5.70439 16.8437 4.87208 17.316 4.29199 17.8838C3.93192 18.2363 3.77846 18.5273 3.75391 18.752C3.73447 18.9303 3.78002 19.2242 4.23047 19.6533C5.26624 20.6401 6.31849 21.2499 7.59082 21.25H16.4092C17.6816 21.25 18.7347 20.6402 19.7705 19.6533C20.2207 19.2243 20.2655 18.9303 20.2461 18.752C20.2215 18.5273 20.0681 18.2363 19.708 17.8838C19.1279 17.316 18.2956 16.8437 17.583 16.4395C17.3905 16.3302 17.2068 16.2259 17.0391 16.126ZM12 1.25C14.8995 1.25 17.25 3.6005 17.25 6.5C17.25 9.39949 14.8995 11.75 12 11.75C9.1005 11.75 6.75 9.39949 6.75 6.5C6.75 3.6005 9.1005 1.25 12 1.25ZM12 2.75C9.92893 2.75 8.25 4.42893 8.25 6.5C8.25 8.57107 9.92893 10.25 12 10.25C14.0711 10.25 15.75 8.57107 15.75 6.5C15.75 4.42893 14.0711 2.75 12 2.75Z"
-                      fill="#161616" />
-                  </svg>
-                </span>
+              <div class="position-relative form-content">
+                <img src="../images/icon-user-search.svg" alt="" aria-hidden="true" />
                 <input class="form-control" id="input-leading" type="text" placeholder="يرجى إضافة اسم المستخدم"
                   aria-describedby="input-leading-text" />
               </div>
-              <p class="helper-text" id="input-leading-text" data-i18n data-ar="أيقونة قيادة مع إزاحة للنص">Leading icon
-                with text indent</p>
+              <p class="helper-text" id="input-leading-text" data-i18n data-ar="أيقونة قائدة باستخدام .form-content">
+                Leading icon using <code>.form-content</code></p>
             </div>
             <div class="field-shell">
-              <label class="form-label mb-1" for="input-trailing">اسم المستخدم</label>
-              <div class="input-wrapper has-trailing">
-                <input class="form-control" id="input-trailing" type="text" placeholder="يرجى إضافة اسم المستخدم"
-                  aria-describedby="input-trailing-text" />
-                <i class="fa fa-search input-icon trailing" aria-hidden="true"></i>
+              <label class="form-label mb-1" for="input-domain">البريد الرسمي</label>
+              <div class="input-group">
+                <input class="form-control" id="input-domain" type="text" data-size="lg" placeholder="username"
+                  aria-describedby="input-domain-text" />
+                <span class="input-group-text">.gov.sa</span>
               </div>
-              <p class="helper-text" id="input-trailing-text" data-i18n data-ar="أيقونة ذيل لإجراء ثانوي">Trailing icon
-                for secondary action</p>
+              <p class="helper-text" id="input-domain-text" data-i18n data-ar="لاحقة مرتبطة عبر input-group-text">
+                Attached suffix via <code>input-group-text</code></p>
             </div>
             <div class="field-shell">
-              <label class="form-label mb-1" for="input-password" data-i18n data-ar="كلمة المرور">Password</label>
-              <div class="input-wrapper has-trailing form-content">
-                <img src="./images/icon-lock.svg" alt="" aria-hidden="true" />
-                <input class="form-control" id="input-password" type="password" placeholder="يرجى إضافة كلمة المرور"
-                  aria-describedby="input-password-helper" />
-                <button class="btn btn-link p-0 text-decoration-none toggle-password" type="button"
-                  aria-label="إظهار كلمة المرور" data-target="input-password">
-                  <i class="fa fa-eye-slash"></i>
-                </button>
+              <label class="form-label mb-1" for="textarea-default">الملاحظات</label>
+              <textarea class="form-control" id="textarea-default" placeholder="أضف الملاحظات هنا"
+                aria-describedby="textarea-helper"></textarea>
+              <p class="helper-text" id="textarea-helper" data-i18n data-ar="الـ textarea يستخدم .form-control أيضًا.">
+                Textareas also use <code>.form-control</code>.</p>
+            </div>
+            <div class="field-shell">
+              <label class="form-label mb-1" for="date-field">التاريخ والوقت</label>
+              <div class="d-flex gap-2 flex-wrap">
+                <input class="form-control input-with-icon" id="date-field" type="text" placeholder="10/10/1448" />
+                <input class="form-control input-with-icon-time" type="text" placeholder="08:00 صباحًا" />
               </div>
-              <p class="helper-text" id="input-password-helper" data-i18n data-ar="زر إظهار/إخفاء مع تحديث aria-label">
-                Toggle eye updates aria-label</p>
+              <p class="helper-text" data-i18n data-ar="أنماط الأيقونات الخلفية الحالية للتاريخ والوقت.">
+                Current background-icon helpers for date and time.</p>
             </div>
           </div>
         </div>
@@ -1018,108 +929,42 @@
 
       <section class="section" id="select-states">
         <div class="section-card">
-          <h2 class="section-title" data-i18n data-ar="حالات القائمة المنسدلة">Select States</h2>
-          <p class="section-note" data-i18n data-ar="قائمة منسدلة مخصصة تستخدم نفس ارتفاع الإدخال وسهم دوار.">Custom
-            select mirrors input height with rotating chevron.</p>
-          <div class="state-grid">
-            <div class="state-tile">
-              <div class="state-label" data-i18n data-ar="افتراضي">Default</div>
-              <label class="form-label mb-1" for="select-default">قائمة منسدلة</label>
-              <div class="select-field">
-                <button class="form-control select-trigger" type="button" id="select-default" aria-haspopup="listbox"
-                  aria-expanded="false">
-                  <span class="select-value placeholder" data-placeholder="اختر من القائمة">اختر من القائمة</span>
-                  <i class="fa fa-chevron-down chevron" aria-hidden="true"></i>
-                </button>
-                <ul class="select-menu" role="listbox">
-                  <li class="select-option" role="option" tabindex="0">الخيار الأول</li>
-                  <li class="select-option" role="option" tabindex="0">الخيار الثاني</li>
-                  <li class="select-option" role="option" tabindex="0">الخيار الثالث</li>
-                </ul>
-              </div>
-              <p class="helper-text" data-i18n data-ar="نص مساعد">Helper text</p>
+          <h2 class="section-title" data-i18n data-ar="القوائم المنسدلة">Selects</h2>
+          <p class="section-note" data-i18n
+            data-ar="يطبّق SCSS الحالي الأنماط على <span class=&quot;code-inline&quot;>&lt;select class=&quot;form-select&quot;&gt;</span> الأصلي. لا توجد API حالية باسم <span class=&quot;code-inline&quot;>.select-field</span> أو <span class=&quot;code-inline&quot;>.select-trigger</span> أو <span class=&quot;code-inline&quot;>.select-menu</span>.">
+            The current SCSS styles the native <span class="code-inline">&lt;select class="form-select"&gt;</span>.
+            There is no current API named <span class="code-inline">.select-field</span>,
+            <span class="code-inline">.select-trigger</span>, or <span class="code-inline">.select-menu</span>.
+          </p>
+          <div class="visual-grid">
+            <div class="field-shell">
+              <label class="form-label mb-1" for="select-default">القائمة الافتراضية</label>
+              <select class="form-select" id="select-default" aria-describedby="select-default-helper">
+                <option selected>اختر الجهة الأمنية</option>
+                <option>الأمن العام</option>
+                <option>حرس الحدود</option>
+                <option>الأدلة الجنائية</option>
+              </select>
+              <p class="helper-text" id="select-default-helper" data-i18n data-ar="قائمة أصلية باستخدام form-select فقط.">
+                Native select using <code>form-select</code> only.</p>
             </div>
-            <div class="state-tile state-hover">
-              <div class="state-label" data-i18n data-ar="تحويم">Hover</div>
-              <label class="form-label mb-1" for="select-hover">قائمة منسدلة</label>
-              <div class="select-field state-hover">
-                <button class="form-control select-trigger" type="button" id="select-hover" aria-haspopup="listbox"
-                  aria-expanded="false">
-                  <span class="select-value placeholder" data-placeholder="اختر من القائمة">اختر من القائمة</span>
-                  <i class="fa fa-chevron-down chevron" aria-hidden="true"></i>
-                </button>
-                <ul class="select-menu" role="listbox">
-                  <li class="select-option" role="option" tabindex="0">الخيار الأول</li>
-                  <li class="select-option" role="option" tabindex="0">الخيار الثاني</li>
-                  <li class="select-option" role="option" tabindex="0">الخيار الثالث</li>
-                </ul>
-              </div>
-              <p class="helper-text" data-i18n data-ar="تحريك المؤشر لمعاينة التحويم">Hover to preview</p>
+            <div class="field-shell">
+              <label class="form-label mb-1" for="select-large">قائمة بحجم كبير</label>
+              <select class="form-select" id="select-large" data-size="lg">
+                <option selected>اختر الحالة</option>
+                <option>قيد المعالجة</option>
+                <option>مغلق</option>
+              </select>
+              <p class="helper-text" data-i18n data-ar="نفس السمة data-size المستخدمة مع الحقول النصية.">
+                The same <code>data-size</code> attribute used by text inputs.</p>
             </div>
-            <div class="state-tile state-focus">
-              <div class="state-label" data-i18n data-ar="نشط/مفتوح">Active / Open</div>
-              <label class="form-label mb-1" for="select-open">قائمة منسدلة</label>
-              <div class="select-field is-open state-focus">
-                <button class="form-control select-trigger" type="button" id="select-open" aria-haspopup="listbox"
-                  aria-expanded="true">
-                  <span class="select-value placeholder" data-placeholder="اختر من القائمة">اختر من القائمة</span>
-                  <i class="fa fa-chevron-down chevron" aria-hidden="true"></i>
-                </button>
-                <ul class="select-menu" role="listbox">
-                  <li class="select-option" role="option" tabindex="0">الخيار الأول</li>
-                  <li class="select-option" role="option" tabindex="0">الخيار الثاني</li>
-                  <li class="select-option" role="option" tabindex="0">الخيار الثالث</li>
-                </ul>
-              </div>
-              <p class="helper-text" data-i18n data-ar="القائمة مفتوحة مع تدوير السهم">Open with rotated chevron</p>
-            </div>
-            <div class="state-tile">
-              <div class="state-label" data-i18n data-ar="قيمة محددة">Selected</div>
-              <label class="form-label mb-1" for="select-selected">قائمة منسدلة</label>
-              <div class="select-field">
-                <button class="form-control select-trigger" type="button" id="select-selected" aria-haspopup="listbox"
-                  aria-expanded="false">
-                  <span class="select-value" data-placeholder="اختر من القائمة">الخيار الثاني</span>
-                  <i class="fa fa-chevron-down chevron" aria-hidden="true"></i>
-                </button>
-                <ul class="select-menu" role="listbox">
-                  <li class="select-option" role="option" tabindex="0">الخيار الأول</li>
-                  <li class="select-option" role="option" tabindex="0">الخيار الثاني</li>
-                  <li class="select-option" role="option" tabindex="0">الخيار الثالث</li>
-                </ul>
-              </div>
-              <p class="helper-text" data-i18n data-ar="عرض القيمة المختارة">Displays selected value</p>
-            </div>
-            <div class="state-tile">
-              <div class="state-label" data-i18n data-ar="خطأ">Error</div>
-              <label class="form-label mb-1" for="select-error">قائمة منسدلة</label>
-              <div class="select-field">
-                <button class="form-control select-trigger is-invalid" type="button" id="select-error"
-                  aria-haspopup="listbox" aria-expanded="false" aria-invalid="true"
-                  aria-describedby="select-error-helper">
-                  <span class="select-value placeholder" data-placeholder="اختر من القائمة">اختر من القائمة</span>
-                  <i class="fa fa-chevron-down chevron text-danger" aria-hidden="true"></i>
-                </button>
-                <ul class="select-menu" role="listbox">
-                  <li class="select-option" role="option" tabindex="0">الخيار الأول</li>
-                  <li class="select-option" role="option" tabindex="0">الخيار الثاني</li>
-                  <li class="select-option" role="option" tabindex="0">الخيار الثالث</li>
-                </ul>
-              </div>
-              <div class="error-text text-danger invalid-feedback d-block" id="select-error-helper" data-i18n
-                data-ar="نص الخطأ">Error text</div>
-            </div>
-            <div class="state-tile">
-              <div class="state-label" data-i18n data-ar="معطل">Disabled</div>
-              <label class="form-label mb-1" for="select-disabled">قائمة منسدلة</label>
-              <div class="select-field is-disabled">
-                <button class="form-control select-trigger" type="button" id="select-disabled" aria-haspopup="listbox"
-                  aria-expanded="false" disabled>
-                  <span class="select-value placeholder" data-placeholder="اختر من القائمة">اختر من القائمة</span>
-                  <i class="fa fa-chevron-down chevron" aria-hidden="true"></i>
-                </button>
-              </div>
-              <p class="helper-text" data-i18n data-ar="حالة تعطيل">Disabled state</p>
+            <div class="field-shell">
+              <label class="form-label mb-1" for="select-disabled">قائمة معطلة</label>
+              <select class="form-select" id="select-disabled" disabled>
+                <option selected>غير متاح حاليًا</option>
+              </select>
+              <p class="helper-text" data-i18n data-ar="التعطيل يتم بالسمة الأصلية disabled.">
+                Disable the control with the native <code>disabled</code> attribute.</p>
             </div>
           </div>
         </div>
@@ -1129,25 +974,33 @@
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2>
           <p class="section-note" data-i18n
-            data-ar="تأكد من أن التسميات والرسائل مرتبطة وأن الأزرار التفاعلية لها aria-label.">Ensure labels and
-            messaging are connected; interactive icons need aria-label.</p>
+            data-ar="تعتمد الحقول الحالية على العناصر الأصلية، لذا يجب الحفاظ على التسميات والربط الدلالي وعدم استبدالهما بطبقات مخصصة غير لازمة.">
+            The current field patterns rely on native controls, so labels and semantic linking should be preserved
+            instead of replaced with unnecessary custom layers.
+          </p>
           <ul class="accessibility-list">
             <li data-i18n
-              data-ar="اربط كل <span class=&quot;code-inline&quot;>label</span> مع <span class=&quot;code-inline&quot;>id</span> فريد.">
-              Tie every <span class="code-inline">label</span> to a unique <span class="code-inline">id</span>.</li>
+              data-ar="اربط كل <span class=&quot;code-inline&quot;>label</span> مع <span class=&quot;code-inline&quot;>id</span> فريد ومطابق.">
+              Tie every <span class="code-inline">label</span> to a unique matching <span class="code-inline">id</span>.
+            </li>
             <li data-i18n
-              data-ar="استخدم <span class=&quot;code-inline&quot;>aria-describedby</span> لربط النص المساعد أو الخطأ.">
-              Use <span class="code-inline">aria-describedby</span> for helper or error text.</li>
+              data-ar="استخدم <span class=&quot;code-inline&quot;>aria-describedby</span> لربط النص المساعد أو الخطأ أو التوضيح الإضافي.">
+              Use <span class="code-inline">aria-describedby</span> for helper, error, or supporting text.</li>
             <li data-i18n
-              data-ar="عيّن <span class=&quot;code-inline&quot;>aria-invalid=&quot;true&quot;</span> عند إظهار الخطأ.">
-              Set <span class="code-inline">aria-invalid=&quot;true&quot;</span> when showing error.</li>
+              data-ar="عيّن <span class=&quot;code-inline&quot;>aria-invalid=&quot;true&quot;</span> عندما تعرض حالة خطأ برمجية أو نصية.">
+              Set <span class="code-inline">aria-invalid="true"</span> whenever an error state is shown.</li>
             <li data-i18n
-              data-ar="أزرار الأيقونات (إظهار/إخفاء، السهم) تحتاج <span class=&quot;code-inline&quot;>aria-label</span>.">
-              Icon buttons (toggle eye, chevron) need an <span class="code-inline">aria-label</span>.</li>
+              data-ar="اعتبر الصور أو الأيقونات القائدة داخل <span class=&quot;code-inline&quot;>.form-content</span> عناصر زخرفية عبر <span class=&quot;code-inline&quot;>aria-hidden=&quot;true&quot;</span> أو <span class=&quot;code-inline&quot;>alt=&quot;&quot;</span>.">
+              Treat leading images/icons inside <span class="code-inline">.form-content</span> as decorative via
+              <span class="code-inline">aria-hidden="true"</span> or <span class="code-inline">alt=""</span>.</li>
             <li data-i18n
-              data-ar="القائمة المنسدلة تستخدم <span class=&quot;code-inline&quot;>role=&quot;listbox&quot;</span> و <span class=&quot;code-inline&quot;>role=&quot;option&quot;</span> للأصناف.">
-              Dropdown uses <span class="code-inline">role=&quot;listbox&quot;</span> with <span
-                class="code-inline">role=&quot;option&quot;</span> items.</li>
+              data-ar="استخدم الدلالة الأصلية لـ <span class=&quot;code-inline&quot;>&lt;select&gt;</span> بدل توثيق <span class=&quot;code-inline&quot;>role=&quot;listbox&quot;</span> مخصص.">
+              Keep the native semantics of <span class="code-inline">&lt;select&gt;</span> instead of documenting a
+              custom <span class="code-inline">role="listbox"</span> pattern.</li>
+            <li data-i18n
+              data-ar="تحقّق من RTL والخط المعتمد بعد تبديل اللغة لأن الحقول تعتمد على الحشو المنطقي والخط الموروث من النظام.">
+              Verify RTL and the approved project font after language switching because the controls depend on logical
+              padding and inherited typography.</li>
           </ul>
         </div>
       </section>
@@ -1157,16 +1010,25 @@
           <h2 class="section-title" data-i18n data-ar="حالات حافة">Edge cases</h2>
           <ul class="accessibility-list">
             <li data-i18n
-              data-ar="في الحقول متعددة الأسطر، راقب ارتفاع الحاوية واجعل <code>line-height</code> مناسبًا.">Monitor
-              container height and line height for multi-line fields.</li>
-            <li data-i18n data-ar="أزرار إظهار/إخفاء كلمة المرور تحتاج إلى تحديث <code>aria-label</code> عند التبديل.">
-              Toggle buttons must update their <code>aria-label</code> when the state changes.</li>
+              data-ar="الـ <code>textarea.form-control</code> يبدأ بارتفاع افتراضي 150px، ومع <code>data-size</code> يتحول إلى ارتفاع تلقائي مع حد أدنى يوافق الحجم المختار.">
+              <code>textarea.form-control</code> starts at a 150px default height, and with <code>data-size</code> it
+              becomes auto-height with a size-based minimum.</li>
             <li data-i18n
-              data-ar="عند الفلاتر أو المقاعد المرنة، استخدم <code>.form-select</code> مع قوائم خيارات قابلة للوحة المفاتيح.">
-              For filters, pair <code>.form-select</code> with keyboard-friendly option lists.</li>
+              data-ar="عند استخدام <code>.input-group-text</code> مع <code>.form-control[data-size]</code> تطابق لاحقة المجموعة حجم الخط الحالي للحقل.">
+              When <code>.input-group-text</code> sits next to <code>.form-control[data-size]</code>, the add-on follows
+              the current field font size.</li>
             <li data-i18n
-              data-ar="التقاليم RTL تحتاج إلى <code>dir=&quot;rtl&quot;</code> و<span class=&quot;code-inline&quot;>padding-inline</span> لضبط الأيقونات.">
-              RTL contexts require <code>dir="rtl"</code> and inline padding adjustments for icons.</li>
+              data-ar="لا تستخدم <code>readonly</code> مع <code>.form-select</code> لأن النمط الحالي يفرّق القراءة فقط على حقول الإدخال النصية فقط.">
+              Do not use <code>readonly</code> with <code>.form-select</code>; the current readonly treatment applies to
+              text controls only.</li>
+            <li data-i18n
+              data-ar="في العربية والإنجليزية، اختبر محاذاة خلفيات <code>.input-with-icon</code> و<code>.input-with-icon-time</code> مع قيم قصيرة وطويلة.">
+              In Arabic and English, verify the background-icon alignment of
+              <code>.input-with-icon</code> and <code>.input-with-icon-time</code> with both short and long values.</li>
+            <li data-i18n
+              data-ar="إذا استخدمت <code>.was-validated</code> فلا تكدّس معها حالة نجاح أو خطأ معاكسة على الحقل نفسه.">
+              If you use <code>.was-validated</code>, do not stack an opposing manual valid/error class on the same field.
+            </li>
           </ul>
         </div>
       </section>
@@ -1175,28 +1037,45 @@
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="واجهة برمجة التطبيقات للمطورين">Developer API</h2>
           <p class="section-note" data-i18n
-            data-ar="حدد بنية الحقول، الأيقونات، والنصوص المساعدة مع الفئات المذكورة أدناه.">
-            Define form fields, icons, and helper text using the classes listed below.
+            data-ar="تلخّص الشيفرة التالية أسماء الـ classes والسمات المتاحة فعليًا في التنفيذ الحالي.">
+            The snippet below summarizes the classes and attributes that exist in the current implementation.
           </p>
           <div class="code-block">
-            <pre><code class="language-html">&lt;label for=&quot;username&quot;&gt;اسم المستخدم&lt;/label&gt;
-&lt;div class=&quot;input-wrapper has-leading has-trailing&quot;&gt;
-  &lt;span class=&quot;input-icon leading&quot; aria-hidden=&quot;true&quot;&gt;...&lt;/span&gt;
-  &lt;input class=&quot;form-control&quot; id=&quot;username&quot; type=&quot;text&quot; aria-describedby=&quot;username-helper&quot;&gt;
-  &lt;i class=&quot;fa fa-check input-icon trailing&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+            <pre><code class="language-html">&lt;label class=&quot;form-label&quot; for=&quot;identityNumber&quot;&gt;رقم الهوية&lt;/label&gt;
+&lt;div class=&quot;position-relative form-content&quot;&gt;
+  &lt;img src=&quot;../images/icon-user-search.svg&quot; alt=&quot;&quot; aria-hidden=&quot;true&quot; /&gt;
+  &lt;input class=&quot;form-control&quot; id=&quot;identityNumber&quot; type=&quot;text&quot; data-size=&quot;md&quot; aria-describedby=&quot;identity-help&quot; /&gt;
 &lt;/div&gt;
-&lt;p class=&quot;helper-text&quot; id=&quot;username-helper&quot;&gt;Helper text&lt;/p&gt;</code></pre>
+&lt;div class=&quot;form-text text-muted&quot; id=&quot;identity-help&quot;&gt;نص مساعد&lt;/div&gt;
+
+&lt;div class=&quot;input-group&quot;&gt;
+  &lt;input class=&quot;form-control&quot; type=&quot;text&quot; data-size=&quot;lg&quot; /&gt;
+  &lt;span class=&quot;input-group-text&quot;&gt;.gov.sa&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;input class=&quot;form-control is-invalid&quot; type=&quot;text&quot; aria-invalid=&quot;true&quot; /&gt;
+&lt;input class=&quot;form-control is-valid&quot; type=&quot;text&quot; /&gt;
+&lt;textarea class=&quot;form-control&quot; aria-describedby=&quot;notes-help&quot;&gt;&lt;/textarea&gt;
+
+&lt;select class=&quot;form-select&quot; data-size=&quot;lg&quot;&gt;
+  &lt;option selected&gt;اختر الجهة الأمنية&lt;/option&gt;
+&lt;/select&gt;</code></pre>
           </div>
           <ul class="accessibility-list mt-3">
             <li data-i18n
-              data-ar="يطالب كل حقل بـ <code>.form-control</code> أو <code>.form-select</code> مع <code>label</code> مطابق.">
-              Each field starts with <code>.form-control</code> or <code>.form-select</code> and matching label.</li>
-            <li data-i18n data-ar="الأيقونات تأتي من <code>.input-icon</code> داخل <code>.input-wrapper</code>.">Icons
-              live inside <code>.input-icon</code> within <code>.input-wrapper</code>.</li>
+              data-ar="الأسماء العامة الحالية هي <code>.form-control</code> و<code>.form-select</code> و<code>.form-content</code> و<code>.input-group-text</code> و<code>.input-with-icon</code> و<code>.input-with-icon-time</code>.">
+              The current public names are <code>.form-control</code>, <code>.form-select</code>,
+              <code>.form-content</code>, <code>.input-group-text</code>, <code>.input-with-icon</code>, and
+              <code>.input-with-icon-time</code>.</li>
             <li data-i18n
-              data-ar="النص المساعد يربط بـ <code>aria-describedby</code>، ورسائل الخطأ تظهر عبر <code>.invalid-feedback</code>.">
-              <code>aria-describedby</code> links helper/error text, and error messages use
-              <code>.invalid-feedback</code>.</li>
+              data-ar="التحقق اليدوي يستخدم <code>.is-invalid</code>/<code>.is-err</code> و<code>.is-valid</code>/<code>.is-ok</code>، كما يدعم النموذج <code>.was-validated</code>.">
+              Manual validation uses <code>.is-invalid</code>/<code>.is-err</code> and
+              <code>.is-valid</code>/<code>.is-ok</code>, and native forms also support
+              <code>.was-validated</code>.</li>
+            <li data-i18n
+              data-ar="لا تعتمد الصفحة الحالية على <code>.input-wrapper</code> أو <code>.has-leading</code> أو <code>.select-trigger</code> أو <code>.select-menu</code>.">
+              The current page should not rely on <code>.input-wrapper</code>, <code>.has-leading</code>,
+              <code>.select-trigger</code>, or <code>.select-menu</code>.</li>
           </ul>
         </div>
       </section>
@@ -1204,42 +1083,46 @@
       <section class="section" id="code-examples">
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="أمثلة برمجية">Code Examples</h2>
-          <p class="section-note" data-i18n data-ar="نماذج جاهزة للنسخ مطابقة للأسماء الحالية.">Copy-ready snippets that
-            align to current class names.</p>
+          <p class="section-note" data-i18n data-ar="نماذج جاهزة للنسخ مطابقة للـ API الحالية حرفيًا.">
+            Copy-ready snippets aligned exactly to the current API.
+          </p>
           <div class="code-block">
-            <pre><code class="language-html">&lt;label class=&quot;form-label&quot; for=&quot;username&quot;&gt;اسم المستخدم&lt;/label&gt;
-&lt;div class=&quot;input-wrapper has-leading&quot;&gt;
-  &lt;span class=&quot;input-icon leading&quot; aria-hidden=&quot;true&quot;&gt;
-    &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
-&lt;path d=&quot;M6.19434 14.8369C9.74833 12.7209 14.2527 12.7208 17.8066 14.8369C17.9228 14.9061 18.0661 14.9875 18.2285 15.0791C18.9413 15.4812 20.0196 16.089 20.7578 16.8115C21.2195 17.2634 21.6576 17.8593 21.7373 18.5889C21.8221 19.3647 21.4836 20.0924 20.8047 20.7393C19.6332 21.8553 18.2275 22.75 16.4092 22.75H7.59082C5.77262 22.7499 4.36671 21.8553 3.19531 20.7393C2.51651 20.0924 2.17795 19.3646 2.2627 18.5889C2.34244 17.8593 2.7815 17.2634 3.24316 16.8115C3.98132 16.0891 5.05877 15.4812 5.77148 15.0791C5.93409 14.9874 6.07806 14.9062 6.19434 14.8369ZM17.0391 16.126C13.958 14.2914 10.043 14.2915 6.96191 16.126C6.79407 16.2259 6.60964 16.3302 6.41699 16.4395C5.70439 16.8437 4.87208 17.316 4.29199 17.8838C3.93192 18.2363 3.77846 18.5273 3.75391 18.752C3.73447 18.9303 3.78002 19.2242 4.23047 19.6533C5.26624 20.6401 6.31849 21.2499 7.59082 21.25H16.4092C17.6816 21.25 18.7347 20.6402 19.7705 19.6533C20.2207 19.2243 20.2655 18.9303 20.2461 18.752C20.2215 18.5273 20.0681 18.2363 19.708 17.8838C19.1279 17.316 18.2956 16.8437 17.583 16.4395C17.3905 16.3302 17.2068 16.2259 17.0391 16.126ZM12 1.25C14.8995 1.25 17.25 3.6005 17.25 6.5C17.25 9.39949 14.8995 11.75 12 11.75C9.1005 11.75 6.75 9.39949 6.75 6.5C6.75 3.6005 9.1005 1.25 12 1.25ZM12 2.75C9.92893 2.75 8.25 4.42893 8.25 6.5C8.25 8.57107 9.92893 10.25 12 10.25C14.0711 10.25 15.75 8.57107 15.75 6.5C15.75 4.42893 14.0711 2.75 12 2.75Z&quot; fill=&quot;#161616&quot;/&gt;
-&lt;/svg&gt;
-  &lt;/span&gt;
-  &lt;input class=&quot;form-control&quot; id=&quot;username&quot; type=&quot;text&quot; placeholder=&quot;يرجى إضافة اسم المستخدم&quot; aria-describedby=&quot;username-helper&quot; /&gt;
-&lt;/div&gt;
-&lt;div class=&quot;form-text text-muted&quot; id=&quot;username-helper&quot;&gt;نص مساعد&lt;/div&gt;
+            <pre><code class="language-html">&lt;!-- Base input with helper text --&gt;
+&lt;label class=&quot;form-label&quot; for=&quot;fullName&quot;&gt;الاسم الكامل&lt;/label&gt;
+&lt;input class=&quot;form-control&quot; id=&quot;fullName&quot; type=&quot;text&quot; placeholder=&quot;يرجى إضافة الاسم الكامل&quot; aria-describedby=&quot;fullName-help&quot; /&gt;
+&lt;div class=&quot;form-text text-muted&quot; id=&quot;fullName-help&quot;&gt;نص مساعد&lt;/div&gt;
 
-&lt;label class=&quot;form-label&quot; for=&quot;password&quot;&gt;كلمة المرور&lt;/label&gt;
-&lt;div class=&quot;input-wrapper has-trailing form-content&quot;&gt;
-  &lt;img src=&quot;./images/icon-lock.svg&quot; alt=&quot;&quot; aria-hidden=&quot;true&quot; /&gt;
-  &lt;input class=&quot;form-control&quot; id=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;يرجى إضافة كلمة المرور&quot; aria-describedby=&quot;password-help&quot; /&gt;
-  &lt;button class=&quot;btn btn-link toggle-password&quot; type=&quot;button&quot; data-target=&quot;password&quot; aria-label=&quot;إظهار كلمة المرور&quot;&gt;
-    &lt;i class=&quot;fa fa-eye-slash&quot;&gt;&lt;/i&gt;
-  &lt;/button&gt;
+&lt;!-- Leading icon pattern --&gt;
+&lt;label class=&quot;form-label&quot; for=&quot;searchUser&quot;&gt;اسم المستخدم&lt;/label&gt;
+&lt;div class=&quot;position-relative form-content&quot;&gt;
+  &lt;img src=&quot;../images/icon-user-search.svg&quot; alt=&quot;&quot; aria-hidden=&quot;true&quot; /&gt;
+  &lt;input class=&quot;form-control&quot; id=&quot;searchUser&quot; type=&quot;text&quot; placeholder=&quot;ابحث باسم المستخدم&quot; /&gt;
 &lt;/div&gt;
-&lt;div class=&quot;form-text text-muted&quot; id=&quot;password-help&quot;&gt;إظهار/إخفاء الكلمة&lt;/div&gt;
 
-&lt;label class=&quot;form-label&quot; for=&quot;selectField&quot;&gt;قائمة منسدلة&lt;/label&gt;
-&lt;div class=&quot;select-field&quot;&gt;
-  &lt;button class=&quot;form-control select-trigger&quot; type=&quot;button&quot; id=&quot;selectField&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;false&quot;&gt;
-    &lt;span class=&quot;select-value placeholder&quot; data-placeholder=&quot;اختر من القائمة&quot;&gt;اختر من القائمة&lt;/span&gt;
-    &lt;i class=&quot;fa fa-chevron-down chevron&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
-  &lt;/button&gt;
-  &lt;ul class=&quot;select-menu&quot; role=&quot;listbox&quot;&gt;
-    &lt;li class=&quot;select-option&quot; role=&quot;option&quot; tabindex=&quot;0&quot;&gt;الخيار الأول&lt;/li&gt;
-    &lt;li class=&quot;select-option&quot; role=&quot;option&quot; tabindex=&quot;0&quot;&gt;الخيار الثاني&lt;/li&gt;
-    &lt;li class=&quot;select-option&quot; role=&quot;option&quot; tabindex=&quot;0&quot;&gt;الخيار الثالث&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/div&gt;</code></pre>
+&lt;!-- Input group add-on --&gt;
+&lt;label class=&quot;form-label&quot; for=&quot;officialEmail&quot;&gt;البريد الرسمي&lt;/label&gt;
+&lt;div class=&quot;input-group&quot;&gt;
+  &lt;input class=&quot;form-control&quot; id=&quot;officialEmail&quot; type=&quot;text&quot; data-size=&quot;lg&quot; placeholder=&quot;username&quot; /&gt;
+  &lt;span class=&quot;input-group-text&quot;&gt;.gov.sa&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Readonly, disabled, and validation --&gt;
+&lt;input class=&quot;form-control&quot; type=&quot;text&quot; value=&quot;INC-2026-00421&quot; readonly /&gt;
+&lt;input class=&quot;form-control&quot; type=&quot;text&quot; disabled placeholder=&quot;غير متاح&quot; /&gt;
+&lt;input class=&quot;form-control is-invalid&quot; type=&quot;text&quot; aria-invalid=&quot;true&quot; /&gt;
+&lt;input class=&quot;form-control is-valid&quot; type=&quot;text&quot; /&gt;
+
+&lt;!-- Textarea and date/time helpers --&gt;
+&lt;textarea class=&quot;form-control&quot; placeholder=&quot;أضف الملاحظات هنا&quot;&gt;&lt;/textarea&gt;
+&lt;input class=&quot;form-control input-with-icon&quot; type=&quot;text&quot; placeholder=&quot;10/10/1448&quot; /&gt;
+&lt;input class=&quot;form-control input-with-icon-time&quot; type=&quot;text&quot; placeholder=&quot;08:00 صباحًا&quot; /&gt;
+
+&lt;!-- Native select --&gt;
+&lt;label class=&quot;form-label&quot; for=&quot;securityEntity&quot;&gt;الجهة الأمنية&lt;/label&gt;
+&lt;select class=&quot;form-select&quot; id=&quot;securityEntity&quot; data-size=&quot;lg&quot;&gt;
+  &lt;option selected&gt;اختر الجهة الأمنية&lt;/option&gt;
+  &lt;option&gt;الأمن العام&lt;/option&gt;
+&lt;/select&gt;</code></pre>
           </div>
         </div>
       </section>
@@ -1264,93 +1147,6 @@
     })();
   </script>
 
-
-  <script>
-    (function () {
-      const toggles = document.querySelectorAll('.toggle-password');
-
-      toggles.forEach((button) => {
-        button.addEventListener('click', () => {
-          const targetId = button.getAttribute('data-target');
-          const input = targetId ? document.getElementById(targetId) : null;
-          if (!input) return;
-          const isHidden = input.type === 'password';
-          input.type = isHidden ? 'text' : 'password';
-          const icon = button.querySelector('i');
-          if (icon) {
-            icon.classList.toggle('fa-eye', isHidden);
-            icon.classList.toggle('fa-eye-slash', !isHidden);
-          }
-          const isArabic = document.documentElement.lang === 'ar';
-          const label = isHidden
-            ? isArabic
-              ? 'إخفاء كلمة المرور'
-              : 'Hide password'
-            : isArabic
-              ? 'إظهار كلمة المرور'
-              : 'Show password';
-          button.setAttribute('aria-label', label);
-        });
-      });
-    })();
-  </script>
-
-  <script>
-    (function () {
-      const selects = document.querySelectorAll('.select-field');
-
-      function closeAll(except) {
-        selects.forEach((field) => {
-          if (field !== except) {
-            field.classList.remove('is-open');
-            const trigger = field.querySelector('.select-trigger');
-            if (trigger) {
-              trigger.setAttribute('aria-expanded', 'false');
-            }
-          }
-        });
-      }
-
-      selects.forEach((field) => {
-        const trigger = field.querySelector('.select-trigger');
-        const value = field.querySelector('.select-value');
-        const menu = field.querySelector('.select-menu');
-        const options = field.querySelectorAll('.select-option');
-
-        if (trigger) {
-          trigger.addEventListener('click', () => {
-            if (field.classList.contains('is-disabled')) return;
-            const isOpen = field.classList.toggle('is-open');
-            trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            if (isOpen) {
-              closeAll(field);
-            }
-          });
-        }
-
-        options.forEach((option) => {
-          option.addEventListener('click', () => {
-            if (!value) return;
-            value.textContent = option.textContent || '';
-            value.classList.remove('placeholder');
-            field.classList.remove('is-open');
-            if (trigger) {
-              trigger.setAttribute('aria-expanded', 'false');
-            }
-          });
-        });
-
-        document.addEventListener('click', (event) => {
-          if (!field.contains(event.target)) {
-            field.classList.remove('is-open');
-            if (trigger) {
-              trigger.setAttribute('aria-expanded', 'false');
-            }
-          }
-        });
-      });
-    })();
-  </script>
 
   <script src="./js/top-actions.js"></script>
 </body>

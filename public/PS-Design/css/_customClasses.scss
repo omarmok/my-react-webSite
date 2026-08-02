@@ -1353,23 +1353,23 @@ border colors */
 }
 
 .radius-none {
-    border-radius: 0px !important;
+    border-radius: $radius-none !important;
 }
 
 .radius-2 {
-    border-radius: 2px !important;
+    border-radius: $radius-xxs !important;
 }
 
 .radius-4 {
-    border-radius: 4px !important;
+    border-radius: $radius-xs !important;
 }
 
 .radius-6 {
-    border-radius: 6px !important;
+    border-radius: $radius-sm !important;
 }
 
 .radius-8 {
-    border-radius: 8px !important;
+    border-radius: $radius-md !important;
 }
 
 .radius-10 {
@@ -1377,7 +1377,7 @@ border colors */
 }
 
 .radius-12 {
-    border-radius: 12px !important;
+    border-radius: $radius-lg !important;
 }
 
 .radius-14 {
@@ -1385,7 +1385,7 @@ border colors */
 }
 
 .radius-16 {
-    border-radius: 16px !important;
+    border-radius: $radius-xl !important;
 }
 
 .radius-18 {
@@ -1393,11 +1393,11 @@ border colors */
 }
 
 .radius-20 {
-    border-radius: 20px !important;
+    border-radius: $radius-2xl !important;
 }
 
 .radius-100 {
-    border-radius: 100px !important;
+    border-radius: $Radius-100 !important;
 }
 
 
@@ -1406,63 +1406,63 @@ border colors */
 
 /* Gap Classes */
 .gap-2 {
-    gap: 2px !important;
+    gap: $gap-2 !important;
 }
 
 .gap-4 {
-    gap: 4px !important;
+    gap: $gap-4 !important;
 }
 
 .gap-6 {
-    gap: 6px !important;
+    gap: $gap-6 !important;
 }
 
 .gap-8 {
-    gap: 8px !important;
+    gap: $gap-8 !important;
 }
 
 .gap-10 {
-    gap: 10px !important;
+    gap: $gap-10 !important;
 }
 
 .gap-12 {
-    gap: 12px !important;
+    gap: $gap-12 !important;
 }
 
 .gap-14 {
-    gap: 14px !important;
+    gap: $gap-14 !important;
 }
 
 .gap-16 {
-    gap: 16px !important;
+    gap: $gap-16 !important;
 }
 
 .gap-18 {
-    gap: 18px !important;
+    gap: $gap-18 !important;
 }
 
 .gap-20 {
-    gap: 20px !important;
+    gap: $gap-20 !important;
 }
 
 .gap-22 {
-    gap: 22px !important;
+    gap: $gap-22 !important;
 }
 
 .gap-24 {
-    gap: 24px !important;
+    gap: $gap-24 !important;
 }
 
 .gap-26 {
-    gap: 26px !important;
+    gap: $gap-26 !important;
 }
 
 .gap-28 {
-    gap: 28px !important;
+    gap: $gap-28 !important;
 }
 
 .gap-30 {
-    gap: 30px !important;
+    gap: $gap-30 !important;
 }
 
 

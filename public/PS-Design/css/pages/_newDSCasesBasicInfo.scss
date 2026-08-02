@@ -33,14 +33,14 @@
         border: none;
         padding: $padding-14;
         box-shadow: 0 0 68px 0 rgba(122, 122, 122, 0.16);
-        border-radius: 8px;
+        border-radius: $radius-md;
     }
 
     .secondary-cat .dropdown-menu h5 {
         font-weight: 600;
         @include font-sm-500;
-        background: #f8f6f2;
-        padding: 20px;
+        background: $baige;
+        padding: $padding-2xl;
     }
 
     .secondary-cat .dropdown-menu ul {
@@ -50,7 +50,7 @@
     }
 
     .secondary-cat .dropdown-menu .dropdown-item {
-        margin-bottom: 4px;
+        margin-bottom: $margin-xs;
         border-radius: 5px;
         @include font-sm-500;
         color: #252f4a;
@@ -78,7 +78,7 @@
     }
 
     &--BasicInfo {
-        border-radius: 8px;
+        border-radius: $radius-md;
         /*border: 1px solid #dee2e6;*/
 
         &__details {
@@ -132,7 +132,7 @@
             left: 20px;
             top: 20px;
             display: flex;
-            gap: 10px;
+            gap: $gap-10;
 
             .actionIcon {
                 padding: 5px;
@@ -175,9 +175,9 @@
                     height: 70px;
                     -o-object-fit: cover;
                     object-fit: cover;
-                    border-radius: 8px;
+                    border-radius: $radius-md;
                     box-shadow: 0px 0px 8px -3px rgb(8 19 75 / 21%);
-                    border: 5px solid white;
+                    border: 5px solid $white-100;
                 }
             }
 
@@ -227,9 +227,9 @@
     .closedCaseAlert {
         margin: 15px;
         background: #ffedf1;
-        padding: 16px;
+        padding: $padding-xl;
         position: relative;
-        border-radius: 8px;
+        border-radius: $radius-md;
 
         .title {
             color: #f1416c;
@@ -286,7 +286,7 @@
             height: 520px;
 
             .new-custommap--title {
-                background: #f8f6f2 !important;
+                background: $baige !important;
 
                 h4 {
                     color: #704214;

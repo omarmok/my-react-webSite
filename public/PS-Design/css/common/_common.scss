@@ -19,71 +19,17 @@
   }
 }
 
-:root {
-  --app-font-size: 0.875rem;
-  --app-font-scale: 1;
-}
-
-:root[data-size="xs"] {
-  --app-font-size: 0.625rem;
-  --app-font-scale: 0.7142857143;
-}
-
-:root[data-size="sm"] {
-  --app-font-size: 0.75rem;
-  --app-font-scale: 0.8571428571;
-}
-
-:root[data-size="md"] {
-  --app-font-size: 0.875rem;
-  --app-font-scale: 1;
-}
-
-:root[data-size="lg"] {
-  --app-font-size: 1rem;
-  --app-font-scale: 1.1428571429;
-}
-
-:root[data-size="xl"] {
-  --app-font-size: 1.25rem;
-  --app-font-scale: 1.4285714286;
-}
-
-:root[data-size="2xl"] {
-  --app-font-size: 1.5rem;
-  --app-font-scale: 1.7142857143;
-}
-
-:root[data-size="3xl"] {
-  --app-font-size: 1.875rem;
-  --app-font-scale: 2.1428571429;
-}
-
-:root[data-size="4xl"] {
-  --app-font-size: 2.25rem;
-  --app-font-scale: 2.5714285714;
-}
-
-:root[data-size="5xl"] {
-  --app-font-size: 3rem;
-  --app-font-scale: 3.4285714286;
-}
-
-:root[data-size="6xl"] {
-  --app-font-size: 3.75rem;
-  --app-font-scale: 4.2857142857;
-}
-
-:root[data-size="7xl"] {
-  --app-font-size: 4.5rem;
-  --app-font-scale: 5.1428571429;
-}
-
 html {
-  font-size: var(--app-font-size, 0.875rem);
+  font-size: 16px;
+}
+
+:root {
+  --accessibility-font-scale: 1;
 }
 
 body {
+  --font-family-scale: 1;
+  --font-family-line-height: 1;
   height: 100%;
   padding: 0;
   margin: 0;
@@ -92,6 +38,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   direction: rtl;
   @include font-lg-500;
+  line-height: typography-line-height(1.5);
   text-align: right;
   background: $Neutral-25;
   font-family: "IBMPlexSansArabic", sans-serif !important;
@@ -152,8 +99,9 @@ input:focus-visible {
 // ----------------------------------------
 
 label {
-  font-size: 0.875rem;
+  font-size: typography-size(0.875rem);
   font-weight: bold;
+  line-height: typography-line-height(1.4);
   color: $Neutral-700;
   margin-bottom: 5px !important;
 }
@@ -167,14 +115,15 @@ input,
 textarea,
 .form-control {
   @include placeholder {
-    @include meduimfont-reg-12;
+    @include meduimfont-reg-14;
     color: $Neutral-500;
     opacity: 1;
   }
 }
 
 .form-control {
-  @include meduimfont-14;
+  @include font-lg-500;
+  line-height: typography-line-height(1.45);
   height: $form-control-height;
   padding: $padding-10;
   border-radius: $Radius-6;
@@ -206,8 +155,8 @@ textarea.form-control {
 .form-control[data-size="sm"] {
   height: 2.25rem;
   padding-inline: 0.75rem;
-  font-size: 0.875rem;
-  line-height: 1.4;
+  font-size: typography-size(0.875rem);
+  line-height: typography-line-height(1.4);
 
   i,
   svg {
@@ -217,7 +166,7 @@ textarea.form-control {
   .input-group & {
     + .input-group-text,
     ~ .input-group-text {
-      font-size: 0.875rem;
+      font-size: typography-size(0.875rem);
     }
   }
 
@@ -235,8 +184,8 @@ textarea.form-control {
 .form-control[data-size="md"] {
   height: 2.5rem;
   padding-inline: 1rem;
-  font-size: 1rem;
-  line-height: 1.45;
+  font-size: typography-size(1rem);
+  line-height: typography-line-height(1.45);
 
   i,
   svg {
@@ -246,7 +195,7 @@ textarea.form-control {
   .input-group & {
     + .input-group-text,
     ~ .input-group-text {
-      font-size: 1rem;
+      font-size: typography-size(1rem);
     }
   }
 
@@ -264,8 +213,8 @@ textarea.form-control {
 .form-control[data-size="lg"] {
   height: 2.75rem;
   padding-inline: 1.125rem;
-  font-size: 1.125rem;
-  line-height: 1.5;
+  font-size: typography-size(1.125rem);
+  line-height: typography-line-height(1.5);
 
   i,
   svg {
@@ -275,7 +224,7 @@ textarea.form-control {
   .input-group & {
     + .input-group-text,
     ~ .input-group-text {
-      font-size: 1.125rem;
+      font-size: typography-size(1.125rem);
     }
   }
 
@@ -293,8 +242,8 @@ textarea.form-control {
 .form-control[data-size="xl"] {
   height: 3rem;
   padding-inline: 1.25rem;
-  font-size: 1.25rem;
-  line-height: 1.55;
+  font-size: typography-size(1.25rem);
+  line-height: typography-line-height(1.55);
 
   i,
   svg {
@@ -304,7 +253,7 @@ textarea.form-control {
   .input-group & {
     + .input-group-text,
     ~ .input-group-text {
-      font-size: 1.25rem;
+      font-size: typography-size(1.25rem);
     }
   }
 
@@ -516,7 +465,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
         /*   @extend .moi-btn--Neutral;*/
         color: $Neutral-800 !important;
         background-color: $Neutral-25 !important;
-        border: 1px solid #f9fafb;
+        border: 1px solid $Neutral-50;
         --moi-focus-outer: rgba(37, 37, 37, 0.35);
         --moi-focus-inner: rgba(255, 255, 255, 0.95);
 
@@ -545,18 +494,18 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .page__title--inner {
-  display: flex;
-  justify-content: space-between;
-  padding: $padding-14;
-  align-items: center;
-  border-radius: 5px;
-  background-color: $baige !important;
+    display: flex;
+    justify-content: space-between;
+    padding: $padding-14;
+    align-items: center;
+    border-radius: 5px;
+    background-color: $Neutral-50 !important;
 
-  h3 {
-    @include boldfont;
-    color: $Brown-500;
-    margin: 0;
-  }
+    h3 {
+        @include font-xl-700;
+        color: $Primary-700;
+        margin: 0;
+    }
 }
 
 .input-with-icon {
@@ -569,7 +518,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .input-with-icon-time {
   position: relative;
-  padding-left: 20px;
+  padding-left: $padding-2xl;
   background-repeat: no-repeat;
   background-position: center right 9px;
   background-image: url(../images/icon-clock.svg);
@@ -744,7 +693,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     h3 {
       color: $Neutral-900;
       font-size: 1rem;
-      margin-top: 20px;
+      margin-top: $margin-2xl;
       font-weight: 600;
     }
   }
@@ -763,11 +712,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .slick-track {
-  margin: 20px auto;
+  margin: $margin-2xl auto;
 }
 
 .form-select {
-  @include font-sm-500;
+  @include font-lg-500;
+  line-height: typography-line-height(1.45);
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #e0e0e0;
@@ -776,29 +726,29 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .form-select[data-size="sm"] {
   height: 2.25rem;
   padding-inline: 0.75rem;
-  font-size: 0.875rem;
-  line-height: 1.4;
+  font-size: typography-size(0.875rem);
+  line-height: typography-line-height(1.4);
 }
 
 .form-select[data-size="md"] {
   height: 2.5rem;
   padding-inline: 1rem;
-  font-size: 1rem;
-  line-height: 1.45;
+  font-size: typography-size(1rem);
+  line-height: typography-line-height(1.45);
 }
 
 .form-select[data-size="lg"] {
   height: 2.75rem;
   padding-inline: 1.125rem;
-  font-size: 1.125rem;
-  line-height: 1.5;
+  font-size: typography-size(1.125rem);
+  line-height: typography-line-height(1.5);
 }
 
 .form-select[data-size="xl"] {
   height: 3rem;
   padding-inline: 1.25rem;
-  font-size: 1.25rem;
-  line-height: 1.55;
+  font-size: typography-size(1.25rem);
+  line-height: typography-line-height(1.55);
 }
 
 .form-select[data-size="sm"] .icon {
@@ -815,9 +765,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .select2-container--default .select2-selection--single {
-  font-size: 10px;
+  font-size: typography-size(1rem);
+  // Autonomous Maintainer pass: removed a byte-identical duplicate
+  // `font-weight: 500;` declaration (was written twice) — zero effect on
+  // computed style, purely dead/redundant CSS.
   font-weight: 500;
-  font-weight: 500;
+  line-height: typography-line-height(1.45);
   height: 40px;
   padding: 10px;
   border-radius: 5px;
@@ -836,7 +789,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .dropdown-item {
-  @include font-sm-500;
+  @include font-md-500;
 }
 
 .shadow-100 {
@@ -875,7 +828,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .AccessDenied-container {
-  background: white;
+  background: $white-100;
   height: 100vh;
 
   img {
@@ -916,7 +869,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   margin-top: 50px;
 
   p {
-    margin-top: 20px;
+    margin-top: $margin-2xl;
     @include boldfont;
   }
 
@@ -949,7 +902,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   box-shadow: 0px 0.5rem 30px rgba(181, 181, 181, 0.08);
   padding: 5px;
   border: 1px solid #e9e9e9;
-  margin-bottom: 2px;
+  margin-bottom: $margin-xxs;
 
   .attatched {
     display: flex;
@@ -1127,7 +1080,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     width: 100%;
     padding: 0;
     display: flex;
-    gap: 10px;
+    gap: $gap-10;
     border-radius: 0.5rem;
     padding: 10px;
     background: $Neutral-25;
@@ -1463,12 +1416,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   .drop-container {
     position: relative;
     display: flex;
-    gap: 10px;
+    gap: $gap-10;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100px;
-    padding: 20px;
+    padding: $padding-2xl;
     border-radius: 10px;
     border: 2px dashed #e1e1e1;
     color: #444;
@@ -1499,8 +1452,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     margin-right: 0;
     border: none;
     background: #084cdf;
-    padding: 10px 20px;
-    border-radius: 4px;
+    padding: 10px $padding-2xl;
+    border-radius: $radius-xs;
     color: $white-100;
     cursor: pointer;
     transition: background 0.2s ease-in-out;
@@ -1555,8 +1508,8 @@ a.cke_button_off:hover,
 a.cke_button_off:focus,
 a.cke_button_off:active {
   border: none !important;
-  padding: 4px 6px !important;
-  border-radius: 4px !important;
+  padding: $padding-xs $padding-sm !important;
+  border-radius: $radius-xs !important;
 }
 
 .cke_toolgroup a.cke_button:hover:last-child:after,
@@ -1581,14 +1534,14 @@ a.cke_combo_button {
 }
 /*end ck editor*/
 .verficationinterviewerContainer {
-  padding: 20px;
+  padding: $padding-2xl;
   border: 1px solid #e2e8f0;
   background: #fbfcfe;
-  margin-bottom: 20px;
+  margin-bottom: $margin-2xl;
 
   .inputs {
     display: flex;
-    gap: 40px;
+    gap: $gap-5xl;
 
     .form-control {
       height: 70px;
@@ -1617,7 +1570,7 @@ a.cke_combo_button {
 .attatched {
   display: flex;
   border-radius: 0.5rem;
-  padding: 20px;
+  padding: $padding-2xl;
   background: rgba(230, 242, 239, 0.4);
   margin-bottom: 5px;
   vertical-align: middle;
@@ -1654,7 +1607,7 @@ a.cke_combo_button {
 }
 
 .shadow-11 {
-  box-shadow: 0px 5px 35px 0px rgba(0, 27, 175, 0.05);
+  box-shadow: $shadow-2;
 }
 
 .no-data {
@@ -1706,7 +1659,7 @@ a.cke_combo_button {
 .textchangebg {
   background: #2b3347 !important;
   color: $white-100 !important;
-  border-radius: 4px !important;
+  border-radius: $radius-xs !important;
 }
 
 #inquiryApp {
@@ -1720,7 +1673,7 @@ a.cke_combo_button {
   /* height: 20px; */
   padding: 7px 0.875rem;
   align-items: center;
-  gap: 10px;
+  gap: $gap-10;
   border-radius: 15px;
   border: 1px solid #d4dce3;
   background: rgb(212 220 227 / 22%);
@@ -1798,7 +1751,7 @@ body.body--grayscale {
   border-radius: 3px;
   left: 4px;
   bottom: 3px;
-  background-color: white;
+  background-color: $white-100;
   transition: 0.3s cubic-bezier(0, 2.18, 0.64, 0.69);
 }
 
@@ -1821,7 +1774,7 @@ body.body--grayscale {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: $white-100;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -1887,8 +1840,8 @@ input:checked + .slider:before {
 }
 
 .hajlabel {
-  border-radius: 6px;
-  background: #f8f6f2;
+  border-radius: $radius-sm;
+  background: $baige;
 
   svg {
     fill: #704818;
@@ -1909,7 +1862,7 @@ input:checked + .slider:before {
   }
 
   span {
-    color: white;
+    color: $white-100;
   }
 }
 
@@ -1944,7 +1897,7 @@ input:checked + .slider:before {
 .uploader-v2 {
   width: 44px;
   height: 44px;
-  border-radius: 6px;
+  border-radius: $radius-sm;
 }
 
 .uploadertabs {
@@ -1958,7 +1911,7 @@ input:checked + .slider:before {
       padding: 1rem;
 
       svg {
-        height: 24px;
+        height: map.get($moi-icon-sizes, lg);
         margin-left: 5px;
         fill: $Neutral-900;
       }
@@ -1987,7 +1940,7 @@ input:checked + .slider:before {
     margin-left: 5px;
 
     svg {
-      height: 24px;
+      height: map.get($moi-icon-sizes, lg);
     }
   }
 }
@@ -2028,7 +1981,7 @@ input:checked + .slider:before {
     box-shadow: 0px 0.5rem 30px rgba(219, 222, 230, 0.49);
     width: 50px;
     margin: 10px auto;
-    margin-top: 20px;
+    margin-top: $margin-2xl;
   }
 
   .value {
@@ -2138,12 +2091,12 @@ input:checked + .slider:before {
 
   .reportscontainer {
     .col-4 {
-      margin-bottom: 20px;
+      margin-bottom: $margin-2xl;
     }
 
     .card {
       padding: 10px;
-      gap: 10px;
+      gap: $gap-10;
 
       &:hover {
         transform: scale(1.04);
@@ -2212,7 +2165,7 @@ input:checked + .slider:before {
   box-shadow: none;
   opacity: 1;
   font-weight: 600;
-  border-radius: 6px;
+  border-radius: $radius-sm;
 
   &:hover {
     box-shadow: none;
@@ -2220,7 +2173,7 @@ input:checked + .slider:before {
 }
 
 hr {
-  color: #d2d6db;
+  color: $Neutral-300;
 }
 
 .vehiclesearchstop {
@@ -2251,7 +2204,7 @@ hr {
     background: #f5faf8;
     border: 0.2px solid #acddc7;
     border-radius: 10px;
-    gap: 10px;
+    gap: $gap-10;
     list-style: none;
     margin: 0;
 
@@ -2280,7 +2233,7 @@ hr {
         color: #161b26;
         z-index: 99;
         margin: 0;
-        background: #f3f4f6;
+        background: $Neutral-100;
         padding: 5px 10px;
         @include font-sm-500;
       }
@@ -2331,7 +2284,7 @@ hr {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #54c08a;
+    background: $Primary-400;
     opacity: 0;
     transition: opacity 0.3s;
   }
@@ -2341,7 +2294,7 @@ hr {
   }
 
   label.radio:hover::before {
-    border-color: #54c08a;
+    border-color: $Primary-400;
   }
 
   input[type="radio"]:checked + label.radio::before {
@@ -2385,12 +2338,12 @@ hr {
   right: 24px;
   z-index: 1202;
   display: flex;
-  gap: 12px;
+  gap: $gap-lg;
   align-items: center;
   background: rgba(255, 255, 255, 0.98);
   border: 1px solid rgba(226, 232, 240, 0.8);
   border-radius: 999px;
-  padding: 8px 12px;
+  padding: $padding-md $padding-lg;
   box-shadow: 0 18px 35px rgba(15, 23, 42, 0.18);
   backdrop-filter: blur(10px);
 }
@@ -2412,13 +2365,13 @@ html[dir="rtl"] .top-actions {
 
 .top-actions button {
   min-height: 44px;
-  border-radius: 12px;
+  border-radius: $radius-lg;
   border: 1px solid transparent;
-  padding: 8px 14px;
+  padding: $padding-md 14px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: $gap-md;
   transition:
     transform 0.12s ease,
     box-shadow 0.2s ease,
@@ -2426,6 +2379,6 @@ html[dir="rtl"] .top-actions {
 }
 
 .top-actions button:focus-visible {
-  outline: 2px solid #25935f;
+  outline: 2px solid $Primary-500;
   outline-offset: 3px;
 }

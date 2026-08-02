@@ -1,7 +1,7 @@
 @use '../helpers' as *;
 .emailModal {
   .block {
-    background: white;
+    background: $white-100;
     padding: 10px;
     border: 1px solid #e3e3e3;
     line-height: 1.9;
@@ -12,7 +12,7 @@
     }
   }
   .subject {
-    background: white;
+    background: $white-100;
     padding: 10px;
     border: 1px solid #e3e3e3;
     line-height: 1.9;
@@ -28,7 +28,7 @@
       background: #f8faff;
       border: 1px solid #eaeffa;
       padding: 5px;
-      border-radius: 6px;
+      border-radius: $radius-sm;
       display: flex;
     }
 
@@ -36,7 +36,7 @@
       background: #f8faff;
       border: 1px solid #eaeffa;
       padding: 5px;
-      border-radius: 6px;
+      border-radius: $radius-sm;
       display: flex;
     }
   }

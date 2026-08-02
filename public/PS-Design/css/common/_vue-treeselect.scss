@@ -1,3 +1,4 @@
+@use "sass:map";
 @use '../helpers' as *;
 .vue-treeselect {
     text-align: right;
@@ -41,8 +42,9 @@
 
 .vue-treeselect__single-value {
     color: #333;
-    font-size: 0.875rem ;
+    font-size: typography-size(map.get($font-sizes, lg));
     font-weight: 500;
+    line-height: typography-line-height(1.45);
 }
 
 .vue-treeselect__control {
@@ -54,13 +56,13 @@
     transition-duration: 0.2s;
     transition-property: border-color, box-shadow, width, height, background-color, opacity;
     transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    font-size: 0.875rem;
+    font-size: typography-size(map.get($font-sizes, lg));
     font-weight: 500;
     height: 44px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid $Neutral-400;
-    line-height: 1.9;
+    line-height: typography-line-height(1.45);
 }
 
 .vue-treeselect__menu-container{
@@ -78,7 +80,7 @@
 
 .vue-treeselect__input,
 .vue-treeselect__sizer {
-    font-size: 0.875rem ;
+    font-size: typography-size(map.get($font-sizes, lg));
 }
 
 .vue-treeselect__option {
@@ -100,8 +102,9 @@
 }
 
 .vue-treeselect__label-container label {
-    font-size: 0.875rem ;
+    font-size: typography-size(map.get($font-sizes, md));
     font-weight: 600 !important;
+    line-height: typography-line-height(1.4);
 }
 
 .vue-treeselect--single .vue-treeselect__option--selected {
@@ -173,7 +176,7 @@
 
 .vue-treeselect div {
     font-weight: 600;
-    font-size: 0.875rem ;
+    font-size: typography-size(map.get($font-sizes, lg));
 }
 
 

@@ -5,11 +5,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: $gap-8;
             padding: 10px;
-            border-radius: 16px;
+            border-radius: $radius-xl;
             width: 180px;
-            background: #FFFFFF;
+            background: $white-100;
             border: 1px solid #BBBEC8;
 
             img {
@@ -48,7 +48,7 @@
         padding: 0;
         border: 1px solid #e9f0fc;
         box-shadow: none;
-        border-radius: 8px;
+        border-radius: $radius-md;
         margin-top: -1px;
     }
 

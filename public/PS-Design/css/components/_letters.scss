@@ -6,15 +6,15 @@
       box-shadow: 10px 10px 30px 0px rgba(174, 174, 192, 0.4);
 
       .content {
-          gap: 10px;
+          gap: $gap-10;
           display: flex;
           flex-wrap: wrap;
 
           .letterdiv {
-              border-radius: 6px;
-              border: 1px solid var(--table-th, #f3f0eb);
-              background: var(--bg-baige, #f8f6f2);
-              box-shadow: 0px 8px 20px 0px #fff;
+              border-radius: $radius-sm;
+              border: 1px solid var(--table-th, $table-th);
+              background: var(--bg-baige, $baige);
+              box-shadow: 0px 8px 20px 0px $white-100;
               display: flex;
               justify-content: center;
               height: 50px;
@@ -29,7 +29,7 @@
 
               &:hover {
                   background: #0d8f75;
-                  color: #fff;
+                  color: $white-100;
 
                   img {
                       filter: brightness(0) invert(1);
@@ -59,18 +59,18 @@
       border-radius: 5px;
       border: 1px solid #b3e8dd;
       background: var(--green-50, #e3f9f4);
-      box-shadow: 0px 8px 20px 0px #fff;
+      box-shadow: 0px 8px 20px 0px $white-100;
       display: flex;
       width: 80px;
       height: 30px;
       padding: 5px;
       justify-content: space-between;
       align-items: center;
-      gap: 2px;
+      gap: $gap-2;
       flex-shrink: 0;
       font-weight: 600;
       color: #0d8f75;
-      padding-right: 8px;
+      padding-right: $padding-md;
       font-family: Georgia, serif;
       font-size: 15px;
 
@@ -79,8 +79,8 @@
           background: #c6ece3;
           width: 18px;
           height: 17px;
-          padding: 2px;
-          border-radius: 2px;
+          padding: $padding-xxs;
+          border-radius: $radius-xxs;
       }
   }
 }

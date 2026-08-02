@@ -1,11 +1,11 @@
 @use '../helpers' as *;
 .incomingIncidents {
     &--container {
-        margin-top: 20px;
+        margin-top: $margin-2xl;
 
         &--rightarea {
             @extend .newIms--inquiryDs--card;
-            padding: 12px;
+            padding: $padding-lg;
             gap: 0;
             width: 100%;
             border: 1px solid #d8e0e9;
@@ -15,38 +15,38 @@
                 margin-bottom: 0;
                 justify-content: center;
                 padding: 10px;
-                gap: 10px;
-                background: #f8f6f2;
+                gap: $gap-10;
+                background: $baige;
                 border-radius: 5px;
 
                 .nav-link {
                     width: 100%;
                     border: none;
                     border: none !important;
-                    background: #ffffff;
+                    background: $white-100;
                     display: flex;
                     flex-direction: row;
                     align-items: center;
                     color: #000000;
                     font-weight: 600;
-                    padding: 6px;
+                    padding: $padding-sm;
                     box-shadow: rgb(178, 174, 174) 0px 0px 5px 0px;
                     margin-bottom: 0;
                     box-shadow: 0px 4px 10px 0px rgba(9, 30, 66, 0.06);
                     justify-content: space-between;
                     white-space: nowrap;
-                    gap: 10px;
+                    gap: $gap-10;
                 }
 
                 .nav-link.active {
                     background: var(--theme-primary) !important;
-                    border: 1px solid #ffffff;
-                    color: #ffffff;
+                    border: 1px solid $white-100;
+                    color: $white-100;
                     box-shadow: 0px 4px 4px 0px rgb(211 211 211 / 19%);
 
                     .new-total {
-                        padding: 2px 4px !important;
-                        background: #fff;
+                        padding: $padding-xxs $padding-xs !important;
+                        background: $white-100;
                         color: $white-100 !important;
                     }
                 }
@@ -60,11 +60,11 @@
                     position: relative;
                     overflow: hidden;
                     border: 1px solid #eeeeee;
-                    background: #ffffff;
-                    padding: 12px;
+                    background: $white-100;
+                    padding: $padding-lg;
                     display: flex;
-                    gap: 10px;
-                    border-radius: 8px;
+                    gap: $gap-10;
+                    border-radius: $radius-md;
                     cursor: pointer;
 
                     &--stutus {
@@ -79,7 +79,7 @@
                         justify-content: center;
                         align-content: flex-start;
                         flex-direction: column;
-                        padding: 2px;
+                        padding: $padding-xxs;
 
                         img {
                             height: 16px;
@@ -108,12 +108,12 @@
                         &__block {
                             @include meduimfont;
                             background: #f8f9fa;
-                            border-radius: 4px;
+                            border-radius: $radius-xs;
                             padding: 5px;
                             width: 100%;
                             display: flex;
                             flex-direction: column;
-                            border-radius: 6px;
+                            border-radius: $radius-sm;
                             color: $darkBlue;
 
                             span {
@@ -144,10 +144,10 @@
 
                 .tabCustomcontent--card--blockcontainer__block {
                     background: #c0a483;
-                    color: #ffffff;
+                    color: $white-100;
 
                     span {
-                        color: #ffffff;
+                        color: $white-100;
                     }
                 }
 
@@ -198,11 +198,11 @@
 
         &--card {
             @extend .newIms--inquiryDs--card;
-            padding: 12px;
+            padding: $padding-lg;
             width: 100%;
             border: 1px solid $Brown-500;
             border-color: #e7d2bd !important;
-            gap: 10px;
+            gap: $gap-10;
 
             label {
                 margin-bottom: 0 !important;
@@ -213,12 +213,12 @@
                 &__shortCutAction {
                     border: 1px solid $Primary-500;
                     background: $Primary-500;
-                    color: #fff;
+                    color: $white-100;
                     padding: 6px 12px;
                     // font-size: 11px;
                     white-space: nowrap;
                     flex-direction: row;
-                    border-radius: 6px;
+                    border-radius: $radius-sm;
                     gap: 3px;
                     justify-content: center;
 
@@ -226,7 +226,7 @@
                         fill: $Primary-500;
                         height: 26px;
                         width: 26px;
-                        background: #fff;
+                        background: $white-100;
                         border-radius: 50%;
                         padding: 5px;
                         margin-left: 5px;
@@ -239,7 +239,7 @@
 
                         svg {
                             fill: rgb(15, 166, 136);
-                            background: #fff;
+                            background: $white-100;
                         }
                     }
                 }
@@ -257,9 +257,9 @@
             }
 
             .title {
-                padding: 8px;
+                padding: $padding-md;
                 background: $baige;
-                padding: 8px;
+                padding: $padding-md;
                 display: flex;
                 align-items: center;
 
@@ -310,7 +310,7 @@
         .newIms--inquiryDs--card--top {
             padding: 10px;
             align-items: flex-start;
-            gap: 10px;
+            gap: $gap-10;
         }
     }
 

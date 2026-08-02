@@ -61,13 +61,13 @@
 }*/
 
 .permitDetails {
-  margin-top: 20px;
+  margin-top: $margin-2xl;
 
   &__permitCard {
     background: #fcfbf9;
     padding: $padding-14;
     box-shadow: 0px 5px 7px rgb(247, 248, 250);
-    border-radius: 8px;
+    border-radius: $radius-md;
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
@@ -75,7 +75,7 @@
 
     &__top {
       display: flex;
-      background: #ffffff;
+      background: $white-100;
       align-items: center;
       padding: 10px;
       justify-content: space-between;
@@ -91,7 +91,7 @@
       &--stutas {
         background: #08c28d;
         border-radius: 5px;
-        color: #fff;
+        color: $white-100;
         padding: 5px 10px;
         font-size: 9px;
       }
