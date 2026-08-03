@@ -83,6 +83,19 @@
       gap: var(--space-3);
     }
 
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
     .sidebar-nav a {
       color: #1f2937;
       text-decoration: none;
@@ -98,8 +111,9 @@
 
     .sidebar-nav a:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
-      border-color: var(--primary);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
     }
 
     .sidebar-nav a:focus-visible {
@@ -109,19 +123,19 @@
     }
 
     .sidebar-nav a.is-active {
-      background: #111827;
-      border-color: #111827;
-      color: #f9fafb;
-      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
     }
 
     .sidebar-nav a.is-active::after {
       content: "";
       position: absolute;
       inset: 0;
-      border-inline-start: 4px solid var(--primary);
-      border-radius: var(--radius-sm);
-      mix-blend-mode: screen;
+      border-inline-start: 3px solid #1c8354;
+      border-radius: inherit;
+      pointer-events: none;
     }
 
     .lang-toggle {
@@ -153,20 +167,17 @@
       height: 20px;
     }
 
-    .hero {
-      position: relative;
-      border-radius: var(--radius-lg);
-      padding: var(--space-8);
-      height: 600px;
-      min-height: 340px;
-      width: 100%;
-      overflow: hidden;
-      background: url("../images/thumbnail.jpg") center/cover no-repeat;
-      color: #fff;
-      box-shadow: var(--shadow-lg);
+    .page-content>.hero {
+      height: auto;
+      min-height: 0;
     }
 
-
+    .page-content>.hero img {
+      display: block;
+      height: auto;
+      max-width: 100%;
+      width: 100%;
+    }
 
     .hero-content {
       position: relative;
@@ -263,6 +274,32 @@
       color: var(--muted);
       margin-bottom: var(--space-4);
       max-width: 75ch;
+    }
+
+    .page-header {
+      background: var(--primary);
+      color: #fff;
+      border-radius: var(--radius-md);
+      padding: 22px 26px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .page-header .eyebrow,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.16);
+      padding: 4px 10px;
+      border-radius: 999px;
     }
 
     .pillar-grid {
@@ -370,8 +407,8 @@
     }
 
     html[dir="rtl"] .sidebar-nav a.is-active::after {
-      border-left: 0;
-      border-right: 4px solid var(--primary);
+      border-inline-start: 0;
+      border-inline-end: 3px solid #1c8354;
     }
 
     html[dir="rtl"] .hero-content {
@@ -568,25 +605,30 @@
         <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
         <nav class="sidebar-nav">
           <a href="./index.html" class="is-active" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
           <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
           <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
           <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
           <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
           <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
           <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
           <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
           <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
-          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
           <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
           <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
           <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
           <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
-          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
-          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
           <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
           <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
           <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
           <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
         </nav>
       </div>
 
@@ -610,38 +652,35 @@
       </div>
 
 
-      <header class="hero" aria-label="Design system hero image with introduction">
+      <div class="hero">
+        <img src="../images/thumbnail.jpg" alt="PS-Design documentation hero image" />
+      </div>
 
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="نظام تصميم أمن">AMN Design System</div>
+        <h1 class="mt-2 mb-2" data-i18n data-ar="المقدمة">Introduction</h1>
+        <p class="section-note mb-0" data-i18n
+          data-ar="نظام تصميم أمن هو المصدر الرسمي المعتمد والمبني على SCSS لجميع منتجات الأمن الحكومية تحت مظلة أمن. يوحّد اللغة البصرية وأنماط التفاعل ومعايير الوصول لضباط الأمن، المحققين، الفرق التشغيلية، والجهات الشريكة.">
+          The AMN Design System is the official, SCSS-driven source of truth for all government security products
+          under the AMN umbrella. It unifies visual language, interaction patterns, and accessibility standards for
+          security officers, investigators, operational teams, and partner entities.
+        </p>
       </header>
 
+      <div class="metadata-row">
+        <span class="metadata-pill" data-i18n data-ar="المكوّن: المقدمة" data-en="Component: Introduction">
+          المكوّن: المقدمة
+        </span>
 
-      <section class="section" id="overview">
-        <div class="section-card">
-          <div class="hero-badge" data-i18n data-ar="نظام تصميم أمن">AMN Design System</div>
-          <h1 class="section-title mt-3" data-i18n data-ar="المقدمة">Introduction</h1>
-          <div class="metadata-row">
-            <span class="metadata-pill" data-i18n data-ar="المكوّن: المقدمة" data-en="Component: Introduction">
-              المكوّن: المقدمة
-            </span>
+        <span class="metadata-pill" data-i18n data-ar="الإصدار: قيد التحديث" data-en="Version: TBD">
+          الإصدار: قيد التحديث
+        </span>
 
-            <span class="metadata-pill" data-i18n data-ar="الإصدار: قيد التحديث" data-en="Version: TBD">
-              الإصدار: قيد التحديث
-            </span>
-
-            <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 28 يناير 2026"
-              data-en="Last updated: January 28, 2026">
-              آخر تحديث: 28 يناير 2026
-            </span>
-          </div>
-
-          <p class="section-note" data-i18n
-            data-ar="نظام تصميم أمن هو المصدر الرسمي المعتمد والمبني على SCSS لجميع منتجات الأمن الحكومية تحت مظلة أمن. يوحّد اللغة البصرية وأنماط التفاعل ومعايير الوصول لضباط الأمن، المحققين، الفرق التشغيلية، والجهات الشريكة.">
-            The AMN Design System is the official, SCSS-driven source of truth for all government security products
-            under the AMN umbrella. It unifies visual language, interaction patterns, and accessibility standards for
-            security officers, investigators, operational teams, and partner entities.
-          </p>
-        </div>
-      </section>
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 28 يناير 2026"
+          data-en="Last updated: January 28, 2026">
+          آخر تحديث: 28 يناير 2026
+        </span>
+      </div>
 
       <section class="section" id="components">
         <div class="section-card">
@@ -686,6 +725,11 @@
               <small data-i18n="" data-ar="الأنواع، الحالات، إمكانية الوصول"
                 data-en="Variants, states, accessibility">الأنواع، الحالات، إمكانية الوصول</small>
             </a>
+            <a href="./switch.html" class="link-card">
+              <strong data-i18n="" data-ar="مفاتيح التبديل" data-en="Switches">مفاتيح التبديل</strong>
+              <small data-i18n="" data-ar="الأنواع، الحالات، إمكانية الوصول"
+                data-en="Variants, states, accessibility">الأنواع، الحالات، إمكانية الوصول</small>
+            </a>
             <a href="./layout.html" class="link-card">
               <strong data-i18n="" data-ar="الهيكل العام" data-en="Layout">الهيكل العام</strong>
               <small data-i18n="" data-ar="الشبكات، التخطيطات، الاستجابة"
@@ -706,6 +750,11 @@
               <small data-i18n="" data-ar="الأنواع، الحالات، القوائم المنسدلة"
                 data-en="Types, states, dropdowns">الأنواع، الحالات، القوائم المنسدلة</small>
             </a>
+            <a href="./file-uploader.html" class="link-card">
+              <strong data-i18n="" data-ar="رفع الملفات" data-en="File Uploader">رفع الملفات</strong>
+              <small data-i18n="" data-ar="السحب والإفلات، التقدم، الحالات"
+                data-en="Drag &amp; drop, progress, states">السحب والإفلات، التقدم، الحالات</small>
+            </a>
             <a href="./stepper.html" class="link-card">
               <strong data-i18n="" data-ar="شريط التقدم" data-en="Stepper">شريط التقدم</strong>
               <small data-i18n="" data-ar="الخطوات، التقدم، التنقل" data-en="Steps, progress, navigation">الخطوات،
@@ -725,6 +774,26 @@
               <strong data-i18n="" data-ar="كارت المنشأة" data-en="Entity Card">كارت المنشأة</strong>
               <small data-i18n="" data-ar="العرض، البيانات، الإجراءات" data-en="Display, data, actions">العرض، البيانات،
                 الإجراءات</small>
+            </a>
+            <a href="./timeline.html" class="link-card">
+              <strong data-i18n="" data-ar="الخط الزمني" data-en="Timeline">الخط الزمني</strong>
+              <small data-i18n="" data-ar="الهدف، التركيب، الاستخدام" data-en="Purpose, anatomy, usage">الهدف، التركيب،
+                الاستخدام</small>
+            </a>
+            <a href="./tabs.html" class="link-card">
+              <strong data-i18n="" data-ar="التبويبات" data-en="Tabs">التبويبات</strong>
+              <small data-i18n="" data-ar="الهدف، التركيب، الاستخدام" data-en="Purpose, anatomy, usage">الهدف، التركيب،
+                الاستخدام</small>
+            </a>
+            <a href="./StartDeveloping.html" class="link-card">
+              <strong data-i18n="" data-ar="ابدأ التطوير" data-en="Start Developing">ابدأ التطوير</strong>
+              <small data-i18n="" data-ar="ملفات الأنماط، مصادر SCSS، الإعداد"
+                data-en="Stylesheets, SCSS sources, setup">ملفات الأنماط، مصادر SCSS، الإعداد</small>
+            </a>
+            <a href="./NewFeature.html" class="link-card">
+              <strong data-i18n="" data-ar="ميزة جديدة" data-en="New Feature">ميزة جديدة</strong>
+              <small data-i18n="" data-ar="التشريح، شريط البحث، التبويبات، الجداول"
+                data-en="Anatomy, search, tabs, tables">التشريح، شريط البحث، التبويبات، الجداول</small>
             </a>
           </div>
         </div>

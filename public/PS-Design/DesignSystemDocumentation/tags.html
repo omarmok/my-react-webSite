@@ -36,7 +36,7 @@
       background: #1c8354;
       color: #fff;
       border-radius: var(--card-radius);
-      padding: 32px;
+      padding: 22px 26px;
       box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
     }
 
@@ -52,9 +52,16 @@
     }
 
     .eyebrow {
-      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
       color: var(--muted);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
     }
 
     .section {
@@ -283,6 +290,19 @@
       gap: 10px;
     }
 
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
     .sidebar-nav a {
       color: #1f2937;
       text-decoration: none;
@@ -296,24 +316,30 @@
 
     .sidebar-nav a:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
     }
 
     .sidebar-nav a.is-active {
-      background: #111827;
-      border-color: #111827;
-      color: #f9fafb;
-      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
-      position: relative;
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
     }
 
     .sidebar-nav a.is-active::after {
       content: "";
       position: absolute;
       inset: 0;
-      border-inline-start: 4px solid #1c8354;
-      border-radius: 10px;
-      mix-blend-mode: screen;
+      border-inline-start: 3px solid #1c8354;
+      border-radius: inherit;
+      pointer-events: none;
     }
 
     .lang-toggle {
@@ -614,25 +640,30 @@
         <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
         <nav class="sidebar-nav">
           <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
           <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
           <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
           <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
           <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
           <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
           <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
           <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
           <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
-          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
           <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
           <a href="./tags.html" class="is-active" data-i18n data-ar="الوسوم">Tags</a>
           <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
           <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
-          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
-          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
           <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
           <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
           <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
           <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
         </nav>
       </div>
 
@@ -700,6 +731,267 @@
           آخر تحديث: 2 أغسطس 2026
         </span>
       </div>
+
+      <section class="section" id="overview">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="الهدف / متى تستخدم">Purpose &amp; when to use</h2>
+          <p class="section-note" data-i18n
+            data-ar="اتبع نمط الوسوم: استخدم وسومًا قصيرة لفرز العناصر أو إبراز حالة تدفق العمل. اختر شدة اللون بناءً على أهمية المعلومة.">
+            Follow the tag pattern: use short labels to sort items or flag workflow status, and choose emphasis
+            based on importance.
+          </p>
+          <div class="usage-pills">
+            <div class="pill-card">
+              <h3 data-i18n data-ar="وصف وبيانات">Descriptors &amp; metadata</h3>
+              <ul>
+                <li data-i18n data-ar="وسوم غير تفاعلية لتمييز الفئة أو المصدر.">Non-interactive tags that mark category
+                  or source.</li>
+                <li data-i18n
+                  data-ar="استخدم الأنماط البسيطة مثل &lt;span class=&quot;code-inline&quot;&gt;.defualtprioroty&lt;/span&gt;.">
+                  Use subtle styles like <span class="code-inline">.defualtprioroty</span>.</li>
+                <li data-i18n data-ar="قصيرة (كلمتان) لتجنب الالتفاف.">Keep text to one or two words to avoid wrapping.
+                </li>
+              </ul>
+            </div>
+            <div class="pill-card">
+              <h3 data-i18n data-ar="حالة">Status</h3>
+              <ul>
+                <li data-i18n
+                  data-ar="اختَر اللون المناسب: &lt;span class=&quot;code-inline&quot;&gt;.highpriority&lt;/span&gt; للأخطاء أو التأخيرات.">
+                  Map to meaning: <span class="code-inline">.highpriority</span> for errors or delays.</li>
+                <li data-i18n data-ar="استخدم التعبئة الصلبة عند الحاجة إلى إبراز أعلى.">Use filled variants when higher
+                  visual prominence is needed.</li>
+                <li data-i18n
+                  data-ar="أضف &lt;span class=&quot;code-inline&quot;&gt;role=&quot;status&quot;&lt;/span&gt; للتحديثات غير التفاعلية.">
+                  Add <span class="code-inline">role="status"</span> for non-interactive updates.</li>
+              </ul>
+            </div>
+            <div class="pill-card">
+              <h3 data-i18n data-ar="فلترة وتفاعل">Filtering &amp; interaction</h3>
+              <ul>
+                <li data-i18n
+                  data-ar="استخدم عنصر &lt;span class=&quot;code-inline&quot;&gt;&amp;lt;button&amp;gt;&lt;/span&gt; للوسوم القابلة للنقر أو الإزالة.">
+                  Use a <span class="code-inline">&lt;button&gt;</span> when the tag is clickable or removable.</li>
+                <li data-i18n data-ar="أضف رمز الإغلاق أو كلمة (إزالة) للفلاتر القابلة للحذف.">Include a close icon or
+                  text for removable filters.</li>
+                <li data-i18n data-ar="حافظ على مساحة 8px بين الوسوم المتجاورة.">Keep at least 8px spacing between
+                  adjacent tags.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="usage-rules">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="احتفظ بالنص قصيرًا (كلمتان كحد أقصى) لتفادي الالتفاف داخل الوسم.">Keep tag text short
+              (two words max) to avoid wrapping.</li>
+            <li data-i18n
+              data-ar="استخدم <code>role=&quot;button&quot;</code> للعناصر القابلة للتفاعل وأضف <code>aria-label</code> لعناصر الإزالة.">
+              Apply <code>role="button"</code> to interactive pills and include <code>aria-label</code> on remove icons.
+            </li>
+            <li data-i18n data-ar="رمز الإغلاق أو الإزالة يجب أن يكون كبيرًا بما يكفي لأهداف اللمس (40px تقريبًا).">
+              Ensure close/remove icons meet minimum touch size (~40px).</li>
+            <li data-i18n
+              data-ar="لا تستخدم الوسوم لعرض معلومات ثانوية فقط؛ استخدمها لتصنيف أو تصفية أو الإشارة للحالات.">Use tags
+              for categorization, filtering, or status—not for purely decorative content.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="anatomy">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="العنصر">Element</th>
+                <th data-i18n data-ar="الوصف">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n data-ar="الحاوية">Container</td>
+                <td data-i18n data-ar="فئة <code>.moi-tag</code> تشكّل شكلًا مستديرًا وتتحكم في الحشو.">
+                  <code>.moi-tag</code> provides the pill shape and padding.
+                </td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="النص">Label</td>
+                <td data-i18n data-ar="النص داخل الطبقة يستخدم <code>.font-md-500</code> للحفاظ على القابلية للقراءة.">
+                  Text uses <code>.font-md-500</code> for readability.
+                </td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="الأيقونة">Icon</td>
+                <td data-i18n
+                  data-ar="يوضَع داخل <code>.icon</code> ويكتسب لون الحالة عبر فئة مثل <code>.Primary-600</code>.">
+                  Icons live inside <code>.icon</code> and inherit semantic color classes like
+                  <code>.Primary-600</code>.
+                </td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="الإجراء">Action</td>
+                <td data-i18n
+                  data-ar="الوسوم التفاعلية تستخدم <code>&lt;button&gt;</code> ب<code>aria-label</code> واضح أو رمز إزالة.">
+                  Interactive tags use a <code>&lt;button&gt;</code> with a clear <code>aria-label</code> or a remove
+                  icon.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="usage-grid mt-4">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="تحويم / تركيز">Hover / focus</h4>
+              <ul>
+                <li data-i18n data-ar="يزيد الظل/الظل الخفيف عند التحويم بينما يحتفظ بالمظهر المتجانس دون تغيير اللون.">
+                  Hover elevates the pill slightly while keeping the color consistent.</li>
+                <li data-i18n
+                  data-ar="يُظهر التركيز حدودًا أو ظلاً واضحًا عبر <code>:focus-visible</code> للعلامات القابلة للتفاعل.">
+                  Focus-visible reveals a clear outline for interactive tags.</li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="نشط">Active / selected</h4>
+              <ul>
+                <li data-i18n data-ar="يمكن لموضوعات التحديد أن تضيف خلفية مضيئة أو رمز تحقق مع الفئات المحتملة.">
+                  Selected tags may add a bolder background or check icon via accented classes.</li>
+                <li data-i18n
+                  data-ar="يُستخدم <code>.is-active</code> أو فئة مخصصة للحفاظ على حالة التنشيط دون تغيير الهيكل.">Use
+                  <code>.is-active</code> or a modifier class to highlight the active state without structural changes.
+                </li>
+              </ul>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="معطل / غير قابل للتفاعل">Disabled / non-interactive</h4>
+              <ul>
+                <li data-i18n
+                  data-ar="تطبق <code>.is-disabled</code> نظرة رمادية وتمنع التفاعلات دون إزالة الوسم من الترتيب.">Add
+                  <code>.is-disabled</code> to gray out the tag and block interactions while keeping it in flow.
+                </li>
+                <li data-i18n
+                  data-ar="الوسوم الغير تفاعلية لا تحتاج إلى aria-label، لكن احتفظ بالنسخة النصية في مكانٍ ما للقراءة.">
+                  Non-interactive tags do not need aria-labels but keep a textual cue nearby.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="variants">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n="" data-ar="أنواع الوسوم (Variants)" data-en="Tag Variants">أنواع الوسوم
+            (Variants)</h2>
+          <p class="section-note" data-i18n=""
+            data-ar="تتوفر الوسوم بأنواع مختلفة لتناسب حالات الاستخدام المتنوعة، مع دعم للألوان الدلالية وإمكانية الإزالة."
+            data-en="
+            Tags are available in various types to suit diverse use cases, with support for semantic colors and dismissible functionality.
+          ">تتوفر الوسوم بأنواع مختلفة لتناسب حالات الاستخدام المتنوعة، مع دعم للألوان الدلالية وإمكانية الإزالة.</p>
+
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n="" data-ar="النوع" data-en="Type">
+                  النوع</th>
+                <th data-i18n="" data-ar="قيمة data-status" data-en="data-status value">
+                  قيمة data-status</th>
+                <th data-i18n="" data-ar="الاستخدام" data-en="Usage">
+                  الاستخدام</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n="" data-ar="محايد / افتراضي" data-en="Default / Neutral">محايد / افتراضي</td>
+                <td><code class="code-inline">defualtprioroty</code></td>
+                <td>
+                  <span class="moi-tag" data-size="md" data-status="defualtprioroty"><span class="moi-label" data-i18n
+                      data-ar="محايد" data-en="Neutral">Neutral</span></span>
+                  <p class="section-note mt-1 mb-0" data-i18n data-ar="التصنيف العام والحالات غير الحرجة."
+                    data-en="General classification, non-critical states.">General classification, non-critical states.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td data-i18n="" data-ar="أولوية عالية" data-en="High Priority">أولوية عالية</td>
+                <td><code class="code-inline">highpriority</code></td>
+                <td>
+                  <span class="moi-tag" data-size="md" data-status="highpriority"><span class="moi-label" data-i18n
+                      data-ar="عالي" data-en="High">High</span></span>
+                  <p class="section-note mt-1 mb-0" data-i18n data-ar="الحالات الحرجة والأخطاء العاجلة."
+                    data-en="Critical states or urgent errors.">Critical states or urgent errors.</p>
+                </td>
+              </tr>
+              <tr>
+                <td data-i18n="" data-ar="أولوية متوسطة" data-en="Medium Priority">أولوية متوسطة</td>
+                <td><code class="code-inline">mediumpriority</code></td>
+                <td>
+                  <span class="moi-tag" data-size="md" data-status="mediumpriority"><span class="moi-label" data-i18n
+                      data-ar="متوسط" data-en="Medium">Medium</span></span>
+                  <p class="section-note mt-1 mb-0" data-i18n data-ar="الحالات التي تتطلب الحذر أو مراجعة بسيطة."
+                    data-en="States requiring caution or a minor review.">States requiring caution or a minor review.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td data-i18n="" data-ar="أولوية عادية" data-en="Regular Priority">أولوية عادية</td>
+                <td><code class="code-inline">regpriority</code></td>
+                <td>
+                  <span class="moi-tag" data-size="md" data-status="regpriority"><span class="moi-label" data-i18n
+                      data-ar="عادي" data-en="Regular">Regular</span></span>
+                  <p class="section-note mt-1 mb-0" data-i18n data-ar="المعلومات الإيجابية أو الإجراءات الناجحة."
+                    data-en="Positive information or successful actions.">Positive information or successful actions.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td data-i18n="" data-ar="معلوماتي" data-en="Info">معلوماتي</td>
+                <td><code class="code-inline">infoprioroty</code></td>
+                <td>
+                  <span class="moi-tag" data-size="md" data-status="infoprioroty"><span class="moi-label" data-i18n
+                      data-ar="معلومة" data-en="Info">Info</span></span>
+                  <p class="section-note mt-1 mb-0" data-i18n data-ar="معلومات محايدة أو توضيحات إضافية."
+                    data-en="Neutral information or additional explanations.">Neutral information or additional
+                    explanations.</p>
+                </td>
+              </tr>
+              <tr>
+                <td data-i18n="" data-ar="أساسي" data-en="Primary">أساسي</td>
+                <td><code class="code-inline">primaryprioroty</code></td>
+                <td>
+                  <span class="moi-tag" data-size="md" data-status="primaryprioroty"><span class="moi-label" data-i18n
+                      data-ar="أساسي" data-en="Primary">Primary</span></span>
+                  <p class="section-note mt-1 mb-0" data-i18n data-ar="المحتوى المميز أو عناصر العلامة التجارية."
+                    data-en="Highlighted content or brand-level elements.">Highlighted content or brand-level elements.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td data-i18n="" data-ar="قيد المراجعة" data-en="In Review">قيد المراجعة</td>
+                <td><code class="code-inline">UnderProgress</code></td>
+                <td>
+                  <span class="moi-tag" data-size="md" data-status="UnderProgress"><span class="moi-label" data-i18n
+                      data-ar="قيد المراجعة" data-en="In Review">In Review</span></span>
+                  <p class="section-note mt-1 mb-0" data-i18n data-ar="العناصر الجارية معالجتها أو مراجعتها."
+                    data-en="Items currently being processed or reviewed.">Items currently being processed or reviewed.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td data-i18n="" data-ar="مُعاد / إعادة عمل" data-en="Returned / Rework">مُعاد / إعادة عمل</td>
+                <td><code class="code-inline">Returned</code></td>
+                <td>
+                  <span class="moi-tag" data-size="md" data-status="Returned"><span class="moi-label" data-i18n
+                      data-ar="مُعاد" data-en="Returned">Returned</span></span>
+                  <p class="section-note mt-1 mb-0" data-i18n data-ar="العناصر المُعادة للتعديل أو المراجعة."
+                    data-en="Items returned for revision or rework.">Items returned for revision or rework.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
       <section class="section" id="status-values-quick-copy">
         <div class="section-card">
@@ -1227,271 +1519,6 @@
           </span>
         </template>
 
-      </section>
-
-
-      <section class="section" id="overview">
-        <div class="section-card">
-          <h2 class="section-title" data-i18n data-ar="الهدف / متى تستخدم">Purpose &amp; when to use</h2>
-          <p class="section-note" data-i18n
-            data-ar="اتبع نمط الوسوم ف استخدم وسومًا قصيرة لفرز العناصر أو إبراز حالة تدفق العمل. اختر شدة اللون بناءً على أهمية المعلومة.">
-            use short labels to sort items or flag workflow status, and choose emphasis
-            based on importance.
-          </p>
-          <div class="usage-pills">
-            <div class="pill-card">
-              <h3 data-i18n data-ar="وصف وبيانات">Descriptors &amp; metadata</h3>
-              <ul>
-                <li data-i18n data-ar="وسوم غير تفاعلية لتمييز الفئة أو المصدر.">Non-interactive tags that mark category
-                  or source.</li>
-                <li data-i18n
-                  data-ar="استخدم الأنماط البسيطة مثل &lt;span class=&quot;code-inline&quot;&gt;.defualtprioroty&lt;/span&gt;.">
-                  Use subtle styles like <span class="code-inline">.defualtprioroty</span>.</li>
-                <li data-i18n data-ar="قصيرة (كلمتان) لتجنب الالتفاف.">Keep text to one or two words to avoid wrapping.
-                </li>
-              </ul>
-            </div>
-            <div class="pill-card">
-              <h3 data-i18n data-ar="حالة">Status</h3>
-              <ul>
-                <li data-i18n
-                  data-ar="اختَر اللون المناسب: &lt;span class=&quot;code-inline&quot;&gt;.highpriority&lt;/span&gt; للأخطاء أو التأخيرات.">
-                  Map to meaning: <span class="code-inline">.highpriority</span> for errors or delays.</li>
-                <li data-i18n data-ar="استخدم التعبئة الصلبة عند الحاجة إلى إبراز أعلى.">Use filled variants when higher
-                  visual prominence is needed.</li>
-                <li data-i18n
-                  data-ar="أضف &lt;span class=&quot;code-inline&quot;&gt;role=&quot;status&quot;&lt;/span&gt; للتحديثات غير التفاعلية.">
-                  Add <span class="code-inline">role="status"</span> for non-interactive updates.</li>
-              </ul>
-            </div>
-            <div class="pill-card">
-              <h3 data-i18n data-ar="فلترة وتفاعل">Filtering &amp; interaction</h3>
-              <ul>
-                <li data-i18n
-                  data-ar="استخدم عنصر &lt;span class=&quot;code-inline&quot;&gt;&amp;lt;button&amp;gt;&lt;/span&gt; للوسوم القابلة للنقر أو الإزالة.">
-                  Use a <span class="code-inline">&lt;button&gt;</span> when the tag is clickable or removable.</li>
-                <li data-i18n data-ar="أضف رمز الإغلاق أو كلمة (إزالة) للفلاتر القابلة للحذف.">Include a close icon or
-                  text for removable filters.</li>
-                <li data-i18n data-ar="حافظ على مساحة 8px بين الوسوم المتجاورة.">Keep at least 8px spacing between
-                  adjacent tags.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="usage-rules">
-        <div class="section-card">
-          <h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2>
-          <ul class="accessibility-list">
-            <li data-i18n data-ar="احتفظ بالنص قصيرًا (كلمتان كحد أقصى) لتفادي الالتفاف داخل الوسم.">Keep tag text short
-              (two words max) to avoid wrapping.</li>
-            <li data-i18n
-              data-ar="استخدم <code>role=&quot;button&quot;</code> للعناصر القابلة للتفاعل وأضف <code>aria-label</code> لعناصر الإزالة.">
-              Apply <code>role="button"</code> to interactive pills and include <code>aria-label</code> on remove icons.
-            </li>
-            <li data-i18n data-ar="رمز الإغلاق أو الإزالة يجب أن يكون كبيرًا بما يكفي لأهداف اللمس (40px تقريبًا).">
-              Ensure close/remove icons meet minimum touch size (~40px).</li>
-            <li data-i18n
-              data-ar="لا تستخدم الوسوم لعرض معلومات ثانوية فقط؛ استخدمها لتصنيف أو تصفية أو الإشارة للحالات.">Use tags
-              for categorization, filtering, or status—not for purely decorative content.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section" id="anatomy">
-        <div class="section-card">
-          <h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2>
-          <table class="docs-table">
-            <thead>
-              <tr>
-                <th data-i18n data-ar="العنصر">Element</th>
-                <th data-i18n data-ar="الوصف">Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-i18n data-ar="الحاوية">Container</td>
-                <td data-i18n data-ar="فئة <code>.moi-tag</code> تشكّل شكلًا مستديرًا وتتحكم في الحشو.">
-                  <code>.moi-tag</code> provides the pill shape and padding.
-                </td>
-              </tr>
-              <tr>
-                <td data-i18n data-ar="النص">Label</td>
-                <td data-i18n data-ar="النص داخل الطبقة يستخدم <code>.font-md-500</code> للحفاظ على القابلية للقراءة.">
-                  Text uses <code>.font-md-500</code> for readability.
-                </td>
-              </tr>
-              <tr>
-                <td data-i18n data-ar="الأيقونة">Icon</td>
-                <td data-i18n
-                  data-ar="يوضَع داخل <code>.icon</code> ويكتسب لون الحالة عبر فئة مثل <code>.Primary-600</code>.">
-                  Icons live inside <code>.icon</code> and inherit semantic color classes like
-                  <code>.Primary-600</code>.
-                </td>
-              </tr>
-              <tr>
-                <td data-i18n data-ar="الإجراء">Action</td>
-                <td data-i18n
-                  data-ar="الوسوم التفاعلية تستخدم <code>&lt;button&gt;</code> ب<code>aria-label</code> واضح أو رمز إزالة.">
-                  Interactive tags use a <code>&lt;button&gt;</code> with a clear <code>aria-label</code> or a remove
-                  icon.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="usage-grid mt-4">
-            <div class="usage-card">
-              <h4 data-i18n data-ar="تحويم / تركيز">Hover / focus</h4>
-              <ul>
-                <li data-i18n data-ar="يزيد الظل/الظل الخفيف عند التحويم بينما يحتفظ بالمظهر المتجانس دون تغيير اللون.">
-                  Hover elevates the pill slightly while keeping the color consistent.</li>
-                <li data-i18n
-                  data-ar="يُظهر التركيز حدودًا أو ظلاً واضحًا عبر <code>:focus-visible</code> للعلامات القابلة للتفاعل.">
-                  Focus-visible reveals a clear outline for interactive tags.</li>
-              </ul>
-            </div>
-            <div class="usage-card">
-              <h4 data-i18n data-ar="نشط">Active / selected</h4>
-              <ul>
-                <li data-i18n data-ar="يمكن لموضوعات التحديد أن تضيف خلفية مضيئة أو رمز تحقق مع الفئات المحتملة.">
-                  Selected tags may add a bolder background or check icon via accented classes.</li>
-                <li data-i18n
-                  data-ar="يُستخدم <code>.is-active</code> أو فئة مخصصة للحفاظ على حالة التنشيط دون تغيير الهيكل.">Use
-                  <code>.is-active</code> or a modifier class to highlight the active state without structural changes.
-                </li>
-              </ul>
-            </div>
-            <div class="usage-card">
-              <h4 data-i18n data-ar="معطل / غير قابل للتفاعل">Disabled / non-interactive</h4>
-              <ul>
-                <li data-i18n
-                  data-ar="تطبق <code>.is-disabled</code> نظرة رمادية وتمنع التفاعلات دون إزالة الوسم من الترتيب.">Add
-                  <code>.is-disabled</code> to gray out the tag and block interactions while keeping it in flow.
-                </li>
-                <li data-i18n
-                  data-ar="الوسوم الغير تفاعلية لا تحتاج إلى aria-label، لكن احتفظ بالنسخة النصية في مكانٍ ما للقراءة.">
-                  Non-interactive tags do not need aria-labels but keep a textual cue nearby.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="variants">
-        <div class="section-card">
-          <h2 class="section-title" data-i18n="" data-ar="أنواع الوسوم (Variants)" data-en="Tag Variants">أنواع الوسوم
-            (Variants)</h2>
-          <p class="section-note" data-i18n=""
-            data-ar="تتوفر الوسوم بأنواع مختلفة لتناسب حالات الاستخدام المتنوعة، مع دعم للألوان الدلالية وإمكانية الإزالة."
-            data-en="
-            Tags are available in various types to suit diverse use cases, with support for semantic colors and dismissible functionality.
-          ">تتوفر الوسوم بأنواع مختلفة لتناسب حالات الاستخدام المتنوعة، مع دعم للألوان الدلالية وإمكانية الإزالة.</p>
-
-          <table class="docs-table">
-            <thead>
-              <tr>
-                <th data-i18n="" data-ar="النوع"
-                  data-en="Type&lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z&quot; fill=&quot;white&quot;&gt;&lt;/path&gt;&lt;/svg&gt;">
-                  النوع</th>
-                <th data-i18n="" data-ar="قيمة data-status"
-                  data-en="data-status value&lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z&quot; fill=&quot;white&quot;&gt;&lt;/path&gt;&lt;/svg&gt;">
-                  قيمة data-status</th>
-                <th data-i18n="" data-ar="الاستخدام"
-                  data-en="Usage&lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;M6.99902 1.25977C6.58523 1.2603 6.25 1.59591 6.25 2.00977V8.25586L1.99902 8.25879C1.58523 8.25932 1.25 8.59493 1.25 9.00879L1.25 22C1.25 22.4142 1.58579 22.75 2 22.75L15 22.75C15.1989 22.75 15.3896 22.6709 15.5303 22.5303C15.6709 22.3896 15.75 22.1989 15.75 22V17.75H22C22.1989 17.75 22.3896 17.6709 22.5303 17.5303C22.6709 17.3896 22.75 17.1989 22.75 17L22.75 2C22.75 1.80108 22.6709 1.61038 22.5303 1.46973C22.3895 1.32906 22.198 1.24987 21.999 1.25L6.99902 1.25977ZM14.25 21.25L2.75 21.25L2.75 9.75781L14.25 9.75098L14.25 21.25ZM21.25 16.25H15.75L15.75 9C15.75 8.80108 15.6709 8.61038 15.5303 8.46973C15.3895 8.32906 15.198 8.24987 14.999 8.25L7.75 8.25488L7.75 2.75977L21.25 2.75098L21.25 16.25Z&quot; fill=&quot;white&quot;&gt;&lt;/path&gt;&lt;/svg&gt;">
-                  الاستخدام</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-i18n="" data-ar="محايد / افتراضي" data-en="Default / Neutral">محايد / افتراضي</td>
-                <td><code class="code-inline">defualtprioroty</code></td>
-                <td>
-                  <span class="moi-tag" data-size="md" data-status="defualtprioroty"><span class="moi-label" data-i18n
-                      data-ar="محايد" data-en="Neutral">Neutral</span></span>
-                  <p class="section-note mt-1 mb-0" data-i18n data-ar="التصنيف العام والحالات غير الحرجة."
-                    data-en="General classification, non-critical states.">General classification, non-critical states.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td data-i18n="" data-ar="أولوية عالية" data-en="High Priority">أولوية عالية</td>
-                <td><code class="code-inline">highpriority</code></td>
-                <td>
-                  <span class="moi-tag" data-size="md" data-status="highpriority"><span class="moi-label" data-i18n
-                      data-ar="عالي" data-en="High">High</span></span>
-                  <p class="section-note mt-1 mb-0" data-i18n data-ar="الحالات الحرجة والأخطاء العاجلة."
-                    data-en="Critical states or urgent errors.">Critical states or urgent errors.</p>
-                </td>
-              </tr>
-              <tr>
-                <td data-i18n="" data-ar="أولوية متوسطة" data-en="Medium Priority">أولوية متوسطة</td>
-                <td><code class="code-inline">mediumpriority</code></td>
-                <td>
-                  <span class="moi-tag" data-size="md" data-status="mediumpriority"><span class="moi-label" data-i18n
-                      data-ar="متوسط" data-en="Medium">Medium</span></span>
-                  <p class="section-note mt-1 mb-0" data-i18n data-ar="الحالات التي تتطلب الحذر أو مراجعة بسيطة."
-                    data-en="States requiring caution or a minor review.">States requiring caution or a minor review.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td data-i18n="" data-ar="أولوية عادية" data-en="Regular Priority">أولوية عادية</td>
-                <td><code class="code-inline">regpriority</code></td>
-                <td>
-                  <span class="moi-tag" data-size="md" data-status="regpriority"><span class="moi-label" data-i18n
-                      data-ar="عادي" data-en="Regular">Regular</span></span>
-                  <p class="section-note mt-1 mb-0" data-i18n data-ar="المعلومات الإيجابية أو الإجراءات الناجحة."
-                    data-en="Positive information or successful actions.">Positive information or successful actions.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td data-i18n="" data-ar="معلوماتي" data-en="Info">معلوماتي</td>
-                <td><code class="code-inline">infoprioroty</code></td>
-                <td>
-                  <span class="moi-tag" data-size="md" data-status="infoprioroty"><span class="moi-label" data-i18n
-                      data-ar="معلومة" data-en="Info">Info</span></span>
-                  <p class="section-note mt-1 mb-0" data-i18n data-ar="معلومات محايدة أو توضيحات إضافية."
-                    data-en="Neutral information or additional explanations.">Neutral information or additional
-                    explanations.</p>
-                </td>
-              </tr>
-              <tr>
-                <td data-i18n="" data-ar="أساسي" data-en="Primary">أساسي</td>
-                <td><code class="code-inline">primaryprioroty</code></td>
-                <td>
-                  <span class="moi-tag" data-size="md" data-status="primaryprioroty"><span class="moi-label" data-i18n
-                      data-ar="أساسي" data-en="Primary">Primary</span></span>
-                  <p class="section-note mt-1 mb-0" data-i18n data-ar="المحتوى المميز أو عناصر العلامة التجارية."
-                    data-en="Highlighted content or brand-level elements.">Highlighted content or brand-level elements.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td data-i18n="" data-ar="قيد المراجعة" data-en="In Review">قيد المراجعة</td>
-                <td><code class="code-inline">UnderProgress</code></td>
-                <td>
-                  <span class="moi-tag" data-size="md" data-status="UnderProgress"><span class="moi-label" data-i18n
-                      data-ar="قيد المراجعة" data-en="In Review">In Review</span></span>
-                  <p class="section-note mt-1 mb-0" data-i18n data-ar="العناصر الجارية معالجتها أو مراجعتها."
-                    data-en="Items currently being processed or reviewed.">Items currently being processed or reviewed.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td data-i18n="" data-ar="مُعاد / إعادة عمل" data-en="Returned / Rework">مُعاد / إعادة عمل</td>
-                <td><code class="code-inline">Returned</code></td>
-                <td>
-                  <span class="moi-tag" data-size="md" data-status="Returned"><span class="moi-label" data-i18n
-                      data-ar="مُعاد" data-en="Returned">Returned</span></span>
-                  <p class="section-note mt-1 mb-0" data-i18n data-ar="العناصر المُعادة للتعديل أو المراجعة."
-                    data-en="Items returned for revision or rework.">Items returned for revision or rework.</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </section>
 
 

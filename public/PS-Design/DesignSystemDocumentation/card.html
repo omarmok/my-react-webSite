@@ -63,6 +63,19 @@
       gap: 10px;
     }
 
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
     .sidebar-nav a {
       color: #1f2937;
       text-decoration: none;
@@ -77,23 +90,30 @@
 
     .sidebar-nav a:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
     }
 
     .sidebar-nav a.is-active {
-      background: #111827;
-      border-color: #111827;
-      color: #f9fafb;
-      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
     }
 
     .sidebar-nav a.is-active::after {
       content: "";
       position: absolute;
       inset: 0;
-      border-inline-start: 4px solid #1c8354;
-      border-radius: 10px;
-      mix-blend-mode: screen;
+      border-inline-start: 3px solid #1c8354;
+      border-radius: inherit;
+      pointer-events: none;
     }
 
     .lang-toggle {
@@ -136,7 +156,7 @@
       background: #1c8354;
       color: #fff;
       border-radius: var(--card-radius);
-      padding: 32px;
+      padding: 22px 26px;
       box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
     }
 
@@ -151,9 +171,16 @@
     }
 
     .eyebrow {
-      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
       color: var(--muted);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
     }
 
     .section {
@@ -475,7 +502,7 @@
 
     html[dir="rtl"] .sidebar-nav a.is-active::after {
       border-inline-start: 0;
-      border-inline-end: 4px solid #1c8354;
+      border-inline-end: 3px solid #1c8354;
     }
 
     @media (max-width: 900px) {
@@ -519,25 +546,30 @@
         <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
         <nav class="sidebar-nav">
           <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
           <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
           <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
           <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
           <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
           <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
           <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
           <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
           <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
-          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
           <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
           <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
           <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
           <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
-          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
-          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
           <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
           <a href="./card.html" class="is-active" data-i18n data-ar="البطاقة">Card</a>
           <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
           <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
         </nav>
       </div>
 
@@ -882,7 +914,7 @@
           </div>
 
           <div class="variant-case" data-example>
-            <h3 data-i18n data-ar="مثال بطاقة الإنشاء">1. Create Card (Rendered example)</h3>
+            <h3 class="section-title" data-i18n data-ar="مثال بطاقة الإنشاء">1. Create Card (Rendered example)</h3>
 
 
             <div class="example-panel">
@@ -910,7 +942,7 @@
                       <h4 class="moi-card__title">عنوان الكارت
                       </h4>
                     </div>
-                    <button class="btn moi-card__header-action moi-btn--black" type="button" aria-label="إجراء">
+                    <button class="btn moi-card__header-action moi-btn--black" type="button" aria-label="Create card actions">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M3.25 12.0005C3.25 12.374 3.41565 12.7206 3.57252 12.9808C3.7418 13.2616 3.96944 13.5516 4.21918 13.8343C4.72018 14.4013 5.37387 15.0103 6.00824 15.5612C6.64633 16.1153 7.28222 16.6255 7.75725 16.9963C7.99516 17.182 8.19364 17.3334 8.33304 17.4387C8.40276 17.4914 8.45776 17.5325 8.49558 17.5607L8.53915 17.5931L8.55071 17.6017L8.55472 17.6046C8.88822 17.8503 9.35816 17.7794 9.60382 17.4459C9.84947 17.1124 9.77828 16.6429 9.44482 16.3973L9.43209 16.3879L9.39204 16.3581C9.35662 16.3317 9.3042 16.2924 9.2372 16.2418C9.10317 16.1406 8.91103 15.994 8.68019 15.8138C8.21772 15.4528 7.60363 14.96 6.99173 14.4286C6.37611 13.894 5.77981 13.3352 5.34331 12.8411C5.3157 12.8099 5.28899 12.7791 5.26316 12.749L20 12.749C20.4142 12.749 20.75 12.4132 20.75 11.999C20.75 11.5848 20.4142 11.249 20 11.249L5.2657 11.249C5.29073 11.2198 5.31661 11.1901 5.34331 11.1598C5.77981 10.6658 6.37611 10.1069 6.99173 9.57234C7.60363 9.04099 8.21772 8.5481 8.68019 8.18713C8.91102 8.00695 9.10317 7.86036 9.2372 7.7591C9.30419 7.70849 9.35662 7.66925 9.39203 7.64285L9.43208 7.61308L9.44481 7.60367C9.77828 7.358 9.84947 6.88852 9.60382 6.55503C9.35815 6.22153 8.88822 6.15064 8.55472 6.3963L8.55071 6.39926L8.53915 6.40781L8.49558 6.4402C8.45776 6.46839 8.40276 6.50957 8.33304 6.56223C8.19363 6.66755 7.99516 6.81898 7.75725 7.00468C7.28222 7.37545 6.64633 7.88567 6.00823 8.43977C5.37387 8.99064 4.72018 9.59962 4.21918 10.1667C3.96944 10.4494 3.7418 10.7393 3.57252 11.0201C3.4166 11.2788 3.25199 11.6228 3.25002 11.9937"
@@ -985,9 +1017,10 @@
 
 
             </div>
+          </div>
 
-            <div class="variant-case" data-example>
-              <h3 data-i18n data-ar="مثال بطاقة التعديل">2. Edit Card (Rendered example)</h3>
+          <div class="variant-case" data-example>
+            <h3 class="section-title" data-i18n data-ar="مثال بطاقة التعديل">2. Edit Card (Rendered example)</h3>
 
 
               <div class="example-panel">
@@ -1015,7 +1048,7 @@
                         <h4 class="moi-card__title">عنوان الكارت
                         </h4>
                       </div>
-                      <button class="btn moi-card__header-action moi-btn--Info" type="button" aria-label="إجراء">
+                      <button class="btn moi-card__header-action moi-btn--Info" type="button" aria-label="Edit card actions">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
                             d="M3.25 12.0005C3.25 12.374 3.41565 12.7206 3.57252 12.9808C3.7418 13.2616 3.96944 13.5516 4.21918 13.8343C4.72018 14.4013 5.37387 15.0103 6.00824 15.5612C6.64633 16.1153 7.28222 16.6255 7.75725 16.9963C7.99516 17.182 8.19364 17.3334 8.33304 17.4387C8.40276 17.4914 8.45776 17.5325 8.49558 17.5607L8.53915 17.5931L8.55071 17.6017L8.55472 17.6046C8.88822 17.8503 9.35816 17.7794 9.60382 17.4459C9.84947 17.1124 9.77828 16.6429 9.44482 16.3973L9.43209 16.3879L9.39204 16.3581C9.35662 16.3317 9.3042 16.2924 9.2372 16.2418C9.10317 16.1406 8.91103 15.994 8.68019 15.8138C8.21772 15.4528 7.60363 14.96 6.99173 14.4286C6.37611 13.894 5.77981 13.3352 5.34331 12.8411C5.3157 12.8099 5.28899 12.7791 5.26316 12.749L20 12.749C20.4142 12.749 20.75 12.4132 20.75 11.999C20.75 11.5848 20.4142 11.249 20 11.249L5.2657 11.249C5.29073 11.2198 5.31661 11.1901 5.34331 11.1598C5.77981 10.6658 6.37611 10.1069 6.99173 9.57234C7.60363 9.04099 8.21772 8.5481 8.68019 8.18713C8.91102 8.00695 9.10317 7.86036 9.2372 7.7591C9.30419 7.70849 9.35662 7.66925 9.39203 7.64285L9.43208 7.61308L9.44481 7.60367C9.77828 7.358 9.84947 6.88852 9.60382 6.55503C9.35815 6.22153 8.88822 6.15064 8.55472 6.3963L8.55071 6.39926L8.53915 6.40781L8.49558 6.4402C8.45776 6.46839 8.40276 6.50957 8.33304 6.56223C8.19363 6.66755 7.99516 6.81898 7.75725 7.00468C7.28222 7.37545 6.64633 7.88567 6.00823 8.43977C5.37387 8.99064 4.72018 9.59962 4.21918 10.1667C3.96944 10.4494 3.7418 10.7393 3.57252 11.0201C3.4166 11.2788 3.25199 11.6228 3.25002 11.9937"
@@ -1081,10 +1114,8 @@
               </div>
             </div>
 
-          </div>
-
           <div class="variant-case" data-example>
-            <h3 data-i18n data-ar="مثال بطاقة التفاصيل">3. Details Card (Rendered example)</h3>
+            <h3 class="section-title" data-i18n data-ar="مثال بطاقة التفاصيل">3. Details Card (Rendered example)</h3>
 
             <div class="example-panel">
               <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
@@ -1111,7 +1142,7 @@
                       <h4 class="moi-card__title">عنوان الكارت
                       </h4>
                     </div>
-                    <button class="btn moi-card__header-action moi-btn--Primary" type="button" aria-label="إجراء">
+                    <button class="btn moi-card__header-action moi-btn--Primary" type="button" aria-label="Details card actions">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M3.25 12.0005C3.25 12.374 3.41565 12.7206 3.57252 12.9808C3.7418 13.2616 3.96944 13.5516 4.21918 13.8343C4.72018 14.4013 5.37387 15.0103 6.00824 15.5612C6.64633 16.1153 7.28222 16.6255 7.75725 16.9963C7.99516 17.182 8.19364 17.3334 8.33304 17.4387C8.40276 17.4914 8.45776 17.5325 8.49558 17.5607L8.53915 17.5931L8.55071 17.6017L8.55472 17.6046C8.88822 17.8503 9.35816 17.7794 9.60382 17.4459C9.84947 17.1124 9.77828 16.6429 9.44482 16.3973L9.43209 16.3879L9.39204 16.3581C9.35662 16.3317 9.3042 16.2924 9.2372 16.2418C9.10317 16.1406 8.91103 15.994 8.68019 15.8138C8.21772 15.4528 7.60363 14.96 6.99173 14.4286C6.37611 13.894 5.77981 13.3352 5.34331 12.8411C5.3157 12.8099 5.28899 12.7791 5.26316 12.749L20 12.749C20.4142 12.749 20.75 12.4132 20.75 11.999C20.75 11.5848 20.4142 11.249 20 11.249L5.2657 11.249C5.29073 11.2198 5.31661 11.1901 5.34331 11.1598C5.77981 10.6658 6.37611 10.1069 6.99173 9.57234C7.60363 9.04099 8.21772 8.5481 8.68019 8.18713C8.91102 8.00695 9.10317 7.86036 9.2372 7.7591C9.30419 7.70849 9.35662 7.66925 9.39203 7.64285L9.43208 7.61308L9.44481 7.60367C9.77828 7.358 9.84947 6.88852 9.60382 6.55503C9.35815 6.22153 8.88822 6.15064 8.55472 6.3963L8.55071 6.39926L8.53915 6.40781L8.49558 6.4402C8.45776 6.46839 8.40276 6.50957 8.33304 6.56223C8.19363 6.66755 7.99516 6.81898 7.75725 7.00468C7.28222 7.37545 6.64633 7.88567 6.00823 8.43977C5.37387 8.99064 4.72018 9.59962 4.21918 10.1667C3.96944 10.4494 3.7418 10.7393 3.57252 11.0201C3.4166 11.2788 3.25199 11.6228 3.25002 11.9937"

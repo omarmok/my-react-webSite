@@ -35,7 +35,7 @@
       background: #1c8354;
       color: #fff;
       border-radius: var(--card-radius);
-      padding: 32px;
+      padding: 22px 26px;
       box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
     }
 
@@ -51,9 +51,16 @@
     }
 
     .eyebrow {
-      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
       color: var(--muted);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
     }
 
     .section {
@@ -436,6 +443,19 @@
       gap: 10px;
     }
 
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
     .sidebar-nav a {
       color: #1f2937;
       text-decoration: none;
@@ -449,14 +469,21 @@
 
     .sidebar-nav a:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
     }
 
     .sidebar-nav a.is-active {
-      background: #111827;
-      border-color: #111827;
-      color: #f9fafb;
-      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
     }
 
     .lang-toggle {
@@ -544,25 +571,30 @@
         <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
         <nav class="sidebar-nav">
           <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
           <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
           <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
           <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
           <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
           <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
           <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
           <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
           <a href="./switch.html" class="is-active" data-i18n data-ar="مفاتيح التبديل">Switches</a>
-          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
           <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
           <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
           <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
           <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
-          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
-          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
           <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
           <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
           <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
           <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
         </nav>
       </div>
 
@@ -900,6 +932,86 @@
         </div>
       </section>
 
+      <section class="section" id="developer-api">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="واجهة برمجة التطبيقات للمطورين">Developer API</h2>
+          <p class="section-note" data-i18n
+            data-ar="يعرض هذا القسم التكوين المطلوب للمفتاح والسمات المرتبطة بالـ ARIA.">
+            This section shows the required switch markup and ARIA attributes.
+          </p>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;div class="form-check form-switch"&gt;
+  &lt;input class="form-check-input" type="checkbox" role="switch" id="autoSaveSwitch" aria-checked="false"&gt;
+  &lt;label class="form-check-label" for="autoSaveSwitch"&gt;Enable auto-save&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+          <ul class="accessibility-list mt-3">
+            <li data-i18n
+              data-ar="استدعِ <code>role=&quot;switch&quot;</code> مع <code>aria-checked</code> المتزامن مع الحالة.">Use
+              <code>role="switch"</code> plus synchronized <code>aria-checked</code>.</li>
+            <li data-i18n data-ar="حافظ على <code>.form-check.form-switch</code> لالتقاط الأبعاد والموضع.">Keep the
+              <code>.form-check.form-switch</code> wrapper for layout and spacing.</li>
+            <li data-i18n data-ar="لا تنسَ رؤية التركيز عبر <code>:focus-visible</code> و<code>box-shadow</code>.">Do
+              not remove focus-visible outlines or box-shadow.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="code-examples">
+        <div class="section-card">
+          <h2 class="section-title">Code examples</h2>
+          <p class="section-note">Each example here is rendered with the real markup, and has its own “Copy code”
+            control.</p>
+          <div class="code-examples-grid">
+            <div class="code-example" data-example="default-switch">
+              <div class="example-content">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="exampleDefault">
+                  <label class="form-check-label" for="exampleDefault">Default switch checkbox input</label>
+                </div>
+              </div>
+              <div class="copy-toolbar mt-3">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود" data-en="Copy code">
+                  Copy code
+                </button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="code-example" data-example="checked-switch">
+              <div class="example-content">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="exampleChecked" checked>
+                  <label class="form-check-label" for="exampleChecked">Checked switch checkbox input</label>
+                </div>
+              </div>
+              <div class="copy-toolbar mt-3">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود" data-en="Copy code">
+                  Copy code
+                </button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="code-example" data-example="disabled-switch">
+              <div class="example-content">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="exampleDisabled" disabled>
+                  <label class="form-check-label" for="exampleDisabled">Disabled switch checkbox input</label>
+                </div>
+              </div>
+              <div class="copy-toolbar mt-3">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود" data-en="Copy code">
+                  Copy code
+                </button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="styling">
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="توثيق الأنماط">Styling documentation</h2>
@@ -1055,86 +1167,6 @@
               data-ar="استخدم <code>prefers-reduced-motion: reduce</code> لحذف الانتقالات عند الحاجة لتقليل الحركة.">
               Honor <code>prefers-reduced-motion: reduce</code> to remove transitions when necessary.</li>
           </ul>
-        </div>
-      </section>
-
-      <section class="section" id="developer-api">
-        <div class="section-card">
-          <h2 class="section-title" data-i18n data-ar="واجهة برمجة التطبيقات للمطورين">Developer API</h2>
-          <p class="section-note" data-i18n
-            data-ar="يعرض هذا القسم التكوين المطلوب للمفتاح والسمات المرتبطة بالـ ARIA.">
-            This section shows the required switch markup and ARIA attributes.
-          </p>
-          <div class="code-block">
-            <pre><code class="language-html">&lt;div class="form-check form-switch"&gt;
-  &lt;input class="form-check-input" type="checkbox" role="switch" id="autoSaveSwitch" aria-checked="false"&gt;
-  &lt;label class="form-check-label" for="autoSaveSwitch"&gt;Enable auto-save&lt;/label&gt;
-&lt;/div&gt;</code></pre>
-          </div>
-          <ul class="accessibility-list mt-3">
-            <li data-i18n
-              data-ar="استدعِ <code>role=&quot;switch&quot;</code> مع <code>aria-checked</code> المتزامن مع الحالة.">Use
-              <code>role="switch"</code> plus synchronized <code>aria-checked</code>.</li>
-            <li data-i18n data-ar="حافظ على <code>.form-check.form-switch</code> لالتقاط الأبعاد والموضع.">Keep the
-              <code>.form-check.form-switch</code> wrapper for layout and spacing.</li>
-            <li data-i18n data-ar="لا تنسَ رؤية التركيز عبر <code>:focus-visible</code> و<code>box-shadow</code>.">Do
-              not remove focus-visible outlines or box-shadow.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section" id="code-examples">
-        <div class="section-card">
-          <h2 class="section-title">Code examples</h2>
-          <p class="section-note">Each example here is rendered with the real markup, and has its own “Copy code”
-            control.</p>
-          <div class="code-examples-grid">
-            <div class="code-example" data-example="default-switch">
-              <div class="example-content">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="exampleDefault">
-                  <label class="form-check-label" for="exampleDefault">Default switch checkbox input</label>
-                </div>
-              </div>
-              <div class="copy-toolbar mt-3">
-                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
-                  data-ar="نسخ الكود" data-en="Copy code">
-                  Copy code
-                </button>
-                <span class="copy-status" aria-live="polite"></span>
-              </div>
-            </div>
-            <div class="code-example" data-example="checked-switch">
-              <div class="example-content">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="exampleChecked" checked>
-                  <label class="form-check-label" for="exampleChecked">Checked switch checkbox input</label>
-                </div>
-              </div>
-              <div class="copy-toolbar mt-3">
-                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
-                  data-ar="نسخ الكود" data-en="Copy code">
-                  Copy code
-                </button>
-                <span class="copy-status" aria-live="polite"></span>
-              </div>
-            </div>
-            <div class="code-example" data-example="disabled-switch">
-              <div class="example-content">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="exampleDisabled" disabled>
-                  <label class="form-check-label" for="exampleDisabled">Disabled switch checkbox input</label>
-                </div>
-              </div>
-              <div class="copy-toolbar mt-3">
-                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
-                  data-ar="نسخ الكود" data-en="Copy code">
-                  Copy code
-                </button>
-                <span class="copy-status" aria-live="polite"></span>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 

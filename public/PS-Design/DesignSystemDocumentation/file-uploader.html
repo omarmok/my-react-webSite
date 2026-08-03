@@ -63,6 +63,19 @@
       gap: 10px;
     }
 
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
     .sidebar-nav a {
       color: #1f2937;
       text-decoration: none;
@@ -77,23 +90,30 @@
 
     .sidebar-nav a:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
     }
 
     .sidebar-nav a.is-active {
-      background: #111827;
-      border-color: #111827;
-      color: #f9fafb;
-      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
     }
 
     .sidebar-nav a.is-active::after {
       content: "";
       position: absolute;
       inset: 0;
-      border-inline-start: 4px solid #1c8354;
-      border-radius: 10px;
-      mix-blend-mode: screen;
+      border-inline-start: 3px solid #1c8354;
+      border-radius: inherit;
+      pointer-events: none;
     }
 
     .lang-toggle {
@@ -136,7 +156,7 @@
       background: #1c8354;
       color: #fff;
       border-radius: var(--card-radius);
-      padding: 32px;
+      padding: 22px 26px;
       box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
     }
 
@@ -151,9 +171,16 @@
     }
 
     .eyebrow {
-      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
       color: var(--muted);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
     }
 
     .section {
@@ -589,7 +616,7 @@
 
     html[dir="rtl"] .sidebar-nav a.is-active::after {
       border-inline-start: 0;
-      border-inline-end: 4px solid #1c8354;
+      border-inline-end: 3px solid #1c8354;
     }
 
     html[dir="rtl"] .docs-table th,
@@ -666,25 +693,30 @@
         <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
         <nav class="sidebar-nav">
           <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
           <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
           <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
           <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
           <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
           <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
           <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
           <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
           <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
-          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
           <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
           <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
           <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
           <a href="./file-uploader.html" class="is-active" data-i18n data-ar="رفع الملفات">File Uploader</a>
-          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
-          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
           <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
           <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
           <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
           <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
         </nav>
       </div>
     </aside>
@@ -865,7 +897,7 @@
                       </div>
                       <div class="moi-file-uploader__dropzone off">
                         <svg class="moi-file-uploader__dropzone-icon" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="1.5">
+                          stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                           <polyline points="17 8 12 3 7 8" />
                           <line x1="12" y1="3" x2="12" y2="15" />
@@ -897,7 +929,7 @@
                     </div>
                     <div class="moi-file-uploader__list-body">
                       <div class="moi-file-uploader__empty">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
                           <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
                           <polyline points="13 2 13 9 20 9" />
                         </svg>
@@ -929,7 +961,7 @@
                       <div class="moi-file-uploader__rows">
                         <div class="moi-file-uploader__uploading-row">
                           <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--pdf">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                               <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z" />
                               <polyline points="14 2 14 8 20 8" />
                             </svg>
@@ -943,7 +975,7 @@
                           <span class="moi-file-uploader__progress-percentage">64%</span>
                           <div class="moi-file-uploader__actions">
                             <button class="moi-file-uploader__action del" type="button" aria-label="إلغاء رفع الملف">
-                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <line x1="18" y1="6" x2="6" y2="18" />
                                 <line x1="6" y1="6" x2="18" y2="18" />
                               </svg>
@@ -975,7 +1007,7 @@
                       <div class="moi-file-uploader__rows">
                         <div class="moi-file-uploader__file-row">
                           <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--pdf">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                               <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z" />
                               <polyline points="14 2 14 8 20 8" />
                             </svg>
@@ -992,13 +1024,13 @@
                           </div>
                           <div class="moi-file-uploader__actions">
                             <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف">
-                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                 <circle cx="12" cy="12" r="3" />
                               </svg>
                             </button>
                             <button class="moi-file-uploader__action del" type="button" aria-label="حذف الملف">
-                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <polyline points="3 6 5 6 21 6" />
                                 <path d="M19 6l-1 14H6L5 6" />
                               </svg>
@@ -1034,7 +1066,7 @@
                         </div>
                       </div>
                       <div class="moi-file-uploader__error show" role="alert">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                           <circle cx="12" cy="12" r="10" />
                           <line x1="12" y1="8" x2="12" y2="12" />
                           <line x1="12" y1="16" x2="12.01" y2="16" />
@@ -1066,7 +1098,7 @@
                       <div class="moi-file-uploader__rows">
                         <div class="moi-file-uploader__file-row">
                           <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--img">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                               <rect x="3" y="3" width="18" height="18" rx="2" />
                               <circle cx="8.5" cy="8.5" r="1.5" />
                               <polyline points="21 15 16 10 5 21" />
@@ -1082,7 +1114,7 @@
                           </div>
                           <div class="moi-file-uploader__actions">
                             <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف">
-                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <circle cx="12" cy="12" r="3" />
                               </svg>
                             </button>
@@ -1090,7 +1122,7 @@
                         </div>
                         <div class="moi-file-uploader__file-row">
                           <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--xls">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                               <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z" />
                             </svg>
                           </div>
@@ -1104,7 +1136,7 @@
                           </div>
                           <div class="moi-file-uploader__actions">
                             <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف">
-                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <circle cx="12" cy="12" r="3" />
                               </svg>
                             </button>
@@ -1112,7 +1144,7 @@
                         </div>
                         <div class="moi-file-uploader__file-row">
                           <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--pdf">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                               <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z" />
                             </svg>
                           </div>
@@ -1126,7 +1158,7 @@
                           </div>
                           <div class="moi-file-uploader__actions">
                             <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف">
-                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <circle cx="12" cy="12" r="3" />
                               </svg>
                             </button>
@@ -1151,7 +1183,7 @@
                       <div class="moi-file-uploader__modal" style="transform:none;">
                         <div class="moi-file-uploader__modal-header">
                           <div class="moi-file-uploader__type-icon moi-file-uploader__modal-icon moi-file-uploader__type-icon--img">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                               <rect x="3" y="3" width="18" height="18" rx="2" />
                               <circle cx="8.5" cy="8.5" r="1.5" />
                               <polyline points="21 15 16 10 5 21" />
@@ -1162,7 +1194,7 @@
                             <div class="moi-file-uploader__modal-original">national_id.jpg &nbsp;·&nbsp; 410 KB</div>
                           </div>
                           <button class="moi-file-uploader__modal-close" type="button" aria-label="إغلاق">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                               <line x1="18" y1="6" x2="6" y2="18" />
                               <line x1="6" y1="6" x2="18" y2="18" />
                             </svg>
@@ -1171,7 +1203,7 @@
                         <div class="moi-file-uploader__modal-body">
                           <div class="moi-file-uploader__preview-image-wrap" style="height:260px;">
                             <div class="moi-file-uploader__preview-generic-icon moi-file-uploader__type-icon--img" style="margin:0;width:64px;height:64px;display:flex;align-items:center;justify-content:center;">
-                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28" aria-hidden="true">
                                 <rect x="3" y="3" width="18" height="18" rx="2" />
                                 <circle cx="8.5" cy="8.5" r="1.5" />
                                 <polyline points="21 15 16 10 5 21" />
@@ -1196,6 +1228,233 @@
               <p class="example-caption" data-i18n data-ar="في الاستخدام الحقيقي تكون .moi-file-uploader__modal-overlay ثابتة (position:fixed) وتغطي الشاشة كاملة؛ هنا فقط تم تحييد ذلك مؤقتًا لعرضها داخل سياق الصفحة الوثائقية.">In real usage <code class="code-inline">.moi-file-uploader__modal-overlay</code> is
                 <code class="code-inline">position: fixed</code> and covers the full viewport; that positioning is
                 neutralized here only so the modal can render inline within this documentation page.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="code-examples">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="أمثلة الكود">Code Examples</h2>
+          <p class="section-note" data-i18n data-ar="كل مثال أدناه ترميز حقيقي مأخوذ من الإصدار النهائي لـ file-uploader.html. زر &quot;نسخ الكود&quot; ينسخ HTML الفعلي المعروض، بنفس آلية النسخ المستخدمة في صفحات التوثيق الأخرى.">
+            Every example below is real markup taken from the final <code class="code-inline">file-uploader.html</code>.
+            The "Copy code" button copies the actual rendered HTML, using the same copy mechanism as the other
+            documentation pages.
+          </p>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="الاستخدام الأساسي">Basic Usage</h3>
+          <p class="section-note" data-i18n data-ar="حقل الاسم الوصفي ومنطقة الرفع، بأبسط شكلهما الإلزامي.">The descriptive-name field and the dropzone, in their minimum required form.</p>
+          <div class="example-panel" data-example>
+            <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
+            <div class="example-shell">
+              <div class="copy-toolbar">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود">Copy code</button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+              <div class="example-content">
+                <div class="moi-file-uploader" style="max-width:100%;" dir="rtl">
+                  <div class="moi-file-uploader__card moi-card">
+                    <div class="moi-file-uploader__body">
+                      <div class="moi-file-uploader__field">
+                        <label class="moi-file-uploader__label" for="docs-fu-name-basic">الاسم الوصفي للملف <span
+                            class="moi-file-uploader__required">*</span></label>
+                        <div class="moi-file-uploader__input-wrap">
+                          <input class="form-control moi-file-uploader__input" type="text" id="docs-fu-name-basic"
+                            placeholder="مثال: صورة الهوية الوطنية" autocomplete="off" required aria-required="true"
+                            aria-invalid="false">
+                        </div>
+                      </div>
+                      <div class="moi-file-uploader__dropzone off" role="button" tabindex="0" aria-disabled="true">
+                        <svg class="moi-file-uploader__dropzone-icon" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                          <polyline points="17 8 12 3 7 8" />
+                          <line x1="12" y1="3" x2="12" y2="15" />
+                        </svg>
+                        <p class="moi-file-uploader__dropzone-title">اسحب الملف هنا أو <span
+                            class="moi-file-uploader__dropzone-link">اختر من جهازك</span></p>
+                        <p class="moi-file-uploader__dropzone-subtitle">PDF، صور، Office، ملفات نصية — حد أقصى 5
+                          ميجابايت</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="ملفات متعددة">Multiple Files</h3>
+          <p class="section-note" data-i18n data-ar="بنية صف ملف منجَز متكرر داخل .moi-file-uploader__rows — كرّر هذا الصف لكل ملف في الحالة files[].">The repeated finished-row structure inside <code class="code-inline">.moi-file-uploader__rows</code> —
+            repeat this row once per file in the <code class="code-inline">files[]</code> state array.</p>
+          <div class="example-panel" data-example>
+            <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
+            <div class="example-shell">
+              <div class="copy-toolbar">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود">Copy code</button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+              <div class="example-content">
+                <div class="moi-file-uploader__rows" dir="rtl">
+                  <div class="moi-file-uploader__file-row">
+                    <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--img">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <circle cx="8.5" cy="8.5" r="1.5" />
+                        <polyline points="21 15 16 10 5 21" />
+                      </svg>
+                    </div>
+                    <div class="moi-file-uploader__file-meta">
+                      <div class="moi-file-uploader__file-name">صورة الهوية الوطنية</div>
+                      <div class="moi-file-uploader__file-details">
+                        <span class="moi-file-uploader__file-badge moi-file-uploader__file-badge--img">صورة</span>
+                        <span class="moi-file-uploader__dot-separator"></span>
+                        <span class="moi-file-uploader__file-size">410 KB</span>
+                      </div>
+                    </div>
+                    <div class="moi-file-uploader__actions">
+                      <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="12" cy="12" r="3" />
+                        </svg>
+                      </button>
+                      <button class="moi-file-uploader__action del" type="button" aria-label="حذف الملف">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="3 6 5 6 21 6" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="moi-file-uploader__file-row">
+                    <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--pdf">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z" />
+                      </svg>
+                    </div>
+                    <div class="moi-file-uploader__file-meta">
+                      <div class="moi-file-uploader__file-name">عقد التوريد النهائي</div>
+                      <div class="moi-file-uploader__file-details">
+                        <span class="moi-file-uploader__file-badge moi-file-uploader__file-badge--pdf">PDF</span>
+                        <span class="moi-file-uploader__dot-separator"></span>
+                        <span class="moi-file-uploader__file-size">842 KB</span>
+                      </div>
+                    </div>
+                    <div class="moi-file-uploader__actions">
+                      <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="12" cy="12" r="3" />
+                        </svg>
+                      </button>
+                      <button class="moi-file-uploader__action del" type="button" aria-label="حذف الملف">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="3 6 5 6 21 6" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="مثال التحقق">Validation Example</h3>
+          <p class="section-note" data-i18n data-ar="حالة الحقل غير الصالح: is-err، aria-invalid=&quot;true&quot;، ورسالة خطأ ظاهرة عبر فئة show.">The invalid-field state: <code class="code-inline">.is-err</code>,
+            <code class="code-inline">aria-invalid="true"</code>, and an error hint exposed via the
+            <code class="code-inline">.show</code> class.</p>
+          <div class="example-panel" data-example>
+            <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
+            <div class="example-shell">
+              <div class="copy-toolbar">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود">Copy code</button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+              <div class="example-content">
+                <div class="moi-file-uploader__field" dir="rtl">
+                  <label class="moi-file-uploader__label" for="docs-fu-name-err">الاسم الوصفي للملف <span
+                      class="moi-file-uploader__required">*</span></label>
+                  <div class="moi-file-uploader__input-wrap">
+                    <input class="form-control moi-file-uploader__input is-err" type="text" id="docs-fu-name-err"
+                      placeholder="مثال: صورة الهوية الوطنية" required aria-required="true" aria-invalid="true">
+                  </div>
+                  <div class="moi-file-uploader__hint" aria-live="polite">
+                    <span class="moi-file-uploader__hint-error show">هذا الحقل مطلوب — أدخل اسمًا قبل رفع الملف</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="مثال المعاينة">Preview Example</h3>
+          <p class="section-note" data-i18n data-ar="رأس النافذة وجسمها لنوع صورة، مع تذييل يحوي الإغلاق والتنزيل والحذف.">The modal header and body for an image type, with a footer holding close, download, and delete.</p>
+          <div class="example-panel" data-example>
+            <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
+            <div class="example-shell">
+              <div class="copy-toolbar">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود">Copy code</button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+              <div class="example-content">
+                <div class="moi-file-uploader__modal" style="max-width:480px;" dir="rtl" role="dialog"
+                  aria-modal="true" aria-labelledby="docs-fu-mname" tabindex="-1">
+                  <div class="moi-file-uploader__modal-header">
+                    <div
+                      class="moi-file-uploader__type-icon moi-file-uploader__modal-icon moi-file-uploader__type-icon--img">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <circle cx="8.5" cy="8.5" r="1.5" />
+                        <polyline points="21 15 16 10 5 21" />
+                      </svg>
+                    </div>
+                    <div class="moi-file-uploader__modal-name">
+                      <div class="moi-file-uploader__modal-display" id="docs-fu-mname">صورة الهوية الوطنية</div>
+                      <div class="moi-file-uploader__modal-original">national_id.jpg &nbsp;·&nbsp; 410 KB</div>
+                    </div>
+                    <button class="moi-file-uploader__modal-close" type="button" aria-label="إغلاق">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="moi-file-uploader__modal-footer">
+                    <button class="btn moi-btn--Neutral--outline" data-size="sm" type="button">إغلاق</button>
+                    <button class="btn moi-btn--Info--outline" data-size="sm" type="button">تنزيل الملف</button>
+                    <button class="btn moi-btn--Error--solid" data-size="sm" type="button">حذف الملف</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="مثال الوصولية">Accessibility Example</h3>
+          <p class="section-note" data-i18n data-ar="ترميز منطقة الرفع وشريط التقدم بكل سمات ARIA المطبَّقة فعليًا في الإصدار النهائي.">The dropzone and progress-bar markup with every ARIA attribute that's actually live in the final
+            version.</p>
+          <div class="example-panel" data-example>
+            <div class="example-label" data-i18n data-ar="الكود">Code</div>
+            <div class="example-shell">
+              <div class="copy-toolbar">
+                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
+                  data-ar="نسخ الكود">Copy code</button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+              <div class="code-block example-content"><pre><code>&lt;div class="moi-file-uploader__dropzone off" role="button" tabindex="0"
+     aria-disabled="true" aria-labelledby="dropZoneTitle" aria-describedby="dropZoneSubtitle"
+     onclick="onZoneClick()" onkeydown="onZoneKeydown(event)"
+     ondragover="onDragOver(event)" ondragleave="onDragLeave()" ondrop="onDrop(event)"&gt;
+  ...
+&lt;/div&gt;
+
+&lt;div class="moi-file-uploader__progress-track" role="progressbar"
+     aria-valuemin="0" aria-valuemax="100" aria-valuenow="64"
+     aria-label="جارٍ رفع عقد التوريد النهائي"&gt;
+  &lt;div class="moi-file-uploader__progress-bar" style="width:64%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="uploaderStatus" class="moi-file-uploader__sr-only"
+     role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/div&gt;</code></pre></div>
             </div>
           </div>
         </div>
@@ -1629,233 +1888,6 @@
                 <code class="code-inline">hidden</code> attribute from the files list without updating
                 screen-reader focus, or relying on <code class="code-inline">title</code> alone as the button's
                 accessible name.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="code-examples">
-        <div class="section-card">
-          <h2 class="section-title" data-i18n data-ar="أمثلة الكود">Code Examples</h2>
-          <p class="section-note" data-i18n data-ar="كل مثال أدناه ترميز حقيقي مأخوذ من الإصدار النهائي لـ file-uploader.html. زر &quot;نسخ الكود&quot; ينسخ HTML الفعلي المعروض، بنفس آلية النسخ المستخدمة في صفحات التوثيق الأخرى.">
-            Every example below is real markup taken from the final <code class="code-inline">file-uploader.html</code>.
-            The "Copy code" button copies the actual rendered HTML, using the same copy mechanism as the other
-            documentation pages.
-          </p>
-
-          <h3 class="section-title mt-4" data-i18n data-ar="الاستخدام الأساسي">Basic Usage</h3>
-          <p class="section-note" data-i18n data-ar="حقل الاسم الوصفي ومنطقة الرفع، بأبسط شكلهما الإلزامي.">The descriptive-name field and the dropzone, in their minimum required form.</p>
-          <div class="example-panel" data-example>
-            <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
-            <div class="example-shell">
-              <div class="copy-toolbar">
-                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
-                  data-ar="نسخ الكود">Copy code</button>
-                <span class="copy-status" aria-live="polite"></span>
-              </div>
-              <div class="example-content">
-                <div class="moi-file-uploader" style="max-width:100%;" dir="rtl">
-                  <div class="moi-file-uploader__card moi-card">
-                    <div class="moi-file-uploader__body">
-                      <div class="moi-file-uploader__field">
-                        <label class="moi-file-uploader__label" for="docs-fu-name-basic">الاسم الوصفي للملف <span
-                            class="moi-file-uploader__required">*</span></label>
-                        <div class="moi-file-uploader__input-wrap">
-                          <input class="form-control moi-file-uploader__input" type="text" id="docs-fu-name-basic"
-                            placeholder="مثال: صورة الهوية الوطنية" autocomplete="off" required aria-required="true"
-                            aria-invalid="false">
-                        </div>
-                      </div>
-                      <div class="moi-file-uploader__dropzone off" role="button" tabindex="0" aria-disabled="true">
-                        <svg class="moi-file-uploader__dropzone-icon" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                          <polyline points="17 8 12 3 7 8" />
-                          <line x1="12" y1="3" x2="12" y2="15" />
-                        </svg>
-                        <p class="moi-file-uploader__dropzone-title">اسحب الملف هنا أو <span
-                            class="moi-file-uploader__dropzone-link">اختر من جهازك</span></p>
-                        <p class="moi-file-uploader__dropzone-subtitle">PDF، صور، Office، ملفات نصية — حد أقصى 5
-                          ميجابايت</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <h3 class="section-title mt-4" data-i18n data-ar="ملفات متعددة">Multiple Files</h3>
-          <p class="section-note" data-i18n data-ar="بنية صف ملف منجَز متكرر داخل .moi-file-uploader__rows — كرّر هذا الصف لكل ملف في الحالة files[].">The repeated finished-row structure inside <code class="code-inline">.moi-file-uploader__rows</code> —
-            repeat this row once per file in the <code class="code-inline">files[]</code> state array.</p>
-          <div class="example-panel" data-example>
-            <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
-            <div class="example-shell">
-              <div class="copy-toolbar">
-                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
-                  data-ar="نسخ الكود">Copy code</button>
-                <span class="copy-status" aria-live="polite"></span>
-              </div>
-              <div class="example-content">
-                <div class="moi-file-uploader__rows" dir="rtl">
-                  <div class="moi-file-uploader__file-row">
-                    <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--img">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                        <circle cx="8.5" cy="8.5" r="1.5" />
-                        <polyline points="21 15 16 10 5 21" />
-                      </svg>
-                    </div>
-                    <div class="moi-file-uploader__file-meta">
-                      <div class="moi-file-uploader__file-name">صورة الهوية الوطنية</div>
-                      <div class="moi-file-uploader__file-details">
-                        <span class="moi-file-uploader__file-badge moi-file-uploader__file-badge--img">صورة</span>
-                        <span class="moi-file-uploader__dot-separator"></span>
-                        <span class="moi-file-uploader__file-size">410 KB</span>
-                      </div>
-                    </div>
-                    <div class="moi-file-uploader__actions">
-                      <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <circle cx="12" cy="12" r="3" />
-                        </svg>
-                      </button>
-                      <button class="moi-file-uploader__action del" type="button" aria-label="حذف الملف">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <polyline points="3 6 5 6 21 6" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="moi-file-uploader__file-row">
-                    <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--pdf">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z" />
-                      </svg>
-                    </div>
-                    <div class="moi-file-uploader__file-meta">
-                      <div class="moi-file-uploader__file-name">عقد التوريد النهائي</div>
-                      <div class="moi-file-uploader__file-details">
-                        <span class="moi-file-uploader__file-badge moi-file-uploader__file-badge--pdf">PDF</span>
-                        <span class="moi-file-uploader__dot-separator"></span>
-                        <span class="moi-file-uploader__file-size">842 KB</span>
-                      </div>
-                    </div>
-                    <div class="moi-file-uploader__actions">
-                      <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <circle cx="12" cy="12" r="3" />
-                        </svg>
-                      </button>
-                      <button class="moi-file-uploader__action del" type="button" aria-label="حذف الملف">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <polyline points="3 6 5 6 21 6" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <h3 class="section-title mt-4" data-i18n data-ar="مثال التحقق">Validation Example</h3>
-          <p class="section-note" data-i18n data-ar="حالة الحقل غير الصالح: is-err، aria-invalid=&quot;true&quot;، ورسالة خطأ ظاهرة عبر فئة show.">The invalid-field state: <code class="code-inline">.is-err</code>,
-            <code class="code-inline">aria-invalid="true"</code>, and an error hint exposed via the
-            <code class="code-inline">.show</code> class.</p>
-          <div class="example-panel" data-example>
-            <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
-            <div class="example-shell">
-              <div class="copy-toolbar">
-                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
-                  data-ar="نسخ الكود">Copy code</button>
-                <span class="copy-status" aria-live="polite"></span>
-              </div>
-              <div class="example-content">
-                <div class="moi-file-uploader__field" dir="rtl">
-                  <label class="moi-file-uploader__label" for="docs-fu-name-err">الاسم الوصفي للملف <span
-                      class="moi-file-uploader__required">*</span></label>
-                  <div class="moi-file-uploader__input-wrap">
-                    <input class="form-control moi-file-uploader__input is-err" type="text" id="docs-fu-name-err"
-                      placeholder="مثال: صورة الهوية الوطنية" required aria-required="true" aria-invalid="true">
-                  </div>
-                  <div class="moi-file-uploader__hint" aria-live="polite">
-                    <span class="moi-file-uploader__hint-error show">هذا الحقل مطلوب — أدخل اسمًا قبل رفع الملف</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <h3 class="section-title mt-4" data-i18n data-ar="مثال المعاينة">Preview Example</h3>
-          <p class="section-note" data-i18n data-ar="رأس النافذة وجسمها لنوع صورة، مع تذييل يحوي الإغلاق والتنزيل والحذف.">The modal header and body for an image type, with a footer holding close, download, and delete.</p>
-          <div class="example-panel" data-example>
-            <div class="example-label" data-i18n data-ar="مثال مرئي">Rendered example</div>
-            <div class="example-shell">
-              <div class="copy-toolbar">
-                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
-                  data-ar="نسخ الكود">Copy code</button>
-                <span class="copy-status" aria-live="polite"></span>
-              </div>
-              <div class="example-content">
-                <div class="moi-file-uploader__modal" style="max-width:480px;" dir="rtl" role="dialog"
-                  aria-modal="true" aria-labelledby="docs-fu-mname" tabindex="-1">
-                  <div class="moi-file-uploader__modal-header">
-                    <div
-                      class="moi-file-uploader__type-icon moi-file-uploader__modal-icon moi-file-uploader__type-icon--img">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                        <circle cx="8.5" cy="8.5" r="1.5" />
-                        <polyline points="21 15 16 10 5 21" />
-                      </svg>
-                    </div>
-                    <div class="moi-file-uploader__modal-name">
-                      <div class="moi-file-uploader__modal-display" id="docs-fu-mname">صورة الهوية الوطنية</div>
-                      <div class="moi-file-uploader__modal-original">national_id.jpg &nbsp;·&nbsp; 410 KB</div>
-                    </div>
-                    <button class="moi-file-uploader__modal-close" type="button" aria-label="إغلاق">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="moi-file-uploader__modal-footer">
-                    <button class="btn moi-btn--Neutral--outline" data-size="sm" type="button">إغلاق</button>
-                    <button class="btn moi-btn--Info--outline" data-size="sm" type="button">تنزيل الملف</button>
-                    <button class="btn moi-btn--Error--solid" data-size="sm" type="button">حذف الملف</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <h3 class="section-title mt-4" data-i18n data-ar="مثال الوصولية">Accessibility Example</h3>
-          <p class="section-note" data-i18n data-ar="ترميز منطقة الرفع وشريط التقدم بكل سمات ARIA المطبَّقة فعليًا في الإصدار النهائي.">The dropzone and progress-bar markup with every ARIA attribute that's actually live in the final
-            version.</p>
-          <div class="example-panel" data-example>
-            <div class="example-label" data-i18n data-ar="الكود">Code</div>
-            <div class="example-shell">
-              <div class="copy-toolbar">
-                <button class="btn moi-btn--Info" type="button" data-copy-target=".example-content" data-i18n
-                  data-ar="نسخ الكود">Copy code</button>
-                <span class="copy-status" aria-live="polite"></span>
-              </div>
-              <div class="code-block example-content"><pre><code>&lt;div class="moi-file-uploader__dropzone off" role="button" tabindex="0"
-     aria-disabled="true" aria-labelledby="dropZoneTitle" aria-describedby="dropZoneSubtitle"
-     onclick="onZoneClick()" onkeydown="onZoneKeydown(event)"
-     ondragover="onDragOver(event)" ondragleave="onDragLeave()" ondrop="onDrop(event)"&gt;
-  ...
-&lt;/div&gt;
-
-&lt;div class="moi-file-uploader__progress-track" role="progressbar"
-     aria-valuemin="0" aria-valuemax="100" aria-valuenow="64"
-     aria-label="جارٍ رفع عقد التوريد النهائي"&gt;
-  &lt;div class="moi-file-uploader__progress-bar" style="width:64%"&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id="uploaderStatus" class="moi-file-uploader__sr-only"
-     role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/div&gt;</code></pre></div>
             </div>
           </div>
         </div>

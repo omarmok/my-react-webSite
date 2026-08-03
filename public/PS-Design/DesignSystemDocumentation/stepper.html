@@ -42,7 +42,7 @@
       background: #1c8354;
       color: #fff;
       border-radius: var(--card-radius);
-      padding: 32px;
+      padding: 22px 26px;
       box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
     }
 
@@ -53,9 +53,16 @@
     }
 
     .eyebrow {
-      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
       color: var(--muted);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
     }
 
     .section {
@@ -279,6 +286,19 @@
       gap: 10px;
     }
 
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
     .sidebar-nav a {
       color: #1f2937;
       text-decoration: none;
@@ -292,14 +312,21 @@
 
     .sidebar-nav a:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
     }
 
     .sidebar-nav a.is-active {
-      background: #111827;
-      border-color: #111827;
-      color: #f9fafb;
-      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
     }
 
     .lang-toggle {
@@ -383,28 +410,33 @@
   <main class="docs-shell container page-layout">
     <aside class="docs-sidebar">
       <div class="sidebar-card">
-        <div class="sidebar-title" data-i18n data-ar="الرموز المرتبطة">Related tokens</div>
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
         <nav class="sidebar-nav">
           <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
           <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
           <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
           <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
           <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
           <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
           <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
           <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
           <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
-          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
           <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
           <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
           <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
           <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
-          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
-          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
           <a href="./stepper.html" class="is-active" data-i18n data-ar="شريط التقدم">Stepper</a>
           <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
           <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
           <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
         </nav>
       </div>
 
@@ -739,24 +771,6 @@
         </div>
       </section>
 
-      <section class="section" id="edge-cases">
-        <div class="section-card">
-          <h2 class="section-title" data-i18n data-ar="حالات حافة">Edge cases</h2>
-          <ul class="accessibility-list">
-            <li data-i18n
-              data-ar="عند خطوات طويلة أو عدد كبير من الخطوات، استخدم شريطًا أفقيًا قابلًا للتمرير أو أرقام مختصرة.">For
-              long sequences, offer a scrollable track or condensed step numbers.</li>
-            <li data-i18n data-ar="تأكد من أن الخطوات المعطلة لا تبلور مؤشرات التركيز أو الألوان دون سبب.">Disabled
-              steps should not show focus or accent colors.</li>
-            <li data-i18n
-              data-ar="في حالات RTL، احتفظ بنفس ترتيب النص والرقم مع الحفاظ على هوامش متسقة عبر <code>margin-inline</code>.">
-              Keep the order of number and label consistent in RTL by using inline margins.</li>
-            <li data-i18n data-ar="إذا كانت الخطوات مرتبطة بعمليات طويلة، أضف مؤشر تحميل أو حالة تقدم في نفس الشريط.">
-              When steps correspond to long-running tasks, provide a loading indicator or progress status.</li>
-          </ul>
-        </div>
-      </section>
-
       <section class="section" id="layout">
         <div class="section-card">
           <h2 class="section-title">Layout &amp; spacing</h2>
@@ -993,28 +1007,21 @@
         </div>
       </section>
 
-      <section class="section" id="footer-do-dont">
+      <section class="section" id="edge-cases">
         <div class="section-card">
-          <h2 class="section-title">Do &amp; Don’t</h2>
-          <div class="usage-grid">
-            <div class="usage-card">
-              <h4>✅ Do</h4>
-              <ul>
-                <li>Always display the Previous button.</li>
-                <li>Disable it only on the first step.</li>
-                <li>Use a clear Arabic aria-label (<code>aria-label="السابق"</code>).</li>
-                <li>Keep button placement consistent across all steps.</li>
-              </ul>
-            </div>
-            <div class="usage-card">
-              <h4>❌ Don’t</h4>
-              <ul>
-                <li>Do not hide the Previous button.</li>
-                <li>Do not change button order between steps.</li>
-                <li>Do not remove accessibility attributes when disabled.</li>
-              </ul>
-            </div>
-          </div>
+          <h2 class="section-title" data-i18n data-ar="حالات حافة">Edge cases</h2>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="عند خطوات طويلة أو عدد كبير من الخطوات، استخدم شريطًا أفقيًا قابلًا للتمرير أو أرقام مختصرة.">For
+              long sequences, offer a scrollable track or condensed step numbers.</li>
+            <li data-i18n data-ar="تأكد من أن الخطوات المعطلة لا تبلور مؤشرات التركيز أو الألوان دون سبب.">Disabled
+              steps should not show focus or accent colors.</li>
+            <li data-i18n
+              data-ar="في حالات RTL، احتفظ بنفس ترتيب النص والرقم مع الحفاظ على هوامش متسقة عبر <code>margin-inline</code>.">
+              Keep the order of number and label consistent in RTL by using inline margins.</li>
+            <li data-i18n data-ar="إذا كانت الخطوات مرتبطة بعمليات طويلة، أضف مؤشر تحميل أو حالة تقدم في نفس الشريط.">
+              When steps correspond to long-running tasks, provide a loading indicator or progress status.</li>
+          </ul>
         </div>
       </section>
 

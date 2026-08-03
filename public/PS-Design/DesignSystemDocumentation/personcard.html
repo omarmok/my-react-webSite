@@ -64,6 +64,19 @@
       gap: 10px;
     }
 
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
     .sidebar-nav a {
       color: #1f2937;
       text-decoration: none;
@@ -78,23 +91,30 @@
 
     .sidebar-nav a:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
     }
 
     .sidebar-nav a.is-active {
-      background: #111827;
-      border-color: #111827;
-      color: #f9fafb;
-      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
     }
 
     .sidebar-nav a.is-active::after {
       content: "";
       position: absolute;
       inset: 0;
-      border-inline-start: 4px solid #1c8354;
-      border-radius: 10px;
-      mix-blend-mode: screen;
+      border-inline-start: 3px solid #1c8354;
+      border-radius: inherit;
+      pointer-events: none;
     }
 
     .lang-toggle {
@@ -138,7 +158,7 @@
       background: #1c8354;
       color: #fff;
       border-radius: var(--card-radius);
-      padding: 32px;
+      padding: 22px 26px;
       box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
     }
 
@@ -153,9 +173,16 @@
     }
 
     .eyebrow {
-      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
       color: var(--muted);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
     }
 
     .section {
@@ -459,10 +486,6 @@
       display: none !important;
     }
 
-    .person__card__Details.is-collapsed>[class*="col-"]:nth-child(n + 5) {
-      display: none;
-    }
-
     html[dir="rtl"]
 
     /* RTL adjustments */
@@ -493,7 +516,7 @@
 
     html[dir="rtl"] .sidebar-nav a.is-active::after {
       border-inline-start: 0;
-      border-inline-end: 4px solid #1c8354;
+      border-inline-end: 3px solid #1c8354;
     }
 
     @media (max-width: 900px) {
@@ -538,25 +561,30 @@
         </div>
         <nav class="sidebar-nav">
           <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
           <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
           <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
           <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
           <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
           <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
           <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
           <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
           <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
-          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
           <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
           <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
           <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
           <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
-          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
-          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
           <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
           <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
           <a href="./personcard.html" class="is-active" data-i18n data-ar="بطاقة الشخص">Person Card</a>
           <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
         </nav>
       </div>
 
@@ -585,8 +613,9 @@
         <h1 class="mt-2 mb-2" data-i18n data-ar="بطاقة  الشخص">Person Card</h1>
 
         <p class="section-note mb-0" data-i18n
-          data-ar="مكوّن هوية أساسي يعرض بيانات الشخص بشكل موحّد ويستخدم متغيرات SCSS الرسمية لضمان تطابق الألوان والحالات.">
-          Core identity card that presents person data consistently and uses official SCSS tokens for colors and states.
+          data-ar="التنفيذ الافتراضي الحالي لبطاقة الشخص يجمع صورة الشخص، شارة الحالة، البيانات الأساسية، التنبيه، وإجراءات التذييل باستخدام مكوّنات SCSS المشتركة المعتمدة.">
+          The current default Person Card implementation combines the person photo, status badge, key fields, alert
+          message, and footer actions using the approved shared SCSS components.
         </p>
       </div>
       <div class="metadata-row">
@@ -606,9 +635,9 @@
 
         <span class="metadata-pill"
               data-i18n
-              data-ar="آخر تحديث: 28 يناير 2026"
-              data-en="Last updated: January 28, 2026">
-          آخر تحديث: 28 يناير 2026
+              data-ar="آخر تحديث: 3 أغسطس 2026"
+              data-en="Last updated: August 3, 2026">
+          آخر تحديث: 3 أغسطس 2026
         </span>
       </div>
 
@@ -616,93 +645,139 @@
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="لمحة عامة">Overview</h2>
           <p class="section-note" data-i18n
-            data-ar="مكوّن بطاقة الملف الشخصي يدعم سيناريوهات التحقق، الاستعلام، إدارة الحالات، التفتيش، والإجراءات.">
-            The Personal Profile Card supports verification, inquiry, case management, inspection, and action scenarios.
+            data-ar="بطاقة الشخص هي السطح الافتراضي الموحّد لعرض صورة الشخص، حالته، بياناته الأساسية، تفاصيله الرئيسية، والتنبيهات والإجراءات المرتبطة به داخل بطاقة واحدة.">
+            Person Card is the default unified surface for presenting a person's photo, status, key fields, core
+            details, alerts, and related actions inside one card.
           </p>
         </div>
         <div class="section-card">
           <h3 class="section-title" data-i18n data-ar="الهدف من المكوّن">Component Objective</h3>
           <ul>
-            <li data-i18n data-ar="توفير وصول سريع للبيانات  وإبراز حالة الشخص فوراً، وتمكين قرارات موثوقة.">
-              Provide fast access to critical data, surface person status instantly, and enable confident decisions.
+            <li data-i18n data-ar="إبقاء بيانات الهوية الأهم قابلة للمسح السريع من أول نظرة.">
+              Keep the most important identity data scannable at first glance.
             </li>
-            <li data-i18n data-ar="تقليل أخطاء الإدخال والتفسير والحفاظ على الاتساق عبر الأنظمة.">
-              Reduce input/interpretation errors and keep presentation consistent across systems.
+            <li data-i18n data-ar="إعادة استخدام الشارات والتنبيهات والأزرار الرسمية دون اختراع مناطق أو Panels إضافية داخل البطاقة الافتراضية.">
+              Reuse the official tags, alerts, and button styles without inventing extra regions or panels inside the
+              default card.
             </li>
           </ul>
         </div>
         <div class="section-card">
-          <h3 class="section-title" data-i18n data-ar="حالات الاستخدام">Use Cases</h3>
+          <h3 class="section-title" data-i18n data-ar="الاستخدام">Usage</h3>
           <ul>
-            <li data-i18n data-ar="الموافقات والطلبات">Approvals and Requests</li>
-            <li data-i18n data-ar="سجلات الأشخاص">Person Records</li>
-            <li data-i18n data-ar="التأشيرات والإقامات">Visas and Residencies</li>
-            <li data-i18n data-ar="الفحص الأمني">Security Screening</li>
-            <li data-i18n data-ar="معالجة البلاغات والتقارير">Incident and Report Processing</li>
-            <li data-i18n data-ar="مراجعة السفر والتنقل">Travel and Movement Review</li>
+            <li data-i18n data-ar="استخدم البطاقة الافتراضية في مسارات الاستعلام والمراجعة التي تحتاج قراءة سريعة للحالة مع إجراءات السجل.">
+              Use the default card in inquiry and review flows that need a quick status read plus record actions.
+            </li>
+            <li data-i18n data-ar="يحافظ التنفيذ الحالي على حقول الرأس السريعة: الإسم، رقم الهوية، الجنسية، العمر.">
+              The current implementation keeps the quick header fields to: name, ID number, nationality, and age.
+            </li>
+            <li data-i18n data-ar="تُستخدم شبكة التفاصيل الحالية للمهنة، الأهلية للإقامة المميزة، رقم الجوال المقنّع، حالة الشخص، الديانة، الجنس، تاريخ الميلاد، وجهة العمل.">
+              Use the current details grid for occupation, premium residency eligibility, masked mobile number, person
+              status, religion, gender, date of birth, and employer.
+            </li>
+            <li data-i18n data-ar="توضع المتطلبات التجارية ومدخلات الميزات خارج البطاقة وليس داخلها.">
+              Place business requirements and feature-specific inputs outside the card, not inside it.
+            </li>
           </ul>
         </div>
         <div class="section-card">
-          <h3 class="section-title" data-i18n data-ar="بنية المكوّن">Component Structure</h3>
-          <h4 class="section-title" data-i18n data-ar="الرأس">Header</h4>
-          <ul>
-            <li data-i18n data-ar="شارة الحالة (مطلوب/غير مطلوب) مرئية دائماً.">
-              Status badge (Required/Not Required) is always visible.
-            </li>
-            <li data-i18n data-ar="صورة 1:1، الاسم الكامل، وإجراءات الإدارة حسب الصلاحيات.">
-              1:1 image, full name, and management actions gated by permissions.
-            </li>
-          </ul>
-          <h4 class="section-title" data-i18n data-ar="أزرار الإجراءات">Action Buttons</h4>
+          <h3 class="section-title" data-i18n data-ar="الترميز">Markup</h3>
           <p class="section-note" data-i18n
-            data-ar="هذه ليست تبويبات؛ كل زر يفتح Panel مدمجة ويمكن فتح عدة Panels معاً.">
-            These are not tabs; each button opens an inline panel and multiple panels may remain open.
+            data-ar="الصفحة الحالية موثقة على أساس التنفيذ الافتراضي الحالي في moi-person-card.html دون إضافة أقسام هوية أو Panels غير موجودة في المصدر.">
+            This page is documented against the current default implementation in
+            <span class="code-inline">moi-person-card.html</span> without adding identity drawers or panels that do not
+            exist in the source.
           </p>
           <ul>
-            <li data-i18n data-ar="سجل الشخص">Person History</li>
-            <li data-i18n data-ar="حالة الإقامة">Residency Status</li>
-            <li data-i18n data-ar="نوع التأشيرة">Visa Type</li>
-            <li data-i18n data-ar="حالة السفر">Travel Status</li>
-            <li data-i18n data-ar="استكمال البيانات">Complete Missing Data</li>
+            <li data-i18n data-ar="<strong>الجذر:</strong> التنفيذ الحالي يبدأ بـ article.moi-person-card ثم أربعة أقسام متتالية: الرأس، التفاصيل، التنبيه، ثم التذييل.">
+              <strong>Root:</strong> the current implementation starts with
+              <span class="code-inline">article.moi-person-card</span> followed by four sequential regions: header,
+              details, notification, then footer.
+            </li>
+            <li data-i18n data-ar="<strong>الرأس:</strong> .moi-person-card--container--header يحتوي على صورة الشخص، شارة مطلوب بحالة highpriority، وأزرار تعديل/طباعة/حذف.">
+              <strong>Header:</strong> <span class="code-inline">.moi-person-card--container--header</span> contains
+              the person image, a required badge in the <span class="code-inline">highpriority</span> state, and the
+              edit/print/delete toolbar.
+            </li>
+            <li data-i18n data-ar="<strong>الحقول السريعة:</strong> قسم --header__meta--data يعرض حالياً الإسم، رقم الهوية، الجنسية، العمر.">
+              <strong>Quick fields:</strong> <span class="code-inline">--header__meta--data</span> currently displays
+              name, ID number, nationality, and age.
+            </li>
+            <li data-i18n data-ar="<strong>التفاصيل الأساسية:</strong> قسم التفاصيل الحالي يعرض المهنة، الأهلية للإقامة المميزة، رقم الجوال، حالة الشخص، الديانة، الجنس، تاريخ الميلاد، وجهة العمل.">
+              <strong>Core details:</strong> the current details section shows occupation, premium residency
+              eligibility, mobile number, person status, religion, gender, date of birth, and employer.
+            </li>
+            <li data-i18n data-ar="<strong>التنبيه والتذييل:</strong> شريط .moi-person-card__notification يسبق تذييل الإجراءات الذي يحتوي على ستة أزرار موجودة في المصدر الحالي.">
+              <strong>Notification and footer:</strong> the <span class="code-inline">.moi-person-card__notification</span>
+              strip precedes the footer actions row, which contains the six existing buttons from the current source.
+            </li>
           </ul>
-          <p class="section-note" data-i18n
-            data-ar="يُخفى الزر عند عدم توفر بيانات الـ API أو الصلاحية. لا تُفتح Panels فارغة ولا يُعاد التحميل إلا عند تغيّر الحالة.">
-            Buttons hide when API data or permission is missing. Panels never render empty and reload only on status
-            change.
-          </p>
-          <h4 class="section-title" data-i18n data-ar="البيانات الشخصية">Personal Information</h4>
-          <p class="section-note" data-i18n
-            data-ar="ترتيب ثابت، بدون قيم افتراضية، الحقول غير المتوفرة مخفية، وحالة الشخص دائماً ظاهرة.">
-            Fixed order, no placeholders, missing fields hidden, and person status always visible.
-          </p>
-
-          <h4 class="section-title" data-i18n data-ar="بيانات الهوية">Identity Information Block</h4>
-          <p class="section-note" data-i18n
-            data-ar="يتضمن رقم الإصدار، تواريخ الإصدار والانتهاء، جهة الإصدار، وحالة الصلاحية (YYYY-MM-DD).">
-            Includes issue number, issue/expiry dates, issuing authority, and validity status (YYYY-MM-DD).
-          </p>
+          <h4 class="section-title" data-i18n data-ar="التسميات">Labels</h4>
+          <ul>
+            <li data-i18n data-ar="تسميات الرأس الحالية: الإسم، رقم الهوية، الجنسية، العمر.">
+              Current header labels: name, ID number, nationality, age.
+            </li>
+            <li data-i18n data-ar="تسميات التفاصيل الحالية: المهنة، مؤهل للإقامة المميزة، رقم الجوال، حالة الشخص، الديانة، الجنس، تاريخ الميلاد، جهة العمل.">
+              Current details labels: occupation, premium residency eligibility, mobile number, person status,
+              religion, gender, date of birth, employer.
+            </li>
+            <li data-i18n data-ar="تسميات الإجراءات الحالية: سجل الشخص، حالة الإقامة، نوع التأشيرة، حالة السفر، إستكمال بيانات، إخفاء التفاصيل.">
+              Current action labels: Person record, residency status, visa type, travel status, complete data, hide
+              details.
+            </li>
+          </ul>
+          <h4 class="section-title" data-i18n data-ar="المتغيرات">Variants</h4>
+          <ul>
+            <li data-i18n data-ar="التوثيق الحالي يعكس المتغير الافتراضي الحالي فقط كما يظهر في moi-person-card.html.">
+              The current documentation reflects the current default variant only, as it appears in
+              <span class="code-inline">moi-person-card.html</span>.
+            </li>
+            <li data-i18n data-ar="يبقى شريط أدوات الرأس قابلاً للإزالة في سيناريوهات الإضافة أو الإدارة عندما تفرض الحوكمة ذلك.">
+              The header toolbar remains removable in add/manage scenarios when governance rules require it.
+            </li>
+            <li data-i18n data-ar="لا تضف أقسام هوية موسعة أو Panels مدمجة أو سحوبات مخصصة داخل المتغير الافتراضي.">
+              Do not add expanded identity sections, inline panels, or custom drawers inside the default variant.
+            </li>
+          </ul>
+          <h4 class="section-title" data-i18n data-ar="الحالات">States</h4>
+          <ul>
+            <li data-i18n data-ar="شارة الحالة في الرأس تستخدم .moi-tag المعبأة بالحجم XL مع data-status=highpriority والوسم مطلوب.">
+              The header status uses an XL filled <span class="code-inline">.moi-tag</span> with
+              <span class="code-inline">data-status=&quot;highpriority&quot;</span> and the label "Required".
+            </li>
+            <li data-i18n data-ar="حقل مؤهل للإقامة المميزة يستخدم شارة MD مستديرة بنفس حالة highpriority والقيمة لا.">
+              The premium residency eligibility field uses a rounded MD tag in the same
+              <span class="code-inline">highpriority</span> state with the value "No".
+            </li>
+            <li data-i18n data-ar="التنبيه الحالي يستخدم حالة Error، بينما التذييل يخلط بين حالات Primary و Info و Lavender و Warning الصلبة مع زر Warning-outline أخير.">
+              The current alert uses the Error state, while the footer mixes Primary, Info, Lavender, and Warning
+              solid buttons with a final Warning outline action.
+            </li>
+          </ul>
         </div>
 
         <div class="section-card">
           <h3 class="section-title" data-i18n data-ar="إرشادات التصميم">Design Guidelines</h3>
           <ul>
-            <li data-i18n data-ar="نظام شبكة 8px، سمك أيقونة 1.5px، واستخدام Tokens الرسمية.">
-              8px grid, 1.5px icon stroke, and official tokens.
+            <li data-i18n data-ar="أعد استخدام .moi-tag و .moi-alert و .moi-btn كما هي دون إنشاء طبقات أو أنماط جديدة داخل البطاقة.">
+              Reuse <span class="code-inline">.moi-tag</span>, <span class="code-inline">.moi-alert</span>, and
+              <span class="code-inline">.moi-btn</span> as-is without creating new card-specific layers or styles.
             </li>
-            <li data-i18n data-ar="خلفيات Neutral-50، نصوص Text-700، إبرازات Primary.">
-              Neutral-50 backgrounds, Text-700 typography, Primary highlights.
+            <li data-i18n data-ar="حافظ على اتجاه RTL، ترتيب التسميات الحالي، والقيم المقنّعة كما تصل من المصدر.">
+              Keep RTL, the current label order, and masked values exactly as they come from the source data.
             </li>
-            <li data-i18n data-ar="حجم الصورة 96×96 مع تباين AA/AAA.">
-              Image size 96×96 with AA/AAA contrast.
+            <li data-i18n data-ar="لا تضف Panels مخصصة أو تراكبات أو بطاقات داخلية ثانوية داخل المتغير الافتراضي الحالي.">
+              Do not add custom panels, overlays, or secondary nested cards inside the current default variant.
             </li>
           </ul>
         </div>
       </div>
       <div class="section">
         <div class="section-card">
-          <h2 class="section-title" data-i18n data-ar="البطاقة الكاملة">Full Person Card</h2>
-          <p class="section-note" data-i18n data-ar="مثال عملي لعرض جميع الحقول والحالات في بطاقة الشخص.">
-            Practical example showing all fields and states in the person card.
+          <h2 class="section-title" data-i18n data-ar="الأمثلة">Examples</h2>
+          <p class="section-note" data-i18n data-ar="المثال التالي يطابق التنفيذ الافتراضي الحالي لبطاقة الشخص كما هو موجود في moi-person-card.html.">
+            The example below matches the current default Person Card implementation from
+            <span class="code-inline">moi-person-card.html</span>.
           </p>
           <div
             class="alert moi-alert d-flex justify-content-between align-items-center padding-y-md padding-x-md border-3 border-bottom bg-Info-50 border-Info-600 my-3"
@@ -715,8 +790,8 @@
                 </path>
               </svg>
 
-              <span class=" mb-0 " data-i18n data-ar="يمكنك إستيراد الهيكل من Infra">
-                You can import it from Infra
+              <span class=" mb-0 " data-i18n data-ar="هذا المثال مطابق للتنفيذ الحالي في moi-person-card.html.">
+                This example matches the current implementation in moi-person-card.html.
               </span>
             </div>
 
@@ -726,278 +801,181 @@
           </button>
 
           <div class="person-demo">
-            <div
-              class="d-flex flex-column gap-xl padding-lg radius-lg white-100 border border-Neutral-300 person__card">
-              <!-- start card header -->
-              <div
-                class="d-flex align-items-center justify-content-between gap-lg padding-xl radius-md border bg-Neutral-50 border-Neutral-200 person__card__header">
-                <div class="person__card__header--maindetails d-flex">
-                  <div class="person__card__header--avatar">
-                    <div class="apadding-sm radius-sm border border-3 border-Primary-300">
-                      <img class="object-fit-cover" src="../../PS-Design/images/personrecord.png"
-                        alt="Avatar of John Doe" />
+            <article class="moi-person-card" data-view="default" dir="rtl">
+              <div class="moi-person-card--container moi-person-card--container--header">
+                <div class="moi-person-card--container--header__image">
+                  <img src="../images/personrecord.png" alt="صورة الشخص" />
+                </div>
+                <div class="moi-person-card--container--header__meta">
+                  <div class="moi-person-card--container--header__info">
+                    <div class="moi-person-card--container--header__status">
+                      <span class="moi-tag moi-tag--xl moi-tag--filled" data-status="highpriority">
+                        <span class="moi-label">مطلوب</span>
+                      </span>
+                    </div>
+                    <div class="moi-person-card--container--header__toolbar">
+                      <div class="moi-person-card--container--header__toolbar-actions">
+                        <button class="btn moi-btn moi-btn--Neutral--outline" type="button" aria-label="تعديل">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M16.0849 4.04987C17.1518 2.98295 18.882 2.98315 19.9491 4.04987C21.0162 5.11693 21.0162 6.84706 19.9491 7.91413L10.3134 17.5499C10.2863 17.5769 10.2598 17.6044 10.2333 17.6309C9.26504 18.5994 8.67286 19.1916 7.94425 19.5987C7.53787 19.8257 6.92153 20.0238 6.29093 20.1993C5.64205 20.3799 4.89523 20.5579 4.18253 20.7276L4.17374 20.7296C3.92045 20.7899 3.65379 20.7144 3.46964 20.5303C3.28547 20.3462 3.21009 20.0796 3.27042 19.8262L3.27237 19.8175C3.44208 19.1047 3.6201 18.358 3.80069 17.7091C3.97624 17.0782 4.17417 16.4612 4.40128 16.0548C4.80842 15.3263 5.4007 14.7348 6.36905 13.7667C6.39556 13.7402 6.42205 13.7127 6.44913 13.6856L16.0849 4.04987ZM16.9999 19.2501C17.414 19.2502 17.7499 19.5859 17.7499 20.0001C17.7499 20.4142 17.414 20.7499 16.9999 20.7501H10.9999C10.5857 20.7501 10.25 20.4142 10.2499 20.0001C10.2499 19.5859 10.5857 19.2501 10.9999 19.2501H16.9999ZM7.51065 14.7462C6.43655 15.8203 6.00431 16.262 5.71085 16.7872C5.58208 17.0177 5.42304 17.4717 5.24503 18.1114C5.16897 18.3847 5.09341 18.6781 5.01749 18.9825C5.32195 18.9066 5.6152 18.8301 5.88858 18.754C6.5283 18.5759 6.98235 18.4179 7.2128 18.2891C7.73796 17.9957 8.17879 17.5634 9.25284 16.4893L16.9569 8.7862L15.2138 7.04304L7.51065 14.7462ZM18.8886 5.1114C18.4073 4.63012 17.6267 4.63012 17.1454 5.1114L16.2743 5.98249L18.0175 7.72565L18.8886 6.85358C19.3698 6.37236 19.3697 5.59267 18.8886 5.1114Z"
+                              fill="#161616" />
+                          </svg>
+                        </button>
+                        <button class="btn moi-btn moi-btn--Neutral--outline" type="button" aria-label="طباعة">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M13.0519 1.25C13.9504 1.24997 14.7003 1.25011 15.2951 1.33008C15.9227 1.41451 16.4891 1.60031 16.9445 2.05567C17.3998 2.51102 17.5856 3.07747 17.6701 3.70508C17.75 4.29986 17.7502 5.04976 17.7501 5.94824V7.25488C18.1389 7.26016 18.4829 7.27138 18.7882 7.29688C19.3655 7.3451 19.8686 7.44665 20.3351 7.68652C20.8934 7.97363 21.3727 8.39046 21.7287 8.90234C22.0281 9.33299 22.1865 9.81427 22.2951 10.3691C22.3999 10.905 22.4687 11.5707 22.5539 12.3906L22.5617 12.4639C22.6639 13.4481 22.7462 14.2413 22.7501 14.8828C22.7542 15.5432 22.6778 16.1278 22.4035 16.665C22.0814 17.2957 21.5847 17.8235 20.9728 18.1904C20.4558 18.5005 19.8717 18.6293 19.1964 18.6904C18.7328 18.7324 18.1874 18.7414 17.546 18.7451C17.6069 19.0202 17.6592 19.2631 17.6935 19.4785C17.7529 19.8516 17.777 20.2065 17.7082 20.5586C17.5501 21.3671 17.0527 22.0764 16.3283 22.46C16.0059 22.6306 15.6589 22.6939 15.3009 22.7227C14.9553 22.7504 14.5282 22.75 14.0187 22.75H9.9816C9.47213 22.75 9.04502 22.7504 8.69937 22.7227C8.34144 22.6939 7.99434 22.6306 7.67202 22.46C6.94755 22.0764 6.44919 21.3671 6.29117 20.5586C6.2224 20.2065 6.24737 19.8515 6.30679 19.4785C6.34111 19.2632 6.39245 19.0201 6.45327 18.7451C5.81237 18.7414 5.26729 18.7324 4.80386 18.6904C4.1286 18.6293 3.54454 18.5005 3.02749 18.1904C2.41562 17.8235 1.91888 17.2956 1.59683 16.665C1.32254 16.1278 1.24612 15.5432 1.25015 14.8828C1.25411 14.2413 1.33643 13.4481 1.43863 12.4639L1.44644 12.3906C1.53156 11.5707 1.60044 10.905 1.70523 10.3691C1.81377 9.81427 1.97225 9.33299 2.27163 8.90234C2.62761 8.39046 3.10687 7.97363 3.66519 7.68652C4.13169 7.44665 4.63475 7.3451 5.21206 7.29688C5.51738 7.27138 5.8614 7.26016 6.25015 7.25488V5.94824C6.25012 5.04976 6.25026 4.29986 6.33023 3.70508C6.41466 3.07747 6.60045 2.51102 7.05581 2.05567C7.51117 1.60031 8.07762 1.41451 8.70523 1.33008C9.30001 1.25011 10.0499 1.24997 10.9484 1.25H13.0519ZM10.0119 16.75C9.26522 16.75 9.08805 16.7616 8.95425 16.8115C8.73343 16.894 8.53122 17.0591 8.3898 17.2949C8.29769 17.4487 8.23831 17.6654 8.05972 18.4404C7.9275 19.0143 7.83713 19.4079 7.78824 19.7148C7.7399 20.0182 7.74433 20.1718 7.76382 20.2715C7.84138 20.6676 8.07759 20.9782 8.3732 21.1348C8.43343 21.1667 8.54572 21.2056 8.81851 21.2275C9.09703 21.2499 9.46411 21.25 10.0119 21.25H13.9884C14.5359 21.25 14.9024 21.2498 15.1808 21.2275C15.4539 21.2056 15.5668 21.1667 15.6271 21.1348C15.9227 20.9782 16.1589 20.6676 16.2365 20.2715C16.256 20.1718 16.2604 20.0182 16.2121 19.7148C16.1632 19.4079 16.0728 19.0143 15.9406 18.4404C15.762 17.6654 15.7026 17.4487 15.6105 17.2949C15.4691 17.0591 15.2669 16.894 15.046 16.8115C14.9123 16.7616 14.7351 16.75 13.9884 16.75H10.0119ZM7.35367 8.75C6.45532 8.75 5.82751 8.75104 5.33706 8.79199C4.85636 8.83215 4.57173 8.90687 4.35074 9.02051C4.00667 9.19749 3.71639 9.45204 3.50308 9.75879C3.36895 9.95173 3.26591 10.2072 3.17788 10.6572C3.08756 11.1191 3.02429 11.7173 2.93472 12.5801C2.82755 13.6124 2.75357 14.3329 2.75015 14.8926C2.74681 15.4418 2.81421 15.7513 2.93277 15.9834C3.12428 16.3583 3.42326 16.6779 3.79898 16.9033C4.03769 17.0465 4.36349 17.1442 4.93863 17.1963C5.41817 17.2397 6.01456 17.2455 6.80874 17.2471C6.8873 16.9739 6.97605 16.7358 7.10269 16.5244C7.40937 16.0126 7.87337 15.614 8.42984 15.4063C8.85165 15.2488 9.32584 15.2493 9.89859 15.25H14.1017C14.6745 15.2493 15.1486 15.2488 15.5705 15.4063C16.1269 15.614 16.5909 16.0126 16.8976 16.5244C17.0242 16.7357 17.112 16.974 17.1906 17.2471C17.9853 17.2455 18.5819 17.2398 19.0617 17.1963C19.6368 17.1442 19.9626 17.0465 20.2013 16.9033C20.577 16.6779 20.876 16.3583 21.0675 15.9834C21.1861 15.7513 21.2535 15.4418 21.2501 14.8926C21.2467 14.3329 21.1728 13.6124 21.0656 12.5801C20.976 11.7173 20.9127 11.1191 20.8224 10.6572C20.7344 10.2072 20.6314 9.95173 20.4972 9.75879C20.2839 9.45204 19.9936 9.19749 19.6496 9.02051C19.4286 8.90687 19.1439 8.83215 18.6632 8.79199C18.1728 8.75104 17.545 8.75 16.6466 8.75H7.35367ZM18.0089 11C18.5612 11 19.0089 11.4477 19.0089 12C19.0089 12.5523 18.5612 13 18.0089 13H18.0001C17.4479 13 17.0001 12.5523 17.0001 12C17.0001 11.4477 17.4479 11 18.0001 11H18.0089ZM11.0001 2.75C10.0361 2.75 9.38846 2.75146 8.90542 2.81641C8.44403 2.87845 8.24667 2.9859 8.11636 3.11621C7.98605 3.24652 7.8786 3.44389 7.81656 3.90527C7.75161 4.38831 7.75015 5.03599 7.75015 6V7.25H16.2501V6C16.2501 5.03599 16.2487 4.38831 16.1837 3.90527C16.1217 3.44389 16.0142 3.24652 15.8839 3.11621C15.7536 2.98591 15.5563 2.87845 15.0949 2.81641C14.6118 2.75146 13.9642 2.75 13.0001 2.75H11.0001Z"
+                              fill="#161616" />
+                          </svg>
+                        </button>
+                        <button class="btn moi-btn moi-btn--Neutral--outline" type="button" aria-label="حذف">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M12.353 1.25025C12.7235 1.25124 13.0469 1.25621 13.325 1.28107C13.6941 1.31408 14.0382 1.38555 14.3724 1.55897C14.5045 1.6275 14.6308 1.70664 14.7501 1.79561C15.052 2.02075 15.2664 2.29917 15.4571 2.61688C15.6367 2.91618 15.8192 3.29263 16.0341 3.7361L16.5256 4.75H21C21.4142 4.75 21.75 5.08579 21.75 5.5C21.75 5.91422 21.4142 6.25 21 6.25H20.2051L19.6265 15.6101C19.5493 16.858 19.4881 17.8482 19.3627 18.6392C19.234 19.4504 19.028 20.126 18.616 20.7169C18.239 21.2574 17.7537 21.7137 17.1909 22.0565C16.5758 22.4313 15.8888 22.5952 15.0712 22.6736C14.274 22.75 13.2818 22.75 12.0315 22.75H11.9539C10.702 22.75 9.70858 22.75 8.91041 22.6735C8.09186 22.5949 7.40416 22.4307 6.78854 22.0553C6.22537 21.7118 5.73991 21.2547 5.36311 20.7133C4.95121 20.1214 4.74587 19.4449 4.61816 18.6325C4.49362 17.8404 4.43377 16.8488 4.35833 15.5991L3.79393 6.25H3C2.58579 6.25 2.25 5.91422 2.25 5.5C2.25 5.08579 2.58579 4.75 3 4.75H7.57055L7.98959 3.83073C8.19915 3.37095 8.37691 2.98095 8.55391 2.67073C8.74173 2.34153 8.95528 2.05248 9.26078 1.81811C9.38136 1.72561 9.50939 1.64326 9.64357 1.57192C9.98355 1.39114 10.3351 1.31672 10.7126 1.28236C11.0683 1.25 11.4969 1.25 12.0022 1.25L12.353 1.25025ZM18.7022 6.25H5.29666L5.85327 15.47C5.93157 16.767 5.9879 17.6868 6.09996 18.3996C6.21012 19.1003 6.36439 19.5261 6.59431 19.8565C6.85213 20.2269 7.18428 20.5396 7.56961 20.7747C7.91325 20.9842 8.34758 21.1126 9.05365 21.1803C9.77186 21.2492 10.6934 21.25 11.9928 21.25C13.2905 21.25 14.2107 21.2492 14.928 21.1805C15.6332 21.1128 16.0671 20.9848 16.4105 20.7755C16.7956 20.5409 17.1277 20.2288 17.3856 19.8589C17.6156 19.5291 17.7702 19.1039 17.8812 18.4042C17.9941 17.6925 18.0517 16.7741 18.1317 15.4788L18.7022 6.25ZM9.5 9.75C9.91421 9.75 10.25 10.0858 10.25 10.5V16.5C10.25 16.9142 9.91421 17.25 9.5 17.25C9.08579 17.25 8.75 16.9142 8.75 16.5V10.5C8.75 10.0858 9.08579 9.75 9.5 9.75ZM14.5 9.75C14.9142 9.75 15.25 10.0858 15.25 10.5V16.5C15.25 16.9142 14.9142 17.25 14.5 17.25C14.0858 17.25 13.75 16.9142 13.75 16.5V10.5C13.75 10.0858 14.0858 9.75 14.5 9.75ZM12.4492 2.75071L11.6581 2.75051C11.3132 2.75191 11.0583 2.75709 10.8486 2.77618C10.5831 2.80035 10.4481 2.84298 10.3478 2.89633C10.2868 2.92876 10.2286 2.96619 10.1738 3.00823C10.0837 3.07739 9.98887 3.18253 9.85677 3.41407C9.7176 3.65798 9.56765 3.98523 9.34105 4.48234L9.21904 4.75H14.8587L14.6982 4.41888C14.4657 3.93926 14.312 3.62382 14.1709 3.38884C14.0371 3.16588 13.9426 3.06458 13.8533 2.99801C13.7991 2.95756 13.7417 2.92159 13.6816 2.89044C13.5828 2.83916 13.4504 2.79827 13.1914 2.77511C12.9964 2.75767 12.7617 2.75233 12.4492 2.75071Z"
+                              fill="#161616" />
+                          </svg>
+                        </button>
+                      </div>
                     </div>
                   </div>
-                  <div class="d-flex flex-column align-items-start gap-md mx-3 person__card__header--identity">
-                    <span class="regpriority-filled m-0">غير مطلوب</span>
-                    <span class="font-md-600 Primary-600">الإسم بالكامل</span>
-                    <span class="font-lg-600 Neutral-900">محمد أحمد علي محمد علي</span>
+                  <div class="moi-person-card--container--header__meta--data">
+                    <div class="moi-person-card--block">
+                      <label>الإسم</label><span>أحمد محمد خالد علي خالد محمد</span>
+                    </div>
+                    <div class="moi-person-card--block">
+                      <label>رقم الهوية</label><span>1234524545</span>
+                    </div>
+                    <div class="moi-person-card--block">
+                      <label>الجنسية</label><span>سعودي</span>
+                    </div>
+                    <div class="moi-person-card--block">
+                      <label>العمر</label><span>43</span>
+                    </div>
                   </div>
-                </div>
-                <div class="d-flex gap-md person__card__header--actions">
-                  <button class="bg-transparent border-0 radius-none padding-none" type="button" aria-label="Edit">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M16.085 4.0499C17.1519 2.98298 18.8821 2.98317 19.9492 4.0499C21.0163 5.11695 21.0162 6.84709 19.9492 7.91415L10.3135 17.5499C10.2864 17.577 10.2599 17.6044 10.2334 17.631C9.26513 18.5995 8.67295 19.1916 7.94434 19.5987C7.53796 19.8257 6.92162 20.0238 6.29102 20.1993C5.64214 20.3799 4.89532 20.5579 4.18262 20.7276L4.17383 20.7296C3.92054 20.7899 3.65388 20.7144 3.46973 20.5304C3.28556 20.3462 3.21018 20.0796 3.27051 19.8263L3.27246 19.8175C3.44217 19.1047 3.62019 18.358 3.80078 17.7091C3.97633 17.0782 4.17426 16.4612 4.40137 16.0548C4.80851 15.3263 5.40079 14.7348 6.36914 13.7667C6.39565 13.7402 6.42214 13.7127 6.44922 13.6856L16.085 4.0499ZM17 19.2501C17.4141 19.2502 17.75 19.586 17.75 20.0001C17.75 20.4142 17.4141 20.75 17 20.7501H11C10.5858 20.7501 10.2501 20.4143 10.25 20.0001C10.25 19.5859 10.5858 19.2501 11 19.2501H17ZM7.51074 14.7462C6.43664 15.8203 6.0044 16.262 5.71094 16.7872C5.58217 17.0177 5.42313 17.4717 5.24512 18.1114C5.16906 18.3847 5.0935 18.6781 5.01758 18.9825C5.32204 18.9066 5.61529 18.8301 5.88867 18.754C6.52839 18.576 6.98244 18.4179 7.21289 18.2892C7.73805 17.9957 8.17888 17.5634 9.25293 16.4893L16.957 8.78622L15.2139 7.04306L7.51074 14.7462ZM18.8887 5.11142C18.4074 4.63014 17.6268 4.63014 17.1455 5.11142L16.2744 5.98251L18.0176 7.72568L18.8887 6.85361C19.3699 6.37238 19.3698 5.5927 18.8887 5.11142Z"
-                        fill="#161616" />
-                    </svg>
-                  </button>
-                  <button class="bg-transparent border-0 radius-none padding-none" type="button"
-                    aria-label="More options">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M13.0518 1.25C13.9502 1.24997 14.7001 1.25011 15.2949 1.33008C15.9225 1.41451 16.489 1.60031 16.9443 2.05566C17.3997 2.51102 17.5855 3.07747 17.6699 3.70508C17.7499 4.29986 17.75 5.04976 17.75 5.94824V7.25488C18.1388 7.26016 18.4828 7.27138 18.7881 7.29688C19.3654 7.3451 19.8685 7.44665 20.335 7.68652C20.8933 7.97363 21.3725 8.39046 21.7285 8.90234C22.0279 9.33299 22.1864 9.81427 22.2949 10.3691C22.3997 10.905 22.4686 11.5707 22.5537 12.3906L22.5615 12.4639C22.6637 13.4481 22.746 14.2413 22.75 14.8828C22.754 15.5432 22.6776 16.1278 22.4033 16.665C22.0813 17.2956 21.5845 17.8235 20.9727 18.1904C20.4556 18.5005 19.8715 18.6293 19.1963 18.6904C18.7326 18.7324 18.1872 18.7414 17.5459 18.7451C17.6067 19.0202 17.659 19.2631 17.6934 19.4785C17.7528 19.8516 17.7768 20.2065 17.708 20.5586C17.55 21.3671 17.0526 22.0764 16.3281 22.46C16.0058 22.6306 15.6587 22.6939 15.3008 22.7227C14.9551 22.7504 14.528 22.75 14.0186 22.75H9.98145C9.47198 22.75 9.04487 22.7504 8.69922 22.7227C8.34129 22.6939 7.99419 22.6306 7.67188 22.46C6.9474 22.0764 6.44904 21.3671 6.29102 20.5586C6.22225 20.2065 6.24722 19.8515 6.30664 19.4785C6.34096 19.2632 6.3923 19.0201 6.45312 18.7451C5.81222 18.7414 5.26714 18.7324 4.80371 18.6904C4.12845 18.6293 3.54439 18.5005 3.02734 18.1904C2.41547 17.8235 1.91873 17.2956 1.59668 16.665C1.32239 16.1278 1.24597 15.5432 1.25 14.8828C1.25396 14.2413 1.33628 13.4481 1.43848 12.4639L1.44629 12.3906C1.53141 11.5707 1.60029 10.905 1.70508 10.3691C1.81362 9.81427 1.9721 9.33299 2.27148 8.90234C2.62746 8.39046 3.10672 7.97363 3.66504 7.68652C4.13154 7.44665 4.6346 7.3451 5.21191 7.29688C5.51723 7.27138 5.86125 7.26016 6.25 7.25488V5.94824C6.24997 5.04976 6.25011 4.29986 6.33008 3.70508C6.41451 3.07747 6.60031 2.51102 7.05566 2.05566C7.51102 1.60031 8.07747 1.41451 8.70508 1.33008C9.29986 1.25011 10.0498 1.24997 10.9482 1.25H13.0518ZM10.0117 16.75C9.26507 16.75 9.0879 16.7616 8.9541 16.8115C8.73328 16.894 8.53107 17.0591 8.38965 17.2949C8.29754 17.4487 8.23816 17.6654 8.05957 18.4404C7.92735 19.0142 7.83698 19.4079 7.78809 19.7148C7.73975 20.0182 7.74418 20.1718 7.76367 20.2715C7.84123 20.6676 8.07744 20.9782 8.37305 21.1348C8.43328 21.1667 8.54557 21.2056 8.81836 21.2275C9.09688 21.2499 9.46396 21.25 10.0117 21.25H13.9883C14.5357 21.25 14.9022 21.2498 15.1807 21.2275C15.4538 21.2056 15.5667 21.1667 15.627 21.1348C15.9226 20.9782 16.1588 20.6676 16.2363 20.2715C16.2558 20.1718 16.2602 20.0182 16.2119 19.7148C16.163 19.4079 16.0726 19.0142 15.9404 18.4404C15.7618 17.6654 15.7025 17.4487 15.6104 17.2949C15.4689 17.0591 15.2667 16.894 15.0459 16.8115C14.9121 16.7616 14.7349 16.75 13.9883 16.75H10.0117ZM7.35352 8.75C6.45517 8.75 5.82736 8.75104 5.33691 8.79199C4.85621 8.83215 4.57158 8.90687 4.35059 9.02051C4.00652 9.19749 3.71624 9.45204 3.50293 9.75879C3.3688 9.95173 3.26576 10.2072 3.17773 10.6572C3.08741 11.1191 3.02414 11.7173 2.93457 12.5801C2.8274 13.6124 2.75342 14.3329 2.75 14.8926C2.74666 15.4418 2.81406 15.7513 2.93262 15.9834C3.12413 16.3583 3.42311 16.6779 3.79883 16.9033C4.03754 17.0465 4.36334 17.1442 4.93848 17.1963C5.41802 17.2397 6.01441 17.2455 6.80859 17.2471C6.88715 16.9739 6.9759 16.7358 7.10254 16.5244C7.40922 16.0126 7.87322 15.614 8.42969 15.4062C8.8515 15.2488 9.32569 15.2493 9.89844 15.25H14.1016C14.6743 15.2493 15.1485 15.2488 15.5703 15.4062C16.1268 15.614 16.5908 16.0126 16.8975 16.5244C17.0241 16.7357 17.1119 16.974 17.1904 17.2471C17.9851 17.2455 18.5818 17.2398 19.0615 17.1963C19.6367 17.1442 19.9625 17.0465 20.2012 16.9033C20.5769 16.6779 20.8759 16.3583 21.0674 15.9834C21.1859 15.7513 21.2533 15.4418 21.25 14.8926C21.2466 14.3329 21.1726 13.6124 21.0654 12.5801C20.9759 11.7173 20.9126 11.1191 20.8223 10.6572C20.7342 10.2072 20.6312 9.95173 20.4971 9.75879C20.2838 9.45204 19.9935 9.19749 19.6494 9.02051C19.4284 8.90687 19.1438 8.83215 18.6631 8.79199C18.1726 8.75104 17.5448 8.75 16.6465 8.75H7.35352ZM18.0088 11C18.5611 11 19.0088 11.4477 19.0088 12C19.0088 12.5523 18.5611 13 18.0088 13H18C17.4477 13 17 12.5523 17 12C17 11.4477 17.4477 11 18 11H18.0088ZM11 2.75C10.036 2.75 9.38831 2.75146 8.90527 2.81641C8.44388 2.87845 8.24652 2.9859 8.11621 3.11621C7.9859 3.24652 7.87845 3.44388 7.81641 3.90527C7.75146 4.38831 7.75 5.03599 7.75 6V7.25H16.25V6C16.25 5.03599 16.2485 4.38831 16.1836 3.90527C16.1215 3.44389 16.0141 3.24652 15.8838 3.11621C15.7535 2.9859 15.5561 2.87845 15.0947 2.81641C14.6117 2.75146 13.964 2.75 13 2.75H11Z"
-                        fill="#161616" />
-                    </svg>
-                  </button>
-
-                  <button class="bg-transparent border-0 radius-none padding-none" type="button"
-                    aria-label="More options">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M12.353 1.25028C12.7235 1.25127 13.0469 1.25624 13.325 1.2811C13.6941 1.31411 14.0382 1.38558 14.3724 1.559C14.5045 1.62753 14.6308 1.70667 14.7501 1.79564C15.052 2.02078 15.2664 2.2992 15.4571 2.61691C15.6367 2.91621 15.8192 3.29266 16.0341 3.73613L16.5256 4.75003H21C21.4142 4.75003 21.75 5.08582 21.75 5.50003C21.75 5.91425 21.4142 6.25003 21 6.25003H20.2051L19.6265 15.6101C19.5493 16.858 19.4881 17.8482 19.3627 18.6392C19.234 19.4504 19.028 20.126 18.616 20.7169C18.239 21.2574 17.7537 21.7137 17.1909 22.0565C16.5758 22.4313 15.8888 22.5952 15.0712 22.6736C14.274 22.75 13.2818 22.75 12.0315 22.75H11.9539C10.702 22.75 9.70858 22.75 8.91041 22.6735C8.09186 22.5949 7.40416 22.4307 6.78854 22.0553C6.22537 21.7118 5.73991 21.2547 5.36311 20.7133C4.95121 20.1214 4.74587 19.4449 4.61816 18.6325C4.49362 17.8404 4.43377 16.8488 4.35833 15.5991L3.79393 6.25003H3C2.58579 6.25003 2.25 5.91425 2.25 5.50003C2.25 5.08582 2.58579 4.75003 3 4.75003H7.57055L7.98959 3.83076C8.19915 3.37098 8.37691 2.98098 8.55391 2.67076C8.74173 2.34156 8.95528 2.05251 9.26078 1.81814C9.38136 1.72564 9.50939 1.64329 9.64357 1.57195C9.98355 1.39117 10.3351 1.31675 10.7126 1.28239C11.0683 1.25003 11.4969 1.25003 12.0022 1.25003L12.353 1.25028ZM18.7022 6.25003H5.29666L5.85327 15.47C5.93157 16.767 5.9879 17.6868 6.09996 18.3996C6.21012 19.1003 6.36439 19.5261 6.59431 19.8565C6.85213 20.2269 7.18428 20.5396 7.56961 20.7747C7.91325 20.9842 8.34758 21.1126 9.05365 21.1803C9.77186 21.2492 10.6934 21.25 11.9928 21.25C13.2905 21.25 14.2107 21.2492 14.928 21.1805C15.6332 21.1128 16.0671 20.9848 16.4105 20.7755C16.7956 20.5409 17.1277 20.2288 17.3856 19.8589C17.6156 19.5291 17.7702 19.1039 17.8812 18.4042C17.9941 17.6925 18.0517 16.7741 18.1317 15.4788L18.7022 6.25003ZM9.5 9.75003C9.91421 9.75003 10.25 10.0858 10.25 10.5V16.5C10.25 16.9142 9.91421 17.25 9.5 17.25C9.08579 17.25 8.75 16.9142 8.75 16.5V10.5C8.75 10.0858 9.08579 9.75003 9.5 9.75003ZM14.5 9.75003C14.9142 9.75003 15.25 10.0858 15.25 10.5V16.5C15.25 16.9142 14.9142 17.25 14.5 17.25C14.0858 17.25 13.75 16.9142 13.75 16.5V10.5C13.75 10.0858 14.0858 9.75003 14.5 9.75003ZM12.4492 2.75074L11.6581 2.75054C11.3132 2.75194 11.0583 2.75712 10.8486 2.77621C10.5831 2.80038 10.4481 2.84301 10.3478 2.89636C10.2868 2.92879 10.2286 2.96622 10.1738 3.00826C10.0837 3.07742 9.98887 3.18256 9.85677 3.4141C9.7176 3.65801 9.56765 3.98526 9.34105 4.48237L9.21904 4.75003H14.8587L14.6982 4.41891C14.4657 3.93929 14.312 3.62385 14.1709 3.38887C14.0371 3.16591 13.9426 3.06461 13.8533 2.99804C13.7991 2.95759 13.7417 2.92162 13.6816 2.89047C13.5828 2.83919 13.4504 2.7983 13.1914 2.77514C12.9964 2.7577 12.7617 2.75236 12.4492 2.75074Z"
-                        fill="#161616" />
-                    </svg>
-                  </button>
                 </div>
               </div>
-              <!-- end card header -->
-
-              <!-- start person actions -->
-              <div class="d-flex align-items-center gap-xl person__card__actions">
-
-                <button class="btn border bg-Primary-25 border-Primary-600 Primary-700 person-list">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M12.0566 1.25C13.8943 1.24998 15.3501 1.25016 16.4893 1.40332C17.6616 1.56096 18.6101 1.89329 19.3584 2.6416C20.1067 3.38991 20.439 4.33844 20.5967 5.51074C20.7498 6.6499 20.75 8.10573 20.75 9.94336V13.4639C20.7507 14.1623 20.7515 14.7153 20.541 15.2236C20.3304 15.732 19.9387 16.1228 19.4443 16.6162L14.5488 21.5127C14.1227 21.9395 13.7857 22.276 13.3584 22.4805C13.2701 22.5227 13.1792 22.5602 13.0869 22.5928C12.6401 22.7505 12.1637 22.7505 11.5605 22.75H11.4072C9.82589 22.75 8.57311 22.7496 7.58105 22.6338C6.56277 22.5149 5.72291 22.2661 5.01855 21.6982C4.75491 21.4857 4.51433 21.2451 4.30176 20.9814C3.73394 20.2771 3.4851 19.4372 3.36621 18.4189C3.2504 17.4269 3.24999 16.1741 3.25 14.5928V9.94336C3.24998 8.10571 3.25016 6.64991 3.40332 5.51074C3.56096 4.33844 3.89329 3.38991 4.6416 2.6416C5.38991 1.89329 6.33844 1.56096 7.51074 1.40332C8.64991 1.25016 10.1057 1.24998 11.9434 1.25H12.0566ZM12 2.75C10.0932 2.75 8.73859 2.7515 7.71094 2.88965C6.70485 3.02491 6.12536 3.27894 5.70215 3.70215C5.27894 4.12536 5.02491 4.70485 4.88965 5.71094C4.7515 6.73859 4.75 8.09324 4.75 10V14.5439C4.75 16.1845 4.75098 17.3501 4.85547 18.2451C4.95808 19.124 5.15161 19.6455 5.46973 20.04C5.61517 20.2204 5.77957 20.3848 5.95996 20.5303C6.35453 20.8484 6.87604 21.0419 7.75488 21.1445C8.6499 21.249 9.81549 21.25 11.4561 21.25C11.8419 21.25 12.0832 21.247 12.25 21.2363V20.9453C12.25 19.5778 12.2497 18.4753 12.3662 17.6084C12.4872 16.7083 12.7467 15.9506 13.3486 15.3486C13.9505 14.7467 14.7083 14.4872 15.6084 14.3662C16.4753 14.2497 17.5778 14.25 18.9453 14.25H19.2334C19.2468 14.0579 19.25 13.7807 19.25 13.3428V10C19.25 8.09324 19.2485 6.73859 19.1104 5.71094C18.9751 4.70485 18.7211 4.12536 18.2979 3.70215C17.8746 3.27894 17.2951 3.02491 16.2891 2.88965C15.2614 2.7515 13.9068 2.75 12 2.75ZM18.1885 15.751C17.1738 15.7546 16.4126 15.7723 15.8086 15.8535C15.0748 15.9522 14.6859 16.1324 14.4092 16.4092C14.1324 16.6859 13.9522 17.0748 13.8535 17.8086C13.7723 18.4126 13.7546 19.1738 13.751 20.1885L18.1885 15.751ZM12 10.25C12.4142 10.25 12.75 10.5858 12.75 11C12.75 11.4142 12.4142 11.75 12 11.75H8C7.58579 11.75 7.25 11.4142 7.25 11C7.25 10.5858 7.58579 10.25 8 10.25H12ZM16 6.25C16.4142 6.25 16.75 6.58579 16.75 7C16.75 7.41421 16.4142 7.75 16 7.75H8C7.58579 7.75 7.25 7.41421 7.25 7C7.25 6.58579 7.58579 6.25 8 6.25H16Z"
-                      fill="#25935F" />
-                  </svg>
-                  سجل الشخص
-                </button>
-                <button class="btn border bg-Info-25 border-Info-600 Info-700 identity-stutus">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M13.0449 2.24988C14.8815 2.24987 16.3217 2.25016 17.4639 2.3739C18.6292 2.50019 19.5736 2.76274 20.3799 3.34851C20.8678 3.70305 21.2968 4.13208 21.6514 4.62C22.2371 5.42623 22.4997 6.37064 22.626 7.53601C22.7497 8.67814 22.75 10.1184 22.75 11.955V12.0448C22.75 13.8813 22.7497 15.3216 22.626 16.4637C22.4997 17.6291 22.2371 18.5735 21.6514 19.3798C21.2968 19.8677 20.8678 20.2967 20.3799 20.6512C19.5736 21.237 18.6292 21.4996 17.4639 21.6259C16.3217 21.7496 14.8814 21.7499 13.0449 21.7499H10.9551C9.11855 21.7499 7.67826 21.7496 6.53613 21.6259C5.37077 21.4996 4.42636 21.237 3.62012 20.6512C3.1322 20.2967 2.70317 19.8677 2.34863 19.3798C1.76287 18.5735 1.50032 17.6291 1.37402 16.4637C1.25028 15.3216 1.24999 13.8813 1.25 12.0448V11.955C1.24999 10.1184 1.25028 8.67815 1.37402 7.53601C1.50032 6.37064 1.76287 5.42623 2.34863 4.62C2.70317 4.13208 3.1322 3.70305 3.62012 3.34851C4.42636 2.76274 5.37077 2.50019 6.53613 2.3739C7.67827 2.25016 9.11854 2.24987 10.9551 2.24988H13.0449ZM11 3.74988C9.10853 3.74988 7.75017 3.75116 6.69824 3.86511C5.6604 3.97756 5.00994 4.19236 4.50195 4.5614C4.14115 4.82354 3.82366 5.14103 3.56152 5.50183C3.19248 6.00982 2.97768 6.66028 2.86523 7.69812C2.75128 8.75004 2.75 10.1084 2.75 11.9999C2.75 13.8913 2.75128 15.2497 2.86523 16.3016C2.97768 17.3395 3.19248 17.9899 3.56152 18.4979C3.82366 18.8587 4.14115 19.1762 4.50195 19.4384C5.00994 19.8074 5.6604 20.0222 6.69824 20.1346C7.75017 20.2486 9.10853 20.2499 11 20.2499H13C14.8915 20.2499 16.2498 20.2486 17.3018 20.1346C18.3396 20.0222 18.9901 19.8074 19.498 19.4384C19.8589 19.1762 20.1763 18.8587 20.4385 18.4979C20.8075 17.9899 21.0223 17.3395 21.1348 16.3016C21.2487 15.2497 21.25 13.8913 21.25 11.9999C21.25 10.1084 21.2487 8.75004 21.1348 7.69812C21.0223 6.66028 20.8075 6.00982 20.4385 5.50183C20.1763 5.14103 19.8589 4.82354 19.498 4.5614C18.9901 4.19236 18.3396 3.97756 17.3018 3.86511C16.2498 3.75116 14.8915 3.74988 13 3.74988H11ZM8.45898 13.2509C10.1032 13.2266 11.8769 13.9669 12.6797 15.6815C12.8553 16.0567 12.6935 16.5039 12.3184 16.6796C11.9434 16.8551 11.4971 16.693 11.3213 16.3182C10.8362 15.282 9.7131 14.7317 8.48145 14.7499C7.24065 14.7682 6.12819 15.3602 5.67969 16.3182C5.50408 16.6931 5.05758 16.8548 4.68262 16.6796C4.30748 16.5039 4.14567 16.0567 4.32129 15.6815C5.08116 14.0589 6.82405 13.2751 8.45898 13.2509ZM17 11.7499C17.4142 11.7499 17.75 12.0857 17.75 12.4999C17.75 12.9141 17.4142 13.2499 17 13.2499H14C13.5858 13.2499 13.25 12.9141 13.25 12.4999C13.25 12.0857 13.5858 11.7499 14 11.7499H17ZM8.5 6.24988C10.0188 6.24988 11.25 7.48109 11.25 8.99988C11.25 10.5187 10.0188 11.7499 8.5 11.7499C6.98122 11.7499 5.75 10.5187 5.75 8.99988C5.75 7.48109 6.98122 6.24988 8.5 6.24988ZM8.5 7.74988C7.80964 7.74988 7.25 8.30952 7.25 8.99988C7.25 9.69023 7.80964 10.2499 8.5 10.2499C9.19036 10.2499 9.75 9.69023 9.75 8.99988C9.75 8.30952 9.19036 7.74988 8.5 7.74988ZM18 8.24988C18.4142 8.24988 18.75 8.58566 18.75 8.99988C18.75 9.41409 18.4142 9.74988 18 9.74988H14C13.5858 9.74988 13.25 9.41409 13.25 8.99988C13.25 8.58566 13.5858 8.24988 14 8.24988H18Z"
-                      fill="#1570EF" />
-                  </svg>
-                  حالة الإقامة
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.60372 8.55529C6.7256 8.71666 7.08951 9.1984 7.30624 9.47611C7.74031 10.0323 8.33342 10.7714 8.97323 11.5083C9.61627 12.2489 10.2918 12.9702 10.8919 13.5005C11.1928 13.7663 11.4571 13.9684 11.6753 14.0999C11.8804 14.2235 12.0016 14.2493 12.0016 14.2493C12.0016 14.2493 12.1192 14.2235 12.3244 14.0999C12.5425 13.9684 12.8068 13.7663 13.1078 13.5005C13.7079 12.9702 14.3834 12.2489 15.0264 11.5083C15.6662 10.7714 16.2593 10.0323 16.6934 9.47608C16.9101 9.19837 17.2735 8.7173 17.3954 8.55593C17.6411 8.22241 18.1111 8.15047 18.4446 8.3961C18.7781 8.64173 18.8494 9.11123 18.6037 9.44476L18.6018 9.4473C18.474 9.61655 18.0971 10.1156 17.8759 10.3989C17.4321 10.9677 16.8216 11.7286 16.1591 12.4917C15.4997 13.2511 14.7741 14.0298 14.101 14.6245C13.7653 14.9212 13.425 15.1879 13.0988 15.3845C12.7932 15.5687 12.4063 15.75 11.9998 15.75C11.5933 15.75 11.2064 15.5687 10.9008 15.3845C10.5747 15.1879 10.2344 14.9212 9.89869 14.6245C9.22557 14.0298 8.4999 13.2511 7.84058 12.4917C7.17803 11.7286 6.5676 10.9677 6.12372 10.399C5.90243 10.1154 5.52551 9.61637 5.39793 9.44747L5.39628 9.44528C5.15064 9.11176 5.22154 8.64179 5.55506 8.39615C5.88857 8.15053 6.35808 8.22179 6.60372 8.55529Z"
-                      fill="#1570EF" />
-                  </svg>
-                </button>
-
-                <button class="btn border bg-Brown-25 border-Brown-600 Brown-700 identity-stutus">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M12 1.25C15.392 1.25 17.2609 1.25012 18.5049 2.49512C18.9796 2.96986 19.2724 3.53535 19.4541 4.24121C20.4196 4.21336 21.8118 4.20807 22.4883 5.36133C22.9432 6.13829 22.741 7.00429 22.373 8.57617L20.4551 16.7773C19.8311 19.4453 19.4869 20.914 18.334 21.834C17.178 22.754 15.6762 22.7539 12.9492 22.7539V22.752C12.9268 22.752 12.9047 22.75 12.8828 22.748C12.6005 22.749 12.3065 22.75 12 22.75H9C5.608 22.75 3.73912 22.7499 2.49512 21.5049C1.25012 20.2599 1.25 18.392 1.25 15V9C1.25 5.608 1.25012 3.73912 2.49512 2.49512C3.74012 1.25012 5.608 1.25 9 1.25H12ZM9 2.75C5.911 2.75 4.36069 2.74969 3.55469 3.55469C2.74969 4.35969 2.75 5.911 2.75 9V15C2.75 18.089 2.74969 19.6393 3.55469 20.4453C4.35969 21.2503 5.911 21.25 9 21.25H12C15.089 21.25 16.6393 21.2503 17.4453 20.4453C18.2503 19.6403 18.25 18.089 18.25 15V9C18.25 5.911 18.2503 4.36069 17.4453 3.55469C16.6403 2.74969 15.089 2.75 12 2.75H9ZM14 16.25C14.414 16.25 14.75 16.586 14.75 17C14.75 17.414 14.414 17.75 14 17.75H7C6.586 17.75 6.25 17.414 6.25 17C6.25 16.586 6.586 16.25 7 16.25H14ZM10.5 5.25C13.119 5.25 15.25 7.381 15.25 10C15.25 12.619 13.119 14.75 10.5 14.75C7.881 14.75 5.75 12.619 5.75 10C5.75 7.381 7.881 5.25 10.5 5.25ZM10.5 6.78223C10.239 7.02945 9.75 8.12029 9.75 10C9.75 11.8797 10.239 12.9705 10.5 13.2178C10.761 12.9705 11.25 11.8797 11.25 10C11.25 8.12029 10.761 7.02945 10.5 6.78223ZM19.6807 5.73828C19.7494 6.63771 19.75 7.70834 19.75 9V13.2021L20.9111 8.23828C21.1731 7.1173 21.3464 6.37914 21.1934 6.11914C20.9774 5.75181 20.3034 5.72566 19.6807 5.73828ZM8.58691 7.37402C7.77695 7.96603 7.25 8.92203 7.25 10C7.25 11.078 7.77695 12.034 8.58691 12.626C8.35992 11.831 8.25 10.902 8.25 10C8.25 9.09801 8.35892 8.16902 8.58691 7.37402ZM12.4131 7.37402C12.6401 8.16902 12.75 9.09801 12.75 10C12.75 10.902 12.6411 11.831 12.4131 12.626C13.2231 12.034 13.75 11.078 13.75 10C13.75 8.92203 13.2231 7.96603 12.4131 7.37402Z"
-                      fill="#A97F4E" />
-                  </svg>
-
-                  نوع التأشيرة
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.60372 8.55529C6.7256 8.71666 7.08951 9.1984 7.30624 9.47611C7.74031 10.0323 8.33342 10.7714 8.97323 11.5083C9.61627 12.2489 10.2918 12.9702 10.8919 13.5005C11.1928 13.7663 11.4571 13.9684 11.6753 14.0999C11.8804 14.2235 12.0016 14.2493 12.0016 14.2493C12.0016 14.2493 12.1192 14.2235 12.3244 14.0999C12.5425 13.9684 12.8068 13.7663 13.1078 13.5005C13.7079 12.9702 14.3834 12.2489 15.0264 11.5083C15.6662 10.7714 16.2593 10.0323 16.6934 9.47608C16.9101 9.19837 17.2735 8.7173 17.3954 8.55593C17.6411 8.22241 18.1111 8.15047 18.4446 8.3961C18.7781 8.64173 18.8494 9.11123 18.6037 9.44476L18.6018 9.4473C18.474 9.61655 18.0971 10.1156 17.8759 10.3989C17.4321 10.9677 16.8216 11.7286 16.1591 12.4917C15.4997 13.2511 14.7741 14.0298 14.101 14.6245C13.7653 14.9212 13.425 15.1879 13.0988 15.3845C12.7932 15.5687 12.4063 15.75 11.9998 15.75C11.5933 15.75 11.2064 15.5687 10.9008 15.3845C10.5747 15.1879 10.2344 14.9212 9.89869 14.6245C9.22557 14.0298 8.4999 13.2511 7.84058 12.4917C7.17803 11.7286 6.5676 10.9677 6.12372 10.399C5.90243 10.1154 5.52551 9.61637 5.39793 9.44747L5.39628 9.44528C5.15064 9.11176 5.22154 8.64179 5.55506 8.39615C5.88857 8.15053 6.35808 8.22179 6.60372 8.55529Z"
-                      fill="#A97F4E" />
-                  </svg>
-
-                </button>
-
-                <button class="btn border bg-Lavender-25 border-Lavender-600 Lavender-700 Travel-stutus">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M15.3955 3.19702C16.5492 2.26479 17.8378 2.23645 18.975 2.25239C19.0114 2.2529 19.0474 2.25335 19.0832 2.2538C19.5598 2.25972 19.9853 2.26501 20.3505 2.40661C20.9201 2.62753 21.3726 3.07995 21.5935 3.64962C21.7351 4.01475 21.7404 4.44027 21.7463 4.91691C21.7467 4.95267 21.7472 4.98872 21.7477 5.02505C21.7636 6.16224 21.7353 7.45085 20.8031 8.60461C20.4547 9.03574 19.9979 9.37044 19.6342 9.63701C19.5905 9.669 19.5482 9.70002 19.5075 9.7301C19.0883 10.0404 18.8017 10.2808 18.6263 10.5705C18.4168 10.9165 18.4824 11.2675 18.6717 12.0431L19.9515 17.2884C20.0978 17.8879 20.1337 18.4546 19.9804 19.0076C19.8268 19.5617 19.5058 20.0202 19.0833 20.4428C18.8404 20.6857 18.4446 20.9839 17.9271 20.9252C17.4103 20.8666 17.0845 20.4876 16.89 20.1777L13.4732 14.7337L12.2849 15.6782C11.5582 16.2559 11.4017 16.4036 11.3181 16.5815C11.1911 16.8519 11.1462 17.2499 11.1612 17.785C11.1683 18.039 11.1873 18.2976 11.2072 18.567L11.2082 18.581C11.2278 18.8472 11.2486 19.1303 11.2523 19.3941C11.2583 19.8266 11.0918 20.3505 10.8486 20.7651C10.623 21.1499 10.1689 21.7093 9.45476 21.7482C8.87521 21.7797 8.52594 21.4157 8.35558 21.1544C8.23549 20.9702 8.13411 20.7195 8.08858 20.6069C8.07958 20.5846 8.07276 20.5677 8.06841 20.5579L6.83594 17.7565C6.75885 17.5812 6.71463 17.4827 6.67721 17.4122C6.65979 17.3794 6.64902 17.3629 6.64412 17.356C6.63721 17.3511 6.62069 17.3403 6.58786 17.3229C6.51735 17.2855 6.41886 17.2412 6.24364 17.1641L3.44223 15.9317C3.43234 15.9273 3.41548 15.9205 3.39323 15.9115C3.28062 15.866 3.02987 15.7646 2.84569 15.6445C2.58442 15.4742 2.22038 15.1249 2.25192 14.5453C2.29078 13.8312 2.85022 13.3771 3.23495 13.1515C3.64956 12.9083 4.17349 12.7418 4.60597 12.7478C4.86975 12.7515 5.15287 12.7723 5.41906 12.7919L5.43318 12.7929C5.70252 12.8128 5.96114 12.8318 6.21506 12.8389C6.75018 12.8538 7.14814 12.809 7.41854 12.682C7.59648 12.5984 7.74421 12.4419 8.32187 11.7152L9.26643 10.5269L3.82243 7.11012C3.51251 6.91561 3.13348 6.58981 3.07488 6.07302C3.01621 5.55547 3.3144 5.15972 3.55732 4.9168C3.97986 4.49427 4.43843 4.1733 4.9925 4.01967C5.54548 3.86635 6.11221 3.90228 6.71165 4.04854L11.957 5.32839C12.7326 5.51764 13.0836 5.58327 13.4296 5.37381C13.7193 5.19842 13.9597 4.91176 14.27 4.49255C14.3001 4.45191 14.3311 4.40958 14.3631 4.36591C14.6296 4.00214 14.9643 3.54538 15.3955 3.19702ZM6.64822 17.3591L6.6469 17.358L6.64822 17.3591ZM18.954 3.75225C17.8238 3.7364 17.0372 3.79894 16.3382 4.36376C16.0679 4.58217 15.8516 4.87546 15.5638 5.26558C15.5352 5.30442 15.5058 5.34423 15.4756 5.38501C15.1718 5.79539 14.7778 6.31107 14.2065 6.65697C13.296 7.20817 12.3488 6.97188 11.7187 6.81471C11.6783 6.80462 11.6391 6.79485 11.6014 6.78564L6.35609 5.50579C5.91027 5.39701 5.61937 5.40245 5.39328 5.46514C5.18991 5.52153 4.97271 5.64259 4.70506 5.89313L10.7739 9.70205C10.9547 9.8155 11.0785 10.0006 11.1145 10.2109C11.1505 10.4212 11.0951 10.6369 10.9623 10.804L9.49609 12.6486C9.46778 12.6842 9.43981 12.7195 9.41214 12.7544C8.96507 13.3184 8.59331 13.7874 8.05633 14.0397C7.45062 14.3242 6.75257 14.3545 6.17322 14.3383C5.88443 14.3303 5.59588 14.309 5.336 14.2898L5.30884 14.2878C5.03375 14.2676 4.79615 14.2506 4.58494 14.2477C4.55302 14.2472 4.46905 14.2556 4.34569 14.2927C4.22785 14.3281 4.10352 14.381 3.99378 14.4454C3.96202 14.464 3.93335 14.4825 3.90767 14.5005L3.91232 14.5024L3.9139 14.503C3.9528 14.519 4.00029 14.5384 4.04628 14.5587L6.84768 15.7911C6.86715 15.7997 6.8868 15.8083 6.90662 15.817C7.17688 15.9352 7.47612 16.066 7.70509 16.295C7.93405 16.524 8.06492 16.8232 8.18312 17.0935C8.19178 17.1133 8.20038 17.1329 8.20894 17.1524L9.44141 19.9538C9.46164 19.9998 9.4811 20.0473 9.49704 20.0862L9.4977 20.0878L9.49961 20.0924C9.51762 20.0667 9.5361 20.0381 9.55472 20.0063C9.61908 19.8966 9.672 19.7722 9.70743 19.6544C9.74453 19.531 9.75286 19.4471 9.75241 19.4151C9.74945 19.2039 9.73253 18.9663 9.71226 18.6912L9.71026 18.6641C9.69109 18.4042 9.66981 18.1156 9.66176 17.8269C9.64559 17.2475 9.67589 16.5495 9.96043 15.9438C10.2127 15.4068 10.6817 15.035 11.2457 14.5879C11.2806 14.5603 11.3159 14.5323 11.3515 14.504L13.1961 13.0378C13.3631 12.905 13.5788 12.8496 13.7892 12.8856C13.9995 12.9216 14.1846 13.0454 14.298 13.2262L18.107 19.295C18.3575 19.0274 18.4786 18.8102 18.535 18.6068C18.5976 18.3807 18.6031 18.0898 18.4943 17.644L17.2144 12.3987C17.2052 12.361 17.1955 12.3218 17.1854 12.2813C17.0282 11.6513 16.7919 10.7041 17.3431 9.79363C17.689 9.22228 18.2047 8.82827 18.6151 8.52449C18.6559 8.49429 18.6957 8.46493 18.7345 8.43628C19.1246 8.14852 19.4179 7.93219 19.6363 7.66188C20.2011 6.96285 20.2637 6.17625 20.2478 5.04607C20.2387 4.39391 20.2252 4.26986 20.195 4.19198C20.1264 4.01531 19.9848 3.87364 19.8081 3.80512C19.7302 3.77492 19.6062 3.76139 18.954 3.75225ZM9.34195 20.2564L9.34326 20.2558L9.34195 20.2564ZM3.74429 14.6568L3.74371 14.6581L3.74429 14.6568Z"
-                      fill="#6D428F" />
-                  </svg>
-
-                  حالة السفر
-
-                </button>
-
-                <button class="btn border bg-Warning-25 border-Warning-600 Warning-700 identity-stutus">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M18.7305 12.5527C19.3896 12.1607 20.2044 12.1482 20.875 12.5205C21.1547 12.6759 21.4021 12.9295 21.6826 13.2168C21.7036 13.2383 21.7247 13.2603 21.7461 13.2822C21.7673 13.3039 21.7887 13.3254 21.8096 13.3467C22.0918 13.6343 22.3385 13.8857 22.4893 14.1689C22.8475 14.8423 22.8357 15.6566 22.458 16.3193C22.2991 16.5981 22.0452 16.8421 21.7549 17.1211C21.7334 17.1417 21.7113 17.1625 21.6895 17.1836L17.458 21.2598C17.4265 21.2901 17.395 21.32 17.3643 21.3496C16.7823 21.911 16.3418 22.3365 15.7783 22.5566C15.2132 22.7773 14.6038 22.7608 13.8037 22.7393C13.7616 22.7381 13.719 22.7365 13.6758 22.7354L13.5498 22.7324C13.5414 22.7322 13.5323 22.7317 13.5234 22.7314C13.407 22.7285 13.2524 22.7245 13.1182 22.7021C12.9503 22.6741 12.7022 22.6013 12.502 22.374C12.304 22.1493 12.2612 21.8969 12.252 21.7314C12.2444 21.5961 12.2572 21.4416 12.2666 21.3223C12.2673 21.3136 12.2679 21.3051 12.2686 21.2969L12.2803 21.1406C12.2831 21.104 12.2863 21.0679 12.2891 21.0322C12.3434 20.3296 12.3839 19.805 12.5928 19.3242C12.8022 18.8423 13.1572 18.4578 13.6309 17.9453C13.6549 17.9193 13.6795 17.8929 13.7041 17.8662L17.8818 13.3398C17.9027 13.3172 17.9239 13.2947 17.9443 13.2725C18.2164 12.9769 18.4556 12.7163 18.7305 12.5527ZM5.19434 14.8369C7.92823 13.2092 11.222 12.8348 14.2109 13.708C14.6083 13.8243 14.8358 14.2412 14.7197 14.6387C14.6035 15.036 14.1874 15.2644 13.79 15.1484C11.1907 14.389 8.32885 14.7167 5.96191 16.126C5.79407 16.2259 5.60964 16.3302 5.41699 16.4395C4.70439 16.8437 3.87208 17.316 3.29199 17.8838C2.93193 18.2362 2.77846 18.5273 2.75391 18.752C2.73447 18.9303 2.78003 19.2242 3.23047 19.6533C4.26624 20.6401 5.3185 21.2499 6.59082 21.25H10.5C10.9142 21.25 11.25 21.5858 11.25 22C11.25 22.4142 10.9142 22.75 10.5 22.75H6.59082C4.77262 22.7499 3.36671 21.8553 2.19531 20.7393C1.5165 20.0925 1.17796 19.3646 1.2627 18.5889C1.34244 17.8593 1.7815 17.2634 2.24316 16.8115C2.98132 16.0891 4.05876 15.4812 4.77148 15.0791C4.9341 14.9874 5.07805 14.9062 5.19434 14.8369ZM20.1465 13.832C19.9431 13.7192 19.6986 13.7228 19.498 13.8418C19.4375 13.8778 19.3566 13.9541 18.9844 14.3574L14.8066 18.8838C14.2283 19.5104 14.0644 19.702 13.9688 19.9219C13.8733 20.1415 13.8432 20.3945 13.7773 21.2373C14.7144 21.2612 14.9904 21.2536 15.2324 21.1592C15.4814 21.0619 15.6986 20.8717 16.417 20.1797L20.6494 16.1035C21.0432 15.7243 21.1185 15.6406 21.1553 15.5762C21.2779 15.3608 21.2816 15.0934 21.165 14.874C21.1301 14.8083 21.0566 14.722 20.6738 14.3311C20.2904 13.9393 20.2079 13.8661 20.1465 13.832ZM12 1.25C14.8995 1.25 17.25 3.6005 17.25 6.5C17.25 9.39949 14.8995 11.75 12 11.75C9.1005 11.75 6.75 9.39949 6.75 6.5C6.75 3.6005 9.1005 1.25 12 1.25ZM12 2.75C9.92893 2.75 8.25 4.42893 8.25 6.5C8.25 8.57107 9.92893 10.25 12 10.25C14.0711 10.25 15.75 8.57107 15.75 6.5C15.75 4.42893 14.0711 2.75 12 2.75Z"
-                      fill="#DC6803" />
-                  </svg>
-
-                  إستكمال بيانات الشخص
-
-                </button>
-
-
-
+              <div class="moi-person-card--container moi-person-card--container--more-details">
+                <div class="moi-person-card__body">
+                  <div class="moi-person-card__details">
+                    <div class="moi-person-card--block">
+                      <label>المهنة</label><span>محلل نظم المعلومات</span>
+                    </div>
+                    <div class="moi-person-card--block">
+                      <label>مؤهل للإقامة المميزة</label>
+                      <span class="bg-white">
+                        <span class="moi-tag moi-tag--md moi-tag--rounded" data-status="highpriority">لا</span>
+                      </span>
+                    </div>
+                    <div class="moi-person-card--block">
+                      <label>رقم الجوال</label><span>05*****00</span>
+                    </div>
+                    <div class="moi-person-card--block">
+                      <label>حالة الشخص</label><span>صالح</span>
+                    </div>
+                    <div class="moi-person-card--block">
+                      <label>الديانة</label><span>الإسلام</span>
+                    </div>
+                    <div class="moi-person-card--block">
+                      <label>الجنس</label><span>ذكر</span>
+                    </div>
+                    <div class="moi-person-card--block">
+                      <label>تاريخ الميلاد</label><span>01/01/1980</span>
+                    </div>
+                    <div class="moi-person-card--block job-location-block">
+                      <label>جهة العمل</label><span>الشركة السعودية للتحكم التقني والأمني الشامل لشركة شخص واحد</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <!-- end person actions -->
 
-
-              <!-- start person details  -->
-              <div class="row g-3 person__card__Details is-collapsed">
-
-                <div class="col-12 col-md-6 col-lg-3">
-                  <div
-                    class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                    <label class="Primary-800 font-lg-600">رقم الهوية</label>
-                    <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">2359385669</span>
-                  </div>
+              <div class="alert moi-alert d-flex justify-content-between align-items-center padding-y-md padding-x-md border-3 border-bottom bg-Error-50 border-Error-600 moi-person-card__notification"
+                id="alert-error" role="alert">
+                <div class="d-flex gap-lg align-items-center Error-700 moi-person-card__notification-content">
+                  <svg class="Error-800 icon icon-xl" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" focusable="false">
+                    <path
+                      d="M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM11.2764 10.25C11.4815 10.2499 11.7034 10.2502 11.8906 10.2754C12.1099 10.3049 12.3902 10.3804 12.626 10.6162C12.8618 10.852 12.9373 11.1322 12.9668 11.3516C12.992 11.5388 12.9923 11.7607 12.9922 11.9658V17C12.9922 17.4142 12.6564 17.75 12.2422 17.75C11.828 17.75 11.4922 17.4142 11.4922 17V12C11.4922 11.9009 11.4923 11.8204 11.4912 11.751C11.4218 11.7499 11.3413 11.75 11.2422 11.75C10.828 11.75 10.4922 11.4142 10.4922 11C10.4922 10.5858 10.828 10.25 11.2422 10.25C11.2535 10.25 11.2649 10.25 11.2764 10.25ZM12.001 7C12.5533 7 13.001 7.44772 13.001 8C13.001 8.55228 12.5533 9 12.001 9H11.9922C11.4399 9 10.9922 8.55228 10.9922 8C10.9922 7.44772 11.4399 7 11.9922 7H12.001Z">
+                    </path>
+                  </svg>
+                  <strong>تنبيه:</strong>
+                  <span class="font-lg-500 moi-person-card__notification-text">الشخص يوجد لدية 10 سوابق تسول</span>
                 </div>
-
-                <div class="col-12 col-md-6 col-lg-3">
-                  <div
-                    class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                    <label class="Primary-800 font-lg-600">العمر</label>
-                    <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">23</span>
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-3">
-                  <div
-                    class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                    <label class="Primary-800 font-lg-600"> تاريخ الميلاد</label>
-                    <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">06-02-1414</span>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                  <div
-                    class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                    <label class="Primary-800 font-lg-600">الجنسية </label>
-                    <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">سعودي</span>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                  <div
-                    class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                    <label class="Primary-800 font-lg-600">الجنس </label>
-                    <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">ذكر</span>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                  <div
-                    class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                    <label class="Primary-800 font-lg-600">الديانة </label>
-                    <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">الإسلام</span>
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-3">
-                  <div
-                    class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                    <label class="Primary-800 font-lg-600">حالة الشخص </label>
-                    <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">صالح</span>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                  <div
-                    class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                    <label class="Primary-800 font-lg-600">رقم الجوال </label>
-                    <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">05******00</span>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                  <div
-                    class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                    <label class="Primary-800 font-lg-600">المهنة </label>
-                    <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">محلل نظم المعلومات</span>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                  <div
-                    class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                    <label class="Primary-800 font-lg-600">مؤهل للإقامة المميزة </label>
-                    <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700"><span
-                        class="highpriority-filled mx-0">لا</span></span>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-12">
-                  <div
-                    class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                    <label class="Primary-800 font-lg-600"> جهة العمل </label>
-                    <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">الشركه السعودية للتجكم التقني والأمني
-                      الشامل المحدودة شركة شخص واحد</span>
-                  </div>
-                </div>
-
+                <div class="d-flex moi-person-card__notification-actions"></div>
               </div>
-              <div class="row">
-                <div class="col-12">
-                  <button class="btn moi-btn--Neutral--outline person__card__Details--viewmore">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M7 3C4.791 3 3 4.791 3 7V17C3 19.209 4.791 21 7 21H17C19.209 21 21 19.209 21 17V7C21 4.791 19.209 3 17 3H7ZM7 5H17C18.105 5 19 5.895 19 7V17C19 18.105 18.105 19 17 19H7C5.895 19 5 18.105 5 17V7C5 5.895 5.895 5 7 5Z" />
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M13 8C13 7.44772 12.5523 7 12 7C11.4477 7 11 7.44772 11 8V11H8C7.44772 11 7 11.4477 7 12C7 12.5523 7.44772 13 8 13H11V16C11 16.5523 11.4477 17 12 17C12.5523 17 13 16.5523 13 16V13H16C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11H13V8Z" />
-                    </svg>
 
-                    <span class="viewmore-label">إخفاء التفاصيل الأساسية للشخص</span>
-
+              <div class="moi-person-card__footer">
+                <div class="moi-person-card__actions">
+                  <button class="btn moi-btn moi-btn--Primary--solid border-Primary-600" type="button">
+                    <div class="moi-person-card__action-label">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true" focusable="false">
+                        <path
+                          d="M10.8836 6.50002C11.7087 6.5 12.3848 6.49972 12.9012 6.57619C13.4376 6.65569 13.9163 6.83363 14.2293 7.28322C14.5416 7.73202 14.5432 8.24358 14.4344 8.77639C14.3294 9.29012 14.0984 9.92833 13.8162 10.709L13.0711 12.7735C12.9256 13.1761 12.8026 13.5167 12.6707 13.7842C12.5306 14.0684 12.3597 14.3148 12.0955 14.501C11.831 14.6874 11.5417 14.7643 11.2273 14.7998C10.932 14.8332 10.5717 14.833 10.1463 14.833H5.85332C5.42804 14.833 5.06751 14.8332 4.77227 14.7998C4.45803 14.7643 4.16853 14.6874 3.9041 14.501C3.64007 14.3148 3.46996 14.0682 3.32988 13.7842C3.19802 13.5167 3.07495 13.176 2.92949 12.7735L2.1834 10.709C1.90125 9.92835 1.67016 9.2901 1.56523 8.77639C1.45646 8.24366 1.45817 7.73197 1.77031 7.28322C2.08335 6.83352 2.56286 6.65566 3.09941 6.57619C3.61581 6.49973 4.29174 6.5 5.11699 6.50002H10.8836ZM5.15801 7.50002C4.28127 7.50002 3.68029 7.50113 3.2459 7.56545C2.82302 7.62808 2.67423 7.73581 2.5916 7.85451C2.50845 7.97406 2.45842 8.15347 2.54473 8.57619C2.63326 9.00975 2.83793 9.5793 3.1375 10.4082L3.86016 12.4082C4.01731 12.8431 4.1221 13.1303 4.22637 13.3418C4.32506 13.542 4.4023 13.6286 4.48027 13.6836C4.55805 13.7384 4.66475 13.7818 4.88457 13.8067C5.11716 13.8329 5.4208 13.833 5.88066 13.833H10.1189C10.5788 13.833 10.8824 13.8329 11.115 13.8067C11.3348 13.7818 11.4416 13.7384 11.5193 13.6836C11.5973 13.6286 11.6745 13.542 11.7732 13.3418C11.8775 13.1304 11.9823 12.843 12.1395 12.4082L12.8621 10.4082C13.1617 9.57935 13.3663 9.00974 13.4549 8.57619C13.5411 8.15377 13.492 7.97406 13.409 7.85451C13.3264 7.73585 13.1772 7.62809 12.7547 7.56545C12.3203 7.50111 11.7185 7.50002 10.8416 7.50002H5.15801ZM12.0652 3.84084C12.1837 3.84892 12.3147 3.86708 12.4471 3.92189C12.7328 4.04034 12.9596 4.26797 13.0779 4.55373C13.1327 4.68602 13.1509 4.8162 13.159 4.93459C13.1665 5.04468 13.1668 5.17572 13.1668 5.31838V5.33303C13.1668 5.60917 12.9429 5.83302 12.6668 5.83303C12.3907 5.83303 12.1668 5.60917 12.1668 5.33303C12.1668 5.17133 12.1668 5.07487 12.1619 5.00295C12.1589 4.95928 12.1545 4.93995 12.1531 4.93459C12.1363 4.89543 12.1054 4.86357 12.0662 4.8467C12.0613 4.84546 12.0422 4.84192 11.9979 4.83889C11.9258 4.83397 11.8289 4.83303 11.6668 4.83303H4.33379C4.17163 4.83303 4.07474 4.83397 4.00273 4.83889C3.95844 4.84191 3.93941 4.84543 3.93438 4.8467C3.89515 4.86355 3.86431 4.89537 3.84746 4.93459C3.84615 4.93984 3.84167 4.95907 3.83867 5.00295C3.83378 5.07487 3.83379 5.17131 3.83379 5.33303C3.83379 5.60906 3.60978 5.83285 3.33379 5.83303C3.05765 5.83303 2.83379 5.60917 2.83379 5.33303C2.83379 5.32829 2.83379 5.32309 2.83379 5.31838C2.83378 5.17574 2.83312 5.04467 2.84063 4.93459C2.84871 4.81616 2.86784 4.68606 2.92266 4.55373C3.04106 4.26787 3.26766 4.04031 3.55352 3.92189C3.68575 3.86712 3.81602 3.84893 3.93438 3.84084C4.04459 3.83332 4.17629 3.83302 4.31914 3.83303H11.6814C11.8241 3.83302 11.9551 3.83335 12.0652 3.84084ZM10.3992 1.17385C10.5176 1.18194 10.6478 1.2011 10.7801 1.25588C11.0657 1.37428 11.2925 1.60109 11.4109 1.88674C11.4657 2.01898 11.4849 2.14924 11.493 2.2676C11.5005 2.37781 11.4998 2.50951 11.4998 2.65236V2.66701C11.4996 2.943 11.2758 3.16701 10.9998 3.16701C10.7239 3.16684 10.5 2.9429 10.4998 2.66701C10.4998 2.50486 10.4998 2.40796 10.4949 2.33596C10.4919 2.29141 10.4874 2.2725 10.4861 2.2676C10.4693 2.22848 10.4383 2.19753 10.3992 2.18068C10.3943 2.17944 10.3754 2.17493 10.3309 2.17189C10.2589 2.16698 10.162 2.16701 9.9998 2.16701H5.9998C5.83809 2.16701 5.74165 2.16701 5.66973 2.17189C5.62586 2.17489 5.60662 2.17937 5.60137 2.18068C5.56215 2.19753 5.53033 2.22837 5.51348 2.2676C5.51221 2.27262 5.50869 2.29165 5.50566 2.33596C5.50075 2.40796 5.4998 2.50486 5.4998 2.66701C5.49963 2.943 5.27584 3.16701 4.9998 3.16701C4.72392 3.16684 4.49998 2.9429 4.4998 2.66701C4.4998 2.66222 4.49981 2.65712 4.4998 2.65236C4.4998 2.50951 4.5001 2.37781 4.50762 2.2676C4.51571 2.14924 4.5339 2.01897 4.58867 1.88674C4.70709 1.60089 4.93465 1.37428 5.22051 1.25588C5.35284 1.20107 5.48294 1.18193 5.60137 1.17385C5.71145 1.16634 5.84252 1.167 5.98516 1.16701H10.0145C10.1573 1.167 10.289 1.16633 10.3992 1.17385Z" />
+                      </svg>
+                      <span>سجل الشخص</span>
+                    </div>
+                  </button>
+                  <button class="btn moi-btn moi-btn--Info--solid border-Info-600" type="button">
+                    <div class="moi-person-card__action-label">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path
+                          d="M13.0449 2.24988C14.8815 2.24987 16.3217 2.25016 17.4639 2.3739C18.6292 2.50019 19.5736 2.76274 20.3799 3.34851C20.8678 3.70305 21.2968 4.13208 21.6514 4.62C22.2371 5.42623 22.4997 6.37064 22.626 7.53601C22.7497 8.67814 22.75 10.1184 22.75 11.955V12.0448C22.75 13.8813 22.7497 15.3216 22.626 16.4637C22.4997 17.6291 22.2371 18.5735 21.6514 19.3798C21.2968 19.8677 20.8678 20.2967 20.3799 20.6512C19.5736 21.237 18.6292 21.4996 17.4639 21.6259C16.3217 21.7496 14.8814 21.7499 13.0449 21.7499H10.9551C9.11855 21.7499 7.67826 21.7496 6.53613 21.6259C5.37077 21.4996 4.42636 21.237 3.62012 20.6512C3.1322 20.2967 2.70317 19.8677 2.34863 19.3798C1.76287 18.5735 1.50032 17.6291 1.37402 16.4637C1.25028 15.3216 1.24999 13.8813 1.25 12.0448V11.955C1.24999 10.1184 1.25028 8.67815 1.37402 7.53601C1.50032 6.37064 1.76287 5.42623 2.34863 4.62C2.70317 4.13208 3.1322 3.70305 3.62012 3.34851C4.42636 2.76274 5.37077 2.50019 6.53613 2.3739C7.67827 2.25016 9.11854 2.24987 10.9551 2.24988H13.0449ZM11 3.74988C9.10853 3.74988 7.75017 3.75116 6.69824 3.86511C5.6604 3.97756 5.00994 4.19236 4.50195 4.5614C4.14115 4.82354 3.82366 5.14103 3.56152 5.50183C3.19248 6.00982 2.97768 6.66028 2.86523 7.69812C2.75128 8.75004 2.75 10.1084 2.75 11.9999C2.75 13.8913 2.75128 15.2497 2.86523 16.3016C2.97768 17.3395 3.19248 17.9899 3.56152 18.4979C3.82366 18.8587 4.14115 19.1762 4.50195 19.4384C5.00994 19.8074 5.6604 20.0222 6.69824 20.1346C7.75017 20.2486 9.10853 20.2499 11 20.2499H13C14.8915 20.2499 16.2498 20.2486 17.3018 20.1346C18.3396 20.0222 18.9901 19.8074 19.498 19.4384C19.8589 19.1762 20.1763 18.8587 20.4385 18.4979C20.8075 17.9899 21.0223 17.3395 21.1348 16.3016C21.2487 15.2497 21.25 13.8913 21.25 11.9999C21.25 10.1084 21.2487 8.75004 21.1348 7.69812C21.0223 6.66028 20.8075 6.00982 20.4385 5.50183C20.1763 5.14103 19.8589 4.82354 19.498 4.5614C18.9901 4.19236 18.3396 3.97756 17.3018 3.86511C16.2498 3.75116 14.8915 3.74988 13 3.74988H11ZM8.45898 13.2509C10.1032 13.2266 11.8769 13.9669 12.6797 15.6815C12.8553 16.0567 12.6935 16.5039 12.3184 16.6796C11.9434 16.8551 11.4971 16.6931 11.3213 16.3182C10.8362 15.2821 9.7131 14.7317 8.48145 14.7499C7.24065 14.7682 6.12819 15.3602 5.67969 16.3182C5.50408 16.6931 5.05758 16.8548 4.68262 16.6796C4.30748 16.5039 4.14567 16.0567 4.32129 15.6815C5.08116 14.0589 6.82405 13.2751 8.45898 13.2509ZM17 11.7499C17.4142 11.7499 17.75 12.0857 17.75 12.4999C17.75 12.9141 17.4142 13.2499 17 13.2499H14C13.5858 13.2499 13.25 12.9141 13.25 12.4999C13.25 12.0857 13.5858 11.7499 14 11.7499H17ZM8.5 6.24988C10.0188 6.24988 11.25 7.48109 11.25 8.99988C11.25 10.5187 10.0188 11.7499 8.5 11.7499C6.98122 11.7499 5.75 10.5187 5.75 8.99988C5.75 7.48109 6.98122 6.24988 8.5 6.24988ZM8.5 7.74988C7.80964 7.74988 7.25 8.30952 7.25 8.99988C7.25 9.69023 7.80964 10.2499 8.5 10.2499C9.19036 10.2499 9.75 9.69023 9.75 8.99988C9.75 8.30952 9.19036 7.74988 8.5 7.74988ZM18 8.24988C18.4142 8.24988 18.75 8.58566 18.75 8.99988C18.75 9.41409 18.4142 9.74988 18 9.74988H14C13.5858 9.74988 13.25 9.41409 13.25 8.99988C13.25 8.58566 13.5858 8.24988 14 8.24988H18Z" />
+                      </svg>
+                      <span>حالة الإقامة</span>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path
+                          d="M6.60372 8.55529C6.7256 8.71666 7.08951 9.1984 7.30624 9.47611C7.74031 10.0323 8.33342 10.7714 8.97323 11.5083C9.61627 12.2489 10.2918 12.9702 10.8919 13.5005C11.1928 13.7663 11.4571 13.9684 11.6753 14.0999C11.8804 14.2235 12.0016 14.2493 12.0016 14.2493C12.0016 14.2493 12.1192 14.2235 12.3244 14.0999C12.5425 13.9684 12.8068 13.7663 13.1078 13.5005C13.7079 12.9702 14.3834 12.2489 15.0264 11.5083C15.6662 10.7714 16.2593 10.0323 16.6934 9.47608C16.9101 9.19837 17.2735 8.7173 17.3954 8.55593C17.6411 8.22241 18.1111 8.15047 18.4446 8.3961C18.7781 8.64173 18.8494 9.11123 18.6037 9.44476L18.6018 9.4473C18.474 9.61655 18.0971 10.1156 17.8759 10.3989C17.4321 10.9677 16.8216 11.7286 16.1591 12.4917C15.4997 13.2511 14.7741 14.0298 14.101 14.6245C13.7653 14.9212 13.425 15.1879 13.0988 15.3845C12.7932 15.5687 12.4063 15.75 11.9998 15.75C11.5933 15.75 11.2064 15.5687 10.9008 15.3845C10.5747 15.1879 10.2344 14.9212 9.89869 14.6245C9.22557 14.0298 8.4999 13.2511 7.84058 12.4917C7.17803 11.7286 6.5676 10.9677 6.12372 10.399C5.90243 10.1154 5.52551 9.61637 5.39793 9.44747L5.39628 9.44528C5.15064 9.11176 5.22154 8.64179 5.55506 8.39615C5.88857 8.15053 6.35808 8.22179 6.60372 8.55529Z" />
+                      </svg>
+                    </div>
+                  </button>
+                  <button class="btn moi-btn moi-btn--Info--solid border-Info-600" type="button">
+                    <div class="moi-person-card__action-label">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path
+                          d="M12 1.25C15.392 1.25 17.2609 1.25012 18.5049 2.49512C18.9796 2.96986 19.2724 3.53535 19.4541 4.24121C20.4196 4.21336 21.8118 4.20807 22.4883 5.36133C22.9432 6.13829 22.741 7.00429 22.373 8.57617L20.4551 16.7773C19.8311 19.4453 19.4869 20.914 18.334 21.834C17.178 22.754 15.6762 22.7539 12.9492 22.7539V22.752C12.9268 22.752 12.9047 22.75 12.8828 22.748C12.6005 22.749 12.3065 22.75 12 22.75H9C5.608 22.75 3.73912 22.7499 2.49512 21.5049C1.25012 20.2599 1.25 18.392 1.25 15V9C1.25 5.608 1.25012 3.73912 2.49512 2.49512C3.74012 1.25012 5.608 1.25 9 1.25H12ZM9 2.75C5.911 2.75 4.36069 2.74969 3.55469 3.55469C2.74969 4.35969 2.75 5.911 2.75 9V15C2.75 18.089 2.74969 19.6393 3.55469 20.4453C4.35969 21.2503 5.911 21.25 9 21.25H12C15.089 21.25 16.6393 21.2503 17.4453 20.4453C18.2503 19.6403 18.25 18.089 18.25 15V9C18.25 5.911 18.2503 4.36069 17.4453 3.55469C16.6403 2.74969 15.089 2.75 12 2.75H9ZM14 16.25C14.414 16.25 14.75 16.586 14.75 17C14.75 17.414 14.414 17.75 14 17.75H7C6.586 17.75 6.25 17.414 6.25 17C6.25 16.586 6.586 16.25 7 16.25H14ZM10.5 5.25C13.119 5.25 15.25 7.381 15.25 10C15.25 12.619 13.119 14.75 10.5 14.75C7.881 14.75 5.75 12.619 5.75 10C5.75 7.381 7.881 5.25 10.5 5.25ZM10.5 6.78223C10.239 7.02945 9.75 8.12029 9.75 10C9.75 11.8797 10.239 12.9705 10.5 13.2178C10.761 12.9705 11.25 11.8797 11.25 10C11.25 8.12029 10.761 7.02945 10.5 6.78223ZM19.6807 5.73828C19.7494 6.63771 19.75 7.70834 19.75 9V13.2021L20.9111 8.23828C21.1731 7.1173 21.3464 6.37914 21.1934 6.11914C20.9774 5.75181 20.3034 5.72566 19.6807 5.73828ZM8.58691 7.37402C7.77695 7.96603 7.25 8.92203 7.25 10C7.25 11.078 7.77695 12.034 8.58691 12.626C8.35992 11.831 8.25 10.902 8.25 10C8.25 9.09801 8.35892 8.16902 8.58691 7.37402ZM12.4131 7.37402C12.6401 8.16902 12.75 9.09801 12.75 10C12.75 10.902 12.6411 11.831 12.4131 12.626C13.2231 12.034 13.75 11.078 13.75 10C13.75 8.92203 13.2231 7.96603 12.4131 7.37402Z" />
+                      </svg>
+                      <span>نوع التأشيرة</span>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path
+                          d="M6.60372 8.55529C6.7256 8.71666 7.08951 9.1984 7.30624 9.47611C7.74031 10.0323 8.33342 10.7714 8.97323 11.5083C9.61627 12.2489 10.2918 12.9702 10.8919 13.5005C11.1928 13.7663 11.4571 13.9684 11.6753 14.0999C11.8804 14.2235 12.0016 14.2493 12.0016 14.2493C12.0016 14.2493 12.1192 14.2235 12.3244 14.0999C12.5425 13.9684 12.8068 13.7663 13.1078 13.5005C13.7079 12.9702 14.3834 12.2489 15.0264 11.5083C15.6662 10.7714 16.2593 10.0323 16.6934 9.47608C16.9101 9.19837 17.2735 8.7173 17.3954 8.55593C17.6411 8.22241 18.1111 8.15047 18.4446 8.3961C18.7781 8.64173 18.8494 9.11123 18.6037 9.44476L18.6018 9.4473C18.474 9.61655 18.0971 10.1156 17.8759 10.3989C17.4321 10.9677 16.8216 11.7286 16.1591 12.4917C15.4997 13.2511 14.7741 14.0298 14.101 14.6245C13.7653 14.9212 13.425 15.1879 13.0988 15.3845C12.7932 15.5687 12.4063 15.75 11.9998 15.75C11.5933 15.75 11.2064 15.5687 10.9008 15.3845C10.5747 15.1879 10.2344 14.9212 9.89869 14.6245C9.22557 14.0298 8.4999 13.2511 7.84058 12.4917C7.17803 11.7286 6.5676 10.9677 6.12372 10.399C5.90243 10.1154 5.52551 9.61637 5.39793 9.44747L5.39628 9.44528C5.15064 9.11176 5.22154 8.64179 5.55506 8.39615C5.88857 8.15053 6.35808 8.22179 6.60372 8.55529Z" />
+                      </svg>
+                    </div>
+                  </button>
+                  <button class="btn moi-btn moi-btn--Lavender--solid border-Lavender-600" type="button">
+                    <div class="moi-person-card__action-label">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M15.3955 3.19705C16.5492 2.26482 17.8378 2.23648 18.975 2.25242C19.0114 2.25293 19.0474 2.25338 19.0832 2.25383C19.5598 2.25975 19.9853 2.26504 20.3505 2.40664C20.9201 2.62756 21.3726 3.07998 21.5935 3.64965C21.7351 4.01478 21.7404 4.4403 21.7463 4.91694C21.7467 4.9527 21.7472 4.98875 21.7477 5.02508C21.7636 6.16227 21.7353 7.45088 20.8031 8.60464C20.4547 9.03577 19.9979 9.37047 19.6342 9.63704C19.5905 9.66903 19.5482 9.70005 19.5075 9.73013C19.0883 10.0405 18.8017 10.2808 18.6263 10.5705C18.4168 10.9165 18.4824 11.2675 18.6717 12.0432L19.9515 17.2885C20.0978 17.8879 20.1337 18.4546 19.9804 19.0076C19.8268 19.5617 19.5058 20.0203 19.0833 20.4428C18.8404 20.6857 18.4446 20.9839 17.9271 20.9252C17.4103 20.8666 17.0845 20.4876 16.89 20.1777L13.4732 14.7337L12.2849 15.6782C11.5582 16.2559 11.4017 16.4036 11.3181 16.5816C11.1911 16.852 11.1462 17.2499 11.1612 17.7851C11.1683 18.039 11.1873 18.2976 11.2072 18.567L11.2082 18.5811C11.2278 18.8472 11.2486 19.1304 11.2523 19.3941C11.2583 19.8266 11.0918 20.3506 10.8486 20.7652C10.623 21.1499 10.1689 21.7093 9.45476 21.7482C8.87521 21.7797 8.52594 21.4157 8.35558 21.1544C8.23549 20.9702 8.13411 20.7195 8.08858 20.6069C8.07958 20.5846 8.07276 20.5678 8.06841 20.5579L6.83594 17.7565C6.75885 17.5813 6.71463 17.4828 6.67721 17.4123C6.65979 17.3794 6.64902 17.3629 6.64412 17.356C6.63721 17.3511 6.62069 17.3403 6.58786 17.3229C6.51735 17.2855 6.41886 17.2413 6.24364 17.1642L3.44223 15.9317C3.43234 15.9274 3.41548 15.9205 3.39323 15.9115C3.28062 15.866 3.02987 15.7646 2.84569 15.6445C2.58442 15.4742 2.22038 15.1249 2.25192 14.5454C2.29078 13.8312 2.85022 13.3771 3.23495 13.1515C3.64956 12.9083 4.17349 12.7418 4.60597 12.7479C4.86975 12.7516 5.15287 12.7723 5.41906 12.7919L5.43318 12.793C5.70252 12.8128 5.96114 12.8319 6.21506 12.8389C6.75018 12.8539 7.14814 12.8091 7.41854 12.682C7.59648 12.5984 7.74421 12.4419 8.32187 11.7152L9.26643 10.5269L3.82243 7.11015C3.51251 6.91564 3.13348 6.58984 3.07488 6.07305C3.01621 5.5555 3.3144 5.15975 3.55732 4.91683C3.97986 4.4943 4.43843 4.17333 4.9925 4.0197C5.54548 3.86638 6.11221 3.90231 6.71165 4.04857L11.957 5.32842C12.7326 5.51767 13.0836 5.5833 13.4296 5.37384C13.7193 5.19845 13.9597 4.91179 14.27 4.49258C14.3001 4.45194 14.3311 4.40961 14.3631 4.36594C14.6296 4.00217 14.9643 3.54541 15.3955 3.19705ZM6.64822 17.3591L6.6469 17.358L6.64822 17.3591ZM18.954 3.75228C17.8238 3.73643 17.0372 3.79897 16.3382 4.36379C16.0679 4.5822 15.8516 4.87549 15.5638 5.26561C15.5352 5.30445 15.5058 5.34426 15.4756 5.38504C15.1718 5.79542 14.7778 6.3111 14.2065 6.657C13.296 7.2082 12.3488 6.97191 11.7187 6.81474C11.6783 6.80465 11.6391 6.79488 11.6014 6.78567L6.35609 5.50582C5.91027 5.39704 5.61937 5.40248 5.39328 5.46517C5.18991 5.52156 4.97271 5.64262 4.70506 5.89316L10.7739 9.70209C10.9547 9.81553 11.0785 10.0006 11.1145 10.2109C11.1505 10.4213 11.0951 10.637 10.9623 10.804L9.49609 12.6486C9.46778 12.6842 9.43981 12.7195 9.41214 12.7544C8.96507 13.3184 8.59331 13.7874 8.05633 14.0397C7.45062 14.3242 6.75257 14.3545 6.17322 14.3384C5.88443 14.3303 5.59588 14.309 5.336 14.2899L5.30884 14.2879C5.03375 14.2676 4.79615 14.2507 4.58494 14.2477C4.55302 14.2473 4.46905 14.2556 4.34569 14.2927C4.22785 14.3281 4.10352 14.381 3.99378 14.4454C3.96202 14.464 3.93335 14.4825 3.90767 14.5005L3.91232 14.5024L3.9139 14.5031C3.9528 14.519 4.00029 14.5385 4.04628 14.5587L6.84768 15.7912C6.86715 15.7997 6.8868 15.8083 6.90662 15.817C7.17688 15.9352 7.47612 16.0661 7.70509 16.295C7.93405 16.524 8.06492 16.8232 8.18312 17.0935C8.19178 17.1133 8.20038 17.133 8.20894 17.1524L9.44141 19.9538C9.46164 19.9998 9.4811 20.0473 9.49704 20.0862L9.4977 20.0878L9.49961 20.0924C9.51762 20.0668 9.5361 20.0381 9.55472 20.0063C9.61908 19.8966 9.672 19.7723 9.70743 19.6544C9.74453 19.5311 9.75286 19.4471 9.75241 19.4152C9.74945 19.204 9.73253 18.9664 9.71226 18.6913L9.71026 18.6641C9.69109 18.4042 9.66981 18.1157 9.66176 17.8269C9.64559 17.2475 9.67589 16.5495 9.96043 15.9438C10.2127 15.4068 10.6817 15.035 11.2457 14.588C11.2806 14.5603 11.3159 14.5323 11.3515 14.504L13.1961 13.0378C13.3631 12.905 13.5788 12.8497 13.7892 12.8856C13.9995 12.9216 14.1846 13.0455 14.298 13.2262L18.107 19.2951C18.3575 19.0274 18.4786 18.8102 18.535 18.6068C18.5976 18.3807 18.6031 18.0899 18.4943 17.644L17.2144 12.3987C17.2052 12.361 17.1955 12.3218 17.1854 12.2814C17.0282 11.6513 16.7919 10.7041 17.3431 9.79366C17.689 9.22231 18.2047 8.82831 18.6151 8.52452C18.6559 8.49432 18.6957 8.46496 18.7345 8.43631C19.1246 8.14855 19.4179 7.93222 19.6363 7.66191C20.2011 6.96288 20.2637 6.17628 20.2478 5.0461C20.2387 4.39394 20.2252 4.26989 20.195 4.19201C20.1264 4.01534 19.9848 3.87367 19.8081 3.80515C19.7302 3.77495 19.6062 3.76142 18.954 3.75228ZM9.34195 20.2564L9.34326 20.2558L9.34195 20.2564ZM3.74429 14.6569L3.74371 14.6582L3.74429 14.6569Z" />
+                      </svg>
+                      <span>حالة السفر</span>
+                    </div>
+                  </button>
+                  <button class="btn moi-btn moi-btn--Warning--solid border-Warning-600" type="button">
+                    <div class="moi-person-card__action-label">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M18.7306 12.5527C19.3897 12.1607 20.2045 12.1482 20.8751 12.5205C21.1549 12.6759 21.4022 12.9295 21.6827 13.2168C21.7038 13.2383 21.7248 13.2603 21.7462 13.2822C21.7674 13.3039 21.7888 13.3254 21.8097 13.3467C22.0919 13.6343 22.3386 13.8857 22.4894 14.1689C22.8476 14.8423 22.8358 15.6566 22.4581 16.3193C22.2992 16.5981 22.0453 16.8421 21.755 17.1211C21.7335 17.1417 21.7114 17.1625 21.6896 17.1836L17.4581 21.2598C17.4266 21.2901 17.3951 21.32 17.3644 21.3496C16.7824 21.911 16.342 22.3365 15.7784 22.5566C15.2134 22.7773 14.6039 22.7608 13.8038 22.7393C13.7617 22.7381 13.7191 22.7365 13.6759 22.7354L13.5499 22.7324C13.5415 22.7322 13.5324 22.7317 13.5235 22.7314C13.4071 22.7285 13.2525 22.7245 13.1183 22.7021C12.9504 22.6741 12.7023 22.6013 12.5021 22.374C12.3041 22.1493 12.2613 21.8969 12.2521 21.7314C12.2445 21.5961 12.2573 21.4416 12.2667 21.3223C12.2674 21.3136 12.268 21.3051 12.2687 21.2969L12.2804 21.1406C12.2832 21.104 12.2864 21.0679 12.2892 21.0322C12.3435 20.3296 12.384 19.805 12.5929 19.3242C12.8023 18.8423 13.1573 18.4578 13.631 17.9453C13.655 17.9193 13.6796 17.8929 13.7042 17.8662L17.8819 13.3398C17.9028 13.3172 17.924 13.2947 17.9444 13.2725C18.2166 12.9769 18.4557 12.7163 18.7306 12.5527ZM5.19445 14.8369C7.92834 13.2092 11.2221 12.8348 14.211 13.708C14.6084 13.8243 14.836 14.2412 14.7198 14.6387C14.6036 15.036 14.1875 15.2644 13.7902 15.1484C11.1908 14.389 8.32896 14.7167 5.96203 16.126C5.79418 16.2259 5.60975 16.3302 5.4171 16.4395C4.7045 16.8437 3.8722 17.316 3.2921 17.8838C2.93204 18.2362 2.77857 18.5273 2.75402 18.752C2.73458 18.9303 2.78015 19.2242 3.23058 19.6533C4.26635 20.6401 5.31861 21.2499 6.59093 21.25H10.5001C10.9143 21.25 11.2501 21.5858 11.2501 22C11.2501 22.4142 10.9143 22.75 10.5001 22.75H6.59093C4.77273 22.7499 3.36682 21.8553 2.19542 20.7393C1.51662 20.0925 1.17807 19.3646 1.26281 18.5889C1.34255 17.8593 1.78161 17.2634 2.24328 16.8115C2.98144 16.0891 4.05887 15.4812 4.7716 15.0791C4.93421 14.9874 5.07816 14.9062 5.19445 14.8369ZM20.1466 13.832C19.9432 13.7192 19.6987 13.7228 19.4982 13.8418C19.4376 13.8778 19.3567 13.9541 18.9845 14.3574L14.8068 18.8838C14.2284 19.5104 14.0645 19.702 13.9689 19.9219C13.8735 20.1415 13.8433 20.3945 13.7775 21.2373C14.7146 21.2612 14.9905 21.2536 15.2325 21.1592C15.4815 21.0619 15.6987 20.8717 16.4171 20.1797L20.6495 16.1035C21.0433 15.7243 21.1187 15.6406 21.1554 15.5762C21.278 15.3608 21.2817 15.0934 21.1652 14.874C21.1302 14.8083 21.0567 14.722 20.6739 14.3311C20.2905 13.9393 20.208 13.8661 20.1466 13.832ZM12.0001 1.25C14.8996 1.25 17.2501 3.6005 17.2501 6.5C17.2501 9.39949 14.8996 11.75 12.0001 11.75C9.10062 11.75 6.75011 9.39949 6.75011 6.5C6.75011 3.6005 9.10062 1.25 12.0001 1.25ZM12.0001 2.75C9.92904 2.75 8.25011 4.42893 8.25011 6.5C8.25011 8.57107 9.92904 10.25 12.0001 10.25C14.0712 10.25 15.7501 8.57107 15.7501 6.5C15.7501 4.42893 14.0712 2.75 12.0001 2.75Z" />
+                      </svg>
+                      <span>إستكمال بيانات</span>
+                    </div>
+                  </button>
+                  <button class="btn moi-btn moi-btn--Warning--outline border-Warning-600" type="button">
+                    <div class="moi-person-card__action-label">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path
+                          d="M11.5995 10.2964C11.5182 10.1888 11.2756 9.86764 11.1311 9.6825C10.8417 9.31169 10.4463 8.81896 10.0198 8.3277C9.59111 7.83396 9.14077 7.35309 8.74069 6.9996C8.54008 6.82235 8.36386 6.68766 8.21844 6.59999C8.08167 6.51754 8.00088 6.5004 8.00088 6.5004C8.00088 6.5004 7.92246 6.51754 7.7857 6.59999C7.64028 6.68765 7.46406 6.82234 7.26345 6.9996C6.86338 7.35309 6.41304 7.83396 5.98434 8.32771C5.55781 8.81898 5.1624 9.31171 4.87302 9.68252C4.72853 9.86766 4.48626 10.1884 4.40501 10.296C4.24125 10.5183 3.92791 10.5663 3.70557 10.4025C3.48322 10.2388 3.43572 9.92575 3.59947 9.7034L3.60065 9.70185C3.68577 9.58914 3.93719 9.25627 4.08467 9.06729C4.38058 8.68811 4.78754 8.18084 5.22924 7.6721C5.66879 7.16585 6.15257 6.64672 6.60131 6.25021C6.82512 6.05247 7.05198 5.87466 7.26942 5.74357C7.47314 5.62076 7.73107 5.49991 8.00208 5.49991C8.27308 5.49991 8.53101 5.62077 8.73472 5.74358C8.95217 5.87466 9.17903 6.05247 9.40283 6.25022C9.85157 6.64672 10.3354 7.16584 10.7749 7.67209C11.2166 8.18082 11.6236 8.68808 11.9195 9.06727C12.067 9.25632 12.3183 9.58905 12.4034 9.70163L12.4044 9.70305C12.5682 9.9254 12.5209 10.2387 12.2986 10.4025C12.0762 10.5662 11.7632 10.5187 11.5995 10.2964Z" />
+                      </svg>
+                      <span>إخفاء التفاصيل</span>
+                    </div>
                   </button>
                 </div>
               </div>
-              <div class="identityDetails is-hidden">
-                <h3 class="Neutral-900 font-2xl-600">بيانات الهوية</h3>
-
-                <div class="row g-3 person__card__Details">
-
-                  <div class="col-12 col-md-6 col-lg-3">
-                    <div
-                      class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                      <label class="Primary-800 font-lg-600">رقم النسخة </label>
-                      <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">3</span>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-6 col-lg-3">
-                    <div
-                      class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                      <label class="Primary-800 font-lg-600">تاريخ الإصدار </label>
-                      <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">2014-01-28</span>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-6 col-lg-3">
-                    <div
-                      class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                      <label class="Primary-800 font-lg-600"> تاريخ الانتهاء </label>
-                      <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">2025-10-17</span>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-6 col-lg-3">
-                    <div
-                      class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                      <label class="Primary-800 font-lg-600"> مكان العمل</label>
-                      <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">منطقة الرياض</span>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-6 col-lg-3">
-                    <div
-                      class="d-flex flex-column gap-md padding-lg radius-sm border border-Neutral-200 white-100 person__card__Details--items">
-                      <label class="Primary-800 font-lg-600"> حالة الإقامة</label>
-                      <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700"><span
-                          class="highpriority-filled mx-0">منتهي</span></span>
-                    </div>
-                  </div>
-
-
-                </div>
-
-              </div>
-
-
-              <!-- end person details  -->
-
-            </div>
+            </article>
           </div>
         </div>
       </div>
+
       <section class="section" id="person-card-anatomy">
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="تشريح التصميم">Design Anatomy</h2>
@@ -1008,44 +986,49 @@
           <div class="row g-4">
             <div class="col-12 col-lg-6">
               <ul class="accessibility-list">
-                <li data-i18n data-ar="<strong>الجذر:</strong> .person__card به حشوة 24px وتكديس عمودي بفواصل 8px.">
-                  <strong>Root:</strong> <span class="code-inline">.person__card</span> with 24px padding and vertical
+                <li data-i18n data-ar="<strong>الجذر:</strong> .moi-person-card به حشوة 6px وتكديس عمودي بفواصل 6px.">
+                  <strong>Root:</strong> <span class="code-inline">.moi-person-card</span> with 6px padding and vertical
                   stacking on the 8px grid.
                 </li>
                 <li data-i18n
-                  data-ar="<strong>الرأس:</strong> الصورة 1:1، الاسم، والحالة؛ صف الإجراءات اختياري ويمكن إزالته في سيناريوهات الإضافة/الإدارة.">
-                  <strong>Header:</strong> 1:1 image, name, and status; actions row is optional and can be removed in
-                  Add/Manage scenarios.
+                  data-ar="<strong>الرأس:</strong> .moi-person-card--container--header يعرض الصورة 1:1، شارة الحالة، وصف إجراءات الرأس؛ صف الإجراءات اختياري ويمكن إزالته في سيناريوهات الإضافة/الإدارة.">
+                  <strong>Header:</strong> <span class="code-inline">.moi-person-card--container--header</span> shows
+                  the 1:1 image, status badge, and header toolbar actions; the actions row is optional and can be
+                  removed in Add/Manage scenarios.
                 </li>
                 <li data-i18n
-                  data-ar="<strong>الشارات/الحقول السريعة:</strong> .person-card__chips تعرض مؤشرات حالة أو بيانات سريعة.">
-                  <strong>Chips/quick fields:</strong> <span class="code-inline">.person-card__chips</span> surface
-                  status indicators or quick data.
+                  data-ar="<strong>الشارة والحقول السريعة:</strong> --header__status يحتضن مكوّن .moi-tag، و--header__meta--data يعرض الحقول الأساسية (الاسم، الهوية، الجنسية، العمر).">
+                  <strong>Badge and quick fields:</strong> <span class="code-inline">--header__status</span> hosts the
+                  <span class="code-inline">.moi-tag</span> component, and <span
+                    class="code-inline">--header__meta--data</span> surfaces the core fields (name, ID, nationality,
+                  age).
                 </li>
                 <li data-i18n
-                  data-ar="<strong>شبكة البيانات:</strong> .person__card__Details تستخدم شبكة متجاوبة (12/6/3 أعمدة) مع إخفاء/إظهار للتفاصيل الإضافية.">
-                  <strong>Data grid:</strong> <span class="code-inline">.person__card__Details</span> uses responsive
-                  12/6/3 columns with show/hide for extended details.
+                  data-ar="<strong>شبكة البيانات:</strong> .moi-person-card__details تستخدم شبكة CSS متجاوبة (4/2/1 أعمدة) مبنية من عناصر .moi-person-card--block.">
+                  <strong>Data grid:</strong> <span class="code-inline">.moi-person-card__details</span> uses a
+                  responsive CSS grid (4/2/1 columns) built from <span
+                    class="code-inline">.moi-person-card--block</span> entries.
                 </li>
                 <li data-i18n
-                  data-ar="<strong>كتلة الهوية الموسعة:</strong> قسم الهوية يظهر عند الكشف، دون إضافة متطلبات تجارية بداخله.">
-                  <strong>Extended identity block:</strong> identity details appear on reveal, without embedding
-                  business requirements inside.
+                  data-ar="<strong>التنبيه وتذييل الإجراءات:</strong> شريط التنبيه يسبق تذييل الأزرار الستة الحالية، دون إضافة Panels أو كتل هوية موسعة داخل البطاقة الافتراضية.">
+                  <strong>Notification and footer:</strong> the alert strip sits before the current six-button footer,
+                  without adding inline panels or expanded identity blocks inside the default card.
                 </li>
               </ul>
               <div class="section-divider"></div>
               <div class="fw-semibold mb-2" data-i18n data-ar="الضوابط البصرية">Visual tokens</div>
               <ul class="accessibility-list">
-                <li data-i18n data-ar="نصف قطر خارجي 18px؛ البطاقات الداخلية والرقائق بزاويا مستديرة 10-12px.">Outer
-                  radius 18px; inner tiles and chips use rounded 10–12px corners.</li>
-                <li data-i18n data-ar="حشوة الرأس والمحتوى تعتمد على وحدات padding-XL / padding-L (شبكة 8px).">
-                  Header/content padding follow padding-XL / padding-L utilities (8px grid).</li>
-                <li data-i18n data-ar="الفواصل 8–12px بين العناصر؛ شبكة التفاصيل تعتمد على فواصل bootstrap g-3.">Spacing
-                  is 8–12px between elements; detail grid relies on bootstrap <span class="code-inline">g-3</span>.</li>
+                <li data-i18n data-ar="نصف قطر خارجي 8px (radius-md)؛ البطاقات الداخلية بزاويا 6px (radius-sm).">Outer
+                  radius 8px (radius-md); inner blocks use 6px (radius-sm) corners.</li>
+                <li data-i18n data-ar="حشوة الجذر 6px (padding-sm)، وحشوة الحاويات الداخلية 8px (padding-md).">
+                  Root padding is 6px (padding-sm); inner containers use 8px (padding-md).</li>
+                <li data-i18n data-ar="الفواصل 6–8px بين العناصر (gap-sm/gap-md)؛ شبكة التفاصيل CSS Grid وليست شبكة bootstrap.">Spacing
+                  is 6–8px between elements (gap-sm/gap-md); the detail grid is native CSS Grid, not a bootstrap row.</li>
                 <li data-i18n
-                  data-ar="القيم النصية تستخدم ألوان Primary و Neutral الرسمية؛ الحالات تستخدم شارات regpriority/highpriority.">
+                  data-ar="القيم النصية تستخدم ألوان Primary و Neutral الرسمية؛ المثال الافتراضي الحالي يستخدم شارات highpriority وتنبيه Error ومتغيرات الأزرار الحالية.">
                   Typography uses official Primary/Neutral colors; states use <span
-                    class="code-inline">regpriority/highpriority</span> badges.</li>
+                    class="code-inline">highpriority</span> tags, an <span class="code-inline">Error</span> alert, and
+                  the existing button variants.</li>
               </ul>
             </div>
             <div class="col-12 col-lg-6">
@@ -1191,52 +1174,6 @@
           link.classList.add("is-active");
         }
       });
-    })();
-  </script>
-  <script>
-    (function () {
-      const details = document.querySelector(".identityDetails");
-      const viewMore = document.querySelector(".person__card__Details--viewmore");
-      const triggers = document.querySelectorAll(".identity-stutus");
-
-      if (!details || !triggers.length) return;
-
-      const toggleDetails = () => {
-        details.classList.toggle("is-hidden");
-        const isActive = !details.classList.contains("is-hidden");
-        triggers.forEach((btn) => {
-          if (isActive) {
-            btn.classList.add("bg-Info-700", "info-25");
-            btn.classList.remove("Info-700", "bg-Info-25");
-          } else {
-            btn.classList.remove("bg-Info-700", "info-25");
-            btn.classList.add("Info-700", "bg-Info-25");
-          }
-        });
-      };
-
-      const primaryGrid = document.querySelector(".person__card__Details");
-      if (primaryGrid && viewMore) {
-        primaryGrid.classList.add("is-collapsed");
-        const viewLabel = viewMore.querySelector(".viewmore-label");
-        const setViewMoreStyle = (collapsed) => {
-          viewMore.classList.toggle("moi-btn--Neutral--outline", collapsed);
-          viewMore.classList.toggle("moi-btn--black", !collapsed);
-        };
-        setViewMoreStyle(true);
-        viewMore.addEventListener("click", () => {
-          primaryGrid.classList.toggle("is-collapsed");
-          const isCollapsed = primaryGrid.classList.contains("is-collapsed");
-          setViewMoreStyle(isCollapsed);
-          if (viewLabel) {
-            viewLabel.textContent = isCollapsed
-              ? "إظهار التفاصيل الأساسية للشخص"
-              : "إخفاء التفاصيل الأساسية للشخص";
-          }
-        });
-      }
-
-      triggers.forEach((btn) => btn.addEventListener("click", toggleDetails));
     })();
   </script>
   <script src="./js/top-actions.js"></script>

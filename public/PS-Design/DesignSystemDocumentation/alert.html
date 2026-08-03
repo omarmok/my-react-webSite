@@ -35,7 +35,7 @@
       background: #1c8354;
       color: #fff;
       border-radius: var(--card-radius);
-      padding: 32px;
+      padding: 22px 26px;
       box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
     }
 
@@ -51,9 +51,16 @@
     }
 
     .eyebrow {
-      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
       color: var(--muted);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
     }
 
     .section {
@@ -296,6 +303,19 @@
       gap: 10px;
     }
 
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
     .sidebar-nav a {
       color: #1f2937;
       text-decoration: none;
@@ -309,14 +329,21 @@
 
     .sidebar-nav a:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
     }
 
     .sidebar-nav a.is-active {
-      background: #111827;
-      border-color: #111827;
-      color: #f9fafb;
-      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
     }
 
     .lang-toggle {
@@ -423,25 +450,30 @@
         <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
         <nav class="sidebar-nav">
           <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
           <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
           <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
           <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
           <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
           <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
           <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
           <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
           <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
-          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
           <a href="./alert.html" class="is-active" data-i18n data-ar="التنبيهات">Alerts</a>
           <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
           <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
           <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
-          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
-          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
           <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
           <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
           <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
           <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
         </nav>
       </div>
 
@@ -472,7 +504,7 @@
           data-ar="التنبيهات تنقل حالات مهمة وتوجه المستخدم نحو الإجراءات التالية. استخدمها داخل المسارات لتسليط الضوء على الحالات الحرجة أو التحذيرية أو المعلوماتية أو الناجحة.">
           Alerts communicate important states and guide users toward follow-up actions. Use them inside flows to
           highlight critical, warning, info, or success states that need attention.</p>
-        <div class="sample-stack" dir="rtl">
+        <div class="sample-stack" dir="rtl" lang="ar">
           <div class="moi-notification" data-status="neutral" role="alert">
             <div class="moi-notification__content">
               <span class="moi-notification__icon" aria-hidden="true">
@@ -712,196 +744,13 @@
         </div>
       </section>
 
-      <section class="section" id="usage-rules">
-        <div class="section-card">
-          <h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2>
-          <ul class="accessibility-list">
-            <li data-i18n data-ar="استخدم .moi-notification مع data-status لتحديد حالة التنبيه. لا تضف فئات الحالة يدويًا.">Use <code>.moi-notification</code> with <code>data-status</code> to set the alert state. Do not add status classes manually.</li>
-            <li data-i18n data-ar="أضف alert alert-dismissible fade show فقط عند الحاجة لتفعيل سلوك الإغلاق من Bootstrap.">Add <code>alert alert-dismissible fade show</code> only when Bootstrap dismiss behavior is required.</li>
-            <li data-i18n data-ar="يستخدم المكوّن حدًا سفليًا فقط: border-bottom: 3px solid لون-الحالة.">The component uses a bottom border only: <code>border-bottom: 3px solid status-color</code>.</li>
-            <li data-i18n data-ar="لا تعتمد على IDs للتنسيق أو التشغيل. استخدم الفئات وdata-status.">Do not rely on IDs for styling or behavior. Use classes and <code>data-status</code>.</li>
-            <li data-i18n data-ar="جرب الرموز والأزرار مع لوحة المفاتيح واحتفظ بحدود التركيز.">Test icons and buttons via keyboard and keep focus outlines intact.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section" id="implementation-notes">
-        <div class="section-card">
-          <h2 class="section-title" data-i18n data-ar="ملاحظات التطبيق">Implementation Notes</h2>
-          <p class="section-note" data-i18n data-ar="قواعد محددة يجب مراعاتها عند تطبيق مكوّن moi-notification.">Specific rules to follow when implementing the <code class="code-inline">.moi-notification</code> component.</p>
-          <div class="two-col">
-            <div class="designops-card">
-              <h4 data-i18n data-ar="تكامل Bootstrap">Bootstrap integration</h4>
-              <p class="section-note mb-2" data-i18n data-ar="الفئات الثلاث التالية اختيارية وتُستخدم فقط لتفعيل زر الإغلاق من Bootstrap.">The following classes are optional and used only for Bootstrap dismiss behavior:</p>
-              <code class="code-inline">alert alert-dismissible fade show</code>
-              <ul class="mt-2">
-                <li data-i18n data-ar="أضف data-bs-dismiss=alert على زر الإغلاق.">Add <code>data-bs-dismiss="alert"</code> on the close button.</li>
-                <li data-i18n data-ar="لا تستخدم هذه الفئات للتنسيق — هي لسلوك JavaScript فقط.">Do not use these classes for styling — they are for JavaScript behavior only.</li>
-              </ul>
-            </div>
-            <div class="designops-card">
-              <h4 data-i18n data-ar="حدود الإطار">Border rule</h4>
-              <p class="section-note mb-2" data-i18n data-ar="التنبيه يستخدم حدًا سفليًا فقط بسماكة 3px بلون الحالة.">The notification uses only a bottom border, 3px thick, in the status color.</p>
-              <code class="code-inline">border-bottom: 3px solid &lt;status-color&gt;</code>
-              <ul class="mt-2">
-                <li data-i18n data-ar="لا تضف حدودًا على الجوانب الأخرى.">Do not add borders on other sides.</li>
-              </ul>
-            </div>
-            <div class="designops-card">
-              <h4 data-i18n data-ar="سلوك زر الإجراء">Action button behavior</h4>
-              <p class="section-note mb-2" data-i18n data-ar="يجب أن يبقى الزر btn moi-notification__btn دائمًا. يتولى JavaScript إضافة متغير الزر الصحيح بناءً على data-status.">The button always stays <code class="code-inline">btn moi-notification__btn</code>. JavaScript adds the correct variant based on <code class="code-inline">data-status</code>.</p>
-              <div class="code-block mt-2">
-                <pre><code>const map = {
-  neutral: "moi-btn--black",
-  info:    "moi-btn--Info",
-  error:   "moi-btn--Error",
-  warning: "moi-btn--Warning",
-  success: "moi-btn--Primary",
-};</code></pre>
-              </div>
-            </div>
-            <div class="designops-card">
-              <h4 data-i18n data-ar="قاعدة SVG">SVG rule</h4>
-              <p class="section-note mb-2" data-i18n data-ar="يجب أن يستخدم كل SVG داخل المكوّن currentColor ليرث لون الحالة. يُسمح بـ fill=white فقط لخلفية شكل الأيقونة المركبة.">All SVGs inside the component must use <code class="code-inline">currentColor</code> to inherit the status color. <code class="code-inline">fill="white"</code> is only acceptable for the background shape in composite icons (e.g., warning, success).</p>
-              <code class="code-inline">&lt;path fill="currentColor" d="..." /&gt;</code>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="developer-api">
-        <div class="section-card">
-          <h2 class="section-title" data-i18n data-ar="واجهة برمجة التطبيقات للمطورين (Developer API)">Developer API
-          </h2>
-          <p class="section-note" data-i18n data-ar="يوضح هذا القسم كيفية بناء إشعارات moi-notification باستخدام هيكل BEM ونظام data-status.">
-            This section shows how to construct <code class="code-inline">.moi-notification</code> components using the BEM structure and <code class="code-inline">data-status</code> system.
-          </p>
-
-          <h3 class="section-title mt-4" data-i18n data-ar="الهيكل الأساسي">Base structure</h3>
-          <div class="code-block">
-            <pre><code class="language-html">&lt;div class="moi-notification" data-status="neutral" role="alert"&gt;
-  &lt;div class="moi-notification__content"&gt;
-    &lt;span class="moi-notification__icon" aria-hidden="true"&gt;
-      &lt;svg viewBox="0 0 24 24" fill="none" focusable="false"&gt;
-        &lt;path fill="currentColor" d="..." /&gt;
-      &lt;/svg&gt;
-    &lt;/span&gt;
-    &lt;strong class="moi-notification__title"&gt;تنبيه:&lt;/strong&gt;
-    &lt;span class="moi-notification__message"&gt;نص الرسالة هنا.&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="moi-notification__actions"&gt;
-    &lt;button class="btn moi-notification__btn" type="button"&gt;
-      &lt;span&gt;عرض التفاصيل&lt;/span&gt;
-    &lt;/button&gt;
-    &lt;button class="moi-notification__close" type="button" aria-label="إغلاق التنبيه"&gt;
-      &lt;svg viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"&gt;
-        &lt;path fill="currentColor" d="M1.07.18 6 5.12 10.93.18 11.82 1.07 6.88 6 11.82 10.93 10.93 11.82 6 6.88 1.07 11.82.18 10.93 5.12 6 .18 1.07 1.07.18Z" /&gt;
-      &lt;/svg&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-          </div>
-
-          <h3 class="section-title mt-4" data-i18n data-ar="تنبيه معلوماتي">Info notification</h3>
-          <div class="code-block">
-            <pre><code class="language-html">&lt;div class="moi-notification" data-status="info" role="alert"&gt;
-  &lt;div class="moi-notification__content"&gt;
-    &lt;span class="moi-notification__icon" aria-hidden="true"&gt;
-      &lt;svg viewBox="0 0 24 24" fill="none" focusable="false"&gt;
-        &lt;path fill="currentColor" d="..." /&gt;
-      &lt;/svg&gt;
-    &lt;/span&gt;
-    &lt;strong class="moi-notification__title"&gt;معلومة:&lt;/strong&gt;
-    &lt;span class="moi-notification__message"&gt;يرجى مراجعة البيانات المفقودة واستكمالها قبل الإرسال.&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="moi-notification__actions"&gt;
-    &lt;button class="btn moi-notification__btn" type="button"&gt;&lt;span&gt;عرض التفاصيل&lt;/span&gt;&lt;/button&gt;
-    &lt;button class="moi-notification__close" type="button" aria-label="إغلاق التنبيه"&gt;...&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-          </div>
-
-          <h3 class="section-title mt-4" data-i18n data-ar="تنبيه قابل للإغلاق (Bootstrap)">Dismissible notification (Bootstrap)</h3>
-          <div class="code-block">
-            <pre><code class="language-html">&lt;!-- Add Bootstrap classes only when dismiss behavior is needed --&gt;
-&lt;div class="moi-notification alert alert-dismissible fade show" data-status="warning" role="alert"&gt;
-  &lt;div class="moi-notification__content"&gt;
-    &lt;span class="moi-notification__icon" aria-hidden="true"&gt;...&lt;/span&gt;
-    &lt;strong class="moi-notification__title"&gt;تحذير:&lt;/strong&gt;
-    &lt;span class="moi-notification__message"&gt;هناك متطلبات يجب استكمالها قبل المتابعة.&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="moi-notification__actions"&gt;
-    &lt;button class="btn moi-notification__btn" type="button"&gt;&lt;span&gt;عرض التفاصيل&lt;/span&gt;&lt;/button&gt;
-    &lt;button class="moi-notification__close" type="button"
-      data-bs-dismiss="alert" aria-label="إغلاق التنبيه"&gt;
-      &lt;svg viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"&gt;
-        &lt;path fill="currentColor" d="M1.07.18 6 5.12 10.93.18 11.82 1.07 6.88 6 11.82 10.93 10.93 11.82 6 6.88 1.07 11.82.18 10.93 5.12 6 .18 1.07 1.07.18Z" /&gt;
-      &lt;/svg&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="accessibility-guidance">
-        <div class="section-card">
-          <h2 class="section-title" data-i18n data-ar="إرشادات إمكانية الوصول">Accessibility Guidance</h2>
-          <ul class="accessibility-list">
-            <li data-i18n
-              data-ar="استخدم <span class=&quot;code-inline&quot;>role=&quot;alert&quot;</span> للتنبيهات ذات الأهمية القصوى (مثل الأخطاء). للحالات الأقل إلحاحًا، يمكن استخدام <span class=&quot;code-inline&quot;>role=&quot;status&quot;</span> مع <span class=&quot;code-inline&quot;>aria-live=&quot;polite&quot;</span>.">
-              Use <span class="code-inline">role="alert"</span> for critical/high-impact alerts (e.g., errors). For less
-              urgent states, consider <span class="code-inline">role="status"</span> with <span
-                class="code-inline">aria-live="polite"</span>.
-            </li>
-            <li data-i18n
-              data-ar="يجب أن تكون الأيقونات داخل التنبيهات زخرفية (<span class=&quot;code-inline&quot;>aria-hidden=&quot;true&quot;</span>) ما لم تكن تحمل معنى إضافيًا غير موجود في النص.">
-              Icons within alerts should be decorative (<span class="code-inline">aria-hidden="true"</span>) unless they
-              convey additional meaning not present in the text.
-            </li>
-            <li data-i18n
-              data-ar="تأكد من أن جميع الأزرار القابلة للتفاعل (مثل 'عرض التفاصيل' أو زر الإغلاق) قابلة للوصول بلوحة المفاتيح ولديها تسميات واضحة (<span class=&quot;code-inline&quot;>aria-label</span>).">
-              Ensure all interactive buttons (e.g., 'View Details' or dismiss button) are keyboard-focusable and have
-              clear labels (<span class="code-inline">aria-label</span>).
-            </li>
-            <li data-i18n
-              data-ar="تجنب الاعتماد على اللون وحده لنقل المعنى. يجب أن يكون هناك دائمًا نص أو أيقونة داعمة لإيصال حالة التنبيه.">
-              Avoid relying on color alone to convey meaning. There should always be supplementary text or an icon to
-              communicate the alert's state.
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section" id="edge-cases">
-        <div class="section-card">
-          <h2 class="section-title" data-i18n data-ar="حالات حافة">Edge cases</h2>
-          <ul class="accessibility-list">
-            <li data-i18n
-              data-ar="لا تكدس تنبيهين متتابعين لنفس الحالة في صف واحد؛ اجعل كل تنبيه منفصلًا وابدأ بـ مسافة أعلى.">Do
-              not stack multiple alerts for the same state in a row; give each alert its own spacing.</li>
-            <li data-i18n data-ar="للنص الطويل، لا يفصل الخط؛ استخدم فئة <code>.font-md-400</code> مع حدود النقص.">For
-              long text, keep it within <code>.font-md-400</code> and break in a new line to avoid clipping.</li>
-            <li data-i18n data-ar="في حال وجود حالات متعددة (مثلاً: خطأ + تحذير)، اعرض تنبيهات منفصلة مع دلالات واضحة.">
-              When multiple states exist (error + warning), show separate alerts with clear labels.</li>
-            <li data-i18n
-              data-ar="إذا تطلب الإجراء تأكيدًا إضافيًا، أرفق رابطاً أو زرًا يفتح طبقة حوار بدلًا من التكرار.">If an
-              action needs confirmation, attach a dialog link rather than repeating the alert.</li>
-          </ul>
-        </div>
-      </section>
-
-
-
-
-
       <section class="section" id="examples">
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="أمثلة حية">Live examples</h2>
           <p class="section-note" data-i18n
             data-ar="الأمثلة التالية تستخدم هيكل moi-notification مع data-status لكل حالة. زر الإجراء يحصل على متغيره الصحيح تلقائيًا.">Examples below use the <code class="code-inline">.moi-notification</code> structure with <code class="code-inline">data-status</code> for each state. The action button variant is applied automatically by JavaScript.</p>
 
-          <div class="sample-stack gap-6xl" dir="rtl">
+          <div class="sample-stack gap-6xl" dir="rtl" lang="ar">
             <div class="d-flex flex-column  gap-2 border border-sm padding-xl  radius-xl">
               <div class="fw-semibold" data-i18n data-ar="محايد (Neutral)">Neutral</div>
               <p class="section-note mb-2" data-i18n data-ar="تحديثات عامة أو تذكيرات غير عاجلة.">General updates or non-urgent reminders.</p>
@@ -1124,6 +973,185 @@
 &lt;/div&gt;</code></pre>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="section" id="usage-rules">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="استخدم .moi-notification مع data-status لتحديد حالة التنبيه. لا تضف فئات الحالة يدويًا.">Use <code>.moi-notification</code> with <code>data-status</code> to set the alert state. Do not add status classes manually.</li>
+            <li data-i18n data-ar="أضف alert alert-dismissible fade show فقط عند الحاجة لتفعيل سلوك الإغلاق من Bootstrap.">Add <code>alert alert-dismissible fade show</code> only when Bootstrap dismiss behavior is required.</li>
+            <li data-i18n data-ar="يستخدم المكوّن حدًا سفليًا فقط: border-bottom: 3px solid لون-الحالة.">The component uses a bottom border only: <code>border-bottom: 3px solid status-color</code>.</li>
+            <li data-i18n data-ar="لا تعتمد على IDs للتنسيق أو التشغيل. استخدم الفئات وdata-status.">Do not rely on IDs for styling or behavior. Use classes and <code>data-status</code>.</li>
+            <li data-i18n data-ar="جرب الرموز والأزرار مع لوحة المفاتيح واحتفظ بحدود التركيز.">Test icons and buttons via keyboard and keep focus outlines intact.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="implementation-notes">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="ملاحظات التطبيق">Implementation Notes</h2>
+          <p class="section-note" data-i18n data-ar="قواعد محددة يجب مراعاتها عند تطبيق مكوّن moi-notification.">Specific rules to follow when implementing the <code class="code-inline">.moi-notification</code> component.</p>
+          <div class="two-col">
+            <div class="designops-card">
+              <h4 data-i18n data-ar="تكامل Bootstrap">Bootstrap integration</h4>
+              <p class="section-note mb-2" data-i18n data-ar="الفئات الثلاث التالية اختيارية وتُستخدم فقط لتفعيل زر الإغلاق من Bootstrap.">The following classes are optional and used only for Bootstrap dismiss behavior:</p>
+              <code class="code-inline">alert alert-dismissible fade show</code>
+              <ul class="mt-2">
+                <li data-i18n data-ar="أضف data-bs-dismiss=alert على زر الإغلاق.">Add <code>data-bs-dismiss="alert"</code> on the close button.</li>
+                <li data-i18n data-ar="لا تستخدم هذه الفئات للتنسيق — هي لسلوك JavaScript فقط.">Do not use these classes for styling — they are for JavaScript behavior only.</li>
+              </ul>
+            </div>
+            <div class="designops-card">
+              <h4 data-i18n data-ar="حدود الإطار">Border rule</h4>
+              <p class="section-note mb-2" data-i18n data-ar="التنبيه يستخدم حدًا سفليًا فقط بسماكة 3px بلون الحالة.">The notification uses only a bottom border, 3px thick, in the status color.</p>
+              <code class="code-inline">border-bottom: 3px solid &lt;status-color&gt;</code>
+              <ul class="mt-2">
+                <li data-i18n data-ar="لا تضف حدودًا على الجوانب الأخرى.">Do not add borders on other sides.</li>
+              </ul>
+            </div>
+            <div class="designops-card">
+              <h4 data-i18n data-ar="سلوك زر الإجراء">Action button behavior</h4>
+              <p class="section-note mb-2" data-i18n data-ar="يجب أن يبقى الزر btn moi-notification__btn دائمًا. يتولى JavaScript إضافة متغير الزر الصحيح بناءً على data-status.">The button always stays <code class="code-inline">btn moi-notification__btn</code>. JavaScript adds the correct variant based on <code class="code-inline">data-status</code>.</p>
+              <div class="code-block mt-2">
+                <pre><code>const map = {
+  neutral: "moi-btn--black",
+  info:    "moi-btn--Info",
+  error:   "moi-btn--Error",
+  warning: "moi-btn--Warning",
+  success: "moi-btn--Primary",
+};</code></pre>
+              </div>
+            </div>
+            <div class="designops-card">
+              <h4 data-i18n data-ar="قاعدة SVG">SVG rule</h4>
+              <p class="section-note mb-2" data-i18n data-ar="يجب أن يستخدم كل SVG داخل المكوّن currentColor ليرث لون الحالة. يُسمح بـ fill=white فقط لخلفية شكل الأيقونة المركبة.">All SVGs inside the component must use <code class="code-inline">currentColor</code> to inherit the status color. <code class="code-inline">fill="white"</code> is only acceptable for the background shape in composite icons (e.g., warning, success).</p>
+              <code class="code-inline">&lt;path fill="currentColor" d="..." /&gt;</code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="developer-api">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="واجهة برمجة التطبيقات للمطورين (Developer API)">Developer API
+          </h2>
+          <p class="section-note" data-i18n data-ar="يوضح هذا القسم كيفية بناء إشعارات moi-notification باستخدام هيكل BEM ونظام data-status.">
+            This section shows how to construct <code class="code-inline">.moi-notification</code> components using the BEM structure and <code class="code-inline">data-status</code> system.
+          </p>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="الهيكل الأساسي">Base structure</h3>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;div class="moi-notification" data-status="neutral" role="alert"&gt;
+  &lt;div class="moi-notification__content"&gt;
+    &lt;span class="moi-notification__icon" aria-hidden="true"&gt;
+      &lt;svg viewBox="0 0 24 24" fill="none" focusable="false"&gt;
+        &lt;path fill="currentColor" d="..." /&gt;
+      &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;strong class="moi-notification__title"&gt;تنبيه:&lt;/strong&gt;
+    &lt;span class="moi-notification__message"&gt;نص الرسالة هنا.&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="moi-notification__actions"&gt;
+    &lt;button class="btn moi-notification__btn" type="button"&gt;
+      &lt;span&gt;عرض التفاصيل&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="moi-notification__close" type="button" aria-label="إغلاق التنبيه"&gt;
+      &lt;svg viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"&gt;
+        &lt;path fill="currentColor" d="M1.07.18 6 5.12 10.93.18 11.82 1.07 6.88 6 11.82 10.93 10.93 11.82 6 6.88 1.07 11.82.18 10.93 5.12 6 .18 1.07 1.07.18Z" /&gt;
+      &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="تنبيه معلوماتي">Info notification</h3>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;div class="moi-notification" data-status="info" role="alert"&gt;
+  &lt;div class="moi-notification__content"&gt;
+    &lt;span class="moi-notification__icon" aria-hidden="true"&gt;
+      &lt;svg viewBox="0 0 24 24" fill="none" focusable="false"&gt;
+        &lt;path fill="currentColor" d="..." /&gt;
+      &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;strong class="moi-notification__title"&gt;معلومة:&lt;/strong&gt;
+    &lt;span class="moi-notification__message"&gt;يرجى مراجعة البيانات المفقودة واستكمالها قبل الإرسال.&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="moi-notification__actions"&gt;
+    &lt;button class="btn moi-notification__btn" type="button"&gt;&lt;span&gt;عرض التفاصيل&lt;/span&gt;&lt;/button&gt;
+    &lt;button class="moi-notification__close" type="button" aria-label="إغلاق التنبيه"&gt;...&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="تنبيه قابل للإغلاق (Bootstrap)">Dismissible notification (Bootstrap)</h3>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;!-- Add Bootstrap classes only when dismiss behavior is needed --&gt;
+&lt;div class="moi-notification alert alert-dismissible fade show" data-status="warning" role="alert"&gt;
+  &lt;div class="moi-notification__content"&gt;
+    &lt;span class="moi-notification__icon" aria-hidden="true"&gt;...&lt;/span&gt;
+    &lt;strong class="moi-notification__title"&gt;تحذير:&lt;/strong&gt;
+    &lt;span class="moi-notification__message"&gt;هناك متطلبات يجب استكمالها قبل المتابعة.&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="moi-notification__actions"&gt;
+    &lt;button class="btn moi-notification__btn" type="button"&gt;&lt;span&gt;عرض التفاصيل&lt;/span&gt;&lt;/button&gt;
+    &lt;button class="moi-notification__close" type="button"
+      data-bs-dismiss="alert" aria-label="إغلاق التنبيه"&gt;
+      &lt;svg viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"&gt;
+        &lt;path fill="currentColor" d="M1.07.18 6 5.12 10.93.18 11.82 1.07 6.88 6 11.82 10.93 10.93 11.82 6 6.88 1.07 11.82.18 10.93 5.12 6 .18 1.07 1.07.18Z" /&gt;
+      &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="accessibility-guidance">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إرشادات إمكانية الوصول">Accessibility Guidance</h2>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="استخدم <span class=&quot;code-inline&quot;>role=&quot;alert&quot;</span> للتنبيهات ذات الأهمية القصوى (مثل الأخطاء). للحالات الأقل إلحاحًا، يمكن استخدام <span class=&quot;code-inline&quot;>role=&quot;status&quot;</span> مع <span class=&quot;code-inline&quot;>aria-live=&quot;polite&quot;</span>.">
+              Use <span class="code-inline">role="alert"</span> for critical/high-impact alerts (e.g., errors). For less
+              urgent states, consider <span class="code-inline">role="status"</span> with <span
+                class="code-inline">aria-live="polite"</span>.
+            </li>
+            <li data-i18n
+              data-ar="يجب أن تكون الأيقونات داخل التنبيهات زخرفية (<span class=&quot;code-inline&quot;>aria-hidden=&quot;true&quot;</span>) ما لم تكن تحمل معنى إضافيًا غير موجود في النص.">
+              Icons within alerts should be decorative (<span class="code-inline">aria-hidden="true"</span>) unless they
+              convey additional meaning not present in the text.
+            </li>
+            <li data-i18n
+              data-ar="تأكد من أن جميع الأزرار القابلة للتفاعل (مثل 'عرض التفاصيل' أو زر الإغلاق) قابلة للوصول بلوحة المفاتيح ولديها تسميات واضحة (<span class=&quot;code-inline&quot;>aria-label</span>).">
+              Ensure all interactive buttons (e.g., 'View Details' or dismiss button) are keyboard-focusable and have
+              clear labels (<span class="code-inline">aria-label</span>).
+            </li>
+            <li data-i18n
+              data-ar="تجنب الاعتماد على اللون وحده لنقل المعنى. يجب أن يكون هناك دائمًا نص أو أيقونة داعمة لإيصال حالة التنبيه.">
+              Avoid relying on color alone to convey meaning. There should always be supplementary text or an icon to
+              communicate the alert's state.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="edge-cases">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="حالات حافة">Edge cases</h2>
+          <ul class="accessibility-list">
+            <li data-i18n
+              data-ar="لا تكدس تنبيهين متتابعين لنفس الحالة في صف واحد؛ اجعل كل تنبيه منفصلًا وابدأ بـ مسافة أعلى.">Do
+              not stack multiple alerts for the same state in a row; give each alert its own spacing.</li>
+            <li data-i18n data-ar="للنص الطويل، لا يفصل الخط؛ استخدم فئة <code>.font-md-400</code> مع حدود النقص.">For
+              long text, keep it within <code>.font-md-400</code> and break in a new line to avoid clipping.</li>
+            <li data-i18n data-ar="في حال وجود حالات متعددة (مثلاً: خطأ + تحذير)، اعرض تنبيهات منفصلة مع دلالات واضحة.">
+              When multiple states exist (error + warning), show separate alerts with clear labels.</li>
+            <li data-i18n
+              data-ar="إذا تطلب الإجراء تأكيدًا إضافيًا، أرفق رابطاً أو زرًا يفتح طبقة حوار بدلًا من التكرار.">If an
+              action needs confirmation, attach a dialog link rather than repeating the alert.</li>
+          </ul>
         </div>
       </section>
 

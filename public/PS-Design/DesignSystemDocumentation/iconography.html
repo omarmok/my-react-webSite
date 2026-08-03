@@ -56,7 +56,7 @@
       background: #1c8354;
       color: #fff;
       border-radius: var(--card-radius);
-      padding: 32px;
+      padding: 22px 26px;
       box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
     }
 
@@ -67,9 +67,16 @@
     }
 
     .eyebrow {
-      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
       color: var(--muted);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
     }
 
     .section {
@@ -198,6 +205,19 @@
       gap: 10px;
     }
 
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
     .sidebar-nav a {
       color: #1f2937;
       text-decoration: none;
@@ -211,14 +231,21 @@
 
     .sidebar-nav a:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
     }
 
     .sidebar-nav a.is-active {
-      background: #111827;
-      border-color: #111827;
-      color: #f9fafb;
-      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.18);
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
     }
 
     .lang-toggle {
@@ -289,25 +316,30 @@
         <div class="sidebar-title" data-i18n data-ar="الرموز المرتبطة">Related tokens</div>
         <nav class="sidebar-nav">
           <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
           <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
           <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
           <a href="./iconography.html" class="is-active" data-i18n data-ar="الأيقونات">Iconography</a>
           <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
           <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
           <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
           <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
           <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
-          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
           <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
           <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
           <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
           <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
-          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
-          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
           <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
           <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
           <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
           <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
         </nav>
       </div>
 
@@ -381,6 +413,50 @@
         </a>
       </div>
 
+      <section class="section" id="overview">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2>
+          <p class="section-note" data-i18n
+            data-ar="توثق PS Design الآن نظام أيقونات واحد يمتد من السجل إلى مراحل التنسيق.">PS Design now documents one
+            icon system that stretches from registry through styling.</p>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="السجل">Registry</h4>
+              <p data-i18n
+                data-ar="تحتفظ جميع الرموز داخل <code>icons.svg</code> كـ <code>&lt;svg&gt;</code> مضمّنة تحافظ على <code>viewBox</code> الأصلي وتزيل <code>width</code>/<code>height</code> والألوان الثابتة، ويحمل كل إدخال اسمًا وصفيًا بصيغة kebab-case في <code>data-icon</code> فريدًا عالميًا.">
+                All glyphs live inside <code>icons.svg</code> as inline <code>&lt;svg&gt;</code> tags that keep their
+                original <code>viewBox</code> and drop <code>width</code>/<code>height</code> and hardcoded colors. Each
+                entry
+                carries a descriptive, kebab-case <code>data-icon</code> that is globally unique.
+              </p>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="المحمّل">Loader</h4>
+              <p data-i18n
+                data-ar="<code>icon.js</code> يجلب السجل مرة واحدة، ويجد <code>#svg-registry</code> المخفي، ويسجّل كل رمز في خريطة. عندما يحتوي DOM على <code>[data-icon]</code>، ينسخ المحمّل القالب المطابق (<code>cloneNode(true)</code>) ويلصقه مباشرة؛ لا حاجة إلى مراجع <code>&lt;use&gt;</code> أو استيراد يدوي.">
+                <code>icon.js</code> fetches the registry once, finds the hidden <code>#svg-registry</code>, and
+                registers
+                every glyph in a map. When the DOM contains <code>[data-icon]</code>, the loader clones the matching
+                template
+                (<code>cloneNode(true)</code>) and injects it directly; no <code>&lt;use&gt;</code> references or manual
+                imports are needed.
+              </p>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="التنسيق">Styling</h4>
+              <p data-i18n
+                data-ar="<code>icon.scss</code> (المُجمّع في <code>main.css</code>) يحدد <code>.icon</code> الأساسي، والحجم الافتراضي (1.25rem)، ومساعدات الحجم مثل <code>.icon-2xl</code>، والألوان الدلالية مثل <code>.Primary-600</code>، ومساعدات المسافة التي تحافظ على محاذاة الرموز.">
+                <code>icon.scss</code> (compiled into <code>main.css</code>) sets the base <code>.icon</code>, default
+                size
+                (1.25rem), sizing helpers such as <code>.icon-2xl</code>, semantic colors like
+                <code>.Primary-600</code>,
+                and spacing helpers that keep glyphs aligned.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="token-mapping">
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="رسم خرائط الرموز">Token mapping</h2>
@@ -426,50 +502,6 @@
                 </tr>
               </tbody>
             </table>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="overview">
-        <div class="section-card">
-          <h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2>
-          <p class="section-note" data-i18n
-            data-ar="توثق PS Design الآن نظام أيقونات واحد يمتد من السجل إلى مراحل التنسيق.">PS Design now documents one
-            icon system that stretches from registry through styling.</p>
-          <div class="usage-grid">
-            <div class="usage-card">
-              <h4 data-i18n data-ar="السجل">Registry</h4>
-              <p data-i18n
-                data-ar="تحتفظ جميع الرموز داخل <code>icons.svg</code> كـ <code>&lt;svg&gt;</code> مضمّنة تحافظ على <code>viewBox</code> الأصلي وتزيل <code>width</code>/<code>height</code> والألوان الثابتة، ويحمل كل إدخال اسمًا وصفيًا بصيغة kebab-case في <code>data-icon</code> فريدًا عالميًا.">
-                All glyphs live inside <code>icons.svg</code> as inline <code>&lt;svg&gt;</code> tags that keep their
-                original <code>viewBox</code> and drop <code>width</code>/<code>height</code> and hardcoded colors. Each
-                entry
-                carries a descriptive, kebab-case <code>data-icon</code> that is globally unique.
-              </p>
-            </div>
-            <div class="usage-card">
-              <h4 data-i18n data-ar="المحمّل">Loader</h4>
-              <p data-i18n
-                data-ar="<code>icon.js</code> يجلب السجل مرة واحدة، ويجد <code>#svg-registry</code> المخفي، ويسجّل كل رمز في خريطة. عندما يحتوي DOM على <code>[data-icon]</code>، ينسخ المحمّل القالب المطابق (<code>cloneNode(true)</code>) ويلصقه مباشرة؛ لا حاجة إلى مراجع <code>&lt;use&gt;</code> أو استيراد يدوي.">
-                <code>icon.js</code> fetches the registry once, finds the hidden <code>#svg-registry</code>, and
-                registers
-                every glyph in a map. When the DOM contains <code>[data-icon]</code>, the loader clones the matching
-                template
-                (<code>cloneNode(true)</code>) and injects it directly; no <code>&lt;use&gt;</code> references or manual
-                imports are needed.
-              </p>
-            </div>
-            <div class="usage-card">
-              <h4 data-i18n data-ar="التنسيق">Styling</h4>
-              <p data-i18n
-                data-ar="<code>icon.scss</code> (المُجمّع في <code>main.css</code>) يحدد <code>.icon</code> الأساسي، والحجم الافتراضي (1.25rem)، ومساعدات الحجم مثل <code>.icon-2xl</code>، والألوان الدلالية مثل <code>.Primary-600</code>، ومساعدات المسافة التي تحافظ على محاذاة الرموز.">
-                <code>icon.scss</code> (compiled into <code>main.css</code>) sets the base <code>.icon</code>, default
-                size
-                (1.25rem), sizing helpers such as <code>.icon-2xl</code>, semantic colors like
-                <code>.Primary-600</code>,
-                and spacing helpers that keep glyphs aligned.
-              </p>
-            </div>
           </div>
         </div>
       </section>
