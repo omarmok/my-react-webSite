@@ -154,6 +154,28 @@ $moi-tag-statuses: (
     filled-border: #3f739b,
     filled-dot: $white-100,
   ),
+  Archived: (
+    color: #005d5d,
+    bg: #d4ffff,
+    border: #b6f4f4,
+    dot: #005d5d,
+    has-filled: true,
+    filled-color: $white-100,
+    filled-bg: #42969e,
+    filled-border: #42969e,
+    filled-dot: $white-100,
+  ),
+  InReview: (
+    color: #475d7a,
+    bg: #f4f9ff,
+    border: #475d7a,
+    dot: #475d7a,
+    has-filled: true,
+    filled-color: $white-100,
+    filled-bg: #8eb4e2,
+    filled-border: #8eb4e2,
+    filled-dot: $white-100,
+  ),
 );
 
 @mixin _moi-tag-declaration($property, $value, $important: false) {
@@ -164,7 +186,12 @@ $moi-tag-statuses: (
   }
 }
 
-@mixin _moi-tag-base($display, $gap: null, $align-content: null, $logical: false) {
+@mixin _moi-tag-base(
+  $display,
+  $gap: null,
+  $align-content: null,
+  $logical: false
+) {
   $base-size: map.get($moi-tag-control-sizes, default);
   $base-padding: map.get($moi-tag-padding, default);
 
@@ -236,7 +263,13 @@ $moi-tag-statuses: (
   }
 }
 
-@mixin _moi-tag-theme($color, $background, $border-color, $dot-color, $important: false) {
+@mixin _moi-tag-theme(
+  $color,
+  $background,
+  $border-color,
+  $dot-color,
+  $important: false
+) {
   @include _moi-tag-declaration(color, $color, $important);
   @include _moi-tag-declaration(background, $background, $important);
   @include _moi-tag-declaration(border, 1px solid $border-color, $important);
@@ -417,7 +450,12 @@ $moi-tag-statuses: (
 .moi-tag {
   @include _moi-tag-modern-base;
   @include _moi-tag-typography(default);
-  @include _moi-tag-theme($Neutral-600, $Neutral-50, $Neutral-200, $Neutral-600);
+  @include _moi-tag-theme(
+    $Neutral-600,
+    $Neutral-50,
+    $Neutral-200,
+    $Neutral-600
+  );
 
   svg,
   img {

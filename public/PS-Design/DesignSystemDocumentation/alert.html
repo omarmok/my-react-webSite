@@ -1108,6 +1108,150 @@
         </div>
       </section>
 
+      <section class="section" id="dynamic-status-mapping">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="ربط الحالة ديناميكيًا بـ Status ID (للمطورين)">Dynamic Status Mapping (for Developers)</h2>
+          <p class="section-note" data-i18n
+            data-ar="هذا القسم موجّه لمطوري الواجهة الأمامية (Front-end) ويشرح كيفية ربط حالة moi-notification ديناميكيًا مع Status ID القادم من الـ Backend أو الـ API، بدلاً من كتابة data-status بقيمة ثابتة يدويًا.">
+            This section is for front-end developers and explains how to connect the <code class="code-inline">.moi-notification</code> state dynamically to a <code class="code-inline">Status ID</code> coming from the backend or an API, instead of hardcoding <code class="code-inline">data-status</code> manually.
+          </p>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="نظرة عامة">Overview</h3>
+          <p class="section-note" data-i18n
+            data-ar="التنبيهات في التطبيقات الحقيقية نادرًا ما تبدأ بحالة بصرية ثابتة. في أغلب الأنظمة، يرسل الـ Backend أو الـ API رقم حالة (Status ID) خاص بمنطق العمل (Business Logic) الخاص بذلك النظام — وهو ليس مصطلحًا من نظام التصميم. مهمة الـ Front-end هي ترجمة هذا الـ Status ID إلى إحدى الحالات البصرية الأربع التي يدعمها مكوّن moi-notification، ثم تمرير الناتج بشكل ديناميكي داخل data-status بدلاً من كتابته يدويًا وبشكل ثابت.">
+            Alerts rarely start with a fixed visual status in real applications. In most systems, the backend or API returns a business-specific <code class="code-inline">Status ID</code> (a number or code) that represents a status in that system's own logic — it is not a Design System term. The front end is responsible for translating that <code class="code-inline">Status ID</code> into one of the four visual states the <code class="code-inline">.moi-notification</code> component supports, then passing the result into <code class="code-inline">data-status</code> dynamically instead of hardcoding it.
+          </p>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="الاستخدام في HTML">HTML Usage</h3>
+          <p class="section-note" data-i18n
+            data-ar="بدلاً من كتابة قيمة ثابتة مثل data-status=&quot;success&quot;، اربط data-status بدالة تستقبل الـ statusId القادم من بياناتك. المثال التالي بصيغة Vue باستخدام الاختصار : وهو v-bind:">
+            Instead of writing a fixed value like <code class="code-inline">data-status="success"</code>, bind <code class="code-inline">data-status</code> to a function call that receives the <code class="code-inline">statusId</code> coming from your data. The example below uses Vue's <code class="code-inline">:</code> shorthand for <code class="code-inline">v-bind</code>:
+          </p>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;div
+  class="moi-notification"
+  :data-status="setDataStatus(statusId)"
+  role="alert"
+&gt;
+  &lt;div class="moi-notification__content"&gt;
+    &lt;span class="moi-notification__icon" aria-hidden="true"&gt;
+      &lt;svg viewBox="0 0 24 24" fill="none" focusable="false"&gt;
+        &lt;path fill="currentColor" d="..." /&gt;
+      &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;strong class="moi-notification__title"&gt;{{ title }}&lt;/strong&gt;
+    &lt;span class="moi-notification__message"&gt;{{ message }}&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="دالة الـ Mapping (مثال Vue)">Mapping Function (Vue example)</h3>
+          <p class="section-note" data-i18n
+            data-ar="منطق الـ Mapping بالكامل يكون في جانب الـ Front-end، خارج المكوّن نفسه. المكوّن لا يعرف شيئًا عن أرقام الـ Backend — كل ما يستقبله هو القيمة النهائية الجاهزة (info, success, warning, error). هذا مثال بسيط لدالة Vue:">
+            The mapping logic lives entirely on the front-end side, outside the component. The component knows nothing about backend numbers — it only ever receives the final, ready value (<code class="code-inline">info</code>, <code class="code-inline">success</code>, <code class="code-inline">warning</code>, <code class="code-inline">error</code>). Here is a simple Vue method example:
+          </p>
+          <div class="code-block">
+            <pre><code>methods: {
+  setDataStatus(statusId) {
+    switch (statusId) {
+      case 1:
+        return 'info';
+
+      case 2:
+        return 'warning';
+
+      case 3:
+        return 'success';
+
+      case 4:
+        return 'error';
+
+      default:
+        return 'info';
+    }
+  },
+}</code></pre>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="كيف تعمل الفكرة — خطوة بخطوة">How It Works — Step by Step</h3>
+          <ol class="accessibility-list">
+            <li data-i18n data-ar="الـ Backend أو الـ API يرسل Status ID.">The backend or API sends a <code>Status ID</code>.</li>
+            <li data-i18n data-ar="يتم تمرير statusId إلى setDataStatus().">The <code>statusId</code> is passed into <code>setDataStatus()</code>.</li>
+            <li data-i18n data-ar="الدالة تعمل Mapping بين الحالة الخاصة بمنطق العمل (Business Status) وبين الحالة البصرية للتنبيه.">The function maps the business status to a visual notification state.</li>
+            <li data-i18n data-ar="القيمة الناتجة (info, success, warning, أو error) توضع في data-status.">The resulting value (<code>info</code>, <code>success</code>, <code>warning</code>, or <code>error</code>) is placed into <code>data-status</code>.</li>
+            <li data-i18n data-ar="مكوّن التنبيه يأخذ التنسيق (اللون، الأيقونة، متغير الزر) المناسب تلقائيًا من نظام التصميم.">The notification automatically picks up the correct styling (color, icon, button variant) from the Design System.</li>
+          </ol>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="مثال على تدفق القيمة">Example Flow</h3>
+          <p class="section-note" data-i18n data-ar="مثال مبسّط يوضح رحلة قيمة واحدة من الـ Backend إلى data-status:">A simplified walk-through of a single value's journey from the backend to <code class="code-inline">data-status</code>:</p>
+          <div class="code-block">
+            <pre><code>Status ID: 2
+→ setDataStatus(2)
+→ warning
+→ data-status="warning"</code></pre>
+          </div>
+          <p class="section-note" data-i18n
+            data-ar="أرقام الـ Status IDs المستخدمة هنا (1، 2، 3، 4) هي مجرد أمثلة توضيحية فقط — وليست ثابتة ولا جزءًا من نظام التصميم. قد يكون لدى أي نظام فعلي 5 أو 10 أو حتى 20 حالة مختلفة؛ كل ما يهم مكوّن moi-notification هو القيمة النهائية الموضوعة في data-status.">
+            The <code class="code-inline">Status ID</code> values used here (1, 2, 3, 4) are purely illustrative — they are not fixed and are not part of the Design System. A real system may have 5, 10, or even 20 different statuses; all that matters to <code class="code-inline">.moi-notification</code> is the final value placed into <code class="code-inline">data-status</code>.
+          </p>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="حالات متعددة (Multiple Status IDs)">Multiple Status IDs</h3>
+          <p class="section-note" data-i18n
+            data-ar="المطوّر هو المسؤول عن عمل Mapping بين حالات النظام (مهما كان عددها) وبين الحالات البصرية الأربع التي يدعمها التنبيه: info, success, warning, error. مثال:">
+            The developer is responsible for mapping the system's statuses — however many there are — onto the four visual states the notification supports: <code class="code-inline">info</code>, <code class="code-inline">success</code>, <code class="code-inline">warning</code>, <code class="code-inline">error</code>. Example:
+          </p>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th data-i18n data-ar="حالة النظام (Business Status)">Business Status</th>
+                <th data-i18n data-ar="حالة نظام التصميم (data-status)">Design System Status (data-status)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n data-ar="قيد الانتظار (Pending)">Pending</td>
+                <td><code class="code-inline">warning</code></td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="تمت الموافقة (Approved)">Approved</td>
+                <td><code class="code-inline">success</code></td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="مرفوض (Rejected)">Rejected</td>
+                <td><code class="code-inline">error</code></td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="جديد (New)">New</td>
+                <td><code class="code-inline">info</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="section-note mt-3" data-i18n
+            data-ar="الفصل بين الطبقتين مهم جدًا: حالة منطق العمل (Business Status) تكون بصيغة statusId = 1, 2, 3, 4, 5... وهي خاصة بكل مشروع، أما حالة نظام التصميم (Design System Status) فهي دائمًا واحدة من info / success / warning / error فقط. المكوّن نفسه لا يجب أن يعرف أبدًا معنى أرقام الـ Backend — كل ما يصل إليه هو القيمة النهائية الجاهزة.">
+            The separation between the two layers matters: the <strong>Business Status</strong> is shaped like <code class="code-inline">statusId = 1, 2, 3, 4, 5...</code> and is specific to each project, while the <strong>Design System Status</strong> is always one of <code class="code-inline">info</code> / <code class="code-inline">success</code> / <code class="code-inline">warning</code> / <code class="code-inline">error</code> only. The component itself must never know what the backend numbers mean — it only ever receives the final, ready value.
+          </p>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="ملاحظات للمطورين">Developer Notes</h3>
+          <div class="usage-card">
+            <ul>
+              <li data-i18n
+                data-ar="setDataStatus() ليست دالة إلزامية باسم ثابت داخل نظام التصميم، وإنما مثال لطريقة عمل الـ Mapping. يمكن لأي مشروع استخدام function أو computed property أو mapping object حسب الـ architecture المستخدم.">
+                <code>setDataStatus()</code> is not a required, fixed function name inside the Design System — it is only an example of how the mapping can be implemented. A project may use a function, a computed property, or a mapping object, depending on its architecture.
+              </li>
+              <li data-i18n data-ar="مكوّن moi-notification يدعم أربع حالات بصرية فقط: info, success, warning, error. أي حالة عمل يجب أن تنتهي إلى إحدى هذه الأربعة.">
+                <code>.moi-notification</code> supports only four visual states: <code>info</code>, <code>success</code>, <code>warning</code>, <code>error</code>. Any business status must ultimately resolve to one of these four.
+              </li>
+              <li data-i18n data-ar="أبقِ منطق الـ Mapping خارج المكوّن. المكوّن يقرأ فقط القيمة الجاهزة الموجودة بالفعل داخل data-status.">
+                Keep the mapping logic outside the component. The component only reads whatever value already sits inside <code>data-status</code>.
+              </li>
+              <li data-i18n data-ar="احرص دائمًا على وجود حالة افتراضية (default) في الدالة حتى لا يبقى data-status بلا قيمة عند وصول Status ID غير متوقع.">
+                Always provide a safe <code>default</code> case in the mapping so an unexpected <code>Status ID</code> never leaves <code>data-status</code> empty.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="accessibility-guidance">
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="إرشادات إمكانية الوصول">Accessibility Guidance</h2>

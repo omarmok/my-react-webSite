@@ -2594,6 +2594,395 @@
         </div>
       </section>
 
+      <section class="section" id="dynamic-status-mapping">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="ربط الوسم ديناميكيًا بحالة قادمة من الباك اند"
+            data-en="Dynamic Status Mapping">Dynamic Status Mapping</h2>
+          <p class="section-note" data-i18n
+            data-ar="هذا الجزء موجّه لمطوري الواجهة الأمامية، ويشرح خطوة بخطوة كيفية ربط الوسم بحالة أو أولوية قادمة من الباك اند أو الـ API، دون تغيير مكوّن الوسم نفسه."
+            data-en="This part is for front-end developers and explains, step by step, how to connect the tag to a status or priority coming from the backend or an API, without changing the tag component itself.">
+            This part is for front-end developers and explains, step by step, how to connect the tag to a status or
+            priority coming from the backend or an API, without changing the tag component itself.
+          </p>
+
+          <h3 data-i18n data-ar="نظرة عامة" data-en="Overview">Overview</h3>
+          <p class="section-note" data-i18n
+            data-ar="في التطبيقات الحقيقية، نادرًا ما تصل حالة الوسم جاهزة. غالبًا يرسل الباك اند أو الـ API رقم حالة خاص بمنطق العمل في ذلك النظام، وهذا الرقم ليس مصطلحًا من نظام التصميم. مهمة الواجهة الأمامية هي ترجمة هذا الرقم إلى إحدى قيم <code>data-status</code> المعتمدة فعليًا في مكوّن الوسم، ثم تمرير الناتج بشكل ديناميكي بدلًا من كتابته يدويًا وبشكل ثابت."
+            data-en="In real applications, a tag's status rarely arrives ready-made. The backend or API usually returns a status ID that belongs to that system's own business logic — it is not a Design System term. The front end's job is to translate that ID into one of the <code>data-status</code> values already supported by the tag component, then pass the result in dynamically instead of hardcoding it.">
+            In real applications, a tag's status rarely arrives ready-made. The backend or API usually returns a
+            status ID that belongs to that system's own business logic — it is not a Design System term. The front
+            end's job is to translate that ID into one of the <code>data-status</code> values already supported by
+            the tag component, then pass the result in dynamically instead of hardcoding it.
+          </p>
+
+          <div class="section-divider"></div>
+
+          <h3 data-i18n data-ar="تركيب الوسم الحالي" data-en="Current Tag Structure">Current Tag Structure</h3>
+          <p class="section-note" data-i18n
+            data-ar="التركيب لا يتغيّر إطلاقًا. الوسم يبقى <code>.moi-tag</code> بخاصية <code>data-status</code>، والنص داخل <code>.moi-label</code>، تمامًا كما هو موثّق في قسم Developer API أعلاه:"
+            data-en="The structure never changes. The tag stays <code>.moi-tag</code> with a <code>data-status</code> attribute, and the text stays inside <code>.moi-label</code>, exactly as documented in the Developer API section above:">
+            The structure never changes. The tag stays <code>.moi-tag</code> with a <code>data-status</code>
+            attribute, and the text stays inside <code>.moi-label</code>, exactly as documented in the Developer API
+            section above:
+          </p>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;span class="moi-tag" data-size="md" data-status="highpriority"&gt;
+  &lt;span class="moi-label"&gt;High Priority&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+          </div>
+          <p class="section-note" data-i18n
+            data-ar="قيمة <code>data-status</code> يمكن أن تكون ثابتة كما في المثال السابق، أو ديناميكية عندما تكون الحالة قادمة من الباك اند."
+            data-en="The <code>data-status</code> value can be static as in the example above, or dynamic when the status comes from the backend.">
+            The <code>data-status</code> value can be static as in the example above, or dynamic when the status
+            comes from the backend.
+          </p>
+
+          <div class="section-divider"></div>
+
+          <h3 data-i18n data-ar="الاستخدام الديناميكي" data-en="Dynamic Usage">Dynamic Usage</h3>
+          <p class="section-note" data-i18n
+            data-ar="مثال عام، غير مرتبط باسم أي مشروع أو Object معيّن:"
+            data-en="A generic example, not tied to any specific project or object name:">
+            A generic example, not tied to any specific project or object name:
+          </p>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;span
+  class="moi-tag"
+  data-size="md"
+  :data-status="setTagStatus(statusId)"
+&gt;
+  &lt;span class="moi-label"&gt;{{ statusName }}&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+          </div>
+          <p class="section-note" data-i18n
+            data-ar="السطر <code>:data-status=&quot;setTagStatus(statusId)&quot;</code> يعني أن قيمة <code>data-status</code> لن تُكتب يدويًا، بل ستُحدَّد تلقائيًا حسب <code>statusId</code> القادم من الباك اند."
+            data-en="The line <code>:data-status=&quot;setTagStatus(statusId)&quot;</code> means the <code>data-status</code> value is never written by hand — it is determined automatically from the <code>statusId</code> coming from the backend.">
+            The line <code>:data-status="setTagStatus(statusId)"</code> means the <code>data-status</code> value is
+            never written by hand — it is determined automatically from the <code>statusId</code> coming from the
+            backend.
+          </p>
+
+          <div class="section-divider"></div>
+
+          <h3 data-i18n data-ar="دالة الـ Mapping" data-en="Mapping Function">Mapping Function</h3>
+          <p class="section-note" data-i18n
+            data-ar="مثال بسيط بصيغة Vue:"
+            data-en="A simple Vue example:">
+            A simple Vue example:
+          </p>
+          <div class="code-block">
+            <pre><code>methods: {
+  setTagStatus(statusId) {
+    switch (statusId) {
+      case 1:
+        return 'defualtprioroty';
+
+      case 2:
+        return 'highpriority';
+
+      case 3:
+        return 'mediumpriority';
+
+      case 4:
+        return 'regpriority';
+
+      case 5:
+        return 'infoprioroty';
+
+      default:
+        return 'defualtprioroty';
+    }
+  },
+}</code></pre>
+          </div>
+          <div class="usage-card">
+            <h4 data-i18n data-ar="مهم جدًا قبل الاستخدام" data-en="Important before you use this">Important before
+              you use this</h4>
+            <p class="mb-0" data-i18n
+              data-ar="القيم <code>defualtprioroty</code>، <code>highpriority</code>، <code>mediumpriority</code>، <code>regpriority</code>، <code>infoprioroty</code> هي نفس قيم <code>data-status</code> الموثّقة فعليًا في قسم Developer API أعلاه، بما فيها التهجئات القديمة. لا تصحّح تهجئة أي قيمة موروثة من نفسك، ولا تنشئ قيمًا جديدة. راجع دائمًا مرجع API — قيم الحالة قبل استخدام أي قيمة."
+              data-en="The values <code>defualtprioroty</code>, <code>highpriority</code>, <code>mediumpriority</code>, <code>regpriority</code>, <code>infoprioroty</code> are the exact same <code>data-status</code> values documented in the Developer API section above, spelling included. Never correct the spelling of a legacy value yourself, and never invent a new one. Always check the API Reference — Status Values table before using any value.">
+              The values <code>defualtprioroty</code>, <code>highpriority</code>, <code>mediumpriority</code>,
+              <code>regpriority</code>, <code>infoprioroty</code> are the exact same <code>data-status</code> values
+              documented in the Developer API section above, spelling included. Never correct the spelling of a
+              legacy value yourself, and never invent a new one. Always check the API Reference — Status Values
+              table before using any value.
+            </p>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <h3 data-i18n data-ar="كيف تعمل الفكرة" data-en="How It Works">How It Works</h3>
+          <ol class="accessibility-list">
+            <li data-i18n data-ar="الباك اند أو الـ API يرسل قيمة تحدد حالة العنصر أو أولويته. مثال: <code>statusId = 2</code>. الرقم 2 مجرد مثال، وليس قيمة ثابتة خاصة بنظام التصميم."
+              data-en="The backend or API sends a value that defines the item's status or priority. Example: <code>statusId = 2</code>. The number 2 is only an example — it is not a fixed Design System value.">
+              The backend or API sends a value that defines the item's status or priority. Example:
+              <code>statusId = 2</code>. The number 2 is only an example — it is not a fixed Design System value.
+            </li>
+            <li data-i18n data-ar="يتم تمرير <code>statusId</code> إلى <code>setTagStatus(statusId)</code>."
+              data-en="The <code>statusId</code> is passed into <code>setTagStatus(statusId)</code>.">
+              The <code>statusId</code> is passed into <code>setTagStatus(statusId)</code>.
+            </li>
+            <li data-i18n data-ar="الدالة تبحث عن الـ Status ID وتحوّله إلى قيمة <code>data-status</code> المناسبة. مثال: <code>2 → highpriority</code>."
+              data-en="The function looks up the Status ID and converts it into the matching <code>data-status</code> value. Example: <code>2 → highpriority</code>.">
+              The function looks up the Status ID and converts it into the matching <code>data-status</code> value.
+              Example: <code>2 → highpriority</code>.
+            </li>
+            <li data-i18n data-ar="Vue تضع القيمة الناتجة تلقائيًا داخل الوسم: <code>data-status=&quot;highpriority&quot;</code>."
+              data-en="Vue automatically places the resulting value inside the tag: <code>data-status=&quot;highpriority&quot;</code>.">
+              Vue automatically places the resulting value inside the tag: <code>data-status="highpriority"</code>.
+            </li>
+            <li data-i18n data-ar="بعد ذلك يطبّق نظام التصميم اللون والتنسيق الخاص بـ <code>highpriority</code> تلقائيًا. المطوّر لا يحتاج لتغيير أي لون أو CSS يدويًا لكل حالة قادمة من الباك اند."
+              data-en="The Design System then applies the color and styling for <code>highpriority</code> automatically. The developer never needs to change any color or CSS by hand for each backend status.">
+              The Design System then applies the color and styling for <code>highpriority</code> automatically. The
+              developer never needs to change any color or CSS by hand for each backend status.
+            </li>
+          </ol>
+
+          <div class="section-divider"></div>
+
+          <h3 data-i18n data-ar="مثال على تدفق القيمة" data-en="Example Flow">Example Flow</h3>
+          <div class="code-block">
+            <pre><code>Backend
+statusId = 2
+
+↓
+
+setTagStatus(2)
+
+↓
+
+highpriority
+
+↓
+
+data-status="highpriority"
+
+↓
+
+High Priority Tag styling</code></pre>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <h3 data-i18n data-ar="حالة العمل مقابل حالة نظام التصميم"
+            data-en="Business Status vs Design System Status">Business Status vs Design System Status</h3>
+          <p class="section-note" data-i18n
+            data-ar="الفصل بين الطبقتين مهم جدًا للمطوّر:"
+            data-en="The separation between the two layers matters a great deal for the developer:">
+            The separation between the two layers matters a great deal for the developer:
+          </p>
+          <div class="usage-grid">
+            <div class="usage-card">
+              <h4 data-i18n data-ar="حالة العمل / الباك اند" data-en="Business / API Status">Business / API Status
+              </h4>
+              <p class="mb-0" data-i18n
+                data-ar="قد تكون القيم <code>1</code>، <code>2</code>، <code>3</code>، <code>4</code>، <code>5</code>، <code>6</code>، <code>7</code>، <code>8</code>، <code>9</code>، <code>10</code>، وهكذا، بحسب عدد الحالات في ذلك النظام. هذه القيم تخص الباك اند ومنطق العمل، وليست جزءًا من نظام التصميم."
+                data-en="The values may be <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, and so on, depending on how many statuses that system has. These values belong to the backend and business logic — they are not part of the Design System.">
+                The values may be <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>,
+                <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, and so on, depending
+                on how many statuses that system has. These values belong to the backend and business logic — they
+                are not part of the Design System.
+              </p>
+            </div>
+            <div class="usage-card">
+              <h4 data-i18n data-ar="حالة وسم نظام التصميم" data-en="Design System Tag Status">Design System Tag
+                Status</h4>
+              <p class="mb-0" data-i18n
+                data-ar="الوسم يتعامل فقط مع القيم المعتمدة داخل نظام التصميم، مثل <code>defualtprioroty</code>، <code>highpriority</code>، <code>mediumpriority</code>، <code>regpriority</code>، <code>infoprioroty</code>، بالإضافة إلى حالات سير العمل الأخرى الموجودة فعليًا في المكوّن."
+                data-en="The tag only deals with values approved inside the Design System, such as <code>defualtprioroty</code>, <code>highpriority</code>, <code>mediumpriority</code>, <code>regpriority</code>, <code>infoprioroty</code>, plus the other workflow statuses that already exist on the component.">
+                The tag only deals with values approved inside the Design System, such as
+                <code>defualtprioroty</code>, <code>highpriority</code>, <code>mediumpriority</code>,
+                <code>regpriority</code>, <code>infoprioroty</code>, plus the other workflow statuses that already
+                exist on the component.
+              </p>
+            </div>
+          </div>
+          <p class="section-note mt-3" data-i18n
+            data-ar="الوسم نفسه لا يجب أن يعرف أن Status ID رقم 2 يعني أولوية عالية. الـ Application هو المسؤول عن هذا الربط."
+            data-en="The tag itself must never know that Status ID 2 means High Priority. The application is responsible for that mapping.">
+            The tag itself must never know that Status ID 2 means High Priority. The application is responsible for
+            that mapping.
+          </p>
+
+          <div class="section-divider"></div>
+
+          <h3 data-i18n data-ar="حالات متعددة" data-en="Multiple Status IDs">Multiple Status IDs</h3>
+          <p class="section-note" data-i18n
+            data-ar="المثال السابق لا يعني أن النظام يدعم فقط IDs من 1 إلى 5. قد يكون هناك statusId من 1 حتى 10 أو أكثر، ويتم ربط كل واحدة بالحالة المناسبة حسب منطق العمل الخاص بالمشروع. المثال التالي توضيحي فقط:"
+            data-en="The previous example does not mean the system only supports IDs from 1 to 5. There may be a statusId from 1 up to 10 or more, and each one gets mapped to the matching status according to that project's own business logic. The following is illustrative only:">
+            The previous example does not mean the system only supports IDs from 1 to 5. There may be a
+            <code>statusId</code> from 1 up to 10 or more, and each one gets mapped to the matching status according
+            to that project's own business logic. The following is illustrative only:
+          </p>
+          <div class="code-block">
+            <pre><code>1 → defualtprioroty
+2 → highpriority
+3 → mediumpriority
+4 → regpriority
+5 → infoprioroty</code></pre>
+          </div>
+          <p class="section-note" data-i18n
+            data-ar="ومن الطبيعي أيضًا أن يأخذ أكثر من Backend Status نفس شكل الوسم إذا تطلّب منطق العمل ذلك، مثلًا:"
+            data-en="It is also normal for more than one backend status to resolve to the same tag appearance, when the business logic requires it — for example:">
+            It is also normal for more than one backend status to resolve to the same tag appearance, when the
+            business logic requires it — for example:
+          </p>
+          <div class="code-block">
+            <pre><code>6 → highpriority
+7 → highpriority</code></pre>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <h3 data-i18n data-ar="مثال على حالات سير العمل" data-en="Workflow Status Example">Workflow Status Example
+          </h3>
+          <p class="section-note" data-i18n
+            data-ar="الطريقة نفسها تعمل مع حالات سير العمل الموثّقة فعليًا في هذا المكوّن، وهي <code>UnderProgress</code> و<code>Returned</code>. المثال التالي توضيحي فقط ولا يفترض Mapping فعليًا معتمدًا مع أي باك اند؛ كل مشروع يحدد أرقام الـ Status ID الخاصة به بنفسه."
+            data-en="The same technique works with the workflow statuses actually documented on this component, which are <code>UnderProgress</code> and <code>Returned</code>. The following is illustrative only and does not assume any real, approved backend mapping — each project defines its own Status ID numbers.">
+            The same technique works with the workflow statuses actually documented on this component, which are
+            <code>UnderProgress</code> and <code>Returned</code>. The following is illustrative only and does not
+            assume any real, approved backend mapping — each project defines its own Status ID numbers.
+          </p>
+          <div class="code-block">
+            <pre><code>methods: {
+  setTagWorkflowStatus(statusId) {
+    switch (statusId) {
+      case 1:
+        return 'UnderProgress';
+
+      case 2:
+        return 'Returned';
+
+      default:
+        return 'UnderProgress';
+    }
+  },
+}</code></pre>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <h3 data-i18n data-ar="ملاحظة للمطورين" data-en="Developer Notes">Developer Notes</h3>
+          <div class="usage-card">
+            <p class="mb-0" data-i18n
+              data-ar="<code>setTagStatus()</code> مجرد مثال لشرح طريقة الـ Mapping، وليست دالة إلزامية داخل نظام التصميم ولا يجب أن يكون اسمها ثابتًا. يمكن للمشروع تنفيذ الفكرة نفسها باستخدام Vue method، أو computed property، أو mapping object، أو helper function، أو أي approach يناسب الـ architecture الحالي. المهم أن تكون النتيجة النهائية قيمة <code>data-status</code> معتمدة فعليًا في مكوّن الوسم."
+              data-en="<code>setTagStatus()</code> is only an example that explains how the mapping works — it is not a required function inside the Design System, and its name does not need to stay fixed. A project may implement the same idea using a Vue method, a computed property, a mapping object, a helper function, or any approach that fits its current architecture. What matters is that the final result is a <code>data-status</code> value that is actually approved on the tag component.">
+              <code>setTagStatus()</code> is only an example that explains how the mapping works — it is not a
+              required function inside the Design System, and its name does not need to stay fixed. A project may
+              implement the same idea using a Vue method, a computed property, a mapping object, a helper function,
+              or any approach that fits its current architecture. What matters is that the final result is a
+              <code>data-status</code> value that is actually approved on the tag component.
+            </p>
+          </div>
+        </div>
+
+        <div class="section-card example-card">
+          <div class="example-head">
+            <div class="example-meta">
+              <h3 class="section-title" data-i18n data-ar="مثال متكامل" data-en="Complete Example">Complete Example
+              </h3>
+              <p class="section-note" data-i18n
+                data-ar="مثال مستقل بالكامل، يمكن قراءته ونسخه دون الحاجة للرجوع إلى باقي الشرح."
+                data-en="A fully self-contained example that can be read and copied without needing to refer back to the rest of the explanation.">
+                A fully self-contained example that can be read and copied without needing to refer back to the rest
+                of the explanation.
+              </p>
+            </div>
+            <button class="btn moi-btn--Info" type="button" data-copy-template="tag-example-dynamic-mapping"
+              data-i18n data-ar="نسخ" data-en="Copy">Copy</button>
+          </div>
+
+          <p class="section-note mt-2" data-i18n data-ar="بيانات قادمة من الباك اند:"
+            data-en="Data coming from the backend:">Data coming from the backend:</p>
+          <div class="code-block">
+            <pre><code>statusId = 2;
+statusName = 'High Priority';</code></pre>
+          </div>
+
+          <p class="section-note mt-3" data-i18n data-ar="دالة الـ Mapping:" data-en="Mapping function:">Mapping
+            function:</p>
+          <div class="code-block">
+            <pre><code>methods: {
+  setTagStatus(statusId) {
+    switch (statusId) {
+      case 1:
+        return 'defualtprioroty';
+
+      case 2:
+        return 'highpriority';
+
+      case 3:
+        return 'mediumpriority';
+
+      case 4:
+        return 'regpriority';
+
+      case 5:
+        return 'infoprioroty';
+
+      default:
+        return 'defualtprioroty';
+    }
+  },
+}</code></pre>
+          </div>
+
+          <p class="section-note mt-3" data-i18n data-ar="الاستخدام:" data-en="Usage:">Usage:</p>
+          <div class="code-block">
+            <pre><code class="language-html">&lt;span
+  class="moi-tag"
+  data-size="md"
+  :data-status="setTagStatus(statusId)"
+&gt;
+  &lt;span class="moi-label"&gt;{{ statusName }}&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+          </div>
+
+          <p class="section-note mt-3" data-i18n data-ar="ماذا يحدث:" data-en="What happens:">What happens:</p>
+          <div class="code-block">
+            <pre><code>statusId = 2
+
+↓
+
+setTagStatus(2)
+
+↓
+
+highpriority
+
+↓
+
+data-status="highpriority"</code></pre>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <h3 class="section-title" data-i18n data-ar="النتيجة النهائية المعروضة" data-en="Final Rendered Result">
+            Final Rendered Result</h3>
+          <p class="section-note" data-i18n
+            data-ar="الـ HTML النهائي بعد تنفيذ الـ Mapping، والوسم كما يظهر فعليًا على الشاشة:"
+            data-en="The final HTML after the mapping runs, and the tag exactly as it renders on screen:">
+            The final HTML after the mapping runs, and the tag exactly as it renders on screen:
+          </p>
+          <div class="example-split">
+            <div class="example-preview">
+              <span class="moi-tag" data-size="md" data-status="highpriority">
+                <span class="moi-label">High Priority</span>
+              </span>
+            </div>
+            <div class="code-block">
+              <pre><code class="language-html" data-code-template="tag-example-dynamic-mapping"></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <template id="tag-example-dynamic-mapping">
+          <span class="moi-tag" data-size="md" data-status="highpriority">
+            <span class="moi-label">High Priority</span>
+          </span>
+        </template>
+      </section>
+
       <section class="section" id="accessibility">
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2>
