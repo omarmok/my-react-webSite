@@ -571,3 +571,11 @@ $moi-tag-statuses: (
     outline: none;
   }
 }
+
+
+// Optional modifier: hide the leading status dot without adding an icon.
+.moi-tag--no-dot {
+  &::before {
+    display: none;
+  }
+}

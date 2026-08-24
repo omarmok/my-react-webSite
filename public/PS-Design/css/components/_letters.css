@@ -1,0 +1,70 @@
+﻿.letterKeyboard {
+  min-width: 150px;
+}
+.letterKeyboard .dropdown-menu {
+  width: 260px;
+  box-shadow: 10px 10px 30px 0px rgba(174, 174, 192, 0.4);
+}
+.letterKeyboard .dropdown-menu .content {
+  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.letterKeyboard .dropdown-menu .content .letterdiv {
+  border-radius: 6px;
+  border: 1px solid var(--table-th, #f3f0eb);
+  background: var(--bg-baige, #f8f6f2);
+  box-shadow: 0px 8px 20px 0px #fff;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+  align-items: center;
+  cursor: pointer;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  color: #683005;
+  font-weight: 600;
+}
+.letterKeyboard .dropdown-menu .content .letterdiv:hover {
+  background: #0d8f75;
+  color: #fff;
+}
+.letterKeyboard .dropdown-menu .content .letterdiv:hover img {
+  filter: brightness(0) invert(1);
+}
+.letterKeyboard .dropdown-toggle {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  height: auto;
+}
+.letterKeyboard .selecteditem {
+  border-radius: 5px;
+  border: 1px solid #b3e8dd;
+  background: var(--green-50, #e3f9f4);
+  box-shadow: 0px 8px 20px 0px #fff;
+  display: flex;
+  width: 80px;
+  height: 30px;
+  padding: 5px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  font-weight: 600;
+  color: #0d8f75;
+  padding-right: 8px;
+  font-family: Georgia, serif;
+  font-size: 15px;
+}
+.letterKeyboard .selecteditem .remove {
+  fill: #21705e;
+  background: #c6ece3;
+  width: 18px;
+  height: 17px;
+  padding: 2px;
+  border-radius: 2px;
+}

@@ -12021,6 +12021,10 @@ input:checked + .slider::after {
   outline: none;
 }
 
+.moi-tag--no-dot::before {
+  display: none;
+}
+
 html {
   font-size: 16px;
 }
@@ -15836,7 +15840,7 @@ nav {
   padding-left: 5px;
   padding-right: 5px;
   position: absolute;
-  top: -9px;
+  top: -2px;
   right: 0;
   bottom: 0;
   left: 0;
