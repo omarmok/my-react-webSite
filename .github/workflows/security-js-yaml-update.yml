@@ -1,0 +1,48 @@
+name: Security update js-yaml
+
+on:
+  push:
+    branches:
+      - security/js-yaml-4.3.2
+
+permissions:
+  contents: write
+
+jobs:
+  update-build-audit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: security/js-yaml-4.3.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Update js-yaml override
+        run: |
+          npm pkg set overrides.js-yaml=4.3.2
+          npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Audit high/critical vulnerabilities
+        run: npm audit --audit-level=high
+
+      - name: Commit updated dependency files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          if git diff --cached --quiet; then
+            echo "No dependency changes to commit."
+          else
+            git commit -m "fix: update js-yaml to 4.3.2"
+            git push origin HEAD:security/js-yaml-4.3.2
+          fi
