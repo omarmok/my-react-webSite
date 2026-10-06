@@ -147,8 +147,8 @@ const CaseStudy = () => {
           <Image
             src="/images/casstudymain.png"
             alt={cs.hero.imageAlt}
-            width={960}
-            height={540}
+            width={1200}
+            height={1029}
             className="case-study-hero-image__media"
             priority
           />
@@ -157,7 +157,7 @@ const CaseStudy = () => {
 
       {/* ── OVERVIEW ─────────────────────────────────────────────────────── */}
       <Wrap>
-        <Label>{cs.overview.label}</Label>
+        <Label>{isRTL ? "01 — السياق" : "01 — Context"}</Label>
         <H2>{cs.overview.h2}</H2>
         <Rule />
 
@@ -197,7 +197,7 @@ const CaseStudy = () => {
 
       {/* ── THE PROBLEM ──────────────────────────────────────────────────── */}
       <Wrap bg={bg}>
-        <Label>{cs.problem.label}</Label>
+        <Label>{isRTL ? "02 — التحدي" : "02 — Challenge"}</Label>
         <H2>{cs.problem.h2}</H2>
         <Rule />
 
@@ -237,9 +237,46 @@ const CaseStudy = () => {
         </div>
       </Wrap>
 
-      {/* ── STUDENT PERSONA ──────────────────────────────────────────────── */}
+      {/* ── MY ROLE ──────────────────────────────────────────────────────── */}
       <Wrap>
-        <Label>{cs.persona.label}</Label>
+        <Label>{isRTL ? "03 — دوري" : "03 — My Role"}</Label>
+        <H2>
+          {isRTL
+            ? "ملكية التصميم من الهيكلة إلى التنفيذ"
+            : "Design ownership from structure to implementation"}
+        </H2>
+        <Rule />
+        <Body style={{ maxWidth: "68ch" }}>
+          {isRTL
+            ? "كنت مسؤولًا عن تصميم تجربة المستخدم وتنفيذ الواجهة الأمامية، مع تحويل احتياجات الطلاب وأصحاب المصلحة إلى بنية واضحة ومكونات متجاوبة قابلة للتنفيذ."
+            : "I owned the UX design and front-end implementation, translating student and stakeholder needs into a clear structure and responsive, buildable interface components."}
+        </Body>
+        <ul className="case-study-role-list">
+          {(
+            isRTL
+              ? [
+                  "هندسة التجربة وبنية لوحة التحكم",
+                  "تصميم مسارات الخدمات الأكاديمية",
+                  "تصميم RTL متجاوب للويب والجوال",
+                  "التعاون مع المحللين والمطورين وفرق ضمان الجودة",
+                  "تنفيذ الواجهة باستخدام HTML وCSS وJavaScript",
+                ]
+              : [
+                  "Experience architecture and dashboard structure",
+                  "Academic service journey design",
+                  "Responsive, RTL-first interface design",
+                  "Collaboration with analysts, developers, and QA",
+                  "Front-end implementation in HTML, CSS, and JavaScript",
+                ]
+          ).map((item) => (
+            <BulletItem key={item}>{item}</BulletItem>
+          ))}
+        </ul>
+      </Wrap>
+
+      {/* ── STUDENT PERSONA ──────────────────────────────────────────────── */}
+      <Wrap bg={bg}>
+        <Label>{isRTL ? "04 — ما اكتشفته" : "04 — What I Found"}</Label>
         <H2>{cs.persona.h2}</H2>
         <Rule />
 
@@ -337,8 +374,8 @@ const CaseStudy = () => {
       </Wrap>
 
       {/* ── UX DECISIONS ─────────────────────────────────────────────────── */}
-      <Wrap bg={bg}>
-        <Label>{cs.uxDecisions.label}</Label>
+      <Wrap>
+        <Label>{isRTL ? "05 — القرارات الرئيسية" : "05 — Key Decisions"}</Label>
         <H2>{cs.uxDecisions.h2}</H2>
         <Rule />
 
@@ -397,8 +434,8 @@ const CaseStudy = () => {
       </Wrap>
 
       {/* ── KEY FEATURES ─────────────────────────────────────────────────── */}
-      <Wrap bg={surface}>
-        <Label>{cs.features.label}</Label>
+      <Wrap bg={bg}>
+        <Label>{isRTL ? "06 — التصميم والتنفيذ" : "06 — Design / Execution"}</Label>
         <H2>{cs.features.h2}</H2>
         <Rule />
 
@@ -443,6 +480,76 @@ const CaseStudy = () => {
             </div>
           ))}
         </div>
+      </Wrap>
+
+      {/* ── OUTCOME ──────────────────────────────────────────────────────── */}
+      <Wrap>
+        <Label>{isRTL ? "07 — النتيجة والأثر" : "07 — Outcome / Impact"}</Label>
+        <H2>
+          {isRTL
+            ? "نقطة دخول واحدة للحياة الأكاديمية اليومية"
+            : "One entry point for daily academic life"}
+        </H2>
+        <Rule />
+        <div className="case-study-outcome-grid">
+          {(
+            isRTL
+              ? [
+                  {
+                    value: "+15",
+                    title: "خدمة طلابية",
+                    body: "جُمعت في لوحة تحكم واحدة بدل الوصول إلى خدمات متفرقة.",
+                  },
+                  {
+                    value: "SSO",
+                    title: "جلسة موحّدة",
+                    body: "وصول إلى الأنظمة الجامعية دون تكرار تسجيل الدخول.",
+                  },
+                  {
+                    value: "RTL",
+                    title: "مصمم للعربية أولًا",
+                    body: "تخطيط واتجاه وتفاعل متجاوب بُني للاستخدام العربي اليومي.",
+                  },
+                ]
+              : [
+                  {
+                    value: "15+",
+                    title: "Student services",
+                    body: "Consolidated into one dashboard instead of scattered access points.",
+                  },
+                  {
+                    value: "SSO",
+                    title: "One authenticated session",
+                    body: "Access to university systems without repeated sign-ins.",
+                  },
+                  {
+                    value: "RTL",
+                    title: "Arabic-first delivery",
+                    body: "Responsive layout, direction, and interaction built for daily Arabic use.",
+                  },
+                ]
+          ).map((item) => (
+            <article key={item.title}>
+              <strong>{item.value}</strong>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </Wrap>
+
+      {/* ── REFLECTION ───────────────────────────────────────────────────── */}
+      <Wrap bg={bg}>
+        <Label>{isRTL ? "08 — ما يوضحه هذا المشروع" : "08 — Reflection"}</Label>
+        <H2>
+          {isRTL ? "ما يوضحه هذا المشروع" : "What this project demonstrates"}
+        </H2>
+        <Rule />
+        <blockquote className="case-study-reflection">
+          {isRTL
+            ? "يوضح هذا المشروع نهجي في تحويل منظومة خدمات معقدة إلى تجربة واحدة واضحة، مع ربط بنية المعلومات وتصميم RTL والتنفيذ الأمامي في قرار منتج متماسك."
+            : "This project demonstrates how I turn a complex service ecosystem into one coherent experience—connecting information architecture, RTL product design, and front-end implementation in the same delivery decision."}
+        </blockquote>
       </Wrap>
 
       {/* ── BOTTOM — CHECK WEBSITE ───────────────────────────────────────── */}

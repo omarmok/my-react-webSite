@@ -10,9 +10,19 @@ import casstudymain from "../public/images/casstudymain.png";
 import { useTranslation } from "../src/i18n/useTranslation";
 
 const Projects = ({ projects = [] }) => {
-  const { dictionary, t } = useTranslation();
+  const { dictionary, language, t } = useTranslation();
+  const isRTL = language === "ar";
   const projectMeta = dictionary.projects;
   const projectItems = dictionary.data.projects ?? projects;
+  const roleByProject = {
+    1: isRTL ? "مصمم UI/UX" : "UI/UX Designer",
+    2: isRTL ? "مهندس UX/UI" : "UX/UI Engineer",
+    3: isRTL ? "مصمم UI/UX" : "UI/UX Designer",
+    4: isRTL ? "مصمم UI/UX" : "UI/UX Designer",
+    5: isRTL ? "مهندس UX/UI" : "UX/UI Engineer",
+    6: isRTL ? "تصميم واجهات المستخدم" : "UI Design",
+    7: isRTL ? "تصميم وتنفيذ الواجهة" : "UI & Front-End",
+  };
 
   useEffect(() => {
     let cleanup = () => {};
@@ -77,7 +87,8 @@ const Projects = ({ projects = [] }) => {
 
     return (
       <div
-        className="col-12 col-md-6 col-xl-4"
+        id={`project-${ProjectsItem.id}`}
+        className="col-12 col-lg-6"
         data-aos="fade-up"
         data-aos-duration="1200"
         key={ProjectsItem.id ?? ProjectsItem.url ?? index}>
@@ -87,23 +98,36 @@ const Projects = ({ projects = [] }) => {
               className="img-fluid"
               src={ProjectsItem.image}
               alt={ProjectsItem.title || "Project thumbnail"}
-              width={300}
-              height={200}
-              sizes="(min-width: 1200px) 30vw, (min-width: 768px) 45vw, 100vw"
-              quality={70}
+              width={720}
+              height={480}
+              sizes="(min-width: 992px) 46vw, 100vw"
+              quality={75}
+              loading="lazy"
               style={{ height: "100%", width: "100%" }}
             />
           </div>
 
           <div className="more-project-card__content">
+            <div className="more-project-card__meta">
+              <span>{tags[0] ?? (isRTL ? "مشروع رقمي" : "Digital Product")}</span>
+              <span>{ProjectsItem.Issued}</span>
+            </div>
             <h3 className="mycard__details--jobtitle more-project-card__title">
               {ProjectsItem.info}
             </h3>
 
+            <p className="more-project-card__role">
+              <strong>{isRTL ? "دوري:" : "My role:"}</strong>{" "}
+              {roleByProject[ProjectsItem.id] ?? (isRTL ? "تصميم UI/UX" : "UI/UX Design")}
+            </p>
+
             {ProjectsItem.summary ? (
-              <p className="more-project-card__description">
-                {ProjectsItem.summary}
-              </p>
+              <div className="more-project-card__challenge">
+                <span>{isRTL ? "التحدي" : "Challenge"}</span>
+                <p className="more-project-card__description">
+                  {ProjectsItem.summary}
+                </p>
+              </div>
             ) : null}
 
             {tags.length > 0 ? (
@@ -165,6 +189,7 @@ const Projects = ({ projects = [] }) => {
                   <Image
                     alt={projectMeta.caseStudy.coverAlt}
                     src={casstudymain}
+                    priority
                     sizes="(min-width: 992px) 50vw, 100vw"
                     quality={75}
                     style={{ height: "auto", width: "100%" }}

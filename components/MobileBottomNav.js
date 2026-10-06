@@ -5,9 +5,9 @@ import ThemeToggle from "./ThemeToggle";
 
 const bottomNavItems = [
   { key: "home", href: "/", icon: "home" },
-  { key: "about", href: "/about", icon: "about" },
   { key: "work", href: "/projects", icon: "work" },
   { key: "casebook", href: "/design-system", icon: "casebook" },
+  { key: "about", href: "/about", icon: "about" },
   { key: "more", icon: "more" },
 ];
 
@@ -364,9 +364,9 @@ const MobileBottomNav = ({
             <p className="mobile-app-nav__sheet-eyebrow">
               {t("nav.utilitiesLabel") ?? "Explore more"}
             </p>
-            <h2 className="mobile-app-nav__sheet-title">
+            <p className="mobile-app-nav__sheet-title">
               {t("nav.moreSheetTitle") ?? t("nav.more") ?? "More"}
-            </h2>
+            </p>
           </div>
           <button
             type="button"

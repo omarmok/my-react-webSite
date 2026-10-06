@@ -4,49 +4,49 @@
       "id": 1,
       "url": "https://hrc.gov.sa/",
       "info": "Human Rights Commission (HRC) — Saudi Arabia",
-      "image": "https://i.postimg.cc/ZKGcBc7c/hrc.png",
+      "image": "/images/forjeson/hrc.png",
       "Issued": "Aug 2021 - Present"
     },
     {
       "id": 2,
       "url": "https://omarmok.github.io/testDean/",
       "info": "Deanship of Information Technology",
-      "image": "https://i.postimg.cc/MKQ0SB6j/dean.png",
+      "image": "/images/forjeson/dean.png",
       "Issued": "Oct 2017 - Sep 2018"
     },
     {
       "id": 3,
       "url": "https://mullak-services.housing.gov.sa/Account/Login?ReturnUrl=%2F",
       "info": "Mullak",
-      "image": "https://i.postimg.cc/9XSPKbhh/mullak.png",
+      "image": "/images/forjeson/mullak.png",
       "Issued": "Mar 2019 - Present"
     },
     {
       "id": 4,
       "url": "https://idlelands-services.housing.gov.sa/Account/Login",
       "info": "Idlelands",
-      "image": "https://i.postimg.cc/5NYg2G3y/idland.png",
+      "image": "/images/forjeson/idland.png",
       "Issued": "Mar 2019 - Present"
     },
     {
       "id": 5,
       "url": "https://www.mu.edu.sa/ar",
       "info": "Majmaah University Portal",
-      "image": "https://i.postimg.cc/9QyBG7sj/mjmaahun.png",
+      "image": "/images/forjeson/mjmaahun.png",
       "Issued": "Aug 2019 - Sep 2020"
     },
     {
       "id": 6,
       "url": "https://qm.org.sa/",
       "info": "Majmaah Charity",
-      "image": "https://i.postimg.cc/9fVY1fjw/qm.jpg",
+      "image": "/images/forjeson/qm.jpg",
       "Issued": "May 2020 - Sep 2020"
     },
     {
       "id": 7,
       "url": "https://card.mu.edu.sa/",
       "info": "MU Greetings Card",
-      "image": "https://i.postimg.cc/HWP3HHbF/cards.jpg",
+      "image": "/images/forjeson/cards.jpg",
       "Issued": "Jun 2016 - Sep 2017"
     }
   ],
@@ -54,18 +54,11 @@
     {
       "id": 1,
       "url": "...",
-      "date": "Sep 2025 - Present",
+      "date": "Jan 2023 - Present",
       "jobtitle": "UX & DesignOps Lead",
       "companyname": "Confidential Government",
-      "role": "As a UX & DesignOps Lead, I drive and optimize the end-to-end user experience across enterprise platforms and mobile applications by defining UX processes, standards, and design governance. I lead the creation and evolution of a scalable Design System, ensuring consistency, accessibility, and alignment across all digital products.\n\nI work closely with business analysts, product owners, developers, and QA teams to translate complex requirements into clear, executable design artifacts and specifications. I actively support the delivery lifecycle through design reviews, development handoff, UX quality assurance, and UAT validation to ensure accurate implementation aligned with UX intent.\n\nAdditionally, I collaborate with the development team in rebuilding and optimizing platform interfaces using HTML, CSS, and JavaScript, ensuring technical feasibility, design fidelity, and high-quality production delivery."
-    },
-    {
-      "id": 2,
-      "url": "...",
-      "date": "Jan 2023 - Sep 2025",
-      "jobtitle": "UI/UX Designer",
-      "companyname": "Confidential Government",
-      "role": "As a UI/UX Design , I worked to improve the user experience process for both the platforms and mobile app. I contributed to building the Design System for these platforms and worked closely with business analysts, developers, and QA testers to ensure the product was developed according to UX and UI specifications.\n\nAdditionally, I collaborated with the development team in rebuilding key pages using HTML, CSS, and JavaScript to ensure design fidelity and implementation quality."
+      "progression": "UI/UX Designer → UX & DesignOps Lead",
+      "role": "Joined as a UI/UX Designer, contributing to the UX improvement of a large-scale enterprise platform and companion mobile application, while building core components of the design system and collaborating closely with business analysts, developers, and QA.\n\nPromoted in July 2025 to UX & DesignOps Lead, taking ownership of UX processes, design governance, system-wide consistency, and the ongoing evolution of a scalable design system across digital products."
     },
     {
       "id": 3,

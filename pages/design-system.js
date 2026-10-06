@@ -98,16 +98,6 @@ const SectionBody = ({ children, style = {} }) => (
   </p>
 );
 
-const teaserBulletStyle = {
-  background: surface,
-  border: `1px solid ${border}`,
-  borderRadius: 10,
-  padding: "14px 16px",
-  display: "flex",
-  alignItems: "flex-start",
-  gap: 10,
-};
-
 const DesignSystemPage = () => {
   const router = useRouter();
   const { dictionary, language } = useTranslation();
@@ -381,103 +371,75 @@ const DesignSystemPage = () => {
       <PageHeader
         eyebrow={copy.heroLabel}
         title={copy.heroTitle}
-        description={[copy.heroBody, copy.heroBody2]}
+        description={
+          isRTL
+            ? "أنظمة التصميم ليست مكتبات مكونات فقط؛ بل هي أنظمة تشغيل للاتساق والحوكمة والتسليم القابل للتوسع."
+            : "Design systems are not component libraries. I use them as operating systems for consistency, governance, and scalable delivery."
+        }
       />
 
-      <SectionWrap background={bg}>
-        <SectionLabel>{copy.experienceLabel}</SectionLabel>
-        <SectionTitle>{copy.experienceTitle}</SectionTitle>
-        <SectionRule />
-        <div
-          style={{
-            background: card,
-            border: `1px solid ${border}`,
-            borderRadius: 14,
-            padding: "24px",
-            boxShadow: "0px 10px 30px rgba(15, 23, 42, 0.06)",
-          }}>
-          <SectionBody style={{ marginBottom: 0 }}>
-            {copy.experienceBody}
-          </SectionBody>
-        </div>
-      </SectionWrap>
-
       <SectionWrap>
-        <SectionLabel>{copy.discoverLabel}</SectionLabel>
-        <SectionTitle>{copy.discoverTitle}</SectionTitle>
+        <SectionLabel>
+          {isRTL ? "نموذج نظام التصميم" : "Design System Operating Model"}
+        </SectionLabel>
+        <SectionTitle>
+          {isRTL
+            ? "من الأسس إلى الحوكمة والتنفيذ"
+            : "From foundations to governance and implementation"}
+        </SectionTitle>
         <SectionRule />
-        <SectionBody style={{ maxWidth: "74ch", marginBottom: 8 }}>
-          {copy.discoverBody}
+        <SectionBody style={{ maxWidth: "74ch", marginBottom: 24 }}>
+          {isRTL
+            ? "يعكس هذا النموذج خبرة عملية في المنصات الحكومية والمؤسسية، ويربط قرارات التصميم بما يحتاجه المصممون والمطورون وفرق المنتجات للعمل من مصدر واضح ومستدام."
+            : "This model reflects hands-on work across government and enterprise platforms, connecting design decisions to the standards designers, engineers, and product teams need for sustained delivery."}
         </SectionBody>
-        <SectionBody
-          style={{ maxWidth: "74ch", marginBottom: 16, fontWeight: 600 }}>
-          {copy.discoverLead}
-        </SectionBody>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: 12,
-          }}>
-          {copy.discoverItems.map((item) => (
-            <div key={item} style={teaserBulletStyle}>
-              <span
-                style={{
-                  width: 8,
-                  height: 8,
-                  borderRadius: "50%",
-                  background: purple,
-                  flexShrink: 0,
-                  marginTop: 7,
-                }}
-              />
-              <span style={{ fontSize: 14, color: inkMid, lineHeight: 1.65 }}>
-                {item}
-              </span>
-            </div>
+        <div className="design-system-model">
+          {(
+            isRTL
+              ? [
+                  ["01", "الأسس والتوكنز", "الألوان والخطوط والمسافات ونصف القطر والارتفاع كقرارات موثقة وقابلة لإعادة الاستخدام."],
+                  ["02", "المكونات", "حالات ومتغيرات وسلوك متجاوب ومواصفات واضحة للتنفيذ."],
+                  ["03", "الأنماط", "حلول متكررة للتنقل والنماذج والتغذية الراجعة وتدفقات الخدمات."],
+                  ["04", "التوثيق", "إرشادات استخدام وسلوك وأمثلة تساعد التصميم والهندسة على اتخاذ القرار نفسه."],
+                  ["05", "الحوكمة", "ملكية ومراجعة وإدارة تغيير تحافظ على جودة النظام مع تطوره."],
+                  ["06", "الوصولية", "تباين وتركيز ولوحة مفاتيح ودلالات مدمجة في المكونات منذ البداية."],
+                  ["07", "Design-to-Code", "ربط Figma والتوكنز وSCSS والمكونات الجاهزة للإنتاج."],
+                  ["08", "التعاون الهندسي", "مراجعات مشتركة وتسليم واضح وUX QA لتقليل الغموض في التنفيذ."],
+                ]
+              : [
+                  ["01", "Foundations & Tokens", "Color, type, spacing, radius, and elevation expressed as documented, reusable decisions."],
+                  ["02", "Components", "States, variants, responsive behavior, and implementation-ready specifications."],
+                  ["03", "Patterns", "Repeatable solutions for navigation, forms, feedback, and service flows."],
+                  ["04", "Documentation", "Usage, behavior, and examples that help design and engineering make the same decision."],
+                  ["05", "Governance", "Ownership, review, and change management that protect quality as the system evolves."],
+                  ["06", "Accessibility", "Contrast, focus, keyboard, and semantic requirements built into components from the start."],
+                  ["07", "Design-to-Code", "Connections between Figma, tokens, SCSS, and production-ready components."],
+                  ["08", "Engineering Collaboration", "Shared reviews, clear handoff, and UX QA that reduce implementation ambiguity."],
+                ]
+          ).map(([number, title, body]) => (
+            <article key={title}>
+              <span>{number}</span>
+              <h3>{title}</h3>
+              <p>{body}</p>
+            </article>
           ))}
         </div>
       </SectionWrap>
 
       <SectionWrap background={bg}>
-        <SectionLabel>{copy.beyondLabel}</SectionLabel>
-        <SectionTitle>{copy.beyondTitle}</SectionTitle>
+        <SectionLabel>{copy.previewLabel}</SectionLabel>
+        <SectionTitle>{copy.previewTitle}</SectionTitle>
         <SectionRule />
-        <SectionBody style={{ maxWidth: "74ch", marginBottom: 8 }}>
-          {copy.beyondBody}
+        <SectionBody style={{ maxWidth: "74ch", marginBottom: 24 }}>
+          {copy.previewBody}
         </SectionBody>
-        <SectionBody
-          style={{ maxWidth: "74ch", marginBottom: 16, fontWeight: 600 }}>
-          {copy.beyondLead}
-        </SectionBody>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: 12,
-            marginBottom: 16,
-          }}>
-          {copy.beyondItems.map((item) => (
-            <div key={item} style={teaserBulletStyle}>
-              <span
-                style={{
-                  width: 8,
-                  height: 8,
-                  borderRadius: "50%",
-                  background: purple,
-                  flexShrink: 0,
-                  marginTop: 7,
-                }}
-              />
-              <span style={{ fontSize: 14, color: inkMid, lineHeight: 1.65 }}>
-                {item}
-              </span>
-            </div>
-          ))}
-        </div>
-        <SectionBody style={{ maxWidth: "74ch", marginBottom: 0 }}>
-          {copy.beyondClose}
-        </SectionBody>
+        <DesignSystemPreviewGallery
+          items={copy.previewImages}
+          highlightsTitle={copy.previewHighlightsTitle}
+          highlights={copy.previewHighlights}
+          openLabel={copy.previewOpenLabel}
+          closeLabel={copy.previewCloseLabel}
+        />
       </SectionWrap>
 
       <SectionWrap>
@@ -514,22 +476,6 @@ const DesignSystemPage = () => {
             </Link>
           ))}
         </div>
-      </SectionWrap>
-
-      <SectionWrap background={bg}>
-        <SectionLabel>{copy.previewLabel}</SectionLabel>
-        <SectionTitle>{copy.previewTitle}</SectionTitle>
-        <SectionRule />
-        <SectionBody style={{ maxWidth: "74ch", marginBottom: 24 }}>
-          {copy.previewBody}
-        </SectionBody>
-        <DesignSystemPreviewGallery
-          items={copy.previewImages}
-          highlightsTitle={copy.previewHighlightsTitle}
-          highlights={copy.previewHighlights}
-          openLabel={copy.previewOpenLabel}
-          closeLabel={copy.previewCloseLabel}
-        />
       </SectionWrap>
 
       <SectionWrap>

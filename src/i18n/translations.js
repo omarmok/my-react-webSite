@@ -122,22 +122,13 @@ const projectTranslations = {
 const experienceTranslations = {
   en: {
     1: {
-      date: "July 2025 - Present",
+      date: "Jan 2023 - Present",
       jobtitle: "UX & DesignOps Lead",
       companyname: "Confidential Government",
-      role: `Lead UX and DesignOps across a large-scale government enterprise platform, setting standards for UX processes, design governance, and system-wide consistency. Responsible for the creation and ongoing evolution of a scalable design system — ensuring accessibility and alignment across all digital products.
+      progression: "UI/UX Designer → UX & DesignOps Lead",
+      role: `Joined as a UI/UX Designer, contributing to the UX improvement of a large-scale enterprise platform and companion mobile application, while building core components of the design system and collaborating closely with business analysts, developers, and QA.
 
-Work closely with product owners, business analysts, developers, and QA to translate complex requirements into clear, actionable design specifications. Oversee the full delivery cycle through design reviews, handoff, UX quality assurance, and UAT validation.
-
-Collaborate directly with the development team on front-end implementation using HTML, CSS, and JavaScript — bridging design intent with production-quality delivery.`,
-    },
-    2: {
-      date: "Jan 2023 - July 2025",
-      jobtitle: "UI/UX Designer",
-      companyname: "Confidential Government",
-      role: `Contributed to the UX improvement process for an enterprise platform and companion mobile application. Built core components of the platform's design system and collaborated with business analysts, developers, and QA to ensure accurate implementation of UX and UI specifications.
-
-Worked alongside the development team on page rebuilds using HTML, CSS, and JavaScript to maintain design fidelity across key interfaces.`,
+Promoted in July 2025 to UX & DesignOps Lead, taking ownership of UX processes, design governance, system-wide consistency, and the ongoing evolution of a scalable design system across digital products.`,
     },
     3: {
       date: "Feb 2019 - Dec 2022",
@@ -174,22 +165,13 @@ Collaborated with the development team on page rebuilds using HTML, Vue.js, and 
   },
   ar: {
     1: {
-      date: "يوليو 2025 – الآن",
+      date: "يناير 2023 – الآن",
       jobtitle: "قائد تجربة المستخدم وعمليات التصميم",
       companyname: "جهة حكومية",
-      role: `بصفتي قائد تجربة المستخدم وعمليات التصميم، أقود تحسين تجربة المستخدم الشاملة عبر المنصات المؤسسية وتطبيقات الجوال من خلال وضع عمليات، معايير، وحوكمة UX. أقود إنشاء وتطوير نظام تصميم قابل للتوسع يضمن الاتساق وقابلية الوصول والتوافق عبر جميع المنتجات الرقمية.
+      progression: "مصمم واجهات وتجربة المستخدم ← قائد تجربة المستخدم وعمليات التصميم",
+      role: `انضممت بصفتي مصمم واجهات وتجربة المستخدم، وساهمت في تحسين تجربة منصة مؤسسية واسعة النطاق وتطبيق جوال مرافق، مع بناء المكونات الأساسية لنظام التصميم والتعاون الوثيق مع محللي الأعمال والمطورين وفرق ضمان الجودة.
 
-أتعاون عن قرب مع محللي الأعمال ومالكي المنتجات والمطورين وفرق ضمان الجودة لتحويل المتطلبات المعقدة إلى مخرجات تصميمية واضحة وقابلة للتنفيذ. أدعم دورة التسليم عبر مراجعات التصميم، وتسليم التطوير، وضمان جودة UX، واختبارات القبول للتأكد من تنفيذ دقيق يتماشى مع نية التصميم.
-
-كما أتعاون مع فريق التطوير في إعادة بناء وتحسين واجهات المنصة باستخدام HTML وCSS وJavaScript لضمان الجدوى التقنية، ودقة التصميم، وجودة التسليم.`,
-    },
-    2: {
-      date: "يناير 2023 – يوليو 2025",
-      jobtitle: "مصمم واجهات وتجربة المستخدم",
-      companyname: "جهة حكومية",
-      role: `شاركت في تحسين تجربة المستخدم لمنصة مؤسسية وتطبيق جوال مرافق. ساهمت في بناء مكونات أساسية لنظام التصميم، وتعاونت مع محللي الأعمال والمطورين وضمان الجودة لضمان تطوير المنتج وفق مواصفات تجربة وواجهة المستخدم.
-
-كما تعاونت مع فريق التطوير في إعادة بناء الصفحات الأساسية باستخدام HTML وCSS وJavaScript لضمان تطابق التصميم وجودة التنفيذ.`,
+تمت ترقيتي في يوليو 2025 إلى قائد تجربة المستخدم وعمليات التصميم، وتوليت مسؤولية عمليات UX وحوكمة التصميم والاتساق على مستوى النظام والتطوير المستمر لنظام تصميم قابل للتوسع عبر المنتجات الرقمية.`,
     },
     3: {
       date: "فبراير 2019 – ديسمبر 2022",

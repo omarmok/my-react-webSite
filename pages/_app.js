@@ -76,15 +76,6 @@ const AudioCard = ({ isPlaying, onClick, audioRef }) => {
   const isRTL = language === 'ar';
 
   useEffect(() => {
-    if (typeof window === "undefined") {
-      return undefined;
-    }
-
-    setIsExpanded(window.innerWidth >= 992);
-    return undefined;
-  }, []);
-
-  useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return undefined;
     const onTime = () => setCurrentTime(audio.currentTime);

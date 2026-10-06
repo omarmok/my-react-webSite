@@ -16,7 +16,7 @@ const getInitials = (name = "") => {
   return `${parts[0][0] ?? ""}${parts[1][0] ?? ""}`.toUpperCase();
 };
 
-const RecommendationCard = ({ recommendation, isRTL }) => {
+const RecommendationCard = ({ recommendation, isRTL, preview = false }) => {
   const name = recommendation.name ?? "";
   const title = recommendation.titleCompany ?? recommendation.position ?? "";
   const profileImageUrl =
@@ -38,12 +38,14 @@ const RecommendationCard = ({ recommendation, isRTL }) => {
             className="recommendation-card__avatar"
             src={profileImageUrl}
             alt={`${name} profile photo`}
-            loading="eager"
+            loading="lazy"
+            referrerPolicy="no-referrer"
             onError={() => setImageError(true)}
           />
         ) : (
           <div
             className="recommendation-card__avatar recommendation-card__avatar--fallback"
+            role="img"
             aria-label={`${name} profile initials`}>
             {initials}
           </div>
@@ -69,7 +71,10 @@ const RecommendationCard = ({ recommendation, isRTL }) => {
         </div>
       </header>
 
-      <p className="recommendation-card__text">{text}</p>
+      <p
+        className={`recommendation-card__text${preview ? " recommendation-card__text--preview" : ""}`}>
+        {text}
+      </p>
     </article>
   );
 };
@@ -78,6 +83,7 @@ const RecommendationsSection = ({
   sectionId = "recommendations",
   maxItems,
   showViewAllLink = false,
+  preview = false,
 }) => {
   const { language } = useTranslation();
   const isRTL = language === "ar";
@@ -93,17 +99,20 @@ const RecommendationsSection = ({
   return (
     <section
       id={sectionId}
-      className="recommendations-section"
-      aria-labelledby="recommendations-title"
+      className={`recommendations-section${preview ? " recommendations-section--preview" : ""}`}
+      aria-labelledby={`${sectionId}-title`}
       dir={isRTL ? "rtl" : "ltr"}>
       <div className="recommendations-section__header">
-        <h2 id="recommendations-title" className="section__title--maintitle">
+        <p className="portfolio-eyebrow">
+          {isRTL ? "إثبات القيادة والتعاون" : "Leadership, in others’ words"}
+        </p>
+        <h2 id={`${sectionId}-title`} className="section__title--maintitle">
           {isRTL ? "التوصيات" : "Recommendations"}
         </h2>
         <p className="recommendations-section__intro">
           {isRTL
             ? "آراء من زملاء ومديرين ومهنيين عملت معهم خلال مسيرتي المهنية."
-            : "Feedback from colleagues, managers, and professionals I&apos;ve worked with throughout my career."}
+            : "Direct feedback from colleagues and leaders I’ve worked with across design and delivery."}
         </p>
         <a
           href="https://www.linkedin.com/in/omarmokhtar22/"
@@ -128,6 +137,7 @@ const RecommendationsSection = ({
             }
             recommendation={recommendation}
             isRTL={isRTL}
+            preview={preview}
           />
         ))}
       </div>

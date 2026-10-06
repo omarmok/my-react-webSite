@@ -1,8 +1,9 @@
 export const mainNavLinks = [
   { key: "home", href: "/" },
-  { key: "about", href: "/about" },
   { key: "work", href: "/projects" },
   { key: "casebook", href: "/design-system" },
+  { key: "about", href: "/about" },
+  { key: "recommendations", href: "/recommendations" },
 ];
 
 export const moreNavLinks = [
@@ -10,7 +11,6 @@ export const moreNavLinks = [
   { key: "designopsNav", href: "/designops", icon: "designopsNav" },
   { key: "uxLead", href: "/ux-lead", icon: "uxLead" },
   { key: "certifications", href: "/certifications", icon: "certifications" },
-  { key: "recommendations", href: "/recommendations", icon: "recommendations" },
   { key: "blog", href: "/blog", icon: "blog" },
 ];
 
@@ -20,4 +20,12 @@ export const contactNavLink = {
   icon: "contact",
 };
 
-export const mobileMoreNavLinks = [...moreNavLinks, contactNavLink];
+export const mobileMoreNavLinks = [
+  ...moreNavLinks,
+  {
+    key: "recommendations",
+    href: "/recommendations",
+    icon: "recommendations",
+  },
+  contactNavLink,
+];
