@@ -112,6 +112,8 @@ html[data-theme="light"] {
   --mobile-bottom-nav-offset: calc(
     var(--mobile-bottom-nav-height) + 18px + env(safe-area-inset-bottom, 0px)
   );
+  --site-container-max: 1120px;
+  --site-gutter: 24px;
 }
 
 html[data-theme="dark"] {
@@ -8396,5 +8398,69 @@ html[data-theme="dark"] .mobile-app-nav__utility-icon {
   .design-system-model article,
   .case-study-outcome-grid article {
     padding: 22px 0 26px;
+  }
+}
+
+// ─── Shared site grid ────────────────────────────────────────────────────────
+// The wrapper includes responsive gutters; its content box is the canonical
+// 1120px grid used by navigation, page headers, main content, and footer.
+.site-container,
+.container,
+.page-header__inner,
+.footer__inner,
+.about-page {
+  width: 100% !important;
+  max-width: calc(
+    var(--site-container-max) + var(--site-gutter) + var(--site-gutter)
+  ) !important;
+  margin-inline: auto;
+  padding-inline: var(--site-gutter);
+}
+
+// These wrappers already live inside the shared Bootstrap container. Keeping
+// them at 100% prevents a second gutter from being applied.
+.container > .page__container,
+.projects-page .page__container.project {
+  width: 100% !important;
+  max-width: none !important;
+  padding-inline: 0;
+}
+
+.navBg > .container {
+  padding-inline: var(--site-gutter);
+}
+
+.navBg .navbar {
+  width: 100% !important;
+  max-width: none;
+  padding-inline-start: 0 !important;
+  padding-inline-end: 16px !important;
+}
+
+.footer__inner {
+  padding-block: 8px 2px;
+}
+
+.case-study-hero-image-wrap {
+  padding-inline: var(--site-gutter);
+}
+
+.case-study-hero-image {
+  width: min(var(--site-container-max), 100%);
+}
+
+@media (max-width: 1024px) {
+  :root,
+  html[data-theme="light"],
+  html[data-theme="dark"] {
+    --site-gutter: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root,
+  html[data-theme="light"],
+  html[data-theme="dark"] {
+    --site-gutter: 16px;
   }
 }

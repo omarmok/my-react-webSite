@@ -84,9 +84,7 @@ const Rule = () => (
 
 const Wrap = ({ children, bg: background = surface, style = {} }) => (
   <section style={{ background: background, padding: "48px 0", ...style }}>
-    <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
-      {children}
-    </div>
+    <div className="site-container">{children}</div>
   </section>
 );
 
@@ -555,9 +553,8 @@ const CaseStudy = () => {
       {/* ── BOTTOM — CHECK WEBSITE ───────────────────────────────────────── */}
       <div style={{ padding: "28px 0 44px" }}>
         <div
+          className="site-container"
           style={{
-            width: "min(960px, 100% - 48px)",
-            margin: "0 auto",
             display: "flex",
             gap: 12,
             flexWrap: "wrap",

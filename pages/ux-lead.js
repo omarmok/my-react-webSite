@@ -86,7 +86,7 @@ export default function UXLead() {
 
       {/* What UX Leadership Means */}
       <section style={{ background: surface, padding: "64px 0" }}>
-        <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
+        <div className="site-container">
           <SectionLabel>{isRTL ? "نهج العمل" : "Approach"}</SectionLabel>
           <h2
             style={{
@@ -129,7 +129,7 @@ export default function UXLead() {
 
       {/* Core Disciplines */}
       <section style={{ background: bg, padding: "64px 0" }}>
-        <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
+        <div className="site-container">
           <SectionLabel>
             {isRTL ? "التخصصات الأساسية" : "Core Disciplines"}
           </SectionLabel>
@@ -228,7 +228,7 @@ export default function UXLead() {
 
       {/* Track Record */}
       <section style={{ background: surface, padding: "64px 0" }}>
-        <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
+        <div className="site-container">
           <SectionLabel>
             {isRTL ? "المسار المهني" : "Track Record"}
           </SectionLabel>
@@ -311,9 +311,8 @@ export default function UXLead() {
           padding: "64px 0",
         }}>
         <div
+          className="site-container"
           style={{
-            width: "min(960px, 100% - 48px)",
-            margin: "0 auto",
             textAlign: "center",
           }}>
           <h2

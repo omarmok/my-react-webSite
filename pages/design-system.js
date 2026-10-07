@@ -27,9 +27,7 @@ const card = "var(--theme-bg-card)";
 
 const SectionWrap = ({ children, background = surface }) => (
   <section style={{ background, padding: "48px 0" }}>
-    <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
-      {children}
-    </div>
+    <div className="site-container">{children}</div>
   </section>
 );
 

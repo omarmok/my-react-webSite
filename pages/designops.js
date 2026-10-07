@@ -85,7 +85,7 @@ export default function DesignOps() {
 
       {/* What is DesignOps */}
       <section style={{ background: surface, padding: "64px 0" }}>
-        <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
+        <div className="site-container">
           <SectionLabel>{isRTL ? "التعريف" : "Definition"}</SectionLabel>
           <h2
             style={{
@@ -126,7 +126,7 @@ export default function DesignOps() {
 
       {/* DesignOps Pillars */}
       <section style={{ background: bg, padding: "64px 0" }}>
-        <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
+        <div className="site-container">
           <SectionLabel>{isRTL ? "ركائز العمل" : "Pillars"}</SectionLabel>
           <h2
             style={{
@@ -222,7 +222,7 @@ export default function DesignOps() {
 
       {/* Outcomes */}
       <section style={{ background: surface, padding: "64px 0" }}>
-        <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
+        <div className="site-container">
           <SectionLabel>{isRTL ? "النتائج" : "Outcomes"}</SectionLabel>
           <h2
             style={{
@@ -281,9 +281,8 @@ export default function DesignOps() {
           padding: "64px 0",
         }}>
         <div
+          className="site-container"
           style={{
-            width: "min(960px, 100% - 48px)",
-            margin: "0 auto",
             textAlign: "center",
           }}>
           <h2

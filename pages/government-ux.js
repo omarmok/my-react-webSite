@@ -86,7 +86,7 @@ export default function GovernmentUX() {
 
       {/* Context */}
       <section style={{ background: surface, padding: "64px 0" }}>
-        <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
+        <div className="site-container">
           <SectionLabel>{isRTL ? "السياق" : "Context"}</SectionLabel>
           <h2
             style={{
@@ -129,7 +129,7 @@ export default function GovernmentUX() {
 
       {/* Key Challenges & Approach */}
       <section style={{ background: bg, padding: "64px 0" }}>
-        <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
+        <div className="site-container">
           <SectionLabel>
             {isRTL ? "التحديات والنهج" : "Challenges & Approach"}
           </SectionLabel>
@@ -237,7 +237,7 @@ export default function GovernmentUX() {
 
       {/* Project Highlights */}
       <section style={{ background: surface, padding: "64px 0" }}>
-        <div style={{ width: "min(960px, 100% - 48px)", margin: "0 auto" }}>
+        <div className="site-container">
           <SectionLabel>
             {isRTL ? "المشاريع الحكومية" : "Government Projects"}
           </SectionLabel>
@@ -342,9 +342,8 @@ export default function GovernmentUX() {
           padding: "64px 0",
         }}>
         <div
+          className="site-container"
           style={{
-            width: "min(960px, 100% - 48px)",
-            margin: "0 auto",
             textAlign: "center",
           }}>
           <h2
