@@ -170,7 +170,7 @@ const Projects = ({ projects = [] }) => {
   });
 
   return (
-    <div>
+    <div className="projects-page">
       <Loader />
       <PageHeader
         eyebrow={t("nav.links.work")}
