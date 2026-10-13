@@ -19,7 +19,6 @@
     background-color: $white-100;
     border-radius: $radius-md;
     box-shadow: $shadow-md;
-
     // ---------------------------------------------------------------------
     // Status Variants (create / edit / details)
     // Each variant recolors the header background plus title/icon/detail-
@@ -75,7 +74,6 @@
             color: $Primary-600;
         }
     }
-
     // ---------------------------------------------------------------------
     // Header
     // ---------------------------------------------------------------------
@@ -97,7 +95,6 @@
         min-width: 0;
         padding: $padding-md;
     }
-
     // Icon Size Migration (Design System Icon Size Migration pass):
     // 24px matched css/helpers/_icons.scss's $moi-icon-sizes map exactly —
     // `lg: 1.5rem` (documented there as "~24px", true at the browser's
@@ -140,10 +137,9 @@
     }
 
     &__title {
-        @include font-xl-600;
+        @include font-lg-600;
         margin: 0;
     }
-
     // ---------------------------------------------------------------------
     // Body
     // ---------------------------------------------------------------------
@@ -153,7 +149,6 @@
         gap: $gap-lg;
         min-width: 0;
     }
-
     // ---------------------------------------------------------------------
     // Content
     // ---------------------------------------------------------------------
@@ -179,7 +174,6 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-
             // `label`/`span` are bare element selectors rather than
             // component-specific classes (e.g. `.moi-card__content-label`).
             // Replacing them would require an HTML markup change, which is
@@ -200,7 +194,6 @@
             min-width: 0;
         }
     }
-
     // ---------------------------------------------------------------------
     // Actions
     // ---------------------------------------------------------------------
@@ -220,7 +213,6 @@
         border-top: 1px solid $Neutral-200;
         opacity: 1;
     }
-
     // ---------------------------------------------------------------------
     // Footer
     // ---------------------------------------------------------------------
@@ -232,7 +224,6 @@
         gap: $gap-sm;
         padding: $padding-md;
     }
-
     // ---------------------------------------------------------------------
     // Details
     // ---------------------------------------------------------------------
@@ -245,7 +236,6 @@
         width: 25%;
         padding: $padding-sm;
     }
-
     // min-height: 120px has no matching Design Token (spacing/gap/radius
     // scales don't reach this value) — kept literal, not approximated.
     &__detail-item {
@@ -261,16 +251,15 @@
     }
 
     &__detail-label {
-        @include font-lg-700;
+        @include font-md-700;
         margin: 0;
     }
 
     &__detail-value {
-        @include font-lg-700;
+        @include font-md-700;
         padding: $padding-sm;
         background-color: $Neutral-50;
     }
-
     // ---------------------------------------------------------------------
     // Responsive
     // 991.98px / 767.98px are standard Bootstrap lg/md breakpoints, used

@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timeline | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .usage-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .usage-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .usage-card h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .usage-card ul {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+
+    .copy-tooltip {
+      position: fixed;
+      z-index: 1000;
+      background: #111827;
+      color: #f9fafb;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .copy-tooltip.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Long .moi-timeline code samples scroll inside their block instead of widening the page */
+    .page-content,
+    .section-card {
+      min-width: 0;
+    }
+
+    .code-block,
+    .code-block pre {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    html[dir="rtl"] .code-block {
+      direction: ltr;
+    }
+
+    /* Class lists in the anatomy table wrap between items */
+    .docs-table td code + code {
+      margin-inline-start: 4px;
+    }
+
+    .docs-table td {
+      white-space: normal;
+    }
+
+    .timeline-preview {
+      background: #f5f7fb;
+      border: 1px dashed #d7dbe3;
+      border-radius: 12px;
+      padding: 16px;
+    }
+  </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Icons used by .moi-timeline (exported from Figma: clock-01, calendar-03, git-branch, view, file, mail-reply-01) -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none" aria-hidden="true">
+    <symbol id="moi-tl-clock" viewBox="0 0 20 20">
+      <path fill="currentColor" d="M10 1.04199C14.9476 1.04199 18.958 5.05245 18.958 10C18.958 14.9476 14.9476 18.958 10 18.958C5.05245 18.958 1.04199 14.9476 1.04199 10C1.04199 5.05245 5.05245 1.04199 10 1.04199ZM10 2.29199C5.74281 2.29199 2.29199 5.74281 2.29199 10C2.29199 14.2572 5.74281 17.708 10 17.708C14.2572 17.708 17.708 14.2572 17.708 10C17.708 5.74281 14.2572 2.29199 10 2.29199ZM10 6.04199C10.3452 6.04199 10.625 6.32181 10.625 6.66699V9.74121L12.1084 11.2246C12.3525 11.4687 12.3525 11.8643 12.1084 12.1084C11.8643 12.3525 11.4687 12.3525 11.2246 12.1084L9.55762 10.4424C9.44041 10.3252 9.375 10.1658 9.375 10V6.66699C9.375 6.32181 9.65482 6.04199 10 6.04199Z" />
+    </symbol>
+    <symbol id="moi-tl-calendar" viewBox="0 0 20 20">
+      <path fill="currentColor" d="M15 1.04199C15.3452 1.04199 15.625 1.32181 15.625 1.66699V2.19727C16.2954 2.38735 16.8613 2.69524 17.332 3.2041C17.9801 3.90484 18.2683 4.78998 18.4063 5.89941C18.5415 6.98671 18.542 8.3803 18.542 10.1582V10.6748C18.542 12.4527 18.5415 13.8463 18.4063 14.9336C18.2683 16.0432 17.9803 16.9291 17.332 17.6299C16.6775 18.3375 15.8395 18.6581 14.791 18.8105C13.7761 18.9581 12.479 18.958 10.8428 18.958H9.15723C7.52104 18.958 6.22391 18.9581 5.20898 18.8105C4.16048 18.6581 3.32253 18.3375 2.66797 17.6299C2.01971 16.9291 1.73175 16.0432 1.59375 14.9336C1.45854 13.8463 1.458 12.4527 1.45801 10.6748V10.1582C1.458 8.3803 1.45853 6.98671 1.59375 5.89941C1.73174 4.78998 2.01991 3.90484 2.66797 3.2041C3.13867 2.69524 3.70455 2.38735 4.375 2.19727V1.66699C4.375 1.32181 4.65482 1.04199 5 1.04199C5.34518 1.04199 5.625 1.32181 5.625 1.66699V1.97168C6.57161 1.87509 7.73642 1.87499 9.15723 1.875H10.8428C12.2636 1.87499 13.4284 1.87509 14.375 1.97168V1.66699C14.375 1.32181 14.6548 1.04199 15 1.04199ZM17.2578 7.26367C17.2022 7.27991 17.1439 7.29199 17.083 7.29199H2.91699C2.85578 7.29199 2.79712 7.28008 2.74121 7.26367C2.70811 8.06674 2.70801 9.02916 2.70801 10.2031V10.6309C2.70801 12.4626 2.7095 13.7782 2.83398 14.7793C2.95684 15.7672 3.19076 16.354 3.58594 16.7812C3.97467 17.2013 4.49844 17.4447 5.38965 17.5742C6.30429 17.7071 7.51005 17.708 9.20801 17.708H10.792C12.49 17.708 13.6957 17.7071 14.6104 17.5742C15.5016 17.4447 16.0253 17.2013 16.4141 16.7812C16.8092 16.354 17.0432 15.7672 17.166 14.7793C17.2905 13.7782 17.292 12.4626 17.292 10.6309V10.2031C17.292 9.02914 17.2909 8.06674 17.2578 7.26367ZM6.67383 13.333C7.13407 13.333 7.50781 13.7068 7.50781 14.167C7.50764 14.6271 7.13396 15 6.67383 15H6.66699C6.20686 15 5.83318 14.6271 5.83301 14.167C5.83301 13.7068 6.20675 13.333 6.66699 13.333H6.67383ZM10.0039 13.333C10.4641 13.3331 10.8369 13.7068 10.8369 14.167C10.8367 14.627 10.464 14.9999 10.0039 15H9.99609C9.53604 14.9999 9.16326 14.627 9.16309 14.167C9.16309 13.7068 9.53593 13.3331 9.99609 13.333H10.0039ZM6.67383 10C7.13396 10 7.50764 10.3729 7.50781 10.833C7.50781 11.2932 7.13407 11.667 6.67383 11.667H6.66699C6.20675 11.667 5.83301 11.2932 5.83301 10.833C5.83318 10.3729 6.20686 10 6.66699 10H6.67383ZM10.0039 10C10.464 10.0001 10.8367 10.373 10.8369 10.833C10.8369 11.2932 10.4641 11.6669 10.0039 11.667H9.99609C9.53593 11.6669 9.16309 11.2932 9.16309 10.833C9.16326 10.373 9.53604 10.0001 9.99609 10H10.0039ZM13.333 10C13.7931 10 14.1668 10.3729 14.167 10.833C14.167 11.2932 13.7932 11.667 13.333 11.667H13.3262C12.8659 11.667 12.4922 11.2932 12.4922 10.833C12.4924 10.3729 12.866 10 13.3262 10H13.333ZM9.20801 3.125C7.65171 3.125 6.50914 3.12793 5.625 3.23047V3.33301C5.625 3.67819 5.34518 3.95801 5 3.95801C4.71489 3.95801 4.47644 3.76682 4.40137 3.50586C4.06104 3.641 3.80244 3.81868 3.58594 4.05273C3.1913 4.47937 2.95697 5.06432 2.83398 6.0498C2.86115 6.0462 2.88884 6.04199 2.91699 6.04199H17.083C17.1108 6.04199 17.1382 6.04628 17.165 6.0498C17.042 5.06439 16.8087 4.47936 16.4141 4.05273C16.1974 3.81849 15.9384 3.64104 15.5977 3.50586C15.5225 3.76669 15.285 3.95801 15 3.95801C14.6548 3.95801 14.375 3.67819 14.375 3.33301V3.23047C13.4909 3.12793 12.3483 3.125 10.792 3.125H9.20801Z" />
+    </symbol>
+    <symbol id="moi-tl-branch" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M5 2.25C6.51878 2.25 7.75 3.48122 7.75 5C7.75 6.2584 6.90373 7.31578 5.75 7.64258V16.3564C6.66522 16.6156 7.38441 17.3348 7.64355 18.25H13C14.4352 18.25 15.4361 18.248 16.1914 18.1465C16.9252 18.0478 17.3141 17.8676 17.5908 17.5908C17.8676 17.3141 18.0478 16.9252 18.1465 16.1914C18.248 15.4361 18.25 14.4352 18.25 13V11.5381C18.2481 11.5404 18.2461 11.5426 18.2441 11.5449C18.0335 11.7936 17.8267 12.057 17.6338 12.3027C17.6189 12.3217 17.6036 12.3406 17.5889 12.3594C17.3968 12.6039 17.1951 12.8609 17.0381 13.0225C16.7495 13.3194 16.2746 13.3265 15.9775 13.0381C15.6806 12.7495 15.6735 12.2746 15.9619 11.9775C16.0506 11.8863 16.197 11.704 16.4102 11.4326C16.4255 11.4131 16.4412 11.3932 16.457 11.373C16.6471 11.1309 16.8699 10.8463 17.0996 10.5752C17.3456 10.2849 17.6212 9.98354 17.8965 9.74902C18.0344 9.63156 18.1902 9.51533 18.3574 9.42578C18.5189 9.33939 18.7417 9.25 19 9.25C19.2583 9.25 19.4811 9.33939 19.6426 9.42578C19.8098 9.51533 19.9656 9.63156 20.1035 9.74902C20.3788 9.98354 20.6544 10.2849 20.9004 10.5752C21.1301 10.8463 21.3529 11.1309 21.543 11.373C21.5588 11.3932 21.5745 11.4131 21.5898 11.4326C21.803 11.704 21.9494 11.8863 22.0381 11.9775C22.3265 12.2746 22.3194 12.7495 22.0225 13.0381C21.7254 13.3265 21.2505 13.3194 20.9619 13.0225C20.8049 12.8609 20.6032 12.6039 20.4111 12.3594C20.3964 12.3406 20.3811 12.3217 20.3662 12.3027C20.1733 12.057 19.9665 11.7936 19.7559 11.5449C19.7539 11.5426 19.7519 11.5404 19.75 11.5381V13.0547C19.75 14.4222 19.7503 15.5247 19.6338 16.3916C19.5128 17.2917 19.2533 18.0495 18.6514 18.6514C18.0494 19.2533 17.2917 19.5128 16.3916 19.6338C15.5247 19.7503 14.4222 19.75 13.0547 19.75H7.64355C7.31684 20.9039 6.2585 21.75 5 21.75C3.48122 21.75 2.25 20.5188 2.25 19C2.25 17.7415 3.09614 16.6832 4.25 16.3564V7.64258C3.09627 7.31578 2.25 6.2584 2.25 5C2.25 3.48122 3.48122 2.25 5 2.25ZM5 17.75C4.30964 17.75 3.75 18.3096 3.75 19C3.75 19.6904 4.30964 20.25 5 20.25C5.69036 20.25 6.25 19.6904 6.25 19C6.25 18.3096 5.69036 17.75 5 17.75ZM19 2.25C20.5188 2.25 21.75 3.48122 21.75 5C21.75 6.51878 20.5188 7.75 19 7.75C17.4812 7.75 16.25 6.51878 16.25 5C16.25 3.48122 17.4812 2.25 19 2.25ZM5 3.75C4.30964 3.75 3.75 4.30964 3.75 5C3.75 5.69036 4.30964 6.25 5 6.25C5.69036 6.25 6.25 5.69036 6.25 5C6.25 4.30964 5.69036 3.75 5 3.75ZM19 3.75C18.3096 3.75 17.75 4.30964 17.75 5C17.75 5.69036 18.3096 6.25 19 6.25C19.6904 6.25 20.25 5.69036 20.25 5C20.25 4.30964 19.6904 3.75 19 3.75Z" />
+    </symbol>
+    <symbol id="moi-tl-view" viewBox="0 0 18 18">
+      <path fill="currentColor" d="M9 4.6875C10.9279 4.6875 12.5801 5.53649 13.8594 6.53516C15.1398 7.53474 16.0868 8.7147 16.6162 9.45703C16.6293 9.4754 16.6428 9.49398 16.6562 9.5127C16.8461 9.77673 17.0625 10.0784 17.0625 10.5C17.0625 10.9216 16.8461 11.2233 16.6562 11.4873C16.6428 11.506 16.6293 11.5246 16.6162 11.543C16.0868 12.2853 15.1398 13.4653 13.8594 14.4648C12.5801 15.4635 10.9279 16.3125 9 16.3125C7.0721 16.3125 5.41985 15.4635 4.14062 14.4648C2.86024 13.4653 1.91318 12.2853 1.38379 11.543C1.37069 11.5246 1.35721 11.506 1.34375 11.4873C1.1539 11.2233 0.9375 10.9216 0.9375 10.5C0.9375 10.0784 1.1539 9.77673 1.34375 9.5127C1.35721 9.49398 1.37069 9.4754 1.38379 9.45703C1.91318 8.7147 2.86024 7.53474 4.14062 6.53516C5.41985 5.53649 7.0721 4.6875 9 4.6875ZM9 5.8125C7.41106 5.8125 5.99737 6.5129 4.83301 7.42188C3.66977 8.33 2.79496 9.41603 2.2998 10.1104C2.17736 10.282 2.11873 10.3659 2.08398 10.4326C2.06205 10.4748 2.06244 10.4867 2.0625 10.498V10.502C2.06244 10.5133 2.06205 10.5252 2.08398 10.5674C2.11873 10.6341 2.17736 10.718 2.2998 10.8896C2.79496 11.584 3.66977 12.67 4.83301 13.5781C5.99737 14.4871 7.41106 15.1875 9 15.1875C10.589 15.1875 12.0036 14.4871 13.168 13.5781C14.331 12.6701 15.2051 11.5839 15.7002 10.8896C15.8226 10.718 15.8813 10.6341 15.916 10.5674C15.938 10.5252 15.9376 10.5133 15.9375 10.502V10.498C15.9376 10.4867 15.938 10.4748 15.916 10.4326C15.8813 10.3659 15.8226 10.282 15.7002 10.1104C15.2051 9.41612 14.331 8.32992 13.168 7.42188C12.0036 6.51285 10.589 5.8125 9 5.8125ZM9 7.6875C10.5533 7.6875 11.8125 8.9467 11.8125 10.5C11.8125 12.0533 10.5533 13.3125 9 13.3125C7.4467 13.3125 6.1875 12.0533 6.1875 10.5C6.1875 8.9467 7.4467 7.6875 9 7.6875ZM9 8.8125C8.06802 8.8125 7.3125 9.56802 7.3125 10.5C7.3125 11.432 8.06802 12.1875 9 12.1875C9.93198 12.1875 10.6875 11.432 10.6875 10.5C10.6875 9.56802 9.93198 8.8125 9 8.8125ZM9 1.6875C11.2348 1.6875 13.2231 2.69508 14.623 3.66211C15.3283 4.14926 15.8985 4.6356 16.293 5.00098C16.4905 5.18393 16.6451 5.33759 16.751 5.44629C16.8038 5.50056 16.8448 5.54392 16.873 5.57422C16.8871 5.58934 16.8975 5.60189 16.9053 5.61035L16.918 5.62305V5.62402C16.9157 5.62636 16.886 5.65436 16.5 6L16.9189 5.625C17.1261 5.85644 17.1064 6.21173 16.875 6.41895C16.6436 6.62605 16.2883 6.60622 16.0811 6.375H16.0801L16.0752 6.36816C16.07 6.36248 16.0611 6.35396 16.0498 6.3418C16.0269 6.31721 15.9913 6.27961 15.9443 6.23145C15.8505 6.13511 15.7101 5.99557 15.5283 5.82715C15.1637 5.48942 14.6353 5.03818 13.9834 4.58789C12.6689 3.67995 10.9073 2.8125 9 2.8125C7.09269 2.8125 5.33107 3.67995 4.0166 4.58789C3.36472 5.03818 2.83627 5.48942 2.47168 5.82715C2.28987 5.99557 2.14953 6.13511 2.05566 6.23145C2.00873 6.27961 1.97312 6.31721 1.9502 6.3418C1.93886 6.35396 1.93 6.36248 1.9248 6.36816L1.91992 6.375H1.91895C1.71169 6.60608 1.35632 6.626 1.125 6.41895C0.893588 6.21173 0.87389 5.85644 1.08105 5.625L1.08203 5.62305L1.09473 5.61035C1.10246 5.60189 1.11286 5.58934 1.12695 5.57422C1.1552 5.54392 1.19615 5.50056 1.24902 5.44629C1.35494 5.33759 1.50953 5.18393 1.70703 5.00098C2.10148 4.6356 2.6717 4.14926 3.37695 3.66211C4.77694 2.69508 6.76523 1.6875 9 1.6875Z" />
+    </symbol>
+    <symbol id="moi-tl-file" viewBox="0 0 20 20">
+      <path fill="currentColor" d="M10.0469 1.04199C11.5783 1.04198 12.7919 1.04131 13.7412 1.16895C14.718 1.30031 15.5083 1.57772 16.1318 2.20117C16.7555 2.82481 17.0327 3.61576 17.1641 4.59277C17.2917 5.54203 17.292 6.75493 17.292 8.28613V11.2197C17.2926 11.8019 17.2927 12.2628 17.1172 12.6865C16.9417 13.1102 16.6152 13.4354 16.2031 13.8467L12.124 17.9268C11.7688 18.2825 11.4881 18.564 11.1318 18.7344C11.0582 18.7696 10.9822 18.801 10.9053 18.8281C10.5331 18.9594 10.1362 18.9584 9.63379 18.958H9.50586C8.18812 18.958 7.14407 18.9588 6.31738 18.8623C5.46876 18.7632 4.7696 18.5543 4.18262 18.0811C3.96291 17.9039 3.7621 17.7041 3.58496 17.4844C3.11184 16.8975 2.90378 16.198 2.80469 15.3496C2.70815 14.5228 2.708 13.4781 2.70801 12.1602V8.28613C2.708 6.75491 2.70835 5.54204 2.83594 4.59277C2.96729 3.61576 3.24453 2.82481 3.86816 2.20117C4.49171 1.57772 5.282 1.30031 6.25879 1.16895C7.20813 1.04131 8.42166 1.04198 9.95313 1.04199H10.0469ZM10 2.29199C8.41102 2.29199 7.28216 2.29307 6.42578 2.4082C5.5875 2.52091 5.10461 2.73238 4.75195 3.08496C4.39932 3.43759 4.18793 3.92057 4.0752 4.75879C3.96007 5.61512 3.95801 6.74416 3.95801 8.33301V12.1201C3.95801 13.4872 3.95981 14.4583 4.04688 15.2041C4.13239 15.9365 4.29348 16.3714 4.55859 16.7002C4.67973 16.8504 4.81658 16.9873 4.9668 17.1084C5.29554 17.3734 5.72981 17.5346 6.46191 17.6201C7.20777 17.7072 8.17968 17.708 9.54688 17.708C9.86809 17.708 10.069 17.7061 10.208 17.6973V17.4541C10.208 16.3147 10.2086 15.3962 10.3057 14.6738C10.4065 13.9237 10.6224 13.2916 11.124 12.79C11.6256 12.2887 12.2569 12.0725 13.0068 11.9717C13.7293 11.8745 14.6484 11.875 15.7881 11.875H16.0273C16.0385 11.7149 16.042 11.484 16.042 11.1191V8.33301C16.042 6.74416 16.0399 5.61512 15.9248 4.75879C15.8121 3.92057 15.6007 3.43759 15.248 3.08496C14.8954 2.73239 14.4125 2.52091 13.5742 2.4082C12.7178 2.29307 11.589 2.29199 10 2.29199ZM15.1572 13.126C14.3117 13.129 13.6772 13.1433 13.1738 13.2109C12.5626 13.2931 12.2384 13.4434 12.0078 13.6738C11.7772 13.9044 11.6262 14.2285 11.5439 14.8398C11.4763 15.3432 11.462 15.9777 11.459 16.8232L15.1572 13.126ZM10 8.54199C10.3452 8.54199 10.625 8.82182 10.625 9.16699C10.6248 9.51202 10.3451 9.79199 10 9.79199H6.66699C6.32192 9.79199 6.04217 9.51202 6.04199 9.16699C6.04199 8.82181 6.32181 8.54199 6.66699 8.54199H10ZM13.333 5.20801C13.6781 5.20801 13.9578 5.48798 13.958 5.83301C13.958 6.17819 13.6782 6.45801 13.333 6.45801H6.66699C6.32181 6.45801 6.04199 6.17819 6.04199 5.83301C6.04217 5.48798 6.32192 5.20801 6.66699 5.20801H13.333Z" />
+    </symbol>
+    <symbol id="moi-tl-reply" viewBox="0 0 16 16">
+      <path fill="currentColor" d="M11.2928 8.69785C11.4942 8.50918 11.8112 8.51898 11.9999 8.72031C12.1883 8.92166 12.1777 9.23875 11.9764 9.42734L11.1385 10.2135C12.2883 10.1949 13.2558 10.417 13.8544 10.8463C15.0589 11.7102 15.0916 12.4965 15.1503 13.9244C15.1556 14.0464 15.1602 14.1752 15.1669 14.3111C15.1794 14.587 14.9661 14.8208 14.6903 14.8336H14.6669C14.4015 14.8336 14.1796 14.6257 14.1669 14.357C14.1609 14.2197 14.1556 14.0894 14.1503 13.9654C14.0943 12.605 14.079 12.2391 13.2704 11.6598C12.9263 11.4138 12.1886 11.1881 11.0848 11.2154L11.9784 12.065C12.1784 12.255 12.1866 12.5721 11.996 12.7721C11.8059 12.9718 11.4888 12.9793 11.2889 12.7887L9.75573 11.3307C9.75176 11.3267 9.74831 11.3229 9.74499 11.3189C9.42566 10.9943 9.42756 10.4678 9.7489 10.1451C9.75286 10.1412 9.75697 10.1374 9.76159 10.1334L11.2928 8.69785ZM6.03405 1.19199C7.33872 1.15866 8.60829 1.15866 9.91296 1.19199C12.0645 1.24598 13.2499 1.27556 14.1425 2.1793C15.0331 3.08063 15.0577 4.24374 15.1024 6.35508C15.1097 6.68171 15.1132 7.01742 15.1132 7.35605C15.1129 7.63188 14.889 7.85605 14.6132 7.85605C14.3373 7.85605 14.1134 7.63187 14.1132 7.35605C14.1132 7.02539 14.1097 6.69616 14.1024 6.37949C14.0835 5.48733 14.0688 4.81442 14.0028 4.2877L10.3065 6.3873C9.39059 6.90658 8.69548 7.1666 8.00085 7.1666L7.74011 7.15391C7.1292 7.09713 6.49713 6.84172 5.69616 6.3873L1.94616 4.2584C1.87679 4.78965 1.86293 5.47108 1.84362 6.37949C1.82962 7.03681 1.82962 7.67628 1.84362 8.33359C1.88562 10.3096 1.9035 11.212 2.5155 11.8307C3.12479 12.448 4.04505 12.4704 6.05944 12.5211C6.71344 12.5371 7.35817 12.5455 7.97351 12.5455C8.24929 12.5457 8.47342 12.7697 8.47351 13.0455C8.47351 13.3214 8.24935 13.5453 7.97351 13.5455V13.5445C7.34951 13.5445 6.69672 13.5368 6.03405 13.5201C3.88255 13.4661 2.69714 13.4365 1.80456 12.5328C0.913228 11.6308 0.88829 10.4668 0.843624 8.3541C0.829631 7.6823 0.829633 7.0298 0.843624 6.35801C0.88829 4.24534 0.913228 3.0813 1.80456 2.1793C2.69714 1.27623 3.8825 1.24665 6.03405 1.19199ZM9.88757 2.19199C8.59957 2.15933 7.34678 2.15933 6.05944 2.19199C4.04505 2.24265 3.12546 2.26677 2.5155 2.8834C2.40029 2.99993 2.30564 3.12624 2.22839 3.26816L6.1903 5.51816C7.71314 6.38248 8.28881 6.38253 9.81237 5.51816L13.7294 3.29258C13.6498 3.14088 13.5522 3.00643 13.4305 2.8834C12.8212 2.26611 11.902 2.24265 9.88757 2.19199Z" />
+    </symbol>
+  </svg>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" class="is-active" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
+        </nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language">
+          <span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top">
+          <span data-i18n="" data-ar="أعلى" data-en="Top">Top</span>
+        </button>
+      </div>
+
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="المكونات / الخط الزمني">Components / Timeline</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="الخط الزمني">Timeline</h1>
+        <p class="text-muted mb-0" data-i18n
+          data-ar="يعرض الخط الزمني سلسلة من الأحداث أو السجلات مرتبة زمنيًا. المكوّن هو .moi-timeline المطابق لتصميم Figma: دائرة تاريخ، وبطاقة حدث، ووسم ومرفقات وردود اختيارية، وزر رد يفتح نافذة الرد.">
+          Timeline displays a sequence of events or records in chronological order. The component is
+          <code class="code-inline">.moi-timeline</code>, matching the Figma design: a date circle, an event card, an
+          optional tag, attachments and replies, and a reply button that opens the reply modal.</p>
+      </header>
+
+      <div class="metadata-row">
+        <span class="metadata-pill" data-i18n data-ar="المكوّن: الخط الزمني" data-en="Component: Timeline">
+          المكوّن: الخط الزمني
+        </span>
+        <span class="metadata-pill" data-i18n data-ar="الملف: css/components/_timeline.scss"
+          data-en="File: css/components/_timeline.scss">
+          الملف: css/components/_timeline.scss
+        </span>
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 13 أكتوبر 2026" data-en="Last updated: October 13, 2026">
+          آخر تحديث: 13 أكتوبر 2026
+        </span>
+      </div>
+
+
+      <section class="section" id="moi-timeline">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="الهدف / متى تستخدم">Purpose &amp; when to use</h2>
+          <p class="section-note" data-i18n
+            data-ar="المكوّن مطابق لتصميم Figma (timeline وtimeline-atom وtimeline-reply وtimeline-attachment). يعرض سجل الأحداث بترتيب زمني: دائرة تاريخ، وبطاقة حدث مبنية على مكوّن البطاقة، مع وسم ومرفقات وردود اختيارية، وزر رد يفتح نافذة الرد.">
+            Matches the Figma design (<code class="code-inline">timeline</code>,
+            <code class="code-inline">timeline-atom</code>, <code class="code-inline">timeline-reply</code>,
+            <code class="code-inline">timeline-attachment</code>). It shows a history of events in order: a date circle and an
+            event card built on the Card component, with an optional tag, attachments, replies, and a reply button that opens
+            the reply modal.</p>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="الأنماط: css/components/_timeline.scss (قسم .moi-timeline في آخر الملف).">Styles:
+              <code class="code-inline">css/components/_timeline.scss</code> (the <code class="code-inline">.moi-timeline</code>
+              section at the end of the file).</li>
+            <li data-i18n data-ar="صفحة المثال الكاملة: timeLine/moi-timeline.html.">Full example page:
+              <code class="code-inline">timeLine/moi-timeline.html</code>.</li>
+            <li data-i18n data-ar="يعتمد على مكوّنات موجودة: البطاقة، والوسوم، والأزرار، والنافذة المنبثقة، وحقل النص.">Built on
+              existing components: Card (<code class="code-inline">.moi-card</code>), Tag (<code class="code-inline">.moi-tag</code>),
+              Buttons (<code class="code-inline">.moi-btn</code>), Modal (<code class="code-inline">.modal</code>) and
+              <code class="code-inline">.form-control</code>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="moi-timeline-example">
+        <div class="section-card">
+          <h3 class="section-title" data-i18n data-ar="مثال — الخط الزمني">Example — Timeline</h3>
+          <p class="section-note" data-i18n data-ar="حاوية برأس «المتابعات» وقائمة أحداث، وآخر حدث هنا هو الحدث الحالي.">Container with header «المتابعات» and a list of events. The last event here is the current one (<code class="code-inline">--active</code>).</p>
+          <div class="timeline-preview" dir="rtl" lang="ar">
+    <section class="moi-timeline" aria-labelledby="tl-title-1">
+      <header class="moi-timeline__header">
+        <h3 class="moi-timeline__title" id="tl-title-1">المتابعات</h3>
+        <svg class="moi-timeline__header-icon" aria-hidden="true"><use href="#moi-tl-branch"></use></svg>
+      </header>
+
+      <div class="moi-timeline__body">
+        <ol class="moi-timeline__list">
+
+          <li class="moi-timeline__item">
+            <span class="moi-timeline__connector" aria-hidden="true"></span>
+            <div class="moi-timeline__date">
+              <span class="moi-timeline__date-day">11</span>
+              <span class="moi-timeline__date-month">أغسطس</span>
+            </div>
+            <article class="moi-card moi-timeline__card">
+              <header class="moi-card__header moi-timeline__card-header">
+                <div class="moi-card__title-group moi-timeline__heading">
+                  <h4 class="moi-card__title moi-timeline__event-title">مركز شرطة الملز</h4>
+                </div>
+                <div class="moi-timeline__meta">
+                  <span class="moi-timeline__meta-item">
+                    <svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-calendar"></use></svg>
+                    <time>21-04-1447</time>
+                  </span>
+                  <span class="moi-timeline__meta-item">
+                    <svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-clock"></use></svg>
+                    <time>08:40</time>
+                  </span>
+                </div>
+              </header>
+              <div class="moi-timeline__content">
+                <p class="moi-timeline__description">نرجو اتخاذ اجراء علي طلب (شرائح مركبة على هاتف )</p>
+                <div class="moi-timeline__creator">
+                  <span class="moi-timeline__creator-label">بواسطة</span>
+                  <span class="moi-timeline__creator-name">أحمد محمد علي خالد</span>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <li class="moi-timeline__item">
+            <span class="moi-timeline__connector" aria-hidden="true"></span>
+            <div class="moi-timeline__date">
+              <span class="moi-timeline__date-day">11</span>
+              <span class="moi-timeline__date-month">أغسطس</span>
+            </div>
+            <article class="moi-card moi-timeline__card">
+              <header class="moi-card__header moi-timeline__card-header">
+                <div class="moi-card__title-group moi-timeline__heading">
+                  <h4 class="moi-card__title moi-timeline__event-title">مركز شرطة الملز</h4>
+                </div>
+                <div class="moi-timeline__meta">
+                  <span class="moi-timeline__meta-item">
+                    <svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-calendar"></use></svg>
+                    <time>21-04-1447</time>
+                  </span>
+                  <span class="moi-timeline__meta-item">
+                    <svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-clock"></use></svg>
+                    <time>08:40</time>
+                  </span>
+                </div>
+              </header>
+              <div class="moi-timeline__content">
+                <p class="moi-timeline__description">نرجو اتخاذ اجراء علي طلب (شرائح مركبة على هاتف )</p>
+                <div class="moi-timeline__creator">
+                  <span class="moi-timeline__creator-label">بواسطة</span>
+                  <span class="moi-timeline__creator-name">أحمد محمد علي خالد</span>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <li class="moi-timeline__item moi-timeline__item--active">
+            <span class="moi-timeline__connector" aria-hidden="true"></span>
+            <div class="moi-timeline__date">
+              <span class="moi-timeline__date-day">11</span>
+              <span class="moi-timeline__date-month">أغسطس</span>
+            </div>
+            <article class="moi-card moi-timeline__card">
+              <header class="moi-card__header moi-timeline__card-header">
+                <div class="moi-card__title-group moi-timeline__heading">
+                  <h4 class="moi-card__title moi-timeline__event-title">مركز شرطة النظيم</h4>
+                </div>
+                <div class="moi-timeline__meta">
+                  <span class="moi-timeline__meta-item">
+                    <svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-calendar"></use></svg>
+                    <time>21-04-1447</time>
+                  </span>
+                  <span class="moi-timeline__meta-item">
+                    <svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-clock"></use></svg>
+                    <time>08:40</time>
+                  </span>
+                </div>
+              </header>
+              <div class="moi-timeline__content">
+                <p class="moi-timeline__description">نرجو اتخاذ اجراء علي طلب (شرائح مركبة على هاتف )</p>
+                <div class="moi-timeline__creator">
+                  <span class="moi-timeline__creator-label">بواسطة</span>
+                  <span class="moi-timeline__creator-name">أحمد محمد علي خالد</span>
+                </div>
+              </div>
+            </article>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+          </div>
+          <div class="mt-3">
+          <div class="code-block">
+            <pre><code class="language-html">&lt;section class="moi-timeline" aria-labelledby="tl-title"&gt;
+  &lt;header class="moi-timeline__header"&gt;
+    &lt;h3 class="moi-timeline__title" id="tl-title"&gt;المتابعات&lt;/h3&gt;
+    &lt;svg class="moi-timeline__header-icon" aria-hidden="true"&gt;&lt;use href="#moi-tl-branch"&gt;&lt;/use&gt;&lt;/svg&gt;
+  &lt;/header&gt;
+  &lt;div class="moi-timeline__body"&gt;
+    &lt;ol class="moi-timeline__list"&gt;
+      &lt;li class="moi-timeline__item"&gt;
+        &lt;span class="moi-timeline__connector" aria-hidden="true"&gt;&lt;/span&gt;
+        &lt;div class="moi-timeline__date"&gt;
+          &lt;span class="moi-timeline__date-day"&gt;11&lt;/span&gt;
+          &lt;span class="moi-timeline__date-month"&gt;أغسطس&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;article class="moi-card moi-timeline__card"&gt;
+          &lt;header class="moi-card__header moi-timeline__card-header"&gt;
+            &lt;div class="moi-card__title-group moi-timeline__heading"&gt;
+              &lt;h4 class="moi-card__title moi-timeline__event-title"&gt;مركز شرطة الملز&lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;div class="moi-timeline__meta"&gt;
+              &lt;span class="moi-timeline__meta-item"&gt;&lt;svg class="moi-timeline__icon" aria-hidden="true"&gt;&lt;use href="#moi-tl-calendar"&gt;&lt;/use&gt;&lt;/svg&gt;&lt;time&gt;21-04-1447&lt;/time&gt;&lt;/span&gt;
+              &lt;span class="moi-timeline__meta-item"&gt;&lt;svg class="moi-timeline__icon" aria-hidden="true"&gt;&lt;use href="#moi-tl-clock"&gt;&lt;/use&gt;&lt;/svg&gt;&lt;time&gt;08:40&lt;/time&gt;&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/header&gt;
+          &lt;div class="moi-timeline__content"&gt;
+            &lt;p class="moi-timeline__description"&gt;نص الحدث…&lt;/p&gt;
+            &lt;div class="moi-timeline__creator"&gt;
+              &lt;span class="moi-timeline__creator-label"&gt;بواسطة&lt;/span&gt;
+              &lt;span class="moi-timeline__creator-name"&gt;أحمد محمد علي خالد&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/article&gt;
+      &lt;/li&gt;
+      &lt;!-- more &lt;li class="moi-timeline__item"&gt; … --&gt;
+    &lt;/ol&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="moi-timeline-states">
+        <div class="section-card">
+          <h3 class="section-title" data-i18n data-ar="الحالات">States</h3>
+          <p class="section-note" data-i18n data-ar="أضف معدِّلًا واحدًا لعنصر الحدث، فيتغيّر لون الدائرة وإطار البطاقة والرأس والعنوان والتاريخ والوقت. المثال الأخير بدون خط واصل.">Add one modifier to <code class="code-inline">.moi-timeline__item</code>. It recolours the circle, the card border, the header, the title and the date/time. The last example has no connector line.</p>
+          <div class="timeline-preview" dir="rtl" lang="ar">
+    <ol class="moi-timeline__list">
+
+      <li class="moi-timeline__item">
+        <span class="moi-timeline__connector" aria-hidden="true"></span>
+        <div class="moi-timeline__date"><span class="moi-timeline__date-day">11</span><span class="moi-timeline__date-month">أغسطس</span></div>
+        <article class="moi-card moi-timeline__card">
+          <header class="moi-card__header moi-timeline__card-header">
+            <div class="moi-card__title-group moi-timeline__heading"><h4 class="moi-card__title moi-timeline__event-title">الحالة الافتراضية — Default</h4></div>
+            <div class="moi-timeline__meta">
+              <span class="moi-timeline__meta-item"><svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-calendar"></use></svg><time>21-04-1447</time></span>
+              <span class="moi-timeline__meta-item"><svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-clock"></use></svg><time>08:40</time></span>
+            </div>
+          </header>
+          <div class="moi-timeline__content">
+            <p class="moi-timeline__description">نرجو اتخاذ اجراء علي طلب (شرائح مركبة على هاتف )</p>
+            <div class="moi-timeline__creator"><span class="moi-timeline__creator-label">بواسطة</span><span class="moi-timeline__creator-name">أحمد محمد علي خالد</span></div>
+          </div>
+        </article>
+      </li>
+
+      <li class="moi-timeline__item moi-timeline__item--active">
+        <span class="moi-timeline__connector" aria-hidden="true"></span>
+        <div class="moi-timeline__date"><span class="moi-timeline__date-day">11</span><span class="moi-timeline__date-month">أغسطس</span></div>
+        <article class="moi-card moi-timeline__card">
+          <header class="moi-card__header moi-timeline__card-header">
+            <div class="moi-card__title-group moi-timeline__heading"><h4 class="moi-card__title moi-timeline__event-title">الحالة الحالية — Active</h4></div>
+            <div class="moi-timeline__meta">
+              <span class="moi-timeline__meta-item"><svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-calendar"></use></svg><time>21-04-1447</time></span>
+              <span class="moi-timeline__meta-item"><svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-clock"></use></svg><time>08:40</time></span>
+            </div>
+          </header>
+          <div class="moi-timeline__content">
+            <p class="moi-timeline__description">نرجو اتخاذ اجراء علي طلب (شرائح مركبة على هاتف )</p>
+            <div class="moi-timeline__creator"><span class="moi-timeline__creator-label">بواسطة</span><span class="moi-timeline__creator-name">أحمد محمد علي خالد</span></div>
+          </div>
+        </article>
+      </li>
+
+      <li class="moi-timeline__item moi-timeline__item--error">
+        <span class="moi-timeline__connector" aria-hidden="true"></span>
+        <div class="moi-timeline__date"><span class="moi-timeline__date-day">11</span><span class="moi-timeline__date-month">أغسطس</span></div>
+        <article class="moi-card moi-timeline__card">
+          <header class="moi-card__header moi-timeline__card-header">
+            <div class="moi-card__title-group moi-timeline__heading"><h4 class="moi-card__title moi-timeline__event-title">خطأ — Error</h4></div>
+            <div class="moi-timeline__meta">
+              <span class="moi-timeline__meta-item"><svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-calendar"></use></svg><time>21-04-1447</time></span>
+              <span class="moi-timeline__meta-item"><svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-clock"></use></svg><time>08:40</time></span>
+            </div>
+          </header>
+          <div class="moi-timeline__content">
+            <p class="moi-timeline__description">نرجو اتخاذ اجراء علي طلب (شرائح مركبة على هاتف )</p>
+            <div class="moi-timeline__creator"><span class="moi-timeline__creator-label">بواسطة</span><span class="moi-timeline__creator-name">أحمد محمد علي خالد</span></div>
+          </div>
+        </article>
+      </li>
+
+      <li class="moi-timeline__item moi-timeline__item--warning">
+        <span class="moi-timeline__connector" aria-hidden="true"></span>
+        <div class="moi-timeline__date"><span class="moi-timeline__date-day">11</span><span class="moi-timeline__date-month">أغسطس</span></div>
+        <article class="moi-card moi-timeline__card">
+          <header class="moi-card__header moi-timeline__card-header">
+            <div class="moi-card__title-group moi-timeline__heading"><h4 class="moi-card__title moi-timeline__event-title">تنبيه — Warning</h4></div>
+            <div class="moi-timeline__meta">
+              <span class="moi-timeline__meta-item"><svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-calendar"></use></svg><time>21-04-1447</time></span>
+              <span class="moi-timeline__meta-item"><svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-clock"></use></svg><time>08:40</time></span>
+            </div>
+          </header>
+          <div class="moi-timeline__content">
+            <p class="moi-timeline__description">نرجو اتخاذ اجراء علي طلب (شرائح مركبة على هاتف )</p>
+            <div class="moi-timeline__creator"><span class="moi-timeline__creator-label">بواسطة</span><span class="moi-timeline__creator-name">أحمد محمد علي خالد</span></div>
+          </div>
+        </article>
+      </li>
+
+      <li class="moi-timeline__item moi-timeline__item--info">
+        <div class="moi-timeline__date"><span class="moi-timeline__date-day">11</span><span class="moi-timeline__date-month">أغسطس</span></div>
+        <article class="moi-card moi-timeline__card">
+          <header class="moi-card__header moi-timeline__card-header">
+            <div class="moi-card__title-group moi-timeline__heading"><h4 class="moi-card__title moi-timeline__event-title">معلومة — Info (بدون خط واصل)</h4></div>
+            <div class="moi-timeline__meta">
+              <span class="moi-timeline__meta-item"><svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-calendar"></use></svg><time>21-04-1447</time></span>
+              <span class="moi-timeline__meta-item"><svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-clock"></use></svg><time>08:40</time></span>
+            </div>
+          </header>
+          <div class="moi-timeline__content">
+            <p class="moi-timeline__description">نرجو اتخاذ اجراء علي طلب (شرائح مركبة على هاتف )</p>
+            <div class="moi-timeline__creator"><span class="moi-timeline__creator-label">بواسطة</span><span class="moi-timeline__creator-name">أحمد محمد علي خالد</span></div>
+          </div>
+        </article>
+      </li>
+
+    </ol>
+          </div>
+          <div class="mt-3">
+          <div class="code-block">
+            <pre><code class="language-html">&lt;!-- Default: no modifier --&gt;
+&lt;li class="moi-timeline__item"&gt; … &lt;/li&gt;
+
+&lt;!-- Current event --&gt;
+&lt;li class="moi-timeline__item moi-timeline__item--active"&gt; … &lt;/li&gt;
+
+&lt;!-- Rejected / failed --&gt;
+&lt;li class="moi-timeline__item moi-timeline__item--error"&gt; … &lt;/li&gt;
+
+&lt;!-- Needs attention / delayed --&gt;
+&lt;li class="moi-timeline__item moi-timeline__item--warning"&gt; … &lt;/li&gt;
+
+&lt;!-- Informational --&gt;
+&lt;li class="moi-timeline__item moi-timeline__item--info"&gt; … &lt;/li&gt;
+
+&lt;!-- Last item without the vertical line: omit the connector span --&gt;
+&lt;li class="moi-timeline__item"&gt;
+  &lt;div class="moi-timeline__date"&gt; … &lt;/div&gt;
+  &lt;article class="moi-card moi-timeline__card"&gt; … &lt;/article&gt;
+&lt;/li&gt;</code></pre>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="moi-timeline-attachments">
+        <div class="section-card">
+          <h3 class="section-title" data-i18n data-ar="الوسم والمرفقات">Tag &amp; attachments</h3>
+          <p class="section-note" data-i18n data-ar="وسم اختياري بجانب العنوان، وبطاقات ملفات، وكل بطاقة رابط يفتح الملف.">Optional tag next to the title (existing <code class="code-inline">.moi-tag</code>) and file chips. Each chip is a link that opens the file.</p>
+          <div class="timeline-preview" dir="rtl" lang="ar">
+    <ol class="moi-timeline__list">
+      <li class="moi-timeline__item">
+        <div class="moi-timeline__date"><span class="moi-timeline__date-day">11</span><span class="moi-timeline__date-month">أغسطس</span></div>
+        <article class="moi-card moi-timeline__card">
+          <header class="moi-card__header moi-timeline__card-header">
+            <div class="moi-card__title-group moi-timeline__heading">
+              <h4 class="moi-card__title moi-timeline__event-title">مركز شرطة الملز</h4>
+              <span class="moi-tag" data-size="md" data-shape="rounded" data-status="infoprioroty">وارد</span>
+            </div>
+            <div class="moi-timeline__meta">
+              <span class="moi-timeline__meta-item"><svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-calendar"></use></svg><time>21-04-1447</time></span>
+              <span class="moi-timeline__meta-item"><svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-clock"></use></svg><time>08:40</time></span>
+            </div>
+          </header>
+          <div class="moi-timeline__content">
+            <p class="moi-timeline__description">نرجو اتخاذ اجراء علي طلب (شرائح مركبة على هاتف )</p>
+            <div class="moi-timeline__creator"><span class="moi-timeline__creator-label">بواسطة</span><span class="moi-timeline__creator-name">أحمد محمد علي خالد</span></div>
+          </div>
+          <div class="moi-timeline__attachments">
+            <a class="moi-timeline__attachment" href="#" aria-label="عرض صورة جواز السفر.pdf">
+              <svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-file"></use></svg>
+              <span class="moi-timeline__attachment-info">
+                <span class="moi-timeline__attachment-name">صورة جواز السفر.pdf</span>
+                <span class="moi-timeline__attachment-meta">PDF · 240 KB</span>
+              </span>
+              <svg class="moi-timeline__icon moi-timeline__attachment-view" aria-hidden="true"><use href="#moi-tl-view"></use></svg>
+            </a>
+            <a class="moi-timeline__attachment" href="#" aria-label="عرض خطاب الإحالة.pdf">
+              <svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-file"></use></svg>
+              <span class="moi-timeline__attachment-info">
+                <span class="moi-timeline__attachment-name">خطاب الإحالة.pdf</span>
+                <span class="moi-timeline__attachment-meta">PDF · 1.2 MB</span>
+              </span>
+              <svg class="moi-timeline__icon moi-timeline__attachment-view" aria-hidden="true"><use href="#moi-tl-view"></use></svg>
+            </a>
+          </div>
+        </article>
+      </li>
+    </ol>
+          </div>
+          <div class="mt-3">
+          <div class="code-block">
+            <pre><code class="language-html">&lt;!-- Tag next to the title (existing .moi-tag) --&gt;
+&lt;div class="moi-card__title-group moi-timeline__heading"&gt;
+  &lt;h4 class="moi-card__title moi-timeline__event-title"&gt;مركز شرطة الملز&lt;/h4&gt;
+  &lt;span class="moi-tag" data-size="md" data-shape="rounded" data-status="infoprioroty"&gt;وارد&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Attachments: after .moi-timeline__content, inside the card --&gt;
+&lt;div class="moi-timeline__attachments"&gt;
+  &lt;a class="moi-timeline__attachment" href="file-url" aria-label="عرض صورة جواز السفر.pdf"&gt;
+    &lt;svg class="moi-timeline__icon" aria-hidden="true"&gt;&lt;use href="#moi-tl-file"&gt;&lt;/use&gt;&lt;/svg&gt;
+    &lt;span class="moi-timeline__attachment-info"&gt;
+      &lt;span class="moi-timeline__attachment-name"&gt;صورة جواز السفر.pdf&lt;/span&gt;
+      &lt;span class="moi-timeline__attachment-meta"&gt;PDF · 240 KB&lt;/span&gt;
+    &lt;/span&gt;
+    &lt;svg class="moi-timeline__icon moi-timeline__attachment-view" aria-hidden="true"&gt;&lt;use href="#moi-tl-view"&gt;&lt;/use&gt;&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="moi-timeline-replies">
+        <div class="section-card">
+          <h3 class="section-title" data-i18n data-ar="الردود ونافذة الرد">Replies &amp; reply modal</h3>
+          <p class="section-note" data-i18n data-ar="الردود داخل بطاقة الحدث نفسه. زر «الرد على الرسالة» يفتح نافذة الرد وفيها حقل نص إلزامي. اضغط الزر للتجربة.">Replies sit inside the event card. «الرد على الرسالة» opens the reply modal (existing <code class="code-inline">.modal</code>) with a required textarea. Click it to try.</p>
+          <div class="timeline-preview" dir="rtl" lang="ar">
+    <ol class="moi-timeline__list">
+      <li class="moi-timeline__item">
+        <span class="moi-timeline__connector" aria-hidden="true"></span>
+        <div class="moi-timeline__date"><span class="moi-timeline__date-day">11</span><span class="moi-timeline__date-month">أغسطس</span></div>
+        <article class="moi-card moi-timeline__card">
+          <header class="moi-card__header moi-timeline__card-header">
+            <div class="moi-card__title-group moi-timeline__heading">
+              <h4 class="moi-card__title moi-timeline__event-title">مركز شرطة الملز</h4>
+            </div>
+            <div class="moi-timeline__meta">
+              <span class="moi-timeline__meta-item"><svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-calendar"></use></svg><time>21-04-1447</time></span>
+              <span class="moi-timeline__meta-item"><svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-clock"></use></svg><time>08:40</time></span>
+            </div>
+          </header>
+          <div class="moi-timeline__content">
+            <p class="moi-timeline__description">نرجو اتخاذ اجراء علي طلب (شرائح مركبة على هاتف )</p>
+            <div class="moi-timeline__creator"><span class="moi-timeline__creator-label">بواسطة</span><span class="moi-timeline__creator-name">أحمد محمد علي خالد</span></div>
+          </div>
+
+          <div class="moi-timeline__replies">
+            <div class="moi-timeline__reply">
+              <div class="moi-timeline__reply-header">
+                <div class="moi-timeline__reply-sender">
+                  <span class="moi-timeline__reply-sender-name">اسامة محمد نور الدين اسماعيل — مركز شرطة الملز</span>
+                  <span class="moi-tag" data-size="md" data-shape="rounded" data-status="primaryprioroty">صادر</span>
+                </div>
+                <div class="moi-timeline__reply-date">
+                  <svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-calendar"></use></svg>
+                  <time>04-05-1448</time>
+                  <svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-clock"></use></svg>
+                  <time>08:20</time>
+                </div>
+              </div>
+              <p class="moi-timeline__reply-text">بالإشارة إلى طلبكم بتاريخ <bdi>02-05-1448</bdi>، تم إرفاق صورة جواز السفر للشخص المطلوب.</p>
+              <div class="moi-timeline__attachments">
+                <a class="moi-timeline__attachment" href="#" aria-label="عرض صورة جواز السفر.pdf">
+                  <svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-file"></use></svg>
+                  <span class="moi-timeline__attachment-info">
+                    <span class="moi-timeline__attachment-name">صورة جواز السفر.pdf</span>
+                    <span class="moi-timeline__attachment-meta">PDF · 240 KB</span>
+                  </span>
+                  <svg class="moi-timeline__icon moi-timeline__attachment-view" aria-hidden="true"><use href="#moi-tl-view"></use></svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="moi-timeline__reply">
+              <div class="moi-timeline__reply-header">
+                <div class="moi-timeline__reply-sender">
+                  <span class="moi-timeline__reply-sender-name">خالد عبدالله السبيعي — مركز المتابعة</span>
+                  <span class="moi-tag" data-size="md" data-shape="rounded" data-status="infoprioroty">وارد</span>
+                </div>
+                <div class="moi-timeline__reply-date">
+                  <svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-calendar"></use></svg>
+                  <time>05-05-1448</time>
+                  <svg class="moi-timeline__icon" aria-hidden="true"><use href="#moi-tl-clock"></use></svg>
+                  <time>10:05</time>
+                </div>
+              </div>
+              <p class="moi-timeline__reply-text">تم الاستلام، وجارٍ استكمال الإجراء.</p>
+            </div>
+          </div>
+
+          <div class="moi-timeline__replies-bar">
+            <span class="moi-timeline__replies-count">ردّان</span>
+            <button class="moi-btn moi-btn--Primary--outline" data-size="md" type="button"
+              data-bs-toggle="modal" data-bs-target="#moi-timeline-reply-modal" aria-haspopup="dialog">
+              <svg aria-hidden="true" viewBox="0 0 16 16"><use href="#moi-tl-reply"></use></svg>
+              الرد على الرسالة
+            </button>
+          </div>
+        </article>
+      </li>
+    </ol>
+          </div>
+          <div class="mt-3">
+          <div class="code-block">
+            <pre><code class="language-html">&lt;!-- Inside the event card, after content / attachments --&gt;
+&lt;div class="moi-timeline__replies"&gt;
+  &lt;div class="moi-timeline__reply"&gt;
+    &lt;div class="moi-timeline__reply-header"&gt;
+      &lt;div class="moi-timeline__reply-sender"&gt;
+        &lt;span class="moi-timeline__reply-sender-name"&gt;اسم المرسل — الجهة&lt;/span&gt;
+        &lt;span class="moi-tag" data-size="md" data-shape="rounded" data-status="primaryprioroty"&gt;صادر&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class="moi-timeline__reply-date"&gt;
+        &lt;svg class="moi-timeline__icon" aria-hidden="true"&gt;&lt;use href="#moi-tl-calendar"&gt;&lt;/use&gt;&lt;/svg&gt;&lt;time&gt;04-05-1448&lt;/time&gt;
+        &lt;svg class="moi-timeline__icon" aria-hidden="true"&gt;&lt;use href="#moi-tl-clock"&gt;&lt;/use&gt;&lt;/svg&gt;&lt;time&gt;08:20&lt;/time&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p class="moi-timeline__reply-text"&gt;نص الرد…&lt;/p&gt;
+    &lt;!-- optional: &lt;div class="moi-timeline__attachments"&gt; … &lt;/div&gt; --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Replies bar: count + reply action (opens the reply modal) --&gt;
+&lt;div class="moi-timeline__replies-bar"&gt;
+  &lt;span class="moi-timeline__replies-count"&gt;ردّان&lt;/span&gt;
+  &lt;button class="moi-btn moi-btn--Primary--outline" data-size="md" type="button"
+    data-bs-toggle="modal" data-bs-target="#moi-timeline-reply-modal" aria-haspopup="dialog"&gt;
+    &lt;svg aria-hidden="true" viewBox="0 0 16 16"&gt;&lt;use href="#moi-tl-reply"&gt;&lt;/use&gt;&lt;/svg&gt;
+    الرد على الرسالة
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="moi-timeline-modal-code">
+        <div class="section-card">
+          <h3 class="section-title" data-i18n data-ar="نافذة الرد — الشيفرة">Reply modal — code</h3>
+          <p class="section-note" data-i18n
+            data-ar="تستخدم النافذة المنبثقة الموجودة في css/common/_modal.scss دون أي تنسيق جديد، وتحتاج ملف bootstrap.min.js. زر الإرسال أساسي، وزر الإلغاء محايد بإطار. الحقل إلزامي، فلا يُرسل الرد فارغًا.">
+            Uses the existing modal in <code class="code-inline">css/common/_modal.scss</code> with no new styles; needs
+            <code class="code-inline">bootstrap.min.js</code>. Send = <code class="code-inline">moi-btn--Primary</code>, Cancel =
+            <code class="code-inline">moi-btn--Neutral--outline</code>. The textarea is <code class="code-inline">required</code>, so an
+            empty reply is not sent.</p>
+          <div class="code-block">
+            <pre><code class="language-html">    &lt;div class="modal fade" id="moi-timeline-reply-modal" tabindex="-1" aria-labelledby="moi-timeline-reply-modal-title" aria-hidden="true"&gt;
+  &lt;div class="modal-dialog modal-dialog-centered"&gt;
+    &lt;form class="modal-content" id="moi-timeline-reply-form"&gt;
+      &lt;div class="modal-header"&gt;
+        &lt;h5 class="modal-title" id="moi-timeline-reply-modal-title"&gt;الرد على الرسالة&lt;/h5&gt;
+        &lt;button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="إغلاق"&gt;&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-body"&gt;
+        &lt;label class="form-label required" for="moi-timeline-reply-text"&gt;نص الرد&lt;/label&gt;
+        &lt;textarea class="form-control" id="moi-timeline-reply-text" name="reply" required
+          placeholder="اكتب الرد هنا"&gt;&lt;/textarea&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-footer"&gt;
+        &lt;button class="moi-btn moi-btn--Primary" data-size="md" type="submit"&gt;إرسال&lt;/button&gt;
+        &lt;button class="moi-btn moi-btn--Neutral--outline" data-size="md" type="button" data-bs-dismiss="modal"&gt;إلغاء&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="moi-timeline-anatomy">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th scope="col" data-i18n data-ar="العنصر">Element</th>
+                <th scope="col" data-i18n data-ar="الفئة">Class</th>
+                <th scope="col" data-i18n data-ar="الوصف">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n data-ar="الحاوية">Container</td>
+                <td><code class="code-inline">.moi-timeline</code></td>
+                <td data-i18n data-ar="الحاوية الرئيسية: رأس وجسم بإطار.">Root section: header + bordered body.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="الرأس">Header</td>
+                <td><code class="code-inline">.moi-timeline__header</code> <code class="code-inline">__title</code> <code class="code-inline">__header-icon</code></td>
+                <td data-i18n data-ar="عنوان «المتابعات» مع أيقونته.">Title «المتابعات» with its icon.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="الجسم والقائمة">Body / list</td>
+                <td><code class="code-inline">.moi-timeline__body</code> <code class="code-inline">.moi-timeline__list</code></td>
+                <td data-i18n data-ar="جسم بإطار يحوي قائمة مرتبة بالأحداث.">Bordered body holding an ordered list of events.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="الحدث">Event</td>
+                <td><code class="code-inline">.moi-timeline__item</code></td>
+                <td data-i18n data-ar="حدث واحد، وتُحدَّد حالته بالمعدِّلات.">One event (Figma timeline-atom). States via modifiers.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="الخط الواصل">Connector</td>
+                <td><code class="code-inline">.moi-timeline__connector</code></td>
+                <td data-i18n data-ar="الخط الرأسي المار بدائرة التاريخ، ويُحذف لإخفائه.">Vertical line through the date circle. Omit it to hide the line.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="دائرة التاريخ">Date circle</td>
+                <td><code class="code-inline">.moi-timeline__date</code> <code class="code-inline">__date-day</code> <code class="code-inline">__date-month</code></td>
+                <td data-i18n data-ar="دائرة بقطر ستين تعرض اليوم والشهر.">60×60 circle: day + month.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="بطاقة الحدث">Event card</td>
+                <td><code class="code-inline">.moi-card.moi-timeline__card</code></td>
+                <td data-i18n data-ar="تعيد استخدام مكوّن البطاقة نفسه.">Reuses the Card component (moi-card + __header / __title-group / __title).</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="رأس البطاقة">Card header</td>
+                <td><code class="code-inline">.moi-timeline__card-header</code> <code class="code-inline">__heading</code> <code class="code-inline">__event-title</code></td>
+                <td data-i18n data-ar="العنوان مع وسم اختياري، والتاريخ والوقت.">Title (+ optional tag) and date/time.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="التاريخ والوقت">Date / time</td>
+                <td><code class="code-inline">.moi-timeline__meta</code> <code class="code-inline">__meta-item</code> <code class="code-inline">__icon</code></td>
+                <td data-i18n data-ar="التاريخ والوقت مع أيقونتي التقويم والساعة.">Date and time with calendar / clock icons.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="المحتوى">Content</td>
+                <td><code class="code-inline">.moi-timeline__content</code> <code class="code-inline">__description</code> <code class="code-inline">__creator(-label / -name)</code></td>
+                <td data-i18n data-ar="الوصف واسم المُنشئ.">Description + «بواسطة» creator.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="المرفقات">Attachments</td>
+                <td><code class="code-inline">.moi-timeline__attachments</code> <code class="code-inline">__attachment(-info / -name / -meta / -view)</code></td>
+                <td data-i18n data-ar="بطاقات ملفات، وكل بطاقة رابط كامل.">File chips; the whole chip is a link.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="الردود">Replies</td>
+                <td><code class="code-inline">.moi-timeline__replies</code> <code class="code-inline">__reply</code> <code class="code-inline">__reply-header</code> <code class="code-inline">__reply-sender(-name)</code> <code class="code-inline">__reply-date</code> <code class="code-inline">__reply-text</code></td>
+                <td data-i18n data-ar="الردود على هذا الحدث داخل بطاقته.">Replies to this event, inside its card.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="شريط الردود">Replies bar</td>
+                <td><code class="code-inline">.moi-timeline__replies-bar</code> <code class="code-inline">__replies-count</code></td>
+                <td data-i18n data-ar="عدد الردود وزر الرد على الرسالة.">Replies count + «الرد على الرسالة» button.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="الحالات">States</h3>
+          <table class="docs-table">
+            <thead>
+              <tr>
+                <th scope="col" data-i18n data-ar="الحالة">State</th>
+                <th scope="col" data-i18n data-ar="الفئة">Class</th>
+                <th scope="col" data-i18n data-ar="الشكل">Look</th>
+                <th scope="col" data-i18n data-ar="متى تُستخدم">When to use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n data-ar="الافتراضية">Default</td>
+                <td><code class="code-inline">(no modifier)</code></td>
+                <td data-i18n data-ar="دائرة بيضاء ورأس رمادي.">White circle, grey header.</td>
+                <td data-i18n data-ar="أي حدث سابق.">Any past event.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="الحالية">Active</td>
+                <td><code class="code-inline">.moi-timeline__item--active</code></td>
+                <td data-i18n data-ar="دائرة باللون الأساسي، وإطار ورأس أخضران.">Primary circle, green border and header.</td>
+                <td data-i18n data-ar="الحدث الحالي، ولا يتكرر في القائمة.">The current event — one per list.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="خطأ">Error</td>
+                <td><code class="code-inline">.moi-timeline__item--error</code></td>
+                <td data-i18n data-ar="دائرة حمراء، وإطار ورأس أحمران.">Error-600 circle, red border and header.</td>
+                <td data-i18n data-ar="خطوة مرفوضة أو متعثرة.">Rejected / failed step.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="تنبيه">Warning</td>
+                <td><code class="code-inline">.moi-timeline__item--warning</code></td>
+                <td data-i18n data-ar="دائرة كهرمانية، وإطار ورأس كهرمانيان.">Warning-600 circle, amber border and header.</td>
+                <td data-i18n data-ar="حدث يحتاج انتباهًا أو متأخر.">Needs attention / delayed.</td>
+              </tr>
+              <tr>
+                <td data-i18n data-ar="معلومة">Info</td>
+                <td><code class="code-inline">.moi-timeline__item--info</code></td>
+                <td data-i18n data-ar="دائرة زرقاء، وإطار ورأس أزرقان.">Info-600 circle, blue border and header.</td>
+                <td data-i18n data-ar="حدث للعلم.">Informational event.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="moi-timeline-rules">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="استخدم .moi-timeline لأي سجل أحداث.">Use
+              <code class="code-inline">.moi-timeline</code> for every history of events.</li>
+            <li data-i18n data-ar="رتّب الأحداث زمنيًا داخل قائمة مرتبة (ol)، وحدث واحد فقط بالحالة الحالية.">Order events
+              chronologically inside an <code class="code-inline">ol</code>; only one event may be
+              <code class="code-inline">--active</code>.</li>
+            <li data-i18n data-ar="الردود على حدث معيّن تكون داخل بطاقة ذلك الحدث، وليست أحداثًا مستقلة في القائمة.">Replies to
+              an event go inside that event's card, not as separate list items.</li>
+            <li data-i18n data-ar="زر الرد يفتح نافذة الرد ولا يفتح صفحة جديدة.">The reply button opens the reply modal, not a
+              new page.</li>
+            <li data-i18n data-ar="المرفقات تُعرض كبطاقات ملفات، ولا تستخدم جدولًا داخل الحدث.">Show attachments as file chips;
+              do not use a table inside the event.</li>
+            <li data-i18n data-ar="الوسم للحالة أو الاتجاه فقط (وارد / صادر)، وليس زرًا.">The tag shows status or direction only
+              (وارد / صادر); it is not an action.</li>
+            <li data-i18n data-ar="أبقِ التواريخ والأرقام كما هي من اليسار لليمين داخل النص العربي (time أو bdi).">Keep dates and
+              numbers left-to-right inside Arabic text (<code class="code-inline">time</code> or
+              <code class="code-inline">bdi</code>).</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="moi-timeline-a11y">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="إرشادات إمكانية الوصول">Accessibility Guidance</h2>
+          <ul class="accessibility-list">
+            <li data-i18n data-ar="الحاوية section مربوطة بعنوانها، والأحداث داخل ol فيعلن قارئ الشاشة عددها.">The container is a
+              <code class="code-inline">section</code> labelled by its title; events are in an
+              <code class="code-inline">ol</code>, so screen readers announce the count.</li>
+            <li data-i18n data-ar="الخط الواصل والأيقونات مخفية عن قارئ الشاشة لأنها زخرفية.">The connector and the icons are
+              hidden from screen readers (<code class="code-inline">aria-hidden="true"</code>).</li>
+            <li data-i18n data-ar="كل بطاقة ملف رابط له وصف «عرض اسم الملف»، ولها حلقة تركيز ظاهرة.">Each file chip is a link with
+              an <code class="code-inline">aria-label</code> («عرض …») and a visible focus ring.</li>
+            <li data-i18n data-ar="لا تعتمد على اللون وحده لتمييز الحالة؛ اذكر الحالة في عنوان الحدث أو في وسم.">Do not rely on
+              colour alone for the state; say it in the event title or in a tag.</li>
+            <li data-i18n data-ar="حقل نص الرد له تسمية مرتبطة، وهو إلزامي.">The reply textarea has a linked
+              <code class="code-inline">label</code> and is <code class="code-inline">required</code>.</li>
+          </ul>
+        </div>
+      </section>
+
+
+    </div>
+
+  <!-- Reply modal used by the .moi-timeline example -->
+    <div class="modal fade" id="moi-timeline-reply-modal" tabindex="-1" aria-labelledby="moi-timeline-reply-modal-title" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <form class="modal-content" id="moi-timeline-reply-form">
+          <div class="modal-header">
+            <h5 class="modal-title" id="moi-timeline-reply-modal-title">الرد على الرسالة</h5>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+          </div>
+          <div class="modal-body">
+            <label class="form-label required" for="moi-timeline-reply-text">نص الرد</label>
+            <textarea class="form-control" id="moi-timeline-reply-text" name="reply" required
+              placeholder="اكتب الرد هنا"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button class="moi-btn moi-btn--Primary" data-size="md" type="submit">إرسال</button>
+            <button class="moi-btn moi-btn--Neutral--outline" data-size="md" type="button" data-bs-dismiss="modal">إلغاء</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+  <!-- Bootstrap JS for the reply modal example -->
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

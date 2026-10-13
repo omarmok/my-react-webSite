@@ -426,52 +426,41 @@
 .tableloader {
     tr {
         td {
-            height: 50px;
-            vertical-align: middle;
-            // Autonomous Maintainer pass: 8px matched $padding-md exactly.
-            padding: $padding-md;
-            overflow: hidden;
             position: relative;
+            overflow: hidden;
+            color: transparent !important;
+
+            > * {
+                visibility: hidden;
+            }
 
             &::before {
                 content: "";
-                height: 12px;
-                background: linear-gradient( to right, #f1f3f9 20%, #d6dce8 50%, #f1f3f9 80% );
-                background-size: 500px 100px;
-                -webkit-animation: Gradient 60s ease infinite;
-                -moz-animation: Gradient 60s ease infinite;
-                animation: Gradient 60s ease infinite;
-                animation-duration: 2s;
-                animation-iteration-count: infinite;
-                animation-timing-function: linear;
-                animation-fill-mode: forwards;
                 position: absolute;
-                right: 10px;
-                left: 10px;
-                height: 88%;
-                border-radius: 0;
-                z-index: 9999;
-                top: 8px;
-                width: 100%;
-            }
-
-            .moi-btn--text-icon {
-                display: none;
+                top: 6px;
+                right: 8px;
+                bottom: 6px;
+                left: 8px;
+                background: linear-gradient( 90deg, #eeeeee 0%, #eeeeee 35%, #f8f8f8 50%, #eeeeee 65%, #eeeeee 100% );
+                background-size: 200% 100%;
+                animation: skeleton-loading 1.5s linear infinite;
+                border-radius: 4px;
+                z-index: 999;
+                pointer-events: none;
             }
         }
     }
 }
 
-@-webkit-keyframes moving-gradient {
+@keyframes skeleton-loading {
     0% {
-        background-position: -250px 0;
+        background-position: -200% 0;
     }
 
     100% {
-        background-position: 250px 0;
+        background-position: 200% 0;
     }
 }
-
 .nodataTable {
     display: flex;
     flex-direction: column;

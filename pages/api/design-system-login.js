@@ -26,17 +26,7 @@ export default function handler(req, res) {
   // Never use NEXT_PUBLIC_ prefix — that would expose it to the browser bundle.
   const correctPassword = process.env.DESIGN_SYSTEM_PASSWORD;
 
-  // Dev-only diagnostics — logs presence and length only, never the value itself.
-  if (process.env.NODE_ENV !== "production") {
-    console.log("[design-system-login] env var present:", Boolean(correctPassword));
-    console.log("[design-system-login] env password length:", correctPassword?.length ?? 0);
-    console.log(
-      "[design-system-login] submitted password length:",
-      typeof password === "string" ? password.length : "not a string"
-    );
-  }
-
-  if (!correctPassword) {
+  if (!correctPassword?.trim()) {
     // DESIGN_SYSTEM_PASSWORD is not set — add it in Vercel Environment Variables
     // and redeploy. See docs/design-system-access.md for steps.
     return res.status(500).json({ error: "Server misconfiguration" });

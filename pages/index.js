@@ -282,7 +282,7 @@ export default function Home() {
     dictionary.home;
   const isRTL = language === "ar";
   const [password, setPassword] = useState("");
-  const [showError, setShowError] = useState(false);
+  const [loginError, setLoginError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const strategyCopy = isRTL
@@ -603,7 +603,7 @@ export default function Home() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    setShowError(false);
+    setLoginError(null);
 
     try {
       const response = await fetch("/api/design-system-login", {
@@ -627,13 +627,20 @@ export default function Home() {
         window.location.assign(REDIRECT_URL);
         return;
       }
-    } catch {
-      // network error falls through to error state
-    }
 
-    setIsLoading(false);
-    setShowError(true);
-    setPassword("");
+      if (response.status === 401) {
+        setLoginError("passwordError");
+        setPassword("");
+      } else if (response.status === 500) {
+        setLoginError("serverError");
+      } else {
+        setLoginError("requestError");
+      }
+    } catch {
+      setLoginError("networkError");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -916,14 +923,15 @@ export default function Home() {
                     value={password}
                     onChange={(event) => {
                       setPassword(event.target.value);
-                      if (showError) {
-                        setShowError(false);
+                      if (loginError) {
+                        setLoginError(null);
                       }
                     }}
                     placeholder={dictionary.casebook.access.passwordPlaceholder}
                     aria-describedby={
-                      showError ? "designsystem-password-error" : undefined
+                      loginError ? "designsystem-password-error" : undefined
                     }
+                    aria-invalid={loginError === "passwordError"}
                   />
                   <button
                     type="submit"
@@ -933,13 +941,13 @@ export default function Home() {
                       ? "..."
                       : strategyCopy.designSystemAccess.buttonLabel}
                   </button>
-                  {showError ? (
+                  {loginError ? (
                     <p
                       id="designsystem-password-error"
                       className="homepage-designsystem__access-error"
                       role="alert"
                       aria-live="assertive">
-                      {dictionary.casebook.access.passwordError}
+                      {dictionary.casebook.access[loginError]}
                     </p>
                   ) : null}
                 </form>

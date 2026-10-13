@@ -994,6 +994,12 @@ export const translations = {
         accessButton: "View Design System",
         passwordError:
           "The password you entered is incorrect. If you would like access to the Design System showcase, please contact me and I will be happy to provide access and walk you through the system.",
+        serverError:
+          "Design System access is unavailable because of a server configuration issue. Please contact the site administrator.",
+        networkError:
+          "Could not connect to the server. Check your connection and try again.",
+        requestError:
+          "Unable to sign in right now. Please try again later.",
       },
     },
     meta: {
@@ -1853,6 +1859,12 @@ export const translations = {
         accessButton: "عرض نظام التصميم",
         passwordError:
           "كلمة المرور التي أدخلتها غير صحيحة. إذا كنت ترغب في الوصول إلى عرض نظام التصميم، يرجى التواصل معي، وسأكون سعيدًا بمنحك صلاحية الوصول وشرح النظام لك.",
+        serverError:
+          "الدخول إلى نظام التصميم غير متاح بسبب مشكلة في إعدادات السيرفر. يرجى التواصل مع مسؤول الموقع.",
+        networkError:
+          "تعذّر الاتصال بالسيرفر. تحقق من اتصالك وحاول مرة أخرى.",
+        requestError:
+          "تعذّر تسجيل الدخول حاليًا. يرجى المحاولة لاحقًا.",
       },
     },
     meta: {

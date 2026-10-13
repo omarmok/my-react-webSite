@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use '../helpers' as *;
 .timeline {
   position: relative;
@@ -337,6 +338,393 @@
 
         .by {
             @include font-sm-500;
+        }
+    }
+}
+
+// =============================================================================
+// .moi-timeline — Timeline (new BEM component)
+// Source of truth: Figma «timeline» (Property 1=Default) · «timeline-atom»
+// (Default / active / error / warning / info / with-replies) · «timeline-reply»
+// · «timeline-attachment». Approved by the Owner on 2026-10-13.
+// Additive only: the legacy .timeline / .iq-timeline2 / .Itinerary rules above
+// are untouched and keep working as before.
+// Literal values below have no exact existing token (documented exceptions).
+// =============================================================================
+
+// Figma shadow on the item card and the date circle. $shadow-lg is close but
+// uses a -6px spread on the first layer, so it is not an exact match.
+$moi-timeline-shadow: 0px 4px 6px -2px rgba(16, 24, 40, 0.03),
+    0px 12px 16px -4px rgba(16, 24, 40, 0.08);
+// Figma «Text/text-default» (#161616) has no exact SCSS token.
+$moi-timeline-text-default: #161616;
+
+// state: card border · circle fill · header fill · header border · header text · meta icon
+$moi-timeline-states: (
+    active: ($Primary-400, $Primary-600, $Primary-50, $Primary-200, $Primary-800, $Primary-600),
+    error: ($Error-400, $Error-600, $Error-50, $Error-200, $Error-800, $Error-700),
+    warning: ($Warning-400, $Warning-600, $Warning-50, $Warning-200, $Warning-800, $Warning-700),
+    info: ($Info-400, $Info-600, $Info-50, $Info-200, $Info-800, $Info-700),
+);
+
+.moi-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-lg;
+    padding: $padding-2xl;
+    background-color: $white-100;
+    border: 1px solid $Neutral-200;
+    border-radius: $radius-md;
+
+    // Header «المتابعات»
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: $gap-10;
+        padding: $padding-lg $padding-xl;
+        background-color: $Primary-50;
+        color: $Primary-800;
+    }
+
+    &__header-icon {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+    }
+
+    &__title {
+        margin: 0;
+        color: $Primary-800;
+        // Figma Text lg/Semibold = 18/28; no 18px font mixin exists.
+        @include font-token(1.125rem, 600);
+        line-height: typography-line-height(1.5555555556);
+    }
+
+    &__body {
+        padding: $padding-lg;
+        background-color: $white-100;
+        border: 1px solid $Neutral-200;
+        border-radius: $radius-sm;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-10;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    // ---- timeline-atom ------------------------------------------------------
+    &__item {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        gap: $gap-lg;
+        padding: $padding-xl 1px;
+        margin: 0;
+    }
+
+    // Vertical line through the centre of the date circle («Show connector»).
+    &__connector {
+        position: absolute;
+        top: $padding-xl;
+        bottom: $padding-xl;
+        inset-inline-start: 31px; // 1px item padding + half of the 60px circle
+        width: 1px;
+        background-color: $Neutral-400;
+        pointer-events: none;
+    }
+
+    &__date {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: $white-100;
+        box-shadow: $moi-timeline-shadow;
+        text-align: center;
+    }
+
+    &__date-day {
+        color: $Neutral-900;
+        @include font-token(1.125rem, 700);
+        line-height: 15px;
+    }
+
+    &__date-month {
+        color: $Neutral-400;
+        @include font-sm-500;
+        line-height: 15px;
+    }
+
+    // The atom card reuses the Design System card (.moi-card + __header /
+    // __title-group / __title) and only adapts what timeline-atom changes.
+    // Compound selectors (.moi-card.moi-timeline__card …) keep these
+    // overrides stronger than _card.scss without touching it.
+    &__card.moi-card {
+        gap: $gap-md;
+        flex: 1 1 auto;
+        padding: $padding-md;
+        border: 1px solid $Neutral-50;
+        box-shadow: $moi-timeline-shadow;
+    }
+
+    &__card-header.moi-card__header {
+        flex-wrap: nowrap;
+        gap: $gap-md;
+        padding: $padding-lg;
+        background-color: $Neutral-50;
+        border-bottom: 1px solid $Neutral-200;
+    }
+
+    &__heading.moi-card__title-group {
+        gap: $gap-md;
+        padding: 0;
+    }
+
+    &__event-title.moi-card__title {
+        margin: 0;
+        color: $Neutral-800;
+        @include font-lg-500;
+        line-height: typography-line-height(1.5);
+    }
+
+    &__meta {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    &__meta-item {
+        display: inline-flex;
+        align-items: center;
+        gap: $gap-sm;
+        padding: $padding-xxs;
+        background-color: $Neutral-50;
+        border-radius: $radius-xs;
+        color: $Neutral-800;
+        @include font-sm-500;
+        line-height: typography-line-height(1.5);
+        white-space: nowrap;
+
+        .moi-timeline__icon {
+            width: 20px;
+            height: 20px;
+            color: $moi-timeline-text-default;
+        }
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+    }
+
+    &__content {
+        display: flex;
+        align-items: flex-start;
+        gap: $gap-md;
+    }
+
+    &__description {
+        flex: 1 1 auto;
+        min-width: 0;
+        margin: 0;
+        color: $Neutral-800;
+        @include font-md-400;
+        line-height: typography-line-height(1.4285714286);
+    }
+
+    &__creator {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: $gap-xxs;
+        flex-shrink: 0;
+    }
+
+    &__creator-label {
+        color: $Neutral-400;
+        @include font-xs-400;
+        line-height: typography-line-height(1.4);
+    }
+
+    &__creator-name {
+        color: $Neutral-800;
+        @include font-sm-600;
+        line-height: typography-line-height(1.5);
+    }
+
+    // ---- timeline-attachment -------------------------------------------------
+    &__attachments {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: $gap-md;
+    }
+
+    &__attachment {
+        display: inline-flex;
+        align-items: center;
+        gap: $gap-md;
+        padding: $padding-sm 10px;
+        background-color: $white-100;
+        border: 1px solid $Neutral-200;
+        border-radius: $radius-md;
+        color: $moi-timeline-text-default;
+        text-decoration: none;
+
+        &:hover {
+            border-color: $Neutral-300;
+            color: $moi-timeline-text-default;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $Primary-600;
+            outline-offset: 2px;
+        }
+
+        .moi-timeline__icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .moi-timeline__attachment-view {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    &__attachment-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__attachment-name {
+        color: $moi-timeline-text-default;
+        @include font-sm-500;
+        line-height: typography-line-height(1.5);
+    }
+
+    &__attachment-meta {
+        color: $Neutral-500;
+        @include font-xs-400;
+        line-height: typography-line-height(1.4);
+    }
+
+    // ---- timeline-reply ------------------------------------------------------
+    &__replies {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-md;
+        padding-inline-start: $padding-3xl;
+    }
+
+    &__reply {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-md;
+        padding: $padding-lg;
+        background-color: $Neutral-25;
+        border-inline-start: 3px solid $Primary-600;
+        border-radius: $radius-md;
+    }
+
+    &__reply-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $gap-md;
+    }
+
+    &__reply-sender {
+        display: flex;
+        align-items: center;
+        gap: $gap-md;
+        min-width: 0;
+    }
+
+    &__reply-sender-name {
+        color: $moi-timeline-text-default;
+        @include font-md-600;
+        line-height: typography-line-height(1.4285714286);
+    }
+
+    &__reply-date {
+        display: flex;
+        align-items: center;
+        gap: $gap-md;
+        flex-shrink: 0;
+        color: $Neutral-500;
+        @include font-sm-500;
+        line-height: typography-line-height(1.5);
+        white-space: nowrap;
+    }
+
+    &__reply-text {
+        margin: 0;
+        color: $Neutral-700;
+        @include font-md-400;
+        line-height: typography-line-height(1.4285714286);
+    }
+
+    // ---- replies bar -----------------------------------------------------------
+    &__replies-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $gap-md;
+        padding-top: $padding-xs;
+    }
+
+    &__replies-count {
+        color: $Neutral-500;
+        @include font-sm-500;
+        line-height: typography-line-height(1.5);
+    }
+
+    // ---- states (timeline-atom Property 1) -----------------------------------
+    @each $state, $c in $moi-timeline-states {
+        &__item--#{$state} {
+            .moi-timeline__card.moi-card {
+                border-color: list.nth($c, 1);
+            }
+
+            .moi-timeline__date {
+                background-color: list.nth($c, 2);
+            }
+
+            .moi-timeline__date-day,
+            .moi-timeline__date-month {
+                color: $white-100;
+            }
+
+            .moi-timeline__card-header.moi-card__header {
+                background-color: list.nth($c, 3);
+                border-bottom-color: list.nth($c, 4);
+            }
+
+            .moi-timeline__meta-item {
+                background-color: transparent;
+                color: list.nth($c, 5);
+
+                .moi-timeline__icon {
+                    color: list.nth($c, 6);
+                }
+            }
+
+            .moi-timeline__event-title.moi-card__title {
+                color: list.nth($c, 5);
+            }
         }
     }
 }
