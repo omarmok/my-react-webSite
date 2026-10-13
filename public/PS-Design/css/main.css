@@ -4140,20 +4140,16 @@ border colors */
 .moi-btn:focus, .moi-btn:focus-visible {
   outline: 0 !important;
 }
-.moi-btn:focus::before, .moi-btn:focus-visible::before {
-  content: "" !important;
-  position: absolute;
-  inset: 1px;
-  border: var(--moi-focus-inner-width) solid var(--moi-focus-inner);
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 2;
+.moi-btn:focus-visible {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4);
 }
-.moi-btn:disabled, .moi-btn[aria-disabled=true] {
+.moi-btn:disabled, .moi-btn[aria-disabled=true], .moi-btn.disabled {
+  color: #9da4ae;
+  background-color: #e5e7eb;
+  border-color: #9da4ae;
   box-shadow: none !important;
-}
-.moi-btn:disabled::before, .moi-btn[aria-disabled=true]::before {
-  content: none !important;
+  opacity: 1;
+  cursor: not-allowed;
 }
 .moi-btn {
   height: var(--btn-height) !important;
@@ -4204,7 +4200,6 @@ border colors */
 }
 .moi-btn--Neutral:active:not(:disabled):not([aria-disabled=true]) {
   background: #e5e7eb;
-  border-color: #252525;
   opacity: 0.8;
 }
 .moi-btn--Neutral--solid {
@@ -4219,52 +4214,54 @@ border colors */
 }
 .moi-btn--Neutral--solid:active:not(:disabled):not([aria-disabled=true]) {
   background: #9da4ae;
-  border-color: #252525;
 }
-.moi-btn--Neutral--outline {
+.moi-btn--Neutral--outline, .moi-btn--Cancel {
   color: #252525;
   background-color: #ffffff;
   border: 1px solid #d2d6db;
   --moi-focus-outer: rgba(37, 37, 37, 0.35);
   --moi-focus-inner: rgba(37, 37, 37, 0.75);
 }
-.moi-btn--Neutral--outline:hover:not(:disabled):not([aria-disabled=true]) {
+.moi-btn--Neutral--outline:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Cancel:hover:not(:disabled):not([aria-disabled=true]) {
   background: #f3f4f6;
 }
-.moi-btn--Neutral--outline:active:not(:disabled):not([aria-disabled=true]) {
+.moi-btn--Neutral--outline:active:not(:disabled):not([aria-disabled=true]), .moi-btn--Cancel:active:not(:disabled):not([aria-disabled=true]) {
   background: #f9fafb;
+  border-color: #252525;
+}
+.moi-btn--Neutral--outline:focus-visible, .moi-btn--Cancel:focus-visible {
   border-color: #252525;
 }
 .moi-btn {
   /* Primary */
 }
-.moi-btn--Primary {
+.moi-btn--Primary, .moi-btn--Save, .moi-btn--Send {
   color: #f7fdf9;
   background-color: #25935f;
   border: 1px solid #25935f;
   --moi-focus-outer: rgba(22, 106, 69, 0.35);
   --moi-focus-inner: rgba(255, 255, 255, 0.95);
 }
-.moi-btn--Primary:hover:not(:disabled):not([aria-disabled=true]) {
+.moi-btn--Primary:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Save:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Send:hover:not(:disabled):not([aria-disabled=true]) {
   background: #dff6e7;
   color: #1b8354;
 }
-.moi-btn--Primary:active:not(:disabled):not([aria-disabled=true]) {
+.moi-btn--Primary:active:not(:disabled):not([aria-disabled=true]), .moi-btn--Save:active:not(:disabled):not([aria-disabled=true]), .moi-btn--Send:active:not(:disabled):not([aria-disabled=true]) {
   background: #b8eacb;
 }
 .moi-btn--Primary--solid {
-  color: #166a45;
+  color: #1b8354;
   background-color: #f7fdf9;
   border: 1px solid #f7fdf9;
   --moi-focus-outer: rgba(20, 87, 58, 0.35);
   --moi-focus-inner: rgba(20, 87, 58, 0.75);
 }
-.moi-btn--Primary--solid:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #1b8354;
-  color: #f7fdf9;
+.moi-btn--Primary--solid:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Primary--solid:focus-visible:not(:disabled):not([aria-disabled=true]) {
+  background: #25935f;
+  color: #fcfcfd;
 }
 .moi-btn--Primary--solid:active:not(:disabled):not([aria-disabled=true]) {
-  background: #166a45;
+  background: #25935f;
 }
 .moi-btn--Primary--outline {
   color: #166a45;
@@ -4340,14 +4337,14 @@ border colors */
 .moi-btn--Info:active:not(:disabled):not([aria-disabled=true]) {
   background: #b2ddff;
 }
-.moi-btn--Info--solid {
+.moi-btn--Info--solid, .moi-btn--Save-later {
   color: #175cd3;
   background-color: #eff8ff;
   border: 1px solid #eff8ff;
   --moi-focus-outer: rgba(23, 92, 211, 0.35);
   --moi-focus-inner: rgba(23, 92, 211, 0.85);
 }
-.moi-btn--Info--solid:hover:not(:disabled):not([aria-disabled=true]) {
+.moi-btn--Info--solid:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Save-later:hover:not(:disabled):not([aria-disabled=true]) {
   background: #1570ef;
   color: #eff8ff;
 }
@@ -4451,6 +4448,85 @@ border colors */
 .moi-btn--Error--outline:active:not(:disabled):not([aria-disabled=true]) {
   background: #fecdca;
 }
+.moi-btn {
+  /* Black — Figma «Style=black / black--solid / black--outline» (2026-10-13).
+     .moi-btn--black also exists in _oldButtons.scss; this block comes later
+     and replaces its colours with the Figma ones (class name unchanged).
+     Figma Gray-* mapped to the Neutral-* tokens with the same names. */
+}
+.moi-btn--black {
+  color: #fcfcfd;
+  background-color: #252525;
+  border: 1px solid #252525;
+}
+.moi-btn--black:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #1f2a37;
+  border-color: #1f2a37;
+  color: #fcfcfd;
+}
+.moi-btn--black:active:not(:disabled):not([aria-disabled=true]) {
+  background: #384250;
+  border-color: #384250;
+  color: #fcfcfd;
+  opacity: 1;
+}
+.moi-btn--black--solid {
+  color: #384250;
+  background-color: #fcfcfd;
+  border: 1px solid #fcfcfd;
+}
+.moi-btn--black--solid:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #4d5761;
+  border-color: #4d5761;
+  color: #fcfcfd;
+}
+.moi-btn--black--solid:active:not(:disabled):not([aria-disabled=true]) {
+  background: #384250;
+  border-color: #384250;
+  color: #fcfcfd;
+}
+.moi-btn--black--outline {
+  color: #384250;
+  background-color: #ffffff;
+  border: 1px solid #384250;
+}
+.moi-btn--black--outline:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #f9fafb;
+}
+.moi-btn--black--outline:active:not(:disabled):not([aria-disabled=true]) {
+  background: #f3f4f6;
+}
+.moi-btn {
+  /* Text — Figma «Style=Text»: no background, no border, Primary-700 label. */
+}
+.moi-btn--Text {
+  color: #166a45;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+.moi-btn {
+  /* Action presets — Figma «Style=Save / Cancel / Send / Save later».
+     Same colours as an existing style; the label and trailing icon come from the markup
+     (Save = bookmark-03, Cancel = cancel-01, Send = mail-send-02, Save later = bookmark-03). */
+}
+.moi-btn {
+  /* Loading — Figma «State=Loading»: same colours as Default, the lead icon is
+     loading-03 and spins; clicks are blocked so the action is not sent twice.
+     Markup: data-state="loading" aria-busy="true" + <svg class="moi-btn__loader">. */
+}
+.moi-btn[data-state=loading] {
+  pointer-events: none;
+  cursor: progress;
+}
+.moi-btn__loader {
+  flex-shrink: 0;
+  animation: moi-btn-spin 1s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .moi-btn__loader {
+    animation: none;
+  }
+}
 
 /* =========================
    Support variant-only usage
@@ -4539,20 +4615,16 @@ border colors */
 .btn[class*=moi-btn--]:focus, .btn[class*=moi-btn--]:focus-visible {
   outline: 0 !important;
 }
-.btn[class*=moi-btn--]:focus::before, .btn[class*=moi-btn--]:focus-visible::before {
-  content: "" !important;
-  position: absolute;
-  inset: 1px;
-  border: var(--moi-focus-inner-width) solid var(--moi-focus-inner);
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 2;
+.btn[class*=moi-btn--]:focus-visible {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4);
 }
-.btn[class*=moi-btn--]:disabled, .btn[class*=moi-btn--][aria-disabled=true] {
+.btn[class*=moi-btn--]:disabled, .btn[class*=moi-btn--][aria-disabled=true], .btn[class*=moi-btn--].disabled {
+  color: #9da4ae;
+  background-color: #e5e7eb;
+  border-color: #9da4ae;
   box-shadow: none !important;
-}
-.btn[class*=moi-btn--]:disabled::before, .btn[class*=moi-btn--][aria-disabled=true]::before {
-  content: none !important;
+  opacity: 1;
+  cursor: not-allowed;
 }
 .btn[class*=moi-btn--] {
   --btn-icon-size: 24px;
@@ -4571,6 +4643,11 @@ border colors */
   fill: currentColor;
 }
 
+@keyframes moi-btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 @keyframes moi-file-uploader-fade-up {
   from {
     opacity: 0;
@@ -4988,20 +5065,16 @@ border colors */
 .moi-file-uploader__action:focus, .moi-file-uploader__action:focus-visible {
   outline: 0 !important;
 }
-.moi-file-uploader__action:focus::before, .moi-file-uploader__action:focus-visible::before {
-  content: "" !important;
-  position: absolute;
-  inset: 1px;
-  border: var(--moi-focus-inner-width) solid var(--moi-focus-inner);
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 2;
+.moi-file-uploader__action:focus-visible {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4);
 }
-.moi-file-uploader__action:disabled, .moi-file-uploader__action[aria-disabled=true] {
+.moi-file-uploader__action:disabled, .moi-file-uploader__action[aria-disabled=true], .moi-file-uploader__action.disabled {
+  color: #9da4ae;
+  background-color: #e5e7eb;
+  border-color: #9da4ae;
   box-shadow: none !important;
-}
-.moi-file-uploader__action:disabled::before, .moi-file-uploader__action[aria-disabled=true]::before {
-  content: none !important;
+  opacity: 1;
+  cursor: not-allowed;
 }
 .moi-file-uploader__action {
   width: 28px;
@@ -5126,20 +5199,16 @@ border colors */
 .moi-file-uploader__modal-close:focus, .moi-file-uploader__modal-close:focus-visible {
   outline: 0 !important;
 }
-.moi-file-uploader__modal-close:focus::before, .moi-file-uploader__modal-close:focus-visible::before {
-  content: "" !important;
-  position: absolute;
-  inset: 1px;
-  border: var(--moi-focus-inner-width) solid var(--moi-focus-inner);
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 2;
+.moi-file-uploader__modal-close:focus-visible {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4);
 }
-.moi-file-uploader__modal-close:disabled, .moi-file-uploader__modal-close[aria-disabled=true] {
+.moi-file-uploader__modal-close:disabled, .moi-file-uploader__modal-close[aria-disabled=true], .moi-file-uploader__modal-close.disabled {
+  color: #9da4ae;
+  background-color: #e5e7eb;
+  border-color: #9da4ae;
   box-shadow: none !important;
-}
-.moi-file-uploader__modal-close:disabled::before, .moi-file-uploader__modal-close[aria-disabled=true]::before {
-  content: none !important;
+  opacity: 1;
+  cursor: not-allowed;
 }
 .moi-file-uploader__modal-close {
   width: 30px;
@@ -9682,11 +9751,11 @@ input:checked + .slider::after {
   border-color: inherit;
 }
 
-/* Global Disabled Fallback */
+/* Global Disabled Fallback — Figma «Buttons / State=Disabled» (2026-10-13) */
 .btn:disabled,
 .moi-btn:disabled {
-  background: #f3f4f6 !important;
-  border: 1px solid #d2d6db !important;
+  background: #e5e7eb !important;
+  border: 1px solid #9da4ae !important;
   color: #9da4ae;
 }
 
@@ -9774,20 +9843,16 @@ input:checked + .slider::after {
 .moi-btn:focus, .moi-btn:focus-visible {
   outline: 0 !important;
 }
-.moi-btn:focus::before, .moi-btn:focus-visible::before {
-  content: "" !important;
-  position: absolute;
-  inset: 1px;
-  border: var(--moi-focus-inner-width) solid var(--moi-focus-inner);
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 2;
+.moi-btn:focus-visible {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4);
 }
-.moi-btn:disabled, .moi-btn[aria-disabled=true] {
+.moi-btn:disabled, .moi-btn[aria-disabled=true], .moi-btn.disabled {
+  color: #9da4ae;
+  background-color: #e5e7eb;
+  border-color: #9da4ae;
   box-shadow: none !important;
-}
-.moi-btn:disabled::before, .moi-btn[aria-disabled=true]::before {
-  content: none !important;
+  opacity: 1;
+  cursor: not-allowed;
 }
 .moi-btn {
   height: var(--btn-height) !important;

@@ -56,24 +56,23 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
         outline: 0 !important;
     }
 
-        &:focus::before,
-        &:focus-visible::before {
-            content: "" !important;
-            position: absolute;
-            inset: 1px;
-            border: var(--moi-focus-inner-width) solid var(--moi-focus-inner);
-            border-radius: inherit;
-            pointer-events: none;
-            z-index: 2;
-        }
+    // Figma «Buttons / State=Focus-visible» (2026-10-13): 2px ring, black at 40%.
+    // Keyboard focus only, so a mouse click does not leave a ring.
+    &:focus-visible {
+        box-shadow: 0 0 0 2px rgba(#000, 0.4);
+    }
 
+    // Figma «State=Disabled» — same look for every style.
+    // Text colour: Figma «text-default-disabled»; mapped to Neutral-400.
     &:disabled,
-    &[aria-disabled="true"] {
+    &[aria-disabled="true"],
+    &.disabled {
+        color: $Neutral-400;
+        background-color: $Neutral-200;
+        border-color: $Neutral-400;
         box-shadow: none !important;
-
-        &::before {
-            content: none !important;
-        }
+        opacity: 1;
+        cursor: not-allowed;
     }
 }
 
@@ -125,11 +124,12 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
             background: $Neutral-100;
+            border-color: $Neutral-100;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
             background: $Neutral-200;
-            border-color: $Neutral-900;
+            border-color: $Neutral-200;
             opacity: 0.8;
         }
     }
@@ -143,11 +143,12 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
             background: $Neutral-300;
+            border-color: $Neutral-300;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
             background: $Neutral-400;
-            border-color: $Neutral-900;
+            border-color: $Neutral-400;
         }
     }
 
@@ -166,6 +167,10 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
             background: $Neutral-50;
             border-color: $Neutral-900;
         }
+
+        &:focus-visible {
+            border-color: $Neutral-900;
+        }
     }
     /* Primary */
     &--Primary {
@@ -177,28 +182,33 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
             background: $Primary-100;
+            border-color: $Primary-100;
             color: $Primary-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
             background: $Primary-200;
+            border-color: $Primary-200;
         }
     }
 
     &--Primary--solid {
-        color: $Primary-700;
+        color: $Primary-600;
         background-color: $Primary-25;
         border: 1px solid $Primary-25;
         --moi-focus-outer: #{rgba($Primary-800, 0.35)};
         --moi-focus-inner: #{rgba($Primary-800, 0.75)};
 
-        &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Primary-600;
-            color: $Primary-25;
+        &:hover:not(:disabled):not([aria-disabled="true"]),
+        &:focus-visible:not(:disabled):not([aria-disabled="true"]) {
+            background: $Primary-500;
+            border-color: $Primary-500;
+            color: $Neutral-25;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Primary-700;
+            background: $Primary-500;
+            border-color: $Primary-500;
         }
     }
 
@@ -227,11 +237,13 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
             background: $Lavender-100;
+            border-color: $Lavender-100;
             color: $Lavender-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
             background: $Lavender-200;
+            border-color: $Lavender-200;
         }
     }
 
@@ -244,11 +256,13 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
             background: $Lavender-600;
+            border-color: $Lavender-600;
             color: $Lavender-25;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
             background: $Lavender-700;
+            border-color: $Lavender-700;
         }
     }
 
@@ -277,11 +291,13 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
             background: $Info-100;
+            border-color: $Info-100;
             color: $Info-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
             background: $Info-200;
+            border-color: $Info-200;
         }
     }
 
@@ -294,6 +310,7 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
             background: $Info-600;
+            border-color: $Info-600;
             color: $Info-25;
         }
     }
@@ -319,11 +336,13 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
             background: $Warning-100;
+            border-color: $Warning-100;
             color: $Warning-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
             background: $Warning-200;
+            border-color: $Warning-200;
         }
     }
 
@@ -336,11 +355,13 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
             background: $Warning-100;
+            border-color: $Warning-100;
             color: $Warning-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
             background: $Warning-200;
+            border-color: $Warning-200;
         }
     }
 
@@ -371,11 +392,13 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
             background: $Error-100;
+            border-color: $Error-100;
             color: $Error-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
             background: $Error-200;
+            border-color: $Error-200;
         }
     }
 
@@ -388,11 +411,13 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
             background: $Error-100;
+            border-color: $Error-100;
             color: $Error-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
             background: $Error-200;
+            border-color: $Error-200;
         }
     }
 
@@ -411,6 +436,102 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
             background: $Error-200;
+        }
+    }
+
+    /* Black — Figma «Style=black / black--solid / black--outline» (2026-10-13).
+       .moi-btn--black also exists in _oldButtons.scss; this block comes later
+       and replaces its colours with the Figma ones (class name unchanged).
+       Figma Gray-* mapped to the Neutral-* tokens with the same names. */
+    &--black {
+        color: $Neutral-25;
+        background-color: $Neutral-900;
+        border: 1px solid $Neutral-900;
+
+        &:hover:not(:disabled):not([aria-disabled="true"]) {
+            background: $Neutral-800;
+            border-color: $Neutral-800;
+            color: $Neutral-25;
+        }
+
+        &:active:not(:disabled):not([aria-disabled="true"]) {
+            background: $Neutral-700;
+            border-color: $Neutral-700;
+            color: $Neutral-25;
+            opacity: 1;
+        }
+    }
+
+    &--black--solid {
+        color: $Neutral-700;
+        background-color: $Neutral-25;
+        border: 1px solid $Neutral-25;
+
+        &:hover:not(:disabled):not([aria-disabled="true"]) {
+            background: $Neutral-600;
+            border-color: $Neutral-600;
+            color: $Neutral-25;
+        }
+
+        // Figma uses Primary-700 here, which looks like a slip; Neutral-700 keeps the black family.
+        &:active:not(:disabled):not([aria-disabled="true"]) {
+            background: $Neutral-700;
+            border-color: $Neutral-700;
+            color: $Neutral-25;
+        }
+    }
+
+    &--black--outline {
+        color: $Neutral-700;
+        background-color: $white-100;
+        border: 1px solid $Neutral-700;
+
+        &:hover:not(:disabled):not([aria-disabled="true"]) {
+            background: $Neutral-50;
+        }
+
+        &:active:not(:disabled):not([aria-disabled="true"]) {
+            background: $Neutral-100;
+        }
+    }
+
+    /* Text — Figma «Style=Text»: no background, no border, Primary-700 label. */
+    &--Text {
+        color: $Primary-700;
+        background-color: transparent;
+        border: 1px solid transparent;
+    }
+
+    /* Action presets — Figma «Style=Save / Cancel / Send / Save later».
+       Same colours as an existing style; the label and trailing icon come from the markup
+       (Save = bookmark-03, Cancel = cancel-01, Send = mail-send-02, Save later = bookmark-03). */
+    &--Save,
+    &--Send {
+        @extend .moi-btn--Primary;
+    }
+
+    &--Cancel {
+        @extend .moi-btn--Neutral--outline;
+    }
+
+    &--Save-later {
+        @extend .moi-btn--Info--solid;
+    }
+
+    /* Loading — Figma «State=Loading»: same colours as Default, the lead icon is
+       loading-03 and spins; clicks are blocked so the action is not sent twice.
+       Markup: data-state="loading" aria-busy="true" + <svg class="moi-btn__loader">. */
+    &[data-state="loading"] {
+        pointer-events: none;
+        cursor: progress;
+    }
+
+    &__loader {
+        flex-shrink: 0;
+        animation: moi-btn-spin 1s linear infinite;
+
+        @media (prefers-reduced-motion: reduce) {
+            animation: none;
         }
     }
 }
@@ -437,5 +558,11 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
         width: var(--btn-icon-size, 1.5rem);
         height: var(--btn-icon-size, 1.5rem);
         fill: currentColor;
+    }
+}
+
+@keyframes moi-btn-spin {
+    to {
+        transform: rotate(360deg);
     }
 }
