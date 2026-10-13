@@ -125,13 +125,12 @@ textarea,
   @include font-lg-500;
   line-height: typography-line-height(1.45);
   height: $form-control-height;
+  // Figma «input» (2026-10-13): radius 8, border Gray-500, padding 16 at the
+  // start (right in RTL) and 8 at the end.
   padding: $padding-10;
-  border-radius: $Radius-6;
-  -webkit-border-radius: $Radius-6;
-  -moz-border-radius: $Radius-6;
-  -ms-border-radius: $Radius-6;
-  -o-border-radius: $Radius-6;
-  border: 1px solid $Neutral-400;
+  padding-inline: $padding-xl $padding-md;
+  border-radius: $radius-xs;
+  border: 1px solid $Neutral-500;
   display: flex;
   align-items: center;
   transition:
@@ -140,12 +139,51 @@ textarea,
     background-color var(--tran-05, 0.3s);
 }
 
+.form-control:hover {
+  border-color: $Neutral-700;
+}
+
+// Figma focus: 2px Primary-600 border + 3px Primary-600 ring at 25%.
+// The 1px extra border is drawn with an inset shadow so the field size stays the same.
 .form-control:focus {
   color: $Neutral-700;
   background: $white-100;
   outline: 0 solid transparent;
-  border: 1px solid $Primary-500;
-  box-shadow: 0 0 0 2px rgba($Primary-500, 0.12);
+  border: 1px solid $Primary-600;
+  box-shadow:
+    inset 0 0 0 1px $Primary-600,
+    0 0 0 3px rgba($Primary-600, 0.25);
+}
+
+// States (existing class names from text-fields.html; Bootstrap validation classes included).
+.form-control:is(.is-err, .is-invalid),
+.was-validated .form-control:invalid {
+  border-color: $Error-700;
+
+  &:focus {
+    border-color: $Error-700;
+    box-shadow:
+      inset 0 0 0 1px $Error-700,
+      0 0 0 3px rgba($Error-700, 0.25);
+  }
+}
+
+.form-control:is(.is-ok, .is-valid),
+.was-validated .form-control:valid {
+  // Figma «Border/border-success» #067647 — no Success token exists in SCSS.
+  border-color: #067647;
+
+  &:focus {
+    border-color: #067647;
+    box-shadow:
+      inset 0 0 0 1px #067647,
+      0 0 0 3px rgba(#067647, 0.25);
+  }
+}
+
+.form-control[readonly] {
+  background-color: $Neutral-50;
+  border-color: $Neutral-200;
 }
 
 textarea.form-control {
@@ -429,55 +467,54 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .page__title {
-    background-color: var(--theme-primary) !important;
+  background-color: var(--theme-primary) !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $padding-14;
+  margin: 15px;
+  box-shadow: $shadow-lg;
+  border-radius: 5px;
+
+  h1,
+  h3 {
+    @include boldfont-18;
+    color: $white-100;
+    margin: 0;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: $padding-14;
-    margin: 15px;
-    box-shadow: $shadow-lg;
-    border-radius: 5px;
+    gap: 5px;
 
-    h1,
-    h3 {
-        @include boldfont-18;
-        color: $white-100;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-
-        svg {
-            fill: $white-100;
-            height: 3rem;
-            width: auto;
-            margin-inline-start: 5px;
-        }
-
-        img,
-        .titleimg {
-            height: 40px;
-            filter: brightness(0) invert(1);
-        }
+    svg {
+      fill: $white-100;
+      height: 3rem;
+      width: auto;
+      margin-inline-start: 5px;
     }
 
-    .moi-btn--white {
-        /*   @extend .moi-btn--Neutral;*/
-        color: $Neutral-800 !important;
-        background-color: $Neutral-25 !important;
-        border: 1px solid $Neutral-50;
-        --moi-focus-outer: rgba(37, 37, 37, 0.35);
-        --moi-focus-inner: rgba(255, 255, 255, 0.95);
+    img,
+    .titleimg {
+      height: 40px;
+      filter: brightness(0) invert(1);
+    }
+  }
 
+  .moi-btn--white {
+    /*   @extend .moi-btn--Neutral;*/
+    color: $Neutral-800 !important;
+    background-color: $Neutral-25 !important;
+    border: 1px solid $Neutral-50;
+    --moi-focus-outer: rgba(37, 37, 37, 0.35);
+    --moi-focus-inner: rgba(255, 255, 255, 0.95);
 
-        &:hover:not(:disabled):not([aria-disabled=true]) {
-            color: $Primary-800 !important;
-            background-color: $Primary-100 !important;
-        }
-        /*    background: $white-100 !important;
+    &:hover:not(:disabled):not([aria-disabled="true"]) {
+      color: $Primary-800 !important;
+      background-color: $Primary-100 !important;
+    }
+    /*    background: $white-100 !important;
     border: 1px solid rgba(255, 255, 255, 0.29);
     box-shadow: -6px 6px 0px rgba(255, 255, 255, 0.29);*/
-        /*   &:hover {
+    /*   &:hover {
       background: var(--color_change, 0.5) !important;
       color: $white-100 !important;
       box-shadow: 6px -6px 0px rgba(255, 255, 255, 0.29);
@@ -490,22 +527,22 @@ input[type="time"]::-webkit-calendar-picker-indicator {
         fill: $white-100 !important;
       }
     }*/
-    }
+  }
 }
 
 .page__title--inner {
-    display: flex;
-    justify-content: space-between;
-    padding: $padding-14;
-    align-items: center;
-    border-radius: 5px;
-    background-color: $Neutral-50 !important;
+  display: flex;
+  justify-content: space-between;
+  padding: $padding-14;
+  align-items: center;
+  border-radius: 5px;
+  background-color: $Neutral-50 !important;
 
-    h3 {
-        @include font-xl-700;
-        color: $Primary-700;
-        margin: 0;
-    }
+  h3 {
+    @include font-xl-700;
+    color: $Primary-700;
+    margin: 0;
+  }
 }
 
 .input-with-icon {
@@ -783,8 +820,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .form-control:disabled {
-  background-color: #f8f9fa;
-  border: 1px solid #e2e7eb;
+  background-color: $Neutral-200;
+  border: 1px solid $Neutral-400;
   cursor: not-allowed;
 }
 
@@ -2087,8 +2124,6 @@ input:checked + .slider:before {
     display: none;
   }
 
- 
-
   .reportscontainer {
     .col-4 {
       margin-bottom: $margin-2xl;
@@ -2328,7 +2363,6 @@ hr {
     opacity: 0;
   }
 }
-
 
 // documentation
 
