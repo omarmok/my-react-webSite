@@ -177,34 +177,70 @@ textarea,
 // States (existing class names from text-fields.html; Bootstrap validation classes included).
 .form-control:is(.is-err, .is-invalid),
 .was-validated .form-control:invalid {
-  --moi-field-underline: #{$Error-700};
+  // The gradient underline is turned off here (Bootstrap's validation icon
+  // uses background-image); press and focus use an inset shadow instead.
+  --moi-field-underline: transparent;
   border-color: $Error-700;
 
   &:hover,
   &:focus {
     border-color: $Error-700;
   }
+
+  &:active:not(:disabled):not([readonly]) {
+    box-shadow: inset 0 -2px 0 $Error-700;
+  }
+
+  &:focus {
+    box-shadow: inset 0 -2px 0 $Error-700, $shadow-xs;
+  }
 }
 
 .form-control:is(.is-ok, .is-valid),
 .was-validated .form-control:valid {
-  --moi-field-underline: #{$Success-700};
+  // The gradient underline is turned off here (Bootstrap's validation icon
+  // uses background-image); press and focus use an inset shadow instead.
+  --moi-field-underline: transparent;
   border-color: $Success-700;
 
   &:hover,
   &:focus {
     border-color: $Success-700;
   }
+
+  &:active:not(:disabled):not([readonly]) {
+    box-shadow: inset 0 -2px 0 $Success-700;
+  }
+
+  &:focus {
+    box-shadow: inset 0 -2px 0 $Success-700, $shadow-xs;
+  }
 }
 
 .form-control.is-warning {
-  --moi-field-underline: #{$Warning-700};
+  // The gradient underline is turned off here (Bootstrap's validation icon
+  // uses background-image); press and focus use an inset shadow instead.
+  --moi-field-underline: transparent;
   border-color: $Warning-700;
 
   &:hover,
   &:focus {
     border-color: $Warning-700;
   }
+
+  &:active:not(:disabled):not([readonly]) {
+    box-shadow: inset 0 -2px 0 $Warning-700;
+  }
+
+  &:focus {
+    box-shadow: inset 0 -2px 0 $Warning-700, $shadow-xs;
+  }
+}
+
+// Keep Bootstrap's validation icon at its own size while pressed / focused.
+.form-control:is(.is-invalid, .is-valid):is(:focus, :active):not(:disabled):not([readonly]),
+.was-validated .form-control:is(:invalid, :valid):is(:focus, :active):not(:disabled):not([readonly]) {
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
 .form-control[readonly] {
@@ -591,6 +627,57 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 input[type="time"]::-webkit-calendar-picker-indicator {
   background: none;
+}
+
+// Date / time fields — icon on the end side (left in RTL), system icons
+// (Hugeicons calendar-03 / clock-01, stroke Neutral-500), layered above the
+// .form-control focus / pressed underline (icon first, underline second).
+$moi-field-icon-calendar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236c737f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 2V4M6 2V4'/%3E%3Cpath d='M11.996 13H12.004M11.996 17H12.004M15.991 13H16M8 13H8.009M8 17H8.009'/%3E%3Cpath d='M3.5 8H20.5'/%3E%3Cpath d='M2.5 12.243C2.5 7.886 2.5 5.707 3.752 4.354C5.004 3 7.019 3 11.05 3H12.95C16.981 3 18.996 3 20.248 4.354C21.5 5.707 21.5 7.886 21.5 12.243V12.757C21.5 17.114 21.5 19.293 20.248 20.646C18.996 22 16.981 22 12.95 22H11.05C7.019 22 5.004 22 3.752 20.646C2.5 19.293 2.5 17.114 2.5 12.757V12.243Z'/%3E%3Cpath d='M3 8H21'/%3E%3C/svg%3E");
+$moi-field-icon-clock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236c737f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 8V12L14 14'/%3E%3C/svg%3E");
+
+@each $cls, $icon in (input-with-icon: $moi-field-icon-calendar, input-with-icon-time: $moi-field-icon-clock) {
+  .form-control.#{$cls} {
+    padding-left: calc(#{$padding-lg} + 20px + #{$padding-md});
+    padding-right: $padding-xl;
+    text-align: right;
+    background-image: $icon, linear-gradient(var(--moi-field-underline), var(--moi-field-underline));
+    background-repeat: no-repeat, no-repeat;
+    background-position: left $padding-lg center, center bottom;
+    background-size: 20px 20px, 0% 2px;
+
+    [dir="ltr"] & {
+      padding-left: $padding-xl;
+      padding-right: calc(#{$padding-lg} + 20px + #{$padding-md});
+      text-align: left;
+      background-position: right $padding-lg center, center bottom;
+    }
+
+    &:active:not(:disabled):not([readonly]) {
+      background-size: 20px 20px, 50% 2px;
+    }
+
+    &:focus {
+      background-size: 20px 20px, 100% 2px;
+    }
+
+    &:is([readonly], :disabled) {
+      background-size: 20px 20px, 0% 2px;
+    }
+  }
+}
+
+// Native <input type="time">: the browser's own clock button is hidden —
+// the system icon above replaces it and onclick="this.showPicker()" opens it.
+// The pop-up list (colours, position) and the highlighted hour / minute
+// segment are drawn by the browser and cannot be styled with CSS
+// (checked in Chromium 2026-10-14: direction, accent-color and the
+// ::-webkit-datetime-edit-*:focus selectors have no effect on them).
+.form-control.input-with-icon-time[type="time"] {
+  cursor: pointer;
+
+  &::-webkit-calendar-picker-indicator {
+    display: none;
+  }
 }
 
 .slick-slider {

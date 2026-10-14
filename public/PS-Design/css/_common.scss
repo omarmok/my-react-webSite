@@ -7,6 +7,6 @@
 @use "./common/modal";
 @use "./common/nav";
 @use "./common/vue-treeselect";
-@use "./common/datepicker";
+// @use "./common/datepicker"; // replaced by components/_datetimepicker.scss (2026-10-14)
 @use "./common/_Switch.scss";
 @use "./common/_checkbox";
