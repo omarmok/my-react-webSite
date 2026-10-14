@@ -41,7 +41,7 @@
 }
 
 .vue-treeselect__single-value {
-    color: #333;
+    color: $Neutral-900;
     font-size: typography-size(map.get($font-sizes, lg));
     font-weight: 500;
     line-height: typography-line-height(1.45);
@@ -52,17 +52,103 @@
     padding-right: $padding-xs;
     display: block;
     table-layout: inherit;
-    background: #fff;
-    transition-duration: 0.2s;
-    transition-property: border-color, box-shadow, width, height, background-color, opacity;
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     font-size: typography-size(map.get($font-sizes, lg));
     font-weight: 500;
-    height: 44px;
+    height: $form-control-height;
     padding: $padding-md;
-    border-radius: 5px;
-    border: 1px solid $Neutral-400;
     line-height: typography-line-height(1.45);
+}
+
+// =========================================================================
+// Field states — same Platforms Code (DGA) «Text Input» states as
+// .form-control in _common.scss (2026-10-14):
+// Default border Gray-400 · Hover Gray-700 · Pressed Gray-100 background with
+// a half-width 2px underline · Focus / open keeps the border and draws a
+// full-width 2px Gray-950 underline growing from the centre + shadow-xs ·
+// Error / Warning / Success recolour the border and the underline ·
+// Disabled border Gray-300, text Gray-400.
+// Selectors start with `.vue-treeselect` so they beat libs/tree-select/treeselect.css
+// whatever order the two files load in.
+// =========================================================================
+.vue-treeselect .vue-treeselect__control {
+    --moi-field-underline: #{$Neutral-950};
+    border: 1px solid $Neutral-400;
+    border-radius: $radius-xs;
+    background-color: $white-100;
+    background-image: linear-gradient(var(--moi-field-underline), var(--moi-field-underline));
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 0% 2px;
+    box-shadow: none;
+    transition:
+        border-color var(--tran-05, 0.3s),
+        background-color var(--tran-05, 0.3s),
+        box-shadow var(--tran-05, 0.3s),
+        background-size 0.4s ease-out;
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+// Hover
+.vue-treeselect:not(.vue-treeselect--disabled):not(.vue-treeselect--focused) .vue-treeselect__control:hover {
+    border-color: $Neutral-700;
+}
+
+// Pressed: grey fill and a half-width underline.
+.vue-treeselect:not(.vue-treeselect--disabled):not(.vue-treeselect--focused) .vue-treeselect__control:active {
+    background-color: $Neutral-100;
+    background-size: 50% 2px;
+}
+
+// Focus and open: border stays, full-width underline, soft lift.
+.vue-treeselect.vue-treeselect--focused .vue-treeselect__control,
+.vue-treeselect.vue-treeselect--open .vue-treeselect__control {
+    border-color: $Neutral-400;
+    background-color: $white-100;
+    background-size: 100% 2px;
+    box-shadow: $shadow-xs;
+}
+
+// Placeholder — same as the input placeholder.
+.vue-treeselect .vue-treeselect__placeholder {
+    @include font-md-500;
+    color: $Neutral-500;
+}
+
+// Validation — add the class to the .vue-treeselect root
+// (same names as .form-control: is-err / is-invalid, is-ok / is-valid, is-warning).
+@each $states, $color in (
+    (".is-err", ".is-invalid"): $Error-700,
+    (".is-ok", ".is-valid"): $Success-700,
+    (".is-warning",): $Warning-700
+) {
+    @each $state in $states {
+        .vue-treeselect#{$state}:not(.vue-treeselect--disabled) .vue-treeselect__control,
+        .vue-treeselect#{$state}:not(.vue-treeselect--disabled) .vue-treeselect__control:hover {
+            --moi-field-underline: #{$color};
+            border-color: $color;
+        }
+    }
+}
+
+// Disabled
+.vue-treeselect.vue-treeselect--disabled .vue-treeselect__control {
+    background-color: $white-100;
+    background-size: 0% 2px;
+    border-color: $Neutral-300;
+    box-shadow: none;
+    cursor: not-allowed;
+
+    .vue-treeselect__placeholder,
+    .vue-treeselect__single-value {
+        color: $Neutral-400;
+    }
+
+    .vue-treeselect__control-arrow {
+        fill: $Neutral-400 !important;
+    }
 }
 
 .vue-treeselect__menu-container{
@@ -169,7 +255,7 @@
 }
 
 .vue-treeselect__control-arrow {
-    fill: #000 !important;
+    fill: $Neutral-500 !important; // same grey as the input icons
     width: 20px;
     height: 10px;
 }

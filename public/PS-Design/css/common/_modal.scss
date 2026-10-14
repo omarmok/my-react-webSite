@@ -1,4 +1,4 @@
-@use '../helpers' as *;
+@use "../helpers" as *;
 @use "sass:map";
 $modal-z-index: 99999 !default;
 // Icon Size Migration: 1rem was already exactly equal to $moi-icon-sizes'
@@ -14,13 +14,13 @@ $modal-close-icon-inline-path: "../images/Close.svg" !default;
 $modal-danger-close-icon-path: "../../images/icon-x-circle.svg" !default;
 
 %modal-close-button {
-    margin: 0;
-    width: $modal-close-size;
-    height: $modal-close-size;
-    padding: $padding-0;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: transparent;
+  margin: 0;
+  width: $modal-close-size;
+  height: $modal-close-size;
+  padding: $padding-0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
 }
 
 // Autonomous Maintainer pass (2026-07-16): `%modal-header-heading` was
@@ -30,131 +30,123 @@ $modal-danger-close-icon-path: "../../images/icon-x-circle.svg" !default;
 // compile diff: 0 lines changed anywhere in the resulting CSS).
 
 .modal {
-    z-index: $modal-z-index;
+  z-index: $modal-z-index;
 
-    // Figma «Modal» (Composable): content padding 20, radius 10 (nearest
-    // radius token: $radius-md 8), header Gray-100 / title Gray-900,
-    // body max-height 800 with inner scroll, divider above the footer.
-    .modal-content {
-        padding: $padding-2xl;
-        border: $Radius-none;
-        border-radius: $radius-md;
-        gap: $gap-xs;
+  // Figma «Modal» (Composable): content padding 20, radius 10 (nearest
+  // radius token: $radius-md 8), header Gray-100 / title Gray-900,
+  // body max-height 800 with inner scroll, divider above the footer.
+  .modal-content {
+    padding: $padding-2xl;
+    border: $Radius-none;
+    border-radius: $radius-md;
+    gap: $gap-xs;
 
-        .modal-info-header {
-            border-radius: 0;
-            background: $modal-info-header-bg;
+    .modal-info-header {
+      border-radius: 0;
+      background: $modal-info-header-bg;
 
-            h5 {
-                color: $modal-info-header-color;
-            }
+      h5 {
+        color: $modal-info-header-color;
+      }
 
-            .btn-close {
-                @extend %modal-close-button;
-                background-image: url(#{$modal-close-icon-path}) !important;
-            }
-        }
-
-        .modal-danger-header {
-            background: $modal-danger-header-bg;
-            padding: $padding-10;
-
-            h5 {
-                color: $white-100;
-            }
-
-            .btn-close {
-                @extend %modal-close-button;
-                background-image: url(#{$modal-danger-close-icon-path});
-            }
-        }
-
-        .modal-header {
-            align-items: center;
-            background: $Neutral-100;
-            // Autonomous Maintainer pass: was $gap-16 (a gap-category token
-            // on a padding property) — same 16px value, reused the
-            // semantically-correct $padding-xl instead.
-            padding: $padding-xl;
-            color: $Neutral-900;
-            border: none;
-
-            .modal-title,
-            h5 {
-                color: $Neutral-900;
-                @include font-xl-600;
-            }
-
-            svg {
-                fill: $Neutral-900;
-            }
-
-            .close {
-                @extend %modal-close-button;
-                color: $Neutral-800;
-                text-shadow: none;
-                opacity: 1;
-                background-image: url(#{$modal-close-icon-inline-path}) !important;
-            }
-
-            .btn-close {
-                @extend %modal-close-button;
-                background-image: url(#{$modal-close-icon-path}) !important;
-                width: 34px;
-                height: 34px;
-            }
-
-            &.green-100 {
-                background: $white-100 !important;
-            }
-        }
-
-        .modal-body {
-            padding: $padding-2xl;
-            background: $Neutral-25;
-            max-height: 800px; // Figma modal-body max-height
-            overflow-y: auto;
-
-            .wanted-to {
-                display: flex;
-                flex-direction: column;
-                gap: $gap-6;
-                @include smallfont-reg-10;
-
-                span {
-                    @include meduimfont;
-                    color: $Neutral-950;
-                }
-            }
-
-
-            .form-check {
-                margin-bottom: 0;
-               // border-bottom: 1px solid $Neutral-200;
-                // Autonomous Maintainer pass: 1.5rem (24px) matched
-                // $padding-3xl exactly — the other 3 values (10px, 5px,
-                // 5px) have no exact token match, kept literal.
-                padding: $padding-md $padding-3xl $padding-xs $padding-xs;
-                display: flex;
-                gap: $gap-10;
-                align-items: center;
-            }
-        }
+      .btn-close {
+        @extend %modal-close-button;
+        background-image: url(#{$modal-close-icon-path}) !important;
+      }
     }
 
-    .modal-footer {
-        padding: $padding-lg $padding-0 $padding-0 $padding-0;
-        gap: $gap-xl;
-        border-top: 1px solid $Neutral-200;
+    .modal-danger-header {
+      background: $modal-danger-header-bg;
+      padding: $padding-10;
+
+      h5 {
+        color: $white-100;
+      }
+
+      .btn-close {
+        @extend %modal-close-button;
+        background-image: url(#{$modal-danger-close-icon-path});
+      }
     }
+
+    .modal-header {
+      align-items: center;
+      background: $Neutral-100;
+      // Autonomous Maintainer pass: was $gap-16 (a gap-category token
+      // on a padding property) — same 16px value, reused the
+      // semantically-correct $padding-xl instead.
+      padding: $padding-xl;
+      color: $Neutral-900;
+      border: none;
+
+      .modal-title,
+      h5 {
+        color: $Neutral-900;
+        @include font-xl-600;
+      }
+
+      svg {
+        fill: $Neutral-900;
+      }
+
+      .close {
+        @extend %modal-close-button;
+        color: $Neutral-800;
+        text-shadow: none;
+        opacity: 1;
+        background-image: url(#{$modal-close-icon-inline-path}) !important;
+      }
+
+      .btn-close {
+        @extend %modal-close-button;
+        background-image: url(#{$modal-close-icon-path}) !important;
+        width: 34px;
+        height: 34px;
+      }
+
+      &.green-100 {
+        background: $white-100 !important;
+      }
+    }
+
+    .modal-body {
+      padding: $padding-2xl;
+      max-height: 800px; // Figma modal-body max-height
+      overflow-y: auto;
+
+      .wanted-to {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-6;
+        @include smallfont-reg-10;
+
+        span {
+          @include meduimfont;
+          color: $Neutral-950;
+        }
+      }
+
+      .form-check {
+        margin-bottom: 0;
+        // border-bottom: 1px solid $Neutral-200;
+        // Autonomous Maintainer pass: 1.5rem (24px) matched
+        // $padding-3xl exactly — the other 3 values (10px, 5px,
+        // 5px) have no exact token match, kept literal.
+        padding: $padding-md $padding-3xl $padding-xs $padding-xs;
+        display: flex;
+        gap: $gap-10;
+        align-items: center;
+      }
+    }
+  }
+
+  .modal-footer {
+    padding: $padding-lg $padding-0 $padding-0 $padding-0;
+    gap: $gap-xl;
+    border-top: 1px solid $Neutral-200;
+  }
 }
 
-
-
-#IframeViewer{
-    z-index:9999999999999;
+#IframeViewer {
+  z-index: 9999999999999;
 }
-
-
-
-

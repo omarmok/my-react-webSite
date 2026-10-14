@@ -9415,6 +9415,19 @@ input:checked + .slider::after {
 .bootstrap-datetimepicker-widget .picker-switch.accordion-toggle a[data-action]:hover {
   background: #f3f4f6;
 }
+.bootstrap-datetimepicker-widget .picker-switch.accordion-toggle a[data-action] > span {
+  display: inline;
+  width: auto;
+  height: auto;
+  margin: 0;
+  line-height: inherit;
+  color: inherit;
+  background: transparent;
+  border-radius: 0;
+}
+.bootstrap-datetimepicker-widget .picker-switch.accordion-toggle a[data-action] > span:hover {
+  background: transparent;
+}
 .bootstrap-datetimepicker-widget .picker-switch.accordion-toggle a[data-action] span[class*=glyphicon],
 .bootstrap-datetimepicker-widget .picker-switch.accordion-toggle a[data-action] span[class*=fa-] {
   display: none;
@@ -16878,7 +16891,6 @@ span.customtooltip {
 }
 .modal .modal-content .modal-body {
   padding: 20px;
-  background: #fcfcfd;
   max-height: 800px;
   overflow-y: auto;
 }

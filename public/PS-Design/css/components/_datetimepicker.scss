@@ -1,28 +1,5 @@
 @use "../helpers" as *;
 
-// =========================================================================
-// Date & time picker — bootstrap-datetimepicker v4 (balbarak Hijri fork)
-// Figma: page «منتقي التاريخ والوقت (هجري / ميلادي)», built on «Date Picker».
-// =========================================================================
-// Styles the plugin's own markup and class names — no new classes and no
-// change to the vendor CSS (libs/hijri-datepicker/css/bootstrap-datetimepicker.css).
-// Replaces css/common/_datepicker.scss (2026-10-14).
-//
-// Markup produced by the plugin (shortened):
-// .bootstrap-datetimepicker-widget.dropdown-menu
-//   ul.list-unstyled
-//     li > .datepicker > .datepicker-days > table
-//          thead: th.prev · th.picker-switch · th.next / th.dow × 7
-//          tbody: td.day (.old .new .today .active .disabled .weekend)
-//        .datepicker-months / -years / -decades > span.month|.year|.decade
-//     li > .timepicker > .timepicker-picker (a.btn[data-action] · .timepicker-hour · .timepicker-minute)
-//                      > .timepicker-hours td.hour / .timepicker-minutes td.minute
-//     li.picker-switch.accordion-toggle > table > td > a[data-action=today|clear|close|switchDate]
-//
-// Footer order (RTL, right → left): calendar switch · Today | Clear · Close.
-
-// Icons: Hugeicons stroke-rounded (same set as the Figma components), drawn
-// as masks so they take the current text colour.
 $dtp-icon-chevron-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12H20'/%3E%3Cpath d='M9 17C9 17 4 13.318 4 12C4 10.682 9 7 9 7'/%3E%3C/svg%3E");
 $dtp-icon-chevron-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 12H4'/%3E%3Cpath d='M15 17C15 17 20 13.318 20 12C20 10.682 15 7 15 7'/%3E%3C/svg%3E");
 $dtp-icon-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 15C18 15 13.581 9 12 9C10.419 9 6 15 6 15'/%3E%3C/svg%3E");
@@ -32,526 +9,530 @@ $dtp-cell: 40px;
 $dtp-width: 336px;
 
 @mixin _dtp-mask($icon, $size: 20px) {
-    content: "";
-    display: inline-block;
-    width: $size;
-    height: $size;
-    background-color: currentColor;
-    -webkit-mask: $icon center / contain no-repeat;
-    mask: $icon center / contain no-repeat;
+  content: "";
+  display: inline-block;
+  width: $size;
+  height: $size;
+  background-color: currentColor;
+  -webkit-mask: $icon center / contain no-repeat;
+  mask: $icon center / contain no-repeat;
 }
 
 @mixin _dtp-focus {
-    &:focus-visible {
-        outline: 0;
-        box-shadow: 0 0 0 2px rgba(#000, 0.4);
-    }
+  &:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(#000, 0.4);
+  }
 }
 
 .bootstrap-datetimepicker-widget {
-    // ---------------------------------------------------------------------
-    // Surface
-    // ---------------------------------------------------------------------
-    &.dropdown-menu {
-        z-index: 1080;
-        display: block;
-        width: $dtp-width;
-        min-width: $dtp-width;
-        margin: $padding-xs 0;
-        padding: $padding-lg;
-        color: $Neutral-900;
-        font-family: inherit;
-        background: $white-100;
-        border: 1px solid $Neutral-200;
-        border-radius: $radius-md;
-        box-shadow: $shadow-lg;
+  // ---------------------------------------------------------------------
+  // Surface
+  // ---------------------------------------------------------------------
+  &.dropdown-menu {
+    z-index: 1080;
+    display: block;
+    width: $dtp-width;
+    min-width: $dtp-width;
+    margin: $padding-xs 0;
+    padding: $padding-lg;
+    color: $Neutral-900;
+    font-family: inherit;
+    background: $white-100;
+    border: 1px solid $Neutral-200;
+    border-radius: $radius-md;
+    box-shadow: $shadow-lg;
 
-        &:hover {
-            background: $white-100;
-        }
-
-        // Bootstrap 3 caret triangles from the vendor CSS.
-        &::before,
-        &::after {
-            display: none;
-        }
+    &:hover {
+      background: $white-100;
     }
 
-    .list-unstyled {
-        display: flex;
-        flex-direction: column;
-        gap: $gap-md;
-        margin: 0;
-        padding: 0;
+    // Bootstrap 3 caret triangles from the vendor CSS.
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .list-unstyled {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-md;
+    margin: 0;
+    padding: 0;
+  }
+
+  table {
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+
+    td,
+    th {
+      padding: 0;
+      text-align: center;
+      border: 0;
+      border-radius: 0;
+    }
+  }
+
+  // Vendor sizing (.datepicker 300px + 10px padding, 35px cells) reset.
+  .datepicker {
+    width: 100%;
+    padding: 0;
+  }
+
+  // The date tables are laid out as CSS grid so the header row can
+  // reorder its cells (a flex <tr> inside a real table breaks the columns).
+  .datepicker table {
+    display: block;
+
+    thead,
+    tbody {
+      display: block;
     }
 
-    table {
-        width: 100%;
-        margin: 0;
-        border-collapse: collapse;
-
-        td,
-        th {
-            padding: 0;
-            text-align: center;
-            border: 0;
-            border-radius: 0;
-        }
+    tbody tr,
+    thead tr:not(:first-child) {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      justify-items: center;
+      row-gap: $gap-xs;
     }
 
-    // Vendor sizing (.datepicker 300px + 10px padding, 35px cells) reset.
-    .datepicker {
-        width: 100%;
-        padding: 0;
+    td[colspan="7"] {
+      display: block;
+      grid-column: 1 / -1;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  // ---------------------------------------------------------------------
+  // Header: month / year switch + previous / next
+  // Figma: title on the start side, both arrows together on the end side.
+  // ---------------------------------------------------------------------
+  .datepicker thead tr:first-child {
+    display: flex;
+    align-items: center;
+    gap: $gap-xs;
+    margin-bottom: $padding-md;
+
+    th {
+      display: block;
+      height: $dtp-cell;
+      line-height: $dtp-cell;
+      border-radius: $radius-xs;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+
+      &:hover {
+        background: $Neutral-100;
+      }
     }
 
-    // The date tables are laid out as CSS grid so the header row can
-    // reorder its cells (a flex <tr> inside a real table breaks the columns).
-    .datepicker table {
-        display: block;
-
-        thead,
-        tbody {
-            display: block;
-        }
-
-        tbody tr,
-        thead tr:not(:first-child) {
-            display: grid;
-            grid-template-columns: repeat(7, minmax(0, 1fr));
-            justify-items: center;
-            row-gap: $gap-xs;
-        }
-
-        td[colspan="7"] {
-            display: block;
-            grid-column: 1 / -1;
-            width: 100%;
-            height: auto;
-        }
+    .picker-switch {
+      @include font-lg-600;
+      flex: 1 1 auto;
+      order: 0;
+      padding-inline: $padding-md;
+      color: $Neutral-900;
+      text-align: start;
     }
 
-    // ---------------------------------------------------------------------
-    // Header: month / year switch + previous / next
-    // Figma: title on the start side, both arrows together on the end side.
-    // ---------------------------------------------------------------------
-    .datepicker thead tr:first-child {
-        display: flex;
-        align-items: center;
-        gap: $gap-xs;
-        margin-bottom: $padding-md;
+    .prev,
+    .next {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 $dtp-cell;
+      width: $dtp-cell;
+      color: $Neutral-900;
 
-        th {
-            display: block;
-            height: $dtp-cell;
-            line-height: $dtp-cell;
-            border-radius: $radius-xs;
-            cursor: pointer;
-            transition: background-color 0.15s ease;
+      span {
+        display: none;
+      }
 
-            &:hover {
-                background: $Neutral-100;
-            }
-        }
-
-        .picker-switch {
-            @include font-lg-600;
-            flex: 1 1 auto;
-            order: 0;
-            padding-inline: $padding-md;
-            color: $Neutral-900;
-            text-align: start;
-        }
-
-        .prev,
-        .next {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex: 0 0 $dtp-cell;
-            width: $dtp-cell;
-            color: $Neutral-900;
-
-            span {
-                display: none;
-            }
-
-            &.disabled {
-                color: $Neutral-300;
-                cursor: not-allowed;
-                background: transparent;
-            }
-        }
-
-        .prev {
-            order: 1;
-        }
-
-        .next {
-            order: 2;
-        }
-    }
-
-    // RTL (default for MOI): «previous» points right, «next» points left.
-    .datepicker thead tr:first-child .prev::before {
-        @include _dtp-mask($dtp-icon-chevron-right);
-    }
-
-    .datepicker thead tr:first-child .next::before {
-        @include _dtp-mask($dtp-icon-chevron-left);
-    }
-
-    [dir="ltr"] & .datepicker thead tr:first-child .prev::before {
-        @include _dtp-mask($dtp-icon-chevron-left);
-    }
-
-    [dir="ltr"] & .datepicker thead tr:first-child .next::before {
-        @include _dtp-mask($dtp-icon-chevron-right);
-    }
-
-    // Week-day names
-    .datepicker th.dow {
-        @include font-md-400;
-        display: block;
-        width: 100%;
-        height: 32px;
-        line-height: 32px;
-        color: $Neutral-500;
-        background: transparent;
-        cursor: default;
-    }
-
-    // ---------------------------------------------------------------------
-    // Days — Figma «Date cell»
-    // ---------------------------------------------------------------------
-    .datepicker table td.day {
-        @include font-md-500;
-        display: block;
-        width: $dtp-cell;
-        height: $dtp-cell;
-        line-height: $dtp-cell;
-        padding: 0;
-        color: $Neutral-900;
-        background: transparent;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: background-color 0.15s ease, color 0.15s ease;
-
-        &:hover {
-            background: $Neutral-100;
-        }
-
-        // Days of the previous / next month
-        &.old,
-        &.new {
-            color: $Neutral-400;
-        }
-
-        &.weekend {
-            background: transparent;
-        }
-
-        // Today: green ring. !important only to beat the vendor CSS, which
-        // forces its own colours on .today with !important.
-        &.today {
-            color: $Primary-600 !important;
-            font-weight: 700;
-            background: transparent !important;
-            box-shadow: inset 0 0 0 1.5px $Primary-600;
-
-            &::before {
-                display: none;
-            }
-        }
-
-        // Selected: filled green
-        &.active,
-        &.active:hover,
-        &.today.active {
-            color: $white-100 !important;
-            font-weight: 700;
-            background: $Primary-600 !important;
-            box-shadow: none;
-            text-shadow: none;
-        }
-
-        &.disabled,
-        &.disabled:hover {
-            color: $Neutral-300;
-            background: transparent;
-            box-shadow: none;
-            cursor: not-allowed;
-        }
-    }
-
-    // Month / year / decade grids
-    .datepicker-months,
-    .datepicker-years,
-    .datepicker-decades {
-        td {
-            padding-block: $padding-xs;
-        }
-
-        span.month,
-        span.year,
-        span.decade {
-            @include font-md-500;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: calc(33.333% - #{$padding-xs});
-            height: $dtp-cell;
-            margin: calc(#{$padding-xs} / 2);
-            color: $Neutral-900;
-            border-radius: $radius-xs;
-            cursor: pointer;
-
-            &:hover {
-                background: $Neutral-100;
-            }
-
-            &.old {
-                color: $Neutral-400;
-            }
-
-            &.active {
-                color: $white-100;
-                background: $Primary-600;
-            }
-
-            &.disabled {
-                color: $Neutral-300;
-                background: transparent;
-                cursor: not-allowed;
-            }
-        }
-    }
-
-    // ---------------------------------------------------------------------
-    // Time picker
-    // ---------------------------------------------------------------------
-    .timepicker-picker {
-        table td {
-            height: auto;
-        }
-
-        a.btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: $dtp-cell;
-            height: $dtp-cell;
-            padding: 0;
-            color: $Neutral-900;
-            background: $Neutral-50;
-            border: 1px solid $Neutral-50;
-            border-radius: $radius-xs;
-            box-shadow: none;
-            @include _dtp-focus;
-
-            &:hover {
-                background: $Neutral-100;
-                border-color: $Neutral-100;
-            }
-
-            // Font Awesome / Glyphicons spans from the plugin options.
-            span {
-                display: none;
-            }
-        }
-
-        a.btn[data-action^="increment"]::before {
-            @include _dtp-mask($dtp-icon-up);
-        }
-
-        a.btn[data-action^="decrement"]::before {
-            @include _dtp-mask($dtp-icon-down);
-        }
-
-        .timepicker-hour,
-        .timepicker-minute,
-        .timepicker-second {
-            @include font-2xl-600;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 64px;
-            height: 56px;
-            margin-block: $padding-xs;
-            color: $Neutral-900;
-            border: 1px solid $Neutral-300;
-            border-radius: $radius-xs;
-            cursor: pointer;
-
-            &:hover {
-                background: $Neutral-100;
-            }
-        }
-
-        .separator {
-            @include font-2xl-600;
-            width: 24px;
-            color: $Neutral-500;
-        }
-    }
-
-    .timepicker-hours,
-    .timepicker-minutes,
-    .timepicker-seconds {
-        td {
-            @include font-md-500;
-            height: $dtp-cell;
-            color: $Neutral-900;
-            border-radius: $radius-xs;
-            cursor: pointer;
-
-            &:hover {
-                background: $Neutral-100;
-            }
-        }
-    }
-
-    // ---------------------------------------------------------------------
-    // Footer — buttons look like .moi-btn (md)
-    // ---------------------------------------------------------------------
-    .picker-switch.accordion-toggle {
-        padding-top: $padding-md;
-        border-top: 1px solid $Neutral-200;
-
-        table,
-        tbody {
-            display: block;
-            width: 100%;
-        }
-
-        tr {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: $gap-sm;
-        }
-
-        td {
-            display: block;
-            width: auto;
-            height: auto;
-        }
-
-        // Calendar switch, then Today on the start side; Clear and Close on the end side.
-        td:has(> a[data-action="switchDate"]) {
-            order: 1;
-        }
-
-        td:has(> a[data-action="today"]) {
-            order: 2;
-        }
-
-        td:has(> a[data-action="clear"]) {
-            order: 3;
-            margin-inline-start: auto;
-        }
-
-        td:has(> a[data-action="close"]) {
-            order: 4;
-        }
-
-        // Without :has() support the DOM order (Today · Clear · Close · Switch) is kept.
-
-        a[data-action] {
-            @include font-md-500;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: $gap-xs;
-            height: $dtp-cell;
-            padding-inline: $padding-lg;
-            color: $Neutral-900;
-            text-decoration: none;
-            white-space: nowrap;
-            background: $white-100;
-            border: 1px solid $Neutral-300;
-            border-radius: $radius-xs;
-            cursor: pointer;
-            transition: background-color 0.15s ease, border-color 0.15s ease;
-            @include _dtp-focus;
-
-            &:hover {
-                background: $Neutral-100;
-            }
-
-            // The label <span>: the vendor CSS gives every `td span` a size,
-            // margin and a grey hover box — reset so only the button changes.
-            > span {
-                display: inline;
-                width: auto;
-                height: auto;
-                margin: 0;
-                line-height: inherit;
-                color: inherit;
-                background: transparent;
-                border-radius: 0;
-
-                &:hover {
-                    background: transparent;
-                }
-            }
-
-            // The plugin can render glyph icons instead of text.
-            span[class*="glyphicon"],
-            span[class*="fa-"] {
-                display: none;
-            }
-        }
-
-        // Calendar switch (هجري / ميلادي) — Neutral
-        a[data-action="switchDate"] {
-            background: $Neutral-50;
-            border-color: $Neutral-50;
-
-            &:hover {
-                background: $Neutral-100;
-                border-color: $Neutral-100;
-            }
-        }
-
-        // Close — black (Buttons «black»), so it does not compete with the
-        // green selected day.
-        a[data-action="close"] {
-            color: $Neutral-25;
-            background: $Neutral-900;
-            border-color: $Neutral-900;
-
-            &:hover {
-                background: $Neutral-800;
-                border-color: $Neutral-800;
-            }
-
-            &:active {
-                background: $Neutral-700;
-                border-color: $Neutral-700;
-            }
-        }
-    }
-
-    // A global `.disabled` utility (css/common) forces a background, border and
-    // colour with !important; inside the picker disabled items stay plain.
-    table td.day.disabled,
-    table td.day.disabled:hover,
-    table th.disabled,
-    table th.disabled:hover,
-    table td span.disabled,
-    table td span.disabled:hover {
-        color: $Neutral-300 !important;
-        background: transparent !important;
-        border: 0 !important;
-        box-shadow: none !important;
+      &.disabled {
+        color: $Neutral-300;
         cursor: not-allowed;
+        background: transparent;
+      }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before {
-            transition: none !important;
-        }
+    .prev {
+      order: 1;
     }
+
+    .next {
+      order: 2;
+    }
+  }
+
+  // RTL (default for MOI): «previous» points right, «next» points left.
+  .datepicker thead tr:first-child .prev::before {
+    @include _dtp-mask($dtp-icon-chevron-right);
+  }
+
+  .datepicker thead tr:first-child .next::before {
+    @include _dtp-mask($dtp-icon-chevron-left);
+  }
+
+  [dir="ltr"] & .datepicker thead tr:first-child .prev::before {
+    @include _dtp-mask($dtp-icon-chevron-left);
+  }
+
+  [dir="ltr"] & .datepicker thead tr:first-child .next::before {
+    @include _dtp-mask($dtp-icon-chevron-right);
+  }
+
+  // Week-day names
+  .datepicker th.dow {
+    @include font-md-400;
+    display: block;
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    color: $Neutral-500;
+    background: transparent;
+    cursor: default;
+  }
+
+  // ---------------------------------------------------------------------
+  // Days — Figma «Date cell»
+  // ---------------------------------------------------------------------
+  .datepicker table td.day {
+    @include font-md-500;
+    display: block;
+    width: $dtp-cell;
+    height: $dtp-cell;
+    line-height: $dtp-cell;
+    padding: 0;
+    color: $Neutral-900;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
+
+    &:hover {
+      background: $Neutral-100;
+    }
+
+    // Days of the previous / next month
+    &.old,
+    &.new {
+      color: $Neutral-400;
+    }
+
+    &.weekend {
+      background: transparent;
+    }
+
+    // Today: green ring. !important only to beat the vendor CSS, which
+    // forces its own colours on .today with !important.
+    &.today {
+      color: $Primary-600 !important;
+      font-weight: 700;
+      background: transparent !important;
+      box-shadow: inset 0 0 0 1.5px $Primary-600;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    // Selected: filled green
+    &.active,
+    &.active:hover,
+    &.today.active {
+      color: $white-100 !important;
+      font-weight: 700;
+      background: $Primary-600 !important;
+      box-shadow: none;
+      text-shadow: none;
+    }
+
+    &.disabled,
+    &.disabled:hover {
+      color: $Neutral-300;
+      background: transparent;
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+  }
+
+  // Month / year / decade grids
+  .datepicker-months,
+  .datepicker-years,
+  .datepicker-decades {
+    td {
+      padding-block: $padding-xs;
+    }
+
+    span.month,
+    span.year,
+    span.decade {
+      @include font-md-500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: calc(33.333% - #{$padding-xs});
+      height: $dtp-cell;
+      margin: calc(#{$padding-xs} / 2);
+      color: $Neutral-900;
+      border-radius: $radius-xs;
+      cursor: pointer;
+
+      &:hover {
+        background: $Neutral-100;
+      }
+
+      &.old {
+        color: $Neutral-400;
+      }
+
+      &.active {
+        color: $white-100;
+        background: $Primary-600;
+      }
+
+      &.disabled {
+        color: $Neutral-300;
+        background: transparent;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  // ---------------------------------------------------------------------
+  // Time picker
+  // ---------------------------------------------------------------------
+  .timepicker-picker {
+    table td {
+      height: auto;
+    }
+
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: $dtp-cell;
+      height: $dtp-cell;
+      padding: 0;
+      color: $Neutral-900;
+      background: $Neutral-50;
+      border: 1px solid $Neutral-50;
+      border-radius: $radius-xs;
+      box-shadow: none;
+      @include _dtp-focus;
+
+      &:hover {
+        background: $Neutral-100;
+        border-color: $Neutral-100;
+      }
+
+      // Font Awesome / Glyphicons spans from the plugin options.
+      span {
+        display: none;
+      }
+    }
+
+    a.btn[data-action^="increment"]::before {
+      @include _dtp-mask($dtp-icon-up);
+    }
+
+    a.btn[data-action^="decrement"]::before {
+      @include _dtp-mask($dtp-icon-down);
+    }
+
+    .timepicker-hour,
+    .timepicker-minute,
+    .timepicker-second {
+      @include font-2xl-600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 56px;
+      margin-block: $padding-xs;
+      color: $Neutral-900;
+      border: 1px solid $Neutral-300;
+      border-radius: $radius-xs;
+      cursor: pointer;
+
+      &:hover {
+        background: $Neutral-100;
+      }
+    }
+
+    .separator {
+      @include font-2xl-600;
+      width: 24px;
+      color: $Neutral-500;
+    }
+  }
+
+  .timepicker-hours,
+  .timepicker-minutes,
+  .timepicker-seconds {
+    td {
+      @include font-md-500;
+      height: $dtp-cell;
+      color: $Neutral-900;
+      border-radius: $radius-xs;
+      cursor: pointer;
+
+      &:hover {
+        background: $Neutral-100;
+      }
+    }
+  }
+
+  // ---------------------------------------------------------------------
+  // Footer — buttons look like .moi-btn (md)
+  // ---------------------------------------------------------------------
+  .picker-switch.accordion-toggle {
+    padding-top: $padding-md;
+    border-top: 1px solid $Neutral-200;
+
+    table,
+    tbody {
+      display: block;
+      width: 100%;
+    }
+
+    tr {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: $gap-sm;
+    }
+
+    td {
+      display: block;
+      width: auto;
+      height: auto;
+    }
+
+    // Calendar switch, then Today on the start side; Clear and Close on the end side.
+    td:has(> a[data-action="switchDate"]) {
+      order: 1;
+    }
+
+    td:has(> a[data-action="today"]) {
+      order: 2;
+    }
+
+    td:has(> a[data-action="clear"]) {
+      order: 3;
+      margin-inline-start: auto;
+    }
+
+    td:has(> a[data-action="close"]) {
+      order: 4;
+    }
+
+    // Without :has() support the DOM order (Today · Clear · Close · Switch) is kept.
+
+    a[data-action] {
+      @include font-md-500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: $gap-xs;
+      height: $dtp-cell;
+      padding-inline: $padding-lg;
+      color: $Neutral-900;
+      text-decoration: none;
+      white-space: nowrap;
+      background: $white-100;
+      border: 1px solid $Neutral-300;
+      border-radius: $radius-xs;
+      cursor: pointer;
+      transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease;
+      @include _dtp-focus;
+
+      &:hover {
+        background: $Neutral-100;
+      }
+
+      // The label <span>: the vendor CSS gives every `td span` a size,
+      // margin and a grey hover box — reset so only the button changes.
+      > span {
+        display: inline;
+        width: auto;
+        height: auto;
+        margin: 0;
+        line-height: inherit;
+        color: inherit;
+        background: transparent;
+        border-radius: 0;
+
+        &:hover {
+          background: transparent;
+        }
+      }
+
+      // The plugin can render glyph icons instead of text.
+      span[class*="glyphicon"],
+      span[class*="fa-"] {
+        display: none;
+      }
+    }
+
+    // Calendar switch (هجري / ميلادي) — Neutral
+    a[data-action="switchDate"] {
+      background: $Neutral-50;
+      border-color: $Neutral-50;
+
+      &:hover {
+        background: $Neutral-100;
+        border-color: $Neutral-100;
+      }
+    }
+
+    // Close — black (Buttons «black»), so it does not compete with the
+    // green selected day.
+    a[data-action="close"] {
+      color: $Neutral-25;
+      background: $Neutral-900;
+      border-color: $Neutral-900;
+
+      &:hover {
+        background: $Neutral-800;
+        border-color: $Neutral-800;
+      }
+
+      &:active {
+        background: $Neutral-700;
+        border-color: $Neutral-700;
+      }
+    }
+  }
+
+  // A global `.disabled` utility (css/common) forces a background, border and
+  // colour with !important; inside the picker disabled items stay plain.
+  table td.day.disabled,
+  table td.day.disabled:hover,
+  table th.disabled,
+  table th.disabled:hover,
+  table td span.disabled,
+  table td span.disabled:hover {
+    color: $Neutral-300 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    cursor: not-allowed;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before {
+      transition: none !important;
+    }
+  }
 }
