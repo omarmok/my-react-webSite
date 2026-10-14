@@ -134,7 +134,7 @@
   color: $Neutral-900;
   font-weight: 600;
   @include font-md-500;
-  margin-bottom: 15px;
+  margin-bottom: $padding-xl;
 
   span {
     color: $Neutral-500;

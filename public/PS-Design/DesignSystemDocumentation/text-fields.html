@@ -549,6 +549,13 @@
       box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
     }
 
+    /* Static state previews for the docs page only (mirror css/common/_common.scss). */
+    .form-control[data-demo-state] { pointer-events: none; }
+    .form-control[data-demo-state="hover"] { border-color: #384250; }
+    .form-control[data-demo-state="pressed"] { background-color: #f3f4f6; background-size: 50% 2px; }
+    .form-control[data-demo-state="focus"] { background-size: 100% 2px; box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05); }
+    .form-control.is-invalid[data-demo-state="focus"] { border-color: #b42318; box-shadow: inset 0 -2px 0 #b42318, 0 1px 2px rgba(16, 24, 40, 0.05); }
+    #input-state-spec code { white-space: nowrap; }
   </style>
   <link href="./css/top-actions.css" rel="stylesheet" />
 </head>
@@ -630,16 +637,16 @@
 
         <span class="metadata-pill"
               data-i18n
-              data-ar="الإصدار: قيد التحديث"
-              data-en="Version: TBD">
-          الإصدار: قيد التحديث
+              data-ar="الإصدار: 2.0 — حالات كود المنصات"
+              data-en="Version: 2.0 — Platforms Code states">
+          الإصدار: 2.0 — حالات كود المنصات
         </span>
 
         <span class="metadata-pill"
               data-i18n
-              data-ar="آخر تحديث: 2 أغسطس 2026"
-              data-en="Last updated: August 2, 2026">
-          آخر تحديث: 2 أغسطس 2026
+              data-ar="آخر تحديث: 14 أكتوبر 2026"
+              data-en="Last updated: October 14, 2026">
+          آخر تحديث: 14 أكتوبر 2026
         </span>
       </div>
 
@@ -659,9 +666,9 @@
           </p>
           <div class="sample-grid">
             <div class="state-cell" data-i18n
-              data-ar="الـ <span class=&quot;code-inline&quot;>.form-control</span> يستخدم ارتفاعًا افتراضيًا 44px مع تركيز ولون حد من النظام.">
-              <span class="code-inline">.form-control</span> uses a 44px default control height with system focus and
-              border treatment.
+              data-ar="الـ <span class=&quot;code-inline&quot;>.form-control</span> يستخدم ارتفاعًا افتراضيًا 44px وحالات «Text Input» من كود المنصات: حد Gray-400، وخط سفلي أسود في التركيز، وخلفية رمادية عند الضغط.">
+              <span class="code-inline">.form-control</span> uses a 44px default height and the Platforms Code
+              «Text Input» states: Gray-400 border, a black underline on focus and a grey fill while pressed.
             </div>
             <div class="state-cell" data-i18n
               data-ar="الـ <span class=&quot;code-inline&quot;>.form-select</span> يشارك الخط والحشو الحاليين ويدعم <span class=&quot;code-inline&quot;>data-size</span>.">
@@ -807,57 +814,106 @@
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="حالات حقل النص">Text Input States</h2>
           <p class="section-note" data-i18n
-            data-ar="تعرض الأمثلة الحالية الحالات المنفذة فعليًا: افتراضي، تركيز، قراءة فقط، معطل، خطأ، وصالح.">
-            The current examples show the implemented states: default, focus, readonly, disabled, error, and valid.
+            data-ar="منذ 14 أكتوبر 2026 تتبع حالات <span class=&quot;code-inline&quot;>.form-control</span> مكوّن «Text Input» في كود المنصات، ومطابقة لمكوّن <span class=&quot;code-inline&quot;>input</span> في Figma. التركيز لا يغيّر لون الحد، بل يرسم خطًا سفليًا 2px يكبر من المنتصف.">
+            Since October 14, 2026 the <span class="code-inline">.form-control</span> states follow the Platforms Code
+            «Text Input» and match the Figma <span class="code-inline">input</span> component. Focus does not recolour
+            the border; it draws a 2px underline that grows from the centre.
+          </p>
+
+          <div class="table-responsive mb-4">
+            <table class="table align-middle" id="input-state-spec">
+              <thead>
+                <tr>
+                  <th data-i18n data-ar="الحالة">State</th>
+                  <th data-i18n data-ar="المحدد في الكود">Selector</th>
+                  <th data-i18n data-ar="الحد">Border</th>
+                  <th data-i18n data-ar="الخلفية">Background</th>
+                  <th data-i18n data-ar="الخط السفلي">Underline</th>
+                  <th data-i18n data-ar="Figma (state=)">Figma (state=)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td data-i18n data-ar="افتراضي / مُعبّأ">Default / Filled</td><td><code>.form-control</code></td><td>Neutral-400 <code>#9da4ae</code></td><td data-i18n data-ar="أبيض">White</td><td>—</td><td><code>default</code>, <code>filled</code></td></tr>
+                <tr><td data-i18n data-ar="مرور">Hover</td><td><code>:hover</code></td><td>Neutral-700 <code>#384250</code></td><td data-i18n data-ar="أبيض">White</td><td>—</td><td><code>hover</code></td></tr>
+                <tr><td data-i18n data-ar="ضغط">Pressed</td><td><code>:active</code></td><td>Neutral-400</td><td>Neutral-100 <code>#f3f4f6</code></td><td data-i18n data-ar="2px Neutral-950 بنصف العرض">2px Neutral-950, half width</td><td><code>pressed</code></td></tr>
+                <tr><td data-i18n data-ar="تركيز">Focus</td><td><code>:focus</code></td><td data-i18n data-ar="Neutral-400 (لا يتغير)">Neutral-400 (unchanged)</td><td data-i18n data-ar="أبيض + shadow-xs">White + shadow-xs</td><td data-i18n data-ar="2px Neutral-950 بكامل العرض">2px Neutral-950, full width</td><td><code>focus</code></td></tr>
+                <tr><td data-i18n data-ar="خطأ">Error</td><td><code>.is-invalid</code> / <code>.is-err</code></td><td>Error-700 <code>#b42318</code></td><td data-i18n data-ar="أبيض">White</td><td data-i18n data-ar="Error-700 عند الضغط والتركيز">Error-700 on press / focus</td><td><code>error</code>, <code>error-pressed</code>, <code>error-focus</code></td></tr>
+                <tr><td data-i18n data-ar="تحذير">Warning</td><td><code>.is-warning</code></td><td>Warning-700 <code>#b54708</code></td><td data-i18n data-ar="أبيض">White</td><td>Warning-700</td><td><code>warning</code></td></tr>
+                <tr><td data-i18n data-ar="نجاح">Success</td><td><code>.is-valid</code> / <code>.is-ok</code></td><td>Success-700 <code>#067647</code></td><td data-i18n data-ar="أبيض">White</td><td>Success-700</td><td><code>success</code></td></tr>
+                <tr><td data-i18n data-ar="قراءة فقط">Read-only</td><td><code>[readonly]</code></td><td>Neutral-300 <code>#d2d6db</code></td><td data-i18n data-ar="أبيض">White</td><td>—</td><td><code>readonly</code></td></tr>
+                <tr><td data-i18n data-ar="معطّل">Disabled</td><td><code>:disabled</code></td><td>Neutral-300</td><td data-i18n data-ar="أبيض، والنص Neutral-400">White, text Neutral-400</td><td>—</td><td><code>disabled</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="section-note" data-i18n
+            data-ar="الأمثلة الثابتة أدناه تعرض كل حالة. حالات المرور والضغط والتركيز معروضة بمحاكاة ثابتة داخل هذه الصفحة فقط، وجرّبها حيًّا في حقل «جرّب بنفسك».">
+            The static samples below show every state. Hover, pressed and focus are simulated on this page only; try them
+            live in the «Try it» field.
           </p>
           <div class="state-grid">
             <div class="state-tile">
+              <div class="state-label" data-i18n data-ar="جرّب بنفسك">Try it</div>
+              <label class="form-label mb-1" for="input-live">اسم المستخدم</label>
+              <input class="form-control" id="input-live" type="text" placeholder="مرّر واضغط واكتب هنا" aria-describedby="input-live-helper" />
+              <p class="helper-text" id="input-live-helper" data-i18n data-ar="حقل حي يعرض كل الحالات بالتفاعل.">A live field that shows every state as you interact.</p>
+            </div>
+            <div class="state-tile">
               <div class="state-label" data-i18n data-ar="افتراضي">Default</div>
               <label class="form-label mb-1" for="input-default">اسم المستخدم</label>
-              <input class="form-control" id="input-default" type="text" placeholder="يرجى إضافة اسم المستخدم"
-                aria-describedby="input-default-helper" />
+              <input class="form-control" id="input-default" type="text" placeholder="يرجى إضافة اسم المستخدم" aria-describedby="input-default-helper" />
               <p class="helper-text" id="input-default-helper" data-i18n data-ar="نص مساعد اختياري">Helper text</p>
+            </div>
+            <div class="state-tile">
+              <div class="state-label" data-i18n data-ar="مرور">Hover</div>
+              <label class="form-label mb-1" for="input-hover">اسم المستخدم</label>
+              <input class="form-control" id="input-hover" data-demo-state="hover" type="text" value="محمد العتيبي" tabindex="-1" />
+            </div>
+            <div class="state-tile">
+              <div class="state-label" data-i18n data-ar="ضغط">Pressed</div>
+              <label class="form-label mb-1" for="input-pressed">اسم المستخدم</label>
+              <input class="form-control" id="input-pressed" data-demo-state="pressed" type="text" value="محمد العتيبي" tabindex="-1" />
             </div>
             <div class="state-tile">
               <div class="state-label" data-i18n data-ar="تركيز">Focus</div>
               <label class="form-label mb-1" for="input-focus">اسم المستخدم</label>
-              <input class="form-control" id="input-focus" type="text" placeholder="اضغط Tab أو انقر للتركيز" autofocus
-                aria-describedby="input-focus-helper" />
-              <p class="helper-text" id="input-focus-helper" data-i18n data-ar="يظهر حد ولون ظل التركيز من النظام.">
-                The DS focus border and ring appear on focus.</p>
+              <input class="form-control" id="input-focus" data-demo-state="focus" type="text" value="محمد العتيبي" tabindex="-1" aria-describedby="input-focus-helper" />
+              <p class="helper-text" id="input-focus-helper" data-i18n data-ar="الحد لا يتغير، ويظهر خط سفلي أسود 2px.">The border stays; a 2px black underline appears.</p>
             </div>
             <div class="state-tile">
-              <div class="state-label" data-i18n data-ar="قراءة فقط">Readonly</div>
+              <div class="state-label" data-i18n data-ar="قراءة فقط">Read-only</div>
               <label class="form-label mb-1" for="input-readonly">رقم البلاغ</label>
-              <input class="form-control" id="input-readonly" type="text" value="INC-2026-00421" readonly
-                aria-describedby="input-readonly-helper" />
-              <p class="helper-text" id="input-readonly-helper" data-i18n data-ar="يبقى الحقل قابلاً للتركيز والنسخ.">
-                The field remains focusable and copyable.</p>
+              <input class="form-control" id="input-readonly" type="text" value="INC-2026-00421" readonly aria-describedby="input-readonly-helper" />
+              <p class="helper-text" id="input-readonly-helper" data-i18n data-ar="يبقى الحقل قابلاً للتركيز والنسخ.">The field remains focusable and copyable.</p>
             </div>
             <div class="state-tile">
-              <div class="state-label" data-i18n data-ar="معطل">Disabled</div>
+              <div class="state-label" data-i18n data-ar="معطّل">Disabled</div>
               <label class="form-label mb-1" for="input-disabled">اسم المستخدم</label>
-              <input class="form-control" id="input-disabled" type="text" placeholder="غير متاح" disabled
-                aria-describedby="input-disabled-helper" />
-              <p class="helper-text" id="input-disabled-helper" data-i18n data-ar="الحقل غير متاح للتفاعل.">
-                The field is unavailable for interaction.</p>
+              <input class="form-control" id="input-disabled" type="text" placeholder="غير متاح" disabled aria-describedby="input-disabled-helper" />
+              <p class="helper-text" id="input-disabled-helper" data-i18n data-ar="الحقل غير متاح للتفاعل.">The field is unavailable for interaction.</p>
             </div>
             <div class="state-tile">
               <div class="state-label" data-i18n data-ar="خطأ">Error</div>
               <label class="form-label mb-1" for="input-error">رقم الهوية</label>
-              <input class="form-control is-invalid" id="input-error" type="text" aria-invalid="true"
-                aria-describedby="input-error-helper" value="123" />
-              <div class="error-text text-danger invalid-feedback d-block" id="input-error-helper" data-i18n
-                data-ar="رقم الهوية غير مكتمل">Identity number is incomplete</div>
+              <input class="form-control is-invalid" id="input-error" type="text" aria-invalid="true" aria-describedby="input-error-helper" value="123" />
+              <div class="error-text text-danger invalid-feedback d-block" id="input-error-helper" data-i18n data-ar="رقم الهوية غير مكتمل">Identity number is incomplete</div>
             </div>
             <div class="state-tile">
-              <div class="state-label" data-i18n data-ar="صالح">Valid</div>
+              <div class="state-label" data-i18n data-ar="خطأ مع تركيز">Error + focus</div>
+              <label class="form-label mb-1" for="input-error-focus">رقم الهوية</label>
+              <input class="form-control is-invalid" id="input-error-focus" data-demo-state="focus" type="text" aria-invalid="true" value="123" tabindex="-1" />
+            </div>
+            <div class="state-tile">
+              <div class="state-label" data-i18n data-ar="تحذير">Warning</div>
+              <label class="form-label mb-1" for="input-warning">تاريخ الانتهاء</label>
+              <input class="form-control is-warning" id="input-warning" type="text" value="1448/02/01" aria-describedby="input-warning-helper" />
+              <p class="helper-text" id="input-warning-helper" data-i18n data-ar="تنتهي الوثيقة قريبًا.">The document expires soon.</p>
+            </div>
+            <div class="state-tile">
+              <div class="state-label" data-i18n data-ar="نجاح">Success</div>
               <label class="form-label mb-1" for="input-valid">رقم الجوال</label>
-              <input class="form-control is-valid" id="input-valid" type="text" value="0551234567"
-                aria-describedby="input-valid-helper" />
-              <p class="helper-text" id="input-valid-helper" data-i18n
-                data-ar="نفس المعالجة البصرية متاحة أيضًا عبر <code>.is-ok</code>.">
-                The same visual mapping is also available through <code>.is-ok</code>.</p>
+              <input class="form-control is-valid" id="input-valid" type="text" value="0551234567" aria-describedby="input-valid-helper" />
+              <p class="helper-text" id="input-valid-helper" data-i18n data-ar="نفس الشكل متاح عبر <code>.is-ok</code>.">The same look is available through <code>.is-ok</code>.</p>
             </div>
           </div>
         </div>
@@ -1022,6 +1078,17 @@
               data-ar="عيّن <span class=&quot;code-inline&quot;>aria-invalid=&quot;true&quot;</span> عندما تعرض حالة خطأ برمجية أو نصية.">
               Set <span class="code-inline">aria-invalid="true"</span> whenever an error state is shown.</li>
             <li data-i18n
+              data-ar="مؤشر التركيز هو الخط السفلي الأسود 2px (تباين عالٍ مع الأبيض)، فلا تُخفِه ولا تضف <span class=&quot;code-inline&quot;>outline: none</span> بدون بديل.">
+              The focus indicator is the 2px black underline (high contrast on white); never hide it or add
+              <span class="code-inline">outline: none</span> without a replacement.</li>
+            <li data-i18n
+              data-ar="حد Gray-400 الافتراضي (اختيار كود المنصات) تباينه 2.5:1 مع الأبيض، لذلك أبقِ التسمية ظاهرة دائمًا فوق الحقل ولا تعتمد على الحد وحده لتمييزه.">
+              The default Gray-400 border (the Platforms Code choice) is 2.5:1 on white, so always keep a visible label
+              above the field and do not rely on the border alone to identify it.</li>
+            <li data-i18n
+              data-ar="حركة الخط السفلي تتوقف تلقائيًا مع <span class=&quot;code-inline&quot;>prefers-reduced-motion</span>.">
+              The underline animation switches off with <span class="code-inline">prefers-reduced-motion</span>.</li>
+            <li data-i18n
               data-ar="اعتبر الصور أو الأيقونات القائدة داخل <span class=&quot;code-inline&quot;>.form-content</span> عناصر زخرفية عبر <span class=&quot;code-inline&quot;>aria-hidden=&quot;true&quot;</span> أو <span class=&quot;code-inline&quot;>alt=&quot;&quot;</span>.">
               Treat leading images/icons inside <span class="code-inline">.form-content</span> as decorative via
               <span class="code-inline">aria-hidden="true"</span> or <span class="code-inline">alt=""</span>.</li>
@@ -1087,6 +1154,7 @@
 
 &lt;input class=&quot;form-control is-invalid&quot; type=&quot;text&quot; aria-invalid=&quot;true&quot; /&gt;
 &lt;input class=&quot;form-control is-valid&quot; type=&quot;text&quot; /&gt;
+&lt;input class=&quot;form-control is-warning&quot; type=&quot;text&quot; /&gt;
 &lt;textarea class=&quot;form-control&quot; aria-describedby=&quot;notes-help&quot;&gt;&lt;/textarea&gt;
 
 &lt;select class=&quot;form-select&quot; data-size=&quot;lg&quot;&gt;
@@ -1104,6 +1172,10 @@
               Manual validation uses <code>.is-invalid</code>/<code>.is-err</code> and
               <code>.is-valid</code>/<code>.is-ok</code>, and native forms also support
               <code>.was-validated</code>.</li>
+            <li data-i18n
+              data-ar="جديد: <code>.is-warning</code> لحالة التحذير، وحالات الضغط والتركيز تعمل تلقائيًا عبر <code>:active</code> و<code>:focus</code> بدون أي class.">
+              New: <code>.is-warning</code> for the warning state; pressed and focus work automatically through
+              <code>:active</code> and <code>:focus</code> with no extra class.</li>
             <li data-i18n
               data-ar="لا تعتمد الصفحة الحالية على <code>.input-wrapper</code> أو <code>.has-leading</code> أو <code>.select-trigger</code> أو <code>.select-menu</code>.">
               The current page should not rely on <code>.input-wrapper</code>, <code>.has-leading</code>,
@@ -1143,6 +1215,7 @@
 &lt;input class=&quot;form-control&quot; type=&quot;text&quot; disabled placeholder=&quot;غير متاح&quot; /&gt;
 &lt;input class=&quot;form-control is-invalid&quot; type=&quot;text&quot; aria-invalid=&quot;true&quot; /&gt;
 &lt;input class=&quot;form-control is-valid&quot; type=&quot;text&quot; /&gt;
+&lt;input class=&quot;form-control is-warning&quot; type=&quot;text&quot; /&gt;
 
 &lt;!-- Textarea and date/time helpers --&gt;
 &lt;textarea class=&quot;form-control&quot; placeholder=&quot;أضف الملاحظات هنا&quot;&gt;&lt;/textarea&gt;

@@ -22,10 +22,10 @@
             border-style: solid;
             border-color: var(--long-shadow, #e2e8f0);
             border-width: 1px;
-            padding: 10px;
+            padding: $padding-md;
             display: flex;
             align-items: flex-start;
-            gap: 5px;
+            gap: $padding-xs;
 
             .new-custommap .newIms--inquiryDs--card--body .maindetails .block {
                 width: 48% !important;
@@ -43,7 +43,7 @@
                 width: 100%;
 
                 label {
-                    margin-bottom: 5px !important;
+                    margin-bottom: $padding-xs !important;
                 }
             }
         }
@@ -89,11 +89,11 @@
 
         &--block {
             @extend .hearing__mainDetails;
-            padding: 5px;
+            padding: $padding-xs;
 
             .accordion-item {
                 background: $white-100;
-                margin-bottom: 5px;
+                margin-bottom: $padding-xs;
 
                 .accordion-header {
                     display: flex;
@@ -101,7 +101,7 @@
                     border-style: solid;
                     border-color: transparent;
                     border-width: 1px;
-                    padding: 5px;
+                    padding: $padding-xs;
 
                     .accordion-button {
                         display: flex;
@@ -112,7 +112,7 @@
                         @include font-sm-500;
                         font-weight: bold !important;
                         background: transparent;
-                        padding: 5px;
+                        padding: $padding-xs;
                         box-shadow: none;
                         color: #a38664;
 
@@ -125,7 +125,7 @@
                             align-items: center;
                             border-radius: 50%;
                             color: $white-100;
-                            margin-left: 5px;
+                            margin-left: $padding-xs;
                         }
 
                         &:focus {
@@ -161,11 +161,11 @@
 
             .accordion-button::after {
                 background: url(../images/arrow-down.svg), #a38664;
-                padding: 17px;
+                padding: $padding-xl;
                 display: flex;
                 background-position: 7px 6px;
                 background-repeat: no-repeat;
-                margin-top: -4px;
+                margin-top: -$padding-xs;
                 border-radius: $radius-md;
                 width: 20px;
                 height: 20px;
@@ -193,9 +193,9 @@
             border-style: solid;
             border-color: var(--long-shadow, #e2e8f0);
             border-width: 1px;
-            padding: 10px;
+            padding: $padding-md;
             display: flex;
-            gap: 5px;
+            gap: $padding-xs;
             align-items: center;
             justify-content: center;
             flex-direction: column;

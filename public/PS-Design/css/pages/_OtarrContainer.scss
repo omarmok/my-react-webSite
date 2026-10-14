@@ -71,14 +71,14 @@
                     background: #0d8f75;
                     color: $white-100;
                     border-radius: 50%;
-                    padding: 10px;
+                    padding: $padding-md;
                     line-height: 2;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     width: 30px;
                     height: 30px;
-                    margin-right: 5px;
+                    margin-right: $padding-xs;
                 }
             }
 
@@ -86,14 +86,14 @@
                 width: 100%;
 
                 .accordion-item {
-                    margin-bottom: 10px;
+                    margin-bottom: $padding-md;
                     border: 1px solid $white-100;
                     border-radius: $radius-sm;
                     box-shadow: 0px 8px 20px 0px #f5f6f7;
                     border: 1px solid #f4f4f4;
 
                     .accordion-header {
-                        padding: 10px;
+                        padding: $padding-md;
                         flex-direction: row;
                         align-items: center;
                         justify-content: space-between;
@@ -105,7 +105,7 @@
                             border: none;
                             box-shadow: none;
                             font-weight: 600;
-                            padding: 10px;
+                            padding: $padding-md;
                             color: #000;
                             display: flex;
                             justify-content: space-between;
@@ -140,7 +140,7 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        padding: 10px;
+                        padding: $padding-md;
                         border-radius: 5px;
                         border: 1px solid #dddddd;
                         background: #eaeaea !important;
@@ -157,7 +157,7 @@
 
 .persontestblock {
     border-radius: 5px;
-    margin: 0 0 10px;
+    margin: 0 0 $padding-md;
     padding: $padding-14;
     background: $white-100;
     height: 45px;
@@ -176,7 +176,7 @@
         border-style: solid;
         border-color: transparent;
         border-width: 1px;
-        padding: 10px;
+        padding: $padding-md;
 
         span {
             color: #a38664;
@@ -185,11 +185,11 @@
 
     .accordion-button::after {
         background: url(../images/arrow-down.svg), #a38664 ;
-        padding: 17px;
+        padding: $padding-xl;
         display: flex;
         background-position: 7px 6px;
         background-repeat: no-repeat;
-        margin-top: -4px;
+        margin-top: -$padding-xs;
         border-radius: $radius-md;
         width: 20px;
         height: 20px;

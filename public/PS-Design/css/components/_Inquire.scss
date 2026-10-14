@@ -70,17 +70,17 @@
     border-radius: $radius-md;
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
+    margin-bottom: $padding-xl;
     border: 1px dashed #e5dfdf;
 
     &__top {
       display: flex;
       background: $white-100;
       align-items: center;
-      padding: 10px;
+      padding: $padding-md;
       justify-content: space-between;
       box-shadow: 0px 8px 30px rgb(181 181 181 / 8%);
-      margin-bottom: 15px;
+      margin-bottom: $padding-xl;
 
       &--permitName {
         @include font-sm-500;
@@ -92,14 +92,14 @@
         background: #08c28d;
         border-radius: 5px;
         color: $white-100;
-        padding: 5px 10px;
+        padding: $padding-xs $padding-md;
         font-size: 9px;
       }
     }
 
     &__body {
       .block {
-        padding: 5px;
+        padding: $padding-xs;
         align-items: flex-start;
         font-weight: 600;
         color: $Brown-500;

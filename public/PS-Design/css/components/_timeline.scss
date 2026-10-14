@@ -20,7 +20,7 @@
 .timeline .timelinecontainer {
   // Autonomous Maintainer pass: 40px matched $padding-5xl exactly; 10px
   // has no exact match, kept literal.
-  padding: 10px $padding-5xl;
+  padding: $padding-md $padding-5xl;
   position: relative;
   background-color: inherit;
   width: 50%;
@@ -50,7 +50,7 @@
     margin: 0;
     color: $darkBlue;
     line-height: 0.8;
-    margin-bottom: 5px;
+    margin-bottom: $padding-xs;
     @include font-sm-500;
   }
 
@@ -59,9 +59,9 @@
   }
 
   span {
-    padding: 5px 20px;
+    padding: $padding-xs $padding-2xl;
     border: 1px solid $darkBlue;
-    margin: 5px;
+    margin: $padding-xs;
     border-radius: 5px;
     color: $darkBlue;
     @include font-md-500;
@@ -159,7 +159,7 @@
   }
 
   .timeline .content {
-    margin-right: 10px;
+    margin-right: $padding-md;
   }
 
   .timeline .content:after,
@@ -177,14 +177,14 @@
 }
 
 .timeline-page {
-  margin: 15px;
+  margin: $padding-xl;
 }
 
 .iq-timeline2 li {
-  margin-left: 0px;
+  margin-left: $padding-none;
   position: relative;
   list-style-type: none;
-  margin-bottom: 30px;
+  margin-bottom: $padding-4xl;
 }
 
 .timeline-page .iq-timeline2 .content-date {
@@ -195,7 +195,7 @@
   height: 60px;
   line-height: 15px;
   text-align: center;
-  margin-right: 0px;
+  margin-right: $padding-none;
   border-radius: 100%;
   display: flex;
   flex-direction: column;
@@ -237,11 +237,11 @@
 }
 
 .iq-timeline2 .content-block {
-    margin-right: 70px;
+    margin-right: $padding-7xl;
     // Autonomous Maintainer pass: #fff matched $white-100 exactly; 8px
     // matched $radius-md exactly.
     background: $white-100;
-    padding: 5px;
+    padding: $padding-xs;
     border-radius: $radius-md;
     box-shadow: 3px 4px 16px rgb(175 175 175 / 18%);
     border: 1px solid #e7e7e7;
@@ -281,7 +281,7 @@
         color: #000;
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: $padding-xs;
         width: 30%;
         .by {
             display: flex;
@@ -307,7 +307,7 @@
 
 
     .content-block {
-        margin-right: 70px;
+        margin-right: $padding-7xl;
         // Autonomous Maintainer pass: #fff matched $white-100 exactly; 8px
         // matched $radius-md exactly.
         background: $white-100;
@@ -333,7 +333,7 @@
 
     .officers {
         border: 1px solid #f1f1f1;
-        padding: 10px;
+        padding: $padding-md;
         margin-bottom: 0;
 
         .by {
@@ -576,7 +576,7 @@ $moi-timeline-states: (
         display: inline-flex;
         align-items: center;
         gap: $gap-md;
-        padding: $padding-sm 10px;
+        padding: $padding-sm $padding-md;
         background-color: $white-100;
         border: 1px solid $Neutral-200;
         border-radius: $radius-md;

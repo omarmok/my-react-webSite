@@ -7,12 +7,12 @@
     h4 {
         @include boldfont;
         background: $Primary-50;
-        padding: 10px;
+        padding: $padding-md;
         display: inline-block;
         margin: 0;
         border-radius: 10px 10px 0 0;
         color: $Primary-700;
-        margin-right: 10px;
+        margin-right: $padding-md;
     }
 
     .personImage {
@@ -36,8 +36,8 @@
         background: $white-100;
         gap: $gap-10;
         display: flex;
-        padding: 10px;
-        margin-bottom: 10px;
+        padding: $padding-md;
+        margin-bottom: $padding-md;
         border-radius: 10px;
         align-items: center;
         justify-content: space-between;
@@ -49,7 +49,7 @@
             gap: 0 !important;
 
             &__photo {
-                margin-left: 10px;
+                margin-left: $padding-md;
             }
 
             &__name {
@@ -63,7 +63,7 @@
 
             &__role {
                 @include smallfont;
-                padding: 5px 10px;
+                padding: $padding-xs $padding-md;
                 background: $baige;
                 display: flex;
                 border-radius: $radius-xs;
@@ -87,8 +87,8 @@
         @include smallfont;
         display: flex;
         align-items: center;
-        gap: 5px;
-        padding: 10px;
+        gap: $padding-xs;
+        padding: $padding-md;
         border-radius: $radius-sm;
         flex-direction: column;
         /*width: 140px;*/

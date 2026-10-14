@@ -40,7 +40,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: $gap-20;
-    padding: 10px;
+    padding: $padding-md;
     overflow-y: hidden;
     overflow-x: scroll;
     flex-wrap: wrap;
@@ -118,7 +118,7 @@
     position: absolute;
     bottom: 10px;
     right: 10px;
-    padding: 10px $padding-2xl;
+    padding: $padding-md $padding-2xl;
     background-color: #007bff;
     color: $white-100;
     border: none;
@@ -134,7 +134,7 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    padding: 5px 10px;
+    padding: $padding-xs $padding-md;
     background-color: #dc3545;
     color: $white-100;
     border: none;
@@ -170,7 +170,7 @@
     height:50vh !important;
     width: 100% !important;
     border: 1px solid #d2d2d2;
-    margin-top: 10px;
+    margin-top: $padding-md;
 }
 
 #controls {
@@ -209,14 +209,14 @@
             flex-wrap: wrap;
             border: 0.2px solid #acddc7;
             border-radius: 10px;
-            padding:10px;
+            padding:$padding-md;
 
             .attatched {
                 width: auto;
                 gap: $gap-5xl;
                 background: #f5faf8 !important;
                 border: 1px solid #7bddb1 !important;
-                padding: 0 10px;
+                padding: 0 $padding-md;
                 margin: 0 !important;
 
                 .imagetypbg {
@@ -234,7 +234,7 @@
 
 .AccidentParties {
     padding: $padding-14;
-    margin: 15px;
+    margin: $padding-xl;
     background: $white-100;
     box-shadow: $shadow-2;
 
@@ -293,7 +293,7 @@
 
     .responsibilityRatiobutton {
         display: inline-block;
-        padding: 14px;
+        padding: $padding-lg;
         border-radius: $radius-sm;
         @include font-lg-500;
         font-weight: bold !important;

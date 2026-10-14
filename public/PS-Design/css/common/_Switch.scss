@@ -90,7 +90,7 @@ $form-sw-ease: cubic-bezier(0.2, 0, 0, 1);
   }
 
   .form-check-label {
-    margin-inline-start: 10px;
+    margin-inline-start: $padding-md;
     cursor: pointer;
   }
 }

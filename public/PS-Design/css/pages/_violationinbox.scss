@@ -45,13 +45,13 @@
 
     .details {
         .rightDetails {
-            padding: 10px;
+            padding: $padding-md;
             border-radius: $radius-md;
             border: 1px solid #C6C6DC;
             background: $white-100;
 
             .top {
-                padding: 14px;
+                padding: $padding-lg;
                 border: 1px solid #C0D6ED;
                 background: rgba(241, 247, 255, 0.4);
                 border-radius: $radius-md;

@@ -185,14 +185,14 @@
             gap: $gap-10;
             overflow-x: auto;
             white-space: nowrap;
-            padding: 10px;
+            padding: $padding-md;
         }
 
         .card {
             /*           width: 80px;*/
             height: 120px;
             text-align: center;
-            padding: 10px;
+            padding: $padding-md;
             border-radius: 10px;
             border: 1px solid #ddd;
         }
@@ -257,7 +257,7 @@
         .color-box {
             height: 50px;
             width: 50px;
-            margin: 0 auto 5px;
+            margin: 0 auto $padding-xs;
             border: 1px solid #000;
             border-radius: $radius-sm;
         }
@@ -413,7 +413,7 @@
     #itemstoslelect {
         display: flex;
         gap: $gap-10;
-        padding: 10px;
+        padding: $padding-md;
         overflow-y: hidden;
         overflow-x: hidden;
         flex-direction: column;
@@ -471,7 +471,7 @@
         top: 50px;
         background-color: $white-100;
         border: 1px solid #ccc;
-        padding: 10px;
+        padding: $padding-md;
         width: 350px;
         display: none;
     }

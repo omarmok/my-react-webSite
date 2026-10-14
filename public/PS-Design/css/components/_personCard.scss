@@ -20,7 +20,7 @@
     &--inquiryDs {
         &--card {
             display: flex;
-            padding: 10px;
+            padding: $padding-md;
             flex-direction: column;
             gap: $gap-10;
             border-radius: 8px;
@@ -36,7 +36,7 @@
                 border-radius: 8px;
                 border: 1px solid $Neutral-200;
                 background: $Neutral-25;
-                padding: 4px;
+                padding: $padding-xs;
                 display: flex;
                 align-items: flex-start;
                 gap: 0;
@@ -47,7 +47,7 @@
                     border-radius: 8px;
                     border: 1px solid;
                     border-color: #1abc9c #1abc9c #cba983 #c3996b !important;
-                    padding: 5px;
+                    padding: $padding-xs;
                     width: 80px;
                     height: 80px;
 
@@ -62,7 +62,7 @@
                 &__basicData {
                     display: flex;
                     flex-direction: column;
-                    gap: 10px;
+                    gap: $padding-md;
                     justify-content: center;
 
                     .stutus {
@@ -98,7 +98,7 @@
                 }
 
                 &--customACtion {
-                    gap: 5px;
+                    gap: $padding-xs;
                     display: flex;
                     margin: 0 !important;
 
@@ -133,7 +133,7 @@
                 &--personCardTabs {
                     .nav-link {
                         background: transparent;
-                        margin: 5px;
+                        margin: $padding-xs;
                         color: $darkBlue;
                         font-weight: 600;
                         border-radius: 6px;
@@ -223,15 +223,15 @@
             &--footer {
                 display: flex;
                 justify-content: space-between;
-                gap: 10px;
+                gap: $padding-md;
 
                 &__shortCutAction {
                     width: 100%;
                     display: flex;
-                    padding: 10px;
+                    padding: $padding-md;
                     flex-direction: column;
                     align-items: center;
-                    gap: 8px;
+                    gap: $padding-md;
                     border-radius: 8px;
                     border: 1px solid #cef6ed;
                     background: #f3fdfb;
@@ -248,7 +248,7 @@
                         display: flex;
                         align-items: center;
                         background: #fff;
-                        padding: 8px;
+                        padding: $padding-md;
                     }
 
                     &:hover {

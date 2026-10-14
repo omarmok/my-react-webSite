@@ -19,7 +19,7 @@
       }
 
       .wanted-title {
-        padding: 10px 20px !important;
+        padding: $padding-md $padding-2xl !important;
         border-radius: 5px;
         right: 25%;
         bottom: 2px;
@@ -35,13 +35,13 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      gap: 5px;
+      gap: $padding-xs;
 
       .d-flex {
-        gap: 5px;
+        gap: $padding-xs;
 
         .block {
-          padding: 10px;
+          padding: $padding-md;
           @include font-sm-500;
 
           span {
@@ -59,7 +59,7 @@
     flex-direction: column;
     border-radius: $radius-md;
     box-shadow: 0px 8px 30px rgb(181 181 181 / 8%);
-    margin-top: 15px;
+    margin-top: $padding-xl;
 
     h3 {
       @include font-sm-500;
@@ -92,18 +92,18 @@
         h5 {
           @include smallfont;
           text-align: center;
-          margin-top: 10px;
+          margin-top: $padding-md;
         }
       }
 
       .block {
         box-shadow: none;
         background: #f8faff;
-        padding: 10px;
+        padding: $padding-md;
         border-radius: 5px;
         display: flex;
         border: 1px solid #e3eafc;
-        margin: 5px 0;
+        margin: $padding-xs 0;
         flex-direction: row;
         align-items: center;
         width: 48%;
@@ -120,7 +120,7 @@
 
         span {
           background: $white-100;
-          padding: 0px;
+          padding: $padding-none;
           border-radius: 50%;
           border: 1px dashed $Primary-500;
           width: 50px;

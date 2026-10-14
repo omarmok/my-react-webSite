@@ -14,7 +14,7 @@
             .custommaintabs {
                 margin-bottom: 0;
                 justify-content: center;
-                padding: 10px;
+                padding: $padding-md;
                 gap: $gap-10;
                 background: $baige;
                 border-radius: 5px;
@@ -102,14 +102,14 @@
                     &--blockcontainer {
                         display: flex;
                         align-items: center;
-                        gap: 3px;
+                        gap: $padding-xxs;
                         width: 100%;
 
                         &__block {
                             @include meduimfont;
                             background: #f8f9fa;
                             border-radius: $radius-xs;
-                            padding: 5px;
+                            padding: $padding-xs;
                             width: 100%;
                             display: flex;
                             flex-direction: column;
@@ -185,7 +185,7 @@
                         bottom: 30px;
                         background: rgb(255 255 255 / 96%);
                         width: 29%;
-                        padding: 5px 15px;
+                        padding: $padding-xs $padding-xl;
 
                         #load-more {
                             width: 45%;
@@ -214,12 +214,12 @@
                     border: 1px solid $Primary-500;
                     background: $Primary-500;
                     color: $white-100;
-                    padding: 6px 12px;
+                    padding: $padding-sm $padding-lg;
                     // font-size: 11px;
                     white-space: nowrap;
                     flex-direction: row;
                     border-radius: $radius-sm;
-                    gap: 3px;
+                    gap: $padding-xxs;
                     justify-content: center;
 
                     svg {
@@ -228,8 +228,8 @@
                         width: 26px;
                         background: $white-100;
                         border-radius: 50%;
-                        padding: 5px;
-                        margin-left: 5px;
+                        padding: $padding-xs;
+                        margin-left: $padding-xs;
                     }
 
                     &:hover {
@@ -271,7 +271,7 @@
 
                 img {
                     height: 30px;
-                    margin-left: 10px;
+                    margin-left: $padding-md;
                 }
 
                 span {
@@ -286,7 +286,7 @@
                         background: rgb(248, 249, 250);
                         border: 1px solid rgb(232, 239, 246);
                         color: #000;
-                        padding: 10px;
+                        padding: $padding-md;
                         border-radius: 5px;
                         line-height: 1.9;
                         text-wrap: pretty;
@@ -305,10 +305,10 @@
 
     .newIms--inquiryDs--card {
         width: 100%;
-        padding: 10px;
+        padding: $padding-md;
 
         .newIms--inquiryDs--card--top {
-            padding: 10px;
+            padding: $padding-md;
             align-items: flex-start;
             gap: $gap-10;
         }

@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 50px;
+  gap: $padding-6xl;
   color: $white-100;
 
   img {
@@ -12,7 +12,7 @@
 
   .caseRegistrationWay {
     display: flex;
-    gap: 5px;
+    gap: $padding-xs;
 
     .block {
       gap: $gap-xxs;
@@ -104,17 +104,17 @@
   .wizard > .steps a:hover,
   .wizard > .steps a:active {
     font-weight: 600;
-    padding: 5px 10px;
+    padding: $padding-xs $padding-md;
     border: none;
     background: $white-100;
     color: var(--theme-primary) !important !important;
     box-shadow: rgb(239 241 249) 0px 3px 8px 4px;
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin-bottom: $padding-md;
     display: flex;
     align-items: center;
     text-decoration: none !important;
-    margin: 0 10px !important;
+    margin: 0 $padding-md !important;
 
     .number {
       display: none;
@@ -241,7 +241,7 @@
   }
 
   .wizard > .actions a {
-    padding: 10px 15px;
+    padding: $padding-md $padding-xl;
     font-size: 10px;
     font-weight: bold;
     border-radius: $radius-sm;
@@ -279,7 +279,7 @@
 
     &::before {
       content: url("/images/icon-arrow-left-circle.svg");
-      margin-left: 10px;
+      margin-left: $padding-md;
     }
   }
 
@@ -287,7 +287,7 @@
     &::after {
       content: url("/images/icon-arrow-right-circle-next.svg");
       transform: rotate(180deg);
-      margin-right: 10px;
+      margin-right: $padding-md;
     }
   }
 
@@ -310,7 +310,7 @@
 
       &::after {
         content: url("/images/icon-save-later.svg");
-        margin-right: 10px;
+        margin-right: $padding-md;
       }
     }
   }
@@ -350,7 +350,7 @@
 
   .tabcontrol > .steps > ul > li {
     float: right;
-    margin: 5px 2px 0 0;
+    margin: $padding-xs $padding-xxs 0 0;
     padding: $padding-8;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
@@ -379,7 +379,7 @@
     display: inline-block;
     border: 0 none;
     margin: 0;
-    padding: 10px 30px;
+    padding: $padding-md $padding-4xl;
     text-decoration: none;
   }
 
@@ -388,7 +388,7 @@
   }
 
   .tabcontrol > .steps > ul > li.current > a {
-    padding: 15px 30px 10px 30px;
+    padding: $padding-xl $padding-4xl $padding-md $padding-4xl;
   }
 
   .tabcontrol > .content {
@@ -434,7 +434,7 @@
   .projectDeliveryDone h4 {
     color: #00ab84;
     font-size: 17px;
-    margin-top: 25px;
+    margin-top: $padding-3xl;
     font-weight: 600;
   }
 
@@ -459,7 +459,7 @@
   }
 
   .searchAboutCaseMembers {
-    margin-top: 15px;
+    margin-top: $padding-xl;
 
     .createViolitionContainer--creatviolition--Inquire {
       background: $white-100;
@@ -468,7 +468,7 @@
       ul {
         background: transparent;
         border-bottom: 1px solid #f0eded;
-        padding: 10px 0;
+        padding: $padding-md 0;
       }
 
       .nav-item {
@@ -480,7 +480,7 @@
 
           input {
             margin: 0 !important;
-            margin-left: 5px !important;
+            margin-left: $padding-xs !important;
           }
 
           label {
@@ -497,7 +497,7 @@
         flex-direction: column;
         border-radius: $radius-md;
         box-shadow: 0px 8px 30px rgb(181 181 181 / 8%);
-        margin-top: 15px;
+        margin-top: $padding-xl;
         border: 1px solid var(--theme-primary) !important;
 
         .accordion-button::after {
@@ -566,7 +566,7 @@
               width: 84%;
 
               .d-flex {
-                gap: 5px;
+                gap: $padding-xs;
                 width: 100%;
 
                 .form-select {
@@ -647,7 +647,7 @@
   padding: $padding-14;
 
   img {
-    margin-left: 5px;
+    margin-left: $padding-xs;
   }
 
   h4 {
@@ -682,7 +682,7 @@
   width: 100%;
   overflow: hidden;
   border-radius: 10px;
-  margin-top: 15px;
+  margin-top: $padding-xl;
   cursor: not-allowed;
 
   img {
@@ -739,7 +739,7 @@
   .minus {
     background: $white-100;
     @include font-2xl-500;
-    padding: $padding-sm 10px;
+    padding: $padding-sm $padding-md;
     border-radius: 0 8px 8px 0;
     font-weight: 600 !important;
     border: 1px solid #d0ccde;
@@ -751,7 +751,7 @@
   .plus {
     background: $white-100;
     @include font-2xl-500;
-    padding: $padding-sm 10px;
+    padding: $padding-sm $padding-md;
     border-radius: $radius-md 0 0 $radius-md;
     font-weight: 600 !important;
     border: 1px solid #d0ccde;

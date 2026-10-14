@@ -19,7 +19,7 @@
       display: flex;
       align-items: center;
       transition: var(--tran-03);
-      padding: 10px;
+      padding: $padding-md;
       justify-content: space-between;
       border-bottom: 1px solid $Neutral-200;
 
@@ -61,7 +61,7 @@
         background-color: #000;
         padding: $padding-xl;
         border-radius: $radius-sm;
-        margin-top: 0px;
+        margin-top: $padding-none;
         right: 83px;
         opacity: 0;
         visibility: hidden;
@@ -197,7 +197,7 @@
   }
 
   .menu {
-    margin-top: 10px;
+    margin-top: $padding-md;
   }
 
   li.search-box {
@@ -229,8 +229,8 @@
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
-    padding: 10px;
-    padding-bottom: 50px;
+    padding: $padding-md;
+    padding-bottom: $padding-6xl;
     box-shadow: rgb(239 241 249) 60px 8px 8px 66px;
   }
 }
@@ -248,7 +248,7 @@ header {
     }
 
     .profession {
-      margin-top: -2px;
+      margin-top: -$padding-xxs;
       display: block;
     }
   }
@@ -359,7 +359,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 15px;
+  gap: $padding-xl;
 
   .moi-btn--Primary {
     background: $Brown-25;
@@ -378,7 +378,7 @@ header {
       width: 370px;
       display: flex;
       justify-content: space-between;
-      padding: 25px;
+      padding: $padding-3xl;
       border: none;
       right: 0;
       flex-direction: column;
@@ -387,7 +387,7 @@ header {
 
   .user__details {
     display: flex;
-    padding: 5px;
+    padding: $padding-xs;
     align-items: center;
     justify-content: space-between;
     background: $Neutral-50;
@@ -397,7 +397,7 @@ header {
     height: 44px;
 
     &--avatar {
-      margin-left: 10px;
+      margin-left: $padding-md;
       border-radius: 50%;
       width: 36px;
       height: 36px;
@@ -418,7 +418,7 @@ header {
       flex-direction: column;
       align-items: flex-start;
       font-weight: bold;
-      margin-left: 10px;
+      margin-left: $padding-md;
       font-size: 0.75rem;
 
       .login-date {
@@ -507,7 +507,7 @@ header {
       width: 530px;
       display: flex;
       justify-content: space-between;
-      padding: 25px;
+      padding: $padding-3xl;
       border: none;
       right: -180px;
       flex-direction: column;
@@ -518,7 +518,7 @@ header {
         content: "";
         display: block;
         height: 8px;
-        margin-top: -6px;
+        margin-top: -$padding-sm;
         position: absolute;
         transform: rotate(135deg);
         right: 56%;
@@ -541,7 +541,7 @@ header {
           overflow: hidden;
           width: 32px;
           height: 32px;
-          margin-left: 10px;
+          margin-left: $padding-md;
 
           svg {
             position: absolute;
@@ -576,8 +576,8 @@ header {
       }
 
       .Resizefont .btn {
-        margin: 5px;
-        padding: 0 10px;
+        margin: $padding-xs;
+        padding: 0 $padding-md;
         display: inline-flex;
         color: #000;
         cursor: pointer;
@@ -1190,7 +1190,7 @@ header {
         content: "";
         display: block;
         height: 8px;
-        margin-top: -6px;
+        margin-top: -$padding-sm;
         position: absolute;
         transform: rotate(135deg);
         right: 92%;
@@ -1232,9 +1232,9 @@ header {
 
             i {
               @include font-2xl-500;
-              padding: 5px;
+              padding: $padding-xs;
               border-radius: $radius-sm;
-              margin-left: 5px;
+              margin-left: $padding-xs;
               vertical-align: middle;
             }
 
@@ -1319,7 +1319,7 @@ header {
         width: 34px;
         height: 34px;
         fill: $Primary-500;
-        margin-left: 5px;
+        margin-left: $padding-xs;
         background: $Primary-25;
         padding: $padding-sm;
         border-radius: $radius-sm;
@@ -1390,7 +1390,7 @@ header {
       @include meduimfont-16;
       color: $Neutral-900;
       text-decoration: none;
-      padding: 10px;
+      padding: $padding-md;
       border-bottom: 1px solid $Neutral-50;
       display: flex;
       align-items: center;
@@ -1407,7 +1407,7 @@ header {
         color: $Primary-600;
 
         i {
-          margin-left: 5px;
+          margin-left: $padding-xs;
         }
       }
     }
@@ -1433,7 +1433,7 @@ header {
   left: 100%;
   top: -10px;
   margin-top: 0;
-  padding: 10px $padding-2xl;
+  padding: $padding-md $padding-2xl;
   border-radius: 0 $radius-sm $radius-sm 0;
   opacity: 0;
   display: block;
@@ -1461,7 +1461,7 @@ header {
 .sidebar .nav-links li .sub-menu.blank {
   opacity: 1;
   pointer-events: auto;
-  padding: 3px $padding-2xl $padding-sm $padding-xl;
+  padding: $padding-xxs $padding-2xl $padding-sm $padding-xl;
   opacity: 0;
   pointer-events: none;
 }
@@ -1558,7 +1558,7 @@ header {
       content: "";
       display: block;
       height: 8px;
-      margin-top: -6px;
+      margin-top: -$padding-sm;
       position: absolute;
       transform: rotate(135deg);
       right: 58%;
@@ -1596,7 +1596,7 @@ header {
   transform: none;
   bottom: 10%;
   background: #313433;
-  padding: 10px 30px;
+  padding: $padding-md $padding-4xl;
   align-items: center;
   justify-content: space-between;
   color: $white-100;
@@ -1615,7 +1615,7 @@ header {
 #complementForm {
   position: fixed;
   bottom: 0;
-  padding: 10px 30px;
+  padding: $padding-md $padding-4xl;
   left: 0;
   z-index: 999999999;
   display: none;

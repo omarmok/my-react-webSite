@@ -1,7 +1,7 @@
 @use '../helpers' as *;
 .newDSCases {
     .secondary-cat .secocontainer {
-        gap: 5px;
+        gap: $padding-xs;
         justify-content: start;
     }
 
@@ -18,7 +18,7 @@
         border-radius: 10px;
         background: #f4f6f8;
         border: 1px solid #c7d2dc;
-        padding: 5px;
+        padding: $padding-xs;
     }
 
     .secondary-cat .secocontainer .content p {
@@ -89,7 +89,7 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                padding: 5px;
+                padding: $padding-xs;
                 border-radius: 3px;
 
                 label {
@@ -135,11 +135,11 @@
             gap: $gap-10;
 
             .actionIcon {
-                padding: 5px;
+                padding: $padding-xs;
 
                 span {
                     display: none;
-                    margin-right: 5px;
+                    margin-right: $padding-xs;
                 }
 
                 img {
@@ -225,7 +225,7 @@
 
 .newDSCases {
     .closedCaseAlert {
-        margin: 15px;
+        margin: $padding-xl;
         background: #ffedf1;
         padding: $padding-xl;
         position: relative;
@@ -277,8 +277,8 @@
                 height: 360px;
                 overflow-y: scroll;
                 font-weight: 600;
-                margin-top: 10px;
-                padding: 10px;
+                margin-top: $padding-md;
+                padding: $padding-md;
             }
         }
 

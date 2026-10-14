@@ -5,7 +5,7 @@
         margin: 0 auto;
         margin-top: $margin-2xl;
         width: 100%;
-        gap: 9px;
+        gap: $padding-md;
         display: flex;
         flex-wrap: wrap;
 
@@ -69,7 +69,7 @@
                     padding: $padding-6;
                     min-width: 80px;
                     border: 1px solid #e9f5f0;
-                    margin: 0 0 10px 10px;
+                    margin: 0 0 $padding-md $padding-md;
 
                     span {
                         text-align: center;
@@ -122,7 +122,7 @@
                     margin: 0;
                     border: 1px solid #e8ecf2;
                     background: $Neutral-50;
-                    padding: 7px 10px;
+                    padding: $padding-sm $padding-md;
                     line-height: 1.8;
                     border-radius: $radius-sm;
                     white-space: nowrap;
@@ -143,7 +143,7 @@
                         flex-direction: column;
                         height: auto;
                         width: 60%;
-                        padding: 5px 10px;
+                        padding: $padding-xs $padding-md;
                         font-size: 16px;
                     }
                 }
@@ -194,7 +194,7 @@
             padding: 0;
 
             .rightDetails {
-                padding: 10px;
+                padding: $padding-md;
                 border-radius: $radius-md;
                 border: 1px solid #C6C6DC;
                 position: -webkit-sticky;
@@ -203,7 +203,7 @@
                 z-index: 1020;
 
                 .top {
-                    padding: 14px;
+                    padding: $padding-lg;
                     border: 1px solid #C0D6ED;
                     background: rgba(241, 247, 255, 0.4);
                     border-radius: $radius-md;
@@ -242,9 +242,9 @@
                         .block {
                             display: flex;
                             align-items: center;
-                            gap: 5px;
+                            gap: $padding-xs;
                             border-bottom: 1px solid #e2e9ef;
-                            padding: 10px 0;
+                            padding: $padding-md 0;
 
                             svg {
                                 height: 16px;

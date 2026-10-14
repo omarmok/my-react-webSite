@@ -17,14 +17,14 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0 7px 10px rgb(9 30 66 / 1%);
-    margin-bottom: 15px;
+    margin-bottom: $padding-xl;
     border-radius: $radius-sm;
     .uploadedimage {
       gap: $gap-2xl;
       img {
         height: 100px;
         background: $baige;
-        padding: 5px;
+        padding: $padding-xs;
         border-radius: $radius-md;
         box-shadow: 0 7px 10px rgb(9 30 66 / 9%);
       }
@@ -44,7 +44,7 @@
         border-radius: 50%;
         margin: 0;
         background: $white-100;
-        padding: 5px;
+        padding: $padding-xs;
         box-shadow: none;
       }
     }

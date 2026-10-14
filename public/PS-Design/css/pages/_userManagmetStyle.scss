@@ -1,6 +1,6 @@
 @use '../helpers' as *;
 .userManagmetStyle {
-  padding-bottom: 50px;
+  padding-bottom: $padding-6xl;
 
   &--card {
       margin-bottom: $margin-3xl;
@@ -21,7 +21,7 @@
       &--rolelist {
           ul {
               li {
-                  padding: 5px $padding-2xl;
+                  padding: $padding-xs $padding-2xl;
                   position: relative;
                   color: #78829d;
                   @include meduimfont-reg-14;
@@ -161,7 +161,7 @@
         border: none;
 
         .accordion-body {
-            padding-right: 15px !important;
+            padding-right: $padding-xl !important;
             padding-left: 0 !important;
             padding-top: 1rem !important;
             padding-bottom: 1rem !important;
@@ -185,7 +185,7 @@
                     border: 1px solid #f0f4fa;
                     border-radius: $radius-xs;
                     min-width: 130px;
-                    padding: 10px;
+                    padding: $padding-md;
                     align-items: center;
                     display: flex;
                     justify-content: center;
@@ -317,7 +317,7 @@
                 margin-bottom: 0;
                 display: flex;
                 align-items: center;
-                gap: 3px;
+                gap: $padding-xxs;
             }
 
             &--listofrole {
@@ -328,8 +328,8 @@
                     border-bottom: 1px dashed #cdcdcd;
                     background: var(--white-100, $white-100);
                     width: 33%;
-                    padding: 10px;
-                    margin-right: 0px;
+                    padding: $padding-md;
+                    margin-right: $padding-none;
                     display: flex;
 
                     .form-check-input {
@@ -368,7 +368,7 @@
                 .badge {
                     @include font-sm-500;
                     background: #e5e5e5;
-                    padding: 10px $padding-2xl;
+                    padding: $padding-md $padding-2xl;
                     color: #4a4a4a;
                     border: 1px solid #c9c9c9;
                 }
@@ -403,7 +403,7 @@
           align-items: center;
           justify-content: center;
           border-radius: 50%;
-          margin-bottom: 10px;
+          margin-bottom: $padding-md;
 
           svg {
               width: 44px;

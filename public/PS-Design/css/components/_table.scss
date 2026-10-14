@@ -3,13 +3,13 @@
 .table__search {
     background: $white-100;
     box-shadow: rgb(239 241 249) 0px 2px 4px 0px;
-    margin: 15px;
+    margin: $padding-xl;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     padding: $padding-14;
-    margin-bottom: 30px;
+    margin-bottom: $padding-4xl;
 
     &--title {
         @include meduimfont;
@@ -17,7 +17,7 @@
         background: #f8faff;
         width: 100%;
         padding: $padding-14;
-        margin-bottom: 15px;
+        margin-bottom: $padding-xl;
     }
 
     &--body {
@@ -29,7 +29,7 @@
             justify-content: space-between;
 
             .form-group {
-                margin-left: 10px;
+                margin-left: $padding-md;
             }
         }
 
@@ -37,14 +37,14 @@
             display: flex;
 
             .btn {
-                margin-left: 5px;
+                margin-left: $padding-xs;
 
                 // Autonomous Maintainer pass (Icon Size Migration
                 // follow-up): 20px matched $moi-icon-sizes' `md` (1.25rem)
                 // exactly — swapped literal for the map reference.
                 img {
                     height: map.get($moi-icon-sizes, md);
-                    margin-left: 5px;
+                    margin-left: $padding-xs;
                 }
 
                 &:hover {
@@ -138,15 +138,28 @@
             }
         }
 
+        // Figma «table-Cell» (203:5411): 40px row, inline padding 16,
+        // text 14, border Gray-100, white background; row hover
+        // (table-background-row-hovered = Gray-100) and selected
+        // (table-background-row-select = Primary-50).
         tr {
+            &:hover > td {
+                background-color: $Neutral-100;
+            }
+
+            &.selected > td,
+            &[aria-selected="true"] > td {
+                background-color: $Primary-50;
+            }
+
             td {
                 text-align: center;
                 white-space: inherit;
                 vertical-align: middle;
-                padding: 5px;
-                border: 1px solid #f6f5f1;
-                //background: #f5f5f6;
-                font-size: typography-size(map.get($font-sizes, lg));
+                padding: $padding-md $padding-xl;
+                border: 1px solid $Neutral-100;
+                background-color: $white-100;
+                font-size: typography-size(map.get($font-sizes, md));
                 line-height: typography-line-height(1.45);
                 //white-space: nowrap;
                 gap: 0;
@@ -237,12 +250,20 @@
             @include meduimfont-reg-14;
         }
 
+        // Figma «pagination-number»: radius-sm (4), states Default / active /
+        // disabled / focus. Code tokens: $radius-xs = 4.
         .page-link {
-            color: #000000;
+            color: $Neutral-950;
+            background-color: $white-100;
             border: none;
-            border-radius: 5px;
+            border-radius: $radius-xs;
             font-weight: 600;
             cursor: pointer;
+
+            &:focus-visible {
+                outline: 0;
+                box-shadow: inset 0 0 0 2px $Primary-600; // Figma Border/border-primary, 2px
+            }
 
             // Icon Size Migration: 24px height matched $moi-icon-sizes'
             // `lg` (1.5rem) exactly — swapped literal for the map
@@ -258,9 +279,16 @@
 
         .active > .page-link,
         .page-link.active {
-            background: var(--theme-primary) !important;
+            background: $Primary-500 !important; // Figma state=active: Primary-500
             color: $white-100;
-            // box-shadow: 0px 2px 4px #bfb9b9;
+        }
+
+        .disabled > .page-link,
+        .page-link.disabled,
+        .page-link[aria-disabled="true"] {
+            background: $Neutral-200; // Figma Global/background-disabled
+            color: $Neutral-400; // Figma Global/text-default-disabled
+            cursor: not-allowed;
         }
     }
 
@@ -281,10 +309,10 @@
             font-weight: 500;
             line-height: typography-line-height(1.4);
             height: 40px;
-            padding: 10px;
+            padding: $padding-md;
             border-radius: 5px;
             border: 1px solid #bababa;
-            margin: 0 5px;
+            margin: 0 $padding-xs;
         }
 
         gap: $gap-10; // Autonomous Maintainer pass: exact token match (10px)
@@ -292,7 +320,7 @@
 
         .pages_number {
             border-left: 1px solid #e9e9e9;
-            padding-left: 10px;
+            padding-left: $padding-md;
         }
 
         .goto {
@@ -317,7 +345,7 @@
 }
 
 .tableSeetings {
-    margin-top: 25px;
+    margin-top: $padding-3xl;
     padding: $padding-14;
     display: flex;
     justify-content: space-between;
@@ -365,7 +393,7 @@
         }
 
         .progress {
-            margin-top: 5px;
+            margin-top: $padding-xs;
             width: 100%;
         }
     }
@@ -466,7 +494,7 @@
     flex-direction: column;
     align-items: center;
     background: $white-100;
-    padding-bottom: 15px;
+    padding-bottom: $padding-xl;
 
     h5 {
         @include meduimfont;
@@ -475,7 +503,7 @@
     img {
         width: auto !important;
         height: 140px !important;
-        margin-bottom: 10px !important;
+        margin-bottom: $padding-md !important;
     }
 }
 
@@ -485,7 +513,7 @@
     .d-flex {
         display: flex;
         gap: $gap-10; // Autonomous Maintainer pass: exact token match (10px)
-        margin-bottom: 10px;
+        margin-bottom: $padding-md;
         flex: 1 1 0px;
     }
 }
@@ -592,9 +620,9 @@ td.ellipsistd {
         position: absolute;
         bottom: 150%;
         left: 50%;
-        margin-bottom: 5px;
-        margin-left: -80px;
-        padding: 7px;
+        margin-bottom: $padding-xs;
+        margin-left: -$padding-8xl;
+        padding: $padding-sm;
         width: 270px;
         border-radius: 5px;
         background-color: #000000;
@@ -633,7 +661,7 @@ td.ellipsistd {
 .moreStutus {
     width: 24px;
     height: 24px;
-    padding: 10px;
+    padding: $padding-md;
     background: #e2f3ff;
     border-radius: 50%;
     color: #026cb9;
@@ -642,7 +670,7 @@ td.ellipsistd {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 10px;
+    margin-right: $padding-md;
 }
 
 .actiontd {
@@ -676,7 +704,7 @@ td.ellipsistd {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 3px;
+    padding: $padding-xxs;
     box-shadow: 0 0 12px 0 rgb(218 218 218);
 
     // Autonomous Maintainer pass (Icon Size Migration follow-up): 24px
@@ -694,7 +722,7 @@ td.ellipsistd {
             width: 24px;
             height: 24px;
             fill: white;
-            margin-left: 5px;
+            margin-left: $padding-xs;
         }
     }
 }

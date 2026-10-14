@@ -13,7 +13,7 @@
       width: 80px;
       height: 80px;
       justify-content: center;
-      margin: 0 10px;
+      margin: 0 $padding-md;
       @include boldfont;
 
       &.active {

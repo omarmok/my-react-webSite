@@ -1,7 +1,7 @@
 @use '../helpers' as *;
 .Sessionexpired {
   background: #f8f9ff;
-  padding: 14px;
+  padding: $padding-lg;
   display: flex;
   flex-direction: column;
   align-items: center;

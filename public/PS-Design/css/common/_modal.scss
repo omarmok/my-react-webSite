@@ -32,10 +32,14 @@ $modal-danger-close-icon-path: "../../images/icon-x-circle.svg" !default;
 .modal {
     z-index: $modal-z-index;
 
+    // Figma «Modal» (Composable): content padding 20, radius 10 (nearest
+    // radius token: $radius-md 8), header Gray-100 / title Gray-900,
+    // body max-height 800 with inner scroll, divider above the footer.
     .modal-content {
-        padding: $padding-14;
+        padding: $padding-2xl;
         border: $Radius-none;
-        gap: $gap-14;
+        border-radius: $radius-md;
+        gap: $gap-xs;
 
         .modal-info-header {
             border-radius: 0;
@@ -72,17 +76,17 @@ $modal-danger-close-icon-path: "../../images/icon-x-circle.svg" !default;
             // on a padding property) — same 16px value, reused the
             // semantically-correct $padding-xl instead.
             padding: $padding-xl;
-            color: $Neutral-800;
+            color: $Neutral-900;
             border: none;
 
             .modal-title,
             h5 {
-                color: $Neutral-800;
+                color: $Neutral-900;
                 @include font-xl-600;
             }
 
             svg {
-                fill: $Neutral-800;
+                fill: $Neutral-900;
             }
 
             .close {
@@ -106,6 +110,11 @@ $modal-danger-close-icon-path: "../../images/icon-x-circle.svg" !default;
         }
 
         .modal-body {
+            padding: $padding-2xl;
+            background: $Neutral-25;
+            max-height: 800px; // Figma modal-body max-height
+            overflow-y: auto;
+
             .wanted-to {
                 display: flex;
                 flex-direction: column;
@@ -125,7 +134,7 @@ $modal-danger-close-icon-path: "../../images/icon-x-circle.svg" !default;
                 // Autonomous Maintainer pass: 1.5rem (24px) matched
                 // $padding-3xl exactly — the other 3 values (10px, 5px,
                 // 5px) have no exact token match, kept literal.
-                padding: 10px $padding-3xl 5px 5px;
+                padding: $padding-md $padding-3xl $padding-xs $padding-xs;
                 display: flex;
                 gap: $gap-10;
                 align-items: center;
@@ -134,7 +143,9 @@ $modal-danger-close-icon-path: "../../images/icon-x-circle.svg" !default;
     }
 
     .modal-footer {
-        padding: $padding-12 $padding-0 $padding-0 $padding-0;
+        padding: $padding-lg $padding-0 $padding-0 $padding-0;
+        gap: $gap-xl;
+        border-top: 1px solid $Neutral-200;
     }
 }
 

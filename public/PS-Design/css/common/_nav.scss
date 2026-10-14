@@ -14,14 +14,14 @@ nav {
 
 .nav-link {
     background: $Neutral-100 !important;
-    color: $Neutral-800 !important;
+    color: $Neutral-900 !important; // Figma tabs-tab: Gray-900
     border: none !important;
-    border-radius: $radius-lg $radius-lg $Radius-none $Radius-none !important;
+    border-radius: $radius-md $radius-md $Radius-none $Radius-none !important; // Figma: radius-md top corners
     display: flex;
     align-items: center;
     position: relative;
-    gap: $gap-lg;
-    padding: $padding-lg !important;
+    gap: $gap-md; // Figma tabs-tab: gap 8
+    padding: $padding-xl !important; // Figma tabs-tab: padding-xl (16)
     cursor: pointer !important;
     border-bottom: 0 !important;
     display: flex;
@@ -32,9 +32,9 @@ nav {
     width: 100%;
 
     .new-total {
-        background: $Neutral-25 !important;
+        background: rgba($Neutral-25, 0.8) !important; // Figma number: #fcfcfd @ 80%
         color: $Neutral-900 !important;
-        padding: $padding-sm;
+        padding: $padding-xxs $padding-md; // Figma number: 2 / 8
         border-radius: $Radius-100;
         min-width: 50px;
     }
@@ -53,11 +53,11 @@ nav {
 
     .nav-link.active {
         background: $Primary-800 !important;
-        color: $white-100 !important;
+        color: $Neutral-25 !important; // Figma active: Gray-25
 
         .new-total {
-            background: rgb(255 255 255 / 36%) !important;
-            color: $white-100 !important;
+            background: rgba($white-100, 0.2) !important; // Figma active number: white @ 20%
+            color: $Neutral-25 !important;
         }
 
         img {
@@ -105,9 +105,11 @@ nav {
 .nav-tabs .nav-link.active {
   background: $Primary-800 !important;
   border: 1px solid $Primary-800 !important ;
-  color: $white-100 !important;
+  color: $Neutral-25 !important; // Figma active: Gray-25
 }
 
+// Figma tabs-tab State=focus: 2px Border/border-primary.
 .nav-link:focus-visible {
-  box-shadow: 0 0 0 0.25rem rgb(0 0 0 / 1%);
+  outline: 0;
+  box-shadow: inset 0 0 0 2px $Primary-600;
 }

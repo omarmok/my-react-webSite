@@ -449,6 +449,8 @@ $moi-tag-statuses: (
 
 .moi-tag {
   @include _moi-tag-modern-base;
+  // Figma «Tag» Rounded=False: radius-sm (4) — code token $radius-xs.
+  border-radius: $radius-xs;
   @include _moi-tag-typography(default);
   @include _moi-tag-theme(
     $Neutral-600,
@@ -512,12 +514,14 @@ $moi-tag-statuses: (
   }
 
   .moi-tag--rounded[data-status="#{$status}"] {
-    @include _moi-tag-rounded;
+    // Figma «Tag» Rounded=True: radius-full (pill).
+    border-radius: map.get($moi-tag-radius, pill);
   }
 }
 
+// Figma «Tag» Rounded=True: radius-full (pill).
 .moi-tag[data-shape="rounded"] {
-  @include _moi-tag-rounded;
+  border-radius: map.get($moi-tag-radius, pill);
 }
 
 // =============================================================================

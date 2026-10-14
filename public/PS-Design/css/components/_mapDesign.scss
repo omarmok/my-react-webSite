@@ -8,7 +8,7 @@
   z-index: 9;
 
   &--title {
-    padding: 10px !important;
+    padding: $padding-md !important;
 
     img {
       filter: brightness(0) invert(1);
@@ -35,7 +35,7 @@
     }
 
     .dropdown-toggle::after {
-      margin-right: 10px;
+      margin-right: $padding-md;
     }
   }
 
@@ -67,7 +67,7 @@
         background: $white-100;
         border-radius: 5px;
         box-shadow: 0 8px 20px 0 #e2e8f0;
-        padding: 10px;
+        padding: $padding-md;
         margin: 0;
         white-space: nowrap;
         line-height: 1;
@@ -163,7 +163,7 @@
       z-index: 99;
       width: 50px;
       height: 50px !important;
-      padding: 5px !important;
+      padding: $padding-xs !important;
       border-radius: 50%;
       box-shadow:
         -10px -10px 30px 0 $white-100,
@@ -184,7 +184,7 @@
     background: $white-100;
     position: relative;
     z-index: 9999;
-    padding: 10px;
+    padding: $padding-md;
     border-radius: $radius-md;
     top: 0;
   }
@@ -196,7 +196,7 @@
 
       .block {
         width: 48.8% !important;
-        padding: 10px !important;
+        padding: $padding-md !important;
 
         span {
           width: 100%;

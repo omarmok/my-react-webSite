@@ -1,7 +1,7 @@
 @use '../helpers' as *;
 .violitionStatistics {
     .chart-wrapper {
-        margin-top: 10px;
+        margin-top: $padding-md;
         display: flex;
         gap: $gap-10;
         align-items: flex-start;
@@ -40,13 +40,13 @@
             .legend-item {
                 display: flex;
                 align-items: center;
-                margin-bottom: 10px;
+                margin-bottom: $padding-md;
             }
 
             .legend-color {
                 width: 20px;
                 height: 20px;
-                margin-left: 10px;
+                margin-left: $padding-md;
                 border-radius: 3px;
             }
         }

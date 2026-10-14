@@ -22,7 +22,7 @@
     img {
       width: 90px;
       height: 90px;
-      padding: 10px;
+      padding: $padding-md;
       border-radius: 50%;
       object-fit: cover;
     }
@@ -48,7 +48,7 @@
       flex-direction: column;
       color: #6a6868;
       border-bottom: 1px solid #eff1f4;
-      padding: 10px;
+      padding: $padding-md;
       @include smallfont-reg-10;
 
       span {
@@ -74,14 +74,14 @@
       border: none;
       // margin: 0 10px;
       border-radius: 10px;
-      padding-bottom: 30px;
+      padding-bottom: $padding-4xl;
 
       &__top {
         display: flex;
         align-items: center;
         justify-content: space-between;
         background: $baige;
-        padding: 10px;
+        padding: $padding-md;
         border-radius: $radius-sm;
         &--right {
           display: flex;
@@ -89,7 +89,7 @@
 
           svg {
             height: 34px;
-            margin-left: 10px;
+            margin-left: $padding-md;
             fill: #000;
           }
 
@@ -117,12 +117,12 @@
         gap: $gap-10;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 0px;
-        margin: 10px 0;
+        padding: $padding-none;
+        margin: $padding-md 0;
 
         a {
           background: $white-100;
-          padding: 5px;
+          padding: $padding-xs;
           box-shadow: 0px 8px 30px rgb(181 181 181 / 8%);
           width: 47%;
           height: 80px;
@@ -146,7 +146,7 @@
 
           img {
             height: 24px;
-            margin-bottom: 10px;
+            margin-bottom: $padding-md;
           }
 
           &:hover {
@@ -167,10 +167,10 @@
         width: 100%;
         text-align: center;
         justify-content: center;
-        padding: 10px;
+        padding: $padding-md;
 
         img {
-          margin-left: 10px;
+          margin-left: $padding-md;
         }
       }
     }
@@ -191,7 +191,7 @@
       align-items: center;
       background: $white-100;
       padding: 0;
-      margin-bottom: 5px;
+      margin-bottom: $padding-xs;
       border-radius: 5px;
       color: #000;
       justify-content: space-between;
@@ -251,7 +251,7 @@
 
         .maincontent {
           padding: 0 $padding-md;
-          padding-bottom: 10px;
+          padding-bottom: $padding-md;
         }
 
         .mailtitle {
@@ -267,7 +267,7 @@
         .arrowDetails {
           background: #f8f9fa;
           height: 100%;
-          padding: $padding-2xl 5px;
+          padding: $padding-2xl $padding-xs;
           cursor: pointer;
 
           img {
@@ -288,5 +288,5 @@
 }
 
 .homePageContainer {
-  margin-top: 110px;
+  margin-top: $padding-9xl;
 }

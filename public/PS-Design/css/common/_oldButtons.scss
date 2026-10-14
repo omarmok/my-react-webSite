@@ -205,7 +205,7 @@
 
         svg {
             fill: currentColor;
-            margin-left: 5px;
+            margin-left: $padding-xs;
         }
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
@@ -237,7 +237,7 @@
 
         svg {
             fill: currentColor;
-            margin-left: 5px;
+            margin-left: $padding-xs;
         }
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
@@ -269,7 +269,7 @@
 
         svg {
             fill: currentColor;
-            margin-left: 5px;
+            margin-left: $padding-xs;
         }
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
@@ -301,7 +301,7 @@
 
         svg {
             fill: currentColor;
-            margin-left: 5px;
+            margin-left: $padding-xs;
         }
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
@@ -839,7 +839,7 @@
         height: auto;
 
         svg {
-            margin-left: 5px;
+            margin-left: $padding-xs;
 
             path {
                 stroke: currentColor !important;

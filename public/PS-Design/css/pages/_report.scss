@@ -1,7 +1,7 @@
 @use '../helpers' as *;
 .creatseach {
-  padding: 10px;
-  margin: 15px;
+  padding: $padding-md;
+  margin: $padding-xl;
 
   &__searchContainer {
     display: flex;
@@ -45,7 +45,7 @@
 
 .success-icon {
   background: $white-100;
-  padding: 30px;
+  padding: $padding-4xl;
   border-radius: 50%;
   box-shadow: #efefef 0 3px 15px 4px;
   width: 100px;
@@ -58,14 +58,14 @@
 .reportSummarBlock {
   padding: $padding-14;
   border-radius: 10px;
-  margin: 5px;
+  margin: $padding-xs;
   // background: #fafbff;
   width: 100%;
   border: 1px solid #e6e6e6;
 }
 .reportSummarBlock img {
   height: 25px;
-  margin-left: 5px;
+  margin-left: $padding-xs;
 }
 
 .reportSummarBlock .btn img {
@@ -73,5 +73,5 @@
 }
 
 .reportSummarBlock label {
-  margin-bottom: 0px !important;
+  margin-bottom: $padding-none !important;
 }

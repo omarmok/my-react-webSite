@@ -21,7 +21,7 @@
         }
 
         &--body {
-            padding-top: 15px;
+            padding-top: $padding-xl;
             display: flex;
             flex-wrap: wrap;
             gap: $gap-10;
@@ -29,7 +29,7 @@
 
             .block {
                 display: flex;
-                padding: 10px;
+                padding: $padding-md;
                 width: 49%;
                 flex-direction: column;
                 border-radius: $Radius-4;

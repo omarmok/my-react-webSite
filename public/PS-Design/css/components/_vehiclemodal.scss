@@ -44,7 +44,7 @@
         box-shadow: 0px 8px 20px #f1f1f1;
         background: white;
         border-radius: 5px;
-        gap: 0px;
+        gap: $padding-none;
 
         td {
           text-align: center;
@@ -56,14 +56,14 @@
           span {
             background: $Primary-500;
             color: $white-100;
-            padding: 10px;
+            padding: $padding-md;
             border-radius: 5px;
           }
 
           .danger {
             background: red;
             color: $white-100;
-            padding: 10px;
+            padding: $padding-md;
             border-radius: 5px;
           }
         }

@@ -22,7 +22,7 @@
 
     &__title {
       img {
-        margin-left: 10px;
+        margin-left: $padding-md;
         height: 60px;
       }
 
@@ -75,7 +75,7 @@
 
     .form-control {
       border-radius: $radius-xs;
-      padding-right: 18px;
+      padding-right: $padding-xl;
     }
     /* =========================
        Password Toggle (FULL)
@@ -86,7 +86,7 @@
       // Bootstrap input داخل الـ password wrapper
       input.form-control {
         width: 100%;
-        padding: $padding-lg 45px $padding-lg $padding-lg;
+        padding: $padding-lg $padding-6xl $padding-lg $padding-lg;
         font-size: 14px;
       }
 
@@ -163,7 +163,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 5px;
+        margin: $padding-xs;
 
         &:hover {
           background: $Primary-500;
@@ -173,7 +173,7 @@
     }
 
     .circle-exterior {
-      margin-bottom: 30px;
+      margin-bottom: $padding-4xl;
       position: relative;
       animation-name: float;
       animation-duration: 2s;
@@ -208,7 +208,7 @@
   .Fingerimage {
     width: 100px !important;
     height: 100px !important;
-    margin-top: 10px !important;
+    margin-top: $padding-md !important;
   }
 
   .reloadbtn {
@@ -223,7 +223,7 @@
   }
 
   .loginBody__right__area .ordiv .titlebettween {
-    padding: 10px;
+    padding: $padding-md;
     border-radius: $radius-xs;
     // Autonomous Migration pass note: #a38664 left unchanged -- matches
     // $Brown-100 by name, but _variables.scss defines $Brown-100 twice with

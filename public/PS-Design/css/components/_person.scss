@@ -1,6 +1,6 @@
 @use '../helpers' as *;
 .person {
-  margin: 15px;
+  margin: $padding-xl;
   &__image {
     background: #f4f8fa;
     padding: $padding-14;
@@ -21,10 +21,10 @@
         color: #000;
         border: 1px dashed #bbc7dc;
         border-bottom: none;
-        margin: 0 5px;
+        margin: 0 $padding-xs;
         @include boldfont;
         border-radius: $radius-sm $radius-sm $radius-none $radius-none;
-        padding: 10px $padding-2xl;
+        padding: $padding-md $padding-2xl;
         img {
           filter: grayscale(1);
           height: 24px;
@@ -68,7 +68,7 @@
   .createViolitionContainer--creatviolition--person {
     display: flex;
     flex-direction: row;
-    padding: 5px;
+    padding: $padding-xs;
     margin: 0;
   }
 
@@ -76,7 +76,7 @@
     padding: 0;
     margin-top: 0;
     .person__image {
-      padding: 5px;
+      padding: $padding-xs;
       img {
         height: 80px;
       }

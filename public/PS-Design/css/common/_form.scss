@@ -51,7 +51,7 @@ $form-control-sizes: (
     icon-token: sm,
   ),
   md: (
-    height: 40px,
+    height: $padding-5xl,
     padding-inline: $padding-xl,
     font-size: map.get($font-sizes, lg),
     line-height: 1.45,
@@ -60,7 +60,7 @@ $form-control-sizes: (
   ),
   lg: (
     height: $form-control-height,
-    padding-inline: 18px,
+    padding-inline: $padding-xl,
     // Legacy icon offset: no exact DS spacing token
     font-size: 1.125rem,
     // DS exception: no exact typography token between lg and xl
@@ -69,7 +69,7 @@ $form-control-sizes: (
     icon-token: lg,
   ),
   xl: (
-    height: 48px,
+    height: $padding-6xl,
     padding-inline: $padding-2xl,
     font-size: map.get($font-sizes, xl),
     line-height: 1.55,
@@ -154,7 +154,7 @@ $form-control-sizes: (
 
   @include _form-control-status(
     ".form-control:is(.is-ok, .is-valid), .was-validated .form-control:valid",
-    #067647 // Figma «Border/border-success»; no Success token exists in SCSS
+    $Success-700 // Figma «Border/border-success» (DGA success-700)
   );
 }
 
@@ -286,12 +286,12 @@ $form-control-sizes: (
 
 @mixin login-form-control {
   border-radius: $radius-xs;
-  padding-right: 18px; // Legacy icon offset: no exact DS spacing token
+  padding-right: $padding-xl; // Legacy icon offset: no exact DS spacing token
 }
 
 @mixin login-password-form-control {
   width: 100%;
-  padding: $padding-lg 45px $padding-lg $padding-lg; // Legacy icon offset: no exact DS spacing token
+  padding: $padding-lg $padding-6xl $padding-lg $padding-lg; // Legacy icon offset: no exact DS spacing token
   @include meduimfont-14;
 }
 
@@ -301,7 +301,7 @@ $form-control-sizes: (
   height: 38px;
   padding-block: $padding-md;
   padding-inline-start: $padding-lg;
-  padding-inline-end: 38px; // Legacy icon offset: no exact DS spacing token
+  padding-inline-end: $padding-5xl; // Legacy icon offset: no exact DS spacing token
   color: $Neutral-900;
   background-color: $white-100;
   border-color: $Neutral-300;

@@ -11,7 +11,7 @@
         background: $Brown-500;
 
         li {
-          padding: 5px;
+          padding: $padding-xs;
           border-bottom: 1px solid #9c642c;
           background: transparent;
 
@@ -41,7 +41,7 @@
           background: $Primary-500;
 
           li {
-            padding: 5px;
+            padding: $padding-xs;
             border-bottom: 1px solid #0ea587;
             background: transparent;
 

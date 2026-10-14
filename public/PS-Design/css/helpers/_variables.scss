@@ -22,8 +22,8 @@ $Neutral-500: #6c737f;
 $Neutral-600: #4d5761;
 $Neutral-700: #384250;
 $Neutral-800: #1f2a37;
-$Neutral-900: #252525;
-$Neutral-950: #0f0f0f;
+$Neutral-900: #111927; // Platforms Code (DGA) gray-900 — was #252525
+$Neutral-950: #0d121c; // Platforms Code (DGA) gray-950 — was #0f0f0f
 
 $Gold-25: #ffffef;
 $Gold-50: #fffef2;
@@ -77,7 +77,7 @@ $Brown-800: #6d5638;
 $Brown-900: #53422b;
 $Brown-950: #3f311e;
 
-$Info-25: #eff8ff;
+$Info-25: #f5faff; // Platforms Code (DGA) info-25 — was #eff8ff (same as Info-50)
 $Info-50: #eff8ff;
 $Info-100: #d1e9ff;
 $Info-200: #b2ddff;
@@ -115,6 +115,20 @@ $Warning-700: #b54708;
 $Warning-800: #93370d;
 $Warning-900: #7a2e0e;
 $Warning-950: #4e1d09;
+
+// Success — Platforms Code (DGA) success scale (added 2026-10-14).
+$Success-25: #f6fef9;
+$Success-50: #ecfdf3;
+$Success-100: #dcfae6;
+$Success-200: #abefc6;
+$Success-300: #75e0a7;
+$Success-400: #47cd89;
+$Success-500: #17b26a;
+$Success-600: #079455;
+$Success-700: #067647;
+$Success-800: #085d3a;
+$Success-900: #074d31;
+$Success-950: #053321;
 
 
 $padding-none: 0;

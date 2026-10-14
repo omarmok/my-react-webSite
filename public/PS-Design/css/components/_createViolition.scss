@@ -1,7 +1,7 @@
 
 @use '../helpers' as *;
 .createViolitionContainer {
-  margin-bottom: 30px;
+  margin-bottom: $padding-4xl;
 
   &--creatviolition--Inquire {
       background: transparent;
@@ -14,7 +14,7 @@
       h3 {
           @include meduimfont;
           border-bottom: 1px solid #f4f4f4;
-          padding-bottom: 10px;
+          padding-bottom: $padding-md;
           color: $darkBlue;
           width: 100%;
           background: #eef5ff;
@@ -36,7 +36,7 @@
 
       h3 {
           border-bottom: 1px solid #f4f4f4;
-          padding-bottom: 10px;
+          padding-bottom: $padding-md;
 
 
           img {
@@ -46,7 +46,7 @@
       }
 
       .details {
-          gap: 15px;
+          gap: $padding-xl;
           flex-wrap: wrap;
           width: 100%;
           justify-content: space-between;
@@ -82,7 +82,7 @@
           align-items: center;
           width: 100%;
           justify-content: center;
-          padding: 10px;
+          padding: $padding-md;
           border-radius: 5px;
 
           h4 {
@@ -96,7 +96,7 @@
           background: $white-100;
           padding: $padding-14;
           border-radius: 5px;
-          margin-top: 10px;
+          margin-top: $padding-md;
 
           .no-data {
               img {
@@ -110,7 +110,7 @@
               h5 {
                   @include smallfont;
                   text-align: center;
-                  margin-top: 10px;
+                  margin-top: $padding-md;
               }
           }
 
@@ -118,7 +118,7 @@
               h4 {
                   @include smallfont;
                   border-bottom: 1px solid #f4f4f4;
-                  padding-bottom: 10px;
+                  padding-bottom: $padding-md;
                   color: $darkBlue;
               }
 
@@ -140,7 +140,7 @@
                   gap: 0;
 
                   .violiters__image {
-                      padding: 10px;
+                      padding: $padding-md;
                       position: relative;
 
                       .wanted {
@@ -174,10 +174,10 @@
               .violitionCreationDetails {
                   .block {
                       align-items: flex-start;
-                      padding: 5px;
+                      padding: $padding-xs;
                       @include smallfont;
                       color: #000;
-                      margin-top: 5px;
+                      margin-top: $padding-xs;
 
                       span {
                           @include smallfont-reg-10;
@@ -189,8 +189,8 @@
                           align-items: center;
                           background: #fdfdfd !important;
                           width: 100%;
-                          padding: 5px;
-                          margin-top: 5px;
+                          padding: $padding-xs;
+                          margin-top: $padding-xs;
                           justify-content: space-between;
                           border: 1px solid #eeeff5;
 
@@ -263,17 +263,17 @@
   .vechicle__block {
       box-shadow: 0px 8px 20px #f1f1f1;
       background: white;
-      padding: 10px;
+      padding: $padding-md;
       border-radius: 5px;
       display: flex;
       gap: $gap-2;
       border: 1px solid #f7f7f7;
-      margin: 15px 0;
+      margin: $padding-xl 0;
 
       &--number {
           display: flex;
           background: #FAFAFA;
-          padding: 10px;
+          padding: $padding-md;
 
           .form-check {
               display: flex;
@@ -284,7 +284,7 @@
 
               .form-check-input {
                   margin: 0 auto;
-                  margin-bottom: 10px !important;
+                  margin-bottom: $padding-md !important;
               }
 
               .form-check-label {

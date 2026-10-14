@@ -134,7 +134,7 @@
   display: flex;
   align-items: center;
   padding: 0;
-  margin: 15px 0;
+  margin: $padding-xl 0;
   background: $white-100;
   padding: $padding-14;
 
@@ -148,12 +148,12 @@
   background: #fafbff;
   padding: $padding-14;
   box-shadow: rgb(239, 241, 249) 0px 2px 4px 0px;
-  margin: 15px;
+  margin: $padding-xl;
   padding-top: 0;
 
   .content {
     background: $white-100;
-    padding: 15px 0;
+    padding: $padding-xl 0;
     display: flex;
     flex-wrap: wrap;
 
@@ -164,7 +164,7 @@
 
       .block {
         background: #fafbff;
-        padding: 10px;
+        padding: $padding-md;
         border: 1px solid #efefef;
         border-radius: 5px;
 
@@ -177,14 +177,14 @@
         .val {
           @include meduimfont;
           display: flex;
-          gap: 5px;
-          margin-top: 5px;
+          gap: $padding-xs;
+          margin-top: $padding-xs;
 
           .bg-primary {
             color: rgb(31, 31, 31);
             border-radius: $radius-xs;
             background: rgb(255 255 255) !important;
-            padding: 5px 10px !important;
+            padding: $padding-xs $padding-md !important;
             border: 1px solid #e0e0e0;
           }
         }
@@ -210,8 +210,8 @@
 
   .number {
     background: $Brown-500;
-    padding: 5px;
-    margin-left: 5px;
+    padding: $padding-xs;
+    margin-left: $padding-xs;
     border-radius: 50%;
     display: flex;
     height: 20px;
@@ -256,20 +256,20 @@
   color: $darkBlue;
   align-items: center;
   background: #d5dae5;
-  padding: 5px 0;
+  padding: $padding-xs 0;
 
   span {
     background: $white-100;
     border-radius: $radius-xs;
-    padding: 5px;
+    padding: $padding-xs;
     color: #494949;
   }
 }
 
 .total {
   background: $darkBlue;
-  padding: 5px;
-  margin-right: 5px;
+  padding: $padding-xs;
+  margin-right: $padding-xs;
   border-radius: 50%;
   display: flex;
   height: 20px;

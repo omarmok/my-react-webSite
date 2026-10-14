@@ -19,23 +19,58 @@
 // Approval before any centralization is attempted.
 
 /* Checkbox (.form-check-input) */
+// Figma «Checkbox» (111:374): 16×16, radius 4, 2px border; Unchecked /
+// Checked / Mixed × Default / Disabled / Focused. Figma's sample colours
+// (#0059c8 / #cfd9e0) are mapped to the system tokens here.
 .form-check-input {
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   margin-top: 0;
-  margin-left: 5px;
+  margin-left: $padding-xs;
   border: 1px solid $Neutral-300;
+  cursor: pointer;
 }
 
-.form-check-input:checked {
-  background-color: $Primary-500;
-  border-color: $Primary-500;
+.form-check-input[type="checkbox"] {
+  border: 2px solid $Neutral-300;
+  border-radius: $radius-xs;
+  background-color: $white-100;
+}
+
+.form-check-input:checked,
+.form-check-input[type="checkbox"]:indeterminate {
+  background-color: $Primary-600;
+  border-color: $Primary-600;
 }
 
 .form-check-input:focus {
   outline: 0;
-  box-shadow: 0 0 0 2px rgba($Primary-500, 0.2);
-  border-color: $Primary-500;
+  box-shadow: none;
+  border-color: $Primary-600;
+}
+
+.form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px $white-100, 0 0 0 4px $Primary-600;
+}
+
+.form-check-input:disabled,
+.form-check-input[disabled] {
+  background-color: $Neutral-200;
+  border-color: $Neutral-300;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.form-check-input:checked:disabled,
+.form-check-input[type="checkbox"]:indeterminate:disabled {
+  background-color: $Neutral-300;
+  border-color: $Neutral-300;
+}
+
+.form-check-input:disabled ~ .form-check-label {
+  color: $Neutral-400;
+  cursor: not-allowed;
+  opacity: 1;
 }
 
 .form-check-label {

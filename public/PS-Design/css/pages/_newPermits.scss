@@ -44,7 +44,7 @@
     &--inquiryDs {
         &--card {
             display: flex;
-            padding: 10px;
+            padding: $padding-md;
             flex-direction: column;
             gap: $gap-10;
             border-radius: $radius-md;
@@ -76,7 +76,7 @@
                     border-radius: $radius-md;
                     border: 1px solid;
                     border-color: #1abc9c #1abc9c #cba983 #c3996b !important;
-                    padding: 5px;
+                    padding: $padding-xs;
                     width: 100px;
                     height: 100px;
 
@@ -98,7 +98,7 @@
                         display: flex;
                         width: 100px;
                         height: 30px;
-                        padding: 10px;
+                        padding: $padding-md;
                         justify-content: center;
                         align-items: center;
                         gap: $gap-10;
@@ -133,12 +133,12 @@
                 }
 
                 &--customACtion {
-                    gap: 5px;
+                    gap: $padding-xs;
                     display: flex;
                     margin-left: 0 !important;
 
                     .actionIcon {
-                        padding: 5px;
+                        padding: $padding-xs;
                         color: #000000 !important;
                         background: rgb(230 225 214 / 48%);
                         border: 1px solid #e4e0d6;
@@ -188,7 +188,7 @@
                 &--personCardTabs {
                     .nav-link {
                         background: transparent;
-                        margin: 5px;
+                        margin: $padding-xs;
                         color: $darkBlue;
                         font-weight: 600;
                         border-radius: $radius-sm;
@@ -270,7 +270,7 @@
                 &__shortCutAction {
                     width: 100%;
                     display: flex;
-                    padding: 10px;
+                    padding: $padding-md;
                     flex-direction: column;
                     align-items: center;
                     gap: $gap-8;
@@ -341,7 +341,7 @@
         align-items: center;
         position: relative;
         border-bottom: none;
-        margin: 0 5px;
+        margin: 0 $padding-xs;
         background: $baige;
         padding: $padding-lg;
         font-size: 10px;
@@ -352,8 +352,8 @@
             color: $white-100;
             background: rgb(255 255 255 / 12%);
             margin: 0;
-            margin-right: 5px;
-            padding: 5px 10px;
+            margin-right: $padding-xs;
+            padding: $padding-xs $padding-md;
             @include font-sm-500;
         }
     }
@@ -369,7 +369,7 @@
         }
 
         &:hover {
-            margin-bottom: 5px;
+            margin-bottom: $padding-xs;
             background: #e78b2f !important;
             box-shadow: 0px 3px 7px 0px rgb(219 185 103);
         }
@@ -472,7 +472,7 @@
     }
 
     .newPermits--inquiryDs--card--top {
-        padding: 5px;
+        padding: $padding-xs;
         gap: $gap-8;
     }
 
@@ -507,12 +507,12 @@
 .personafteradding {
     .newPermits--inquiryDs--card {
         gap: 0;
-        padding: 10px;
+        padding: $padding-md;
         margin-top: 0;
     }
 
     .newPermits--inquiryDs--card--top {
-        padding: 10px;
+        padding: $padding-md;
     }
 
     .newPermits--inquiryDs--card--top__userImage {
@@ -521,7 +521,7 @@
     }
 
     .newPermits--inquiryDs--card--body {
-        padding: 0 10px;
+        padding: 0 $padding-md;
     }
 
     .newPermits--inquiryDs--card--top__basicData {
@@ -534,7 +534,7 @@
 
     .newPermits--inquiryDs--card--body .col-lg-3.col-12.mb-3 {
         margin: 0 !important;
-        padding: 5px;
+        padding: $padding-xs;
     }
 
     .hideafteradd {

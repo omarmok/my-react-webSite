@@ -64,12 +64,12 @@
     }*/
 
     .highpriority {
-        padding: 5px $padding-2xl !important;
+        padding: $padding-xs $padding-2xl !important;
         @include font-sm-500;
     }
 
     .regpriority {
-        padding: 5px $padding-2xl !important;
+        padding: $padding-xs $padding-2xl !important;
         @include font-sm-500;
     }
 }
@@ -78,7 +78,7 @@
 .page__title__3 {
     .page__title--inner {
         background-color: var(--theme-primary) !important !important;
-        margin-bottom: 30px !important;
+        margin-bottom: $padding-4xl !important;
 
         h3 {
             color: $white-100;
@@ -93,8 +93,8 @@
 
 .arrestedstuff {
     background: $baige;
-    gap: 5px;
-    padding: 0px 5px;
+    gap: $padding-xs;
+    padding: $padding-none $padding-xs;
     align-items: center;
 
     .block {

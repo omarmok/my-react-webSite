@@ -19,7 +19,7 @@
               justify-content: center;
               height: 50px;
               width: 50px;
-              padding: 10px;
+              padding: $padding-md;
               align-items: center;
               cursor: pointer;
               font-family: Georgia, serif;
@@ -63,7 +63,7 @@
       display: flex;
       width: 80px;
       height: 30px;
-      padding: 5px;
+      padding: $padding-xs;
       justify-content: space-between;
       align-items: center;
       gap: $gap-2;

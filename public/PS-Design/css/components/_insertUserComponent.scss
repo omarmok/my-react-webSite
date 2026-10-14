@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     padding: $padding-14;
-    margin: 15px;
+    margin: $padding-xl;
     align-items: center;
     border-radius: 5px;
     background: $baige;
@@ -24,7 +24,7 @@
 
     img {
       height: 80px;
-      margin-bottom: 10px;
+      margin-bottom: $padding-md;
     }
 
     h4 {
@@ -36,14 +36,14 @@
     .actions {
       display: flex;
       gap: $gap-10;
-      margin-top: 15px;
+      margin-top: $padding-xl;
 
       .btn {
         img {
           width: 24px;
           height: 24px;
           margin: 0;
-          margin-left: 5px;
+          margin-left: $padding-xs;
         }
       }
     }
@@ -62,7 +62,7 @@
   .insertedUser {
     background: #f8faff;
     border: 1px solid #ecedef;
-    padding: 10px;
+    padding: $padding-md;
 
     .actions {
       display: flex;
@@ -74,7 +74,7 @@
           width: 24px;
           height: 24px;
           margin: 0;
-          margin-left: 5px;
+          margin-left: $padding-xs;
         }
       }
 

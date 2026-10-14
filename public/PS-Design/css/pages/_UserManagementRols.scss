@@ -5,7 +5,7 @@
   .caseDate {
     text-align: center;
     border-left: 1px solid #e8dfdf;
-    padding-left: 15px;
+    padding-left: $padding-xl;
     &:last-child {
       border-left: none;
     }
@@ -23,14 +23,14 @@
 .UserManagement-Rols {
   &__permissions {
     .nav-link {
-      padding: 10px;
+      padding: $padding-md;
       background: #f8f8f8;
       border-radius: 5px;
       color: #000;
       @include smallfont;
       white-space: nowrap;
       box-shadow: rgb(239, 241, 249) 0px 2px 4px 0px;
-      margin-bottom: 10px;
+      margin-bottom: $padding-md;
       text-align: right;
       border: 10px solid $white-100;
       display: flex;
@@ -48,8 +48,8 @@
           background: #08c28d;
           color: $white-100;
           border-radius: 5px;
-          padding: 5px;
-          margin-left: 5px;
+          padding: $padding-xs;
+          margin-left: $padding-xs;
         }
       }
     }
@@ -68,8 +68,8 @@
       .permissionsNO {
         background: #007151;
         border-radius: 5px;
-        padding: 5px;
-        margin-left: 5px;
+        padding: $padding-xs;
+        margin-left: $padding-xs;
         color: $white-100;
       }
     }
@@ -95,25 +95,25 @@
       }
 
       .permissionsList {
-        margin-top: 10px;
+        margin-top: $padding-md;
         .form-check {
           background: #fafafa;
-          padding: 10px;
+          padding: $padding-md;
           display: flex;
           align-items: center;
           border: 1px solid #f0f0f0;
           border-radius: 0;
-          margin-bottom: 5px;
+          margin-bottom: $padding-xs;
           .form-check-input {
             margin-right: 0;
           }
         }
         .checkChild {
-          margin-right: 30px;
+          margin-right: $padding-4xl;
         }
 
         .checkChild-sub {
-          margin-right: 60px;
+          margin-right: $padding-7xl;
         }
       }
     }
@@ -155,7 +155,7 @@
           font-weight: bold;
           white-space: nowrap;
           box-shadow: rgb(239, 241, 249) 0px 2px 4px 0px;
-          margin-bottom: 10px;
+          margin-bottom: $padding-md;
           text-align: right;
           display: flex;
           align-items: center;
@@ -170,12 +170,12 @@
 
         .form-check {
           background: #fafefc;
-          padding: 10px;
+          padding: $padding-md;
           display: flex;
           align-items: center;
           border: 1px solid #beeeda;
           border-radius: $radius-sm;
-          margin-bottom: 5px;
+          margin-bottom: $padding-xs;
           justify-content: space-between;
 
           img {
@@ -186,11 +186,11 @@
           }
         }
         .checkChild {
-          margin-right: 30px;
+          margin-right: $padding-4xl;
         }
 
         .checkChild-sub {
-          margin-right: 60px;
+          margin-right: $padding-7xl;
         }
       }
 
@@ -214,7 +214,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 5px;
+        padding: $padding-xs;
       }
       .active {
         background-color: #08c28d !important;
@@ -225,7 +225,7 @@
       }
 
       .accordion-body {
-        padding: 5px;
+        padding: $padding-xs;
       }
       .accordion-button:focus {
         border-color: transparent;
@@ -261,7 +261,7 @@
   }
 
   .form-group {
-    margin-bottom: 10px;
+    margin-bottom: $padding-md;
   }
 
   .form-control {
@@ -285,8 +285,8 @@
   }
 
   .vue-treeselect__control {
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: $padding-xs;
+    padding-right: $padding-xs;
     display: block;
     table-layout: inherit;
     width: 100%;
@@ -302,7 +302,7 @@
     font-weight: 500;
     font-weight: 500;
     height: 45px;
-    padding: 10px;
+    padding: $padding-md;
     border-radius: 0;
     border: none;
     line-height: 0;
@@ -313,8 +313,8 @@
   }
 
   .vue-treeselect__control {
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: $padding-xs;
+    padding-right: $padding-xs;
     display: block;
     table-layout: inherit;
     width: 100%;
@@ -330,7 +330,7 @@
     font-weight: 500;
     font-weight: 500;
     height: 45px !important;
-    padding: 10px;
+    padding: $padding-md;
     border-radius: 0;
     border: none;
     line-height: 0;
@@ -342,7 +342,7 @@
 
   .vue-treeselect__multi-value-item-container {
     padding-right: 0;
-    padding-left: 5px;
+    padding-left: $padding-xs;
     line-height: 25px !important;
   }
 

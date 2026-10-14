@@ -7,13 +7,13 @@
   &__card {
     background: $white-100;
     box-shadow: $shadow-100;
-    margin: 15px;
+    margin: $padding-xl;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     padding: $padding-14;
-    margin-bottom: 30px;
+    margin-bottom: $padding-4xl;
     gap: $gap-20;
     height: 470px;
 
@@ -38,7 +38,7 @@
           span {
             color: #a38664;
             @include font-md-500;
-            margin-right: 5px;
+            margin-right: $padding-xs;
             // background: #e4e6fa;
             // padding: 5px 20px;
             border-radius: 5px;
@@ -59,7 +59,7 @@
           max-height: 40px;
           margin: 0;
           line-height: 1.9;
-          margin-bottom: 10px;
+          margin-bottom: $padding-md;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -72,16 +72,16 @@
       justify-content: space-between;
       align-items: flex-start;
       border: 1px dashed #b1b1b1;
-      padding: 10px;
+      padding: $padding-md;
       text-align: center;
       @include meduimfont;
       color: $darkBlue;
       flex-direction: column;
-      gap: 5px;
+      gap: $padding-xs;
 
       span {
         color: $Primary-500;
-        margin: 0 5px;
+        margin: 0 $padding-xs;
       }
     }
 

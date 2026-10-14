@@ -2,7 +2,7 @@
 @use './Most__Used__Services' as *;
 .Incoming__reports--container {
   @extend .Most__Used__Services--container;
-  margin: 40px 0;
+  margin: $padding-5xl 0;
 
   .slick-list {
     width: 100%;
@@ -11,14 +11,14 @@
   .Incoming__reports {
     &__card {
       background: $white-100;
-      padding: 30px 15px;
+      padding: $padding-4xl $padding-xl;
       box-shadow: 0px 8px 30px rgb(181 181 181 / 8%);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 15px;
-      margin: 0 10px;
+      gap: $padding-xl;
+      margin: 0 $padding-md;
       transition: transition-duration, 0.8s ease !important;
       cursor: pointer;
       text-decoration: none;

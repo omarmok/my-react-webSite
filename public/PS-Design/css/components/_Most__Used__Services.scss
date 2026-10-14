@@ -12,7 +12,7 @@
   }
 
   .Most__Used__Services {
-    margin-top: 5px;
+    margin-top: $padding-xs;
 
     &--service {
       a {
@@ -36,7 +36,7 @@
           align-items: center;
           justify-content: center;
           box-shadow: 2px 10px 13px #e4e4e4, -13px -13px 20px $white-100;
-          margin-bottom: 10px;
+          margin-bottom: $padding-md;
           transition: transition-duration, 0.8s ease !important;
           height: 70px;
           width: 70px;

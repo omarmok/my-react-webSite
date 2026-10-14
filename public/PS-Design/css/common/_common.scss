@@ -103,7 +103,7 @@ label {
   font-weight: bold;
   line-height: typography-line-height(1.4);
   color: $Neutral-700;
-  margin-bottom: 5px !important;
+  margin-bottom: $padding-xs !important;
 }
 
 input,
@@ -121,69 +121,96 @@ textarea,
   }
 }
 
+// Text input — Platforms Code (DGA) «Text Input» states (2026-10-14):
+// Default border Gray-400 · Hover Gray-700 · Pressed Gray-100 background with
+// a half-width 2px underline · Focus keeps the border and draws a full-width
+// 2px Gray-950 underline that grows from the centre · Error / Warning /
+// Success recolour the border and the underline · Read-only and Disabled
+// border Gray-300. The underline is a background gradient so it also works on
+// <input>, which cannot carry ::after.
 .form-control {
   @include font-lg-500;
   line-height: typography-line-height(1.45);
   height: $form-control-height;
-  // Figma «input» (2026-10-13): radius 8, border Gray-500, padding 16 at the
-  // start (right in RTL) and 8 at the end.
   padding: $padding-10;
   padding-inline: $padding-xl $padding-md;
   border-radius: $radius-xs;
-  border: 1px solid $Neutral-500;
+  border: 1px solid $Neutral-400;
+  --moi-field-underline: #{$Neutral-950};
+  background-color: $white-100;
+  background-image: linear-gradient(var(--moi-field-underline), var(--moi-field-underline));
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 0% 2px;
   display: flex;
   align-items: center;
   transition:
     border-color var(--tran-05, 0.3s),
-    box-shadow var(--tran-05, 0.3s),
-    background-color var(--tran-05, 0.3s);
+    background-color var(--tran-05, 0.3s),
+    background-size 0.4s ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .form-control:hover {
   border-color: $Neutral-700;
 }
 
-// Figma focus: 2px Primary-600 border + 3px Primary-600 ring at 25%.
-// The 1px extra border is drawn with an inset shadow so the field size stays the same.
+// Pressed: grey fill and a half-width underline.
+.form-control:active:not(:disabled):not([readonly]) {
+  background-color: $Neutral-100;
+  background-size: 50% 2px;
+}
+
+// Focus: border stays, full-width underline.
 .form-control:focus {
-  color: $Neutral-700;
-  background: $white-100;
+  color: $Neutral-900;
+  background-color: $white-100;
+  background-size: 100% 2px;
   outline: 0 solid transparent;
-  border: 1px solid $Primary-600;
-  box-shadow:
-    inset 0 0 0 1px $Primary-600,
-    0 0 0 3px rgba($Primary-600, 0.25);
+  border-color: $Neutral-400;
+  box-shadow: $shadow-xs; // DGA focus: soft lift under the field
 }
 
 // States (existing class names from text-fields.html; Bootstrap validation classes included).
 .form-control:is(.is-err, .is-invalid),
 .was-validated .form-control:invalid {
+  --moi-field-underline: #{$Error-700};
   border-color: $Error-700;
 
+  &:hover,
   &:focus {
     border-color: $Error-700;
-    box-shadow:
-      inset 0 0 0 1px $Error-700,
-      0 0 0 3px rgba($Error-700, 0.25);
   }
 }
 
 .form-control:is(.is-ok, .is-valid),
 .was-validated .form-control:valid {
-  // Figma «Border/border-success» #067647 — no Success token exists in SCSS.
-  border-color: #067647;
+  --moi-field-underline: #{$Success-700};
+  border-color: $Success-700;
 
+  &:hover,
   &:focus {
-    border-color: #067647;
-    box-shadow:
-      inset 0 0 0 1px #067647,
-      0 0 0 3px rgba(#067647, 0.25);
+    border-color: $Success-700;
+  }
+}
+
+.form-control.is-warning {
+  --moi-field-underline: #{$Warning-700};
+  border-color: $Warning-700;
+
+  &:hover,
+  &:focus {
+    border-color: $Warning-700;
   }
 }
 
 .form-control[readonly] {
-  background-color: $Neutral-50;
-  border-color: $Neutral-200;
+  background-color: $white-100;
+  background-size: 0% 2px;
+  border-color: $Neutral-300;
 }
 
 textarea.form-control {
@@ -327,7 +354,7 @@ textarea.form-control {
 
 .label-with-info {
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: $padding-md;
   align-items: flex-start;
   flex-direction: column;
 
@@ -342,7 +369,7 @@ textarea.form-control {
   align-items: center;
 
   i {
-    margin-left: 3px;
+    margin-left: $padding-xxs;
     font-size: 0.875rem;
   }
 }
@@ -414,7 +441,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   margin-bottom: 0;
 
   .breadcrumb {
-    margin-top: 110px;
+    margin-top: $padding-9xl;
     @include font-sm-500;
 
     .breadcrumb-item {
@@ -440,7 +467,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
     .homebread::before {
       content: url("./../images/house-door.svg");
-      margin-left: 5px;
+      margin-left: $padding-xs;
     }
 
     .breadcrumb-item + .breadcrumb-item::before {
@@ -462,7 +489,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .main__content {
   background: $white-100;
   box-shadow: $shadow-lg;
-  margin: 15px;
+  margin: $padding-xl;
   border-radius: 5px;
 }
 
@@ -472,7 +499,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   justify-content: space-between;
   align-items: center;
   padding: $padding-14;
-  margin: 15px;
+  margin: $padding-xl;
   box-shadow: $shadow-lg;
   border-radius: 5px;
 
@@ -483,13 +510,13 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     margin: 0;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: $padding-xs;
 
     svg {
       fill: $white-100;
       height: 3rem;
       width: auto;
-      margin-inline-start: 5px;
+      margin-inline-start: $padding-xs;
     }
 
     img,
@@ -620,7 +647,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   display: block;
   width: 15px;
   height: 15px;
-  padding: 5px;
+  padding: $padding-xs;
   cursor: pointer;
   color: transparent;
   border: 0;
@@ -637,7 +664,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   display: block;
   width: 15px;
   height: 15px;
-  padding: 5px;
+  padding: $padding-xs;
   cursor: pointer;
   color: transparent;
   border: 0;
@@ -755,7 +782,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .form-select {
   @include font-lg-500;
   line-height: typography-line-height(1.45);
-  padding: 10px;
+  padding: $padding-md;
   border-radius: 5px;
   border: 1px solid #e0e0e0;
 }
@@ -809,7 +836,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   font-weight: 500;
   line-height: typography-line-height(1.45);
   height: 40px;
-  padding: 10px;
+  padding: $padding-md;
   border-radius: 5px;
   border: 1px solid #bababa;
   min-width: 180px;
@@ -820,9 +847,15 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .form-control:disabled {
-  background-color: $Neutral-200;
-  border: 1px solid $Neutral-400;
+  color: $Neutral-400;
+  background-color: $white-100;
+  background-size: 0% 2px;
+  border: 1px solid $Neutral-300;
   cursor: not-allowed;
+
+  &::placeholder {
+    color: $Neutral-400;
+  }
 }
 
 .dropdown-item {
@@ -871,9 +904,9 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   img {
     height: 300px;
     margin: 0 auto;
-    margin-bottom: 30px;
+    margin-bottom: $padding-4xl;
     display: block;
-    margin-top: 100px;
+    margin-top: $padding-9xl;
   }
 
   .AccessDenied {
@@ -894,16 +927,16 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     img {
       transform: rotate(180deg);
       filter: none;
-      margin-right: 15px;
+      margin-right: $padding-xl;
       height: 30px;
-      margin: 0 10px;
+      margin: 0 $padding-md;
       filter: brightness(0) invert(1);
     }
   }
 }
 
 .pagenotFound {
-  margin-top: 50px;
+  margin-top: $padding-6xl;
 
   p {
     margin-top: $margin-2xl;
@@ -914,7 +947,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     img {
       transform: rotate(180deg);
       filter: none;
-      margin-right: 15px;
+      margin-right: $padding-xl;
     }
   }
 
@@ -931,13 +964,13 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   color: red !important;
   font-size: 10px;
   font-weight: 500 !important;
-  margin-top: 5px;
+  margin-top: $padding-xs;
 }
 
 .uploadedFiles {
   background: white;
   box-shadow: 0px 0.5rem 30px rgba(181, 181, 181, 0.08);
-  padding: 5px;
+  padding: $padding-xs;
   border: 1px solid #e9e9e9;
   margin-bottom: $margin-xxs;
 
@@ -953,8 +986,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   align-items: center;
   background: #fdfdfd !important;
   width: 100%;
-  padding: 5px !important;
-  margin-top: 5px !important;
+  padding: $padding-xs !important;
+  margin-top: $padding-xs !important;
   justify-content: space-between;
   border: 1px solid #eeeff5 !important;
 
@@ -1016,7 +1049,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .notallowed {
   span {
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: $padding-xs;
   }
 
   display: flex;
@@ -1045,10 +1078,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   color: #d9272d;
 
   ul {
-    margin-top: 10px;
+    margin-top: $padding-md;
 
     li {
-      padding: 2px 0;
+      padding: $padding-xxs 0;
     }
   }
 }
@@ -1119,7 +1152,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     display: flex;
     gap: $gap-10;
     border-radius: 0.5rem;
-    padding: 10px;
+    padding: $padding-md;
     background: $Neutral-25;
     border: 1px solid $Neutral-200;
 
@@ -1133,12 +1166,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
       .svgSpinner {
         width: 60px !important;
-        margin: 0px auto !important;
+        margin: $padding-none auto !important;
       }
 
       img {
         height: 50px;
-        margin-bottom: 5px;
+        margin-bottom: $padding-xs;
       }
     }
   }
@@ -1153,9 +1186,9 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     display: flex;
     align-items: center;
     border-radius: 0.5rem;
-    padding: 10px;
+    padding: $padding-md;
     background: #f8f9fa;
-    margin-bottom: 5px;
+    margin-bottom: $padding-xs;
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
@@ -1256,7 +1289,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     display: flex;
     @include font-2xl-500;
     transition: opacity 300ms ease-in-out;
-    margin-left: 10px;
+    margin-left: $padding-md;
   }
 
   .drop-zoon__paragraph {
@@ -1334,7 +1367,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     padding: $padding-14;
     box-shadow: 0px 0.5rem 30px rgba(181, 181, 181, 0.08);
     border: 1px solid #ececec;
-    margin-top: 10px;
+    margin-top: $padding-md;
     text-align: right;
     width: 100%;
   }
@@ -1489,7 +1522,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     margin-right: 0;
     border: none;
     background: #084cdf;
-    padding: 10px $padding-2xl;
+    padding: $padding-md $padding-2xl;
     border-radius: $radius-xs;
     color: $white-100;
     cursor: pointer;
@@ -1600,7 +1633,7 @@ a.cke_combo_button {
     text-align: right;
     color: $Neutral-900;
     text-align: right;
-    margin-top: 5px;
+    margin-top: $padding-xs;
   }
 }
 
@@ -1609,7 +1642,7 @@ a.cke_combo_button {
   border-radius: 0.5rem;
   padding: $padding-2xl;
   background: rgba(230, 242, 239, 0.4);
-  margin-bottom: 5px;
+  margin-bottom: $padding-xs;
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
@@ -1659,7 +1692,7 @@ a.cke_combo_button {
   p {
     @include smallfont;
     text-align: center;
-    margin-top: 10px;
+    margin-top: $padding-md;
   }
 }
 
@@ -1708,7 +1741,7 @@ a.cke_combo_button {
 .pillbadge {
   display: flex;
   /* height: 20px; */
-  padding: 7px 0.875rem;
+  padding: $padding-sm 0.875rem;
   align-items: center;
   gap: $gap-10;
   border-radius: 15px;
@@ -1925,7 +1958,7 @@ input:checked + .slider:before {
   display: inline-block;
   background-position: 50% 40%;
   border-radius: 0.5rem;
-  padding: 22px;
+  padding: $padding-2xl;
   right: 0;
   background-size: 33px;
   border: 1px solid #e0e0e0;
@@ -1949,7 +1982,7 @@ input:checked + .slider:before {
 
       svg {
         height: map.get($moi-icon-sizes, lg);
-        margin-left: 5px;
+        margin-left: $padding-xs;
         fill: $Neutral-900;
       }
     }
@@ -1974,7 +2007,7 @@ input:checked + .slider:before {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 5px;
+    margin-left: $padding-xs;
 
     svg {
       height: map.get($moi-icon-sizes, lg);
@@ -2009,7 +2042,7 @@ input:checked + .slider:before {
 
   .percentage {
     background: $white-100;
-    padding: 10px;
+    padding: $padding-md;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2017,7 +2050,7 @@ input:checked + .slider:before {
     font-weight: 600;
     box-shadow: 0px 0.5rem 30px rgba(219, 222, 230, 0.49);
     width: 50px;
-    margin: 10px auto;
+    margin: $padding-md auto;
     margin-top: $margin-2xl;
   }
 
@@ -2096,7 +2129,7 @@ input:checked + .slider:before {
     .btn {
       border-radius: 50%;
       background: #4caf50;
-      padding: 5px;
+      padding: $padding-xs;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -2130,7 +2163,7 @@ input:checked + .slider:before {
     }
 
     .card {
-      padding: 10px;
+      padding: $padding-md;
       gap: $gap-10;
 
       &:hover {
@@ -2157,7 +2190,7 @@ input:checked + .slider:before {
 
 .introjs-tooltipbuttons {
   display: flex;
-  gap: 5px;
+  gap: $padding-xs;
 }
 
 .introjs-skipbutton {
@@ -2269,7 +2302,7 @@ hr {
         z-index: 99;
         margin: 0;
         background: $Neutral-100;
-        padding: 5px 10px;
+        padding: $padding-xs $padding-md;
         @include font-sm-500;
       }
     }
@@ -2292,7 +2325,7 @@ hr {
   label.radio {
     display: flex;
     position: relative;
-    padding-right: 30px;
+    padding-right: $padding-4xl;
     cursor: pointer;
   }
 
@@ -2401,7 +2434,7 @@ html[dir="rtl"] .top-actions {
   min-height: 44px;
   border-radius: $radius-lg;
   border: 1px solid transparent;
-  padding: $padding-md 14px;
+  padding: $padding-md $padding-lg;
   font-weight: 600;
   display: inline-flex;
   align-items: center;

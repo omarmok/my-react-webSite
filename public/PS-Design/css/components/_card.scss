@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     gap: $gap-lg;
-    padding: $padding-lg;
+    padding: $padding-xl; // Figma Card: padding-xl (16)
     background-color: $white-100;
     border-radius: $radius-md;
     box-shadow: $shadow-md;
@@ -84,7 +84,7 @@
         flex-wrap: wrap;
         gap: $gap-lg;
         min-width: 0;
-        padding: $padding-lg;
+        padding: $padding-md; // Figma Card__header: padding-md (8)
     }
 
     &__title-group {
@@ -148,6 +148,7 @@
         flex-direction: column;
         gap: $gap-lg;
         min-width: 0;
+        padding: $padding-md; // Figma Card__body: padding-md (8)
     }
     // ---------------------------------------------------------------------
     // Content
@@ -221,8 +222,8 @@
         align-items: center;
         justify-content: flex-end;
         flex-wrap: wrap;
-        gap: $gap-sm;
-        padding: $padding-md;
+        gap: $gap-lg; // Figma Card__footer: gap 12
+        padding: $padding-sm; // Figma Card__footer: padding-sm (6)
     }
     // ---------------------------------------------------------------------
     // Details

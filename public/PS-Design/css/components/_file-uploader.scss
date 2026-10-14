@@ -70,9 +70,9 @@
     @include meduimfont-reg-12;
     min-height: 38px;
     height: 38px;
-    padding-block: 9px;
+    padding-block: $padding-md;
     padding-inline-start: $padding-lg;
-    padding-inline-end: 38px;
+    padding-inline-end: $padding-5xl;
     color: $Neutral-900;
     background-color: $white-100;
     border-color: $Neutral-300;
@@ -324,7 +324,7 @@
     display: flex;
     align-items: center;
     gap: $gap-10;
-    padding: 9px 10px;
+    padding: $padding-md $padding-md;
     background-color: $white-100;
     border: 1px solid $Neutral-200;
     border-radius: $radius-sm;

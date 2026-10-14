@@ -30,7 +30,7 @@
 }
 
 .saveCompleateLater div {
-  padding: 10px 15px;
+  padding: $padding-md $padding-xl;
   font-size: 10px;
   font-weight: bold;
   border-radius: $radius-sm;
@@ -143,7 +143,7 @@
 }
 
 .SecurityCase .wizard > .actions div {
-  padding: 10px 15px;
+  padding: $padding-md $padding-xl;
   font-size: 10px;
   font-weight: bold;
   border-radius: $radius-sm;

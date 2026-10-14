@@ -16,11 +16,11 @@
 }
 
 .generalCasesStyle {
-    margin: 15px;
+    margin: $padding-xl;
 
     .CloseGeneralCases {
         cursor: pointer;
-        padding: 10px;
+        padding: $padding-md;
         width: 260px;
         display: block;
 
@@ -47,13 +47,13 @@
 
         &--priority {
             background: #f1f5fe;
-            padding: 10px;
+            padding: $padding-md;
             font-weight: 600;
             border-radius: 5px;
             color: $darkBlue;
 
             .bolck {
-                gap: 5px;
+                gap: $padding-xs;
                 display: flex;
                 flex-direction: column;
 
@@ -64,18 +64,18 @@
         }
 
         &--category {
-            gap: 5px;
+            gap: $padding-xs;
             display: flex;
             flex-direction: column;
 
             .bolck {
-                padding: 10px;
+                padding: $padding-md;
                 background: $white-100;
                 font-weight: 600;
                 border-radius: 5px;
                 border: 1px solid #e2e8f0;
                 color: #445464;
-                gap: 5px;
+                gap: $padding-xs;
                 display: flex;
                 flex-direction: column;
 
@@ -92,14 +92,14 @@
             background: #ecf2ff;
             padding: $padding-14;
             border-radius: $radius-md;
-            gap: 5px;
+            gap: $padding-xs;
             display: flex;
             flex-direction: column;
 
             .title {
                 display: flex;
                 align-items: center;
-                gap: 5px;
+                gap: $padding-xs;
                 @include boldfont;
                 color: $darkBlue;
             }
@@ -125,14 +125,14 @@
             font-weight: 600;
             border-radius: 5px;
             border: 1px solid #e2e8f0;
-            padding: 10px;
+            padding: $padding-md;
             display: flex;
             flex-direction: column;
             gap: $gap-10;
 
             .title {
                 background: #a38664;
-                padding: 10px;
+                padding: $padding-md;
                 color: $white-100;
             }
 
@@ -141,12 +141,12 @@
             }
 
             .bolck {
-                padding: 10px;
+                padding: $padding-md;
                 background: rgb(248 250 255 / 54%);
                 font-weight: 600;
                 border-radius: 5px;
                 color: #445464;
-                gap: 5px;
+                gap: $padding-xs;
                 display: flex;
                 flex-direction: column;
 
@@ -184,7 +184,7 @@
             font-weight: 600;
             border-radius: 5px;
             border: 1px solid #e2e8f0;
-            padding: 10px;
+            padding: $padding-md;
             display: flex;
             flex-direction: column;
             gap: $gap-10;
@@ -192,12 +192,12 @@
 
             .title {
                 background: $baige;
-                padding: 10px;
+                padding: $padding-md;
                 border-radius: $radius-sm;
             }
 
             .bolck {
-                padding: 10px;
+                padding: $padding-md;
                 background: rgb(248 250 255 / 54%);
                 font-weight: 600;
                 border-radius: 5px;
@@ -431,9 +431,9 @@
 
             img {
                 height: 40px;
-                margin-bottom: 10px;
+                margin-bottom: $padding-md;
                 border-radius: 50%;
-                padding: 5px;
+                padding: $padding-xs;
                 background: rgb(239 239 237);
             }
         }
@@ -452,14 +452,14 @@
 
 .secondary-cat {
     .secocontainer {
-        gap: 5px;
+        gap: $padding-xs;
         justify-content: start;
         flex-wrap: wrap;
 
         .content {
             width: auto;
             background: rgb(247 249 255);
-            padding: 10px;
+            padding: $padding-md;
             border-radius: 5px;
             border: 1px solid #e3e8f6;
             display: flex;
@@ -470,11 +470,11 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                margin-left: 5px;
+                margin-left: $padding-xs;
                 border-radius: 50%;
                 width: 24px;
                 height: 24px;
-                padding: 10px;
+                padding: $padding-md;
                 background: $white-100;
                 border: none;
                 color: #445464;
@@ -537,7 +537,7 @@
         width: 33%;
         /* margin: 1px;
         border-right: 5px solid #dedede;*/
-        margin-bottom: 10px;
+        margin-bottom: $padding-md;
 
         .newDSCases--BasicInfo__title {
             width: 100%;
@@ -551,7 +551,7 @@
 
     .custom-alert-primary {
         border-right: none !important;
-        margin-top: 10px !important;
+        margin-top: $padding-md !important;
 
         span {
             color: #0d60da !important;
@@ -575,13 +575,13 @@
     }
 
     .block {
-        padding: 10px;
+        padding: $padding-md;
         background: $white-100;
         font-weight: 600;
         border-radius: 5px;
         border: 1px solid #e2e8f0;
         color: #445464;
-        gap: 5px;
+        gap: $padding-xs;
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -592,13 +592,13 @@
     }
 
     .weaponsec {
-        padding: 10px;
+        padding: $padding-md;
         background: #f8faff;
         font-weight: 600;
         border-radius: 5px;
         border: 1px solid #e2e8f0;
         color: #445464;
-        gap: 5px;
+        gap: $padding-xs;
         display: flex;
         flex-direction: column;
     }
@@ -607,7 +607,7 @@
 .actionform-container {
     width: 100%;
     background: rgb(255 255 255);
-    padding: 10px;
+    padding: $padding-md;
     border-radius: 5px;
     border: 1px solid #e3e8f6;
     box-shadow: $shadow-2;
@@ -627,7 +627,7 @@
 .totlal {
     position: absolute;
     border-radius: 50%;
-    padding: 3px 4px;
+    padding: $padding-xxs $padding-xs;
     width: 20px;
     height: 20px;
     line-height: 1;
@@ -647,7 +647,7 @@
 
         .tableSeetings {
             padding: 0;
-            margin-bottom: 10px;
+            margin-bottom: $padding-md;
         }
     }
 }
@@ -706,9 +706,9 @@
         position: absolute;
         bottom: 150%;
         left: 50%;
-        margin-bottom: 5px;
-        margin-left: -80px;
-        padding: 7px;
+        margin-bottom: $padding-xs;
+        margin-left: -$padding-8xl;
+        padding: $padding-sm;
         width: 270px;
         border-radius: 5px;
         background-color: #000000;
@@ -743,7 +743,7 @@
 }
 
 .generalActionStyle {
-    margin-top:30px;
+    margin-top:$padding-4xl;
     .nav-item {
         margin: 0;
 
@@ -763,7 +763,7 @@
 
             .Agancyimg {
                 border-radius: $radius-md;
-                padding: 7px;
+                padding: $padding-sm;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -784,7 +784,7 @@
                 border-radius: 5px;
                 color: #000;
                 @include font-md-500;
-                padding: 5px;
+                padding: $padding-xs;
             }
         }
     }
@@ -839,7 +839,7 @@
     @include font-xl-500;
     margin-bottom: $margin-5xl;
     border-bottom: 1px solid $baige;
-    padding: 18px;
+    padding: $padding-xl;
     background: $baige;
  /*   position: sticky;
     top: -15px;
@@ -870,9 +870,9 @@
 
 .new-total {
     background: #795548;
-    padding: 2px 8px;
+    padding: $padding-xxs $padding-md;
     border-radius: 5px;
-    margin-right: 5px;
+    margin-right: $padding-xs;
     color: $white-100;
 }
 
@@ -919,7 +919,7 @@
     border-radius: 10px 10px 0 0;
     /* margin-bottom: 20px; */
     padding-bottom: 0;
-    margin-right: 10px;
+    margin-right: $padding-md;
 }
 
 
@@ -935,7 +935,7 @@
     flex-direction: row;
     align-items: center;
     position: relative;
-    padding: 10px;
+    padding: $padding-md;
 
 
     svg {
@@ -957,14 +957,14 @@
 .actionform-container {
     .page__title {
         margin: 0 !important;
-        margin-bottom: 15px !important;
+        margin-bottom: $padding-xl !important;
     }
 }
 
 .tab-content {
     .page__title {
         margin: 0 !important;
-        margin-bottom: 15px !important;
+        margin-bottom: $padding-xl !important;
 
         h3 {
             img {
@@ -996,7 +996,7 @@
 
 .caseTopDetails {
     position: relative;
-    margin-bottom: 35px;
+    margin-bottom: $padding-4xl;
 
     .page__title {
         margin-bottom: 0 !important;
@@ -1006,7 +1006,7 @@
         position: absolute;
         background: #e9a95f;
         width: 300px;
-        margin: 0 60px;
+        margin: 0 $padding-7xl;
         border-radius: 0 0 20px 20px;
         padding: $padding-md;
         @include font-md-500;
@@ -1027,9 +1027,9 @@
 .FinancialFraudAction {
     .new-section-footer {
         background: #f4f4f4;
-        padding: 10px;
+        padding: $padding-md;
         border-radius: 0px 0px 10px 10px;
-        margin-bottom: 15px;
+        margin-bottom: $padding-xl;
         overflow: hidden;
         display: flex;
         gap: $gap-10;
@@ -1114,7 +1114,7 @@
     .tab-content {
         border: 1px solid #1b8255;
         border-radius: 10px;
-        padding: 14px;
+        padding: $padding-lg;
     }
 }
 

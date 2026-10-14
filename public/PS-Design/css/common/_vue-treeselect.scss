@@ -24,8 +24,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: $padding-xs;
+    padding-right: $padding-xs;
     position: absolute;
     top: -2px;
     right: 0;
@@ -48,8 +48,8 @@
 }
 
 .vue-treeselect__control {
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: $padding-xs;
+    padding-right: $padding-xs;
     display: block;
     table-layout: inherit;
     background: #fff;
@@ -59,7 +59,7 @@
     font-size: typography-size(map.get($font-sizes, lg));
     font-weight: 500;
     height: 44px;
-    padding: 10px;
+    padding: $padding-md;
     border-radius: 5px;
     border: 1px solid $Neutral-400;
     line-height: typography-line-height(1.45);
@@ -70,12 +70,12 @@
 }
 
 .vue-treeselect__control:has(.vue-treeselect__placeholder) {
-    padding: 10px !important;
+    padding: $padding-md !important;
 }
 
 .vue-treeselect__control:has(.vue-treeselect__multi-value-item) {
     height: auto !important;
-    padding: 0 10px !important;
+    padding: 0 $padding-md !important;
 }
 
 .vue-treeselect__input,
@@ -90,11 +90,11 @@
     background: rgb(255, 255, 255);
     border-radius: 0px;
     box-shadow: rgb(248 248 248) -1px 6px 3px -4px;
-    padding: 8px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-left: 0px;
-    margin-bottom: 2px !important;
+    padding: $padding-md;
+    margin-top: $padding-none;
+    margin-right: $padding-none;
+    margin-left: $padding-none;
+    margin-bottom: $padding-xxs !important;
 }
 
 .vue-treeselect__option:hover {
@@ -121,7 +121,7 @@
 .vue-treeselect--open-below .vue-treeselect__menu {
     box-shadow: 0px 8px 30px rgb(232 233 240);
     border-radius: 0 0 10px 10px;
-    padding: 10px 10px 10px 5px;
+    padding: $padding-md $padding-md $padding-md $padding-xs;
     max-height: 300px;
 }
 

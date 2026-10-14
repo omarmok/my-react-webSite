@@ -5,11 +5,11 @@
     padding: $padding-14;
     box-shadow: $shadow-100;
     border-radius: 10px;
-    margin-top: 5px;
+    margin-top: $padding-xs;
     &__toparea {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 10px;
+      margin-bottom: $padding-md;
 
       &--right {
         display: flex;
@@ -17,7 +17,7 @@
         .moi-btn--blue {
           background-color: #0d8f75;
           color: $white-100;
-          padding: 25px 10px;
+          padding: $padding-3xl $padding-md;
           display: flex;
           justify-content: space-evenly;
           gap: $gap-10;
@@ -25,7 +25,7 @@
         .moi-btn--blue-b {
           background: #f8faff;
           color: #000;
-          padding: 25px 10px;
+          padding: $padding-3xl $padding-md;
           display: flex;
           justify-content: space-evenly;
           gap: $gap-10;
@@ -38,7 +38,7 @@
           border-radius: 50%;
           display: flex;
           align-items: center;
-          padding: 5px;
+          padding: $padding-xs;
         }
       }
     }
