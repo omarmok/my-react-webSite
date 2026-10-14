@@ -4,19 +4,86 @@
     text-align: right;
 }
 
-.vue-treeselect:not(.vue-treeselect--disabled)
-.vue-treeselect__multi-value-item:not( .vue-treeselect__multi-value-item-disabled ):hover
-.vue-treeselect__multi-value-item:not(.vue-treeselect__multi-value-item-new)
-.vue-treeselect__multi-value-item:not( .vue-treeselect__multi-value-item-new ):hover,
-.vue-treeselect__multi-value-item {
-    cursor: pointer;
-    background: #eaeaea;
-    color: #000000;
-    border-radius: 4px;
+// =========================================================================
+// Multi-select values — same look as the Tag (.moi-tag,
+// Status=infoprioroty in common/_tags.scss): Info-600 text,
+// Info-50 background, Info-200 border, Rounded (pill), dot, 14px / 500.
+// Selectors start with `.vue-treeselect` so they beat treeselect.css.
+// =========================================================================
+.vue-treeselect .vue-treeselect__multi-value-item-container {
+    padding-top: $padding-xs;
+    padding-inline: 0 $padding-xs;
 }
 
-.vue-treeselect__value-remove {
-    color: #121212;
+.vue-treeselect .vue-treeselect__multi-value-item,
+.vue-treeselect:not(.vue-treeselect--disabled) .vue-treeselect__multi-value-item:not(.vue-treeselect__multi-value-item-disabled):hover {
+    display: inline-flex;
+    align-items: center;
+    gap: $gap-xs;
+    padding: $padding-xxs $padding-md;
+    color: $Info-600;
+    background: $Info-50;
+    border: 1px solid $Info-200;
+    border-radius: $Radius-100; // Tag Rounded=True (pill)
+    font-size: typography-size(0.875rem);
+    font-weight: 500;
+    line-height: typography-line-height(1.4285714286);
+    cursor: default;
+
+    // Tag dot
+    &::before {
+        content: "";
+        flex: 0 0 auto;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: currentColor;
+    }
+}
+
+.vue-treeselect .vue-treeselect__multi-value-label {
+    display: inline;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+}
+
+// Remove (×) — like .moi-tag .tag-close: inherits the tag colour.
+.vue-treeselect .vue-treeselect__value-remove,
+[dir="rtl"] .vue-treeselect .vue-treeselect__value-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $padding-xxs;
+    border: 0;
+    border-radius: $radius-xxs;
+    color: $Info-600;
+    line-height: 0;
+    cursor: pointer;
+    transition: color 0.15s ease;
+
+    > svg {
+        width: 8px;
+        height: 8px;
+        fill: currentColor;
+    }
+}
+
+.vue-treeselect .vue-treeselect__multi-value-item:hover .vue-treeselect__value-remove {
+    color: $Info-700;
+}
+
+// Disabled select: tag keeps its shape, text greys out, no remove button.
+.vue-treeselect.vue-treeselect--disabled .vue-treeselect__multi-value-item,
+.vue-treeselect .vue-treeselect__multi-value-item.vue-treeselect__multi-value-item-disabled {
+    color: $Neutral-400;
+    background: $white-100;
+    border-color: $Neutral-200;
+}
+
+.vue-treeselect.vue-treeselect--disabled .vue-treeselect__value-remove,
+.vue-treeselect .vue-treeselect__multi-value-item-disabled .vue-treeselect__value-remove {
+    display: none;
 }
 
 .vue-treeselect__placeholder,
@@ -111,10 +178,44 @@
     box-shadow: $shadow-xs;
 }
 
+// Open: treeselect.css pulls the menu 1px over the field (margin -1px) and
+// squares the field's corners, which hid half of the focus underline.
+// Keep a small gap so the full underline stays visible.
+.vue-treeselect.vue-treeselect--open .vue-treeselect__control {
+    border-radius: $radius-xs;
+}
+
+.vue-treeselect.vue-treeselect--open-below .vue-treeselect__menu {
+    margin-top: $padding-xs;
+    border-radius: $radius-md;
+}
+
+.vue-treeselect.vue-treeselect--open-above .vue-treeselect__menu {
+    margin-bottom: $padding-xs;
+    border-radius: $radius-md;
+}
+
+// The search input inside the control inherits the global input focus
+// outline (a faint box); the control's underline already shows focus.
+.vue-treeselect .vue-treeselect__input:focus {
+    outline: 0;
+}
+
 // Placeholder — same as the input placeholder.
 .vue-treeselect .vue-treeselect__placeholder {
     @include font-md-500;
     color: $Neutral-500;
+}
+
+// Value and placeholder sit in the middle of the field: they fill the value
+// row (field height − padding − border) and centre with a matching line-height
+// (the old top -2px / height 30px / line-height 34px pushed the value up).
+.vue-treeselect .vue-treeselect__placeholder,
+.vue-treeselect .vue-treeselect__single-value {
+    top: 0;
+    bottom: 0;
+    height: auto;
+    line-height: calc(#{$form-control-height} - 2 * #{$padding-md} - 2px);
 }
 
 // Validation — add the class to the .vue-treeselect root
