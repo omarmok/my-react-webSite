@@ -37,7 +37,7 @@
     "react-toastify": "^8.1.0",
     "sass": "^1.66.1",
     "sass-loader": "^12.3.0",
-    "sharp": "^0.33.1",
+    "sharp": "^0.35.4",
     "styled-components": "^6.4.1",
     "swr": "^1.0.1",
     "three": "^0.156.0"
