@@ -112,7 +112,7 @@ $modal-danger-close-icon-path: "../../images/icon-x-circle.svg" !default;
     .modal-body {
       padding: $padding-2xl;
       max-height: 800px; // Figma modal-body max-height
-      overflow-y: auto;
+      // overflow-y: auto;
 
       .wanted-to {
         display: flex;

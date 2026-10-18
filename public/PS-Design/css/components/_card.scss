@@ -5,7 +5,7 @@
 // This file still needs direct visibility of the utility selectors referenced
 // by the `@extend` calls below. `@use` keeps those selectors visible here
 // without relying on deprecated Sass `@import`.
-@use "../customclasses";
+@use "../customClasses";
 
 // =========================================================================
 // Root
