@@ -19,9 +19,28 @@
       display: flex;
       align-items: center;
       transition: var(--tran-03);
-      padding: $padding-md;
+      // Figma «sidebar-item»: 12px vertical / 8px horizontal padding.
+      padding: $padding-lg $padding-md;
       justify-content: space-between;
       border-bottom: 1px solid $Neutral-200;
+
+      // Figma «sidebar-item» label: Text md / Medium (16 / 500).
+      .text {
+        @include font-lg-500;
+      }
+
+      // Figma «sidebar-item» chevron (arrow-down-01, inline SVG with
+      // fill="currentColor" inside the existing i.arrow).
+      .arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: $Neutral-500;
+      }
+
+      &:hover .arrow {
+        color: $Primary-500;
+      }
 
       a {
         display: flex;
@@ -96,6 +115,9 @@
 
     .iocn-link.active {
       background-color: var(--theme-primary) !important;
+      // Figma «sidebar-item» State=active: radius-md, no bottom divider.
+      border-radius: $radius-md;
+      border-bottom-color: transparent;
 
       i {
         color: $white-100;
@@ -237,14 +259,18 @@
 
 header {
   .image-text {
+    // Figma Sidebar header: Title = Text xl / Bold (20 / 700).
     h4 {
       margin: 0;
       color: $white-100;
+      @include font-xl-700;
     }
 
+    // Figma Sidebar header: Subtitle = Text md / Regular (16 / 400).
     .name {
       margin-top: $margin-xxs;
       color: $white-100;
+      @include font-lg-400;
     }
 
     .profession {
@@ -1409,6 +1435,16 @@ header {
         i {
           margin-left: $padding-xs;
         }
+      }
+
+      // Figma «sidebar-sub-item» State=active: the selected sub-service.
+      // No new class — mark the link with aria-current="page".
+      &[aria-current="page"] {
+        background-color: $white-100;
+        box-shadow: $shadow-lg;
+        border-radius: $radius-md;
+        color: $Primary-600;
+        @include font-lg-600;
       }
     }
 

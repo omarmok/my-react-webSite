@@ -600,3 +600,267 @@
   -webkit-animation: pulseWarningIns 0.75s infinite alternate;
   -moz-animation: pulseWarningIns 0.75s infinite alternate;
   animation: pulseWarningIns 0.75s infinite alternate; }
+
+/* ==========================================================================
+   MOI / منصة أمن — SweetAlert2 theme (v11)
+   Project styles for SweetAlert2 popups. The rules above this block are the
+   old SweetAlert v1 stylesheet (.sweet-alert / .sweet-overlay) and do not
+   apply to SweetAlert2 markup (.swal2-*).
+   Load order: libs/sweetalert2/sweetalert2.min.css → css/main.css → this file.
+   Tokens: values copied from css/helpers/_variables.scss (comment = token).
+   Buttons: pass the project classes through `customClass` with
+   `buttonsStyling: false` (see sweet-alert.html → MoiSwal).
+   ========================================================================== */
+
+/* Popup — same shell as the project modal (.modal-content) */
+.swal2-popup {
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  border-radius: 8px;          /* $radius-md */
+  padding: 20px;               /* $padding-2xl */
+  color: #111927;              /* $Neutral-900 */
+}
+
+/* Title — same as the project modal header (.modal-header + .modal-title):
+   Neutral-100 bar at the top of the popup, padding 16, title xl / 600,
+   right-aligned (start in RTL). `order: -1` moves it above the icon. */
+.swal2-popup .swal2-title {
+  order: -1;
+  background: #f3f4f6;         /* $Neutral-100 */
+  padding: 16px;               /* $padding-xl */
+  margin: 0 0 16px;
+  border-radius: 0;
+  text-align: start;
+  color: #111927 !important;   /* $Neutral-900 */
+  font-size: calc(1.25rem * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1)) !important; /* font-xl-600 */
+  font-weight: 600 !important;
+  font-family: inherit;
+}
+/* Close (×) sits inside the header bar */
+.swal2-popup .swal2-close {
+  order: -1;
+  grid-row: 1;
+  z-index: 2;
+  margin: 20px 20px 0 0;
+  color: #1f2a37;              /* $Neutral-800 */
+}
+/* Toasts keep a plain one-line title (no header bar) */
+.swal2-popup.swal2-toast .swal2-title {
+  order: 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Body text */
+.swal2-popup .swal2-html-container {
+  color: #384250;              /* $Neutral-700 */
+  font-size: calc(1rem * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1));
+  font-weight: 400;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+/* Inputs */
+.swal2-popup .swal2-input,
+.swal2-popup .swal2-textarea,
+.swal2-popup .swal2-select {
+  font-family: inherit;
+  border: 1px solid #6c737f;   /* $Neutral-500 (Form/field-border-default) */
+  border-radius: 4px;          /* $radius-xs */
+  box-shadow: none;
+  width: auto;
+  margin: 8px 0 0;
+}
+/* Input label — right-aligned (start in RTL), project text style font-md-500 (14 / medium) */
+.swal2-popup .swal2-input-label {
+  justify-content: flex-start;
+  text-align: start;
+  color: #111927;              /* $Neutral-900 */
+  font-size: calc(0.875rem * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1)) !important; /* font-md-500 */
+  font-weight: 500 !important;
+  margin: 16px 0 0;
+}
+.swal2-popup .swal2-validation-message {
+  background: #fef3f2;         /* $Error-50 */
+  color: #b42318;              /* $Error-700 */
+}
+
+/* Buttons — styled here so no JavaScript option is needed.
+   Default SweetAlert2 buttons (.swal2-styled) take the project button look:
+   confirm = .moi-btn--Primary · cancel = .moi-btn--Neutral--outline ·
+   deny = .moi-btn--Error--outline · size md (Figma: md in dialogs).
+   Destructive confirm (delete / reject): add the class `moi-swal--danger`
+   to the popup → confirm takes .moi-btn--Error.
+   If a call passes customClass with .moi-btn classes, those win as usual. */
+.swal2-popup .swal2-actions {
+  gap: 8px;                    /* $gap-md */
+  margin: 20px 0 0;
+}
+.swal2-popup .swal2-actions .moi-btn {
+  margin: 0;
+}
+.swal2-popup .swal2-actions .swal2-styled {
+  margin: 0;
+  height: 2.5rem;              /* moi-btn md */
+  min-height: 2.5rem;
+  padding: 0 1rem;
+  border-radius: 0.25rem;      /* $radius-xs */
+  font-family: inherit;
+  font-size: calc(0.875rem * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1)) !important;
+  font-weight: 500 !important;
+  line-height: 1.5;
+  box-shadow: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.swal2-popup .swal2-actions .swal2-styled:focus,
+.swal2-popup .swal2-actions .swal2-styled:focus-visible {
+  box-shadow: 0 0 0 2px var(--moi-focus-inner), 0 0 0 4px var(--moi-focus-outer);
+  outline: none;
+}
+/* confirm → moi-btn--Primary */
+.swal2-popup .swal2-actions .swal2-styled.swal2-confirm {
+  color: #f7fdf9;
+  background-color: #25935f;   /* Primary */
+  border: 1px solid #25935f;
+  --moi-focus-outer: rgba(22, 106, 69, 0.35);
+  --moi-focus-inner: rgba(255, 255, 255, 0.95);
+}
+.swal2-popup .swal2-actions .swal2-styled.swal2-confirm:hover {
+  background: #dff6e7;
+  border-color: #dff6e7;
+  color: #1b8354;
+}
+.swal2-popup .swal2-actions .swal2-styled.swal2-confirm:active {
+  background: #b8eacb;
+  border-color: #b8eacb;
+}
+/* cancel → moi-btn--Neutral--outline */
+.swal2-popup .swal2-actions .swal2-styled.swal2-cancel {
+  color: #111927;              /* $Neutral-900 */
+  background-color: #ffffff;
+  border: 1px solid #d2d6db;   /* $Neutral-300 */
+  --moi-focus-outer: rgba(17, 25, 39, 0.35);
+  --moi-focus-inner: rgba(17, 25, 39, 0.75);
+}
+.swal2-popup .swal2-actions .swal2-styled.swal2-cancel:hover {
+  background: #f3f4f6;         /* $Neutral-100 */
+}
+.swal2-popup .swal2-actions .swal2-styled.swal2-cancel:active {
+  background: #f9fafb;
+  border-color: #111927;
+}
+/* deny → moi-btn--Error--outline */
+.swal2-popup .swal2-actions .swal2-styled.swal2-deny {
+  color: #b42318;              /* $Error-700 */
+  background-color: #ffffff;
+  border: 1px solid #b42318;
+  --moi-focus-outer: rgba(180, 35, 24, 0.35);
+  --moi-focus-inner: rgba(180, 35, 24, 0.85);
+}
+.swal2-popup .swal2-actions .swal2-styled.swal2-deny:hover {
+  background: #fee4e2;
+  color: #d92d20;
+}
+.swal2-popup .swal2-actions .swal2-styled.swal2-deny:active {
+  background: #fecdca;
+}
+/* destructive confirm → moi-btn--Error */
+.swal2-popup.moi-swal--danger .swal2-actions .swal2-styled.swal2-confirm {
+  color: #fffbfa;
+  background-color: #f04438;   /* $Error-500 */
+  border-color: #f04438;
+  --moi-focus-outer: rgba(180, 35, 24, 0.35);
+  --moi-focus-inner: rgba(255, 255, 255, 0.95);
+}
+.swal2-popup.moi-swal--danger .swal2-actions .swal2-styled.swal2-confirm:hover {
+  background: #fee4e2;
+  border-color: #fee4e2;
+  color: #d92d20;
+}
+
+/* Icons — Hugeicons from the Figma library (Style=Stroke, Type=Rounded)
+   success = checkmark-circle-02 · error = cancel-circle · warning = alert-02
+   info = information-circle · question = help-circle */
+.swal2-popup .swal2-icon {
+  width: 64px;
+  height: 64px;
+  margin: 8px auto 0;
+  border: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.swal2-popup .swal2-icon > * {
+  display: none !important;
+}
+.swal2-popup .swal2-icon::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  -webkit-mask: var(--moi-swal-icon) center / contain no-repeat;
+  mask: var(--moi-swal-icon) center / contain no-repeat;
+}
+.swal2-popup.swal2-toast .swal2-title {
+  font-size: calc(0.875rem * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1)) !important; /* font-md-500 */
+  font-weight: 500 !important;
+  margin: 0;
+}
+.swal2-popup.swal2-toast {
+  padding: 12px 16px;          /* $padding-lg / $padding-xl */
+}
+.swal2-popup.swal2-toast .swal2-icon {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  margin: 0 0 0 8px;
+}
+.swal2-popup .swal2-icon.swal2-success {
+  color: #079455 !important;       /* $Success-600 */
+  --moi-swal-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM15.4473 8.49316C15.7272 8.18791 16.2015 8.1674 16.5068 8.44727C16.8121 8.72717 16.8326 9.20153 16.5527 9.50684L11.0527 15.5068C10.9146 15.6575 10.721 15.7455 10.5166 15.75C10.3121 15.7544 10.1144 15.6749 9.96973 15.5303L7.46973 13.0303C7.17684 12.7374 7.17683 12.2626 7.46973 11.9697C7.76262 11.6768 8.23738 11.6768 8.53027 11.9697L10.4766 13.916L15.4473 8.49316Z'/%3E%3C/svg%3E"); /* checkmark-circle-02 */
+}
+.swal2-popup .swal2-icon.swal2-error {
+  color: #d92d20 !important;       /* $Error-600 */
+  --moi-swal-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM14.4697 8.46973C14.7626 8.17685 15.2374 8.17686 15.5303 8.46973C15.8232 8.76261 15.8231 9.23737 15.5303 9.53027L13.0605 12L15.5293 14.4697C15.8222 14.7626 15.8222 15.2374 15.5293 15.5303C15.2364 15.823 14.7616 15.8231 14.4688 15.5303L12 13.0615L9.53125 15.5303C9.23842 15.8231 8.76362 15.823 8.4707 15.5303C8.17779 15.2374 8.17783 14.7626 8.4707 14.4697L10.9395 12L8.46973 9.53027C8.17686 9.23737 8.17685 8.76261 8.46973 8.46973C8.76263 8.17686 9.23739 8.17685 9.53027 8.46973L12 10.9395L14.4697 8.46973Z'/%3E%3C/svg%3E"); /* cancel-circle */
+}
+.swal2-popup .swal2-icon.swal2-warning {
+  color: #dc6803 !important;       /* $Warning-600 */
+  --moi-swal-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10.3623 2.01465C11.4265 1.66149 12.5735 1.66149 13.6377 2.01465C14.6977 2.36651 15.5301 3.20154 16.3662 4.37402C17.1996 5.54266 18.1206 7.17208 19.3076 9.27246L19.3545 9.35449C20.5416 11.4551 21.4623 13.0849 22.0361 14.4062C22.6128 15.7341 22.9001 16.881 22.6709 17.9824C22.4402 19.0911 21.8713 20.0992 21.043 20.8613C20.2164 21.6216 19.0909 21.9426 17.6738 22.0967C16.2647 22.2499 14.4212 22.25 12.0488 22.25H11.9512C9.57878 22.25 7.73527 22.2499 6.32617 22.0967C4.90914 21.9426 3.78355 21.6216 2.95703 20.8613C2.12867 20.0992 1.55984 19.0911 1.3291 17.9824C1.09995 16.881 1.38721 15.7341 1.96387 14.4062C2.53774 13.0849 3.45836 11.4551 4.64551 9.35449L4.69238 9.27246C5.87938 7.17208 6.80041 5.54266 7.63379 4.37402C8.46992 3.20154 9.30229 2.36651 10.3623 2.01465ZM13.165 3.43848C12.4077 3.18717 11.5923 3.18717 10.835 3.43848C10.239 3.63631 9.63918 4.14476 8.85449 5.24512C8.07257 6.34165 7.1898 7.90151 5.97461 10.0518C4.75943 12.202 3.87859 13.7634 3.33984 15.0039C2.80017 16.2466 2.66498 17.0381 2.79785 17.6768C2.96549 18.4822 3.37754 19.2104 3.97266 19.7578C4.44006 20.1877 5.16845 20.462 6.48828 20.6055C7.8067 20.7488 9.5686 20.75 12 20.75C14.4314 20.75 16.1933 20.7488 17.5117 20.6055C18.8316 20.462 19.5599 20.1877 20.0273 19.7578C20.6225 19.2104 21.0345 18.4822 21.2021 17.6768C21.335 17.0381 21.1998 16.2466 20.6602 15.0039C20.1214 13.7634 19.2406 12.202 18.0254 10.0518C16.8102 7.90151 15.9274 6.34165 15.1455 5.24512C14.3608 4.14476 13.761 3.63631 13.165 3.43848ZM12.001 15C12.5533 15 13.001 15.4477 13.001 16C13.001 16.5523 12.5533 17 12.001 17H11.9922C11.4399 17 10.9922 16.5523 10.9922 16C10.9922 15.4477 11.4399 15 11.9922 15H12.001ZM12 8.25C12.4142 8.25 12.75 8.58579 12.75 9V13C12.75 13.4142 12.4142 13.75 12 13.75C11.5858 13.75 11.25 13.4142 11.25 13V9C11.25 8.58579 11.5858 8.25 12 8.25Z'/%3E%3C/svg%3E"); /* alert-02 */
+}
+.swal2-popup .swal2-icon.swal2-info {
+  color: #1570ef !important;       /* $Info-600 */
+  --moi-swal-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM11.2764 10.25C11.4815 10.2499 11.7034 10.2502 11.8906 10.2754C12.1099 10.3049 12.3902 10.3804 12.626 10.6162C12.8618 10.852 12.9373 11.1322 12.9668 11.3516C12.992 11.5388 12.9923 11.7607 12.9922 11.9658V17C12.9922 17.4142 12.6564 17.75 12.2422 17.75C11.828 17.75 11.4922 17.4142 11.4922 17V12C11.4922 11.9009 11.4923 11.8204 11.4912 11.751C11.4218 11.7499 11.3413 11.75 11.2422 11.75C10.828 11.75 10.4922 11.4142 10.4922 11C10.4922 10.5858 10.828 10.25 11.2422 10.25C11.2535 10.25 11.2649 10.25 11.2764 10.25ZM12.001 7C12.5533 7 13.001 7.44772 13.001 8C13.001 8.55228 12.5533 9 12.001 9H11.9922C11.4399 9 10.9922 8.55228 10.9922 8C10.9922 7.44772 11.4399 7 11.9922 7H12.001Z'/%3E%3C/svg%3E"); /* information-circle */
+}
+.swal2-popup .swal2-icon.swal2-question {
+  color: #4d5761 !important;       /* $Neutral-600 */
+  --moi-swal-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM12.001 16C12.5533 16 13.001 16.4477 13.001 17C13.001 17.5523 12.5533 18 12.001 18H11.9922C11.4399 18 10.9922 17.5523 10.9922 17C10.9922 16.4477 11.4399 16 11.9922 16H12.001ZM12 6.25C13.5188 6.25 14.75 7.48122 14.75 9C14.75 9.54631 14.5895 10.0573 14.3135 10.4863C14.1406 10.755 13.9384 11.0115 13.752 11.2432C13.7178 11.2855 13.6843 11.3274 13.6514 11.3682C13.4967 11.5596 13.3548 11.7357 13.2236 11.916C12.9002 12.3606 12.75 12.6948 12.75 13V13.5C12.75 13.9142 12.4142 14.25 12 14.25C11.5858 14.25 11.25 13.9142 11.25 13.5V13C11.25 12.2008 11.6422 11.5397 12.0107 11.0332C12.1665 10.8192 12.337 10.6079 12.4922 10.416C12.5232 10.3776 12.5544 10.3405 12.584 10.3037C12.7692 10.0736 12.9268 9.8705 13.0527 9.6748C13.1776 9.48059 13.25 9.24986 13.25 9C13.25 8.30964 12.6904 7.75 12 7.75C11.3096 7.75 10.75 8.30964 10.75 9C10.75 9.41421 10.4142 9.75 10 9.75C9.58579 9.75 9.25 9.41421 9.25 9C9.25 7.48122 10.4812 6.25 12 6.25Z'/%3E%3C/svg%3E"); /* help-circle */
+}
+
+/* Loader — the project loader (.mainlooder) inside the alert.
+   Use: Swal.fire({ html: <#loaderDiv markup>, showConfirmButton: false,
+   customClass: { popup: 'moi-swal--loader' } }) */
+.swal2-popup.moi-swal--loader {
+  width: auto;
+  min-width: 280px;
+}
+.swal2-popup.moi-swal--loader .swal2-html-container {
+  overflow: visible;
+}
+.swal2-popup .swal2-html-container .mainlooder {
+  position: relative;
+  width: 240px;
+  height: 230px;               /* loader 160 + label */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.swal2-popup .swal2-html-container .mainlooder .loader {
+  position: relative;          /* main.css places it absolute at right: 45% */
+  right: auto;
+  margin: 0;
+  flex: none;
+}
+

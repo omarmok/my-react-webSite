@@ -160,16 +160,7 @@
             }
 
             .accordion-button::after {
-                background: url(../images/arrow-down.svg), #a38664;
-                padding: $padding-xl;
-                display: flex;
-                background-position: 7px 6px;
-                background-repeat: no-repeat;
-                margin-top: -$padding-xs;
-                border-radius: $radius-md;
-                width: 20px;
-                height: 20px;
-                margin: 0;
+                @include accordion-arrow-icon;
             }
 
             .accordion-button:not(.collapsed)::after {

@@ -235,3 +235,287 @@
   }
 }
 // end .loginBody
+
+// ============================================================
+// Login — DGA (Platforms Code) layout with Public Security identity
+// Page-scoped: every rule lives under body.login-dga (no public API).
+// ============================================================
+.login-dga {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: $Neutral-50;
+  color: $Neutral-900;
+  font-family: "IBMPlexSansArabic", sans-serif;
+
+  &__govbar {
+    display: flex;
+    align-items: center;
+    gap: $gap-sm;
+    padding: $padding-xs $padding-2xl;
+    background: $Neutral-100;
+    border-bottom: 1px solid $Neutral-200;
+    color: $Neutral-700;
+    @include font-xs-500;
+  }
+
+  &__layout {
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    min-height: 0;
+
+    @media (max-width: 991.98px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // ---------- form side ----------
+  &__form-side {
+    display: flex;
+    flex-direction: column;
+    background: $white-100;
+    padding: $padding-2xl $padding-6xl;
+
+    @media (max-width: 575.98px) {
+      padding: $padding-xl $padding-lg;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding-bottom: $padding-xl;
+  }
+
+  &__brand-logo {
+    height: 56px;
+    width: auto;
+  }
+
+  &__form-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 440px;
+    margin-inline: auto;
+    padding-block: $padding-4xl;
+  }
+
+  &__title {
+    margin: 0 0 $margin-xs;
+    color: $Neutral-900;
+    @include font-3xl-700;
+  }
+
+  &__subtitle {
+    margin: 0 0 $margin-lg;
+    color: $Neutral-600;
+    @include font-md-400;
+  }
+
+  &__required-note {
+    margin: 0 0 $margin-xl;
+    color: $Neutral-600;
+    @include font-sm-400;
+
+    span { color: $Error-600; }
+  }
+
+  &__req { color: $Error-600; }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xl;
+  }
+
+  &__field .form-label {
+    margin-bottom: $margin-xs;
+    color: $Neutral-900;
+    @include font-sm-600;
+  }
+
+  &__control {
+    position: relative;
+
+    .form-control {
+      height: 48px;
+      padding-inline: 44px 44px;
+      border-radius: $radius-sm;
+      @include font-md-400;
+    }
+  }
+
+  &__control-icon {
+    position: absolute;
+    top: 50%;
+    inset-inline-start: $padding-md;
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%);
+    opacity: .7;
+    pointer-events: none;
+  }
+
+  &__toggle {
+    position: absolute;
+    top: 50%;
+    inset-inline-end: $padding-xs;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: $radius-sm;
+    background: transparent;
+    color: $Neutral-600;
+    cursor: pointer;
+
+    &:hover { background: $Neutral-100; color: $Neutral-900; }
+    &:focus-visible { outline: 2px solid $Primary-600; outline-offset: 2px; }
+
+    .login-dga__eye-off { display: none; }
+    &[aria-pressed="true"] {
+      .login-dga__eye { display: none; }
+      .login-dga__eye-off { display: block; }
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $gap-md;
+
+    .form-check {
+      display: flex;
+      align-items: center;
+      gap: $gap-sm;
+      margin: 0;
+      padding: 0;
+
+      .form-check-input { float: none; position: static; margin: 0; flex-shrink: 0; }
+      .form-check-label { margin: 0; padding: 0; line-height: 1.5; color: $Neutral-700; @include font-sm-500; }
+    }
+  }
+
+  &__link {
+    color: $Primary-700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    @include font-sm-600;
+
+    &:hover { color: $Primary-800; }
+    &:focus-visible { outline: 2px solid $Primary-600; outline-offset: 2px; border-radius: $radius-xxs; }
+  }
+
+  &__submit,
+  &__alt {
+    width: 100%;
+    justify-content: center;
+  }
+
+  &__alt {
+    gap: $gap-sm;
+  }
+
+  &__divider {
+    display: flex;
+    align-items: center;
+    gap: $gap-md;
+    color: $Neutral-500;
+    @include font-sm-500;
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: $Neutral-200;
+    }
+  }
+
+  &__help {
+    margin: 0;
+    text-align: center;
+    color: $Neutral-600;
+    @include font-sm-400;
+  }
+
+  &__footer {
+    padding-top: $padding-xl;
+    border-top: 1px solid $Neutral-100;
+    color: $Neutral-500;
+    text-align: center;
+    @include font-xs-400;
+  }
+
+  // ---------- brand side ----------
+  &__brand-side {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $padding-6xl;
+    background:
+      radial-gradient(circle at 50% 42%, rgba($Primary-500, .55) 0, rgba($Primary-500, 0) 38%),
+      repeating-linear-gradient(135deg, rgba($white-100, .035) 0 2px, transparent 2px 22px),
+      linear-gradient(160deg, $Primary-800 0%, $Primary-900 100%);
+    color: $white-100;
+
+    // Gold edge — Public Security accent
+    &::before {
+      content: "";
+      position: absolute;
+      inset-block: 0;
+      inset-inline-start: 0;
+      width: 6px;
+      background: linear-gradient(180deg, $Gold-500, $Gold-700);
+    }
+
+    @media (max-width: 991.98px) {
+      display: none;
+    }
+  }
+
+  &__brand-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 520px;
+  }
+
+  &__emblem {
+    width: 220px;
+    height: auto;
+    filter: drop-shadow(0 16px 32px rgba(0, 0, 0, .35));
+  }
+
+  &__accent {
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: $margin-3xl 0 $margin-xl;
+    border-radius: $radius-11xl;
+    background: $Gold-500;
+  }
+
+  &__slogan {
+    margin: 0 0 $margin-sm;
+    @include font-4xl-700;
+  }
+
+  &__tagline {
+    margin: 0;
+    color: rgba($white-100, .85);
+    @include font-xl-400;
+  }
+}

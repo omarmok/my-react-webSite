@@ -340,6 +340,70 @@
 
 
 
+// Shared declarations for existing component and page selectors.
+// Callers retain selector scope, state rules, and CSS emission order.
+@mixin data-tooltip-bubble {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-bottom: $padding-xs;
+    margin-left: -$padding-8xl;
+    padding: $padding-sm;
+    width: 270px;
+    border-radius: 5px;
+    background-color: #000000;
+    color: $white-100;
+    content: attr(data-tooltip);
+    text-align: center;
+    font-size: 10px;
+    line-height: 1.9;
+    font-weight: 600;
+}
+
+@mixin accordion-arrow-icon {
+    background: url(../images/arrow-down.svg), #a38664;
+    padding: $padding-xl;
+    display: flex;
+    background-position: 7px 6px;
+    background-repeat: no-repeat;
+    margin-top: -$padding-xs;
+    border-radius: $radius-md;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+
+@mixin sketch-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 80%;
+    position: relative;
+    overflow: hidden;
+}
+
+@mixin sketch-action-button {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    color: $white-100;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include font-sm-500;
+    cursor: pointer;
+}
+
+@mixin dropdown-menu-heading {
+    font-weight: 600;
+    @include font-sm-500;
+    background: $baige;
+    padding: $padding-2xl;
+}
+
 $font-sizes: ( xs: 0.625rem, sm: 0.75rem, md: 0.875rem, lg: 1rem, xl: 1.25rem, "2xl": 1.5rem, "3xl": 1.875rem, "4xl": 2.25rem, "5xl": 3rem, "6xl": 3.75rem, "7xl": 4.5rem );
 
 $font-weights: (400, 500, 600, 700);
