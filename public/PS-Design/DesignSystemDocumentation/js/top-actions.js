@@ -143,6 +143,7 @@
     applyI18n(normalized);
     updateLangToggleLabel(normalized);
     updateCopyButtonLabels(normalized);
+    updateSidebarSearchLabels(normalized);
   }
 
   function ensureScrollVisible() {
@@ -332,6 +333,106 @@
     sidebarTitle.insertAdjacentElement("afterend", toggle);
   }
 
+  function sidebarSearchLabel(lang) {
+    return lang === "ar" ? "ابحث في التوثيق" : "Search docs";
+  }
+
+  function updateSidebarSearchLabels(lang) {
+    document.querySelectorAll(".sidebar-search input").forEach((input) => {
+      input.placeholder = sidebarSearchLabel(lang);
+      input.setAttribute("aria-label", sidebarSearchLabel(lang));
+    });
+    document.querySelectorAll(".sidebar-empty").forEach((empty) => {
+      empty.textContent = lang === "ar" ? "لا توجد نتائج." : "No results.";
+    });
+  }
+
+  function filterSidebar(sidebarCard, query) {
+    const nav = sidebarCard.querySelector(".sidebar-nav");
+    if (!nav) {
+      return;
+    }
+    const term = query.trim().toLowerCase();
+    let visibleTotal = 0;
+    let currentTitle = null;
+    let titleHasMatch = false;
+    const flush = () => {
+      if (currentTitle) {
+        currentTitle.hidden = Boolean(term) && !titleHasMatch;
+      }
+    };
+    Array.from(nav.children).forEach((node) => {
+      if (node.classList.contains("sidebar-empty")) {
+        return;
+      }
+      if (node.classList.contains("sidebar-title")) {
+        flush();
+        currentTitle = node;
+        titleHasMatch = false;
+        return;
+      }
+      const haystack = ((node.dataset.en || "") + " " + (node.dataset.ar || "") + " " + (node.getAttribute("href") || "")).toLowerCase();
+      const match = !term || haystack.includes(term);
+      node.hidden = !match;
+      if (match) {
+        titleHasMatch = true;
+        visibleTotal += 1;
+      }
+    });
+    flush();
+    const empty = nav.querySelector(".sidebar-empty");
+    if (empty) {
+      empty.hidden = visibleTotal > 0;
+    }
+  }
+
+  function ensureSidebarSearch(sidebarCard) {
+    if (!sidebarCard || sidebarCard.querySelector(".sidebar-search")) {
+      return;
+    }
+    const nav = sidebarCard.querySelector(".sidebar-nav");
+    if (!nav) {
+      return;
+    }
+    const wrap = document.createElement("div");
+    wrap.className = "sidebar-search";
+    const input = document.createElement("input");
+    input.type = "search";
+    input.autocomplete = "off";
+    input.spellcheck = false;
+    wrap.appendChild(input);
+    nav.insertAdjacentElement("beforebegin", wrap);
+
+    const empty = document.createElement("p");
+    empty.className = "sidebar-empty";
+    empty.hidden = true;
+    nav.appendChild(empty);
+
+    input.addEventListener("input", () => filterSidebar(sidebarCard, input.value));
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && input.value) {
+        input.value = "";
+        filterSidebar(sidebarCard, "");
+      } else if (event.key === "Enter") {
+        const first = nav.querySelector("a:not([hidden])");
+        if (first) {
+          window.location.href = first.getAttribute("href");
+        }
+      }
+    });
+    updateSidebarSearchLabels(document.documentElement.lang === "ar" ? "ar" : "en");
+  }
+
+  function scrollActiveIntoView(sidebarCard) {
+    const active = sidebarCard.querySelector(".sidebar-nav a.is-active");
+    if (!active || sidebarCard.scrollHeight <= sidebarCard.clientHeight) {
+      return;
+    }
+    const cardBox = sidebarCard.getBoundingClientRect();
+    const activeBox = active.getBoundingClientRect();
+    sidebarCard.scrollTop += activeBox.top - cardBox.top - cardBox.height / 3;
+  }
+
   function renderSidebarNav() {
     const current = getCurrentFile();
     const navMarkup = DOC_GROUPS.map((group) => {
@@ -350,6 +451,8 @@
     });
 
     document.querySelectorAll(".sidebar-card").forEach(ensureSidebarToggle);
+    document.querySelectorAll(".sidebar-card").forEach(ensureSidebarSearch);
+    document.querySelectorAll(".sidebar-card").forEach(scrollActiveIntoView);
   }
 
   function bindSidebarToggle() {

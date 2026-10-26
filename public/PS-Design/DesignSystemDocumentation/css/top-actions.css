@@ -782,3 +782,125 @@ html[dir="rtl"] .code-inline {
     width: max(100%, 640px);
   }
 }
+
+/* ── Sidebar refinements (2026-10-26): calmer density, clearer group hierarchy, quick search ── */
+.sidebar-card {
+  border-radius: 18px;
+  gap: 12px;
+  padding: 16px 12px 12px;
+}
+
+.sidebar-card > .sidebar-title {
+  font-size: 1rem;
+  padding-inline: 8px;
+}
+
+.sidebar-search {
+  padding-inline: 4px;
+}
+
+.sidebar-search input {
+  appearance: none;
+  background: var(--docs-surface-muted);
+  border: 1px solid var(--docs-border-strong);
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: var(--docs-text);
+  font: inherit;
+  font-size: 0.88rem;
+  height: 38px;
+  padding: 0 12px;
+  transition: background 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+  width: 100%;
+}
+
+.sidebar-search input::placeholder {
+  color: var(--docs-text-muted);
+}
+
+.sidebar-search input:hover {
+  border-color: rgba(28, 131, 84, 0.35);
+}
+
+.sidebar-search input:focus-visible {
+  background: #fff;
+  border-color: var(--docs-green);
+  box-shadow: var(--docs-shadow-focus);
+  outline: none;
+}
+
+.sidebar-nav {
+  gap: 2px;
+}
+
+.sidebar-nav a {
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 12px;
+}
+
+.sidebar-nav a:hover {
+  background: rgba(28, 131, 84, 0.07);
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--docs-green);
+  transform: none;
+}
+
+.sidebar-nav a.is-active,
+.sidebar-nav a[aria-current="page"] {
+  background: var(--docs-green-soft);
+  border-color: transparent;
+  box-shadow: none;
+  font-weight: 800;
+}
+
+.sidebar-nav a.is-active::after,
+.sidebar-nav a[aria-current="page"]::after {
+  height: calc(100% - 16px);
+  inset-inline-start: 3px;
+  top: 8px;
+}
+
+html[dir="rtl"] .sidebar-nav a.is-active::after,
+html[dir="rtl"] .sidebar-nav a[aria-current="page"]::after {
+  inset-inline-end: 3px;
+}
+
+.sidebar-nav .sidebar-title {
+  border-top: 1px solid var(--docs-border);
+  color: var(--docs-text-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin: 10px 4px 2px;
+  padding: 14px 8px 4px;
+  text-transform: uppercase;
+}
+
+.sidebar-nav .sidebar-title:first-child {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 4px;
+}
+
+html[lang="ar"] .sidebar-nav .sidebar-title {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.sidebar-nav [hidden] {
+  display: none !important;
+}
+
+.sidebar-empty {
+  color: var(--docs-text-muted);
+  font-size: 0.86rem;
+  margin: 0;
+  padding: 8px 12px;
+}
+
+.sidebar-card.is-collapsed .sidebar-search {
+  display: none;
+}
