@@ -530,6 +530,16 @@
           <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
           <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
           <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
+          <a href="./datepicker.html" data-i18n data-ar="منتقي التاريخ">Date Picker</a>
+          <a href="./sweet-alert.html" data-i18n data-ar="التنبيهات المنبثقة">Sweet Alert</a>
+          <a href="./table.html" data-i18n data-ar="الجدول">Table</a>
+          <a href="./modal.html" data-i18n data-ar="النافذة">Modal</a>
+          <a href="./tooltip.html" data-i18n data-ar="التلميح">Tooltip</a>
+          <a href="./breadcrumb.html" data-i18n data-ar="مسار التنقل">Breadcrumb</a>
+          <a href="./dropdown.html" data-i18n data-ar="القائمة المنسدلة">Dropdown</a>
+          <a href="./empty-state.html" data-i18n data-ar="الحالة الفارغة">Empty State</a>
+          <a href="./page-title.html" data-i18n data-ar="عنوان الصفحة">Page Title</a>
+          <a href="./map.html" data-i18n data-ar="الخريطة">Map</a>
         </nav>
       </div>
 
@@ -576,9 +586,9 @@
 
         <span class="metadata-pill"
               data-i18n
-              data-ar="آخر تحديث: 2 أغسطس 2026"
-              data-en="Last updated: August 2, 2026">
-          آخر تحديث: 2 أغسطس 2026
+              data-ar="آخر تحديث: 25 أكتوبر 2026"
+              data-en="Last updated: October 25, 2026">
+          آخر تحديث: 25 أكتوبر 2026
         </span>
       </div>
 
@@ -825,6 +835,17 @@
           </p>
         </div>
       </section>
+
+<section class="section" id="sidebar-submenu"><div class="section-card"><h2 class="section-title" data-i18n data-ar="عناصر الشريط الجانبي والقائمة الفرعية والحالات">Sidebar items, sub-menu &amp; states</h2><p class="section-note" data-i18n data-ar="مطابق لمكوّنات Sidebar وsidebar-item وsidebar-sub-item في Figma (صفحة Layout). المصدر: css/common/_layout.scss؛ المثال الحي: PS-Design/sidebar-submenu.html. لا توجد فئات جديدة — الحالات تستخدم الفئات والخصائص الموجودة.">Matches the Figma <code class="code-inline">Sidebar</code>, <code class="code-inline">sidebar-item</code> and <code class="code-inline">sidebar-sub-item</code> components (page Layout). Source: <code class="code-inline">css/common/_layout.scss</code>; live sample: <code class="code-inline">PS-Design/sidebar-submenu.html</code>. No new classes — states use existing classes and attributes.</p><div class="table-responsive"><table class="table align-middle"><thead><tr><th scope="col" data-i18n data-ar="العنصر / الحالة">Element / state</th><th scope="col" data-i18n data-ar="المحدد">Selector</th><th scope="col" data-i18n data-ar="المواصفة">Spec</th></tr></thead><tbody><tr><td data-i18n data-ar="العنصر">Item</td><td><code>li &gt; .iocn-link</code></td><td data-i18n data-ar="حشوة $padding-lg $padding-md، فاصل سفلي $Neutral-200، العنوان font-lg-500">Padding $padding-lg $padding-md, bottom divider $Neutral-200, label font-lg-500</td></tr><tr><td data-i18n data-ar="مرور على العنصر">Item hover</td><td><code>.iocn-link:hover</code></td><td data-i18n data-ar="خلفية $Neutral-50، الأيقونة والعنوان $Primary-500">Background $Neutral-50, icon and label $Primary-500</td></tr><tr><td data-i18n data-ar="العنصر النشط">Item active</td><td><code>.iocn-link.active</code></td><td data-i18n data-ar="خلفية اللون الأساسي، أيقونة بيضاء، نصف قطر $radius-md، بدون فاصل">Theme primary background, white icon, radius $radius-md, no divider</td></tr><tr><td data-i18n data-ar="سهم التوسيع">Expand arrow</td><td><code>i.arrow</code></td><td data-i18n data-ar="أيقونة النظام arrow-down-01 (SVG مضمن بـ currentColor)، $Neutral-500 ← $Primary-500 عند المرور؛ تدور 180° عند الفتح">System icon arrow-down-01 (inline SVG, currentColor), $Neutral-500 → $Primary-500 on hover; rotates 180° when open</td></tr><tr><td data-i18n data-ar="عنصر مفتوح">Open item</td><td><code>li.showMenu</code></td><td data-i18n data-ar="يُظهر القائمة الفرعية .sub-menu">Shows the nested <code>.sub-menu</code></td></tr><tr><td data-i18n data-ar="القائمة الفرعية">Sub-menu</td><td><code>.sub-menu</code></td><td data-i18n data-ar="خلفية $Neutral-50، حشوة $padding-sm، نصف قطر سفلي $radius-md">Background $Neutral-50, padding $padding-sm, bottom radius $radius-md</td></tr><tr><td data-i18n data-ar="مرور على العنصر الفرعي">Sub-item hover</td><td><code>.sub-menu li a:hover</code></td><td data-i18n data-ar="أبيض، $shadow-lg، نص $Primary-600">White, $shadow-lg, text $Primary-600</td></tr><tr><td data-i18n data-ar="العنصر الفرعي الحالي">Current sub-item</td><td><code>.sub-menu a[aria-current="page"]</code></td><td data-i18n data-ar="أبيض، $shadow-lg، نصف قطر $radius-md، $Primary-600، font-lg-600">White, $shadow-lg, radius $radius-md, $Primary-600, font-lg-600</td></tr><tr><td data-i18n data-ar="الشريط المطوي">Collapsed sidebar</td><td><code>.sidebar.close</code></td><td data-i18n data-ar="تختفي العناوين والأسهم؛ القائمة الفرعية تظهر كنافذة جانبية عند المرور">Labels and arrows hidden; the sub-menu opens as a flyout on hover</td></tr></tbody></table></div><ul class="accessibility-list"><li data-i18n data-ar="علّم الصفحة الحالية بـ aria-current=&quot;page&quot; على رابطها في القائمة الفرعية — هو أداة التنسيق وإشارة قارئ الشاشة معًا.">Mark the current page with <code>aria-current="page"</code> on its sub-menu link — this is both the style hook and the screen-reader cue.</li><li data-i18n data-ar="محتوى الصفحة يتبع عرض الشريط: page-structure في Figma فيه Sidebar=Collapsed / Expanded لكل نوع.">The page content follows the sidebar width: Figma <code>page-structure</code> has <code>Sidebar=Collapsed / Expanded</code> for every type.</li></ul><div class="code-block"><pre><code>&lt;li class="showMenu"&gt;
+  &lt;div class="iocn-link"&gt;
+    &lt;a href="#"&gt;&lt;svg class="icon" aria-hidden="true"&gt;…&lt;/svg&gt;&lt;span class="link_name text"&gt;القضايا&lt;/span&gt;&lt;/a&gt;
+    &lt;i class="arrow" aria-hidden="true"&gt;&lt;svg viewBox="0 0 24 24" width="20" height="20"&gt;&lt;path fill="currentColor" d="…arrow-down-01…"/&gt;&lt;/svg&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;ul class="sub-menu"&gt;
+    &lt;li&gt;&lt;a href="./cases.html" aria-current="page"&gt;سجل القضايا&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="./new-case.html"&gt;قضية جديدة&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/li&gt;</code></pre></div></div></section>
 
       <section class="section" id="sidebar-governance">
         <div class="section-card">

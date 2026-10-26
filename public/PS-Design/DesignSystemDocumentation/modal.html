@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modal | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
+<style>.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.two-col .section-card{margin:0}.demo-box{background:#fff;border:1px solid #eceff3;border-radius:12px;padding:16px}</style>
+</head>
+
+<body>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
+          <a href="./datepicker.html" data-i18n data-ar="منتقي التاريخ">Date Picker</a>
+          <a href="./sweet-alert.html" data-i18n data-ar="التنبيهات المنبثقة">Sweet Alert</a>
+          <a href="./table.html" data-i18n data-ar="الجدول">Table</a>
+          <a href="./modal.html" data-i18n data-ar="النافذة">Modal</a>
+          <a href="./tooltip.html" data-i18n data-ar="التلميح">Tooltip</a>
+          <a href="./breadcrumb.html" data-i18n data-ar="مسار التنقل">Breadcrumb</a>
+          <a href="./dropdown.html" data-i18n data-ar="القائمة المنسدلة">Dropdown</a>
+          <a href="./empty-state.html" data-i18n data-ar="الحالة الفارغة">Empty State</a>
+          <a href="./page-title.html" data-i18n data-ar="عنوان الصفحة">Page Title</a>
+          <a href="./map.html" data-i18n data-ar="الخريطة">Map</a>
+        </nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top"><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span></button>
+      </div>
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="المكونات / النافذة">Components / Modal</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="النافذة">Modal</h1>
+        <p class="text-muted mb-0" data-i18n data-ar="نافذة حوار قابلة للتركيب: رأس، وجسم قابل للتمرير (800px كحد أقصى)، وأزرار في التذييل.">Focused composable dialog: header, scrollable body (max 800px) and footer actions.</p>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill" data-i18n data-ar="المكوّن: النافذة" data-en="Component: Modal">المكوّن: النافذة</span>
+        <span class="metadata-pill" data-i18n data-ar="الملفات: _modal.scss" data-en="Files: _modal.scss">الملفات: _modal.scss</span>
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 25 أكتوبر 2026" data-en="Last updated: October 25, 2026">آخر تحديث: 25 أكتوبر 2026</span>
+      </div>
+<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الهدف / متى تستخدم">Purpose &amp; when to use</h2><p class="section-note" data-i18n data-ar="النافذة حوار مركّز فوق الصفحة: نموذج قصير، تأكيد بحقول، إسناد، معاينة. الكود: ‎.modal‎ من Bootstrap منسقة في css/common/_modal.scss. Figma: Modal بنوع Composable مع modal-title وmodal-body (خانة Body Content) وmodal-footer (خانة Actions)؛ والشاشة التي فيها نافذة تستخدم page-structure بنوع with-modal.">The modal is a focused dialog over the page: a short form, a confirmation with fields, an assignment, a preview. Code: Bootstrap <code class="code-inline">.modal</code> styled by <code class="code-inline">css/common/_modal.scss</code>. Figma: <code class="code-inline">Modal</code> Type=Composable with <code class="code-inline">modal-title</code>, <code class="code-inline">modal-body</code> (Body Content slot) and <code class="code-inline">modal-footer</code> (Actions slot); a screen with a modal uses <code class="code-inline">page-structure Type=with-modal</code>.</p><ul class="accessibility-list"><li data-i18n data-ar="رسالة أو قرار واحد بدون حقول ← التنبيهات المنبثقة. محتوى طويل أو متعدد الخطوات ← صفحة.">One message or one decision without fields → Sweet Alert. Long or multi-step content → a page.</li><li data-i18n data-ar="لا نافذة فوق نافذة أخرى.">No modal on top of another modal.</li></ul></div></section>
+<section class="section" id="anatomy"><div class="section-card"><h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الجزء">Part</th><th scope="col" data-i18n data-ar="الكود">Code</th><th scope="col" data-i18n data-ar="Figma">Figma</th><th scope="col" data-i18n data-ar="المواصفة">Spec</th></tr></thead><tbody><tr><td data-i18n data-ar="السطح">Surface</td><td><code>.modal-content</code></td><td><code>Modal</code></td><td data-i18n data-ar="حشوة $padding-2xl، نصف قطر $radius-md، تباعد $gap-xs">Padding $padding-2xl, radius $radius-md, gap $gap-xs</td></tr><tr><td data-i18n data-ar="الرأس">Header</td><td><code>.modal-header</code></td><td><code>modal-title</code></td><td data-i18n data-ar="خلفية $Neutral-100، حشوة $padding-xl، العنوان font-xl-600 $Neutral-900، إغلاق 34px">Background $Neutral-100, padding $padding-xl, title font-xl-600 $Neutral-900, close 34px</td></tr><tr><td data-i18n data-ar="الجسم">Body</td><td><code>.modal-body</code></td><td><code>modal-body</code> · Body Content slot</td><td data-i18n data-ar="حشوة $padding-2xl، أقصى ارتفاع 800px — المحتوى الأطول يُمرَّر داخليًا؛ الرأس والتذييل يبقيان ظاهرين">Padding $padding-2xl, max-height 800px — longer content scrolls inside; header and footer stay visible</td></tr><tr><td data-i18n data-ar="التذييل">Footer</td><td><code>.modal-footer</code></td><td><code>modal-footer</code> · Actions slot</td><td data-i18n data-ar="فاصل $Neutral-200 أعلاه، حشوة علوية $padding-lg، تباعد $gap-xl؛ الإجراء الأساسي في جهة البداية">Divider $Neutral-200 on top, padding-top $padding-lg, gap $gap-xl; primary action on the start side</td></tr><tr><td data-i18n data-ar="رأس معلومات">Info header</td><td><code>.modal-info-header</code></td><td>—</td><td data-i18n data-ar="خلفية $Info-50، عنوان $Info-600">Background $Info-50, title $Info-600</td></tr><tr><td data-i18n data-ar="رأس خطِر">Danger header</td><td><code>.modal-danger-header</code></td><td>—</td><td data-i18n data-ar="خلفية $Error-500، عنوان أبيض">Background $Error-500, white title</td></tr></tbody></table></div><h3 class="section-title mt-4" data-i18n data-ar="المقاسات">Sizes</h3><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="المقاس في Figma">Figma Size</th><th scope="col" data-i18n data-ar="العرض">Width</th><th scope="col" data-i18n data-ar="Bootstrap">Bootstrap</th></tr></thead><tbody><tr><td>Default</td><td>681px</td><td><code>.modal-dialog</code> / <code>.modal-lg</code></td></tr><tr><td>Large</td><td>1244px</td><td><code>.modal-xl</code></td></tr><tr><td>XL</td><td>1618px</td><td data-i18n data-ar="‎.modal-fullscreen-*‎ أو عرض مخصص"><code>.modal-fullscreen-*</code> or custom width</td></tr></tbody></table></div></div></section>
+<section class="section" id="live"><div class="section-card"><h2 class="section-title" data-i18n data-ar="معاينة">Preview</h2><div class="demo-box" dir="rtl"><div class="modal position-static d-block" tabindex="-1" style="z-index:auto"><div class="modal-dialog m-0" style="max-width:681px"><div class="modal-content">
+  <div class="modal-header"><h5 class="modal-title">إسناد الطلب إلى شعبة</h5><button type="button" class="btn-close" aria-label="إغلاق"></button></div>
+  <div class="modal-body"><label class="form-label required" for="md-s">الشعبة</label><select class="form-select" id="md-s"><option>اختر الشعبة</option></select>
+    <label class="form-label mt-3" for="md-n">ملاحظات</label><textarea class="form-control" id="md-n" rows="2" placeholder="اكتب ملاحظات الإسناد"></textarea></div>
+  <div class="modal-footer justify-content-start"><button class="moi-btn moi-btn--Primary" data-size="md" type="button">إسناد</button><button class="moi-btn moi-btn--Neutral--outline" data-size="md" type="button">إغلاق</button></div>
+</div></div></div></div></div></section>
+<section class="section" id="usage-rules"><div class="section-card"><h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2><div class="two-col"><div class="section-card"><h3 class="section-title" data-i18n data-ar="افعل">Do</h3><ul class="accessibility-list"><li data-i18n data-ar="العنوان = الإجراء («إسناد الطلب إلى شعبة»)؛ الزر الأساسي = الفعل («إسناد»).">Title = the action (<bdi dir="rtl">«إسناد الطلب إلى شعبة»</bdi>); primary button = the verb (<bdi dir="rtl">«إسناد»</bdi>).</li><li data-i18n data-ar="علّم الحقول الإلزامية فقط عندما يحدد مصدر العمل ذلك.">Mark required fields only when the business source says so.</li><li data-i18n data-ar="أبقِ المحتوى داخل جسم 800px؛ وإلا انقله لصفحة.">Keep content within the 800px body; otherwise move it to a page.</li></ul></div><div class="section-card"><h3 class="section-title" data-i18n data-ar="لا تفعل">Don’t</h3><ul class="accessibility-list"><li data-i18n data-ar="لا تفتح نافذة من نافذة.">Don’t open a modal from a modal.</li><li data-i18n data-ar="لا تضف طبقة تعتيم ثانية — Bootstrap وpage-structure with-modal يوفرانها.">Don’t add a second overlay — Bootstrap and page-structure with-modal provide it.</li><li data-i18n data-ar="لا تستخدم النافذة لنعم / لا بسيطة — استخدم التنبيهات المنبثقة.">Don’t use the modal for a simple yes / no — use Sweet Alert.</li></ul></div></div></div></section>
+<section class="section" id="accessibility-guidance"><div class="section-card"><h2 class="section-title" data-i18n data-ar="إمكانية الوصول والاتجاه">Accessibility &amp; RTL</h2><ul class="accessibility-list"><li data-i18n data-ar="استخدم role=&quot;dialog&quot; وaria-modal=&quot;true&quot; وaria-labelledby يشير للعنوان (بنية Bootstrap).">Use <code>role="dialog"</code>, <code>aria-modal="true"</code> and <code>aria-labelledby</code> pointing at the title (Bootstrap markup).</li><li data-i18n data-ar="التركيز ينتقل للنافذة عند الفتح ويعود للزر عند الإغلاق؛ Esc يغلق.">Focus moves into the modal on open and returns to the trigger on close; Esc closes.</li><li data-i18n data-ar="زر الإغلاق يحتاج aria-label=&quot;إغلاق&quot;.">The close button needs <code>aria-label="إغلاق"</code>.</li></ul></div></section>
+<section class="section" id="developer-api"><div class="section-card"><h2 class="section-title" data-i18n data-ar="واجهة المطور">Developer API</h2><div class="code-block"><pre><code>&lt;div class="modal fade" id="assignModal" tabindex="-1" aria-labelledby="assignTitle" aria-hidden="true"&gt;
+  &lt;div class="modal-dialog modal-dialog-centered"&gt;
+    &lt;div class="modal-content"&gt;
+      &lt;div class="modal-header"&gt;
+        &lt;h5 class="modal-title" id="assignTitle"&gt;إسناد الطلب إلى شعبة&lt;/h5&gt;
+        &lt;button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"&gt;&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-body"&gt;&lt;!-- Body Content --&gt;&lt;/div&gt;
+      &lt;div class="modal-footer justify-content-start"&gt;
+        &lt;button type="button" class="moi-btn moi-btn--Primary" data-size="md"&gt;إسناد&lt;/button&gt;
+        &lt;button type="button" class="moi-btn moi-btn--Neutral--outline" data-size="md" data-bs-dismiss="modal"&gt;إغلاق&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div></div></section>
+
+    </div>
+  </main>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+  
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

@@ -591,6 +591,16 @@
           <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
           <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
           <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
+          <a href="./datepicker.html" data-i18n data-ar="منتقي التاريخ">Date Picker</a>
+          <a href="./sweet-alert.html" data-i18n data-ar="التنبيهات المنبثقة">Sweet Alert</a>
+          <a href="./table.html" data-i18n data-ar="الجدول">Table</a>
+          <a href="./modal.html" data-i18n data-ar="النافذة">Modal</a>
+          <a href="./tooltip.html" data-i18n data-ar="التلميح">Tooltip</a>
+          <a href="./breadcrumb.html" data-i18n data-ar="مسار التنقل">Breadcrumb</a>
+          <a href="./dropdown.html" data-i18n data-ar="القائمة المنسدلة">Dropdown</a>
+          <a href="./empty-state.html" data-i18n data-ar="الحالة الفارغة">Empty State</a>
+          <a href="./page-title.html" data-i18n data-ar="عنوان الصفحة">Page Title</a>
+          <a href="./map.html" data-i18n data-ar="الخريطة">Map</a>
         </nav>
       </div>
 
@@ -644,9 +654,9 @@
 
         <span class="metadata-pill"
               data-i18n
-              data-ar="آخر تحديث: 14 أكتوبر 2026"
-              data-en="Last updated: October 14, 2026">
-          آخر تحديث: 14 أكتوبر 2026
+              data-ar="آخر تحديث: 25 أكتوبر 2026"
+              data-en="Last updated: October 25, 2026">
+          آخر تحديث: 25 أكتوبر 2026
         </span>
       </div>
 
@@ -1017,6 +1027,21 @@
         </div>
       </section>
 
+<section class="section" id="checkbox"><div class="section-card"><h2 class="section-title" data-i18n data-ar="مربع الاختيار">Checkbox</h2><p class="section-note" data-i18n data-ar="مربع الاختيار يستخدم بنية Bootstrap الأصلية .form-check؛ والشكل موحّد في css/common/_checkbox.scss ومطابق لمكوّن input في Figma (type=checkbox). لا توجد فئات جديدة — الحالات تأتي من الخصائص الأصلية.">Checkboxes use Bootstrap’s native <code class="code-inline">.form-check</code> markup; the look is centralised in <code class="code-inline">css/common/_checkbox.scss</code> and matches the Figma <code class="code-inline">input</code> component (<code class="code-inline">type=checkbox</code>). No new classes — the states come from the native attributes.</p><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الحالة">State</th><th scope="col" data-i18n data-ar="المحدد">Selector</th><th scope="col" data-i18n data-ar="الشكل">Look</th><th scope="col" data-i18n data-ar="Figma (state=)">Figma (state=)</th></tr></thead><tbody><tr><td data-i18n data-ar="غير محدد">Unchecked</td><td><code>.form-check-input[type=checkbox]</code></td><td data-i18n data-ar="16×16، نصف قطر $radius-xs، حد 2px $Neutral-300، أبيض">16×16, radius $radius-xs, 2px border $Neutral-300, white</td><td><code>default</code></td></tr><tr><td data-i18n data-ar="محدد">Checked</td><td><code>:checked</code></td><td data-i18n data-ar="تعبئة $Primary-600 مع أيقونة النظام tick-02 (بيضاء 12px)">Filled $Primary-600 with the system icon tick-02 (white, 12px)</td><td><code>checked</code></td></tr><tr><td data-i18n data-ar="محدد جزئيًا">Indeterminate</td><td><code>:indeterminate</code></td><td data-i18n data-ar="تعبئة $Primary-600 مع minus-sign (بيضاء 12px)">Filled $Primary-600 with minus-sign (white, 12px)</td><td><code>indeterminate</code></td></tr><tr><td data-i18n data-ar="تركيز (لوحة المفاتيح)">Focus (keyboard)</td><td><code>:focus-visible</code></td><td data-i18n data-ar="حلقة: 2px $white-100 + 4px $Primary-600">Ring: 2px $white-100 + 4px $Primary-600</td><td><code>checked-focus</code> …</td></tr><tr><td data-i18n data-ar="معطّل">Disabled</td><td><code>:disabled</code></td><td data-i18n data-ar="خلفية $Neutral-200 وحد $Neutral-300؛ المحدد ← $Neutral-300؛ العنوان $Neutral-400">Background $Neutral-200, border $Neutral-300; checked → $Neutral-300; label $Neutral-400</td><td><code>…-disabled</code></td></tr></tbody></table></div><div class="state-grid mt-3" dir="rtl">
+  <div class="state-tile"><div class="state-label" data-i18n data-ar="غير محدد">Unchecked</div>
+    <div class="form-check"><input class="form-check-input" type="checkbox" id="cb-a"><label class="form-check-label" for="cb-a">أوافق على الشروط</label></div></div>
+  <div class="state-tile"><div class="state-label" data-i18n data-ar="محدد">Checked</div>
+    <div class="form-check"><input class="form-check-input" type="checkbox" id="cb-b" checked><label class="form-check-label" for="cb-b">أوافق على الشروط</label></div></div>
+  <div class="state-tile"><div class="state-label" data-i18n data-ar="محدد جزئيًا">Indeterminate</div>
+    <div class="form-check"><input class="form-check-input" type="checkbox" id="cb-c" data-indeterminate><label class="form-check-label" for="cb-c">كل الجهات</label></div></div>
+  <div class="state-tile"><div class="state-label" data-i18n data-ar="معطّل">Disabled</div>
+    <div class="form-check"><input class="form-check-input" type="checkbox" id="cb-d" checked disabled><label class="form-check-label" for="cb-d">غير متاح</label></div></div>
+</div>
+<script>document.querySelectorAll('[data-indeterminate]').forEach(function (el) { el.indeterminate = true; });</script><ul class="accessibility-list"><li data-i18n data-ar="الحالة الجزئية تُضبط من JavaScript (el.indeterminate = true) لعنصر أب بعض عناصره محددة.">Indeterminate is set from JavaScript (<code>el.indeterminate = true</code>) for a parent that has some children checked.</li><li data-i18n data-ar="اربط المربع دائمًا بـ &lt;label for&gt;؛ العنوان هو مساحة النقر.">Always pair the box with a <code>&lt;label for&gt;</code>; the label is the click target.</li><li data-i18n data-ar="أزرار الاختيار الفردي (Radio) غير موحّدة بعد (محصورة في #Accidents) — لا تضف فئة جديدة دون اعتماد.">Radio buttons are not centralised yet (scoped to <code>#Accidents</code>) — do not add a new wrapper class without approval.</li></ul><div class="code-block"><pre><code>&lt;div class="form-check"&gt;
+  &lt;input class="form-check-input" type="checkbox" id="agree"&gt;
+  &lt;label class="form-check-label" for="agree"&gt;أوافق على الشروط&lt;/label&gt;
+&lt;/div&gt;</code></pre></div></div></section>
+
       <section class="section" id="do-dont">
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="افعل ولا تفعل">Do &amp; Don&#39;t</h2>
@@ -1231,6 +1256,8 @@
           </div>
         </div>
       </section>
+<section class="section" id="updates-2026-10"><div class="section-card"><h2 class="section-title" data-i18n data-ar="تحديثات أكتوبر 2026 — التصميم ↔ الكود">October 2026 updates — Figma ↔ code</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="البند">Item</th><th scope="col" data-i18n data-ar="Figma">Figma</th><th scope="col" data-i18n data-ar="الكود">Code</th><th scope="col" data-i18n data-ar="الحالة">Status</th></tr></thead><tbody><tr><td data-i18n data-ar="حالة التحذير">Warning state</td><td data-i18n data-ar="تحذير لكل نوع">type × warning</td><td><code>.is-warning</code></td><td data-i18n data-ar="✓ موجود في الكود">✓ In code</td></tr><tr><td data-i18n data-ar="نوع مربع الاختيار">Checkbox type</td><td data-i18n data-ar="type=checkbox (25 أكتوبر)">type=checkbox (25 Oct)</td><td><code>_checkbox.scss</code></td><td data-i18n data-ar="✓ موجود في الكود">✓ In code</td></tr><tr><td data-i18n data-ar="وسوم الاختيار المتعدد">Multi-select chips</td><td data-i18n data-ar="22 أكتوبر">22 Oct</td><td data-i18n data-ar="vue-treeselect (راجع القائمة المنسدلة)">vue-treeselect (see Dropdown)</td><td data-i18n data-ar="✓ موجود في الكود">✓ In code</td></tr><tr><td data-i18n data-ar="رسالة مساعدة / تحذير بأيقونة لكل نوع">Per-type helper / warning text with icon</td><td data-i18n data-ar="helper-row (22 أكتوبر)">helper-row (22 Oct)</td><td data-i18n data-ar="‎.helper-text‎ موجودة في هذه الصفحة فقط؛ لا يوجد تنسيق مشترك في ‎_form.scss‎"><code>.helper-text</code> exists only on this page; no shared style in <code>_form.scss</code></td><td data-i18n data-ar="في التصميم فقط — لم يُنفَّذ في الكود بعد">Design only — not in code yet</td></tr><tr><td data-i18n data-ar="حقل تاريخ مع نص مساعد">Date field with helper</td><td data-i18n data-ar="22 أكتوبر">22 Oct</td><td data-i18n data-ar="راجع منتقي التاريخ">See Date Picker</td><td data-i18n data-ar="✓ موجود في الكود">✓ In code</td></tr></tbody></table></div></div></section>
+
     </div>
   </main>
 

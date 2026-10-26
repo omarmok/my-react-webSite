@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Table | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
+<style>.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.two-col .section-card{margin:0}.demo-box{background:#fff;border:1px solid #eceff3;border-radius:12px;padding:16px}</style>
+</head>
+
+<body>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
+          <a href="./datepicker.html" data-i18n data-ar="منتقي التاريخ">Date Picker</a>
+          <a href="./sweet-alert.html" data-i18n data-ar="التنبيهات المنبثقة">Sweet Alert</a>
+          <a href="./table.html" data-i18n data-ar="الجدول">Table</a>
+          <a href="./modal.html" data-i18n data-ar="النافذة">Modal</a>
+          <a href="./tooltip.html" data-i18n data-ar="التلميح">Tooltip</a>
+          <a href="./breadcrumb.html" data-i18n data-ar="مسار التنقل">Breadcrumb</a>
+          <a href="./dropdown.html" data-i18n data-ar="القائمة المنسدلة">Dropdown</a>
+          <a href="./empty-state.html" data-i18n data-ar="الحالة الفارغة">Empty State</a>
+          <a href="./page-title.html" data-i18n data-ar="عنوان الصفحة">Page Title</a>
+          <a href="./map.html" data-i18n data-ar="الخريطة">Map</a>
+        </nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top"><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span></button>
+      </div>
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="المكونات / الجدول">Components / Table</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="الجدول">Table</h1>
+        <p class="text-muted mb-0" data-i18n data-ar="جدول بيانات مع شريط إعدادات وعناوين وصفوف بوسوم أو إجراءات وحالات تحميل وفراغ وترقيم صفحات.">Data table with settings bar, header, rows with tags or actions, loading / empty states and pagination.</p>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill" data-i18n data-ar="المكوّن: الجدول" data-en="Component: Table">المكوّن: الجدول</span>
+        <span class="metadata-pill" data-i18n data-ar="الملفات: _table.scss" data-en="Files: _table.scss">الملفات: _table.scss</span>
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 25 أكتوبر 2026" data-en="Last updated: October 25, 2026">آخر تحديث: 25 أكتوبر 2026</span>
+      </div>
+<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الهدف / متى تستخدم">Purpose &amp; when to use</h2><p class="section-note" data-i18n data-ar="جدول البيانات يعرض السجلات (طلبات، قضايا، مستخدمين) مع شريط إعدادات وعناوين أعمدة وصفوف فيها إجراءات أو وسوم حالة وترقيم صفحات. الكود: css/components/_table.scss فوق جدول Bootstrap. Figma: moi-table (صفحة ❖ Components / Table).">The data table lists records (requests, cases, users) with a settings bar, column headers, rows with actions or status tags, and pagination. Code: <code class="code-inline">css/components/_table.scss</code> on top of Bootstrap <code class="code-inline">.table</code>. Figma: <code class="code-inline">moi-table</code> (page ❖ Components / Table).</p><ul class="accessibility-list"><li data-i18n data-ar="استخدمه لأي قائمة سجلات يتصفحها المستخدم أو يفلترها أو ينفذ عليها إجراءات.">Use it for any list of more than a few records that the user scans, filters or acts on.</li><li data-i18n data-ar="لتفاصيل سجل واحد استخدم البطاقات مع حقول العرض، وليس جدولًا بصف واحد.">For one record’s details use Cards with entity fields, not a one-row table.</li></ul></div></section>
+<section class="section" id="anatomy"><div class="section-card"><h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الجزء">Part</th><th scope="col" data-i18n data-ar="الكود">Code</th><th scope="col" data-i18n data-ar="Figma">Figma</th><th scope="col" data-i18n data-ar="المواصفة">Spec</th></tr></thead><tbody><tr><td data-i18n data-ar="الحاوية">Wrapper</td><td><code>.tablecontainer</code></td><td><code>moi-table</code></td><td data-i18n data-ar="عرض كامل، تمرير أفقي في الشاشات الصغيرة">Full width, horizontal scroll on small screens</td></tr><tr><td data-i18n data-ar="شريط الإعدادات">Settings bar</td><td><code>.tableSeetings</code></td><td><code>table-seetings</code></td><td data-i18n data-ar="عدد السجلات في جهة البداية (h3 &gt; span بلون $Primary-500)، والأزرار (تخصيص، طباعة) في جهة النهاية">Record count on the start side (<code>h3 &gt; span</code> in $Primary-500), actions (Customize, Print) on the end side</td></tr><tr><td data-i18n data-ar="البحث والفلاتر">Search / filters</td><td><code>.table__search · .advancedSearchContainer</code></td><td><code>search in service</code></td><td data-i18n data-ar="حقول + بحث / إعادة تعيين؛ البحث المتقدم يُظهر حقولًا إضافية؛ الفلاتر النشطة كوسوم">Fields + Search / Reset; advanced search toggles extra fields; active filters as chips</td></tr><tr><td data-i18n data-ar="خلية العنوان">Header cell</td><td><code>thead th</code></td><td><code>table-Header</code></td><td data-i18n data-ar="خلفية $Neutral-100، نص $Neutral-600 font-lg-600، حد $Neutral-300، في المنتصف">Background $Neutral-100, text $Neutral-600 font-lg-600, border $Neutral-300, centred</td></tr><tr><td data-i18n data-ar="خلية البيانات">Body cell</td><td><code>tbody td</code></td><td><code>table-Cell</code> type=Default</td><td data-i18n data-ar="صف 40px، حشوة $padding-md $padding-xl، 14px، حد $Neutral-100، أبيض؛ النص في سطر واحد في Figma">40px row, padding $padding-md $padding-xl, 14px, border $Neutral-100, white; text kept on one line in Figma</td></tr><tr><td data-i18n data-ar="خلية الحالة">Status cell</td><td><code>.moi-tag</code> inside <code>td</code></td><td><code>table-Cell</code> type=status</td><td data-i18n data-ar="استخدم مكوّن الوسم (راجع الوسوم)">Use the Tag component (see Tags)</td></tr><tr><td data-i18n data-ar="خلية الإجراءات">Actions cell</td><td><code>td.actiontd &gt; .moi-btn--text-icon</code></td><td><code>table-Cell</code> type=Action</td><td data-i18n data-ar="أزرار أيقونات 24px $Neutral-900 ← $Primary-500 عند المرور، تباعد $gap-10؛ كل زر يحتاج title / aria-label">Icon buttons 24px $Neutral-900 → $Primary-500 on hover, gap $gap-10; each needs a title / aria-label</td></tr><tr><td data-i18n data-ar="التحديد">Selection</td><td><code>td &gt; .form-check-input</code></td><td><code>col-checkbox</code> (with-checkbox)</td><td data-i18n data-ar="عمود مربعات اختيار للإجراءات الجماعية">Checkbox column for bulk actions</td></tr><tr><td data-i18n data-ar="ترقيم الصفحات">Pagination</td><td><code>.paginationContainer</code></td><td><code>pagenation</code></td><td data-i18n data-ar="أرقام الصفحات، عدد الصفوف (‎.pages_number‎)، الذهاب لصفحة (‎.goto‎)">Page numbers, rows per page (<code>.pages_number</code>), go to page (<code>.goto</code>)</td></tr></tbody></table></div></div></section>
+<section class="section" id="states"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الحالات">States</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الحالة">State</th><th scope="col" data-i18n data-ar="المحدد">Selector</th><th scope="col" data-i18n data-ar="الشكل">Look</th></tr></thead><tbody><tr><td data-i18n data-ar="مرور على الصف">Row hover</td><td><code>tr:hover &gt; td</code></td><td data-i18n data-ar="خلفية $Neutral-100">Background $Neutral-100</td></tr><tr><td data-i18n data-ar="صف محدد">Row selected</td><td><code>tr.selected · tr[aria-selected="true"]</code></td><td data-i18n data-ar="خلفية $Primary-50">Background $Primary-50</td></tr><tr><td data-i18n data-ar="رقم الصفحة">Page number</td><td><code>.page-link</code></td><td data-i18n data-ar="$Neutral-950 على أبيض، نصف قطر $radius-xs، 600">$Neutral-950 on white, radius $radius-xs, 600</td></tr><tr><td data-i18n data-ar="الصفحة الحالية">Current page</td><td><code>.active &gt; .page-link</code></td><td data-i18n data-ar="خلفية $Primary-500، نص أبيض">Background $Primary-500, white text</td></tr><tr><td data-i18n data-ar="صفحة معطلة">Disabled page</td><td><code>.disabled &gt; .page-link · [aria-disabled="true"]</code></td><td data-i18n data-ar="خلفية $Neutral-200، نص $Neutral-400">Background $Neutral-200, text $Neutral-400</td></tr><tr><td data-i18n data-ar="تركيز لوحة المفاتيح">Keyboard focus</td><td><code>.page-link:focus-visible</code></td><td data-i18n data-ar="حلقة داخلية 2px $Primary-600">Inset 2px $Primary-600 ring</td></tr><tr><td data-i18n data-ar="تحميل">Loading</td><td><code>table.tableloader</code></td><td data-i18n data-ar="أشرطة تحميل في كل خلية؛ أزل الفئة عند وصول البيانات">Skeleton bars in every cell; remove the class when data arrives</td></tr><tr><td data-i18n data-ar="لا توجد بيانات">No data</td><td><code>.nodataTable</code> in a full-width row</td><td data-i18n data-ar="صورة ورسالة؛ أبقِ العناوين وشريط الإعدادات والترقيم (العدد = 0)">Image + message; keep header, settings bar and pagination (count = 0)</td></tr></tbody></table></div></div></section>
+<section class="section" id="live"><div class="section-card"><h2 class="section-title" data-i18n data-ar="معاينة">Preview</h2><div class="demo-box" dir="rtl"><div class="tablecontainer">
+  <div class="tableSeetings mt-0"><h3>عدد الطلبات <span>3</span></h3>
+    <div class="action-items"><button class="btn moi-btn--Neutral" type="button">تخصيص</button><button class="btn moi-btn--Neutral" type="button">طباعة</button></div></div>
+  <table class="table"><thead><tr><th>مرجع الطلب</th><th>درجة الأهمية</th><th>نوع الطلب</th><th>حالة الطلب</th><th>الإجراءات</th></tr></thead>
+  <tbody>
+    <tr><td>38637754</td><td><span class="moi-tag" data-status="mediumpriority">متوسطة</span></td><td>تحرٍّ عن شخص</td><td><span class="moi-tag" data-status="defualtprioroty">جديد</span></td><td class="actiontd"><button class="moi-btn--text-icon" type="button" title="تفاصيل" aria-label="تفاصيل">⋯</button></td></tr>
+    <tr aria-selected="true"><td>38637761</td><td><span class="moi-tag" data-status="highpriority">عالية</span></td><td>تحرٍّ عن هاتف</td><td><span class="moi-tag" data-status="defualtprioroty">جديد</span></td><td class="actiontd"><button class="moi-btn--text-icon" type="button" title="تفاصيل" aria-label="تفاصيل">⋯</button></td></tr>
+    <tr><td>38637769</td><td><span class="moi-tag" data-status="infoprioroty">عادية</span></td><td>تحرٍّ عن مركبة</td><td><span class="moi-tag" data-status="defualtprioroty">جديد</span></td><td class="actiontd"><button class="moi-btn--text-icon" type="button" title="تفاصيل" aria-label="تفاصيل">⋯</button></td></tr>
+  </tbody></table>
+  <nav aria-label="ترقيم الصفحات" class="paginationContainer justify-content-between"><ul class="pagination">
+    <li class="page-item disabled"><a class="page-link" aria-disabled="true">‹</a></li><li class="page-item active"><a class="page-link" href="#" aria-current="page">1</a></li><li class="page-item"><a class="page-link" href="#">2</a></li><li class="page-item"><a class="page-link" href="#">3</a></li><li class="page-item"><a class="page-link" href="#">›</a></li></ul></nav>
+</div></div></div></section>
+<section class="section" id="usage-rules"><div class="section-card"><h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2><div class="two-col"><div class="section-card"><h3 class="section-title" data-i18n data-ar="افعل">Do</h3><ul class="accessibility-list"><li data-i18n data-ar="ثبّت ترتيب الأعمدة في كل الصفحات؛ مرجع السجل أولًا (جهة البداية).">Keep column order the same across pages; put the record reference first (start side).</li><li data-i18n data-ar="اعرض الحالات ودرجات الأهمية بمكوّن الوسم وألوانه المعتمدة.">Show statuses and priorities with the Tag component and its approved colours.</li><li data-i18n data-ar="أكثر من 8 أعمدة: وفّر «تخصيص» لاختيار الأعمدة وأبقِ الأهم ظاهرًا.">Over 8 columns: offer <bdi dir="rtl">«تخصيص»</bdi> (column chooser) and keep the most important columns visible.</li><li data-i18n data-ar="اجعل نص الخلية قصيرًا (سطر واحد)؛ القيم الطويلة مكانها صفحة التفاصيل أو تلميح.">Keep cell text short (one line); long values go to the details page or a tooltip.</li></ul></div><div class="section-card"><h3 class="section-title" data-i18n data-ar="لا تفعل">Don’t</h3><ul class="accessibility-list"><li data-i18n data-ar="لا تضع تعديل / حذف في جداول سجلات للعرض فقط.">Don’t put edit / delete in tables of read-only records.</li><li data-i18n data-ar="لا تخفِ شريط الإعدادات أو الترقيم عندما يكون الجدول فارغًا.">Don’t hide the settings bar or pagination when the table is empty.</li><li data-i18n data-ar="لا تستخدم badge أو btn-outline-* العامة من Bootstrap داخل الجدول.">Don’t use Bootstrap’s generic <code>.badge</code> or <code>.btn-outline-*</code> inside the table.</li></ul></div></div></div></section>
+<section class="section" id="accessibility-guidance"><div class="section-card"><h2 class="section-title" data-i18n data-ar="إمكانية الوصول والاتجاه">Accessibility &amp; RTL</h2><ul class="accessibility-list"><li data-i18n data-ar="استخدم &lt;th&gt; حقيقية للعناوين مع scope=&quot;col&quot;.">Use real <code>&lt;th&gt;</code> for headers; add <code>scope="col"</code>.</li><li data-i18n data-ar="أزرار الأيقونات تحتاج aria-label (وتلميحًا للمستخدم المبصر).">Icon-only action buttons need <code>aria-label</code> (and a tooltip for sighted users).</li><li data-i18n data-ar="علّم الصفحة الحالية بـ aria-current=&quot;page&quot; والأسهم المعطلة بـ aria-disabled=&quot;true&quot;.">Mark the current page with <code>aria-current="page"</code> and disabled arrows with <code>aria-disabled="true"</code>.</li><li data-i18n data-ar="الاتجاه: العمود الأول على اليمين؛ الأرقام والتواريخ تبقى LTR داخل الخلايا.">RTL: the first column is on the right; numbers and dates stay LTR inside cells.</li></ul></div></section>
+<section class="section" id="design-code"><div class="section-card"><h2 class="section-title" data-i18n data-ar="التصميم ↔ الكود">Figma ↔ code</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="البند">Item</th><th scope="col" data-i18n data-ar="Figma">Figma</th><th scope="col" data-i18n data-ar="الكود">Code</th><th scope="col" data-i18n data-ar="الحالة">Status</th></tr></thead><tbody><tr><td data-i18n data-ar="العمود كوحدة واحدة">Column as one unit (Header + Cells)</td><td><code>sample-table-column</code></td><td data-i18n data-ar="بنية صف عادية (جدول قياسي)">Markup per row (standard table)</td><td data-i18n data-ar="بنية تصميم فقط">Design structure only</td></tr><tr><td data-i18n data-ar="الفلاتر والبحث المتقدم">Filters &amp; advanced search</td><td><code>search in service</code></td><td><code>.table__search · .advancedSearchContainer</code></td><td data-i18n data-ar="✓ موجود في الكود">✓ In code</td></tr><tr><td data-i18n data-ar="حالة تركيز الخلية">Cell focus state</td><td data-i18n data-ar="table-Cell focus">table-Cell focus</td><td data-i18n data-ar="غير منسق">Not styled</td><td data-i18n data-ar="في التصميم فقط — لم يُنفَّذ في الكود بعد">Design only — not in code yet</td></tr><tr><td data-i18n data-ar="تركيز رقم الصفحة">Page-number focus</td><td data-i18n data-ar="pagination-number focus">pagination-number focus</td><td><code>.page-link:focus-visible</code></td><td data-i18n data-ar="✓ موجود في الكود">✓ In code</td></tr><tr><td data-i18n data-ar="نص الخلية يُقص في سطر">One-line truncated cell text</td><td data-i18n data-ar="خلايا Figma">Figma cells</td><td data-i18n data-ar="يلتف؛ ‎.ellipsistd‎ اختياري">Wraps (white-space: inherit); <code>.ellipsistd</code> for opt-in</td><td data-i18n data-ar="جزئي">Partly</td></tr><tr><td data-i18n data-ar="الحالة الفارغة القديمة">Old empty state</td><td data-i18n data-ar="متوقفة ← no-data">Deprecated → no-data</td><td><code>.nodataTable</code></td><td data-i18n data-ar="راجع صفحة الحالة الفارغة">Use Empty state page</td></tr></tbody></table></div></div></section>
+<section class="section" id="developer-api"><div class="section-card"><h2 class="section-title" data-i18n data-ar="واجهة المطور">Developer API</h2><div class="code-block"><pre><code>&lt;div class="tablecontainer"&gt;
+  &lt;div class="tableSeetings mt-0"&gt;
+    &lt;h3&gt;عدد الطلبات &lt;span&gt;24572&lt;/span&gt;&lt;/h3&gt;
+    &lt;div class="action-items"&gt;
+      &lt;button class="btn moi-btn--Neutral" data-bs-toggle="modal" data-bs-target="#tableSeetingModal"&gt;تخصيص&lt;/button&gt;
+      &lt;button class="btn moi-btn--Neutral" aria-label="طباعة"&gt;…&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;table class="table"&gt;            &lt;!-- add .tableloader while loading --&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th scope="col"&gt;مرجع الطلب&lt;/th&gt;&lt;th scope="col"&gt;الحالة&lt;/th&gt;&lt;th scope="col"&gt;الإجراءات&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;38637754&lt;/td&gt;
+        &lt;td&gt;&lt;span class="moi-tag" data-status="defualtprioroty"&gt;جديد&lt;/span&gt;&lt;/td&gt;
+        &lt;td class="actiontd"&gt;
+          &lt;button class="moi-btn--text-icon" title="تفاصيل" aria-label="تفاصيل"&gt;…svg…&lt;/button&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+
+  &lt;nav aria-label="ترقيم الصفحات" class="paginationContainer justify-content-between"&gt;
+    &lt;ul class="pagination"&gt;
+      &lt;li class="page-item active"&gt;&lt;a class="page-link" href="#" aria-current="page"&gt;1&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="d-flex leftnav"&gt;
+      &lt;div class="d-flex align-items-center pages_number"&gt;…إظهار / من…&lt;/div&gt;
+      &lt;div class="d-flex align-items-center goto"&gt;…الذهاب إلى صفحة…&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;</code></pre></div></div></section>
+
+    </div>
+  </main>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+  
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

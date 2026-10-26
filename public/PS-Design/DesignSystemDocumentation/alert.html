@@ -474,6 +474,16 @@
           <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
           <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
           <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
+          <a href="./datepicker.html" data-i18n data-ar="منتقي التاريخ">Date Picker</a>
+          <a href="./sweet-alert.html" data-i18n data-ar="التنبيهات المنبثقة">Sweet Alert</a>
+          <a href="./table.html" data-i18n data-ar="الجدول">Table</a>
+          <a href="./modal.html" data-i18n data-ar="النافذة">Modal</a>
+          <a href="./tooltip.html" data-i18n data-ar="التلميح">Tooltip</a>
+          <a href="./breadcrumb.html" data-i18n data-ar="مسار التنقل">Breadcrumb</a>
+          <a href="./dropdown.html" data-i18n data-ar="القائمة المنسدلة">Dropdown</a>
+          <a href="./empty-state.html" data-i18n data-ar="الحالة الفارغة">Empty State</a>
+          <a href="./page-title.html" data-i18n data-ar="عنوان الصفحة">Page Title</a>
+          <a href="./map.html" data-i18n data-ar="الخريطة">Map</a>
         </nav>
       </div>
 
@@ -556,9 +566,9 @@
           الإصدار: قيد التحديث
         </span>
 
-        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 10 مايو 2026"
-          data-en="Last updated: May 10, 2026">
-          آخر تحديث: 10 مايو 2026
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 25 أكتوبر 2026"
+          data-en="Last updated: October 25, 2026">
+          آخر تحديث: 25 أكتوبر 2026
         </span>
       </div>
 
@@ -988,6 +998,8 @@
           </ul>
         </div>
       </section>
+
+<section class="section" id="sizing-responsive"><div class="section-card"><h2 class="section-title" data-i18n data-ar="المقاسات ومساحة اللمس والجوال">Sizing, touch target &amp; mobile</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الجزء">Part</th><th scope="col" data-i18n data-ar="المحدد">Selector</th><th scope="col" data-i18n data-ar="المواصفة">Spec</th></tr></thead><tbody><tr><td data-i18n data-ar="زر الإجراء">Action button</td><td><code>.moi-notification__btn</code></td><td data-i18n data-ar="ارتفاع أدنى 2.75rem (44px)، حشوة أفقية $padding-16، نصف قطر $Radius-4">min-height 2.75rem (44px), padding-inline $padding-16, radius $Radius-4</td></tr><tr><td data-i18n data-ar="زر الإغلاق">Close button</td><td><code>.moi-notification__close</code></td><td data-i18n data-ar="مساحة لمس 44×44، أيقونة 12px، لون $Neutral-800، حد تركيز 2px">44×44 touch target, 12px icon, colour $Neutral-800, focus outline 2px currentColor</td></tr><tr><td data-i18n data-ar="الجوال (≤ 576px)">Mobile (≤ 576px)</td><td><code>@media (max-width: 576px)</code></td><td data-i18n data-ar="المحتوى والأزرار يتراصّان عموديًا بعرض كامل والأزرار تلتف — يطابق نسخة «App» من Notification في Figma">Content and actions stack in a column at full width; actions wrap — this is the Figma Notification <bdi dir="rtl">«App»</bdi> variant</td></tr></tbody></table></div><ul class="accessibility-list"><li data-i18n data-ar="لا تصغّر زر الإغلاق عن 44×44؛ فهو مساحة اللمس حسب WCAG 2.5.5.">Do not shrink the close button below 44×44; it is the WCAG 2.5.5 touch target.</li><li data-i18n data-ar="مكوّن alert-mobile القديم في Figma أُزيل؛ استخدم Notification (App).">The legacy <code>alert-mobile</code> Figma component is removed; use Notification (App).</li></ul></div></section>
 
       <section class="section" id="implementation-notes">
         <div class="section-card">

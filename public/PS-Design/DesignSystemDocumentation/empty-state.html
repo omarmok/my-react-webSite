@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Empty State | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
+<style>.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.two-col .section-card{margin:0}.demo-box{background:#fff;border:1px solid #eceff3;border-radius:12px;padding:16px}</style>
+</head>
+
+<body>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
+          <a href="./datepicker.html" data-i18n data-ar="منتقي التاريخ">Date Picker</a>
+          <a href="./sweet-alert.html" data-i18n data-ar="التنبيهات المنبثقة">Sweet Alert</a>
+          <a href="./table.html" data-i18n data-ar="الجدول">Table</a>
+          <a href="./modal.html" data-i18n data-ar="النافذة">Modal</a>
+          <a href="./tooltip.html" data-i18n data-ar="التلميح">Tooltip</a>
+          <a href="./breadcrumb.html" data-i18n data-ar="مسار التنقل">Breadcrumb</a>
+          <a href="./dropdown.html" data-i18n data-ar="القائمة المنسدلة">Dropdown</a>
+          <a href="./empty-state.html" data-i18n data-ar="الحالة الفارغة">Empty State</a>
+          <a href="./page-title.html" data-i18n data-ar="عنوان الصفحة">Page Title</a>
+          <a href="./map.html" data-i18n data-ar="الخريطة">Map</a>
+        </nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top"><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span></button>
+      </div>
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="المكونات / الحالة الفارغة">Components / Empty State</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="الحالة الفارغة">Empty State</h1>
+        <p class="text-muted mb-0" data-i18n data-ar="رسالة عدم وجود بيانات للأقسام والجداول، مع الخطوة التالية للمستخدم.">No-data message for sections and tables, with the next step for the user.</p>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill" data-i18n data-ar="المكوّن: الحالة الفارغة" data-en="Component: Empty State">المكوّن: الحالة الفارغة</span>
+        <span class="metadata-pill" data-i18n data-ar="الملفات: _common.scss (.no-data), _table.scss (.nodataTable)" data-en="Files: _common.scss (.no-data), _table.scss (.nodataTable)">الملفات: _common.scss (.no-data), _table.scss (.nodataTable)</span>
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 25 أكتوبر 2026" data-en="Last updated: October 25, 2026">آخر تحديث: 25 أكتوبر 2026</span>
+      </div>
+<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الهدف / متى تستخدم">Purpose &amp; when to use</h2><p class="section-note" data-i18n data-ar="يخبر المستخدم أنه لا يوجد ما يُعرض بعد وماذا يفعل. Figma: no-data (صفحة ❖ Patterns / No Data Found) هو المكوّن المعتمد، وno-data-found متوقف. الكود: ‎.no-data‎ (البطاقات والأقسام) و‎.nodataTable‎ (داخل الجدول).">Tells the user there is nothing to show yet and what to do. Figma: <code class="code-inline">no-data</code> (page ❖ Patterns / No Data Found) is the approved component; <code class="code-inline">no-data-found</code> is deprecated. Code: <code class="code-inline">.no-data</code> (cards, sections) and <code class="code-inline">.nodataTable</code> (inside a table).</p></div></section>
+<section class="section" id="anatomy"><div class="section-card"><h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الفئة">Class</th><th scope="col" data-i18n data-ar="المواصفة">Spec</th></tr></thead><tbody><tr><td><code>.no-data img</code></td><td data-i18n data-ar="رسم 120 × 80 في المنتصف">120 × 80 illustration, centred</td></tr><tr><td><code>.no-data p</code></td><td data-i18n data-ar="نص صغير في المنتصف، مسافة علوية $padding-md">Small text, centred, margin-top $padding-md</td></tr><tr><td><code>.nodataTable</code></td><td data-i18n data-ar="عمود في المنتصف بخلفية بيضاء؛ صورة بارتفاع 140px؛ رسالة h5">Column, centred, white; image 140px high; message h5</td></tr></tbody></table></div></div></section>
+<section class="section" id="usage-rules"><div class="section-card"><h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2><ul class="accessibility-list"><li data-i18n data-ar="اكتب ما حدث والخطوة التالية («برجاء إجراء البحث لاستعراض البيانات»).">Write what happened and the next step (<bdi dir="rtl">«برجاء إجراء البحث لاستعراض البيانات»</bdi>).</li><li data-i18n data-ar="في الجدول أبقِ العناوين وشريط الإعدادات (العدد 0) والترقيم ظاهرين.">In a table keep header, settings bar (count 0) and pagination visible.</li><li data-i18n data-ar="الصور زخرفية: alt=&quot;&quot;.">Images are decorative: <code>alt=""</code>.</li></ul></div></section>
+<section class="section" id="developer-api"><div class="section-card"><h2 class="section-title" data-i18n data-ar="واجهة المطور">Developer API</h2><div class="code-block"><pre><code>&lt;!-- Section / card --&gt;
+&lt;div class="no-data"&gt;
+  &lt;img src="./images/no-data-found.svg" alt=""&gt;
+  &lt;p&gt;لا توجد بيانات&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Inside a table --&gt;
+&lt;tr&gt;&lt;td colspan="6"&gt;
+  &lt;div class="nodataTable"&gt;
+    &lt;img src="./images/nodataavailable.png" alt=""&gt;
+    &lt;h5&gt;برجاء إجراء البحث لاستعراض البيانات&lt;/h5&gt;
+  &lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;</code></pre></div></div></section>
+
+    </div>
+  </main>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+  
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

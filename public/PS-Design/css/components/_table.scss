@@ -548,11 +548,7 @@ td.ellipsistd {
         max-width: 400px;
 
         h5 {
-            font-weight: 600;
-            @include font-sm-500;
-            background: $baige;
-            // Autonomous Maintainer pass: 20px matched $padding-2xl exactly.
-            padding: $padding-2xl;
+            @include dropdown-menu-heading;
         }
 
         ul {
@@ -617,21 +613,7 @@ td.ellipsistd {
     }
 
     [data-tooltip]:before {
-        position: absolute;
-        bottom: 150%;
-        left: 50%;
-        margin-bottom: $padding-xs;
-        margin-left: -$padding-8xl;
-        padding: $padding-sm;
-        width: 270px;
-        border-radius: 5px;
-        background-color: #000000;
-        color: $white-100;
-        content: attr(data-tooltip);
-        text-align: center;
-        font-size: 10px;
-        line-height: 1.9;
-        font-weight: 600;
+        @include data-tooltip-bubble;
     }
 
     [data-tooltip]:after {

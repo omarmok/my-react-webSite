@@ -1,29 +1,89 @@
 (function () {
   const STORAGE_KEY = "ps-lang";
-  const DOC_PAGES = [
-    { file: "index.html", en: "Introduction", ar: "نظرة عامة" },
-    { file: "ColorSystem.html", en: "Color System", ar: "نظام الألوان" },
-    { file: "typography.html", en: "Typography", ar: "الطباعة" },
-    { file: "iconography.html", en: "Iconography", ar: "الأيقونات" },
-    { file: "radius.html", en: "Radius", ar: "نصف القطر" },
-    { file: "shadows.html", en: "Shadows", ar: "الظلال" },
-    { file: "spacing.html", en: "Spacing", ar: "التباعد" },
-    { file: "buttons.html", en: "Buttons", ar: "الأزرار" },
-    { file: "switch.html", en: "Switches", ar: "مفاتيح التبديل" },
-    { file: "layout.html", en: "Layout", ar: "الهيكل العام" },
-    { file: "alert.html", en: "Alerts", ar: "التنبيهات" },
-    { file: "tags.html", en: "Tags", ar: "الوسوم" },
-    { file: "text-fields.html", en: "Text Fields", ar: "حقول النص" },
-    { file: "file-uploader.html", en: "File Uploader", ar: "رفع الملفات" },
-    { file: "tabs.html", en: "Tabs", ar: "علامات التبويب" },
-    { file: "timeline.html", en: "Timeline", ar: "الخط الزمني" },
-    { file: "StartDeveloping.html", en: "Start Developing", ar: "ابدأ التطوير" },
-    { file: "NewFeature.html", en: "New Feature", ar: "ميزة جديدة" },
-    { file: "stepper.html", en: "Stepper", ar: "شريط التقدم" },
-    { file: "card.html", en: "Card", ar: "البطاقة" },
-    { file: "personcard.html", en: "Person Card", ar: "بطاقة الشخص" },
-    { file: "Entity.html", en: "Entity Card", ar: "كارت المنشأة" },
+  const DOC_GROUPS = [
+    {
+      en: null,
+      ar: null,
+      pages: [
+        { file: "index.html", en: "Introduction", ar: "نظرة عامة" },
+        { file: "changelog.html", en: "Release Notes", ar: "سجل التغييرات" },
+      ],
+    },
+    {
+      en: "Guides",
+      ar: "أدلة",
+      pages: [
+        { file: "StartDeveloping.html", en: "Start Developing", ar: "ابدأ التطوير" },
+        { file: "NewFeature.html", en: "New Feature", ar: "ميزة جديدة" },
+      ],
+    },
+    {
+      en: "Foundations",
+      ar: "الأسس",
+      pages: [
+        { file: "ColorSystem.html", en: "Color System", ar: "نظام الألوان" },
+        { file: "typography.html", en: "Typography", ar: "الطباعة" },
+        { file: "iconography.html", en: "Iconography", ar: "الأيقونات" },
+        { file: "spacing.html", en: "Spacing", ar: "التباعد" },
+        { file: "radius.html", en: "Radius", ar: "نصف القطر" },
+        { file: "shadows.html", en: "Shadows", ar: "الظلال" },
+        { file: "layout.html", en: "Layout", ar: "الهيكل العام" },
+      ],
+    },
+    {
+      en: "Actions & Forms",
+      ar: "الإجراءات والنماذج",
+      pages: [
+        { file: "buttons.html", en: "Buttons", ar: "الأزرار" },
+        { file: "text-fields.html", en: "Text Fields", ar: "حقول النص" },
+        { file: "dropdown.html", en: "Dropdown", ar: "القائمة المنسدلة" },
+        { file: "datepicker.html", en: "Date Picker", ar: "منتقي التاريخ" },
+        { file: "switch.html", en: "Switches", ar: "مفاتيح التبديل" },
+        { file: "file-uploader.html", en: "File Uploader", ar: "رفع الملفات" },
+      ],
+    },
+    {
+      en: "Navigation",
+      ar: "التنقل",
+      pages: [
+        { file: "page-title.html", en: "Page Title", ar: "عنوان الصفحة" },
+        { file: "breadcrumb.html", en: "Breadcrumb", ar: "مسار التنقل" },
+        { file: "tabs.html", en: "Tabs", ar: "التبويبات" },
+        { file: "stepper.html", en: "Stepper", ar: "شريط التقدم" },
+      ],
+    },
+    {
+      en: "Feedback & Overlays",
+      ar: "التنبيهات والنوافذ",
+      pages: [
+        { file: "alert.html", en: "Alerts", ar: "التنبيهات" },
+        { file: "sweet-alert.html", en: "Sweet Alert", ar: "التنبيهات المنبثقة" },
+        { file: "modal.html", en: "Modal", ar: "النافذة" },
+        { file: "tooltip.html", en: "Tooltip", ar: "التلميح" },
+        { file: "empty-state.html", en: "Empty State", ar: "الحالة الفارغة" },
+      ],
+    },
+    {
+      en: "Data Display",
+      ar: "عرض البيانات",
+      pages: [
+        { file: "table.html", en: "Table", ar: "الجدول" },
+        { file: "card.html", en: "Card", ar: "البطاقة" },
+        { file: "tags.html", en: "Tags", ar: "الوسوم" },
+        { file: "timeline.html", en: "Timeline", ar: "الخط الزمني" },
+        { file: "map.html", en: "Map", ar: "الخريطة" },
+      ],
+    },
+    {
+      en: "Business Components",
+      ar: "مكونات الأعمال",
+      pages: [
+        { file: "personcard.html", en: "Person Card", ar: "بطاقة الشخص" },
+        { file: "Entity.html", en: "Entity Card", ar: "كارت المنشأة" },
+      ],
+    },
   ];
+  const DOC_PAGES = DOC_GROUPS.flatMap((group) => group.pages);
 
   function getSavedLang() {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -274,9 +334,15 @@
 
   function renderSidebarNav() {
     const current = getCurrentFile();
-    const navMarkup = DOC_PAGES.map((page) => {
-      const isActive = page.file === current;
-      return `<a href="./${page.file}"${isActive ? ' class="is-active" aria-current="page"' : ""} data-i18n data-ar="${page.ar}" data-en="${page.en}">${page.en}</a>`;
+    const navMarkup = DOC_GROUPS.map((group) => {
+      const title = group.en
+        ? `<div class="sidebar-title" data-i18n data-ar="${group.ar}" data-en="${group.en.replace(/&/g, "&amp;")}">${group.en.replace(/&/g, "&amp;")}</div>`
+        : "";
+      const links = group.pages.map((page) => {
+        const isActive = page.file === current;
+        return `<a href="./${page.file}"${isActive ? ' class="is-active" aria-current="page"' : ""} data-i18n data-ar="${page.ar}" data-en="${page.en}">${page.en}</a>`;
+      }).join("");
+      return title + links;
     }).join("");
 
     document.querySelectorAll(".sidebar-nav").forEach((nav) => {

@@ -1,0 +1,835 @@
+@use "../helpers" as *;
+
+// Page sections are emitted by ../_pages.scss to preserve cascade order.
+
+// Incoming
+@mixin incoming {
+  .incomingIncidents {
+      &--container {
+          margin-top: $margin-2xl;
+
+          &--rightarea {
+              padding: $padding-lg;
+              gap: 0;
+              width: 100%;
+              border: 1px solid #d8e0e9;
+              border-color: #d8e0e9 !important;
+
+              .custommaintabs {
+                  margin-bottom: 0;
+                  justify-content: center;
+                  padding: $padding-md;
+                  gap: $gap-10;
+                  background: $baige;
+                  border-radius: 5px;
+
+                  .nav-link {
+                      width: 100%;
+                      border: none;
+                      border: none !important;
+                      background: $white-100;
+                      display: flex;
+                      flex-direction: row;
+                      align-items: center;
+                      color: #000000;
+                      font-weight: 600;
+                      padding: $padding-sm;
+                      box-shadow: rgb(178, 174, 174) 0px 0px 5px 0px;
+                      margin-bottom: 0;
+                      box-shadow: 0px 4px 10px 0px rgba(9, 30, 66, 0.06);
+                      justify-content: space-between;
+                      white-space: nowrap;
+                      gap: $gap-10;
+                  }
+
+                  .nav-link.active {
+                      background: var(--theme-primary) !important;
+                      border: 1px solid $white-100;
+                      color: $white-100;
+                      box-shadow: 0px 4px 4px 0px rgb(211 211 211 / 19%);
+
+                      .new-total {
+                          padding: $padding-xxs $padding-xs !important;
+                          background: $white-100;
+                          color: $white-100 !important;
+                      }
+                  }
+              }
+
+
+
+
+              .tabCustomcontent {
+                  &--card {
+                      position: relative;
+                      overflow: hidden;
+                      border: 1px solid #eeeeee;
+                      background: $white-100;
+                      padding: $padding-lg;
+                      display: flex;
+                      gap: $gap-10;
+                      border-radius: $radius-md;
+                      cursor: pointer;
+
+                      &--stutus {
+                          background: $darkBlue;
+                          position: absolute;
+                          left: -52px;
+                          top: -82px;
+                          transform: rotate(45deg);
+                          width: 85px;
+                          height: 141px;
+                          display: flex;
+                          justify-content: center;
+                          align-content: flex-start;
+                          flex-direction: column;
+                          padding: $padding-xxs;
+
+                          img {
+                              height: 16px;
+                              position: absolute;
+                              transform: rotate(313deg);
+                              filter: brightness(0) invert(1);
+                          }
+                      }
+
+                      &__logo {
+                          display: flex;
+                          align-items: center;
+
+                          img {
+                              width: 30px;
+                              height: 30px;
+                          }
+                      }
+
+                      &--blockcontainer {
+                          display: flex;
+                          align-items: center;
+                          gap: $padding-xxs;
+                          width: 100%;
+
+                          &__block {
+                              @include meduimfont;
+                              background: #f8f9fa;
+                              border-radius: $radius-xs;
+                              padding: $padding-xs;
+                              width: 100%;
+                              display: flex;
+                              flex-direction: column;
+                              border-radius: $radius-sm;
+                              color: $darkBlue;
+
+                              span {
+                                  @include meduimfont;
+                                  color: #000;
+                              }
+                          }
+                      }
+                  }
+              }
+
+              .viewd {
+                  // border: 1px solid $Primary-500;
+                  // background: #fff;
+
+                  .tabCustomcontent--card--blockcontainer__block {
+                      // background: #F8F9FA;
+                      color: rgb(0 0 0);
+                  }
+
+                  .tabCustomcontent--card--stutus {
+                      background: $Primary-500;
+                  }
+              }
+
+              .clicked {
+                  background: rgb(163 134 100 / 23%);
+
+                  .tabCustomcontent--card--blockcontainer__block {
+                      background: #c0a483;
+                      color: $white-100;
+
+                      span {
+                          color: $white-100;
+                      }
+                  }
+
+                  .tabCustomcontent--card--stutus {
+                      background: $Brown-500;
+                  }
+              }
+
+              .notViewd {
+                  // border: 1px solid #FFBE18;
+                  // background: #fff;
+
+                  .tabCustomcontent--card--blockcontainer__block {
+                      // background: #F8F9FA;
+                      color: #bbbbbb;
+
+                      span {
+                          color: #bbbbbb;
+                      }
+                  }
+
+                  .tabCustomcontent--card--stutus {
+                      background: #ffbe18;
+                  }
+              }
+
+              .IncidentInbox-tab-content {
+                  // height: 360px;
+                  // overflow: scroll;
+
+                  .incedentlength {
+                      .containerDiv {
+                          position: fixed;
+                          z-index: 99999;
+                          bottom: 30px;
+                          background: rgb(255 255 255 / 96%);
+                          width: 29%;
+                          padding: $padding-xs $padding-xl;
+
+                          #load-more {
+                              width: 45%;
+                              margin: 0 auto;
+                          }
+                      }
+                  }
+              }
+          }
+
+          &--card {
+              padding: $padding-lg;
+              width: 100%;
+              border: 1px solid $Brown-500;
+              border-color: #e7d2bd !important;
+              gap: $gap-10;
+
+              label {
+                  margin-bottom: 0 !important;
+              }
+
+
+              .newIms--inquiryDs--card--footer {
+                  &__shortCutAction {
+                      border: 1px solid $Primary-500;
+                      background: $Primary-500;
+                      color: $white-100;
+                      padding: $padding-sm $padding-lg;
+                      // font-size: 11px;
+                      white-space: nowrap;
+                      flex-direction: row;
+                      border-radius: $radius-sm;
+                      gap: $padding-xxs;
+                      justify-content: center;
+
+                      svg {
+                          fill: $Primary-500;
+                          height: 26px;
+                          width: 26px;
+                          background: $white-100;
+                          border-radius: 50%;
+                          padding: $padding-xs;
+                          margin-left: $padding-xs;
+                      }
+
+                      &:hover {
+                          background: rgb(15, 166, 136);
+                          color: rgb(255, 255, 255);
+                          border: 1px solid rgb(13, 143, 117);
+
+                          svg {
+                              fill: rgb(15, 166, 136);
+                              background: $white-100;
+                          }
+                      }
+                  }
+
+                  .highpriority {
+                      color: #c92850 !important;
+                      font-weight: 600;
+                      background: #f9e4ea !important;
+                      border: 1px solid #f0d6dd !important;
+
+                      img {
+                          background: #f1416c;
+                      }
+                  }
+              }
+
+              .title {
+                  padding: $padding-md;
+                  background: $baige;
+                  padding: $padding-md;
+                  display: flex;
+                  align-items: center;
+
+                  .block {
+                      @include meduimfont;
+                      display: flex;
+                      flex-direction: column;
+                  }
+
+                  img {
+                      height: 30px;
+                      margin-left: $padding-md;
+                  }
+
+                  span {
+                      @include boldfont;
+                      color: $Brown-500;
+                  }
+              }
+
+              .maindetails {
+                  .block {
+                      span {
+                          background: rgb(248, 249, 250);
+                          border: 1px solid rgb(232, 239, 246);
+                          color: #000;
+                          padding: $padding-md;
+                          border-radius: 5px;
+                          line-height: 1.9;
+                          text-wrap: pretty;
+                          text-align: justify;
+                          user-select: all;
+                          @include font-md-500;
+                      }
+                  }
+              }
+
+              .incidentLocationmap {
+                  height: 550px;
+              }
+          }
+      }
+
+      .newIms--inquiryDs--card, .incomingIncidents--container--rightarea, .incomingIncidents--container--card {
+          width: 100%;
+          padding: $padding-md;
+
+          .newIms--inquiryDs--card--top {
+              padding: $padding-md;
+              align-items: flex-start;
+              gap: $gap-10;
+          }
+      }
+
+      .platelostdetails {
+          .platelostdetails {
+              .fullname {
+                  span {
+                      background: transparent;
+                      border: none;
+                      padding: 0;
+                  }
+              }
+          }
+      }
+  }
+
+  .stickyincomingIncidents{
+      position: sticky;
+      top: 90px;
+      z-index: 99;
+  }
+
+
+  .aboutmorescroll {
+   height: 250px;
+   overflow-y: scroll;
+  }
+
+  .container-scroll {
+      height: 600px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+  }
+}
+
+// Violations
+@mixin violations {
+  .violationinbox {
+      .budget {
+          display: flex;
+          gap: $gap-10;
+          margin-bottom: $margin-2xl;
+
+          .card {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              padding: $padding-2xl;
+              background: #f5faf8;
+              border: 1px solid $Primary-500;
+              box-shadow: 0px 8px 20px #E2E8F0;
+              border-radius: $radius-md;
+              font-weight: 600;
+              color: rgb(0 0 0 / 40%);
+
+              .number {
+                  color: $Primary-500;
+                  @include font-2xl-500;
+              }
+          }
+
+          .Consumed {
+              border: 1px solid #FF7474;
+              background: #fff8f8;
+
+              .number {
+                  color: #FF7474;
+              }
+          }
+
+          .remaining {
+              border: 1px solid #007BFF;
+              background: #f4f7fa;
+
+              .number {
+                  color: #007BFF;
+              }
+          }
+      }
+
+      .details {
+          .rightDetails {
+              padding: $padding-md;
+              border-radius: $radius-md;
+              border: 1px solid #C6C6DC;
+              background: $white-100;
+
+              .top {
+                  padding: $padding-lg;
+                  border: 1px solid #C0D6ED;
+                  background: rgba(241, 247, 255, 0.4);
+                  border-radius: $radius-md;
+                  gap: $gap-14;
+                  display: flex;
+                  flex-direction: column;
+              }
+          }
+
+          .violationInboxmap {
+              .maindetails {
+                  padding: 0;
+                  gap: 0 !important;
+
+                  .block {
+                      width: 47.8% !important;
+                  }
+              }
+          }
+
+          .generalCasesStyle__cases__right--officer {
+              .newDSCases--BasicInfo__title {
+                  @include font-md-500;
+              }
+
+              .block {
+                  background: $white-100;
+                  font-size: 10px;
+
+                  p {
+                      margin-bottom: 0;
+                  }
+              }
+          }
+
+          .indescrption {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              padding: $padding-xl;
+              gap: $gap-10;
+              background: #F1F6FB;
+              border: 1px solid #CEDEEB;
+              border-radius: $radius-md;
+          }
+      }
+  }
+}
+
+// Incidents
+@mixin incidents {
+  .incidentinbox {
+
+      .tabcontent {
+          margin: 0 auto;
+          margin-top: $margin-2xl;
+          width: 100%;
+          gap: $padding-md;
+          display: flex;
+          flex-wrap: wrap;
+
+          .card {
+              padding: $padding-md;
+              border-radius: 14px;
+              width: 32.9%;
+
+              .action {
+                  width: 100%;
+                  margin: 0 auto;
+
+                  .btn {
+                      width: 100%;
+                      display: flex;
+                      flex: 1 1 calc(26% - 4px);
+                  }
+              }
+
+              @media only screen and (max-width: 1760px) {
+                  /* width: 100%;*/
+
+                  .action {
+                      width: 90%;
+                  }
+              }
+
+              @media only screen and (max-width: 1750px) {
+                  /*    width: 100%;*/
+
+                  .action {
+                      width: 100%;
+                  }
+              }
+
+              @media only screen and (max-width: 1000px) {
+                  width: 100%;
+
+                  .action {
+                      width: 100%;
+                  }
+              }
+
+              .card-title {
+                  background: $Neutral-25;
+                  padding: $padding-14;
+                  border-radius: 10px 10px 0 0;
+                  margin: 0;
+                  flex-direction: column;
+                  align-items: flex-start !important;
+
+
+                  .icon-service {
+                      border-radius: $radius-sm;
+                      background: $white-100;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-direction: column;
+                      font-weight: 600;
+                      padding: $padding-6;
+                      min-width: 80px;
+                      border: 1px solid #e9f5f0;
+                      margin: 0 0 $padding-md $padding-md;
+
+                      span {
+                          text-align: center;
+                      }
+
+                      svg {
+                          fill: $Primary-500;
+                          width: 30px;
+                          height: 30px;
+                      }
+                  }
+
+                  .level {
+                      font-size: 10px;
+                  }
+
+                  .mediumpriority {
+                      background: rgba(252, 242, 232, 1);
+                      color: rgba(231, 139, 47, 1) !important;
+                  }
+              }
+
+              .card-body {
+                  padding: 0;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+
+                  .highpriority, .Returned, .UnderProgress, .primaryprioroty, .defualtprioroty, .infoprioroty, .regpriority, .mediumpriority {
+                      margin: 0 !important;
+                  }
+
+                  .casenumber {
+                      @include font-md-500;
+                  }
+
+                  .date {
+                      svg {
+                          fill: #838b9d;
+                          height: 16px;
+                      }
+                  }
+
+                  .income {
+                      color: rgb(0 0 0 / 40%);
+                  }
+
+                  .SecurityClassification {
+                      @include font-lg-500;
+                      margin: 0;
+                      border: 1px solid #e8ecf2;
+                      background: $Neutral-50;
+                      padding: $padding-sm $padding-md;
+                      line-height: 1.8;
+                      border-radius: $radius-sm;
+                      white-space: nowrap;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      cursor: pointer;
+                  }
+
+                  .defualtprioroty {
+                      font-size: 10px;
+                  }
+
+                  .action {
+                      justify-content: space-between;
+                      flex-wrap: wrap;
+
+                      .btn {
+                          flex-direction: column;
+                          height: auto;
+                          width: 60%;
+                          padding: $padding-xs $padding-md;
+                          font-size: 16px;
+                      }
+                  }
+              }
+          }
+
+          .card50 {
+              width: 49%;
+          }
+
+          .card100 {
+              width: 100%;
+              transition: all 0.2s ease;
+
+              .action {
+                  .btn {
+                      flex: 1;
+                  }
+              }
+
+              .SecurityClassification {
+                  word-wrap: break-word;
+                  white-space: normal !important;
+              }
+          }
+      }
+
+      .dstable {
+          display: none;
+      }
+
+      #ImsRecordsDetailsModal {
+          z-index: 1000000;
+
+          .btn-close {
+              position: absolute;
+              left: -48px;
+              background: $white-100;
+              width: 30px;
+              height: 30px;
+              border-radius: 50%;
+              cursor: pointer;
+          }
+
+          .modal-content {
+              background: $white-100;
+              border-radius: 25px;
+              padding: 0;
+
+              .rightDetails {
+                  padding: $padding-md;
+                  border-radius: $radius-md;
+                  border: 1px solid #C6C6DC;
+                  position: -webkit-sticky;
+                  position: sticky;
+                  top: 0;
+                  z-index: 1020;
+
+                  .top {
+                      padding: $padding-lg;
+                      border: 1px solid #C0D6ED;
+                      background: rgba(241, 247, 255, 0.4);
+                      border-radius: $radius-md;
+                      gap: $gap-14;
+                      display: flex;
+                      flex-direction: column;
+
+                      .casenumber {
+                          background: $white-100;
+                          box-shadow: 0px 1px 4px 0px rgb(0 27 175 / 9%);
+                          padding: $padding-md;
+                          font-size: 10px;
+                          font-weight: 600;
+                          border-radius: 5px;
+
+                          span {
+                              @include font-lg-500;
+                              line-height: 1;
+                          }
+
+                          .sourcename {
+                              font-size: 10px;
+                          }
+                      }
+
+                      .casestutus {
+                          flex-direction: column;
+
+                          .mediumpriority {
+                              background: rgba(252, 242, 232, 1);
+                              color: rgba(231, 139, 47, 1) !important;
+                          }
+                      }
+
+                      .casedetails {
+                          .block {
+                              display: flex;
+                              align-items: center;
+                              gap: $padding-xs;
+                              border-bottom: 1px solid #e2e9ef;
+                              padding: $padding-md 0;
+
+                              svg {
+                                  height: 16px;
+                              }
+
+                              &:last-child {
+                                  border-bottom: none;
+                              }
+
+                              span {
+                                  font-weight: 600;
+                              }
+                          }
+                      }
+                  }
+
+                  .casetext {
+                      p {
+                          margin: 0;
+                          background: #F8F9FA;
+                          border: 1px solid #EAEEF2;
+                          padding: $padding-14;
+                          @include font-sm-500;
+                          line-height: 2.3;
+                          text-align: justify;
+                      }
+                  }
+              }
+
+              .leftDetails {
+                  .mainAction {
+                      background: $white-100;
+                      padding: $padding-14;
+                      box-shadow: $shadow-2;
+                      position: -webkit-sticky;
+                      position: sticky;
+                      top: 0;
+                      z-index: 1020;
+                  }
+
+                  nav {
+                      display: none;
+                  }
+              }
+          }
+      }
+  }
+  .kolonaamntimeline {
+      .caseTimeline {
+          top: 0;
+          width: 100%;
+          position: relative;
+
+          .content-date {
+              gap: $gap-10;
+          }
+
+          .bg-Date-currant {
+              .content-block {
+                  background: $white-100 !important;
+                  border: 1px solid $Primary-400;
+
+                  .conttitle {
+                      background: $Primary-50 !important;
+                      color: $Primary-600 !important;
+                  }
+              }
+          }
+      }
+  }
+
+  .kolonaAmnDetails {
+      newIms--inquiryDs--card {
+          gap: $gap-4;
+      }
+
+      .newIms--inquiryDs--card--top {
+          background: $Neutral-25;
+          gap: $gap-4;
+      }
+
+      .newIms--inquiryDs--card--body {
+          .maindetails {
+              .form-group {
+                  border: 1px solid $Neutral-100;
+                  padding: $padding-8;
+                  border-radius: $Radius-8;
+
+                  label {
+                      @include font-lg-600;
+                      color: $Primary-600 !important;
+                  }
+              }
+          }
+      }
+
+      .newIms--inquiryDs--card--top--customACtion .actionIcon {
+          background: $white-100;
+          border: 1px solid $Neutral-600;
+      }
+
+      .new-custommap {
+          padding: $padding-16 !important;
+          background: red;
+
+          .new-custommap--title {
+              background: $white-100 !important;
+
+              svg {
+                  display: none;
+              }
+
+              h4 {
+                  @include font-lg-600;
+                  color: $Neutral-800 !important;
+              }
+          }
+
+          .incomingIncidents--container--card {
+              padding: $padding-0;
+              border: none;
+          }
+
+          .maindetails {
+              label {
+                  @include font-lg-600;
+                  color: $Primary-600 !important;
+              }
+          }
+      }
+  }
+}

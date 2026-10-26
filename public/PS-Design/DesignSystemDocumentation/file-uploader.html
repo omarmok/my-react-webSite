@@ -717,6 +717,16 @@
           <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
           <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
           <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
+          <a href="./datepicker.html" data-i18n data-ar="منتقي التاريخ">Date Picker</a>
+          <a href="./sweet-alert.html" data-i18n data-ar="التنبيهات المنبثقة">Sweet Alert</a>
+          <a href="./table.html" data-i18n data-ar="الجدول">Table</a>
+          <a href="./modal.html" data-i18n data-ar="النافذة">Modal</a>
+          <a href="./tooltip.html" data-i18n data-ar="التلميح">Tooltip</a>
+          <a href="./breadcrumb.html" data-i18n data-ar="مسار التنقل">Breadcrumb</a>
+          <a href="./dropdown.html" data-i18n data-ar="القائمة المنسدلة">Dropdown</a>
+          <a href="./empty-state.html" data-i18n data-ar="الحالة الفارغة">Empty State</a>
+          <a href="./page-title.html" data-i18n data-ar="عنوان الصفحة">Page Title</a>
+          <a href="./map.html" data-i18n data-ar="الخريطة">Map</a>
         </nav>
       </div>
     </aside>
@@ -749,7 +759,7 @@
       <div class="metadata-row">
         <span class="metadata-pill" data-i18n data-ar="المكوّن: رافع الملفات">Component: File Uploader</span>
         <span class="metadata-pill" data-i18n data-ar="الإصدار: 1.2 (تحسينات الوصول والمعاينة)">Version: 1.2 (Accessibility &amp; Preview enhancements)</span>
-        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 16 يونيو 2026">Last updated: June 16, 2026</span>
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 25 أكتوبر 2026">Last updated: October 25, 2026</span>
       </div>
 
       <section class="section" id="overview">
@@ -1919,6 +1929,8 @@
           </ul>
         </div>
       </section>
+<section class="section" id="updates-2026-10"><div class="section-card"><h2 class="section-title" data-i18n data-ar="تحديثات أكتوبر 2026 — التصميم ↔ الكود">October 2026 updates — Figma ↔ code</h2><p class="section-note" data-i18n data-ar="الفئات المضافة إلى _file-uploader.scss بعد كتابة هذه الصفحة، وما يقابلها في moi-uploader في Figma.">Classes added to <code class="code-inline">_file-uploader.scss</code> since this page was written, and how they map to the Figma moi-uploader.</p><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="البند">Item</th><th scope="col" data-i18n data-ar="Figma">Figma</th><th scope="col" data-i18n data-ar="الكود">Code</th><th scope="col" data-i18n data-ar="الحالة">Status</th></tr></thead><tbody><tr><td data-i18n data-ar="مكوّن Figma">Figma component</td><td><code>moi-uploader</code> (26150:3567)</td><td><code>.moi-file-uploader</code></td><td data-i18n data-ar="✓ موجود في الكود">✓ In code</td></tr><tr><td data-i18n data-ar="وضع الرفع / وضع العرض">Upload mode / view mode</td><td data-i18n data-ar="choose مفعّل / غير مفعّل">choose = on / off</td><td data-i18n data-ar="منطقة الرفع / ‎.off‎">Dropzone on / <code>.moi-file-uploader__dropzone.off</code></td><td data-i18n data-ar="✓ موجود في الكود">✓ In code</td></tr><tr><td data-i18n data-ar="صفحات التفاصيل">Details pages</td><td data-i18n data-ar="عرض فقط بدون حذف">View only, no delete</td><td data-i18n data-ar="أخفِ منطقة الرفع وزر الحذف">Hide the dropzone and the delete action</td><td data-i18n data-ar="قاعدة">Rule</td></tr><tr><td data-i18n data-ar="جاري الرفع / فشل">Uploading / failed</td><td data-i18n data-ar="حالتان (12 أكتوبر)">Two states (12 Oct)</td><td><code>__progress · __error · __hint-error</code></td><td data-i18n data-ar="✓ موجود في الكود">✓ In code</td></tr><tr><td data-i18n data-ar="أكثر من ملف">Several files</td><td data-i18n data-ar="قائمة ملفات (19 أكتوبر)">List of file items (19 Oct)</td><td><code>__list · __file-row · __count</code></td><td data-i18n data-ar="✓ موجود في الكود">✓ In code</td></tr><tr><td data-i18n data-ar="تلميح الحفظ">Saved / success hint</td><td>—</td><td><code>__saved-icon · __hint-success</code></td><td data-i18n data-ar="✓ موجود في الكود">✓ In code</td></tr><tr><td data-i18n data-ar="منطقة رفع محجوبة">Blocked dropzone</td><td>—</td><td><code>__dropzone-blocked</code></td><td data-i18n data-ar="✓ موجود في الكود">✓ In code</td></tr><tr><td data-i18n data-ar="أنواع ملفات إضافية">More file types</td><td>—</td><td><code>__file-badge--doc · --ppt · --other</code>, <code>__type-icon--doc · --ppt · --other</code></td><td data-i18n data-ar="✓ موجود في الكود">✓ In code</td></tr><tr><td data-i18n data-ar="المعاينات">Previews</td><td data-i18n data-ar="عنصر المعاينة">Preview item</td><td><code>__preview-image · __preview-pdf · __preview-text · __preview-generic</code></td><td data-i18n data-ar="✓ موجود في الكود">✓ In code</td></tr><tr><td data-i18n data-ar="الرافعات القديمة">Legacy uploaders</td><td data-i18n data-ar="uploader وuploader-card وUploader-2 متوقفة">uploader, uploader-card, Uploader-2 deprecated</td><td>—</td><td data-i18n data-ar="استخدم moi-uploader فقط">Use moi-uploader only</td></tr></tbody></table></div></div></section>
+
     </div>
   </main>
 

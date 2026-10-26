@@ -102,7 +102,7 @@
 
 .datepicker tbody tr > td.day.today {
     position: relative;
-    background: var(--theme-primary) !important !important;
+    background: var(--theme-primary) !important;
     color: $white-100 !important;
     border-radius: 50%;
 }

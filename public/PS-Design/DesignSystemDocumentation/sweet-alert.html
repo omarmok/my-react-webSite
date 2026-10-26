@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sweet Alert | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
+  <style>.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.two-col .section-card{margin:0}</style>
+  <link href="../libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+  <link href="../css/sweet-alert.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
+          <a href="./datepicker.html" data-i18n data-ar="منتقي التاريخ">Date Picker</a>
+          <a href="./sweet-alert.html" data-i18n data-ar="التنبيهات المنبثقة">Sweet Alert</a>
+          <a href="./table.html" data-i18n data-ar="الجدول">Table</a>
+          <a href="./modal.html" data-i18n data-ar="النافذة">Modal</a>
+          <a href="./tooltip.html" data-i18n data-ar="التلميح">Tooltip</a>
+          <a href="./breadcrumb.html" data-i18n data-ar="مسار التنقل">Breadcrumb</a>
+          <a href="./dropdown.html" data-i18n data-ar="القائمة المنسدلة">Dropdown</a>
+          <a href="./empty-state.html" data-i18n data-ar="الحالة الفارغة">Empty State</a>
+          <a href="./page-title.html" data-i18n data-ar="عنوان الصفحة">Page Title</a>
+          <a href="./map.html" data-i18n data-ar="الخريطة">Map</a>
+        </nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top"><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span></button>
+      </div>
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="المكونات / التنبيهات المنبثقة">Components / Sweet Alert</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="التنبيهات المنبثقة">Sweet Alert</h1>
+        <p class="text-muted mb-0" data-i18n data-ar="نوافذ النظام القصيرة والرسائل المنبثقة المبنية على SweetAlert2 بثيم المشروع — النتائج، التأكيد، إدخال حقل واحد، الـ Toast ومؤشر التحميل.">Short system dialogs and toasts built on SweetAlert2 with the project theme — results, confirmations, one-field input, toast and loader.</p>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill" data-i18n data-ar="المكوّن: التنبيهات المنبثقة" data-en="Component: Sweet Alert">المكوّن: التنبيهات المنبثقة</span>
+        <span class="metadata-pill" data-i18n data-ar="الملفات: sweet-alert.css, sweet-alert.html" data-en="Files: sweet-alert.css, sweet-alert.html">الملفات: sweet-alert.css, sweet-alert.html</span>
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 25 أكتوبر 2026" data-en="Last updated: October 25, 2026">آخر تحديث: 25 أكتوبر 2026</span>
+      </div>
+<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الهدف / متى تستخدم">Purpose &amp; when to use</h2><p class="section-note" data-i18n data-ar="SweetAlert2 هو نافذة النظام للرسائل القصيرة: نتيجة عملية (نجاح / خطأ)، أو تأكيد قبل إجراء، أو إدخال حقل واحد، أو رسالة منبثقة (Toast)، أو مؤشر تحميل يمنع التفاعل. ثيم المشروع في css/sweet-alert.css يعطيها نفس هيكل نافذة المشروع: شريط عنوان Neutral-100، وخط IBM Plex Sans Arabic، وأزرار المشروع وأيقونات النظام.">SweetAlert2 is the project dialog for short system messages: a result (success / error), a confirmation before an action, a one-field input, a toast, or a blocking loader. The project theme in <code class="code-inline">css/sweet-alert.css</code> gives it the same shell as the project modal: a Neutral-100 header bar, IBM Plex Sans Arabic, project buttons and system icons.</p><ul class="accessibility-list"><li data-i18n data-ar="استخدمها لقرار واحد أو رسالة واحدة. أي محتوى فيه أكثر من حقل أو جدول أو عدة خطوات مكانه نافذة المشروع (Modal Composable) أو صفحة.">Use it for one decision or one message. Anything with more than one field, a table, or several steps belongs in the project Modal (Composable) or a page.</li><li data-i18n data-ar="استخدم الـ Toast لتأكيد سريع لا يحتاج إجراء (حفظ مسودة، تحديث بيانات)، ويُغلق تلقائيًا.">Use the toast for non-blocking feedback that needs no action (saved draft, data refreshed). It closes by itself.</li><li data-i18n data-ar="لا تستخدمها لحالة يجب أن تبقى ظاهرة في الصفحة — استخدم التنبيه Notification (alert.html).">Do not use SweetAlert for page-level status that must stay visible — use the Notification (alert.html).</li></ul></div></section>
+<section class="section" id="anatomy"><div class="section-card"><h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="العنصر">Element</th><th scope="col" data-i18n data-ar="الفئة">Class</th><th scope="col" data-i18n data-ar="المواصفة">Spec</th></tr></thead><tbody><tr><td data-i18n data-ar="النافذة">Popup</td><td><code class="code-inline">.swal2-popup</code></td><td data-i18n data-ar="نصف قطر $radius-md، حشوة $padding-2xl، نص $Neutral-900، خط IBM Plex Sans Arabic">radius $radius-md, padding $padding-2xl, text $Neutral-900, IBM Plex Sans Arabic</td></tr><tr><td data-i18n data-ar="العنوان">Header (title)</td><td><code class="code-inline">.swal2-title</code></td><td data-i18n data-ar="شريط $Neutral-100 أعلى النافذة، حشوة $padding-xl، font-xl-600، محاذاة لبداية السطر">Neutral-100 bar at the top (order -1), padding $padding-xl, font-xl-600, aligned to the start side</td></tr><tr><td data-i18n data-ar="زر الإغلاق">Close (×)</td><td><code class="code-inline">.swal2-close</code></td><td data-i18n data-ar="داخل شريط العنوان، لون $Neutral-800">Inside the header bar, colour $Neutral-800</td></tr><tr><td data-i18n data-ar="الأيقونة">Icon</td><td><code class="code-inline">.swal2-icon</code></td><td data-i18n data-ar="أيقونة نظام 64×64 (Hugeicons Stroke Rounded) مرسومة بقناع CSS">64×64 system icon (Hugeicons Stroke Rounded), drawn with a CSS mask</td></tr><tr><td data-i18n data-ar="النص">Text</td><td><code class="code-inline">.swal2-html-container</code></td><td data-i18n data-ar="لون $Neutral-700، 16px عادي">$Neutral-700, 16px regular</td></tr><tr><td data-i18n data-ar="الحقل وعنوانه">Input + label</td><td><code class="code-inline">.swal2-input / .swal2-textarea / .swal2-select</code></td><td data-i18n data-ar="حد $Neutral-500، نصف قطر $radius-xs؛ العنوان font-md-500 في بداية السطر">Border $Neutral-500, radius $radius-xs; label font-md-500 at the start side</td></tr><tr><td data-i18n data-ar="رسالة التحقق">Validation</td><td><code class="code-inline">.swal2-validation-message</code></td><td data-i18n data-ar="خلفية $Error-50 ونص $Error-700">$Error-50 background, $Error-700 text</td></tr><tr><td data-i18n data-ar="الأزرار">Actions</td><td><code class="code-inline">.swal2-actions</code></td><td data-i18n data-ar="تباعد $gap-md؛ الأزرار بحجم md">gap $gap-md; buttons md (2.5rem)</td></tr></tbody></table></div></div></section>
+<section class="section" id="variants"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الأنواع">Variants</h2><p class="section-note" data-i18n data-ar="مكوّن Figma: moi-sweet-alert (صفحة ❖ Components / Sweet Alert) — الخاصيتان Type وIcon.">Figma component: <code class="code-inline">moi-sweet-alert</code> (page ❖ Components / Sweet Alert) — property <code class="code-inline">Type</code> and <code class="code-inline">Icon</code>.</p><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="النوع">Type</th><th scope="col" data-i18n data-ar="الأيقونة">Icon</th><th scope="col" data-i18n data-ar="الأزرار">Buttons</th><th scope="col" data-i18n data-ar="الاستخدام">Use</th></tr></thead><tbody><tr><td>Alert</td><td>Success · Error · Warning · Info · Question</td><td data-i18n data-ar="تأكيد «حسناً» (Primary)">Confirm <bdi dir="rtl">«حسناً»</bdi> (Primary)</td><td data-i18n data-ar="نتيجة عملية">Result of an action</td></tr><tr><td>Confirm</td><td>Question</td><td data-i18n data-ar="تأكيد (Primary) + إلغاء (Neutral outline)">Confirm (Primary) + Cancel (Neutral outline)</td><td data-i18n data-ar="تأكيد قبل إجراء (إرسال)">Confirm before an action (send)</td></tr><tr><td>Confirm danger</td><td>Warning</td><td data-i18n data-ar="تأكيد (Error) + إلغاء">Confirm (Error) + Cancel</td><td data-i18n data-ar="إجراء خطِر (حذف، رفض)">Destructive action (delete, reject)</td></tr><tr><td>Three options</td><td>Warning</td><td data-i18n data-ar="تأكيد + رفض (Error outline) + إلغاء">Confirm (Primary) + Deny (Error outline) + Cancel</td><td data-i18n data-ar="حفظ قبل الخروج">Save before leaving</td></tr><tr><td>Input text / textarea / select</td><td>—</td><td data-i18n data-ar="تأكيد + إلغاء">Confirm + Cancel</td><td data-i18n data-ar="قيمة واحدة (رقم، سبب، اختيار)">One value (number, reason, choice)</td></tr><tr><td>Toast</td><td>Success · Error · Warning · Info</td><td>—</td><td data-i18n data-ar="تأكيد سريع أعلى الطرف، 3 ثوانٍ">Non-blocking feedback, top-end, 3s</td></tr><tr><td>Loader</td><td>—</td><td>—</td><td data-i18n data-ar="انتظار يمنع التفاعل (إرسال، تحميل)">Blocking wait (send, load)</td></tr></tbody></table></div><h3 class="section-title mt-4" data-i18n data-ar="ألوان الأيقونات">Icon colours</h3><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الأيقونة">Icon</th><th scope="col" data-i18n data-ar="أيقونة النظام">System icon</th><th scope="col" data-i18n data-ar="رمز اللون">Colour token</th></tr></thead><tbody><tr><td>success</td><td>checkmark-circle-02</td><td>$Success-600</td></tr><tr><td>error</td><td>cancel-circle</td><td>$Error-600</td></tr><tr><td>warning</td><td>alert-02</td><td>$Warning-600</td></tr><tr><td>info</td><td>information-circle</td><td>$Info-600</td></tr><tr><td>question</td><td>help-circle</td><td>$Neutral-600</td></tr></tbody></table></div></div></section>
+<section class="section" id="live"><div class="section-card"><h2 class="section-title" data-i18n data-ar="أمثلة حيّة">Live examples</h2><p class="section-note" data-i18n data-ar="هذه الأزرار تستدعي SweetAlert2 الفعلية بثيم المشروع.">These buttons call the real SweetAlert2 build with the project theme.</p><div class="d-flex flex-wrap gap-2 mt-3" dir="rtl"><button type="button" class="moi-btn moi-btn--Primary" data-size="md" data-swal-demo="success">نجاح</button><button type="button" class="moi-btn moi-btn--Primary" data-size="md" data-swal-demo="error">خطأ</button><button type="button" class="moi-btn moi-btn--Primary" data-size="md" data-swal-demo="warning">تحذير</button><button type="button" class="moi-btn moi-btn--Primary" data-size="md" data-swal-demo="info">معلومة</button><button type="button" class="moi-btn moi-btn--Primary" data-size="md" data-swal-demo="confirm">تأكيد</button><button type="button" class="moi-btn moi-btn--Error--outline" data-size="md" data-swal-demo="delete">تأكيد حذف</button><button type="button" class="moi-btn moi-btn--Primary" data-size="md" data-swal-demo="deny">ثلاثة خيارات</button><button type="button" class="moi-btn moi-btn--Primary" data-size="md" data-swal-demo="textarea">سبب الرفض</button><button type="button" class="moi-btn moi-btn--Primary" data-size="md" data-swal-demo="select">اختيار من قائمة</button><button type="button" class="moi-btn moi-btn--Primary" data-size="md" data-swal-demo="toast">Toast</button><button type="button" class="moi-btn moi-btn--Primary" data-size="md" data-swal-demo="loader">جاري التحميل</button></div></div></section>
+<section class="section" id="usage-rules"><div class="section-card"><h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2><div class="two-col"><div class="section-card"><h3 class="section-title" data-i18n data-ar="افعل">Do</h3><ul class="accessibility-list"><li data-i18n data-ar="اكتب العنوان كسؤال أو نتيجة («حذف المركبة؟»، «تم الحفظ بنجاح»).">Write the title as the question or the result (<bdi dir="rtl">«حذف المركبة؟»</bdi>, <bdi dir="rtl">«تم الحفظ بنجاح»</bdi>).</li><li data-i18n data-ar="سمِّ زر التأكيد بفعل الإجراء («حذف»، «إرسال»، «إسناد») وليس «نعم».">Name the confirm button with the action verb (<bdi dir="rtl">«حذف»</bdi>, <bdi dir="rtl">«إرسال»</bdi>, <bdi dir="rtl">«إسناد»</bdi>), not <bdi dir="rtl">«نعم»</bdi>.</li><li data-i18n data-ar="استخدم moi-swal--danger مع focusCancel: true للإجراءات الخطرة.">Use <code>moi-swal--danger</code> and <code>focusCancel: true</code> for destructive actions.</li><li data-i18n data-ar="استخدم الإعداد الموحد MoiSwal لتبقى النصوص والأزرار متسقة.">Use the shared <code>MoiSwal</code> mixin so texts and buttons stay consistent.</li></ul></div><div class="section-card"><h3 class="section-title" data-i18n data-ar="لا تفعل">Don’t</h3><ul class="accessibility-list"><li data-i18n data-ar="لا تفتح SweetAlert فوق Modal أو فوق SweetAlert أخرى.">Don’t stack a SweetAlert on top of a Modal or another SweetAlert.</li><li data-i18n data-ar="لا تضع نموذجًا بعدة حقول فيها — استخدم الـ Modal.">Don’t put forms with several fields in it — use the Modal.</li><li data-i18n data-ar="لا تمرر ألوانًا مباشرة أو confirmButtonColor؛ الثيم يتولى الأزرار.">Don’t pass inline colours or <code>confirmButtonColor</code>; the theme styles the buttons.</li><li data-i18n data-ar="لا تستخدم الـ Toast لخطأ يحتاج إجراء.">Don’t use a toast for errors that need an action.</li></ul></div></div></div></section>
+<section class="section" id="accessibility-guidance"><div class="section-card"><h2 class="section-title" data-i18n data-ar="إمكانية الوصول والاتجاه">Accessibility &amp; RTL</h2><ul class="accessibility-list"><li data-i18n data-ar="SweetAlert2 تحصر التركيز وتعيده عند الإغلاق؛ أبقِ returnFocus مفعّلًا.">SweetAlert2 traps focus and restores it on close; keep <code>returnFocus</code> on.</li><li data-i18n data-ar="الأزرار تعرض حلقة تركيز المشروع (2px داخلية + 4px خارجية) عند :focus-visible.">Buttons show the project focus ring (2px inner + 4px outer) on <code>:focus-visible</code>.</li><li data-i18n data-ar="الـ Toast يُقرأ بهدوء ولا يجب أن يكون المكان الوحيد لرسالة خطأ.">Toasts are announced politely and must not carry the only copy of an error.</li><li data-i18n data-ar="الاتجاه: الصفحة dir=rtl؛ العنوان والعناوين في بداية السطر، وزر التأكيد في جهة البداية (اليمين).">RTL: the page sets <code>dir="rtl"</code>; the title and labels align to the start side, the confirm button sits on the start side (right).</li><li data-i18n data-ar="الـ Toast يظهر في top-end — أعلى اليسار في RTL.">The toast opens at <code>position: 'top-end'</code> — top-left in RTL.</li></ul></div></section>
+<section class="section" id="developer-api"><div class="section-card"><h2 class="section-title" data-i18n data-ar="واجهة المطور">Developer API</h2><p class="section-note" data-i18n data-ar="ترتيب التحميل: CSS الخاص بـ SweetAlert2 ← css/main.css ← css/sweet-alert.css. الصفحة المرجعية: PS-Design/sweet-alert.html.">Load order: SweetAlert2 CSS → <code>css/main.css</code> → <code>css/sweet-alert.css</code>. Reference page: <code>PS-Design/sweet-alert.html</code>.</p><div class="code-block"><pre><code>&lt;link href="./libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" /&gt;
+&lt;link href="./css/main.css" rel="stylesheet" /&gt;
+&lt;link href="./css/sweet-alert.css" rel="stylesheet" /&gt;
+&lt;script src="./libs/sweetalert2/sweetalert2.min.js"&gt;&lt;/script&gt;</code></pre></div><h3 class="section-title mt-4" data-i18n data-ar="الإعداد الموحد (MoiSwal)">Shared setup (MoiSwal)</h3><div class="code-block"><pre><code>const MoiSwal = Swal.mixin({
+  confirmButtonText: 'تأكيد',
+  cancelButtonText: 'إلغاء',
+  denyButtonText: 'عدم الحفظ'
+});
+
+// Result
+MoiSwal.fire({ icon: 'success', title: 'تم الحفظ بنجاح', text: 'تم حفظ بيانات الحادث.', confirmButtonText: 'حسناً' });
+
+// Destructive confirm
+const r = await MoiSwal.fire({
+  icon: 'warning', title: 'حذف المركبة؟', text: 'سيتم حذف المركبة وكل بياناتها، ولا يمكن التراجع.',
+  showCancelButton: true, confirmButtonText: 'حذف', focusCancel: true,
+  customClass: { popup: 'moi-swal--danger' }
+});
+
+// One-field input
+MoiSwal.fire({ title: 'رفض الطلب', input: 'textarea', inputLabel: 'سبب الرفض',
+  inputPlaceholder: 'أدخل سبب الرفض', showCancelButton: true, confirmButtonText: 'رفض',
+  customClass: { popup: 'moi-swal--danger' } });
+
+// Toast
+MoiSwal.fire({ toast: true, position: 'top-end', icon: 'success', title: 'تم حفظ المسودة',
+  showConfirmButton: false, timer: 3000, timerProgressBar: true });
+
+// Loader (project loader markup inside the alert)
+MoiSwal.fire({ html: loaderMarkup, showConfirmButton: false, allowOutsideClick: false,
+  customClass: { popup: 'moi-swal--loader' } });</code></pre></div><h3 class="section-title mt-4" data-i18n data-ar="فئات الثيم">Theme classes</h3><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الفئة">Class</th><th scope="col" data-i18n data-ar="الأثر">Effect</th></tr></thead><tbody><tr><td><code class="code-inline">.swal2-confirm</code></td><td data-i18n data-ar="شكل moi-btn--Primary">moi-btn--Primary look</td></tr><tr><td><code class="code-inline">.swal2-cancel</code></td><td data-i18n data-ar="شكل moi-btn--Neutral--outline">moi-btn--Neutral--outline look</td></tr><tr><td><code class="code-inline">.swal2-deny</code></td><td data-i18n data-ar="شكل moi-btn--Error--outline">moi-btn--Error--outline look</td></tr><tr><td><code class="code-inline">.moi-swal--danger</code></td><td data-i18n data-ar="على النافذة: زر التأكيد يصبح moi-btn--Error">On the popup: confirm becomes moi-btn--Error</td></tr><tr><td><code class="code-inline">.moi-swal--loader</code></td><td data-i18n data-ar="على النافذة: عرض تلقائي (280px على الأقل) لمؤشر التحميل">On the popup: auto width (min 280px) for the project loader</td></tr></tbody></table></div></div></section>
+
+    </div>
+  </main>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+    <script src="../libs/sweetalert2/sweetalert2.min.js"></script>
+  <script>
+    (function () {
+      if (!window.Swal) return;
+      const MoiSwal = Swal.mixin({ confirmButtonText: 'تأكيد', cancelButtonText: 'إلغاء', denyButtonText: 'عدم الحفظ',
+        didRender: (popup) => { const c = popup.closest('.swal2-container'); if (c) c.setAttribute('dir', 'rtl'); } });
+      const ok = { confirmButtonText: 'حسناً' };
+      const demos = {
+        success: () => MoiSwal.fire(Object.assign({ icon: 'success', title: 'تم الحفظ بنجاح', text: 'تم حفظ بيانات الحادث.' }, ok)),
+        error: () => MoiSwal.fire(Object.assign({ icon: 'error', title: 'تعذّر حفظ البيانات', text: 'حاول مرة أخرى.' }, ok)),
+        warning: () => MoiSwal.fire(Object.assign({ icon: 'warning', title: 'بيانات غير مكتملة', text: 'أكمل البيانات الإلزامية قبل الإرسال.' }, ok)),
+        info: () => MoiSwal.fire(Object.assign({ icon: 'info', title: 'معلومة', text: 'يمكنك حفظ النموذج واستكماله لاحقاً.' }, ok)),
+        confirm: () => MoiSwal.fire({ icon: 'question', title: 'إرسال الحادث؟', text: 'لن تتمكن من تعديل البيانات بعد الإرسال.', showCancelButton: true, confirmButtonText: 'إرسال' }),
+        delete: () => MoiSwal.fire({ icon: 'warning', title: 'حذف المركبة؟', text: 'سيتم حذف المركبة وكل بياناتها، ولا يمكن التراجع.', showCancelButton: true, confirmButtonText: 'حذف', focusCancel: true, customClass: { popup: 'moi-swal--danger' } }),
+        deny: () => MoiSwal.fire({ icon: 'warning', title: 'حفظ التغييرات قبل الخروج؟', showDenyButton: true, showCancelButton: true, confirmButtonText: 'حفظ' }),
+        textarea: () => MoiSwal.fire({ title: 'رفض الطلب', input: 'textarea', inputLabel: 'سبب الرفض', inputPlaceholder: 'أدخل سبب الرفض', showCancelButton: true, confirmButtonText: 'رفض', customClass: { popup: 'moi-swal--danger' } }),
+        select: () => MoiSwal.fire({ title: 'إسناد الحادث', input: 'select', inputLabel: 'الجهة الأمنية', inputOptions: { a: 'مركز شرطة الملز', b: 'مركز شرطة العليا' }, inputPlaceholder: 'اختر الجهة', showCancelButton: true, confirmButtonText: 'إسناد' }),
+        toast: () => MoiSwal.fire({ toast: true, position: 'top-end', icon: 'success', title: 'تم حفظ المسودة', showConfirmButton: false, timer: 3000, timerProgressBar: true }),
+        loader: () => { MoiSwal.fire({ title: 'جاري تحميل البيانات', showConfirmButton: false, allowOutsideClick: false, didOpen: () => Swal.showLoading() }); setTimeout(() => Swal.close(), 2000); }
+      };
+      document.querySelectorAll('[data-swal-demo]').forEach((b) => b.addEventListener('click', () => demos[b.dataset.swalDemo]()));
+    })();
+  </script>
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

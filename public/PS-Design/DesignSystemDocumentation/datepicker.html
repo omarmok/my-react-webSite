@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Date Picker | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
+  <link href="../css/bootstrap-datetimepicker.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
+          <a href="./datepicker.html" data-i18n data-ar="منتقي التاريخ">Date Picker</a>
+          <a href="./sweet-alert.html" data-i18n data-ar="التنبيهات المنبثقة">Sweet Alert</a>
+          <a href="./table.html" data-i18n data-ar="الجدول">Table</a>
+          <a href="./modal.html" data-i18n data-ar="النافذة">Modal</a>
+          <a href="./tooltip.html" data-i18n data-ar="التلميح">Tooltip</a>
+          <a href="./breadcrumb.html" data-i18n data-ar="مسار التنقل">Breadcrumb</a>
+          <a href="./dropdown.html" data-i18n data-ar="القائمة المنسدلة">Dropdown</a>
+          <a href="./empty-state.html" data-i18n data-ar="الحالة الفارغة">Empty State</a>
+          <a href="./page-title.html" data-i18n data-ar="عنوان الصفحة">Page Title</a>
+          <a href="./map.html" data-i18n data-ar="الخريطة">Map</a>
+        </nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top"><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span></button>
+      </div>
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="المكونات / منتقي التاريخ">Components / Date Picker</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="منتقي التاريخ">Date Picker</h1>
+        <p class="text-muted mb-0" data-i18n data-ar="منتقي تاريخ هجري/ميلادي (وتاريخ ووقت) مرتبط بحقل نصي، بشكل تقويم المشروع وفئات حقل لكل قاعدة عمل.">Hijri / Gregorian date (and date-time) picker attached to a text field, with the project calendar look and per-rule field classes.</p>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill" data-i18n data-ar="المكوّن: منتقي التاريخ" data-en="Component: Date Picker">المكوّن: منتقي التاريخ</span>
+        <span class="metadata-pill" data-i18n data-ar="الملفات: _datetimepicker.scss, hijriDatePickerConfig.js" data-en="Files: _datetimepicker.scss, hijriDatePickerConfig.js">الملفات: _datetimepicker.scss, hijriDatePickerConfig.js</span>
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 25 أكتوبر 2026" data-en="Last updated: October 25, 2026">آخر تحديث: 25 أكتوبر 2026</span>
+      </div>
+<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الهدف / متى تستخدم">Purpose &amp; when to use</h2><p class="section-note" data-i18n data-ar="منتقي التاريخ يتيح اختيار تاريخ هجري أو ميلادي من تقويم مرتبط بحقل نصي. هو الإضافة bootstrap-hijri-datetimepicker (منتقي Bootstrap مع تقويم هجري)، مُعدّة مرة واحدة في js/hijriDatePickerConfig.js ومنسقة في css/components/_datetimepicker.scss لتطابق صفحة «Datetime & Picker» في Figma.">The date picker lets the user pick a Hijri or Gregorian date from a calendar attached to a text field. It is the plugin <code class="code-inline">bootstrap-hijri-datetimepicker</code> (Bootstrap datetimepicker with a Hijri calendar), configured once in <code class="code-inline">js/hijriDatePickerConfig.js</code> and styled by <code class="code-inline">css/components/_datetimepicker.scss</code> to match the Figma <bdi dir="rtl">«Datetime &amp; Picker»</bdi> page.</p><ul class="accessibility-list"><li data-i18n data-ar="استخدمه لأي حقل تاريخ: تاريخ الواقعة، تاريخ الميلاد، انتهاء الوثيقة، فلاتر الفترة.">Use it for any date field: incident date, birth date, document expiry, range filters.</li><li data-i18n data-ar="الهجري هو الافتراضي؛ زر التبديل في الأسفل يبدّل بين هجري وميلادي.">Hijri is the default; the footer switch toggles هجري / ميلادي.</li><li data-i18n data-ar="للوقت فقط استخدم input type=time الأصلي مع .input-with-icon-time.">For time only, use the native <code>input type="time"</code> with <code>.input-with-icon-time</code>.</li></ul></div></section>
+<section class="section" id="anatomy"><div class="section-card"><h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="العنصر">Element</th><th scope="col" data-i18n data-ar="المحدد">Selector</th><th scope="col" data-i18n data-ar="المواصفة">Spec</th></tr></thead><tbody><tr><td data-i18n data-ar="الحقل">Field</td><td><code class="code-inline">.form-control.hijri-date-input.input-with-icon</code></td><td data-i18n data-ar="حقل نص قياسي بأيقونة تقويم (كل حالات الحقل تنطبق)">Standard Text Input with a calendar icon (all input states apply)</td></tr><tr><td data-i18n data-ar="السطح">Surface</td><td><code class="code-inline">.bootstrap-datetimepicker-widget.dropdown-menu</code></td><td data-i18n data-ar="عرض 336px، حشوة $padding-lg، حد $Neutral-200، نصف قطر $radius-md، ظل $shadow-lg">Width 336px, padding $padding-lg, border $Neutral-200, radius $radius-md, shadow $shadow-lg, z-index 1080</td></tr><tr><td data-i18n data-ar="الرأس">Header</td><td><code class="code-inline">.picker-switch · .prev · .next</code></td><td data-i18n data-ar="عنوان الشهر/السنة في جهة البداية، والسهمان معًا في جهة النهاية (RTL: السابق يشير لليمين)">Month / year title on the start side, both arrows together on the end side (RTL: previous points right)</td></tr><tr><td data-i18n data-ar="أسماء الأيام">Week-day names</td><td><code class="code-inline">th.dow</code></td><td data-i18n data-ar="صف واحد فوق الأيام">One row above the days</td></tr><tr><td data-i18n data-ar="خلية اليوم">Day cell</td><td><code class="code-inline">td.day</code></td><td data-i18n data-ar="دائرة 40×40، font-md-500">40×40 circle, font-md-500</td></tr><tr><td data-i18n data-ar="شبكات الشهر/السنة/العقد">Month / year / decade grids</td><td><code class="code-inline">.datepicker-months · -years · -decades</code></td><td data-i18n data-ar="نفس شكل خلايا الأيام">Same cell look as days</td></tr><tr><td data-i18n data-ar="منتقي الوقت">Time picker</td><td><code class="code-inline">.timepicker-picker</code></td><td data-i18n data-ar="ساعات ودقائق بأسهم أعلى/أسفل (أنواع الوقت فقط)">Hours / minutes with up / down arrows (time variants only)</td></tr><tr><td data-i18n data-ar="التذييل">Footer</td><td><code class="code-inline">.picker-switch.accordion-toggle a[data-action]</code></td><td data-i18n data-ar="أزرار md: هجري/ميلادي (Neutral) · اليوم في البداية؛ مسح · إغلاق (أسود) في النهاية">Buttons md: هجري/ميلادي (Neutral) · اليوم on the start side; مسح · إغلاق (black) on the end side</td></tr></tbody></table></div></div></section>
+<section class="section" id="states"><div class="section-card"><h2 class="section-title" data-i18n data-ar="حالات خلية اليوم">Day cell states</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الحالة">State</th><th scope="col" data-i18n data-ar="المحدد">Selector</th><th scope="col" data-i18n data-ar="الشكل">Look</th></tr></thead><tbody><tr><td data-i18n data-ar="افتراضي">Default</td><td><code class="code-inline">td.day</code></td><td data-i18n data-ar="نص $Neutral-900، بدون خلفية">Text $Neutral-900, transparent</td></tr><tr><td data-i18n data-ar="مرور">Hover</td><td><code class="code-inline">td.day:hover</code></td><td data-i18n data-ar="خلفية $Neutral-100">Background $Neutral-100</td></tr><tr><td data-i18n data-ar="شهر آخر">Other month</td><td><code class="code-inline">.old · .new</code></td><td data-i18n data-ar="نص $Neutral-400">Text $Neutral-400</td></tr><tr><td data-i18n data-ar="اليوم">Today</td><td><code class="code-inline">.today</code></td><td data-i18n data-ar="حلقة 1.5px ونص عريض $Primary-600">1.5px ring and bold text $Primary-600</td></tr><tr><td data-i18n data-ar="محدد">Selected</td><td><code class="code-inline">.active</code></td><td data-i18n data-ar="تعبئة $Primary-600 ونص أبيض عريض">Filled $Primary-600, white bold text</td></tr><tr><td data-i18n data-ar="معطّل">Disabled</td><td><code class="code-inline">.disabled</code></td><td data-i18n data-ar="نص $Neutral-300، غير قابل للاختيار">Text $Neutral-300, not clickable</td></tr></tbody></table></div></div></section>
+<section class="section" id="variants"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الأنواع (فئات الحقل)">Variants (field classes)</h2><p class="section-note" data-i18n data-ar="اختر الفئة التي تطابق قاعدة العمل؛ الحدود مضبوطة في js/hijriDatePickerConfig.js.">Pick the class that matches the business rule; the limits are set in <code class="code-inline">js/hijriDatePickerConfig.js</code>.</p><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الفئة">Class</th><th scope="col" data-i18n data-ar="الصيغة">Format</th><th scope="col" data-i18n data-ar="المدى المسموح">Allowed range</th><th scope="col" data-i18n data-ar="الاستخدام">Use</th></tr></thead><tbody><tr><td><code class="code-inline">.hijri-date-input</code></td><td>YYYY-MM-DD</td><td data-i18n data-ar="1901 ← 2070">1901 → 2070</td><td data-i18n data-ar="أي تاريخ">Any date</td></tr><tr><td><code class="code-inline">.hijri-date-input-past</code></td><td>YYYY-MM-DD</td><td data-i18n data-ar="حتى اليوم">Up to today</td><td data-i18n data-ar="تاريخ الواقعة، الميلاد">Incident date, birth date</td></tr><tr><td><code class="code-inline">.hijri-date-input-future</code></td><td>YYYY-MM-DD</td><td data-i18n data-ar="من اليوم">From today</td><td data-i18n data-ar="المواعيد، الانتهاء">Appointments, expiry</td></tr><tr><td><code class="code-inline">.hijri-date-input-current</code></td><td>YYYY-MM-DD</td><td data-i18n data-ar="1901 ← 2070، بدون «مسح»">1901 → 2070, no <bdi dir="rtl">«مسح»</bdi></td><td data-i18n data-ar="تاريخ إلزامي لا يُمسح">Required date that must stay filled</td></tr><tr><td><code class="code-inline">.hijri-date-input-time</code></td><td>YYYY-MM-DD hh:mm</td><td data-i18n data-ar="1901 ← 2070">1901 → 2070</td><td data-i18n data-ar="تاريخ ووقت">Date + time</td></tr><tr><td><code class="code-inline">.hijri-date-input-future-time</code></td><td>YYYY-MM-DD hh:mm A</td><td data-i18n data-ar="من الغد">From tomorrow</td><td data-i18n data-ar="تاريخ ووقت مستقبلي">Future date + time</td></tr></tbody></table></div></div></section>
+<section class="section" id="live"><div class="section-card"><h2 class="section-title" data-i18n data-ar="مثال حي">Live example</h2><p class="section-note" data-i18n data-ar="الحقول التالية تستخدم الإضافة والإعداد الفعلي.">The fields below use the production plugin and configuration.</p><div class="row g-3 mt-1" dir="rtl">
+  <div class="col-12 col-md-4"><label class="form-label required" for="dp-demo-past">تاريخ وقوع الحالة</label>
+    <div class="position-relative"><input autocomplete="off" type="text" id="dp-demo-past" class="form-control hijri-date-input-past input-with-icon font-md-400"></div></div>
+  <div class="col-12 col-md-4"><label class="form-label" for="dp-demo-future">تاريخ الموعد</label>
+    <div class="position-relative"><input autocomplete="off" type="text" id="dp-demo-future" class="form-control hijri-date-input-future input-with-icon font-md-400"></div></div>
+  <div class="col-12 col-md-4"><label class="form-label" for="dp-demo-time">وقت وقوع الحالة</label>
+    <input type="time" id="dp-demo-time" onclick="this.showPicker && this.showPicker()" class="form-control input-with-icon-time font-md-400"></div>
+</div></div></section>
+<section class="section" id="usage-rules"><div class="section-card"><h2 class="section-title" data-i18n data-ar="قواعد الاستخدام">Usage rules</h2><ul class="accessibility-list"><li data-i18n data-ar="اربط الحقل دائمًا بعنوان ظاهر؛ النص المؤقت ليس عنوانًا.">Always pair the field with a visible label; the placeholder is not a label.</li><li data-i18n data-ar="استخدم فئة النوع لتحديد المدى بدل التحقق بعد الإرسال.">Use the variant class for limits instead of validating after submit.</li><li data-i18n data-ar="خزّن القيمة ميلادية (format) واعرضها هجرية (hijriFormat) ما لم تحدد الخدمة غير ذلك.">Keep the stored value Gregorian (<code>format</code>) and show Hijri (<code>hijriFormat</code>) unless the service says otherwise.</li><li data-i18n data-ar="لا تعيد تنسيق المنتقي لكل صفحة؛ ملف _datepicker.scss مهمل ولم يعد يُبنى.">Do not restyle the widget per page; <code>_datepicker.scss</code> is deprecated and no longer compiled.</li></ul></div></section>
+<section class="section" id="accessibility-guidance"><div class="section-card"><h2 class="section-title" data-i18n data-ar="إمكانية الوصول والاتجاه">Accessibility &amp; RTL</h2><ul class="accessibility-list"><li data-i18n data-ar="يجب أن تبقى كتابة التاريخ في الحقل ممكنة؛ التقويم مساعد وليس الطريقة الوحيدة.">Typing the date in the field must stay possible; the calendar is a helper, not the only input.</li><li data-i18n data-ar="أزرار التذييل والأسهم تعرض حلقة تركيز ظاهرة (:focus-visible).">Footer buttons and arrows show a visible focus ring (<code>:focus-visible</code>).</li><li data-i18n data-ar="خلايا الأيام 40×40 — لا تصغّرها؛ فهي مساحة اللمس.">Day cells are 40×40 — keep them; they are the touch target.</li><li data-i18n data-ar="الاتجاه مفعّل (isRTL: true وlocale: ar-SA): السابق يشير لليمين والتالي لليسار؛ الأرقام والتواريخ تبقى LTR داخل الحقل.">RTL is on (<code>isRTL: true</code>, <code>locale: 'ar-SA'</code>): previous points right, next points left; numbers and dates stay LTR inside the field.</li></ul></div></section>
+<section class="section" id="developer-api"><div class="section-card"><h2 class="section-title" data-i18n data-ar="واجهة المطور">Developer API</h2><p class="section-note" data-i18n data-ar="أضف CSS الإضافة وjQuery والإضافة والإعداد الموحد، ثم استدعِ hijriRender() بعد وجود الحقول في الصفحة (وأعد استدعاءها بعد إضافة حقول جديدة).">Include the plugin CSS, jQuery, the plugin and the shared configuration, then call <code class="code-inline">hijriRender()</code> once the fields are in the DOM (call it again after rendering new fields).</p><div class="code-block"><pre><code>&lt;link href="./css/bootstrap-datetimepicker.css" rel="stylesheet" /&gt;
+&lt;link href="./css/main.css" rel="stylesheet" /&gt;
+
+&lt;label class="form-label required" for="caseDate"&gt;تاريخ وقوع الحالة&lt;/label&gt;
+&lt;div class="position-relative"&gt;
+  &lt;input autocomplete="off" type="text" id="caseDate"
+         class="form-control hijri-date-input-past input-with-icon"&gt;
+&lt;/div&gt;
+
+&lt;script src="./js/jquery-3.6.0.min.js"&gt;&lt;/script&gt;
+&lt;script src="./js/bootstrap-hijri-datetimepicker.min.js"&gt;&lt;/script&gt;
+&lt;script src="./js/hijriDatePickerConfig.js"&gt;&lt;/script&gt;
+&lt;script&gt;$(function () { hijriRender(); });&lt;/script&gt;</code></pre></div><h3 class="section-title mt-4" data-i18n data-ar="حقل ميلادي فقط">Gregorian-only field</h3><div class="code-block"><pre><code>$('.my-gregorian-date').hijriDatePicker({
+  locale: 'ar-sa', format: 'YYYY-MM-DD', hijri: false, showSwitcher: false,
+  showTodayButton: true, showClear: true, showClose: true, isRTL: true
+});</code></pre></div></div></section>
+
+    </div>
+  </main>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+    <script src="../js/jquery-3.6.0.min.js"></script>
+  <script src="../js/bootstrap-hijri-datetimepicker.min.js"></script>
+  <script src="../js/hijriDatePickerConfig.js"></script>
+  <script>try { if (window.jQuery && window.hijriRender) jQuery(function () { hijriRender(); }); } catch (e) { console.warn(e); }</script>
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

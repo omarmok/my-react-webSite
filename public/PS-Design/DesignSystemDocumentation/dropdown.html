@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dropdown | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
+<style>.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.two-col .section-card{margin:0}.demo-box{background:#fff;border:1px solid #eceff3;border-radius:12px;padding:16px}</style>
+</head>
+
+<body>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
+          <a href="./datepicker.html" data-i18n data-ar="منتقي التاريخ">Date Picker</a>
+          <a href="./sweet-alert.html" data-i18n data-ar="التنبيهات المنبثقة">Sweet Alert</a>
+          <a href="./table.html" data-i18n data-ar="الجدول">Table</a>
+          <a href="./modal.html" data-i18n data-ar="النافذة">Modal</a>
+          <a href="./tooltip.html" data-i18n data-ar="التلميح">Tooltip</a>
+          <a href="./breadcrumb.html" data-i18n data-ar="مسار التنقل">Breadcrumb</a>
+          <a href="./dropdown.html" data-i18n data-ar="القائمة المنسدلة">Dropdown</a>
+          <a href="./empty-state.html" data-i18n data-ar="الحالة الفارغة">Empty State</a>
+          <a href="./page-title.html" data-i18n data-ar="عنوان الصفحة">Page Title</a>
+          <a href="./map.html" data-i18n data-ar="الخريطة">Map</a>
+        </nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top"><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span></button>
+      </div>
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="المكونات / القائمة المنسدلة">Components / Dropdown</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="القائمة المنسدلة">Dropdown</h1>
+        <p class="text-muted mb-0" data-i18n data-ar="select الأصلي للقوائم البسيطة، وvue-treeselect للاختيار القابل للبحث والمتعدد والشجري بحالات حقل النص.">Native select for simple lists; vue-treeselect for searchable, multi and tree selection with the Text Input states.</p>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill" data-i18n data-ar="المكوّن: القائمة المنسدلة" data-en="Component: Dropdown">المكوّن: القائمة المنسدلة</span>
+        <span class="metadata-pill" data-i18n data-ar="الملفات: _vue-treeselect.scss" data-en="Files: _vue-treeselect.scss">الملفات: _vue-treeselect.scss</span>
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 25 أكتوبر 2026" data-en="Last updated: October 25, 2026">آخر تحديث: 25 أكتوبر 2026</span>
+      </div>
+<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الهدف / متى تستخدم">Purpose &amp; when to use</h2><p class="section-note" data-i18n data-ar="حقول الاختيار الفردي والمتعدد والشجري. القوائم البسيطة تستخدم select.form-select الأصلي (راجع حقول النص). القوائم القابلة للبحث أو المتعددة أو الهرمية تستخدم vue-treeselect المنسقة في css/common/_vue-treeselect.scss لتطابق input بنوع select / multi-select وصفحة Dropdown في Figma.">Single, multi and tree selection fields. Simple lists use the native <code class="code-inline">select.form-select</code> (see Text Fields). Searchable, multi or hierarchical lists use <code class="code-inline">vue-treeselect</code>, styled by <code class="code-inline">css/common/_vue-treeselect.scss</code> to match the Figma <code class="code-inline">input</code> type=select / multi-select and the Dropdown page.</p></div></section>
+<section class="section" id="states"><div class="section-card"><h2 class="section-title" data-i18n data-ar="حالات الحقل">Field states</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الحالة">State</th><th scope="col" data-i18n data-ar="المحدد">Selector</th><th scope="col" data-i18n data-ar="الشكل">Look</th></tr></thead><tbody><tr><td data-i18n data-ar="افتراضي / مرور / ضغط / تركيز">Default / hover / pressed / focus</td><td><code>.vue-treeselect__control</code></td><td data-i18n data-ar="مثل حقل النص: حد $Neutral-400 ← $Neutral-700، الضغط $Neutral-100 مع نصف خط سفلي، التركيز / الفتح خط سفلي كامل 2px $Neutral-950 مع shadow-xs">Same as Text Input: border $Neutral-400 → $Neutral-700, pressed $Neutral-100 + half underline, focus / open full 2px $Neutral-950 underline + shadow-xs</td></tr><tr><td data-i18n data-ar="خطأ / تحذير / نجاح">Error / warning / success</td><td><code>.vue-treeselect.is-invalid · .is-warning · .is-valid</code></td><td data-i18n data-ar="الحد والخط بلون الحالة">Border and underline recoloured (Error-700 / Warning-700 / Success-700)</td></tr><tr><td data-i18n data-ar="معطّل">Disabled</td><td><code>.vue-treeselect--disabled</code></td><td data-i18n data-ar="حد $Neutral-300، نص $Neutral-400">Border $Neutral-300, text $Neutral-400</td></tr><tr><td data-i18n data-ar="القيم المتعددة">Multi values</td><td><code>.vue-treeselect__multi-value-item</code></td><td data-i18n data-ar="شكل الوسم (infoprioroty): نص $Info-600، خلفية $Info-50، حد $Info-200، حواف دائرية، نقطة، زر إزالة">Tag look (Status=infoprioroty): $Info-600 text, $Info-50 background, $Info-200 border, pill, dot, × remove</td></tr><tr><td data-i18n data-ar="الخيار">Option</td><td><code>.vue-treeselect__option</code></td><td data-i18n data-ar="خلفية عند المرور؛ الخيار المحدد مميز">Hover background; selected option highlighted</td></tr></tbody></table></div></div></section>
+<section class="section" id="design-code"><div class="section-card"><h2 class="section-title" data-i18n data-ar="التصميم ↔ الكود">Figma ↔ code</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="البند">Item</th><th scope="col" data-i18n data-ar="Figma">Figma</th><th scope="col" data-i18n data-ar="الكود">Code</th><th scope="col" data-i18n data-ar="الحالة">Status</th></tr></thead><tbody><tr><td data-i18n data-ar="وسوم الاختيار المتعدد">Multi-select chips</td><td data-i18n data-ar="وسوم من النظام (22 أكتوبر)">Tags from the system (22 Oct)</td><td><code>.vue-treeselect__multi-value-item</code></td><td data-i18n data-ar="✓ موجود في الكود">✓ In code</td></tr><tr><td data-i18n data-ar="خيار بمربع اختيار">Option with checkbox</td><td data-i18n data-ar="خيار القائمة بمربع اختيار">Select option + checkbox (22 Oct)</td><td data-i18n data-ar="مربعات treeselect بشكل المكتبة">treeselect checkboxes (library default look)</td><td data-i18n data-ar="جزئي">Partly</td></tr><tr><td data-i18n data-ar="رسائل لكل نوع">Per-type helper / warning messages</td><td data-i18n data-ar="رسالة لكل نوع">input warning per type</td><td data-i18n data-ar="لا توجد تنسيقات للرسالة">No helper-text styles</td><td data-i18n data-ar="في التصميم فقط — لم يُنفَّذ في الكود بعد">Design only — not in code yet</td></tr></tbody></table></div></div></section>
+<section class="section" id="developer-api"><div class="section-card"><h2 class="section-title" data-i18n data-ar="واجهة المطور">Developer API</h2><div class="code-block"><pre><code>&lt;label class="form-label required"&gt;الجهة الأمنية&lt;/label&gt;
+&lt;treeselect v-model="agency" :options="agencies" :multiple="true"
+            placeholder="اختر خيارًا أو أكثر" :class="{ 'is-invalid': errors.agency }" /&gt;</code></pre></div></div></section>
+
+    </div>
+  </main>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+  
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>
