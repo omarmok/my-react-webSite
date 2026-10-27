@@ -1452,8 +1452,8 @@
           المصدر: Figma — Buttons
         </span>
 
-        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 13 أكتوبر 2026" data-en="Last updated: October 13, 2026">
-          آخر تحديث: 13 أكتوبر 2026
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 27 أكتوبر 2026" data-en="Last updated: October 27, 2026">
+          آخر تحديث: 27 أكتوبر 2026
         </span>
       </div>
 
@@ -2599,6 +2599,27 @@
               <tr><td><span data-i18n data-ar="الأيقونة الأخيرة">Trail icon</span></td><td><code class="code-inline">&lt;svg&gt; after the label</code></td><td><span data-i18n data-ar="تظهر يسار النص">Shows on the left of the label (RTL)</span></td></tr>
               <tr><td><span data-i18n data-ar="أيقونة فقط">Icon only</span></td><td><code class="code-inline">data-icon-only=&quot;true&quot;</code> + <code class="code-inline">aria-label</code></td><td><span data-i18n data-ar="مساحة لمس 44×44 على الأقل">At least a 44×44 touch area</span></td></tr>
               <tr><td><span data-i18n data-ar="التحميل">Loading</span></td><td><code class="code-inline">data-state=&quot;loading&quot;</code> + <code class="code-inline">svg.moi-btn__loader</code></td><td><span data-i18n data-ar="مكان الأيقونة الأولى">In place of the lead icon</span></td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="figma-description">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="وصف المكوّن في Figma">Figma component description</h2>
+          <p class="section-note" data-i18n data-ar="الزر المعتمد لكل الإجراءات. استخدم نسخ الأزرار الموجودة، ولا تنشئ أزرارًا محلية، ولا تفصل النسخة عن المكوّن الأساسي لتغيير المحتوى.">Buttons — canonical button for all actions. Use existing Buttons instances; do not create local buttons and do not detach to change content.</p>
+          <div class="table-responsive">
+          <table class="docs-table">
+            <thead><tr><th scope="col" data-i18n data-ar="الخاصية">Property</th><th scope="col" data-i18n data-ar="القيم والقواعد">Values and rules</th></tr></thead>
+            <tbody>
+              <tr><td>Style</td><td data-i18n data-ar="المعالجة البصرية (أساسي · مصمت · محدد · نص) × اللون الدلالي (Primary · Neutral · أسود · Lavender · Info · Warning · Error)، إضافة إلى أزرار جاهزة ثابتة: حفظ · إلغاء · إرسال · حفظ لاحقًا (النص والأيقونة ثابتان؛ حفظ لاحقًا بلا مقاس sm).">Visual treatment (base · --solid · --outline · Text) × semantic colour (Primary · Neutral · black · Lavender · Info · Warning · Error), plus fixed action presets Save · Cancel · Send · Save later (fixed label + icon; Save later has no sm).</td></tr>
+              <tr><td data-i18n data-ar="معنى اللون">Colour meaning</td><td data-i18n data-ar="Primary للإجراء الرئيسي · Neutral للإجراءات الثانوية أو المحايدة · Error للرفض أو الحذف أو التصعيد · Warning للتنبيه فقط · Info للمعلومات. لا تستخدم Error أو Warning للإظهار والإخفاء أو التصدير أو الإجراءات العامة، ولا تستخدم الأزرار كشارات حالة.">Primary = main action · Neutral = secondary / neutral actions · Error = reject / destructive / escalation · Warning = caution only · Info = informational. Do not use Error / Warning for show-hide, export or generic actions, and do not use Buttons as status badges.</td></tr>
+              <tr><td>Size</td><td data-i18n data-ar="الارتفاع: sm ‏34 · md ‏40 · lg ‏44 · xl ‏48 — والأيقونة 14 / 16 / 24 / 34.">Height: sm 34 · md 40 · lg 44 · xl 48 — icon 14 / 16 / 24 / 34.</td></tr>
+              <tr><td>State</td><td data-i18n data-ar="للتفاعل فقط: Default · Hovered · Pressed · Focus-visible · Disabled.">Interaction only — Default · Hovered · Pressed · Focus-visible · Disabled.</td></tr>
+              <tr><td>Icon-only</td><td data-i18n data-ar="True = زر أيقونة مربع بلا نص، وغيّر أيقونته دائمًا إلى أيقونة ذات معنى. False = نص مع أيقونات اختيارية.">True = square icon button (no label) — always swap the icon to a meaningful one; False = label + optional icons.</td></tr>
+              <tr><td data-i18n data-ar="الأيقونات">Icons</td><td data-i18n data-ar="الأيقونة الأولى: Show Lead Icon مع استبدال Lead Icon. الأيقونة الأخيرة: Show Trail Icon مع استبدال Trail Icon.">Leading → Show Lead Icon + Lead Icon swap; trailing → Show Trail Icon + Trail Icon swap.</td></tr>
+              <tr><td data-i18n data-ar="النص">Label</td><td data-i18n data-ar="خاصية text. الأزرار الجاهزة (حفظ · إلغاء · إرسال · حفظ لاحقًا) نصها وأيقونتها ثابتان.">text property (Save / Cancel / Send / Save later use a fixed label and icon).</td></tr>
+              <tr><td data-i18n data-ar="استثناءات معروفة">Known exceptions</td><td data-i18n data-ar="أُبقيت لحماية التصاميم القائمة: Neutral / sm / Default و Text / xl يبقيان بإظهار أيقونة غير مربوط، والأزرار الجاهزة تبقي نصها وأيقونتها ثابتين.">Kept to protect existing designs: Neutral / sm / Default and Text / xl keep unbound icon visibility; action presets keep fixed label / icon.</td></tr>
             </tbody>
           </table>
           </div>
