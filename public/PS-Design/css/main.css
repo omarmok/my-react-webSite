@@ -16918,7 +16918,20 @@ span.customtooltip {
 }
 .modal .modal-content .modal-body {
   padding: 20px;
-  max-height: 800px;
+}
+.modal .modal-content .modal-body:has(> iframe, > embed, > object) {
+  height: 70vh;
+}
+.modal .modal-content .modal-body:has(> iframe, > embed, > object) > iframe,
+.modal .modal-content .modal-body:has(> iframe, > embed, > object) > embed,
+.modal .modal-content .modal-body:has(> iframe, > embed, > object) > object {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.modal .modal-content .modal-body:has(> .table-responsive:only-child) {
+  max-height: 70vh;
+  overflow: auto;
 }
 .modal .modal-content .modal-body .wanted-to {
   display: flex;
@@ -17307,9 +17320,9 @@ nav {
   vertical-align: middle;
   cursor: pointer;
   color: inherit;
-  background: rgb(255, 255, 255);
+  background: #ffffff;
   border-radius: 0px;
-  box-shadow: rgb(248, 248, 248) -1px 6px 3px -4px;
+  box-shadow: inset 0 -1px 0 #e5e7eb;
   padding: 8px;
   margin-top: 0;
   margin-right: 0;
@@ -17318,7 +17331,19 @@ nav {
 }
 
 .vue-treeselect__option:hover {
-  background: #f9fafb;
+  background: #f3f4f6;
+}
+
+.vue-treeselect__option.vue-treeselect__option--highlight {
+  background: #f3fcf6;
+  box-shadow: inset 3px 0 0 #1b8354;
+}
+.vue-treeselect__option.vue-treeselect__option--highlight .vue-treeselect__label {
+  color: #166a45;
+}
+
+[dir=rtl] .vue-treeselect__option.vue-treeselect__option--highlight {
+  box-shadow: inset -3px 0 0 #1b8354;
 }
 
 .vue-treeselect__label-container label {
@@ -17328,12 +17353,12 @@ nav {
 }
 
 .vue-treeselect--single .vue-treeselect__option--selected {
-  background: rgb(248, 246, 242) !important;
+  background: #dff6e7 !important;
   font-weight: 600;
   box-shadow: none !important;
 }
 .vue-treeselect--single .vue-treeselect__option--selected .vue-treeselect__label {
-  color: rgb(112, 66, 20) !important;
+  color: #166a45 !important;
   font-weight: 600 !important;
 }
 
@@ -17369,7 +17394,14 @@ nav {
   /* padding: 5px;*/
 }
 .vue-treeselect__list-item .vue-treeselect__list .vue-treeselect__option:hover {
-  background: #f8faff;
+  background: #e5e7eb;
+}
+.vue-treeselect__list-item .vue-treeselect__list .vue-treeselect__option.vue-treeselect__option--highlight {
+  background: #f3fcf6;
+  box-shadow: inset 3px 0 0 #1b8354;
+}
+[dir=rtl] .vue-treeselect__list-item .vue-treeselect__list .vue-treeselect__option.vue-treeselect__option--highlight {
+  box-shadow: inset -3px 0 0 #1b8354;
 }
 .vue-treeselect__list-item .vue-treeselect__list .vue-treeselect__option .vue-treeselect__option-arrow-placeholder {
   display: none;
@@ -17535,8 +17567,8 @@ nav {
 .form-check-input[type=checkbox]:checked {
   --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath fill='%23fff' fill-rule='evenodd' clip-rule='evenodd' d='M19.5179 5.95748C19.8175 6.24349 19.8285 6.71823 19.5425 7.01786L9.04252 18.0179C8.90308 18.1639 8.71064 18.2476 8.50872 18.25C8.3068 18.2523 8.11246 18.1731 7.96967 18.0303L4.46967 14.5303C4.17678 14.2374 4.17678 13.7626 4.46967 13.4697C4.76256 13.1768 5.23744 13.1768 5.53033 13.4697L8.48752 16.4269L18.4575 5.98214C18.7435 5.68252 19.2182 5.67148 19.5179 5.95748Z'/%3e%3c/svg%3e");
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath fill='%23fff' fill-rule='evenodd' clip-rule='evenodd' d='M19.5179 5.95748C19.8175 6.24349 19.8285 6.71823 19.5425 7.01786L9.04252 18.0179C8.90308 18.1639 8.71064 18.2476 8.50872 18.25C8.3068 18.2523 8.11246 18.1731 7.96967 18.0303L4.46967 14.5303C4.17678 14.2374 4.17678 13.7626 4.46967 13.4697C4.76256 13.1768 5.23744 13.1768 5.53033 13.4697L8.48752 16.4269L18.4575 5.98214C18.7435 5.68252 19.2182 5.67148 19.5179 5.95748Z'/%3e%3c/svg%3e");
-  background-size: 12px 12px;
-  background-position: center;
+  background-size: 22px 22px;
+  background-position: left;
   background-repeat: no-repeat;
 }
 
@@ -24195,4 +24227,5 @@ nav {
 
 .previewBG {
   background: rgba(0, 0, 0, 0.48);
-}/*# sourceMappingURL=main.css.map */
+}
+/*# sourceMappingURL=main.css.map */

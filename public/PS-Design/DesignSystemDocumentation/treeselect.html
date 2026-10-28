@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tree Select | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  </style>
+  <link href="../libs/tree-select/treeselect.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
+<style>.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.two-col .section-card{margin:0}.demo-box{background:#fff;border:1px solid #eceff3;border-radius:12px;padding:16px}</style>
+</head>
+
+<body>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav">
+          <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
+          <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
+          <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
+          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
+          <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
+          <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
+          <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
+          <a href="./iconography.html" data-i18n data-ar="الأيقونات">Iconography</a>
+          <a href="./radius.html" data-i18n data-ar="نصف القطر">Radius</a>
+          <a href="./shadows.html" data-i18n data-ar="الظلال">Shadows</a>
+          <a href="./spacing.html" data-i18n data-ar="التباعد">Spacing</a>
+          <a href="./layout.html" data-i18n data-ar="الهيكل العام">Layout</a>
+          <div class="sidebar-title" data-i18n data-ar="المكونات">Components</div>
+          <a href="./buttons.html" data-i18n data-ar="الأزرار">Buttons</a>
+          <a href="./switch.html" data-i18n data-ar="مفاتيح التبديل">Switches</a>
+          <a href="./alert.html" data-i18n data-ar="التنبيهات">Alerts</a>
+          <a href="./tags.html" data-i18n data-ar="الوسوم">Tags</a>
+          <a href="./text-fields.html" data-i18n data-ar="حقول النص">Text Fields</a>
+          <a href="./file-uploader.html" data-i18n data-ar="رفع الملفات">File Uploader</a>
+          <a href="./stepper.html" data-i18n data-ar="شريط التقدم">Stepper</a>
+          <a href="./card.html" data-i18n data-ar="البطاقة">Card</a>
+          <a href="./personcard.html" data-i18n data-ar="بطاقة الشخص">Person Card</a>
+          <a href="./Entity.html" data-i18n data-ar="كارت المنشأة">Entity Card</a>
+          <a href="./timeline.html" data-i18n data-ar="الخط الزمني">Timeline</a>
+          <a href="./tabs.html" data-i18n data-ar="التبويبات">Tabs</a>
+          <a href="./datepicker.html" data-i18n data-ar="منتقي التاريخ">Date Picker</a>
+          <a href="./sweet-alert.html" data-i18n data-ar="التنبيهات المنبثقة">Sweet Alert</a>
+          <a href="./table.html" data-i18n data-ar="الجدول">Table</a>
+          <a href="./modal.html" data-i18n data-ar="النافذة">Modal</a>
+          <a href="./tooltip.html" data-i18n data-ar="التلميح">Tooltip</a>
+          <a href="./breadcrumb.html" data-i18n data-ar="مسار التنقل">Breadcrumb</a>
+          <a href="./dropdown.html" data-i18n data-ar="القائمة المنسدلة">Dropdown</a>
+          <a href="./treeselect.html" data-i18n data-ar="القائمة الشجرية">Tree Select</a>
+          <a href="./empty-state.html" data-i18n data-ar="الحالة الفارغة">Empty State</a>
+          <a href="./page-title.html" data-i18n data-ar="عنوان الصفحة">Page Title</a>
+          <a href="./map.html" data-i18n data-ar="الخريطة">Map</a>
+        </nav>
+      </div>
+    </aside>
+    <div class="page-content">
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top"><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span></button>
+      </div>
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="المكونات / القائمة الشجرية">Components / Tree Select</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="القائمة الشجرية (vue-treeselect)">Tree Select (vue-treeselect)</h1>
+        <p class="text-muted mb-0" data-i18n data-ar="أمثلة حيّة وأكواد جاهزة لاستخدام vue-treeselect بتنسيق النظام: فردي، متعدد، مسطّح، حالات الحقل، وداخل النموذج.">Live examples and ready-to-copy code for vue-treeselect styled by the system: single, multiple, flat, field states, and inside a form.</p>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill" data-i18n data-ar="المكوّن: القائمة الشجرية" data-en="Component: Tree Select">المكوّن: القائمة الشجرية</span>
+        <span class="metadata-pill" data-i18n data-ar="المكتبة: vue-treeselect 0.4.0 + Vue 2" data-en="Library: vue-treeselect 0.4.0 + Vue 2">المكتبة: vue-treeselect 0.4.0 + Vue 2</span>
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 28 أكتوبر 2026" data-en="Last updated: October 28, 2026">آخر تحديث: 28 أكتوبر 2026</span>
+      </div>
+<section class="section" id="single"><div class="section-card"><h2 class="section-title" data-i18n data-ar="اختيار فردي">Single select</h2><p class="section-note" data-i18n data-ar="قيمة واحدة من هرم. الـ v-model يحمل معرّف العقدة.">One value from a hierarchy. v-model holds the node id.</p><div class="demo-box mb-3" data-ts-demo="single"><label class="form-label" data-i18n data-ar="الجهة">Agency</label><treeselect v-model="value" :options="options" placeholder="الرجاء الاختيار" no-results-text="لا توجد نتائج" no-options-text="لا توجد خيارات"></treeselect><p class="form-text mt-2 mb-0">v-model: {{ value }}</p></div><div class="code-block" v-pre><pre><code>&lt;label class="form-label"&gt;الجهة&lt;/label&gt;
+&lt;treeselect v-model="value" :options="options"
+            placeholder="الرجاء الاختيار"
+            no-results-text="لا توجد نتائج"
+            no-options-text="لا توجد خيارات" /&gt;</code></pre></div></div></section>
+<section class="section" id="preselected"><div class="section-card"><h2 class="section-title" data-i18n data-ar="قيمة محدّدة مسبقًا">Preselected value</h2><p class="section-note" data-i18n data-ar="اضبط الـ v-model على معرّف موجود وستُفتح الفروع لإظهاره.">Set v-model to an existing id; the branch is expanded to reveal it.</p><div class="demo-box mb-3" data-ts-demo="preselected"><label class="form-label" data-i18n data-ar="الجهة">Agency</label><treeselect v-model="value" :options="options" placeholder="الرجاء الاختيار" no-results-text="لا توجد نتائج" no-options-text="لا توجد خيارات"></treeselect></div><div class="code-block" v-pre><pre><code>data: { value: "riyadh", options }</code></pre></div></div></section>
+<section class="section" id="multiple"><div class="section-card"><h2 class="section-title" data-i18n data-ar="اختيار متعدد">Multiple (tags)</h2><p class="section-note" data-i18n data-ar="خاصية multiple تعرض القيم كوسوم والقيمة مصفوفة معرّفات.">multiple adds tags; value is an array of ids.</p><div class="demo-box mb-3" data-ts-demo="multiple"><label class="form-label" data-i18n data-ar="الجهات الأمنية">Security agencies</label><treeselect v-model="value" :multiple="true" :options="options" placeholder="الرجاء الاختيار" no-results-text="لا توجد نتائج" no-options-text="لا توجد خيارات"></treeselect><p class="form-text mt-2 mb-0">v-model: {{ value }}</p></div><div class="code-block" v-pre><pre><code>&lt;treeselect v-model="agencies" :multiple="true" :options="options"
+            placeholder="الرجاء الاختيار" /&gt;
+// agencies: ["naseem", "security"]</code></pre></div></div></section>
+<section class="section" id="flat"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الوضع المسطّح">Flat mode</h2><p class="section-note" data-i18n data-ar="الخاصية flat تجعل كل عقدة مستقلة (اختيار الأب لا يختار أبناءه).">flat selects each node independently (selecting a parent does not select its children).</p><div class="demo-box mb-3" data-ts-demo="flat"><label class="form-label" data-i18n data-ar="الوحدات">Units</label><treeselect v-model="value" :multiple="true" :flat="true" :options="options" placeholder="الرجاء الاختيار" no-results-text="لا توجد نتائج" no-options-text="لا توجد خيارات"></treeselect></div><div class="code-block" v-pre><pre><code>&lt;treeselect v-model="units" :multiple="true" :flat="true" :options="options" /&gt;</code></pre></div></div></section>
+<section class="section" id="expand"><div class="section-card"><h2 class="section-title" data-i18n data-ar="مستوى الفتح الافتراضي">Default expand level</h2><p class="section-note" data-i18n data-ar="default-expand-level يفتح الشجرة حتى مستوى معيّن عند فتح القائمة.">default-expand-level opens the tree to the given depth when the menu opens.</p><div class="demo-box mb-3" data-ts-demo="expand"><label class="form-label" data-i18n data-ar="الجهة">Agency</label><treeselect v-model="value" :options="options" :default-expand-level="2" placeholder="الرجاء الاختيار" no-results-text="لا توجد نتائج" no-options-text="لا توجد خيارات"></treeselect></div><div class="code-block" v-pre><pre><code>&lt;treeselect v-model="value" :options="options" :default-expand-level="2" /&gt;</code></pre></div></div></section>
+<section class="section" id="limit"><div class="section-card"><h2 class="section-title" data-i18n data-ar="تحديد عدد الوسوم الظاهرة">Limit visible tags</h2><p class="section-note" data-i18n data-ar="limit وlimit-text يختصران الوسوم الزائدة في عدّاد.">limit and limit-text collapse extra tags into a counter.</p><div class="demo-box mb-3" data-ts-demo="limit"><label class="form-label" data-i18n data-ar="الجهات">Agencies</label><treeselect v-model="value" :multiple="true" :limit="1" :limit-text="count => '+' + count" :options="options" placeholder="الرجاء الاختيار" no-results-text="لا توجد نتائج" no-options-text="لا توجد خيارات"></treeselect></div><div class="code-block" v-pre><pre><code>&lt;treeselect v-model="value" :multiple="true" :options="options"
+            :limit="1" :limit-text="count =&gt; '+' + count" /&gt;</code></pre></div></div></section>
+<section class="section" id="clear"><div class="section-card"><h2 class="section-title" data-i18n data-ar="بدون مسح وبدون بحث">Not clearable, not searchable</h2><p class="section-note" data-i18n data-ar="clearable=false يخفي زر المسح، وsearchable=false يحوّله لمنتقٍ فقط.">clearable="false" hides the clear button; searchable="false" turns it into a pure picker.</p><div class="demo-box mb-3" data-ts-demo="clear"><label class="form-label" data-i18n data-ar="الجهة">Agency</label><treeselect v-model="value" :options="options" :clearable="false" :searchable="false" placeholder="الرجاء الاختيار" no-results-text="لا توجد نتائج" no-options-text="لا توجد خيارات"></treeselect></div><div class="code-block" v-pre><pre><code>&lt;treeselect v-model="value" :options="options"
+            :clearable="false" :searchable="false" /&gt;</code></pre></div></div></section>
+<section class="section" id="disable-branch"><div class="section-card"><h2 class="section-title" data-i18n data-ar="اختيار الأوراق فقط">Leaf-only selection</h2><p class="section-note" data-i18n data-ar="disable-branch-nodes يسمح باختيار العقد الطرفية فقط.">disable-branch-nodes allows picking only leaf nodes.</p><div class="demo-box mb-3" data-ts-demo="disable-branch"><label class="form-label" data-i18n data-ar="مركز الشرطة">Police center</label><treeselect v-model="value" :options="options" :disable-branch-nodes="true" placeholder="الرجاء الاختيار" no-results-text="لا توجد نتائج" no-options-text="لا توجد خيارات"></treeselect></div><div class="code-block" v-pre><pre><code>&lt;treeselect v-model="value" :options="options" :disable-branch-nodes="true" /&gt;</code></pre></div></div></section>
+<section class="section" id="states"><div class="section-card"><h2 class="section-title" data-i18n data-ar="حالات الحقل">Field states</h2><p class="section-note" data-i18n data-ar="نفس أصناف حالات حقل النص: is-invalid وis-valid وis-warning والتعطيل.">Same state classes as Text Input: is-invalid, is-valid, is-warning, and disabled.</p><div class="demo-box mb-3" data-ts-demo="states"><div class="two-col"><div><label class="form-label" data-i18n data-ar="خطأ">Error</label><treeselect class="is-invalid" v-model="empty" :options="options" placeholder="الرجاء الاختيار" no-results-text="لا توجد نتائج" no-options-text="لا توجد خيارات"></treeselect><div class="invalid-feedback d-block" data-i18n data-ar="هذا الحقل مطلوب">This field is required</div></div><div><label class="form-label" data-i18n data-ar="نجاح">Success</label><treeselect class="is-valid" v-model="value" :options="options" placeholder="الرجاء الاختيار" no-results-text="لا توجد نتائج" no-options-text="لا توجد خيارات"></treeselect></div><div><label class="form-label" data-i18n data-ar="تحذير">Warning</label><treeselect class="is-warning" v-model="value" :options="options" placeholder="الرجاء الاختيار" no-results-text="لا توجد نتائج" no-options-text="لا توجد خيارات"></treeselect></div><div><label class="form-label" data-i18n data-ar="معطّل">Disabled</label><treeselect v-model="value" :disabled="true" :options="options" placeholder="الرجاء الاختيار" no-results-text="لا توجد نتائج" no-options-text="لا توجد خيارات"></treeselect></div><div><label class="form-label" data-i18n data-ar="معطّل (متعدد)">Disabled (multiple)</label><treeselect v-model="multi" :multiple="true" :disabled="true" :options="options" placeholder="الرجاء الاختيار" no-results-text="لا توجد نتائج" no-options-text="لا توجد خيارات"></treeselect></div></div></div><div class="code-block" v-pre><pre><code>&lt;treeselect class="is-invalid" v-model="agency" :options="options" /&gt;
+&lt;div class="invalid-feedback d-block"&gt;هذا الحقل مطلوب&lt;/div&gt;
+
+&lt;treeselect class="is-valid"   v-model="agency" :options="options" /&gt;
+&lt;treeselect class="is-warning" v-model="agency" :options="options" /&gt;
+&lt;treeselect v-model="agency" :disabled="true" :options="options" /&gt;</code></pre></div></div></section>
+<section class="section" id="form"><div class="section-card"><h2 class="section-title" data-i18n data-ar="داخل نموذج (عنوان، مطلوب، نص مساعد)">Inside a form (label, required, helper)</h2><p class="section-note" data-i18n data-ar="عنوان بصنف required ونص مساعد أسفل الحقل وحالة تحقق مرتبطة بالقيمة.">Label with .required, helper text under the field, and a validation state bound to the model.</p><div class="demo-box mb-3" data-ts-demo="form"><label class="form-label required" data-i18n data-ar="الجهة الأمنية">Security agency</label><treeselect v-model="value" :options="options" :class="{ 'is-invalid': touched && !value }" @close="touched = true" placeholder="الرجاء الاختيار" no-results-text="لا توجد نتائج" no-options-text="لا توجد خيارات"></treeselect><small class="form-text text-muted d-block mt-1" data-i18n data-ar="اختر الجهة المسؤولة عن الطلب">Choose the agency responsible for the request</small><div class="invalid-feedback d-block" v-if="touched && !value" data-i18n data-ar="يرجى اختيار الجهة">Please select an agency</div></div><div class="code-block" v-pre><pre><code>&lt;label class="form-label required"&gt;الجهة الأمنية&lt;/label&gt;
+&lt;treeselect v-model="agency" :options="options"
+            :class="{ 'is-invalid': touched &amp;&amp; !agency }"
+            @close="touched = true" /&gt;
+&lt;small class="form-text text-muted d-block mt-1"&gt;اختر الجهة المسؤولة عن الطلب&lt;/small&gt;
+&lt;div class="invalid-feedback d-block" v-if="touched &amp;&amp; !agency"&gt;يرجى اختيار الجهة&lt;/div&gt;</code></pre></div></div></section>
+<section class="section" id="props"><div class="section-card"><h2 class="section-title" data-i18n data-ar="أهم الخصائص">Key props</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الخاصية">Prop</th><th scope="col" data-i18n data-ar="الوصف">Description</th></tr></thead><tbody>
+<tr><td><span class="code-inline">v-model</span></td><td data-i18n data-ar="المعرّف المحدد أو مصفوفة معرّفات في الاختيار المتعدد">Selected id (single) or array of ids (multiple)</td></tr>
+<tr><td><span class="code-inline">options</span></td><td data-i18n data-ar="شجرة بصيغة { id, label, children }">Tree of { id, label, children }</td></tr>
+<tr><td><span class="code-inline">multiple</span></td><td data-i18n data-ar="تفعيل الاختيار المتعدد بوسوم">Enable multi-select with tags</td></tr>
+<tr><td><span class="code-inline">flat</span></td><td data-i18n data-ar="عدم تعميم الاختيار على الأبناء">Do not cascade selection to children</td></tr>
+<tr><td><span class="code-inline">disabled</span></td><td data-i18n data-ar="تعطيل الحقل">Disable the control</td></tr>
+<tr><td><span class="code-inline">clearable / searchable</span></td><td data-i18n data-ar="زر المسح / تفعيل البحث">Show clear button / enable search</td></tr>
+<tr><td><span class="code-inline">default-expand-level</span></td><td data-i18n data-ar="عمق الفتح عند ظهور القائمة">Depth to expand on open</td></tr>
+<tr><td><span class="code-inline">disable-branch-nodes</span></td><td data-i18n data-ar="اختيار الأوراق فقط">Only leaves are selectable</td></tr>
+<tr><td><span class="code-inline">limit / limit-text</span></td><td data-i18n data-ar="تحديد الوسوم الظاهرة وصيغة العدّاد">Cap visible tags and format the counter</td></tr>
+<tr><td><span class="code-inline">placeholder / no-results-text / no-options-text</span></td><td data-i18n data-ar="نصوص الواجهة بالعربية (مرّرها صراحةً)">Arabic UI strings (pass them explicitly)</td></tr>
+</tbody></table></div></div></section>
+<section class="section" id="setup"><div class="section-card"><h2 class="section-title" data-i18n data-ar="التهيئة">Setup</h2>
+<p class="section-note" data-i18n data-ar="الصفحة تحتاج Vue 2 وvue-treeselect من مجلد libs، مع ملف الأنماط. التنسيق الخاص بالنظام موجود في main.css (_vue-treeselect.scss).">Load Vue 2 and vue-treeselect from libs, plus its stylesheet. System styling already lives in main.css (_vue-treeselect.scss).</p>
+<div class="code-block" v-pre><pre><code>&lt;link href="./libs/tree-select/treeselect.css" rel="stylesheet" /&gt;
+&lt;script src="./libs/vue/vue-js.js"&gt;&lt;/script&gt;
+&lt;script src="./libs/tree-select/tree-select.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  Vue.component("treeselect", VueTreeselect.Treeselect);
+  new Vue({
+    el: "#app",
+    data: {
+      value: null,
+      options: [
+        { id: "moi", label: "وزارة الداخلية", children: [
+          { id: "riyadh", label: "شرطة منطقة الرياض", children: [
+            { id: "naseem", label: "مركز شرطة النظيم" },
+            { id: "olaya",  label: "مركز شرطة العليا" }
+          ] },
+          { id: "security", label: "الإدارة العامة للأمن" }
+        ] },
+        { id: "makkah", label: "شرطة منطقة مكة المكرمة" }
+      ]
+    }
+  });
+&lt;/script&gt;</code></pre></div></div></section>
+    </div>
+  </main>
+
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      const current = decodeURIComponent(window.location.pathname.split('/').pop());
+      const links = document.querySelectorAll('.sidebar-nav a');
+      links.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (decodeURIComponent(href.replace('./', '')) === current) {
+          link.classList.add('is-active');
+        }
+      });
+    })();
+  </script>
+
+  
+
+  <script src="../libs/vue/vue-js.js"></script>
+  <script src="../libs/tree-select/tree-select.js"></script>
+  <script>
+    (function () {
+      var options = [
+        { id: "moi", label: "وزارة الداخلية", children: [
+          { id: "riyadh", label: "شرطة منطقة الرياض", children: [
+            { id: "naseem", label: "مركز شرطة النظيم" },
+            { id: "olaya", label: "مركز شرطة العليا" }
+          ] },
+          { id: "security", label: "الإدارة العامة للأمن" }
+        ] },
+        { id: "makkah", label: "شرطة منطقة مكة المكرمة" }
+      ];
+      var initial = {
+        single: null, preselected: "riyadh", multiple: ["naseem", "security"], flat: ["riyadh"],
+        expand: null, limit: ["naseem", "olaya", "security"], clear: "security", "disable-branch": null,
+        states: "riyadh", form: null
+      };
+      Vue.component("treeselect", VueTreeselect.Treeselect);
+      document.querySelectorAll("[data-ts-demo]").forEach(function (el) {
+        var key = el.getAttribute("data-ts-demo");
+        new Vue({
+          el: el,
+          data: { options: options, value: initial[key], empty: null, multi: ["naseem", "security"], touched: false }
+        });
+      });
+    })();
+  </script>
+
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

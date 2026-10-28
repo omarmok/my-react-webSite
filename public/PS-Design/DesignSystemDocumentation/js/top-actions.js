@@ -37,6 +37,7 @@
         { file: "buttons.html", en: "Buttons", ar: "الأزرار" },
         { file: "text-fields.html", en: "Text Fields", ar: "حقول النص" },
         { file: "dropdown.html", en: "Dropdown", ar: "القائمة المنسدلة" },
+        { file: "treeselect.html", en: "Tree Select", ar: "القائمة الشجرية" },
         { file: "datepicker.html", en: "Date Picker", ar: "منتقي التاريخ" },
         { file: "switch.html", en: "Switches", ar: "مفاتيح التبديل" },
         { file: "file-uploader.html", en: "File Uploader", ar: "رفع الملفات" },

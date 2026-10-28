@@ -1,7 +1,7 @@
 @use "sass:map";
-@use '../helpers' as *;
+@use "../helpers" as *;
 .vue-treeselect {
-    text-align: right;
+  text-align: right;
 }
 
 // =========================================================================
@@ -11,119 +11,127 @@
 // Selectors start with `.vue-treeselect` so they beat treeselect.css.
 // =========================================================================
 .vue-treeselect .vue-treeselect__multi-value-item-container {
-    padding-top: $padding-xs;
-    padding-inline: 0 $padding-xs;
+  padding-top: $padding-xs;
+  padding-inline: 0 $padding-xs;
 }
 
 .vue-treeselect .vue-treeselect__multi-value-item,
-.vue-treeselect:not(.vue-treeselect--disabled) .vue-treeselect__multi-value-item:not(.vue-treeselect__multi-value-item-disabled):hover {
-    display: inline-flex;
-    align-items: center;
-    gap: $gap-xs;
-    padding: $padding-xxs $padding-md;
-    color: $Info-600;
-    background: $Info-50;
-    border: 1px solid $Info-200;
-    border-radius: $Radius-100; // Tag Rounded=True (pill)
-    font-size: typography-size(0.875rem);
-    font-weight: 500;
-    line-height: typography-line-height(1.4285714286);
-    cursor: default;
+.vue-treeselect:not(.vue-treeselect--disabled)
+  .vue-treeselect__multi-value-item:not(
+    .vue-treeselect__multi-value-item-disabled
+  ):hover {
+  display: inline-flex;
+  align-items: center;
+  gap: $gap-xs;
+  padding: $padding-xxs $padding-md;
+  color: $Info-600;
+  background: $Info-50;
+  border: 1px solid $Info-200;
+  border-radius: $Radius-100; // Tag Rounded=True (pill)
+  font-size: typography-size(0.875rem);
+  font-weight: 500;
+  line-height: typography-line-height(1.4285714286);
+  cursor: default;
 
-    // Tag dot
-    &::before {
-        content: "";
-        flex: 0 0 auto;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: currentColor;
-    }
+  // Tag dot
+  &::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: currentColor;
+  }
 }
 
 .vue-treeselect .vue-treeselect__multi-value-label {
-    display: inline;
-    padding: 0;
-    font: inherit;
-    color: inherit;
+  display: inline;
+  padding: 0;
+  font: inherit;
+  color: inherit;
 }
 
 // Remove (×) — like .moi-tag .tag-close: inherits the tag colour.
 .vue-treeselect .vue-treeselect__value-remove,
 [dir="rtl"] .vue-treeselect .vue-treeselect__value-remove {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: $padding-xxs;
-    border: 0;
-    border-radius: $radius-xxs;
-    color: $Info-600;
-    line-height: 0;
-    cursor: pointer;
-    transition: color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $padding-xxs;
+  border: 0;
+  border-radius: $radius-xxs;
+  color: $Info-600;
+  line-height: 0;
+  cursor: pointer;
+  transition: color 0.15s ease;
 
-    > svg {
-        width: 8px;
-        height: 8px;
-        fill: currentColor;
-    }
+  > svg {
+    width: 8px;
+    height: 8px;
+    fill: currentColor;
+  }
 }
 
-.vue-treeselect .vue-treeselect__multi-value-item:hover .vue-treeselect__value-remove {
-    color: $Info-700;
+.vue-treeselect
+  .vue-treeselect__multi-value-item:hover
+  .vue-treeselect__value-remove {
+  color: $Info-700;
 }
 
 // Disabled select: tag keeps its shape, text greys out, no remove button.
 .vue-treeselect.vue-treeselect--disabled .vue-treeselect__multi-value-item,
-.vue-treeselect .vue-treeselect__multi-value-item.vue-treeselect__multi-value-item-disabled {
-    color: $Neutral-400;
-    background: $white-100;
-    border-color: $Neutral-200;
+.vue-treeselect
+  .vue-treeselect__multi-value-item.vue-treeselect__multi-value-item-disabled {
+  color: $Neutral-400;
+  background: $white-100;
+  border-color: $Neutral-200;
 }
 
 .vue-treeselect.vue-treeselect--disabled .vue-treeselect__value-remove,
-.vue-treeselect .vue-treeselect__multi-value-item-disabled .vue-treeselect__value-remove {
-    display: none;
+.vue-treeselect
+  .vue-treeselect__multi-value-item-disabled
+  .vue-treeselect__value-remove {
+  display: none;
 }
 
 .vue-treeselect__placeholder,
 .vue-treeselect__single-value {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    padding-left: $padding-xs;
-    padding-right: $padding-xs;
-    position: absolute;
-    top: -2px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    line-height: 34px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    pointer-events: none;
-    height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: $padding-xs;
+  padding-right: $padding-xs;
+  position: absolute;
+  top: -2px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  line-height: 34px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  height: 30px;
 }
 
 .vue-treeselect__single-value {
-    color: $Neutral-900;
-    font-size: typography-size(map.get($font-sizes, lg));
-    font-weight: 500;
-    line-height: typography-line-height(1.45);
+  color: $Neutral-900;
+  font-size: typography-size(map.get($font-sizes, lg));
+  font-weight: 500;
+  line-height: typography-line-height(1.45);
 }
 
 .vue-treeselect__control {
-    padding-left: $padding-xs;
-    padding-right: $padding-xs;
-    display: block;
-    table-layout: inherit;
-    font-size: typography-size(map.get($font-sizes, lg));
-    font-weight: 500;
-    height: $form-control-height;
-    padding: $padding-md;
-    line-height: typography-line-height(1.45);
+  padding-left: $padding-xs;
+  padding-right: $padding-xs;
+  display: block;
+  table-layout: inherit;
+  font-size: typography-size(map.get($font-sizes, lg));
+  font-weight: 500;
+  height: $form-control-height;
+  padding: $padding-md;
+  line-height: typography-line-height(1.45);
 }
 
 // =========================================================================
@@ -138,73 +146,78 @@
 // whatever order the two files load in.
 // =========================================================================
 .vue-treeselect .vue-treeselect__control {
-    --moi-field-underline: #{$Neutral-950};
-    border: 1px solid $Neutral-400;
-    border-radius: $radius-xs;
-    background-color: $white-100;
-    background-image: linear-gradient(var(--moi-field-underline), var(--moi-field-underline));
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    background-size: 0% 2px;
-    box-shadow: none;
-    transition:
-        border-color var(--tran-05, 0.3s),
-        background-color var(--tran-05, 0.3s),
-        box-shadow var(--tran-05, 0.3s),
-        background-size 0.4s ease-out;
+  --moi-field-underline: #{$Neutral-950};
+  border: 1px solid $Neutral-400;
+  border-radius: $radius-xs;
+  background-color: $white-100;
+  background-image: linear-gradient(
+    var(--moi-field-underline),
+    var(--moi-field-underline)
+  );
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 0% 2px;
+  box-shadow: none;
+  transition:
+    border-color var(--tran-05, 0.3s),
+    background-color var(--tran-05, 0.3s),
+    box-shadow var(--tran-05, 0.3s),
+    background-size 0.4s ease-out;
 
-    @media (prefers-reduced-motion: reduce) {
-        transition: none;
-    }
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 // Hover
-.vue-treeselect:not(.vue-treeselect--disabled):not(.vue-treeselect--focused) .vue-treeselect__control:hover {
-    border-color: $Neutral-700;
+.vue-treeselect:not(.vue-treeselect--disabled):not(.vue-treeselect--focused)
+  .vue-treeselect__control:hover {
+  border-color: $Neutral-700;
 }
 
 // Pressed: grey fill and a half-width underline.
-.vue-treeselect:not(.vue-treeselect--disabled):not(.vue-treeselect--focused) .vue-treeselect__control:active {
-    background-color: $Neutral-100;
-    background-size: 50% 2px;
+.vue-treeselect:not(.vue-treeselect--disabled):not(.vue-treeselect--focused)
+  .vue-treeselect__control:active {
+  background-color: $Neutral-100;
+  background-size: 50% 2px;
 }
 
 // Focus and open: border stays, full-width underline, soft lift.
 .vue-treeselect.vue-treeselect--focused .vue-treeselect__control,
 .vue-treeselect.vue-treeselect--open .vue-treeselect__control {
-    border-color: $Neutral-400;
-    background-color: $white-100;
-    background-size: 100% 2px;
-    box-shadow: $shadow-xs;
+  border-color: $Neutral-400;
+  background-color: $white-100;
+  background-size: 100% 2px;
+  box-shadow: $shadow-xs;
 }
 
 // Open: treeselect.css pulls the menu 1px over the field (margin -1px) and
 // squares the field's corners, which hid half of the focus underline.
 // Keep a small gap so the full underline stays visible.
 .vue-treeselect.vue-treeselect--open .vue-treeselect__control {
-    border-radius: $radius-xs;
+  border-radius: $radius-xs;
 }
 
 .vue-treeselect.vue-treeselect--open-below .vue-treeselect__menu {
-    margin-top: $padding-xs;
-    border-radius: $radius-md;
+  margin-top: $padding-xs;
+  border-radius: $radius-md;
 }
 
 .vue-treeselect.vue-treeselect--open-above .vue-treeselect__menu {
-    margin-bottom: $padding-xs;
-    border-radius: $radius-md;
+  margin-bottom: $padding-xs;
+  border-radius: $radius-md;
 }
 
 // The search input inside the control inherits the global input focus
 // outline (a faint box); the control's underline already shows focus.
 .vue-treeselect .vue-treeselect__input:focus {
-    outline: 0;
+  outline: 0;
 }
 
 // Placeholder — same as the input placeholder.
 .vue-treeselect .vue-treeselect__placeholder {
-    @include font-md-500;
-    color: $Neutral-500;
+  @include font-md-500;
+  color: $Neutral-500;
 }
 
 // Value and placeholder sit in the middle of the field: they fill the value
@@ -212,194 +225,220 @@
 // (the old top -2px / height 30px / line-height 34px pushed the value up).
 .vue-treeselect .vue-treeselect__placeholder,
 .vue-treeselect .vue-treeselect__single-value {
-    top: 0;
-    bottom: 0;
-    height: auto;
-    line-height: calc(#{$form-control-height} - 2 * #{$padding-md} - 2px);
+  top: 0;
+  bottom: 0;
+  height: auto;
+  line-height: calc(#{$form-control-height} - 2 * #{$padding-md} - 2px);
 }
 
 // Validation — add the class to the .vue-treeselect root
 // (same names as .form-control: is-err / is-invalid, is-ok / is-valid, is-warning).
-@each $states, $color in (
-    (".is-err", ".is-invalid"): $Error-700,
-    (".is-ok", ".is-valid"): $Success-700,
-    (".is-warning",): $Warning-700
-) {
-    @each $state in $states {
-        .vue-treeselect#{$state}:not(.vue-treeselect--disabled) .vue-treeselect__control,
-        .vue-treeselect#{$state}:not(.vue-treeselect--disabled) .vue-treeselect__control:hover {
-            --moi-field-underline: #{$color};
-            border-color: $color;
-        }
+@each $states,
+  $color
+    in (
+      (".is-err", ".is-invalid"): $Error-700,
+      (".is-ok", ".is-valid"): $Success-700,
+      (".is-warning"): $Warning-700
+    )
+{
+  @each $state in $states {
+    .vue-treeselect#{$state}:not(.vue-treeselect--disabled)
+      .vue-treeselect__control,
+    .vue-treeselect#{$state}:not(.vue-treeselect--disabled)
+      .vue-treeselect__control:hover {
+      --moi-field-underline: #{$color};
+      border-color: $color;
     }
+  }
 }
 
 // Disabled
 .vue-treeselect.vue-treeselect--disabled .vue-treeselect__control {
-    background-color: $white-100;
-    background-size: 0% 2px;
-    border-color: $Neutral-300;
-    box-shadow: none;
-    cursor: not-allowed;
+  background-color: $white-100;
+  background-size: 0% 2px;
+  border-color: $Neutral-300;
+  box-shadow: none;
+  cursor: not-allowed;
 
-    .vue-treeselect__placeholder,
-    .vue-treeselect__single-value {
-        color: $Neutral-400;
-    }
+  .vue-treeselect__placeholder,
+  .vue-treeselect__single-value {
+    color: $Neutral-400;
+  }
 
-    .vue-treeselect__control-arrow {
-        fill: $Neutral-400 !important;
-    }
+  .vue-treeselect__control-arrow {
+    fill: $Neutral-400 !important;
+  }
 }
 
-.vue-treeselect__menu-container{
-    z-index:999999999 !important;
+.vue-treeselect__menu-container {
+  z-index: 999999999 !important;
 }
 
 .vue-treeselect__control:has(.vue-treeselect__placeholder) {
-    padding: $padding-md !important;
+  padding: $padding-md !important;
 }
 
 .vue-treeselect__control:has(.vue-treeselect__multi-value-item) {
-    height: auto !important;
-    padding: 0 $padding-md !important;
+  height: auto !important;
+  padding: 0 $padding-md !important;
 }
 
 .vue-treeselect__input,
 .vue-treeselect__sizer {
-    font-size: typography-size(map.get($font-sizes, lg));
+  font-size: typography-size(map.get($font-sizes, lg));
 }
 
 .vue-treeselect__option {
-    vertical-align: middle;
-    cursor: pointer;
-    color: inherit;
-    background: rgb(255, 255, 255);
-    border-radius: 0px;
-    box-shadow: rgb(248 248 248) -1px 6px 3px -4px;
-    padding: $padding-md;
-    margin-top: $padding-none;
-    margin-right: $padding-none;
-    margin-left: $padding-none;
-    margin-bottom: $padding-xxs !important;
+  vertical-align: middle;
+  cursor: pointer;
+  color: inherit;
+  background: $white-100;
+  border-radius: 0px;
+  box-shadow: inset 0 -1px 0 $Neutral-200;
+  padding: $padding-md;
+  margin-top: $padding-none;
+  margin-right: $padding-none;
+  margin-left: $padding-none;
+  margin-bottom: $padding-xxs !important;
 }
 
 .vue-treeselect__option:hover {
-    background: #f9fafb;
+  background: $Neutral-100;
+}
+
+// Keyboard / pointer highlight: clearly different from hover and from the white rows
+.vue-treeselect__option.vue-treeselect__option--highlight {
+  background: $Primary-50;
+  box-shadow: inset 3px 0 0 $Primary-600;
+
+  .vue-treeselect__label {
+    color: $Primary-700;
+  }
+}
+
+[dir="rtl"] .vue-treeselect__option.vue-treeselect__option--highlight {
+  box-shadow: inset -3px 0 0 $Primary-600;
 }
 
 .vue-treeselect__label-container label {
-    font-size: typography-size(map.get($font-sizes, md));
-    font-weight: 600 !important;
-    line-height: typography-line-height(1.4);
+  font-size: typography-size(map.get($font-sizes, md));
+  font-weight: 600 !important;
+  line-height: typography-line-height(1.4);
 }
 
 .vue-treeselect--single .vue-treeselect__option--selected {
-    background: rgb(248 246 242) !important;
-    font-weight: 600;
-    box-shadow: none !important;
+  background: $Primary-100 !important;
+  font-weight: 600;
+  box-shadow: none !important;
 
-    .vue-treeselect__label {
-        color: rgb(112 66 20) !important;
-        font-weight: 600 !important;
-    }
+  .vue-treeselect__label {
+    color: $Primary-700 !important;
+    font-weight: 600 !important;
+  }
 }
 
 .vue-treeselect--open-below .vue-treeselect__menu {
-    box-shadow: 0px 8px 30px rgb(232 233 240);
-    border-radius: 0 0 10px 10px;
-    padding: $padding-md $padding-md $padding-md $padding-xs;
-    max-height: 300px;
+  box-shadow: 0px 8px 30px rgb(232 233 240);
+  border-radius: 0 0 10px 10px;
+  padding: $padding-md $padding-md $padding-md $padding-xs;
+  max-height: 300px;
 }
 
 .vue-treeselect--open-below .vue-treeselect__menu::-webkit-scrollbar-track {
-    -webkit-box-shadow: none;
-    border-radius: 20px;
-    background-color: #ffffff;
+  -webkit-box-shadow: none;
+  border-radius: 20px;
+  background-color: #ffffff;
 }
 
 .vue-treeselect--open-below .vue-treeselect__menu::-webkit-scrollbar {
-    width: 12px;
-    background-color: #f5f5f5;
+  width: 12px;
+  background-color: #f5f5f5;
 }
 
 .vue-treeselect--open-below .vue-treeselect__menu::-webkit-scrollbar-thumb {
-    height: 140px;
-    background: #eaecf0;
-    border-radius: 23px;
+  height: 140px;
+  background: #eaecf0;
+  border-radius: 23px;
 }
 
 .vue-treeselect__list-item {
-    .vue-treeselect__list {
-        .vue-treeselect__option {
-            background: #f9fafb;
-            /*    margin-right: 10px;
+  .vue-treeselect__list {
+    .vue-treeselect__option {
+      background: #f9fafb;
+      /*    margin-right: 10px;
       padding-right: 0;*/
-            box-shadow: none;
-            /* padding: 5px;*/
+      box-shadow: none;
+      /* padding: 5px;*/
 
-            &:hover {
-                background: #f8faff;
-            }
+      &:hover {
+        background: $Neutral-200;
+      }
 
-            .vue-treeselect__option-arrow-placeholder {
-                display: none;
-            }
-        }
+      &.vue-treeselect__option--highlight {
+        background: $Primary-50;
+        box-shadow: inset 3px 0 0 $Primary-600;
+      }
+
+      [dir="rtl"] &.vue-treeselect__option--highlight {
+        box-shadow: inset -3px 0 0 $Primary-600;
+      }
+
+      .vue-treeselect__option-arrow-placeholder {
+        display: none;
+      }
     }
+  }
 }
 
 .vue-treeselect__x {
-    fill: #ffacac !important;
-    width: 20px;
-    height: 10px;
+  fill: #ffacac !important;
+  width: 20px;
+  height: 10px;
 }
 
 .vue-treeselect__control-arrow {
-    fill: $Neutral-500 !important; // same grey as the input icons
-    width: 20px;
-    height: 10px;
+  fill: $Neutral-500 !important; // same grey as the input icons
+  width: 20px;
+  height: 10px;
 }
 
 .vue-treeselect div {
-    font-weight: 600;
-    font-size: typography-size(map.get($font-sizes, lg));
+  font-weight: 600;
+  font-size: typography-size(map.get($font-sizes, lg));
 }
-
 
 .vue-treeselect svg {
-    fill: #d16d09;
+  fill: #d16d09;
 }
 
-
 .vue-treeselect__option-arrow {
-    width: 18px !important;
-    height: 12px !important;
+  width: 18px !important;
+  height: 12px !important;
 }
 
 .vue-treeselect__no-children-tip {
-    .vue-treeselect__icon-container {
-        display: none;
-    }
+  .vue-treeselect__icon-container {
+    display: none;
+  }
 
-    .vue-treeselect__no-children-tip-text {
-        color: #664d03;
-        background-color: #fff3cd;
-        border-color: #ffecb5;
-        position: relative;
-        padding: 0.5rem 1rem;
-        margin-bottom: 1rem;
-        border: 1px solid transparent;
-        border-radius: .25rem;
-    }
+  .vue-treeselect__no-children-tip-text {
+    color: #664d03;
+    background-color: #fff3cd;
+    border-color: #ffecb5;
+    position: relative;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }
 }
 
 .agencyTreeselect {
-    .vue-treeselect__label {
-        white-space: inherit;
-    }
+  .vue-treeselect__label {
+    white-space: inherit;
+  }
 }
 
 .vue-treeselect__label {
-    white-space: inherit;
+  white-space: inherit;
 }
