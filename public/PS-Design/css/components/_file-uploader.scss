@@ -153,19 +153,18 @@
   }
 
   &__dropzone {
-    min-height: 170px;
-    padding: $padding-xl;
+    padding: $padding-2xl;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: $gap-xs;
+    gap: $gap-sm;
     text-align: center;
     user-select: none;
     cursor: pointer;
     background-color: $white-100;
-    border: 2px dashed $Neutral-300;
-    border-radius: $radius-md;
+    border: 1px dashed $Info-500;
+    border-radius: $radius-xs;
     transition:
       background-color 0.18s ease,
       border-color 0.18s ease,
@@ -173,7 +172,7 @@
 
     &.on:hover {
       background-color: $Neutral-25;
-      border-color: $Info-300;
+      border-color: $Info-600;
     }
 
     &.off {
@@ -192,26 +191,52 @@
     }
   }
 
+  // File-up icon (Figma upload design). The markup keeps its own inline svg;
+  // its paths are hidden and the icon is drawn here so the change ships with
+  // the stylesheet only.
   &__dropzone-icon {
-    width: 22px;
-    height: 22px;
-    color: $Neutral-400;
+    width: 40px;
+    height: 40px;
+    background-color: $Neutral-900;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 12.5V9l-5-6H7a2 2 0 0 0-2 2v6.5'/%3E%3Cpath d='M15 3v4a2 2 0 0 0 2 2h3'/%3E%3Cpath d='M5 21h12a2 2 0 0 0 2-2v-3'/%3E%3Cpath d='M5 15V9'/%3E%3Cpath d='M9 17V10m0 0-2.5 2.5M9 10l2.5 2.5'/%3E%3C/svg%3E") center / contain no-repeat;
+
+    > * {
+      display: none;
+    }
   }
 
   &__dropzone-title {
-    @include meduimfont-reg-12;
-    margin: 0;
-    color: $Neutral-600;
-  }
-
-  &__dropzone-link {
-    color: $Info-600;
+    @include font-lg-600;
+    margin: $margin-xs 0 0;
+    color: $Neutral-900;
   }
 
   &__dropzone-subtitle {
-    @include smallfont-reg-10;
+    @include font-sm-400;
+    max-width: 560px;
     margin: 0;
     color: $Neutral-500;
+  }
+
+  // "Choose from device" pill with a plus-circle icon
+  &__dropzone-link {
+    @include font-sm-600;
+    display: inline-flex;
+    align-items: center;
+    gap: $gap-sm;
+    margin-top: $margin-xs;
+    padding: $padding-md $padding-xl;
+    color: $Neutral-900;
+    background-color: $Neutral-100;
+    border-radius: $radius-sm;
+
+    &::before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background-color: currentColor;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9.5'/%3E%3Cpath d='M12 8v8M8 12h8'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
   }
 
   &__dropzone-blocked {

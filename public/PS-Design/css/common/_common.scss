@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:string";
 @use "../helpers" as *;
 @use "./buttons" as *;
 @mixin placeholder {
@@ -2068,21 +2069,126 @@ input:checked + .slider:before {
   }
 }
 
-.file__uploader input[type="file"]::after {
-  content: "";
-  width: 100%;
-  height: 30px;
-  background: url(../images/icon-upload.svg) no-repeat $white-100;
-  top: 0px;
-  right: 0;
-  position: absolute;
-  display: inline-block;
-  background-position: 50% 40%;
-  border-radius: 0.5rem;
-  padding: $padding-2xl;
-  right: 0;
-  background-size: 33px;
-  border: 1px solid #e0e0e0;
+// Upload drop zone (Figma upload design), drawn from the existing markup.
+// No HTML change is needed:
+//   .drop-zoon               dashed frame
+//   .drop-zoon::before       file icon + title
+//   .drop-zoon::after        supported formats + size limit
+//   input[type="file"]       transparent native button, with the visible
+//                            "choose from device" pill drawn on its ::after
+
+// Percent-encodes the characters of an inline SVG that are unsafe inside a
+// url("data:image/svg+xml,…") value, so the icons below can be written as
+// plain, readable SVG markup instead of images/ files.
+@function svg-data-uri($svg) {
+  $encoded: "";
+  @for $i from 1 through string.length($svg) {
+    $char: string.slice($svg, $i, $i);
+    @if $char == "<" {
+      $char: "%3C";
+    } @else if $char == ">" {
+      $char: "%3E";
+    } @else if $char == "#" {
+      $char: "%23";
+    }
+    $encoded: $encoded + $char;
+  }
+  @return url("data:image/svg+xml,#{$encoded}");
+}
+
+// File with an up arrow, 40px (Figma "file-upload")
+$file-upload-icon: svg-data-uri(
+  "<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='#111927' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'> \
+    <path d='M20 12.5V9l-5-6H7a2 2 0 0 0-2 2v6.5'/> \
+    <path d='M15 3v4a2 2 0 0 0 2 2h3'/> \
+    <path d='M5 21h12a2 2 0 0 0 2-2v-3'/> \
+    <path d='M5 15V9'/> \
+    <path d='M9 17V10m0 0-2.5 2.5M9 10l2.5 2.5'/> \
+  </svg>"
+);
+
+// Plus inside a circle, 18px
+$plus-circle-icon: svg-data-uri(
+  "<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='#111927' stroke-width='1.6' stroke-linecap='round'> \
+    <circle cx='12' cy='12' r='9.5'/> \
+    <path d='M12 8v8M8 12h8'/> \
+  </svg>"
+);
+
+.file__uploader {
+  .upload-area {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .uploadheader {
+    width: 100%;
+  }
+
+  .upload-area__drop-zoon {
+    flex-direction: column;
+    gap: $gap-sm;
+    padding: $padding-2xl;
+    text-align: center;
+    background-color: $Neutral-25;
+    border: 1px dashed $Neutral-300;
+    border-radius: $radius-xs;
+
+    // File icon on top, title below it
+    &::before {
+      @include font-lg-600;
+      content: "اسحب الملفات وأفلتها هنا لتحميلها";
+      order: 0;
+      padding-top: 52px;
+      color: $Neutral-900;
+      background: $file-upload-icon no-repeat center top;
+    }
+
+    // Supported formats and size limit
+    &::after {
+      @include font-md-500;
+      content: "الصيغ المدعومة: DOC, DOCX, PDF, XLS, XLSX, PPT, PPTX, JPG, JPEG, PNG, ZIP, MP4 و الحد الأقصى لحجم الملف: 5MB";
+      order: 1;
+      max-width: 560px;
+      color: $Neutral-500;
+    }
+
+    input[type="file"] {
+      order: 2;
+      position: relative;
+      width: 130px;
+      height: 44px;
+      margin-top: $margin-xs;
+      padding: 0;
+      color: transparent;
+      background: transparent;
+      border: 0;
+
+      // The native button stays clickable and focusable but invisible
+      &::file-selector-button {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      // The visible "choose from device" pill
+      &::after {
+        @include font-md-600;
+        content: "إختر من الجهاز";
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-right: 28px; // room for the plus icon on the start side
+        color: $Neutral-900;
+        background: $plus-circle-icon no-repeat right 12px center $Neutral-100;
+        border-radius: $radius-sm;
+        pointer-events: none;
+      }
+    }
+  }
 }
 
 .uploader-v2 {
