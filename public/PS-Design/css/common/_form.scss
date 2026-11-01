@@ -372,6 +372,64 @@ $form-control-sizes: (
   height: 35px;
 }
 
+// =========================================================================
+// Helper / warning row — Figma "helper-row" (22 Oct): a short message
+// under any input type (text, select, date, number, textarea, file…)
+// with an optional leading icon. Was a page-local `.helper-text` class
+// duplicated per documentation page with no shared state; centralised
+// here so every input type gets the same look. Reuses the same state
+// tokens as the field border itself (_form.scss validation states /
+// _vue-treeselect.scss): Neutral-600 default, Warning-700 / Error-700 /
+// Success-700 recolour both the text and the icon.
+// =========================================================================
+.helper-row {
+  display: flex;
+  align-items: flex-start;
+  gap: $gap-xs;
+  margin-top: $margin-xs;
+  @include font-sm-400;
+  color: $Neutral-600;
+}
+
+.helper-row-icon {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  margin-top: 1px; // optical alignment with the first text line
+  color: $Neutral-500;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+}
+
+.helper-row.is-warning {
+  color: $Warning-700;
+
+  .helper-row-icon {
+    color: $Warning-700;
+  }
+}
+
+.helper-row:is(.is-err, .is-invalid) {
+  color: $Error-700;
+
+  .helper-row-icon {
+    color: $Error-700;
+  }
+}
+
+.helper-row:is(.is-ok, .is-valid) {
+  color: $Success-700;
+
+  .helper-row-icon {
+    color: $Success-700;
+  }
+}
+
 @mixin user-management-roles-control {
   @include font-md-500;
   height: 45px;

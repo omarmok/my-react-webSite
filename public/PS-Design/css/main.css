@@ -15391,6 +15391,11 @@ html[dir=rtl] .top-actions {
   outline-offset: 3px;
 }
 
+.report-search-box {
+  z-index: 99999999;
+  top: 90px;
+}
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -17447,6 +17452,67 @@ nav {
   border-radius: 0.25rem;
 }
 
+.vue-treeselect .vue-treeselect__checkbox {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.vue-treeselect .vue-treeselect__checkbox--unchecked {
+  border-color: #d2d6db;
+  background: #ffffff;
+}
+
+.vue-treeselect .vue-treeselect__label-container:hover .vue-treeselect__checkbox--unchecked {
+  border-color: #1b8354;
+  background: #ffffff;
+}
+
+.vue-treeselect .vue-treeselect__checkbox--checked,
+.vue-treeselect .vue-treeselect__checkbox--indeterminate,
+.vue-treeselect .vue-treeselect__label-container:hover .vue-treeselect__checkbox--checked,
+.vue-treeselect .vue-treeselect__label-container:hover .vue-treeselect__checkbox--indeterminate {
+  border-color: #1b8354;
+  background: #1b8354;
+}
+
+.vue-treeselect .vue-treeselect__checkbox--disabled,
+.vue-treeselect .vue-treeselect__label-container:hover .vue-treeselect__checkbox--disabled {
+  border-color: #d2d6db;
+  background-color: #e5e7eb;
+}
+
+.vue-treeselect .vue-treeselect__check-mark,
+.vue-treeselect .vue-treeselect__minus-mark {
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background-size: 12px 12px;
+  background-position: center;
+  transform: translate(-50%, -50%);
+}
+
+.vue-treeselect .vue-treeselect__check-mark {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath fill='%23fff' fill-rule='evenodd' clip-rule='evenodd' d='M19.5179 5.95748C19.8175 6.24349 19.8285 6.71823 19.5425 7.01786L9.04252 18.0179C8.90308 18.1639 8.71064 18.2476 8.50872 18.25C8.3068 18.2523 8.11246 18.1731 7.96967 18.0303L4.46967 14.5303C4.17678 14.2374 4.17678 13.7626 4.46967 13.4697C4.76256 13.1768 5.23744 13.1768 5.53033 13.4697L8.48752 16.4269L18.4575 5.98214C18.7435 5.68252 19.2182 5.67148 19.5179 5.95748Z'/%3e%3c/svg%3e");
+}
+
+.vue-treeselect .vue-treeselect__minus-mark {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath fill='%23fff' fill-rule='evenodd' clip-rule='evenodd' d='M20.75 12C20.75 12.4142 20.4142 12.75 20 12.75L4 12.75C3.58578 12.75 3.25 12.4142 3.25 12C3.25 11.5858 3.58578 11.25 4 11.25L20 11.25C20.4142 11.25 20.75 11.5858 20.75 12Z'/%3e%3c/svg%3e");
+}
+
+.vue-treeselect .vue-treeselect__checkbox--checked > .vue-treeselect__check-mark,
+.vue-treeselect .vue-treeselect__checkbox--indeterminate > .vue-treeselect__minus-mark {
+  transform: translate(-50%, -50%);
+}
+
+.vue-treeselect .vue-treeselect__checkbox--disabled.vue-treeselect__checkbox--checked > .vue-treeselect__check-mark,
+.vue-treeselect .vue-treeselect__checkbox--disabled.vue-treeselect__checkbox--indeterminate > .vue-treeselect__minus-mark {
+  opacity: 0.5;
+}
+
 .agencyTreeselect .vue-treeselect__label {
   white-space: inherit;
 }
@@ -17568,7 +17634,6 @@ nav {
   --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath fill='%23fff' fill-rule='evenodd' clip-rule='evenodd' d='M19.5179 5.95748C19.8175 6.24349 19.8285 6.71823 19.5425 7.01786L9.04252 18.0179C8.90308 18.1639 8.71064 18.2476 8.50872 18.25C8.3068 18.2523 8.11246 18.1731 7.96967 18.0303L4.46967 14.5303C4.17678 14.2374 4.17678 13.7626 4.46967 13.4697C4.76256 13.1768 5.23744 13.1768 5.53033 13.4697L8.48752 16.4269L18.4575 5.98214C18.7435 5.68252 19.2182 5.67148 19.5179 5.95748Z'/%3e%3c/svg%3e");
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath fill='%23fff' fill-rule='evenodd' clip-rule='evenodd' d='M19.5179 5.95748C19.8175 6.24349 19.8285 6.71823 19.5425 7.01786L9.04252 18.0179C8.90308 18.1639 8.71064 18.2476 8.50872 18.25C8.3068 18.2523 8.11246 18.1731 7.96967 18.0303L4.46967 14.5303C4.17678 14.2374 4.17678 13.7626 4.46967 13.4697C4.76256 13.1768 5.23744 13.1768 5.53033 13.4697L8.48752 16.4269L18.4575 5.98214C18.7435 5.68252 19.2182 5.67148 19.5179 5.95748Z'/%3e%3c/svg%3e");
   background-size: 22px 22px;
-  background-position: left;
   background-repeat: no-repeat;
 }
 
@@ -17612,6 +17677,51 @@ nav {
 
 .form-check-label {
   margin-right: 20px;
+}
+
+.helper-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 4px;
+  font-size: calc(0.75rem * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1)) !important;
+  font-weight: 400 !important;
+  color: #4d5761;
+}
+
+.helper-row-icon {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+  color: #6c737f;
+}
+.helper-row-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.helper-row.is-warning {
+  color: #b54708;
+}
+.helper-row.is-warning .helper-row-icon {
+  color: #b54708;
+}
+
+.helper-row:is(.is-err, .is-invalid) {
+  color: #b42318;
+}
+.helper-row:is(.is-err, .is-invalid) .helper-row-icon {
+  color: #b42318;
+}
+
+.helper-row:is(.is-ok, .is-valid) {
+  color: #067647;
+}
+.helper-row:is(.is-ok, .is-valid) .helper-row-icon {
+  color: #067647;
 }
 
 .abp-account-container {
@@ -24227,5 +24337,4 @@ nav {
 
 .previewBG {
   background: rgba(0, 0, 0, 0.48);
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

@@ -248,42 +248,7 @@ if (typeof jQuery === "undefined") {
   }
 
   function initFontToggleBehavior() {
-    const updateFontToggleState = () => {
-      const isAlternateFontActive = $("body").hasClass("cairo");
-      $(".anotherFont").attr(
-        "aria-pressed",
-        isAlternateFontActive ? "true" : "false",
-      );
-    };
-
-    $(document)
-      .off("click", ".anotherFont")
-      .on("click", ".anotherFont", function () {
-        const $body = $("body");
-        const isCurrentlyDefault = $body.hasClass("defualtFont");
-
-        $body.removeClass("cairo defualtFont");
-
-        if (isCurrentlyDefault) {
-          $body.addClass("cairo");
-          localStorage.setItem("font", "cairo");
-        } else {
-          $body.addClass("defualtFont");
-          localStorage.setItem("font", "defualtFont");
-        }
-
-        $(".font-toggle-label").text("تغيير الخط");
-        updateFontToggleState();
-      });
-
-    const storedFont = localStorage.getItem("font");
-    if (storedFont === "cairo") {
-      $("body").addClass("cairo");
-    } else if (storedFont === "defualtFont") {
-      $("body").addClass("defualtFont");
-    }
-
-    updateFontToggleState();
+    initAccessibilityTypographyControls();
   }
 }
 
@@ -475,33 +440,15 @@ function randomNumber(minVal = 1, maxVal = 1000) {
 // 5. Accessibility: Font Size, Theme, and Tooltips (Vanilla JS)
 // ==============================================================================
 
-const SIZE_KEYS = [
-  "xs",
-  "sm",
-  "md",
-  "lg",
-  "xl",
-  "2xl",
-  "3xl",
-  "4xl",
-  "5xl",
-  "6xl",
-  "7xl",
-];
-const FONT_SIZE_VALUES = {
-  xs: "0.625rem",
-  sm: "0.75rem",
-  md: "0.875rem",
-  lg: "1rem",
-  xl: "1.25rem",
-  "2xl": "1.5rem",
-  "3xl": "1.875rem",
-  "4xl": "2.25rem",
-  "5xl": "3rem",
-  "6xl": "3.75rem",
-  "7xl": "4.5rem",
-};
-const FONT_PX_VALUES = {
+const APPLICATION_WRAPPER_SELECTOR = "body";
+const DEFAULT_FONT_SCALE = 1;
+const MIN_FONT_SCALE = 0.75;
+const MAX_FONT_SCALE = 1.5;
+const FONT_SCALE_STEP = 0.125;
+const DEFAULT_FONT_FAMILY = "ibm";
+const ALTERNATE_FONT_FAMILY = "bukra";
+const LEGACY_ROOT_FONT_SIZE = 14;
+const LEGACY_FONT_PX_VALUES = {
   xs: 10,
   sm: 12,
   md: 14,
@@ -521,70 +468,84 @@ const ACCESSIBILITY_COLORBLIND_SWITCH_SELECTOR =
 const ACCESSIBILITY_COLORBLIND_STATUS_SELECTOR =
   "[data-accessibility-colorblind-status]";
 const ACCESSIBILITY_GRAYSCALE_STORAGE_KEY = "colorBlindMode";
-const ACCESSIBILITY_SECTION_SELECTORS = {
-  size: ".Resizefont",
-  font: ".changefont",
-  color: ".color__change",
-};
-const CONTROL_SIZE_KEYS = ["sm", "md", "lg", "xl", "2xl", "3xl"];
-const ICON_SIZE_KEYS = ["sm", "md", "lg", "xl", "2xl", "3xl", "4xl"];
-const LEGACY_SIZE_MIGRATION_MAP = {
-  xs: "sm",
-  sm: "sm",
-  md: "md",
-  lg: "lg",
-  xl: "xl",
-  "2xl": "2xl",
-  "3xl": "3xl",
-  "4xl": "3xl",
-  "5xl": "3xl",
-  "6xl": "3xl",
-  "7xl": "3xl",
-};
-const FONT_SCALE_VALUES = {
-  xs: "0.7142857143",
-  sm: "0.8571428571",
-  md: "1",
-  lg: "1.1428571429",
-  xl: "1.4285714286",
-  "2xl": "1.7142857143",
-  "3xl": "2.1428571429",
-  "4xl": "2.5714285714",
-  "5xl": "3.4285714286",
-  "6xl": "4.2857142857",
-  "7xl": "5.1428571429",
-};
-const FONT_CLASS_REGEX =
-  /^font-(xs|sm|md|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl)-(400|500|600|700)$/;
-const DEFAULT_SIZE_KEY = "md";
-const DEFAULT_WEIGHT_KEY = "400";
-const DEFAULT_FONT_CLASS = `font-${DEFAULT_SIZE_KEY}-${DEFAULT_WEIGHT_KEY}`;
-const FONT_STORAGE_KEY = "fontSize";
-const ROOT_SIZE_ATTRIBUTE = "data-size";
-const INTERFACE_SIZE_COMPONENT_SELECTORS = [
-  ".moi-tag[data-size]",
-  ".moi-btn[data-size]",
-  '.btn[data-size][class*="moi-btn--"]',
-  ".form-control[data-size]",
-  ".form-select[data-size]",
-];
-const INTERFACE_SIZE_SELECTOR = INTERFACE_SIZE_COMPONENT_SELECTORS.join(", ");
-const INTERFACE_ICON_SELECTOR = ".icon";
+const ACCESSIBILITY_FONT_SCALE_PROPERTY = "--accessibility-font-scale";
+const ACCESSIBILITY_FONT_SCALE_STORAGE_KEY = "accessibility-font-scale";
+const LEGACY_FONT_SCALE_STORAGE_KEY = "fontSize";
+const ACCESSIBILITY_FONT_FAMILY_STORAGE_KEY = "accessibility-font-family";
+const LEGACY_FONT_FAMILY_STORAGE_KEY = "font";
+const ACCESSIBILITY_FONT_SCALE_ATTRIBUTE = "data-accessibility-font-scale";
+const ACCESSIBILITY_FONT_FAMILY_ATTRIBUTE = "data-accessibility-font-family";
+const ACCESSIBILITY_LIVE_REGION_ID = "accessibility-announcements";
+const ACCESSIBILITY_FONT_SWITCH_SELECTOR = "[data-accessibility-font-switch]";
+const ACCESSIBILITY_FONT_STATUS_SELECTOR = "[data-accessibility-font-status]";
+const ACCESSIBILITY_STATUS_ACTIVE_TEXT = "مفعّل";
+const ACCESSIBILITY_STATUS_INACTIVE_TEXT = "متوقف";
 const FONT_BUTTON_ACTION_ATTRIBUTE = "data-font-action";
-const FONT_PLUS_BUTTON_BASE_LABEL = "A+";
 const FONT_BUTTON_DEFAULT_VARIANT_CLASS = "moi-btn--Neutral--outline";
 const FONT_BUTTON_ACTIVE_VARIANT_CLASS = "moi-btn--Primary--solid";
 const FONT_BUTTON_VARIANT_CLASSES = [
   FONT_BUTTON_DEFAULT_VARIANT_CLASS,
   FONT_BUTTON_ACTIVE_VARIANT_CLASS,
 ];
+const ACCESSIBILITY_LABELS_BY_ACTION = {
+  decrease: "A-",
+  reset: "A",
+  increase: "A+",
+};
+const FONT_FAMILY_CLASS_MAP = {
+  [DEFAULT_FONT_FAMILY]: "cairo",
+  [ALTERNATE_FONT_FAMILY]: "defualtFont",
+};
 
-let activeSize = DEFAULT_SIZE_KEY;
+let currentFontScale = DEFAULT_FONT_SCALE;
+let currentFontFamily = DEFAULT_FONT_FAMILY;
 let accessibilityPanelCounter = 0;
-let fontControlsInitialized = false;
-let interfaceSizeObserver = null;
+let typographyControlsInitialized = false;
+let accessibilityUiObserver = null;
+let accessibilityAnnouncementTimer = null;
 const boundResizeFontButtons = new WeakSet();
+const boundFontSwitches = new WeakSet();
+const boundLegacyFontToggleButtons = new WeakSet();
 const boundAccessibilityKeyboardControls = new WeakSet();
+
+const normalizeScale = (value) => Math.round(value * 1000) / 1000;
+
+function clampFontScale(value) {
+  return normalizeScale(
+    Math.min(MAX_FONT_SCALE, Math.max(MIN_FONT_SCALE, value)),
+  );
+}
+
+function snapFontScaleToStep(value) {
+  const clamped = clampFontScale(value);
+  const steps = Math.round((clamped - MIN_FONT_SCALE) / FONT_SCALE_STEP);
+  return normalizeScale(MIN_FONT_SCALE + steps * FONT_SCALE_STEP);
+}
+
+function formatScaleValue(scale) {
+  return String(normalizeScale(scale))
+    .replace(/\.0+$/, "")
+    .replace(/(\.\d*?)0+$/, "$1");
+}
+
+function formatScalePercent(scale) {
+  const percent = normalizeScale(scale * 100);
+  return String(percent)
+    .replace(/\.0+$/, "")
+    .replace(/(\.\d*?)0+$/, "$1");
+}
+
+function isAtMinimumFontScale(scale = currentFontScale) {
+  return clampFontScale(scale) <= MIN_FONT_SCALE;
+}
+
+function isAtMaximumFontScale(scale = currentFontScale) {
+  return clampFontScale(scale) >= MAX_FONT_SCALE;
+}
+
+function getAccessibilityAppRoot() {
+  return document.querySelector(APPLICATION_WRAPPER_SELECTOR);
+}
 
 function nextAccessibilityId(prefix) {
   accessibilityPanelCounter += 1;
@@ -594,9 +555,9 @@ function nextAccessibilityId(prefix) {
 function isAccessibilityMenu(menu) {
   return Boolean(
     menu &&
-      menu.nodeType === Node.ELEMENT_NODE &&
-      menu.matches &&
-      menu.matches(ACCESSIBILITY_PANEL_MENU_SELECTOR),
+    menu.nodeType === Node.ELEMENT_NODE &&
+    menu.matches &&
+    menu.matches(ACCESSIBILITY_PANEL_MENU_SELECTOR),
   );
 }
 
@@ -703,8 +664,70 @@ function enhanceAccessibilitySection(section, options) {
 function getResizeFontActionLabel(action) {
   if (action === "decrease") return "تصغير الخط";
   if (action === "increase") return "تكبير الخط";
-  if (action === "restore") return "استعادة الحجم الافتراضي";
-  return "إعادة حجم الخط الافتراضي";
+  if (action === "reset") return "الحجم الافتراضي";
+  return "استعادة الحجم الافتراضي";
+}
+
+function getFontFamilyAnnouncement(fontKey, isReset = false) {
+  if (fontKey === ALTERNATE_FONT_FAMILY && !isReset) {
+    return "تم تغيير نوع الخط";
+  }
+
+  return "تمت استعادة الخط الافتراضي";
+}
+
+function getFontScaleAnnouncement(scale, action) {
+  if (action === "reset") {
+    return "تم استعادة حجم الخط الافتراضي";
+  }
+
+  const message = `تم ضبط حجم الخط على ${formatScalePercent(scale)} بالمائة`;
+
+  if (action === "increase" && isAtMaximumFontScale(scale)) {
+    return `${message}. تم الوصول إلى الحد الأقصى لحجم الخط`;
+  }
+
+  if (action === "decrease" && isAtMinimumFontScale(scale)) {
+    return `${message}. تم الوصول إلى الحد الأدنى لحجم الخط`;
+  }
+
+  return message;
+}
+
+function ensureAccessibilityLiveRegion() {
+  const existingRegion = document.getElementById(ACCESSIBILITY_LIVE_REGION_ID);
+  if (existingRegion) return existingRegion;
+  if (!document.body) return null;
+
+  const region = document.createElement("div");
+  region.id = ACCESSIBILITY_LIVE_REGION_ID;
+  region.setAttribute("aria-live", "polite");
+  region.setAttribute("aria-atomic", "true");
+  region.style.position = "absolute";
+  region.style.width = "1px";
+  region.style.height = "1px";
+  region.style.margin = "-1px";
+  region.style.padding = "0";
+  region.style.overflow = "hidden";
+  region.style.clip = "rect(0 0 0 0)";
+  region.style.clipPath = "inset(50%)";
+  region.style.whiteSpace = "nowrap";
+  region.style.border = "0";
+  document.body.appendChild(region);
+  return region;
+}
+
+function announceAccessibilityChange(message) {
+  if (!message) return;
+
+  const liveRegion = ensureAccessibilityLiveRegion();
+  if (!liveRegion) return;
+
+  window.clearTimeout(accessibilityAnnouncementTimer);
+  liveRegion.textContent = "";
+  accessibilityAnnouncementTimer = window.setTimeout(() => {
+    liveRegion.textContent = message;
+  }, 30);
 }
 
 function upgradeAccessibilityColorBlindRow(row) {
@@ -733,7 +756,8 @@ function upgradeAccessibilityColorBlindRow(row) {
   copy.append(label, description);
 
   const switchWrapper = document.createElement("div");
-  switchWrapper.className = "form-check form-switch accessibility-panel__switch";
+  switchWrapper.className =
+    "form-check form-switch accessibility-panel__switch";
 
   const input = document.createElement("input");
   input.className = "form-check-input";
@@ -769,11 +793,12 @@ function upgradeAccessibilityColorSection(section) {
 
   body.classList.add("accessibility-panel__section-body--stack");
 
-  const pickerRow = Array.from(body.children).find((child) =>
-    child.querySelector && child.querySelector(".colorpicker"),
+  const pickerRow = Array.from(body.children).find(
+    (child) => child.querySelector && child.querySelector(".colorpicker"),
   );
-  const resetRow = Array.from(body.children).find((child) =>
-    child.querySelector && child.querySelector("[data-reset-theme-color]"),
+  const resetRow = Array.from(body.children).find(
+    (child) =>
+      child.querySelector && child.querySelector("[data-reset-theme-color]"),
   );
   const colorBlindControl = body.querySelector(".darkmode");
   const colorBlindRow = colorBlindControl
@@ -840,7 +865,7 @@ function upgradeAccessibilityPanel(menu) {
 
     menu.querySelectorAll('.btn[class*="moi-btn--"]').forEach((button) => {
       if (!button.dataset.size) {
-        button.dataset.size = activeSize;
+        button.dataset.size = "md";
       }
     });
 
@@ -856,11 +881,27 @@ function upgradeAccessibilityPanel(menu) {
           label.setAttribute("for", control.id);
         }
       });
+
+    menu
+      .querySelectorAll(ACCESSIBILITY_FONT_SWITCH_SELECTOR)
+      .forEach((control) => {
+        if (!control.id) {
+          control.id = nextAccessibilityId("accessibility-font-switch");
+        }
+
+        control.setAttribute("role", "switch");
+        control.setAttribute("aria-label", "تغيير نوع الخط");
+
+        const label = menu.querySelector(`label[for="${control.id}"]`);
+        if (label) {
+          label.setAttribute("for", control.id);
+        }
+      });
   }
 
-  applyInterfaceSize(activeSize, menu);
   syncColorBlindControls(menu);
   updateFontButtonStates();
+  syncFontSwitchControls(menu);
 }
 
 function upgradeAccessibilityPanels(root = document) {
@@ -921,7 +962,9 @@ function syncColorBlindControls(
   });
 
   statuses.forEach((status) => {
-    status.textContent = enabled ? "مفعّل" : "متوقف";
+    status.textContent = enabled
+      ? ACCESSIBILITY_STATUS_ACTIVE_TEXT
+      : ACCESSIBILITY_STATUS_INACTIVE_TEXT;
   });
 }
 
@@ -942,179 +985,211 @@ function setColorBlindMode(enabled, { persist = true } = {}) {
   syncColorBlindControls(document, nextState);
 }
 
-function buildFontClass(size, weight) {
-  return `font-${size}-${weight}`;
+function legacyTokenToScale(token) {
+  const pxValue = LEGACY_FONT_PX_VALUES[token];
+  if (!pxValue) return null;
+  return snapFontScaleToStep(pxValue / LEGACY_ROOT_FONT_SIZE);
 }
 
-function parseFontClass(value) {
+function resolveLegacyFontScale(value) {
   if (!value) return null;
-  const match = value.match(FONT_CLASS_REGEX);
-  if (!match) return null;
-  return {
-    className: match[0],
-    size: match[1],
-    weight: match[2],
-  };
-}
 
-function findFontClassOnNode(node) {
-  if (!node || !node.classList) return null;
-  for (const cls of Array.from(node.classList)) {
-    const parsed = parseFontClass(cls);
-    if (parsed) return parsed;
+  if (value === "btn-14")
+    return snapFontScaleToStep(12 / LEGACY_ROOT_FONT_SIZE);
+  if (value === "btn-16") return DEFAULT_FONT_SCALE;
+  if (value === "btn-18")
+    return snapFontScaleToStep(16 / LEGACY_ROOT_FONT_SIZE);
+  if (value === "btn-20")
+    return snapFontScaleToStep(20 / LEGACY_ROOT_FONT_SIZE);
+
+  if (LEGACY_FONT_PX_VALUES[value]) {
+    return legacyTokenToScale(value);
   }
-  return null;
-}
 
-function clearFontClasses(node) {
-  if (!node || !node.classList) return;
-  Array.from(node.classList).forEach((cls) => {
-    if (FONT_CLASS_REGEX.test(cls)) {
-      node.classList.remove(cls);
-    }
-  });
-}
-
-function mapPxValueToSize(value) {
-  if (!value) return null;
   const numeric = parseFloat(String(value).trim());
   if (Number.isNaN(numeric)) return null;
 
-  return (
-    SIZE_KEYS.find((size) => Math.abs(FONT_PX_VALUES[size] - numeric) < 0.1) ||
-    null
+  if (numeric >= MIN_FONT_SCALE && numeric <= MAX_FONT_SCALE) {
+    return snapFontScaleToStep(numeric);
+  }
+
+  if (numeric > MAX_FONT_SCALE) {
+    return snapFontScaleToStep(numeric / LEGACY_ROOT_FONT_SIZE);
+  }
+
+  return null;
+}
+
+function resolveStoredFontScale() {
+  const storedScale = resolveLegacyFontScale(
+    localStorage.getItem(ACCESSIBILITY_FONT_SCALE_STORAGE_KEY),
+  );
+  if (storedScale !== null) return storedScale;
+
+  const legacyScale = resolveLegacyFontScale(
+    localStorage.getItem(LEGACY_FONT_SCALE_STORAGE_KEY),
+  );
+  if (legacyScale !== null) return legacyScale;
+
+  return DEFAULT_FONT_SCALE;
+}
+
+if (document.documentElement) {
+  currentFontScale = resolveStoredFontScale();
+  document.documentElement.style.setProperty(
+    ACCESSIBILITY_FONT_SCALE_PROPERTY,
+    formatScaleValue(currentFontScale),
+  );
+  document.documentElement.setAttribute(
+    ACCESSIBILITY_FONT_SCALE_ATTRIBUTE,
+    formatScaleValue(currentFontScale),
   );
 }
 
-function normalizeControlSize(size) {
-  if (!size) return DEFAULT_SIZE_KEY;
-  return LEGACY_SIZE_MIGRATION_MAP[size] || DEFAULT_SIZE_KEY;
+function normalizeFontFamily(value) {
+  return value === ALTERNATE_FONT_FAMILY
+    ? ALTERNATE_FONT_FAMILY
+    : DEFAULT_FONT_FAMILY;
 }
 
-function resolveStoredFontSize(defaultSize) {
-  const stored = localStorage.getItem(FONT_STORAGE_KEY);
-  if (!stored) return normalizeControlSize(defaultSize);
-  if (stored === "btn-14") return "sm";
-  if (stored === "btn-16") return "md";
-  if (stored === "btn-18") return "lg";
-  if (stored === "btn-20") return "xl";
-  if (SIZE_KEYS.includes(stored)) return normalizeControlSize(stored);
-  const parsed = parseFontClass(stored);
-  if (parsed) return normalizeControlSize(parsed.size);
-  const mapped = mapPxValueToSize(stored);
-  if (mapped) return normalizeControlSize(mapped);
-  return normalizeControlSize(defaultSize);
-}
+function syncFontSwitchControls(root = document, fontKey = currentFontFamily) {
+  const controls = [];
+  const statuses = [];
+  const isAlternate = normalizeFontFamily(fontKey) === ALTERNATE_FONT_FAMILY;
 
-function applyInitialStoredSizeToken() {
-  if (!document.documentElement) return;
-
-  const currentSize = document.documentElement.getAttribute(ROOT_SIZE_ATTRIBUTE);
-  if (SIZE_KEYS.includes(currentSize)) {
-    document.documentElement.dataset.size = normalizeControlSize(currentSize);
-    return;
+  if (
+    root &&
+    root.matches &&
+    root.matches(ACCESSIBILITY_FONT_SWITCH_SELECTOR)
+  ) {
+    controls.push(root);
   }
 
-  const initialSize = resolveStoredFontSize(DEFAULT_SIZE_KEY);
-  document.documentElement.dataset.size = initialSize;
-}
+  if (root && root.querySelectorAll) {
+    root
+      .querySelectorAll(ACCESSIBILITY_FONT_SWITCH_SELECTOR)
+      .forEach((control) => {
+        controls.push(control);
+      });
 
-applyInitialStoredSizeToken();
-
-function normalizeIconSize(size) {
-  if (ICON_SIZE_KEYS.includes(size)) return size;
-  const normalizedControlSize = normalizeControlSize(size);
-  if (ICON_SIZE_KEYS.includes(normalizedControlSize)) {
-    return normalizedControlSize;
-  }
-  return "md";
-}
-
-function shouldSyncInterfaceSize(element) {
-  return Boolean(
-    element &&
-      element.matches &&
-      element.matches(INTERFACE_SIZE_SELECTOR),
-  );
-}
-
-function shouldSyncInterfaceIconSize(element) {
-  return Boolean(
-    element &&
-      element.matches &&
-      element.matches(INTERFACE_ICON_SELECTOR) &&
-      element.closest(INTERFACE_SIZE_SELECTOR),
-  );
-}
-
-function syncElementInterfaceSize(element, sizeKey) {
-  if (!shouldSyncInterfaceSize(element)) return;
-  if (element.dataset.size === sizeKey) return;
-  element.dataset.size = sizeKey;
-}
-
-function syncElementInterfaceIconSize(element, sizeKey) {
-  if (!shouldSyncInterfaceIconSize(element)) return;
-  const nextSize = normalizeIconSize(sizeKey);
-  if (element.dataset.size === nextSize) return;
-  element.dataset.size = nextSize;
-}
-
-function applyInterfaceIconSize(sizeKey, root = document) {
-  if (!root) return;
-  const nextSize = normalizeIconSize(sizeKey);
-
-  if (shouldSyncInterfaceIconSize(root)) {
-    syncElementInterfaceIconSize(root, nextSize);
+    root
+      .querySelectorAll(ACCESSIBILITY_FONT_STATUS_SELECTOR)
+      .forEach((status) => {
+        statuses.push(status);
+      });
+  } else if (
+    root &&
+    root.matches &&
+    root.matches(ACCESSIBILITY_FONT_STATUS_SELECTOR)
+  ) {
+    statuses.push(root);
   }
 
-  if (!root.querySelectorAll) return;
-  root.querySelectorAll(INTERFACE_ICON_SELECTOR).forEach((element) => {
-    syncElementInterfaceIconSize(element, nextSize);
+  controls.forEach((control) => {
+    control.checked = isAlternate;
+    control.setAttribute("aria-checked", isAlternate ? "true" : "false");
+  });
+
+  statuses.forEach((status) => {
+    status.textContent = isAlternate
+      ? ACCESSIBILITY_STATUS_ACTIVE_TEXT
+      : ACCESSIBILITY_STATUS_INACTIVE_TEXT;
+  });
+
+  document.querySelectorAll(".anotherFont").forEach((btn) => {
+    btn.setAttribute("aria-pressed", isAlternate ? "true" : "false");
   });
 }
 
-function applyInterfaceSize(sizeKey, root = document) {
-  const nextSize = normalizeControlSize(sizeKey);
-  if (!root) return;
+function resolveStoredFontFamily() {
+  const storedFont = localStorage.getItem(
+    ACCESSIBILITY_FONT_FAMILY_STORAGE_KEY,
+  );
+  if (
+    storedFont === DEFAULT_FONT_FAMILY ||
+    storedFont === ALTERNATE_FONT_FAMILY
+  ) {
+    return storedFont;
+  }
 
-  syncElementInterfaceSize(root, nextSize);
+  const legacyFont = localStorage.getItem(LEGACY_FONT_FAMILY_STORAGE_KEY);
+  if (
+    legacyFont === FONT_FAMILY_CLASS_MAP[ALTERNATE_FONT_FAMILY] ||
+    legacyFont === ALTERNATE_FONT_FAMILY
+  ) {
+    return ALTERNATE_FONT_FAMILY;
+  }
 
-  if (!root.querySelectorAll) return;
-  root.querySelectorAll(INTERFACE_SIZE_SELECTOR).forEach((element) => {
-    syncElementInterfaceSize(element, nextSize);
-  });
-  applyInterfaceIconSize(nextSize, root);
+  return DEFAULT_FONT_FAMILY;
 }
 
-function applyFontSize(sizeKey, { persist = true } = {}) {
-  const root = document.documentElement;
-  if (!root) return;
-  const nextSize = normalizeControlSize(sizeKey);
+function applyFontScale(
+  scale,
+  { persist = true, announce = true, action = null } = {},
+) {
+  currentFontScale = snapFontScaleToStep(scale);
 
-  activeSize = nextSize;
-  root.dataset.size = activeSize;
-  applyInterfaceSize(activeSize);
+  if (document.documentElement) {
+    document.documentElement.style.setProperty(
+      ACCESSIBILITY_FONT_SCALE_PROPERTY,
+      formatScaleValue(currentFontScale),
+    );
+    document.documentElement.setAttribute(
+      ACCESSIBILITY_FONT_SCALE_ATTRIBUTE,
+      formatScaleValue(currentFontScale),
+    );
+  }
+
+  if (persist) {
+    localStorage.setItem(
+      ACCESSIBILITY_FONT_SCALE_STORAGE_KEY,
+      formatScaleValue(currentFontScale),
+    );
+    localStorage.removeItem(LEGACY_FONT_SCALE_STORAGE_KEY);
+  }
 
   updateFontButtonStates();
 
-  if (persist) {
-    localStorage.setItem(FONT_STORAGE_KEY, activeSize);
+  if (announce) {
+    announceAccessibilityChange(
+      getFontScaleAnnouncement(currentFontScale, action),
+    );
   }
 }
 
-function shiftFontSize(step) {
-  const currentIndex = CONTROL_SIZE_KEYS.indexOf(activeSize);
-  const baseIndex =
-    currentIndex === -1
-      ? CONTROL_SIZE_KEYS.indexOf(DEFAULT_SIZE_KEY)
-      : currentIndex;
-  const nextIndex = Math.max(
-    0,
-    Math.min(CONTROL_SIZE_KEYS.length - 1, baseIndex + step),
+function increaseFontSize() {
+  const nextScale = normalizeScale(
+    Math.min(MAX_FONT_SCALE, currentFontScale + FONT_SCALE_STEP),
   );
-  const nextSize = CONTROL_SIZE_KEYS[nextIndex];
-  applyFontSize(nextSize);
+
+  if (nextScale === currentFontScale) {
+    announceAccessibilityChange("تم الوصول إلى الحد الأقصى لحجم الخط");
+    updateFontButtonStates();
+    return;
+  }
+
+  applyFontScale(nextScale, { action: "increase" });
+}
+
+function decreaseFontSize() {
+  const nextScale = normalizeScale(
+    Math.max(MIN_FONT_SCALE, currentFontScale - FONT_SCALE_STEP),
+  );
+
+  if (nextScale === currentFontScale) {
+    announceAccessibilityChange("تم الوصول إلى الحد الأدنى لحجم الخط");
+    updateFontButtonStates();
+    return;
+  }
+
+  applyFontScale(nextScale, { action: "decrease" });
+}
+
+function resetFontSize({ announce = true } = {}) {
+  applyFontScale(DEFAULT_FONT_SCALE, {
+    announce,
+    action: "reset",
+  });
 }
 
 function inferResizeFontAction(btn) {
@@ -1128,10 +1203,7 @@ function inferResizeFontAction(btn) {
   if (explicitAction) return explicitAction;
 
   const label = btn.textContent.trim();
-  if (
-    btn.classList.contains("btn-18") ||
-    label.includes("+")
-  ) {
+  if (btn.classList.contains("btn-18") || label.includes("+")) {
     return "increase";
   }
 
@@ -1146,26 +1218,23 @@ function inferResizeFontAction(btn) {
   return "reset";
 }
 
-function getIncreaseButtonLabel() {
-  const largeIndex = CONTROL_SIZE_KEYS.indexOf("lg");
-  const activeIndex = CONTROL_SIZE_KEYS.indexOf(activeSize);
-  const extraPluses =
-    activeIndex > largeIndex ? activeIndex - largeIndex : 0;
-  return `${FONT_PLUS_BUTTON_BASE_LABEL}${"+".repeat(extraPluses)}`;
-}
-
 function updateResizeFontButtonLabels() {
   document
-    .querySelectorAll(".Resizefont .btn:not([data-font-reset]), [data-font-reset]")
+    .querySelectorAll(".Resizefont .btn, [data-font-reset]")
     .forEach((btn) => {
-    const action = inferResizeFontAction(btn);
-    const labelTarget = btn.querySelector("[data-font-label]") || btn;
-    btn.setAttribute(FONT_BUTTON_ACTION_ATTRIBUTE, action);
-    btn.setAttribute("aria-label", getResizeFontActionLabel(action));
+      const action = inferResizeFontAction(btn);
+      const labelTarget = btn.querySelector("[data-font-label]") || btn;
+      btn.setAttribute(FONT_BUTTON_ACTION_ATTRIBUTE, action);
+      btn.setAttribute(
+        "aria-label",
+        getResizeFontActionLabel(
+          btn.hasAttribute("data-font-reset") ? "restore" : action,
+        ),
+      );
 
-    if (action === "increase") {
-      labelTarget.textContent = getIncreaseButtonLabel();
-    }
+      if (labelTarget && ACCESSIBILITY_LABELS_BY_ACTION[action]) {
+        labelTarget.textContent = ACCESSIBILITY_LABELS_BY_ACTION[action];
+      }
     });
 }
 
@@ -1179,57 +1248,101 @@ function setFontButtonVariant(btn, isActive) {
   );
 }
 
-function updateFontButtonStates() {
-  const defaultIndex = CONTROL_SIZE_KEYS.indexOf(DEFAULT_SIZE_KEY);
-  const activeIndex = CONTROL_SIZE_KEYS.indexOf(activeSize);
+function setButtonDisabled(btn, isDisabled) {
+  if (!btn) return;
 
+  btn.setAttribute("aria-disabled", isDisabled ? "true" : "false");
+
+  if (btn.tagName && btn.tagName.toLowerCase() === "button") {
+    btn.disabled = isDisabled;
+  } else {
+    btn.classList.toggle("is-disabled", isDisabled);
+  }
+}
+
+function updateFontButtonStates() {
   updateResizeFontButtonLabels();
 
   document
-    .querySelectorAll(".Resizefont .btn:not([data-font-reset]), [data-font-reset]")
+    .querySelectorAll(".Resizefont .btn, [data-font-reset]")
     .forEach((btn) => {
-    const action = inferResizeFontAction(btn);
-    const isActive =
-      action !== "restore" &&
-      ((action === "decrease" &&
-        activeIndex !== -1 &&
-        activeIndex < defaultIndex) ||
-        (action === "reset" && activeSize === DEFAULT_SIZE_KEY) ||
-        (action === "increase" &&
-          activeIndex !== -1 &&
-          activeIndex > defaultIndex));
+      const action = inferResizeFontAction(btn);
+      const isDedicatedReset = btn.hasAttribute("data-font-reset");
+      const isDefaultButton = !isDedicatedReset && action === "reset";
+      const isDecreaseButton = action === "decrease";
+      const isIncreaseButton = action === "increase";
+      const isActive =
+        isDefaultButton && currentFontScale === DEFAULT_FONT_SCALE;
+      const isDisabled =
+        (isDecreaseButton && isAtMinimumFontScale()) ||
+        (isIncreaseButton && isAtMaximumFontScale());
 
-    btn.classList.remove("active");
-    btn.setAttribute("aria-pressed", isActive ? "true" : "false");
-    setFontButtonVariant(btn, isActive);
+      btn.classList.remove("active");
+      setButtonDisabled(btn, isDisabled);
 
-    if (isActive) {
-      btn.classList.add("active");
-    }
+      if (isDefaultButton) {
+        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+      } else {
+        btn.removeAttribute("aria-pressed");
+      }
+
+      setFontButtonVariant(btn, isActive && !isDedicatedReset);
+
+      if (isActive) {
+        btn.classList.add("active");
+      }
     });
+}
+
+function applyFontFamily(
+  fontKey,
+  { persist = true, announce = true, isReset = false } = {},
+) {
+  const appRoot = getAccessibilityAppRoot();
+  const nextFontFamily = normalizeFontFamily(fontKey);
+
+  if (!appRoot) return;
+
+  appRoot.classList.remove(
+    FONT_FAMILY_CLASS_MAP[DEFAULT_FONT_FAMILY],
+    FONT_FAMILY_CLASS_MAP[ALTERNATE_FONT_FAMILY],
+  );
+  appRoot.classList.add(FONT_FAMILY_CLASS_MAP[nextFontFamily]);
+  appRoot.setAttribute(ACCESSIBILITY_FONT_FAMILY_ATTRIBUTE, nextFontFamily);
+
+  currentFontFamily = nextFontFamily;
+
+  if (persist) {
+    localStorage.setItem(ACCESSIBILITY_FONT_FAMILY_STORAGE_KEY, nextFontFamily);
+    localStorage.removeItem(LEGACY_FONT_FAMILY_STORAGE_KEY);
+  }
+
+  syncFontSwitchControls(document, nextFontFamily);
+
+  if (announce) {
+    announceAccessibilityChange(
+      getFontFamilyAnnouncement(nextFontFamily, isReset),
+    );
+  }
 }
 
 function handleResizeFontButton(btn) {
   const action = inferResizeFontAction(btn);
+  if (btn.getAttribute("aria-disabled") === "true") {
+    return;
+  }
 
   if (action === "increase") {
-    shiftFontSize(1);
+    increaseFontSize();
     return;
   }
 
   if (action === "decrease") {
-    shiftFontSize(-1);
+    decreaseFontSize();
     return;
   }
 
-  if (action === "reset") {
-    applyFontSize(DEFAULT_SIZE_KEY);
-    return;
-  }
-
-  if (action === "restore") {
-    applyFontSize(DEFAULT_SIZE_KEY);
-  }
+  resetFontSize();
 }
 
 function bindResizeFontButtons() {
@@ -1237,7 +1350,10 @@ function bindResizeFontButtons() {
     .querySelectorAll(".Resizefont .btn, [data-font-reset]")
     .forEach((btn) => {
       if (boundResizeFontButtons.has(btn)) return;
-      btn.setAttribute(FONT_BUTTON_ACTION_ATTRIBUTE, inferResizeFontAction(btn));
+      btn.setAttribute(
+        FONT_BUTTON_ACTION_ATTRIBUTE,
+        inferResizeFontAction(btn),
+      );
       ensureAccessibilityButtonSemantics(btn);
       boundResizeFontButtons.add(btn);
       btn.addEventListener("click", (event) => {
@@ -1247,134 +1363,193 @@ function bindResizeFontButtons() {
     });
 }
 
-function observeInterfaceSizeComponents() {
+function bindFontFamilySwitches() {
+  document
+    .querySelectorAll(ACCESSIBILITY_FONT_SWITCH_SELECTOR)
+    .forEach((control) => {
+      if (boundFontSwitches.has(control)) return;
+      boundFontSwitches.add(control);
+      control.addEventListener("change", function () {
+        applyFontFamily(
+          this.checked ? ALTERNATE_FONT_FAMILY : DEFAULT_FONT_FAMILY,
+          {
+            isReset: !this.checked,
+          },
+        );
+      });
+    });
+}
+
+function bindLegacyFontToggleButtons() {
+  document.querySelectorAll(".anotherFont").forEach((btn) => {
+    if (boundLegacyFontToggleButtons.has(btn)) return;
+    ensureAccessibilityButtonSemantics(btn);
+    boundLegacyFontToggleButtons.add(btn);
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+      applyFontFamily(
+        currentFontFamily === ALTERNATE_FONT_FAMILY
+          ? DEFAULT_FONT_FAMILY
+          : ALTERNATE_FONT_FAMILY,
+      );
+    });
+  });
+}
+
+function observeAccessibilityUi() {
   if (
-    interfaceSizeObserver ||
+    accessibilityUiObserver ||
     !document.body ||
     typeof MutationObserver === "undefined"
   ) {
     return;
   }
 
-  interfaceSizeObserver = new MutationObserver((mutations) => {
+  accessibilityUiObserver = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
-      if (mutation.type === "attributes") {
-        syncElementInterfaceSize(mutation.target, activeSize);
-        return;
-      }
-
       mutation.addedNodes.forEach((node) => {
         if (!node || node.nodeType !== Node.ELEMENT_NODE) return;
 
         upgradeAccessibilityPanels(node);
-        applyInterfaceSize(activeSize, node);
         syncColorBlindControls(node);
 
         if (
-          (node.matches && node.matches(".Resizefont .btn")) ||
-          (node.querySelector && node.querySelector(".Resizefont .btn"))
+          (node.matches &&
+            node.matches(
+              ".Resizefont .btn, [data-font-reset], [data-accessibility-font-switch], .anotherFont",
+            )) ||
+          (node.querySelector &&
+            node.querySelector(
+              ".Resizefont .btn, [data-font-reset], [data-accessibility-font-switch], .anotherFont",
+            ))
         ) {
           bindResizeFontButtons();
+          bindFontFamilySwitches();
+          bindLegacyFontToggleButtons();
           updateFontButtonStates();
+          syncFontSwitchControls();
         }
       });
     });
   });
 
-  interfaceSizeObserver.observe(document.body, {
+  accessibilityUiObserver.observe(document.body, {
     childList: true,
     subtree: true,
-    attributes: true,
-    attributeFilter: ["class", "data-size"],
   });
 }
 
 function runFontControlsSelfTest() {
   if (window.__FONT_DEBUG__ !== true) return;
   console.group("[Font Debug] Self-test");
-  console.info(`[Font Debug] active size token: ${activeSize}`);
   console.info(
-    `[Font Debug] root data-size: ${document.documentElement.getAttribute(
-      ROOT_SIZE_ATTRIBUTE,
+    `[Font Debug] active scale: ${formatScaleValue(currentFontScale)}`,
+  );
+  console.info(
+    `[Font Debug] root accessibility scale: ${document.documentElement.getAttribute(
+      ACCESSIBILITY_FONT_SCALE_ATTRIBUTE,
     )}`,
   );
 
-  const initialSize = activeSize;
-  shiftFontSize(1);
-  shiftFontSize(1);
-  shiftFontSize(-1);
-
-  const storedSize = localStorage.getItem(FONT_STORAGE_KEY);
-  console.assert(
-    storedSize === activeSize,
-    `[Font Debug] storage mismatch (${storedSize} vs ${activeSize})`,
+  const initialScale = currentFontScale;
+  const initialFontFamily = currentFontFamily;
+  const rootFontSize = parseFloat(
+    getComputedStyle(document.documentElement).fontSize,
   );
 
+  console.assert(
+    Math.abs(rootFontSize - 16) < 0.1,
+    `[Font Debug] expected html font-size to be 16px, received ${rootFontSize}`,
+  );
+
+  [1, 1.125, 1.25, 1.375, 1.5, 0.875, 0.75].forEach((scale) => {
+    applyFontScale(scale, { persist: false, announce: false });
+    const appliedScale = document.documentElement.style
+      .getPropertyValue(ACCESSIBILITY_FONT_SCALE_PROPERTY)
+      .trim();
+    console.assert(
+      appliedScale === formatScaleValue(scale),
+      `[Font Debug] expected ${scale} to apply ${formatScaleValue(scale)}, received ${appliedScale}`,
+    );
+  });
+
+  applyFontScale(initialScale, { persist: true, announce: false });
+
+  const storedSize = localStorage.getItem(ACCESSIBILITY_FONT_SCALE_STORAGE_KEY);
+  console.assert(
+    storedSize === formatScaleValue(currentFontScale),
+    `[Font Debug] storage mismatch (${storedSize} vs ${formatScaleValue(currentFontScale)})`,
+  );
+
+  applyFontFamily(ALTERNATE_FONT_FAMILY, { persist: false, announce: false });
+  console.assert(
+    document.body.classList.contains(
+      FONT_FAMILY_CLASS_MAP[ALTERNATE_FONT_FAMILY],
+    ),
+    "[Font Debug] alternate font class was not applied",
+  );
+  applyFontFamily(DEFAULT_FONT_FAMILY, { persist: false, announce: false });
+
   const rootFontClasses = [
-    findFontClassOnNode(document.documentElement),
-    findFontClassOnNode(document.body),
+    document.documentElement.classList.contains(
+      FONT_FAMILY_CLASS_MAP[ALTERNATE_FONT_FAMILY],
+    ),
+    document.documentElement.classList.contains(
+      FONT_FAMILY_CLASS_MAP[DEFAULT_FONT_FAMILY],
+    ),
   ].filter(Boolean);
   console.assert(
     rootFontClasses.length === 0,
-    `[Font Debug] expected 0 root font classes, found ${rootFontClasses.length}`,
+    `[Font Debug] expected 0 html font classes, found ${rootFontClasses.length}`,
   );
   console.assert(
-    document.documentElement.getAttribute(ROOT_SIZE_ATTRIBUTE) === activeSize,
-    "[Font Debug] root data-size did not update correctly",
-  );
-  const unsyncedInterfaceSizes = Array.from(
-    document.querySelectorAll(INTERFACE_SIZE_SELECTOR),
-  ).filter((element) => element.dataset.size !== activeSize);
-  console.assert(
-    unsyncedInterfaceSizes.length === 0,
-    `[Font Debug] expected synced component sizes, found ${unsyncedInterfaceSizes.length}`,
-  );
-  const unsyncedIconSizes = Array.from(
-    document.querySelectorAll(`${INTERFACE_SIZE_SELECTOR} ${INTERFACE_ICON_SELECTOR}`),
-  ).filter((element) => element.dataset.size !== normalizeIconSize(activeSize));
-  console.assert(
-    unsyncedIconSizes.length === 0,
-    `[Font Debug] expected synced icon sizes, found ${unsyncedIconSizes.length}`,
+    document.documentElement.getAttribute(
+      ACCESSIBILITY_FONT_SCALE_ATTRIBUTE,
+    ) === formatScaleValue(currentFontScale),
+    "[Font Debug] root accessibility scale did not update correctly",
   );
 
-  applyFontSize(initialSize);
+  applyFontScale(initialScale, { persist: false, announce: false });
+  applyFontFamily(initialFontFamily, { persist: false, announce: false });
   console.groupEnd();
 }
 
-function initFontSizeControls() {
+function initAccessibilityTypographyControls() {
   if (!document.documentElement) return;
+
   upgradeAccessibilityPanels();
-  document.documentElement.style.removeProperty("--app-font-size");
-  document.documentElement.style.removeProperty("--app-font-scale");
-  const storedSizeValue = localStorage.getItem(FONT_STORAGE_KEY);
-  const initialRootClass =
-    findFontClassOnNode(document.documentElement) ||
-    findFontClassOnNode(document.body) ||
-    parseFontClass(DEFAULT_FONT_CLASS);
-  const initialRootDataSize = document.documentElement.getAttribute(
-    ROOT_SIZE_ATTRIBUTE,
-  );
-  clearFontClasses(document.documentElement);
-  clearFontClasses(document.body);
-  const initialSize = resolveStoredFontSize(
-    (SIZE_KEYS.includes(initialRootDataSize) &&
-      normalizeControlSize(initialRootDataSize)) ||
-      (initialRootClass && initialRootClass.size) ||
-      DEFAULT_SIZE_KEY,
-  );
-  applyFontSize(initialSize, {
-    persist: !!storedSizeValue && storedSizeValue !== initialSize,
+
+  currentFontScale = resolveStoredFontScale();
+  currentFontFamily = resolveStoredFontFamily();
+
+  applyFontScale(currentFontScale, {
+    persist: true,
+    announce: false,
   });
+  applyFontFamily(currentFontFamily, {
+    persist: true,
+    announce: false,
+  });
+
   bindResizeFontButtons();
-  observeInterfaceSizeComponents();
-  if (!fontControlsInitialized) {
-    fontControlsInitialized = true;
+  bindFontFamilySwitches();
+  bindLegacyFontToggleButtons();
+  observeAccessibilityUi();
+  if (!typographyControlsInitialized) {
+    typographyControlsInitialized = true;
     runFontControlsSelfTest();
   }
 }
 
-document.addEventListener("DOMContentLoaded", initFontSizeControls);
-document.addEventListener("layout:loaded", initFontSizeControls);
+function initFontToggleBehavior() {
+  initAccessibilityTypographyControls();
+}
+
+document.addEventListener(
+  "DOMContentLoaded",
+  initAccessibilityTypographyControls,
+);
+document.addEventListener("layout:loaded", initAccessibilityTypographyControls);
 document.addEventListener("DOMContentLoaded", upgradeAccessibilityPanels);
 document.addEventListener("layout:loaded", upgradeAccessibilityPanels);
 
@@ -1797,3 +1972,14 @@ function isBase64Image(base64String) {
   }
   return { isImage: false, format: null };
 }
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    var sidebar = document.querySelector(".sidebar");
+    if (sidebar.classList.contains("close")) {
+      sidebar.classList.remove("close");
+    } else {
+      sidebar.classList.add("close");
+    }
+  }
+});

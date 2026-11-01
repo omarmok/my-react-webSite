@@ -433,6 +433,82 @@
   }
 }
 
+// =========================================================================
+// Option checkbox — Figma "Option with checkbox" (22 Oct): the library's
+// default 12px blue (#039be5) checkbox is restyled to the system Checkbox
+// tokens (.form-check-input in common/_checkbox.scss): 16px box, 2px
+// border, radius-xs, Neutral-300 default / Primary-600 checked or
+// indeterminate, same white tick-02 / minus-sign glyphs. The checkbox has
+// no real <input>, so the library toggles state classes on the box itself
+// (--unchecked / --checked / --indeterminate / --disabled) instead of
+// :checked — recoloured here, same selectors, no new markup.
+// =========================================================================
+.vue-treeselect .vue-treeselect__checkbox {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+  border-radius: $radius-xs;
+  box-sizing: border-box;
+}
+
+.vue-treeselect .vue-treeselect__checkbox--unchecked {
+  border-color: $Neutral-300;
+  background: $white-100;
+}
+
+.vue-treeselect .vue-treeselect__label-container:hover .vue-treeselect__checkbox--unchecked {
+  border-color: $Primary-600;
+  background: $white-100;
+}
+
+.vue-treeselect .vue-treeselect__checkbox--checked,
+.vue-treeselect .vue-treeselect__checkbox--indeterminate,
+.vue-treeselect .vue-treeselect__label-container:hover .vue-treeselect__checkbox--checked,
+.vue-treeselect .vue-treeselect__label-container:hover .vue-treeselect__checkbox--indeterminate {
+  border-color: $Primary-600;
+  background: $Primary-600;
+}
+
+.vue-treeselect .vue-treeselect__checkbox--disabled,
+.vue-treeselect .vue-treeselect__label-container:hover .vue-treeselect__checkbox--disabled {
+  border-color: $Neutral-300;
+  background-color: $Neutral-200;
+}
+
+// Tick / minus glyphs — same white system icons as .form-check-input
+// (tick-02 / minus-sign), centred in the new 16px box instead of the
+// library's 12px top:1px/left:1px offset.
+.vue-treeselect .vue-treeselect__check-mark,
+.vue-treeselect .vue-treeselect__minus-mark {
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background-size: 12px 12px;
+  background-position: center;
+  transform: translate(-50%, -50%);
+}
+
+.vue-treeselect .vue-treeselect__check-mark {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath fill='%23fff' fill-rule='evenodd' clip-rule='evenodd' d='M19.5179 5.95748C19.8175 6.24349 19.8285 6.71823 19.5425 7.01786L9.04252 18.0179C8.90308 18.1639 8.71064 18.2476 8.50872 18.25C8.3068 18.2523 8.11246 18.1731 7.96967 18.0303L4.46967 14.5303C4.17678 14.2374 4.17678 13.7626 4.46967 13.4697C4.76256 13.1768 5.23744 13.1768 5.53033 13.4697L8.48752 16.4269L18.4575 5.98214C18.7435 5.68252 19.2182 5.67148 19.5179 5.95748Z'/%3e%3c/svg%3e");
+}
+
+.vue-treeselect .vue-treeselect__minus-mark {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath fill='%23fff' fill-rule='evenodd' clip-rule='evenodd' d='M20.75 12C20.75 12.4142 20.4142 12.75 20 12.75L4 12.75C3.58578 12.75 3.25 12.4142 3.25 12C3.25 11.5858 3.58578 11.25 4 11.25L20 11.25C20.4142 11.25 20.75 11.5858 20.75 12Z'/%3e%3c/svg%3e");
+}
+
+.vue-treeselect .vue-treeselect__checkbox--checked > .vue-treeselect__check-mark,
+.vue-treeselect .vue-treeselect__checkbox--indeterminate > .vue-treeselect__minus-mark {
+  transform: translate(-50%, -50%);
+}
+
+// Disabled + checked/indeterminate: keep the same white glyph, just dim it —
+// the box itself already goes to Neutral-200/Neutral-300 above.
+.vue-treeselect .vue-treeselect__checkbox--disabled.vue-treeselect__checkbox--checked > .vue-treeselect__check-mark,
+.vue-treeselect .vue-treeselect__checkbox--disabled.vue-treeselect__checkbox--indeterminate > .vue-treeselect__minus-mark {
+  opacity: 0.5;
+}
+
 .agencyTreeselect {
   .vue-treeselect__label {
     white-space: inherit;
