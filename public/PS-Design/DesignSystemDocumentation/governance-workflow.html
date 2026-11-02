@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Governance Workflow | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  
+    /* ---- Governance workflow page ---- */
+    .gv-sub { color:#fff; font-size:1.4rem; font-weight:600; margin:0 0 10px; }
+    .gv-nav { display:flex; flex-wrap:wrap; gap:10px; margin-top:6px; }
+    .gv-nav a { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.14); color:#fff; border-radius:999px; padding:6px 14px 6px 8px; font-size:.85rem; font-weight:500; text-decoration:none; }
+    .gv-nav a b { width:24px; height:24px; border-radius:50%; background:#fff; color:#14573a; display:inline-flex; align-items:center; justify-content:center; font-size:.8rem; }
+    .sec-head { display:flex; align-items:center; gap:14px; margin-bottom:6px; }
+    .sec-head .section-title { margin:0; }
+    .sec-badge { width:44px; height:44px; border-radius:50%; background:#166a45; color:#fff; font-weight:700; font-size:1.2rem; display:inline-flex; align-items:center; justify-content:center; flex:none; }
+    .sub-t { font-size:1.15rem; font-weight:700; margin:28px 0 12px; }
+    .ar-only { display:none; } html[lang="ar"] .ar-only { display:inline; }
+    /* principles */
+    .pgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:14px; margin-top:14px; }
+    .pcard { border:1px solid #e5e7eb; border-radius:14px; padding:16px; background:#fff; display:grid; gap:8px; align-content:start; }
+    .p-top { display:flex; align-items:center; gap:10px; } .p-top b { font-size:1rem; }
+    .p-n { width:34px; height:34px; border-radius:50%; background:#f3fcf6; border:1px solid #b8eacb; color:#166a45; font-weight:700; font-size:.85rem; display:inline-flex; align-items:center; justify-content:center; flex:none; }
+    .p-b { color:#4b5563; font-size:.9rem; line-height:1.7; }
+    .legend { display:flex; flex-wrap:wrap; align-items:center; gap:16px 22px; margin-top:16px; padding:12px 16px; border:1px solid #e5e7eb; border-radius:14px; background:#fff; font-size:.85rem; color:#374151; }
+    .li { display:inline-flex; align-items:center; gap:8px; }
+    .lp { width:34px; height:16px; border-radius:999px; display:inline-block; }
+    .lp-st { background:#fff; border:1.5px solid #d2d6db; border-radius:5px; }
+    .lp-d { width:30px; height:22px; background:#dc6803; clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%); border-radius:0; }
+    .lp-ln { height:0; border-top:3px solid; border-radius:0; } .lp-dash { border-top-style:dashed; }
+    /* nodes */
+    .node { text-align:start; }
+    .stage { position:relative; background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:14px 18px; display:flex; flex-direction:column; gap:8px; overflow:hidden; }
+    .st-acc { position:absolute; inset-block:0; inset-inline-start:0; width:6px; background:var(--c); }
+    .st-head { display:flex; align-items:center; gap:12px; }
+    .st-num { width:38px; height:38px; border-radius:50%; color:#fff; font-weight:700; font-size:.95rem; display:inline-flex; align-items:center; justify-content:center; flex:none; }
+    .st-en { margin:0; font-size:1.05rem; font-weight:700; color:#111927; }
+    .st-title { color:var(--c); font-weight:600; font-size:.98rem; }
+    .st-par { color:#4b5563; font-size:.88rem; line-height:1.75; }
+    .st-owners, .st-chips { display:flex; flex-wrap:wrap; gap:8px; }
+    .ochip { display:inline-flex; align-items:center; gap:7px; border:1.5px solid var(--c); border-radius:999px; padding:3px 12px; font-size:.78rem; background:#fff; }
+    .ochip i { width:8px; height:8px; border-radius:50%; background:var(--c); display:inline-block; } .ochip .olab { color:#4b5563; } .ochip b { color:var(--c); font-weight:600; }
+    .chip { background:#f3f4f6; color:#374151; border-radius:999px; padding:3px 11px; font-size:.76rem; font-weight:500; }
+    .readonly { display:flex; gap:10px; align-items:flex-start; background:#fffaeb; border:2px solid #dc6803; border-radius:12px; padding:12px 14px; color:#b54708; margin-top:2px; }
+    .readonly svg { flex:none; margin-top:2px; } .ro-t { font-weight:700; font-size:.9rem; } .ro-b { color:#374151; font-size:.83rem; line-height:1.65; }
+    .term { border-radius:999px; padding:12px 18px; color:#fff; text-align:center; display:flex; flex-direction:column; gap:2px; }
+    .term b { font-size:1.05rem; letter-spacing:.05em; } .term div, .term span { font-size:.85rem; }
+    .dia { position:relative; width:100%; max-width:380px; margin-inline:auto; aspect-ratio:2/1; display:flex; align-items:center; justify-content:center; }
+    .dia-bg { position:absolute; inset:0; width:100%; height:100%; }
+    .dia-tag { position:absolute; top:4px; left:50%; transform:translateX(-50%); background:#dc6803; color:#fff; border-radius:999px; padding:1px 12px; font-weight:700; font-size:.78rem; }
+    .dia-txt { position:relative; text-align:center; padding:0 70px; display:grid; gap:2px; } .dia-txt b { color:#b54708; font-size:.88rem; } .dia-txt div { color:#1f2a37; font-size:.82rem; font-weight:600; }
+    .note-amber { background:#fffaeb; border:1.5px solid #dc6803; border-radius:12px; padding:12px 14px; display:grid; gap:4px; font-size:.82rem; color:#374151; } .note-amber b { color:#b54708; }
+    .fc .branches { display:none; list-style:none; margin:12px 0 0; padding:0; gap:8px; }
+    .br { border:1px solid #d2d6db; border-radius:10px; padding:8px 12px; background:#fff; display:grid; gap:2px; font-size:.85rem; } .br div { color:#4b5563; font-size:.8rem; }
+    .br--ok { border-color:#1b8354; background:#f3fcf6; } .br--warn, .br--mid { border-color:#dc6803; } .br--bad { border-color:#d92d20; background:#fef3f2; }
+    /* flowchart layout */
+    .fc { position:relative; display:grid; grid-template-columns:minmax(150px,210px) minmax(0,1fr) minmax(120px,160px); grid-auto-flow:row; row-gap:64px; margin-top:20px; }
+    .fc > .dwrap, .fc > .node:not(.side) { grid-column:2; }
+    .fc > .side { grid-column:1; justify-self:stretch; } .fc > .gut { grid-column:3; grid-row:1; }
+    .fc .term.side { max-width:210px; } 
+    .cn-svg { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; overflow:visible; z-index:2; }
+    .cn-labs { position:absolute; inset:0; pointer-events:none; z-index:3; }
+    .cn-lab { position:absolute; transform:translate(-50%,-50%); display:inline-flex; gap:6px; align-items:center; white-space:nowrap; background:#fff; border:1.5px solid #d2d6db; border-radius:999px; padding:2px 10px; font-size:.7rem; color:#374151; }
+    .cn-lab--ok { background:#f3fcf6; border-color:#1b8354; color:#166a45; } .cn-lab--warn { background:#fffaeb; border-color:#dc6803; color:#b54708; } .cn-lab--bad { background:#fef3f2; border-color:#d92d20; color:#d92d20; }
+    .cn-lab[hidden] { display:none; }
+    .loose { text-align:center; color:#4b5563; margin:24px 0 0; font-size:.88rem; }
+    .fc.fc--narrow { display:flex; flex-direction:column; gap:56px; }
+    .fc--narrow > .side, .fc--narrow > .gut { display:none; }
+    .fc.fc--narrow .branches { display:grid; }
+    .fc .dwrap { min-width:0; }
+    /* swimlane (vertical: lanes are columns, steps run top to bottom) */
+    .sw { position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-template-rows:repeat(12,auto); row-gap:76px; padding-bottom:24px; margin-top:20px; border:1px solid #e5e7eb; border-radius:14px; overflow:hidden; background:#fff; }
+    .sw-lane { grid-row:1 / -1; border-inline-end:1px solid #e5e7eb; } .sw-lane:last-of-type { border-inline-end:0; }
+    .sw-lane--b { background:#eff8ff; } .sw-lane--g { background:#f3fcf6; } .sw-lane--i { background:#f3f4f6; }
+    .sw-head { grid-row:1; padding:14px 12px; color:#fff; text-align:center; display:grid; gap:4px; align-content:center; z-index:1; } .sw-head b { font-size:.9rem; } .sw-head div { font-size:.78rem; opacity:.92; }
+    .sw-head--b { background:#1570ef; } .sw-head--g { background:#1b8354; } .sw-head--i { background:#1f2a37; }
+    .sw-cell { z-index:1; width:78%; justify-self:center; align-self:start; }
+    .sw-step { background:#fff; border:2px solid var(--c); border-radius:14px; padding:12px; display:grid; gap:4px; justify-items:center; text-align:center; }
+    .sw-step b { font-size:.85rem; color:#111927; } .sw-step > div { color:#4b5563; font-size:.78rem; line-height:1.6; }
+    .sw-chip { color:#fff; border-radius:999px; padding:0 12px; font-weight:700; font-size:.72rem; min-width:34px; }
+    .sw-note { margin-top:6px; border:1.5px solid #d2d6db; border-radius:10px; padding:6px 8px; background:#fff; display:grid; gap:1px; width:100%; font-size:.72rem; }
+    .sw-note b { font-weight:600; font-size:.74rem; } .sw-note--bad { border-color:#d92d20; background:#fef3f2; color:#d92d20; } .sw-note--bad b, .sw-note--bad div { color:#d92d20; }
+    #sw .cn-svg { z-index:2; }
+    .roles { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; }
+    .role { position:relative; border:1px solid #e5e7eb; border-radius:14px; padding:14px 16px; background:#fff; display:grid; gap:2px; overflow:hidden; }
+    .r-acc { position:absolute; inset-block:0; inset-inline-start:0; width:6px; background:var(--c); }
+    .role b { font-size:.92rem; } .r-ar { font-size:.8rem; font-weight:600; } .r-sp { height:6px; } .r-o { font-size:.78rem; color:#374151; } .r-oar { font-size:.76rem; color:#4b5563; }
+    /* examples */
+    .exgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr)); gap:16px; margin-top:16px; }
+    .example { position:relative; border:1px solid #e5e7eb; border-radius:16px; padding:18px 20px; background:#fff; display:flex; flex-direction:column; gap:8px; overflow:hidden; }
+    .example .r-acc { background:#1b8354; }
+    .ex-top { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+    .ex-n { width:32px; height:32px; border-radius:50%; background:#166a45; color:#fff; font-weight:700; display:inline-flex; align-items:center; justify-content:center; }
+    .ex-k { background:#f3fcf6; border:1px solid #1b8354; color:#166a45; border-radius:999px; padding:1px 12px; font-weight:700; font-size:.78rem; }
+    .ex-h { background:#fffaeb; border:1px solid #dc6803; color:#b54708; border-radius:999px; padding:1px 12px; font-size:.74rem; font-weight:600; }
+    .ex-en { margin:4px 0 0; font-size:1.05rem; font-weight:700; } .ex-ar { color:#1b8354; font-weight:600; font-size:.9rem; } .ex-p { color:#374151; font-size:.86rem; line-height:1.8; }
+    .ex-pl { font-weight:700; font-size:.82rem; margin-top:4px; }
+    .ex-path { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+    .arr { color:#4b5563; } html[dir="rtl"] .arr { display:inline-block; transform:scaleX(-1); }
+    .pstep { border:1.5px solid; border-radius:999px; padding:1px 11px; font-size:.74rem; font-weight:600; background:#fff; }
+    .pstep--ok { border-color:#1b8354; color:#166a45; } .pstep--b { border-color:#1570ef; color:#1570ef; } .pstep--d { border-color:#dc6803; background:#fffaeb; color:#b54708; }
+    .ex-res { margin-top:auto; background:#f3fcf6; border-radius:12px; padding:10px 14px; display:grid; gap:2px; font-size:.84rem; } .ex-res b { color:#166a45; }
+    .exnote { margin-top:16px; background:#fffaeb; border:1.5px solid #dc6803; border-radius:16px; padding:18px 20px; display:grid; gap:6px; color:#374151; font-size:.88rem; line-height:1.8; } .exnote b { color:#b54708; font-size:1.05rem; }
+    /* glossary */
+    .gloss { width:100%; table-layout:fixed; border-collapse:collapse; margin-top:14px; font-size:.82rem; border:1px solid #e5e7eb; }
+    .gloss thead th { background:#14573a; color:#fff; padding:10px 12px; text-align:start; font-weight:600; }
+    .gloss th[scope="row"] { color:#14573a; font-weight:700; text-align:start; }
+    .gloss td, .gloss tbody th { padding:9px 12px; border-top:1px solid #e5e7eb; vertical-align:top; color:#374151; line-height:1.7; word-wrap:break-word; }
+    .gloss tbody tr:nth-child(even) { background:#f9fafb; }
+    .gloss thead th:nth-child(1) { width:20%; } .gloss thead th:nth-child(2) { width:30%; } .gloss thead th:nth-child(3) { width:30%; }
+    @media (max-width: 760px) {
+      .gloss thead { display:none; } .gloss, .gloss tbody, .gloss tr, .gloss td, .gloss tbody th { display:block; width:auto; }
+      .gloss tr { border-top:1px solid #e5e7eb; padding:8px 0; }
+    }
+    .doc-footer { margin-top:28px; padding-top:14px; border-top:1px solid #e5e7eb; display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; color:#6b7280; font-size:.8rem; }
+
+    .print-btn { display:inline-flex; align-items:center; gap:8px; }
+    .gv-watermark { position:fixed; inset:0; z-index:1000; pointer-events:none; background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22760%22%20height%3D%22520%22%3E%3Ctext%20x%3D%22380.0%22%20y%3D%22260.0%22%20transform%3D%22rotate%28-35%20380.0%20260.0%29%22%20text-anchor%3D%22middle%22%20font-family%3D%22IBM%20Plex%20Sans%20Arabic%2C%20IBMPlexSansArabic%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2218%22%20font-weight%3D%22400%22%20fill%3D%22%23111927%22%20fill-opacity%3D%220.18%22%3EDocument%20ownership%3A%20Design%20System%20Architect%20%26amp%3B%20UX%2FDesignOps%20Lead%20%C2%B7%20Omar%20Mokhtar%3C%2Ftext%3E%3C%2Fsvg%3E"); background-repeat:repeat; background-size:760px 520px; }
+    .gv-watermark span { display:none; }
+    /* Print: only this page's content (no sidebar / floating buttons), colors kept, no broken cards */
+    @page { margin: 12mm; }
+    @media print {
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background:#fff !important; }
+      .docs-sidebar, .top-actions { display:none !important; }
+      .docs-shell, .page-layout { display:block !important; max-width:none !important; padding:0 !important; margin:0 !important; }
+      .page-content { padding:0 !important; max-width:none !important; }
+      .page-header, .metadata-pill, .pcard, .stage, .example, .role, .legend, .sw { box-shadow:none !important; }
+      .page-header { break-inside:avoid; }
+      .metadata-row { margin:10px 0 14px; }
+      .section-card { box-shadow:none !important; border:0 !important; padding:0 !important; }
+      #flowchart, #swimlane, #examples, #glossary { break-before:page; }
+      .node, .pcard, .example, .role, .exnote, .legend, .sw-note, .gloss tr, .readonly { break-inside:avoid; }
+      .doc-footer { break-before:avoid; }
+      .gv-watermark { background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22660%22%20height%3D%22450%22%3E%3Ctext%20x%3D%22330.0%22%20y%3D%22225.0%22%20transform%3D%22rotate%28-35%20330.0%20225.0%29%22%20text-anchor%3D%22middle%22%20font-family%3D%22IBM%20Plex%20Sans%20Arabic%2C%20IBMPlexSansArabic%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2219%22%20font-weight%3D%22400%22%20fill%3D%22%23111927%22%20fill-opacity%3D%220.3%22%3EDocument%20ownership%3A%20Design%20System%20Architect%20%26amp%3B%20UX%2FDesignOps%20Lead%20%C2%B7%20Omar%20Mokhtar%3C%2Ftext%3E%3C%2Fsvg%3E"); background-size:660px 450px; }
+    }
+
+    .pdf-btn { display:inline-flex; align-items:center; gap:8px; text-decoration:none; }
+  </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="gv-watermark" aria-hidden="true"></div>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav"></nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><span>العربية</span></button>
+        <a class="btn moi-btn moi-btn--Lavender pdf-btn" id="gvPdf" href="./governance-workflow-en.pdf" download="governance-workflow-en.pdf" data-en="./governance-workflow-en.pdf" data-ar="./governance-workflow-ar.pdf" aria-label="Download as PDF"><img src="../images/icon-download-fill.svg" width="22" height="22" alt="" /><span data-i18n data-ar="تحميل PDF" data-en="Download PDF">Download PDF</span></a>
+        <button class="btn moi-btn moi-btn--black print-btn" type="button" aria-label="Print this page"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M13.0518 1.25C13.9502 1.24997 14.7001 1.25011 15.2949 1.33008C15.9225 1.41451 16.489 1.60031 16.9443 2.05566C17.3997 2.51102 17.5855 3.07747 17.6699 3.70508C17.7499 4.29986 17.75 5.04976 17.75 5.94824V7.25488C18.1388 7.26016 18.4828 7.27138 18.7881 7.29688C19.3654 7.3451 19.8685 7.44665 20.335 7.68652C20.8933 7.97363 21.3725 8.39046 21.7285 8.90234C22.0279 9.33299 22.1864 9.81427 22.2949 10.3691C22.3997 10.905 22.4686 11.5707 22.5537 12.3906L22.5615 12.4639C22.6637 13.4481 22.746 14.2413 22.75 14.8828C22.754 15.5432 22.6776 16.1278 22.4033 16.665C22.0813 17.2956 21.5845 17.8235 20.9727 18.1904C20.4556 18.5005 19.8715 18.6293 19.1963 18.6904C18.7326 18.7324 18.1872 18.7414 17.5459 18.7451C17.6067 19.0202 17.659 19.2631 17.6934 19.4785C17.7528 19.8516 17.7768 20.2065 17.708 20.5586C17.55 21.3671 17.0526 22.0764 16.3281 22.46C16.0058 22.6306 15.6587 22.6939 15.3008 22.7227C14.9551 22.7504 14.528 22.75 14.0186 22.75H9.98145C9.47198 22.75 9.04487 22.7504 8.69922 22.7227C8.34129 22.6939 7.99419 22.6306 7.67188 22.46C6.9474 22.0764 6.44904 21.3671 6.29102 20.5586C6.22225 20.2065 6.24722 19.8515 6.30664 19.4785C6.34096 19.2632 6.3923 19.0201 6.45312 18.7451C5.81222 18.7414 5.26714 18.7324 4.80371 18.6904C4.12845 18.6293 3.54439 18.5005 3.02734 18.1904C2.41547 17.8235 1.91873 17.2956 1.59668 16.665C1.32239 16.1278 1.24597 15.5432 1.25 14.8828C1.25396 14.2413 1.33628 13.4481 1.43848 12.4639L1.44629 12.3906C1.53141 11.5707 1.60029 10.905 1.70508 10.3691C1.81362 9.81427 1.9721 9.33299 2.27148 8.90234C2.62746 8.39046 3.10672 7.97363 3.66504 7.68652C4.13154 7.44665 4.6346 7.3451 5.21191 7.29688C5.51723 7.27138 5.86125 7.26016 6.25 7.25488V5.94824C6.24997 5.04976 6.25011 4.29986 6.33008 3.70508C6.41451 3.07747 6.60031 2.51102 7.05566 2.05566C7.51102 1.60031 8.07747 1.41451 8.70508 1.33008C9.29986 1.25011 10.0498 1.24997 10.9482 1.25H13.0518ZM10.0117 16.75C9.26507 16.75 9.0879 16.7616 8.9541 16.8115C8.73328 16.894 8.53107 17.0591 8.38965 17.2949C8.29754 17.4487 8.23816 17.6654 8.05957 18.4404C7.92735 19.0142 7.83698 19.4079 7.78809 19.7148C7.73975 20.0182 7.74418 20.1718 7.76367 20.2715C7.84123 20.6676 8.07744 20.9782 8.37305 21.1348C8.43328 21.1667 8.54557 21.2056 8.81836 21.2275C9.09688 21.2499 9.46396 21.25 10.0117 21.25H13.9883C14.5357 21.25 14.9022 21.2498 15.1807 21.2275C15.4538 21.2056 15.5667 21.1667 15.627 21.1348C15.9226 20.9782 16.1588 20.6676 16.2363 20.2715C16.2558 20.1718 16.2602 20.0182 16.2119 19.7148C16.163 19.4079 16.0726 19.0142 15.9404 18.4404C15.7618 17.6654 15.7025 17.4487 15.6104 17.2949C15.4689 17.0591 15.2667 16.894 15.0459 16.8115C14.9121 16.7616 14.7349 16.75 13.9883 16.75H10.0117ZM7.35352 8.75C6.45517 8.75 5.82736 8.75104 5.33691 8.79199C4.85621 8.83215 4.57158 8.90687 4.35059 9.02051C4.00652 9.19749 3.71624 9.45204 3.50293 9.75879C3.3688 9.95173 3.26576 10.2072 3.17773 10.6572C3.08741 11.1191 3.02414 11.7173 2.93457 12.5801C2.8274 13.6124 2.75342 14.3329 2.75 14.8926C2.74666 15.4418 2.81406 15.7513 2.93262 15.9834C3.12413 16.3583 3.42311 16.6779 3.79883 16.9033C4.03754 17.0465 4.36334 17.1442 4.93848 17.1963C5.41802 17.2397 6.01441 17.2455 6.80859 17.2471C6.88715 16.9739 6.9759 16.7358 7.10254 16.5244C7.40922 16.0126 7.87322 15.614 8.42969 15.4062C8.8515 15.2488 9.32569 15.2493 9.89844 15.25H14.1016C14.6743 15.2493 15.1485 15.2488 15.5703 15.4062C16.1268 15.614 16.5908 16.0126 16.8975 16.5244C17.0241 16.7357 17.1119 16.974 17.1904 17.2471C17.9851 17.2455 18.5818 17.2398 19.0615 17.1963C19.6367 17.1442 19.9625 17.0465 20.2012 16.9033C20.5769 16.6779 20.8759 16.3583 21.0674 15.9834C21.1859 15.7513 21.2533 15.4418 21.25 14.8926C21.2466 14.3329 21.1726 13.6124 21.0654 12.5801C20.9759 11.7173 20.9126 11.1191 20.8223 10.6572C20.7342 10.2072 20.6312 9.95173 20.4971 9.75879C20.2838 9.45203 19.9935 9.19749 19.6494 9.02051C19.4284 8.90687 19.1438 8.83215 18.6631 8.79199C18.1726 8.75104 17.5448 8.75 16.6465 8.75H7.35352ZM18.0088 11C18.5611 11 19.0088 11.4477 19.0088 12C19.0088 12.5523 18.5611 13 18.0088 13H18C17.4477 13 17 12.5523 17 12C17 11.4477 17.4477 11 18 11H18.0088ZM11 2.75C10.036 2.75 9.38831 2.75146 8.90527 2.81641C8.44388 2.87845 8.24652 2.9859 8.11621 3.11621C7.9859 3.24652 7.87845 3.44388 7.81641 3.90527C7.75146 4.38831 7.75 5.03599 7.75 6V7.25H16.25V6C16.25 5.03599 16.2485 4.38831 16.1836 3.90527C16.1215 3.44389 16.0141 3.24652 15.8838 3.11621C15.7535 2.9859 15.5561 2.87845 15.0947 2.81641C14.6117 2.75146 13.964 2.75 13 2.75H11Z" fill="currentColor"/></svg><span data-i18n data-ar="طباعة" data-en="Print">Print</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top"><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span></button>
+      </div>
+      <header class="page-header">
+        <div class="eyebrow" dir="ltr">AMN Design System · Enterprise Governance</div>
+        <h1 class="fw-bold mt-2 mb-2" dir="ltr">Partner Handover &amp; Contribution Governance Workflow</h1>
+        <h2 class="gv-sub" data-i18n data-ar="دورة تسليم نظام التصميم للشركاء وحوكمة المساهمات">Design system handover cycle and contribution governance for partners</h2>
+        <p class="text-muted mb-3" data-i18n data-ar="يوضّح هذا المخطط كيف تتسلّم الشركات الخارجية نظام التصميم المعتمد، وكيف تستخدمه وتقترح عليه تحسينات أو إضافات، وكيف تراجعها منصة أمن وتعتمدها وتدمجها وتنشرها، لتستفيد منها جميع المشاريع.">This chart explains how external companies receive the approved design system, how they use it and propose improvements or additions, and how AMN reviews, approves, merges and publishes them so that all projects benefit.</p>
+        <nav class="gv-nav" aria-label="Sections">
+          <a href="#flowchart"><b>A</b>Main Flowchart</a><a href="#swimlane"><b>B</b>Swimlane</a><a href="#examples"><b>C</b>Examples</a><a href="#glossary"><b>D</b>Glossary</a>
+        </nav>
+      </header>
+      <div class="metadata-row">
+        <span class="metadata-pill" data-i18n data-ar="الدليل: سير عمل الحوكمة" data-en="Guide: Governance Workflow">Guide: Governance Workflow</span>
+        <span class="metadata-pill" data-i18n data-ar="الإصدار: قيد التحديث" data-en="Version: TBD">Version: TBD</span>
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 2 نوفمبر 2026" data-en="Last updated: November 2, 2026">Last updated: November 2, 2026</span>
+        <span class="metadata-pill" data-i18n data-ar="ملكية الوثيقة: Design System Architect &amp; UX/DesignOps Lead · عمر مختار" data-en="Document ownership: Design System Architect &amp; UX/DesignOps Lead · Omar Mokhtar">Document ownership: Design System Architect &amp; UX/DesignOps Lead · Omar Mokhtar</span>
+      </div>
+      <section class="section" id="principles"><div class="section-card">
+<h2 class="section-title" dir="ltr">Governance Principles</h2><div class="section-note" data-i18n data-ar="ثمانية مبادئ أساسية تحكم كل خطوة في دورة العمل">Eight core principles that govern every step of the workflow</div>
+<div class="pgrid"><div class="pcard"><div class="p-top"><span class="p-n">01</span><b dir="ltr">Single Source of Truth</b></div><div class="p-b" data-i18n data-ar="يوجد مصدر رسمي مركزي واحد لنظام التصميم، وأي نسخة أخرى خارجه غير معتمدة.">There is one official central source for the design system; any copy outside it is not approved.</div></div><div class="pcard"><div class="p-top"><span class="p-n">02</span><b dir="ltr">Reuse First</b></div><div class="p-b" data-i18n data-ar="استخدم الموجود قبل إنشاء جديد، وقدّم طلب تحسين بدلًا من ابتكار بديل خاص بك.">Use what exists before creating something new, and submit an improvement request instead of inventing your own alternative.</div></div><div class="pcard"><div class="p-top"><span class="p-n">03</span><b dir="ltr">Controlled Contributions</b></div><div class="p-b" data-i18n data-ar="التحسينات والإضافات مسموحة، بشرط أن تُراجَع ويُتَّفق عليها قبل أي نشر.">Improvements and additions are allowed, provided they are reviewed and agreed before any publication.</div></div><div class="pcard"><div class="p-top"><span class="p-n">04</span><b dir="ltr">Central Approval</b></div><div class="p-b" data-i18n data-ar="الاعتماد النهائي مسؤولية منصة أمن (AMN Design System Owner) وليس الشركة.">Final approval is the responsibility of AMN (AMN Design System Owner), not the company.</div></div><div class="pcard"><div class="p-top"><span class="p-n">05</span><b dir="ltr">Design &amp; Code Alignment</b></div><div class="p-b" data-i18n data-ar="أي تعديل مؤثر يجب أن يُحدَّث في التصميم (Figma) وملفات SCSS/CSS معًا.">Any impactful change must be updated in the design (Figma) and the SCSS/CSS files together.</div></div><div class="pcard"><div class="p-top"><span class="p-n">06</span><b dir="ltr">Shared Improvements</b></div><div class="p-b" data-i18n data-ar="أي تحسين معتمد يكون متاحًا لجميع الشركات والمشاريع، وليس لمشروع واحد فقط.">Any approved improvement is available to all companies and projects, not to a single project only.</div></div><div class="pcard"><div class="p-top"><span class="p-n">07</span><b dir="ltr">Version Control</b></div><div class="p-b" data-i18n data-ar="تُنشر التحديثات الرسمية بإصدارات واضحة ترافقها Release Notes.">Official updates are published in clear versions accompanied by Release Notes.</div></div><div class="pcard"><div class="p-top"><span class="p-n">08</span><b dir="ltr">No Unauthorized Changes</b></div><div class="p-b" data-i18n data-ar="يُمنع تعديل المعايير المشتركة خارج آلية الحوكمة المعتمدة.">Modifying the shared standards outside the approved governance mechanism is prohibited.</div></div></div><div class="legend" aria-label="Legend"><b data-i18n data-ar="دليل الرموز">Legend</b><span class="li"><span class="lp" style="background:#1f2a37"></span><span dir="ltr">Start / End</span></span><span class="li"><span class="lp lp-st"></span><span dir="ltr">Stage</span></span><span class="li"><span class="lp lp-d"></span><span dir="ltr">Decision</span></span><span class="li"><span class="lp lp-ln" style="border-color:#1b8354"></span><span dir="ltr">Approved path</span></span><span class="li"><span class="lp lp-ln lp-dash" style="border-color:#dc6803"></span><span dir="ltr">Revision loop</span></span><span class="li"><span class="lp lp-ln" style="border-color:#d92d20"></span><span dir="ltr">Rejection</span></span></div></div></section><section class="section" id="flowchart"><div class="section-card">
+<div class="sec-head"><span class="sec-badge">A</span><div><h2 class="section-title" dir="ltr">Main Governance Flowchart</h2><div class="section-note" data-i18n data-ar="المخطط الرئيسي لدورة الحوكمة — من استلام النظام حتى نشر الإصدار المعتمد">Main chart of the governance cycle — from receiving the system to publishing the approved release</div></div></div>
+<div class="fc" id="fc"><div class="dwrap" style="grid-row:1"><div class="node term " id="n-start" style="background:#1f2a37"><b dir="ltr">START</b><div class="" data-i18n data-ar="شركة جديدة تبدأ العمل ضمن منصة أمن">A new company starts working within AMN</div></div></div><div class="dwrap" style="grid-row:2"><article class="node stage" id="n-s1" style="--c:#1b8354"><span class="st-acc"></span><header class="st-head"><span class="st-num" style="background:#1b8354">01</span><h4 class="st-en" dir="ltr">Partner Onboarding &amp; Handover</h4></header><div class="st-title" data-i18n data-ar="استلام نظام التصميم">Receiving the design system</div><div class="st-par" data-i18n data-ar="يسلّم فريق نظام التصميم الشركةَ النسخة الرسمية المعتمدة، ويحدد رقم الإصدار وقواعد الالتزام. وتؤكد الشركة الاستلام وتتحمل مسؤولية العمل بالإصدار المعتمد فقط.">The design system team hands the company the official approved version and specifies the version number and the compliance rules. The company confirms receipt and takes responsibility for working only with the approved version.</div><div class="st-owners"><span class="ochip" style="--c:#1570ef"><i></i><span class="olab" data-i18n data-ar="المسؤول:">Owner:</span><b dir="ltr">External Development Company</b></span><span class="ochip" style="--c:#1b8354"><i></i><span class="olab" data-i18n data-ar="المسؤول:">Owner:</span><b dir="ltr">AMN Design System Owner</b></span></div><div class="st-chips"><span class="chip" dir="ltr">Approved Release Version</span><span class="chip" dir="ltr">Usage Guidelines</span><span class="chip" dir="ltr">UI Patterns &amp; Templates</span><span class="chip" dir="ltr">Documentation</span><span class="chip" dir="ltr">Design Tokens</span><span class="chip" dir="ltr">SCSS/CSS</span><span class="chip" dir="ltr">Components</span><span class="chip" dir="ltr">Figma Design Libraries</span></div><div class="readonly" role="note"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><div><div class="ro-t" data-i18n data-ar="تسليم للقراءة والاستخدام فقط: SCSS/CSS">Read-only deliverable: SCSS/CSS</div><div class="ro-b" data-i18n data-ar="تُسلَّم ملفات SCSS/CSS للاستخدام فقط، ولا يحق للشركة تعديلها. وإذا احتاجت الشركة إلى تعديل أو إضافة، فتنشئه في ملف خاص بها خارج هذه الملفات، ويُراجَع معنا، ثم نتولّى نحن إدراجه في الملفات المعتمدة.">SCSS/CSS files are delivered for use only; the company is not allowed to modify them. If the company needs a change or addition, it creates it in its own separate file outside these files, it is reviewed with us, and we then add it to the approved files.</div></div></div></article></div><div class="dwrap" style="grid-row:3"><article class="node stage" id="n-s2" style="--c:#1570ef"><span class="st-acc"></span><header class="st-head"><span class="st-num" style="background:#1570ef">02</span><h4 class="st-en" dir="ltr">Design System Adoption</h4></header><div class="st-title" data-i18n data-ar="بدء استخدام النظام">Starting to use the system</div><div class="st-par" data-i18n data-ar="تصمّم الشركة المشروع وتطوّره باستخدام المكوّنات والـ Classes الموجودة، وتحافظ على الـ Structure والـ Behavior المعتمدين، وتستخدم الـ Variants والـ Tokens المتاحة بدلًا من إنشاء بدائل.">The company designs and develops the project using the existing components and classes, keeps the approved Structure and Behavior, and uses the available Variants and Tokens instead of creating alternatives.</div><div class="st-owners"><span class="ochip" style="--c:#1570ef"><i></i><span class="olab" data-i18n data-ar="المسؤول:">Owner:</span><b dir="ltr">External Development Company</b></span></div><div class="st-chips"><span class="chip" dir="ltr">Keep Structure &amp; Behavior</span><span class="chip" dir="ltr">Use Design Tokens</span><span class="chip" dir="ltr">Use existing Variants</span><span class="chip" dir="ltr">Use Components as-is</span></div></article></div><div class="dwrap" style="grid-row:4"><article class="node stage" id="n-s3" style="--c:#1570ef"><span class="st-acc"></span><header class="st-head"><span class="st-num" style="background:#1570ef">03</span><h4 class="st-en" dir="ltr">Component &amp; CSS Reuse Check</h4></header><div class="st-title" data-i18n data-ar="البحث عن الموجود">Searching for what exists</div><div class="st-par" data-i18n data-ar="قبل إنشاء Component أو CSS Class جديدة، تبحث الشركة في المكتبة والتوثيق عن حل معتمد يغطي الاحتياج.">Before creating a new Component or CSS Class, the company searches the library and documentation for an approved solution that covers the need.</div><div class="st-owners"><span class="ochip" style="--c:#1570ef"><i></i><span class="olab" data-i18n data-ar="المسؤول:">Owner:</span><b dir="ltr">External Development Company</b></span></div><div class="st-chips"><span class="chip" dir="ltr">Search SCSS/CSS Classes</span><span class="chip" dir="ltr">Search Documentation</span><span class="chip" dir="ltr">Search Figma Library</span></div></article></div><div class="dwrap" style="grid-row:5"><div class="node dia" id="n-d1"><svg class="dia-bg" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="100,2 198,50 100,98 2,50" fill="#fffaeb" stroke="#dc6803" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="dia-tag">D1</span><div class="dia-txt"><b dir="ltr">Approved solution exists?</b><div class="" data-i18n data-ar="هل يوجد حل معتمد؟">Is there an approved solution?</div></div></div><ul class="branches" id="n-d1-br"><li class="br br--ok"><b>Yes</b><div class="" data-i18n data-ar="نهاية · إعادة استخدام — استخدام الحل المعتمد">End · Reuse — use the approved solution</div></li><li class="br br--mid"><b>Needs enhancement</b><div class="" data-i18n data-ar="الانتقال إلى المرحلة 04">Go to stage 04</div></li><li class="br br--neutral"><b>No</b><div class="" data-i18n data-ar="الانتقال إلى المرحلة 04">Go to stage 04</div></li></ul></div><div class="dwrap" style="grid-row:6"><article class="node stage" id="n-s4" style="--c:#1570ef"><span class="st-acc"></span><header class="st-head"><span class="st-num" style="background:#1570ef">04</span><h4 class="st-en" dir="ltr">Contribution Request</h4></header><div class="st-title" data-i18n data-ar="طلب إضافة أو تحسين">Addition or improvement request</div><div class="st-par" data-i18n data-ar="تقدّم الشركة طلبًا يوضّح الاحتياج والحل المقترح وسبب عدم كفاية الموجود.">The company submits a request that explains the need, the proposed solution, and why the existing one is not enough.</div><div class="st-owners"><span class="ochip" style="--c:#1570ef"><i></i><span class="olab" data-i18n data-ar="المسؤول:">Owner:</span><b dir="ltr">External Development Company</b></span></div><div class="st-chips"><span class="chip" dir="ltr">Fix existing Behavior</span><span class="chip" dir="ltr">Accessibility improvement</span><span class="chip" dir="ltr">New Component</span><span class="chip" dir="ltr">New reusable CSS Class</span><span class="chip" dir="ltr">Improve CSS/SCSS Class</span><span class="chip" dir="ltr">Add new Variant</span><span class="chip" dir="ltr">Update Component design in Figma</span><span class="chip" dir="ltr">Enhance existing Component</span></div></article></div><div class="dwrap" style="grid-row:7"><article class="node stage" id="n-s5" style="--c:#1b8354"><span class="st-acc"></span><header class="st-head"><span class="st-num" style="background:#1b8354">05</span><h4 class="st-en" dir="ltr">Design System Review</h4></header><div class="st-title" data-i18n data-ar="مراجعة الطلب">Reviewing the request</div><div class="st-par" data-i18n data-ar="يراجع مسؤول نظام التصميم في منصة أمن الطلب ويتخذ القرار. والموافقة على بدء التطوير لا تعني الاعتماد النهائي للنشر.">The design system owner at AMN reviews the request and makes the decision. Approval to start development does not mean final approval for publication.</div><div class="st-owners"><span class="ochip" style="--c:#1b8354"><i></i><span class="olab" data-i18n data-ar="المسؤول:">Owner:</span><b dir="ltr">AMN Design System Owner</b></span></div><div class="st-chips"><span class="chip" dir="ltr">Check impact on shared system</span><span class="chip" dir="ltr">Check reuse alternatives</span><span class="chip" dir="ltr">Check the need</span></div></article></div><div class="dwrap" style="grid-row:8"><div class="node dia" id="n-d2"><svg class="dia-bg" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="100,2 198,50 100,98 2,50" fill="#fffaeb" stroke="#dc6803" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="dia-tag">D2</span><div class="dia-txt"><b dir="ltr">Review decision</b><div class="" data-i18n data-ar="قرار المراجعة">The review decision</div></div></div><ul class="branches" id="n-d2-br"><li class="br br--neutral"><b>① Use existing</b><div class="" data-i18n data-ar="تستخدم الشركة الحل الموجود، أو تعدّل الطلب وتقدّمه من جديد.">The company uses the existing solution, or amends the request and submits it again.</div></li><li class="br br--ok"><b>② Approve to develop</b><div class="" data-i18n data-ar="موافقة مبدئية — الانتقال إلى المرحلة 06">Initial approval — go to stage 06</div></li><li class="br br--warn"><b>③ Request changes</b><div class="" data-i18n data-ar="دورة تعديل — العودة إلى المرحلة 04">Revision loop — back to stage 04</div></li><li class="br br--bad"><b>④ Reject</b><div class="" data-i18n data-ar="نهاية · رفض — مع توضيح السبب">End · Rejected — reason explained</div></li></ul></div><div class="dwrap" style="grid-row:9"><article class="node stage" id="n-s6" style="--c:#1570ef"><span class="st-acc"></span><header class="st-head"><span class="st-num" style="background:#1570ef">06</span><h4 class="st-en" dir="ltr">Development &amp; Submission</h4></header><div class="st-title" data-i18n data-ar="التطوير وتسليم التعديل">Development and submission</div><div class="st-par" data-i18n data-ar="بعد الموافقة المبدئية، تطوّر الشركة الحل وتسلّمه للمراجعة، مستخدمةً الـ Tokens والـ Classes الموجودة قدر الإمكان.">After initial approval, the company develops the solution and submits it for review, using the existing Tokens and Classes as much as possible.</div><div class="st-owners"><span class="ochip" style="--c:#1570ef"><i></i><span class="olab" data-i18n data-ar="المسؤول:">Owner:</span><b dir="ltr">External Development Company</b></span></div><div class="st-chips"><span class="chip" dir="ltr">Usage Examples</span><span class="chip" dir="ltr">Behavior Description</span><span class="chip" dir="ltr">Variants</span><span class="chip" dir="ltr">Component States</span><span class="chip" dir="ltr">SCSS/CSS</span><span class="chip" dir="ltr">Figma Design</span></div></article></div><div class="dwrap" style="grid-row:10"><article class="node stage" id="n-s7" style="--c:#1b8354"><span class="st-acc"></span><header class="st-head"><span class="st-num" style="background:#1b8354">07</span><h4 class="st-en" dir="ltr">QA &amp; Final Approval</h4></header><div class="st-title" data-i18n data-ar="فحص الجودة والاعتماد">Quality check and approval</div><div class="st-par" data-i18n data-ar="يفحص فريق منصة أمن التعديل وفق جميع المعايير. وتعود أي ملاحظات إلى الشركة، وإذا استوفى التعديل الشروط حصل على Final Approval.">The AMN team checks the change against all criteria. Any remarks return to the company, and if the change meets the conditions it receives Final Approval.</div><div class="st-owners"><span class="ochip" style="--c:#1b8354"><i></i><span class="olab" data-i18n data-ar="المسؤول:">Owner:</span><b dir="ltr">AMN Design System Owner</b></span></div><div class="st-chips"><span class="chip" dir="ltr">Compatibility with Existing Projects</span><span class="chip" dir="ltr">Accessibility</span><span class="chip" dir="ltr">Design Tokens</span><span class="chip" dir="ltr">Code Quality</span><span class="chip" dir="ltr">Component Behavior</span><span class="chip" dir="ltr">Component Structure</span><span class="chip" dir="ltr">Design Consistency</span></div></article></div><div class="dwrap" style="grid-row:11"><div class="node dia" id="n-d3"><svg class="dia-bg" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="100,2 198,50 100,98 2,50" fill="#fffaeb" stroke="#dc6803" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="dia-tag">D3</span><div class="dia-txt"><b dir="ltr">All criteria met?</b><div class="" data-i18n data-ar="هل استُوفيت جميع المعايير؟">Have all criteria been met?</div></div></div><ul class="branches" id="n-d3-br"><li class="br br--ok"><b>Yes</b><div class="" data-i18n data-ar="الاعتماد النهائي">Final approval</div></li><li class="br br--warn"><b>No</b><div class="" data-i18n data-ar="ملاحظات تعود إلى الشركة — العودة إلى المرحلة 06">Remarks return to the company — back to stage 06</div></li></ul></div><div class="dwrap" style="grid-row:12"><div class="node term " id="n-final" style="background:#1b8354"><b dir="ltr">FINAL APPROVAL</b><div class="" data-i18n data-ar="الاعتماد النهائي من منصة أمن">Final approval by AMN</div></div></div><div class="dwrap" style="grid-row:13"><article class="node stage" id="n-s8" style="--c:#1b8354"><span class="st-acc"></span><header class="st-head"><span class="st-num" style="background:#1b8354">08</span><h4 class="st-en" dir="ltr">Central Integration &amp; Publication</h4></header><div class="st-title" data-i18n data-ar="الدمج والنشر">Merge and publish</div><div class="st-par" data-i18n data-ar="بعد الاعتماد يُدمج التعديل في المكتبة المركزية، ويُحدَّث كل ما يرتبط به، ثم يُنشر إصدار رسمي جديد متاح لجميع الشركات.">After approval the change is merged into the central library, everything related to it is updated, then a new official release is published, available to all companies.</div><div class="st-owners"><span class="ochip" style="--c:#1f2a37"><i></i><span class="olab" data-i18n data-ar="المسؤول:">Owner:</span><b dir="ltr">Central Design System Library</b></span><span class="ochip" style="--c:#1b8354"><i></i><span class="olab" data-i18n data-ar="المسؤول:">Owner:</span><b dir="ltr">AMN Design System Owner</b></span></div><div class="st-chips"><span class="chip" dir="ltr">Available to all partners</span><span class="chip" dir="ltr">Publish official version</span><span class="chip" dir="ltr">Add Release Notes entry</span><span class="chip" dir="ltr">Update Documentation</span><span class="chip" dir="ltr">Update SCSS / CSS</span><span class="chip" dir="ltr">Update Figma (if design-related)</span><span class="chip" dir="ltr">Merge into Central Library</span></div></article></div><div class="dwrap" style="grid-row:14"><div class="node term " id="n-end" style="background:#1f2a37"><b dir="ltr">END</b><div class="" data-i18n data-ar="تنتقل المشاريع إلى الإصدار الجديد وفق خطتها — وليس بالضرورة تلقائيًا">Projects move to the new version according to their plan — not necessarily automatically</div></div></div><div style="grid-row:5;align-self:center" class="node term side" id="n-reuse" style="background:#1b8354"><b dir="ltr">END · REUSE</b><div class="" data-i18n data-ar="استخدام الحل المعتمد ومتابعة التسليم">Use the approved solution and continue delivery</div></div><div style="grid-row:8;align-self:end" class="node term side" id="n-reject" style="background:#d92d20"><b dir="ltr">END · REJECTED</b><div class="" data-i18n data-ar="رفض الطلب مع توضيح السبب">Request rejected with the reason explained</div></div><div class="note-amber side node" id="n-note" style="grid-row:9;grid-column:1;align-self:start"><b dir="ltr">Approval to start ≠ Final approval</b><div class="" data-i18n data-ar="الموافقة المبدئية تعني السماح ببدء التطوير فقط، وليست الاعتماد النهائي للنشر.">Initial approval only means permission to start development; it is not the final approval for publication.</div></div><div class="gut"></div><svg class="cn-svg" id="fcSvg" aria-hidden="true"></svg><div class="cn-labs" id="fcLabs"><span class="cn-lab cn-lab--ok" data-lab="d1-yes"><span class="ar-only" data-i18n data-ar="نعم"></span><b dir="ltr">Yes</b></span><span class="cn-lab cn-lab--neu" data-lab="d1-enh"><span class="ar-only" data-i18n data-ar="تحسين حل موجود"></span><b dir="ltr">Needs enhancement</b></span><span class="cn-lab cn-lab--neu" data-lab="d1-no"><span class="ar-only" data-i18n data-ar="لا يوجد حل معتمد"></span><b dir="ltr">No</b></span><span class="cn-lab cn-lab--neu" data-lab="d2-use"><span class="ar-only" data-i18n data-ar="استخدام الموجود"></span><b dir="ltr">① Use existing</b></span><span class="cn-lab cn-lab--bad" data-lab="d2-rej"><span class="ar-only" data-i18n data-ar="رفض"></span><b dir="ltr">④ Reject</b></span><span class="cn-lab cn-lab--warn" data-lab="d2-chg"><span class="ar-only" data-i18n data-ar="طلب تعديلات أو توضيحات"></span><b dir="ltr">③ Request changes</b></span><span class="cn-lab cn-lab--ok" data-lab="d2-app"><span class="ar-only" data-i18n data-ar="موافقة مبدئية على التطوير"></span><b dir="ltr">② Approve to develop</b></span><span class="cn-lab cn-lab--warn" data-lab="d2-loop"><span class="ar-only" data-i18n data-ar="دورة تعديل"></span><b dir="ltr">Revision loop</b></span><span class="cn-lab cn-lab--warn" data-lab="d3-no"><span class="ar-only" data-i18n data-ar="ملاحظات تعود إلى الشركة"></span><b dir="ltr">No</b></span><span class="cn-lab cn-lab--warn" data-lab="d3-loop"><span class="ar-only" data-i18n data-ar="دورة تعديل"></span><b dir="ltr">Revision loop</b></span><span class="cn-lab cn-lab--ok" data-lab="d3-yes"><span class="ar-only" data-i18n data-ar="نعم"></span><b dir="ltr">Yes</b></span><span class="cn-lab cn-lab--warn" data-lab="b-chg"><span class="ar-only" data-i18n data-ar="طلب تعديلات"></span><b dir="ltr">Request changes</b></span><span class="cn-lab cn-lab--warn" data-lab="b-qa"><span class="ar-only" data-i18n data-ar="ملاحظات الفحص"></span><b dir="ltr">QA revision</b></span></div></div>
+<p class="loose" id="fc-foot"><div class="" data-i18n data-ar="بعد الاعتماد يُنشر التحديث كإصدار رسمي جديد؛ ويقرر كل مشروع موعد انتقاله إليه.">After approval the update is published as a new official release; each project decides when to move to it.</div></p>
+</div></section><section class="section" id="swimlane"><div class="section-card">
+<div class="sec-head"><span class="sec-badge">B</span><div><h2 class="section-title" dir="ltr">Swimlane Diagram</h2><div class="section-note" data-i18n data-ar="مخطط المسارات — توزيع المسؤوليات بين الشركة الخارجية وفريق منصة أمن والمكتبة المركزية">Swimlane diagram — distribution of responsibilities between the external company, the AMN team and the central library</div></div></div>
+<div class="sw" id="sw"><div class="sw-lane sw-lane--b" style="grid-column:1"></div><div class="sw-lane sw-lane--g" style="grid-column:2"></div><div class="sw-lane sw-lane--i" style="grid-column:3"></div><div class="sw-head sw-head--b" style="grid-column:1"><b dir="ltr">External Development Company</b><div class="" data-i18n data-ar="الشركة المطوّرة الخارجية">&#8203;</div></div><div class="sw-head sw-head--g" style="grid-column:2"><b dir="ltr">AMN Design System Owner / Team</b><div class="" data-i18n data-ar="مالك نظام التصميم وفريقه في منصة أمن">&#8203;</div></div><div class="sw-head sw-head--i" style="grid-column:3"><b dir="ltr">Central Design System Library</b><div class="" data-i18n data-ar="مكتبة نظام التصميم المركزية">&#8203;</div></div><div class="sw-cell" style="grid-row:2;grid-column:2"><div class="node sw-step" id="w1" style="--c:#1b8354"><span class="sw-chip" style="background:#1b8354">01</span><b dir="ltr">Deliver Official Release</b><div class="" data-i18n data-ar="تسليم النسخة الرسمية المعتمدة">Deliver the official approved version</div></div></div><div class="sw-cell" style="grid-row:3;grid-column:1"><div class="node sw-step" id="w2" style="--c:#1570ef"><span class="sw-chip" style="background:#1570ef">02</span><b dir="ltr">Adopt Design System</b><div class="" data-i18n data-ar="بدء استخدام النظام">Start using the system</div></div></div><div class="sw-cell" style="grid-row:4;grid-column:1"><div class="node sw-step" id="w3" style="--c:#1570ef"><span class="sw-chip" style="background:#1570ef">03</span><b dir="ltr">Reuse Check</b><div class="" data-i18n data-ar="البحث عن الموجود">Search for what exists</div><div class="sw-note sw-note--neu"><b dir="ltr">Existing solution fits → no request</b><div class="" data-i18n data-ar="إن وُجد حل مناسب يُستخدم دون طلب">If a suitable solution exists it is used without a request</div></div></div></div><div class="sw-cell" style="grid-row:5;grid-column:1"><div class="node sw-step" id="w4" style="--c:#1570ef"><span class="sw-chip" style="background:#1570ef">04</span><b dir="ltr">Submit Contribution Request</b><div class="" data-i18n data-ar="تقديم طلب الإضافة أو التحسين">Submit the addition or improvement request</div></div></div><div class="sw-cell" style="grid-row:6;grid-column:2"><div class="node sw-step" id="w5" style="--c:#1b8354"><span class="sw-chip" style="background:#1b8354">05</span><b dir="ltr">Review &amp; Decide</b><div class="" data-i18n data-ar="مراجعة الطلب واتخاذ القرار">Review the request and decide</div><div class="sw-note sw-note--bad"><b dir="ltr">Reject — reason documented</b><div class="" data-i18n data-ar="رفض الطلب مع بيان السبب">Request rejected with the reason stated</div></div><div class="sw-note sw-note--neu"><b dir="ltr">Redirect to existing solution</b><div class="" data-i18n data-ar="توجيه الشركة إلى الحل الموجود">Direct the company to the existing solution</div></div></div></div><div class="sw-cell" style="grid-row:7;grid-column:1"><div class="node sw-step" id="w6" style="--c:#1570ef"><span class="sw-chip" style="background:#1570ef">06</span><b dir="ltr">Develop &amp; Submit</b><div class="" data-i18n data-ar="التطوير وتسليم التعديل">Develop and submit the change</div></div></div><div class="sw-cell" style="grid-row:8;grid-column:2"><div class="node sw-step" id="w7" style="--c:#1b8354"><span class="sw-chip" style="background:#1b8354">07</span><b dir="ltr">QA &amp; Final Approval</b><div class="" data-i18n data-ar="فحص الجودة والاعتماد">Quality check and approval</div></div></div><div class="sw-cell" style="grid-row:9;grid-column:3"><div class="node sw-step" id="w8" style="--c:#1f2a37"><span class="sw-chip" style="background:#1f2a37">08</span><b dir="ltr">Merge into Central Library</b><div class="" data-i18n data-ar="الدمج في المكتبة المركزية">Merge into the central library</div></div></div><div class="sw-cell" style="grid-row:10;grid-column:3"><div class="node sw-step" id="w9" style="--c:#1f2a37"><span class="sw-chip" style="background:#1f2a37">08</span><b dir="ltr">Update Docs &amp; Release Notes</b><div class="" data-i18n data-ar="تحديث التوثيق وسجل الإصدارات">Update documentation and release notes</div></div></div><div class="sw-cell" style="grid-row:11;grid-column:3"><div class="node sw-step" id="w10" style="--c:#1f2a37"><span class="sw-chip" style="background:#1f2a37">08</span><b dir="ltr">Publish Official Release</b><div class="" data-i18n data-ar="نشر إصدار رسمي معتمد">Publish an approved official release</div></div></div><div class="sw-cell" style="grid-row:12;grid-column:1"><div class="node sw-step" id="w11" style="--c:#1570ef"><span class="sw-chip" style="background:#1570ef">Adopt</span><b dir="ltr">Adopt the New Version</b><div class="" data-i18n data-ar="اعتماد الإصدار الجديد حسب خطة المشروع">Adopt the new version per the project plan</div></div></div><svg class="cn-svg" id="swSvg" aria-hidden="true"></svg><div class="cn-labs" id="swLabs"><span class="cn-lab cn-lab--warn" data-lab="b-chg"><span class="ar-only" data-i18n data-ar="طلب تعديلات"></span><b dir="ltr">Request changes</b></span><span class="cn-lab cn-lab--warn" data-lab="b-qa"><span class="ar-only" data-i18n data-ar="ملاحظات الفحص"></span><b dir="ltr">QA revision</b></span></div></div>
+<h3 class="sub-t"><div class="" data-i18n data-ar="Who does what · من يتولّى ماذا">Who does what</div></h3><div class="roles"><div class="role" style="--c:#1570ef"><span class="r-acc"></span><b dir="ltr">Submits Request</b><div class="r-ar" style="color:#1570ef" data-i18n data-ar="يقدّم الطلب">&#8203;</div><span class="r-sp"></span><b class="r-o" dir="ltr">External Development Company</b><div class="r-oar" data-i18n data-ar="الشركة المطوّرة الخارجية">&#8203;</div></div><div class="role" style="--c:#1b8354"><span class="r-acc"></span><b dir="ltr">Reviews &amp; Decides</b><div class="r-ar" style="color:#1b8354" data-i18n data-ar="يراجع ويقرر">&#8203;</div><span class="r-sp"></span><b class="r-o" dir="ltr">AMN Design System Owner / Team</b><div class="r-oar" data-i18n data-ar="مالك نظام التصميم وفريقه">&#8203;</div></div><div class="role" style="--c:#1570ef"><span class="r-acc"></span><b dir="ltr">Develops &amp; Submits</b><div class="r-ar" style="color:#1570ef" data-i18n data-ar="يطوّر ويسلّم التعديل">&#8203;</div><span class="r-sp"></span><b class="r-o" dir="ltr">External Development Company</b><div class="r-oar" data-i18n data-ar="الشركة المطوّرة الخارجية">&#8203;</div></div><div class="role" style="--c:#1b8354"><span class="r-acc"></span><b dir="ltr">Approves (Final)</b><div class="r-ar" style="color:#1b8354" data-i18n data-ar="يعتمد نهائيًا">&#8203;</div><span class="r-sp"></span><b class="r-o" dir="ltr">AMN Design System Owner / Team</b><div class="r-oar" data-i18n data-ar="مالك نظام التصميم وفريقه">&#8203;</div></div><div class="role" style="--c:#1f2a37"><span class="r-acc"></span><b dir="ltr">Integrates &amp; Publishes</b><div class="r-ar" style="color:#1f2a37" data-i18n data-ar="يدمج وينشر">&#8203;</div><span class="r-sp"></span><b class="r-o" dir="ltr">AMN Team → Central Library</b><div class="r-oar" data-i18n data-ar="فريق منصة أمن عبر المكتبة المركزية">&#8203;</div></div></div>
+</div></section><section class="section" id="examples"><div class="section-card">
+<div class="sec-head"><span class="sec-badge">C</span><div><h2 class="section-title" dir="ltr">Practical Examples</h2><div class="section-note" data-i18n data-ar="أمثلة عملية توضّح كيف تمرّ الحالات المختلفة داخل دورة الحوكمة">Practical examples showing how different cases move through the governance cycle</div></div></div>
+<div class="exgrid"><article class="example"><span class="r-acc" style="background:#1b8354"></span><div class="ex-top"><span class="ex-n">1</span><span class="ex-k" dir="ltr">Reuse</span></div><h4 class="ex-en" dir="ltr">Use an existing Button</h4><div class="ex-ar" data-i18n data-ar="استخدام زر موجود">Use an existing button</div><div class="ex-p" data-i18n data-ar="تحتاج الشركة إلى زر إجراء رئيسي في إحدى الشاشات. تجد في المكتبة المركزية مكوّن Buttons المعتمد بمتغيراته (Variants)، فتستخدمه كما هو دون رسم زر جديد أو كتابة تنسيق خاص.">The company needs a primary action button on one of the screens. It finds the approved Buttons component with its variants in the central library and uses it as is, without drawing a new button or writing a special style.</div><div class="ex-pl" data-i18n data-ar="مسار الحالة في دورة العمل">Case path in the workflow</div><div class="ex-path"><span class="pstep pstep--b" dir="ltr">03 Reuse Check</span><span class="arr">→</span><span class="pstep pstep--d" dir="ltr">D1 · Yes</span><span class="arr">→</span><span class="pstep pstep--ok" dir="ltr">END · Reuse</span></div><div class="ex-res"><b data-i18n data-ar="النتيجة">Result</b><div class="" data-i18n data-ar="لا حاجة إلى أي طلب؛ يستمر التسليم باستخدام المكوّن المعتمد.">No request is needed; delivery continues using the approved component.</div></div></article><article class="example"><span class="r-acc" style="background:#1b8354"></span><div class="ex-top"><span class="ex-n">2</span><span class="ex-k" dir="ltr">Enhancement</span><span class="ex-h" data-i18n data-ar="سيناريو افتراضي للتوضيح">Hypothetical scenario for illustration</span></div><h4 class="ex-en" dir="ltr">Enhance an existing Table</h4><div class="ex-ar" data-i18n data-ar="تحسين جدول موجود">Improve an existing table</div><div class="ex-p" data-i18n data-ar="تحتاج الشركة إلى سلوك إضافي لم يغطِّه مكوّن moi-table المعتمد (مثل خيار جديد لإجراءات الصفوف). وبدل بناء جدول بديل، تقدّم طلب تحسين على المكوّن نفسه مع شرح الحاجة وسبب عدم كفاية الموجود.">The company needs extra behavior that the approved moi-table component does not cover (such as a new option for row actions). Instead of building a replacement table, it submits an improvement request on the same component explaining the need and why the existing one is not enough.</div><div class="ex-pl" data-i18n data-ar="مسار الحالة في دورة العمل">Case path in the workflow</div><div class="ex-path"><span class="pstep pstep--b" dir="ltr">03 Reuse Check</span><span class="arr">→</span><span class="pstep pstep--d" dir="ltr">D1 · Enhance</span><span class="arr">→</span><span class="pstep pstep--b" dir="ltr">04 Request</span><span class="arr">→</span><span class="pstep pstep--ok" dir="ltr">05 Review</span><span class="arr">→</span><span class="pstep pstep--b" dir="ltr">06 Develop</span><span class="arr">→</span><span class="pstep pstep--ok" dir="ltr">07 QA</span><span class="arr">→</span><span class="pstep pstep--ok" dir="ltr">08 Publish</span></div><div class="ex-res"><b data-i18n data-ar="النتيجة">Result</b><div class="" data-i18n data-ar="يتحسّن المكوّن المركزي، فتستفيد منه جميع المشاريع بعد اعتماد الإصدار الجديد.">The central component improves, and all projects benefit after the new release is approved.</div></div></article><article class="example"><span class="r-acc" style="background:#1b8354"></span><div class="ex-top"><span class="ex-n">3</span><span class="ex-k" dir="ltr">Code</span><span class="ex-h" data-i18n data-ar="سيناريو افتراضي للتوضيح">Hypothetical scenario for illustration</span></div><h4 class="ex-en" dir="ltr">Extend an SCSS class</h4><div class="ex-ar" data-i18n data-ar="تعديل فئة SCSS">Extend an SCSS class</div><div class="ex-p" data-i18n data-ar="تحتاج الشركة إلى نمط معلوماتي محايد لنص المساعدة أسفل الحقول. تقترح مُعدِّلًا جديدًا للفئة الموجودة helper-row (على غرار المُعدِّلات القائمة مثل is-warning) مبنيًا على الـ Design Tokens المتاحة بدل كتابة ألوان مباشرة.">The company needs a neutral informational style for helper text under fields. It proposes a new modifier for the existing helper-row class (like the existing modifiers such as is-warning) built on the available Design Tokens instead of writing colors directly.</div><div class="ex-pl" data-i18n data-ar="مسار الحالة في دورة العمل">Case path in the workflow</div><div class="ex-path"><span class="pstep pstep--d" dir="ltr">D1 · Enhance</span><span class="arr">→</span><span class="pstep pstep--b" dir="ltr">04 Request</span><span class="arr">→</span><span class="pstep pstep--ok" dir="ltr">05 Review</span><span class="arr">→</span><span class="pstep pstep--b" dir="ltr">06 Develop</span><span class="arr">→</span><span class="pstep pstep--ok" dir="ltr">07 QA</span><span class="arr">→</span><span class="pstep pstep--ok" dir="ltr">08 Publish</span></div><div class="ex-res"><b data-i18n data-ar="النتيجة">Result</b><div class="" data-i18n data-ar="تُدمج الفئة في SCSS المركزي وتُوثَّق، وتصبح متاحة لجميع الشركات.">The class is merged into the central SCSS and documented, and becomes available to all companies.</div></div></article><article class="example"><span class="r-acc" style="background:#1b8354"></span><div class="ex-top"><span class="ex-n">4</span><span class="ex-k" dir="ltr">New Variant</span><span class="ex-h" data-i18n data-ar="سيناريو افتراضي للتوضيح">Hypothetical scenario for illustration</span></div><h4 class="ex-en" dir="ltr">Add a new Variant</h4><div class="ex-ar" data-i18n data-ar="إضافة Variant جديد">Add a new variant</div><div class="ex-p" data-i18n data-ar="ترغب الشركة في حالة عرض جديدة لمكوّن Tag، الذي يحتوي أصلًا على خاصية Status بقيم متعددة. تطلب إضافة Variant جديد يلتزم ببنية الخصائص نفسها (Size / Variant) بدل رسم وسم مستقل خارج المكتبة.">The company wants a new display state for the Tag component, which already has a Status property with several values. It requests a new Variant that follows the same property structure (Size / Variant) instead of drawing a standalone tag outside the library.</div><div class="ex-pl" data-i18n data-ar="مسار الحالة في دورة العمل">Case path in the workflow</div><div class="ex-path"><span class="pstep pstep--d" dir="ltr">D1 · Enhance</span><span class="arr">→</span><span class="pstep pstep--b" dir="ltr">04 Request</span><span class="arr">→</span><span class="pstep pstep--ok" dir="ltr">05 Review</span><span class="arr">→</span><span class="pstep pstep--b" dir="ltr">06 Develop</span><span class="arr">→</span><span class="pstep pstep--ok" dir="ltr">07 QA</span><span class="arr">→</span><span class="pstep pstep--ok" dir="ltr">08 Publish</span></div><div class="ex-res"><b data-i18n data-ar="النتيجة">Result</b><div class="" data-i18n data-ar="يُضاف الـ Variant إلى المكوّن المركزي في Figma ويُوثَّق، ويُتاح عند نشر الإصدار الجديد.">The variant is added to the central component in Figma and documented, and becomes available when the new release is published.</div></div></article><article class="example"><span class="r-acc" style="background:#1b8354"></span><div class="ex-top"><span class="ex-n">5</span><span class="ex-k" dir="ltr">Figma Design</span><span class="ex-h" data-i18n data-ar="سيناريو افتراضي للتوضيح">Hypothetical scenario for illustration</span></div><h4 class="ex-en" dir="ltr">Update a component design in Figma</h4><div class="ex-ar" data-i18n data-ar="تحديث تصميم مكوّن في Figma">Update a component design in Figma</div><div class="ex-p" data-i18n data-ar="تقترح الشركة تحسين الشكل البصري لحالة محددة في مكوّن moi-uploader. تسلّم التصميم في Figma متضمنًا الحالات (States) ووصف السلوك، مع ما يقابله من SCSS/CSS إن تأثّر الكود.">The company proposes improving the visual look of a specific state in the moi-uploader component. It submits the design in Figma including the States and the behavior description, with the matching SCSS/CSS if the code is affected.</div><div class="ex-pl" data-i18n data-ar="مسار الحالة في دورة العمل">Case path in the workflow</div><div class="ex-path"><span class="pstep pstep--b" dir="ltr">04 Request</span><span class="arr">→</span><span class="pstep pstep--ok" dir="ltr">05 Review</span><span class="arr">→</span><span class="pstep pstep--b" dir="ltr">06 Develop</span><span class="arr">→</span><span class="pstep pstep--ok" dir="ltr">07 QA</span><span class="arr">→</span><span class="pstep pstep--ok" dir="ltr">08 Update Figma &amp; Docs</span></div><div class="ex-res"><b data-i18n data-ar="النتيجة">Result</b><div class="" data-i18n data-ar="يتحدّث المكوّن الرئيسي في المكتبة المركزية، وتتحدّث النسخ المرتبطة به بعد نشر المكتبة.">The main component in the central library is updated, and linked copies update after the library is published.</div></div></article></div><div class="exnote"><b data-i18n data-ar="ملاحظة">Note</b><div class="" data-i18n data-ar="الأمثلة السابقة توضيحية لتبسيط الفكرة؛ أما أسماء المكوّنات والفئات المذكورة فمأخوذة من النظام الحالي. وأي طلب فعلي يمرّ بالمراحل نفسها، ويُقيَّم بحسب الاحتياج الفعلي ولا يُعدّ أيٌّ من هذه السيناريوهات اعتمادًا مسبقًا.">The examples above are illustrative to simplify the idea; the component and class names mentioned are taken from the current system. Any real request goes through the same stages and is assessed by its actual need; none of these scenarios counts as pre-approval.</div></div></div></section><section class="section" id="glossary"><div class="section-card">
+<div class="sec-head"><span class="sec-badge">D</span><div><h2 class="section-title" dir="ltr">Glossary of Terms</h2><div class="section-note" data-i18n data-ar="مسرد المصطلحات المستخدمة في المخططات، بتعريفات مبسّطة لفرق التصميم والتطوير والإدارة">Glossary of the terms used in the charts, with simplified definitions for design, development and management teams</div></div></div>
+<table class="gloss"><thead><tr><th>English Term</th><th data-i18n data-ar="التعريف">Definition</th><th data-i18n data-ar="معناه في سياق منصة أمن">Meaning in the AMN context</th><th data-i18n data-ar="مثال">Example</th></tr></thead><tbody><tr><th scope="row" dir="ltr">Design System</th><td><div class="" data-i18n data-ar="مجموعة معتمدة من المكوّنات والقواعد والأصول التي توحّد شكل المنتجات وسلوكها.">An approved set of components, rules and assets that unify the look and behavior of products.</div></td><td><div class="" data-i18n data-ar="النظام المركزي لمنصة أمن (AMN) الذي تعتمد عليه جميع المشاريع والشركات.">The central AMN system on which all projects and companies rely.</div></td><td><div class="" data-i18n data-ar="Figma + SCSS/CSS + التوثيق.">Figma + SCSS/CSS + documentation.</div></td></tr><tr><th scope="row" dir="ltr">Governance</th><td><div class="" data-i18n data-ar="إطار القواعد والأدوار الذي يحدد كيف تُتخذ القرارات وتُعتمد التغييرات.">The framework of rules and roles that defines how decisions are made and changes approved.</div></td><td><div class="" data-i18n data-ar="آلية المراجعة والاعتماد المركزي لأي تغيير على النظام المشترك.">The central review and approval mechanism for any change to the shared system.</div></td><td><div class="" data-i18n data-ar="طلب تحسين لا يُنشر قبل مراجعته.">An improvement request is not published before it is reviewed.</div></td></tr><tr><th scope="row" dir="ltr">Workflow</th><td><div class="" data-i18n data-ar="تسلسل منظّم من الخطوات ونقاط القرار من البداية حتى النهاية.">An organized sequence of steps and decision points from start to end.</div></td><td><div class="" data-i18n data-ar="مسار تسليم النظام واقتراح التحسينات واعتمادها ونشرها.">The path for delivering the system and proposing, approving and publishing improvements.</div></td><td><div class="" data-i18n data-ar="المخطط الرئيسي (A).">The main chart (A).</div></td></tr><tr><th scope="row" dir="ltr">Handover</th><td><div class="" data-i18n data-ar="نقل النسخة الرسمية من النظام إلى جهة ستستخدمه مع قواعد استخدامه.">Transferring the official version of the system to a party that will use it, with its usage rules.</div></td><td><div class="" data-i18n data-ar="تسليم الموارد المعتمدة للشركة عند بدء عملها ضمن منصة أمن.">Delivering the approved resources to the company when it starts working within AMN.</div></td><td><div class="" data-i18n data-ar="تسليم مكتبات Figma وملفات SCSS/CSS والتوثيق.">Delivering Figma libraries, SCSS/CSS files and documentation.</div></td></tr><tr><th scope="row" dir="ltr">Onboarding</th><td><div class="" data-i18n data-ar="خطوات تعريف الجهة الجديدة بالنظام وأدواته وقواعده.">Steps to introduce a new party to the system, its tools and rules.</div></td><td><div class="" data-i18n data-ar="استقبال الشركة الجديدة وتعريفها بالإصدار المعتمد وبمسؤولياتها.">Welcoming the new company and introducing it to the approved version and its responsibilities.</div></td><td><div>—</div></td></tr><tr><th scope="row" dir="ltr">External Development Company</th><td><div class="" data-i18n data-ar="جهة خارجية تنفّذ مشاريع ضمن منصة أمن.">An external party that carries out projects within AMN.</div></td><td><div class="" data-i18n data-ar="الطرف الذي يستخدم النظام ويقدّم طلبات التحسين والإضافة.">The party that uses the system and submits improvement and addition requests.</div></td><td><div class="" data-i18n data-ar="شركة تطوّر وحدة جديدة في المنصة.">A company developing a new module on the platform.</div></td></tr><tr><th scope="row" dir="ltr">AMN Design System Owner</th><td><div class="" data-i18n data-ar="الجهة المسؤولة عن مراجعة تغييرات النظام واعتمادها.">The party responsible for reviewing and approving system changes.</div></td><td><div class="" data-i18n data-ar="الفريق المخوّل بالقرار النهائي في منصة أمن.">The team authorized to make the final decision at AMN.</div></td><td><div class="" data-i18n data-ar="الموافقة المبدئية والاعتماد النهائي.">Initial approval and final approval.</div></td></tr><tr><th scope="row" dir="ltr">Central Library</th><td><div class="" data-i18n data-ar="المصدر الرسمي الوحيد للمكوّنات والأنماط والكود المعتمد.">The single official source of approved components, styles and code.</div></td><td><div class="" data-i18n data-ar="تتجمّع فيها نسخ Figma وSCSS/CSS والتوثيق المعتمدة.">Gathers the approved Figma, SCSS/CSS and documentation versions.</div></td><td><div class="" data-i18n data-ar="مكتبة Figma المركزية.">The central Figma library.</div></td></tr><tr><th scope="row" dir="ltr">Single Source of Truth</th><td><div class="" data-i18n data-ar="مبدأ يقضي بوجود مصدر رسمي واحد للمعلومة.">A principle requiring a single official source for information.</div></td><td><div class="" data-i18n data-ar="أي نسخة خارج المكتبة المركزية لا تُعدّ معتمدة.">Any copy outside the central library is not considered approved.</div></td><td><div>—</div></td></tr><tr><th scope="row" dir="ltr">Component</th><td><div class="" data-i18n data-ar="عنصر واجهة قابل لإعادة الاستخدام له بنية وسلوك محددان.">A reusable interface element with a defined structure and behavior.</div></td><td><div class="" data-i18n data-ar="وحدة البناء الأساسية في النظام.">The basic building unit of the system.</div></td><td><div class="" data-i18n data-ar="Buttons، moi-table، moi-uploader.">Buttons, moi-table, moi-uploader.</div></td></tr><tr><th scope="row" dir="ltr">Variant</th><td><div class="" data-i18n data-ar="صيغة معتمدة من المكوّن تختلف في الحجم أو الحالة أو النوع.">An approved form of a component that differs in size, state or type.</div></td><td><div class="" data-i18n data-ar="يُستخدم الموجود منها بدل رسم بدائل.">The existing ones are used instead of drawing alternatives.</div></td><td><div class="" data-i18n data-ar="قيم Status في مكوّن Tag.">Status values in the Tag component.</div></td></tr><tr><th scope="row" dir="ltr">Design Tokens</th><td><div class="" data-i18n data-ar="قيم تصميم مسمّاة (ألوان، مسافات، خطوط) تُستخدم بدل القيم المباشرة.">Named design values (colors, spacing, fonts) used instead of direct values.</div></td><td><div class="" data-i18n data-ar="تضمن اتساق الشكل بين Figma والكود.">They ensure visual consistency between Figma and the code.</div></td><td><div>$Primary-600</div></td></tr><tr><th scope="row" dir="ltr">CSS / SCSS Class</th><td><div class="" data-i18n data-ar="فئة تنسيق قابلة لإعادة الاستخدام في كود الواجهة.">A reusable styling class in interface code.</div></td><td><div class="" data-i18n data-ar="الجزء البرمجي المقابل للتصميم المعتمد.">The code counterpart of the approved design.</div></td><td><div class="" data-i18n data-ar="helper-row مع المُعدِّل is-warning.">helper-row with the is-warning modifier.</div></td></tr><tr><th scope="row" dir="ltr">UI Patterns &amp; Templates</th><td><div class="" data-i18n data-ar="أنماط وقوالب جاهزة لشاشات أو أجزاء متكررة من الواجهة.">Ready-made patterns and templates for recurring screens or parts of the interface.</div></td><td><div class="" data-i18n data-ar="تُسرّع التصميم وتحافظ على الاتساق بين المشاريع.">They speed up design and keep projects consistent.</div></td><td><div>—</div></td></tr><tr><th scope="row" dir="ltr">Usage Guidelines</th><td><div class="" data-i18n data-ar="إرشادات تشرح متى وكيف يُستخدم كل عنصر.">Guidance explaining when and how each element is used.</div></td><td><div class="" data-i18n data-ar="جزء من حزمة التسليم المعتمدة للشركة.">Part of the approved delivery package for the company.</div></td><td><div>—</div></td></tr><tr><th scope="row" dir="ltr">Reuse Check</th><td><div class="" data-i18n data-ar="فحص الموجود قبل إنشاء أي عنصر جديد.">Checking what exists before creating any new element.</div></td><td><div class="" data-i18n data-ar="خطوة لازمة قبل أي طلب إضافة.">A required step before any addition request.</div></td><td><div class="" data-i18n data-ar="البحث في مكتبة Figma والتوثيق.">Searching the Figma library and the documentation.</div></td></tr><tr><th scope="row" dir="ltr">Decision Point</th><td><div class="" data-i18n data-ar="موضع في المخطط يتفرّع منه المسار بحسب إجابة محددة.">A point in the chart where the path branches according to a specific answer.</div></td><td><div class="" data-i18n data-ar="يظهر على شكل معيّن (D1، D2، D3) في المخطط الرئيسي.">Appears as a diamond (D1, D2, D3) in the main chart.</div></td><td><div class="" data-i18n data-ar="هل يوجد حل معتمد؟">Is there an approved solution?</div></td></tr><tr><th scope="row" dir="ltr">Contribution Request</th><td><div class="" data-i18n data-ar="طلب تقدّمه الشركة لتحسين النظام أو الإضافة إليه.">A request the company submits to improve or add to the system.</div></td><td><div class="" data-i18n data-ar="يوضّح الاحتياج والحل المقترح وسبب عدم كفاية الموجود.">Explains the need, the proposed solution and why the existing one is not enough.</div></td><td><div class="" data-i18n data-ar="طلب إضافة Variant جديد.">A request to add a new Variant.</div></td></tr><tr><th scope="row" dir="ltr">Design System Review</th><td><div class="" data-i18n data-ar="فحص الطلب واتخاذ قرار بشأنه من مالك النظام.">Examining the request and deciding on it by the system owner.</div></td><td><div class="" data-i18n data-ar="قراراته: استخدام الموجود، موافقة مبدئية، طلب تعديل، أو رفض.">Its decisions: use the existing, initial approval, request changes, or reject.</div></td><td><div>—</div></td></tr><tr><th scope="row" dir="ltr">Initial Approval</th><td><div class="" data-i18n data-ar="موافقة تسمح ببدء التطوير فقط.">An approval that allows starting development only.</div></td><td><div class="" data-i18n data-ar="لا تعني الاعتماد النهائي ولا النشر.">It does not mean final approval or publication.</div></td><td><div>—</div></td></tr><tr><th scope="row" dir="ltr">QA</th><td><div class="" data-i18n data-ar="فحص الجودة وفق معايير محددة قبل الاعتماد.">Quality check against defined criteria before approval.</div></td><td><div class="" data-i18n data-ar="يشمل الاتساق والبنية والسلوك والكود والـ Tokens وإمكانية الوصول.">Covers consistency, structure, behavior, code, Tokens and accessibility.</div></td><td><div>—</div></td></tr><tr><th scope="row" dir="ltr">Revision Loop</th><td><div class="" data-i18n data-ar="عودة العمل إلى الجهة المطوّرة لاستكمال الملاحظات.">Work returning to the developing party to complete the remarks.</div></td><td><div class="" data-i18n data-ar="تحدث عند طلب تعديلات أو عدم استيفاء معايير الفحص.">Occurs when changes are requested or the check criteria are not met.</div></td><td><div class="" data-i18n data-ar="العودة من QA إلى التطوير.">Returning from QA to development.</div></td></tr><tr><th scope="row" dir="ltr">Final Approval</th><td><div class="" data-i18n data-ar="القرار النهائي بقبول التعديل ودمجه في النظام.">The final decision to accept the change and merge it into the system.</div></td><td><div class="" data-i18n data-ar="مسؤولية منصة أمن وحدها.">The responsibility of AMN alone.</div></td><td><div>—</div></td></tr><tr><th scope="row" dir="ltr">Accessibility</th><td><div class="" data-i18n data-ar="تصميم الواجهات بحيث يستطيع جميع المستخدمين استخدامها.">Designing interfaces so that all users can use them.</div></td><td><div class="" data-i18n data-ar="أحد معايير الفحص قبل الاعتماد النهائي.">One of the check criteria before final approval.</div></td><td><div>—</div></td></tr><tr><th scope="row" dir="ltr">Release Notes</th><td><div class="" data-i18n data-ar="سجل مختصر بالتغييرات في كل إصدار.">A brief log of the changes in each release.</div></td><td><div class="" data-i18n data-ar="يُحدَّث عند نشر أي إضافة معتمدة.">Updated when any approved addition is published.</div></td><td><div>—</div></td></tr><tr><th scope="row" dir="ltr">Official Release</th><td><div class="" data-i18n data-ar="إصدار رسمي معتمد من النظام برقم واضح.">An official approved release of the system with a clear number.</div></td><td><div class="" data-i18n data-ar="تتبنّاه المشاريع حسب خطتها، ولا تتحدّث تلقائيًا.">Projects adopt it according to their plan; they do not update automatically.</div></td><td><div>—</div></td></tr><tr><th scope="row" dir="ltr">Swimlane Diagram</th><td><div class="" data-i18n data-ar="مخطط يوزّع الخطوات على مسارات بحسب الجهة المسؤولة.">A chart that distributes the steps over lanes according to the responsible party.</div></td><td><div class="" data-i18n data-ar="المخطط B في هذه الوثيقة.">Chart B in this document.</div></td><td><div>—</div></td></tr><tr><th scope="row" dir="ltr">Integration &amp; Publication</th><td><div class="" data-i18n data-ar="دمج التعديل المعتمد في المكتبة المركزية ثم نشره.">Merging the approved change into the central library and then publishing it.</div></td><td><div class="" data-i18n data-ar="المرحلة 08 في المخطط الرئيسي.">Stage 08 in the main chart.</div></td><td><div>—</div></td></tr></tbody></table></div></section>
+      <footer class="doc-footer">
+        <span data-i18n data-ar="نظام تصميم أمن · سير عمل تسليم الشركاء وحوكمة المساهمات">AMN Design System · Partner Handover &amp; Contribution Governance Workflow</span>
+      </footer>
+    </div>
+  </main>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      try { var ql = new URLSearchParams(location.search).get('lang'); if (ql === 'ar' || ql === 'en') localStorage.setItem('ps-lang', ql); } catch (e) {}
+      function syncPdf() {
+        var a = document.getElementById('gvPdf'); if (!a) return;
+        var lang = document.documentElement.lang === 'ar' ? 'ar' : 'en';
+        var href = a.getAttribute('data-' + lang); a.setAttribute('href', href); a.setAttribute('download', href.split('/').pop());
+      }
+      new MutationObserver(syncPdf).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+      document.addEventListener('DOMContentLoaded', function () { setTimeout(syncPdf, 0); });
+      var NS = 'http://www.w3.org/2000/svg';
+      var COL = { g: '#374151', ok: '#1b8354', bad: '#d92d20', warn: '#dc6803' };
+      function rel(el, box) {
+        var r = el.getBoundingClientRect(), b = box.getBoundingClientRect();
+        return { l: r.left - b.left, r: r.right - b.left, t: r.top - b.top, b: r.bottom - b.top, w: r.width, h: r.height,
+                 cx: (r.left + r.right) / 2 - b.left, cy: (r.top + r.bottom) / 2 - b.top };
+      }
+      function prep(svg) {
+        var d = '';
+        Object.keys(COL).forEach(function (k) {
+          d += '<marker id="ah-' + svg.id + '-' + k + '" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0L10 5L0 10z" fill="' + COL[k] + '"/></marker>';
+        });
+        svg.innerHTML = '<defs>' + d + '</defs>';
+      }
+      function seg(p, i) { return [(p[i][0] + p[i + 1][0]) / 2, (p[i][1] + p[i + 1][1]) / 2]; }
+      function draw(svg, labsBox, def) {
+        var p = def.pts;
+        var path = document.createElementNS(NS, 'path');
+        path.setAttribute('d', 'M' + p.map(function (q) { return q[0].toFixed(1) + ' ' + q[1].toFixed(1); }).join(' L'));
+        path.setAttribute('fill', 'none'); path.setAttribute('stroke', COL[def.c]); path.setAttribute('stroke-width', '2.2');
+        if (def.dash) path.setAttribute('stroke-dasharray', '8 6');
+        path.setAttribute('marker-end', 'url(#ah-' + svg.id + '-' + def.c + ')');
+        svg.appendChild(path);
+        if (def.lab) {
+          var el = labsBox.querySelector('[data-lab="' + def.lab[0] + '"]');
+          if (el) { var m = seg(p, def.lab[1]); el.hidden = false; el.style.left = m[0] + 'px'; el.style.top = m[1] + 'px'; }
+        }
+      }
+      function dia(R, side, dy) { var k = 1 - Math.min(1, Math.abs(dy) / (R.h / 2)); return [R.cx + side * (R.w / 2) * k, R.cy + dy]; }
+      function down(a, b) { return [[a.cx, a.b], [a.cx, b.t]]; }
+
+      function layoutA() {
+        var box = document.getElementById('fc'), svg = document.getElementById('fcSvg'), labs = document.getElementById('fcLabs');
+        if (!box) return; prep(svg);
+        labs.querySelectorAll('.cn-lab').forEach(function (l) { l.hidden = true; });
+        var narrow = box.getBoundingClientRect().width < 980;
+        box.classList.toggle('fc--narrow', narrow);
+        if (narrow) {
+          var ws = [].slice.call(box.querySelectorAll(':scope > .dwrap')).map(function (w) { return rel(w, box); });
+          for (var q = 0; q < ws.length - 1; q++) draw(svg, labs, { pts: [[ws[q].cx, ws[q].b], [ws[q].cx, ws[q + 1].t]], c: 'g' });
+          return;
+        }
+        var R = function (id) { return rel(document.getElementById(id), box); };
+        var s = { start: R('n-start'), s1: R('n-s1'), s2: R('n-s2'), s3: R('n-s3'), d1: R('n-d1'), s4: R('n-s4'), s5: R('n-s5'), d2: R('n-d2'), s6: R('n-s6'), s7: R('n-s7'), d3: R('n-d3'), fin: R('n-final'), s8: R('n-s8'), end: R('n-end'), reuse: R('n-reuse'), rej: R('n-reject') };
+        var gut = rel(box.querySelector('.gut'), box);
+        var out = s.reuse.cx > s.d1.cx ? 1 : -1, loop = -out;
+        var g1 = gut.cx + 22 * out, g2 = gut.cx - 22 * out;
+        var edge = function (R2, side, y) { return [side > 0 ? R2.r : R2.l, y]; };
+        var D = [];
+        var spine = [['start', 's1', 'g'], ['s1', 's2', 'g'], ['s2', 's3', 'g'], ['s3', 'd1', 'g'], ['d1', 's4', 'g', 'd1-no'], ['s4', 's5', 'g'], ['s5', 'd2', 'g'], ['d2', 's6', 'ok', 'd2-app'], ['s6', 's7', 'g'], ['s7', 'd3', 'g'], ['d3', 'fin', 'ok', 'd3-yes'], ['fin', 's8', 'g'], ['s8', 'end', 'g']];
+        spine.forEach(function (e) { D.push({ pts: down(s[e[0]], s[e[1]]), c: e[2], lab: e[3] ? [e[3], 0] : null }); });
+        // D1 -> END REUSE (yes)
+        var y1 = s.d1.cy; D.push({ pts: [dia(s.d1, out, 0), [out > 0 ? s.reuse.l : s.reuse.r, y1]], c: 'ok', lab: ['d1-yes', 0] });
+        // D1 -> stage 4 (needs enhancement)
+        var y4a = s.s4.t + s.s4.h * 0.3;
+        D.push({ pts: [dia(s.d1, loop, 0), [g1, y1], [g1, y4a], edge(s.s4, loop, y4a)], c: 'g', lab: ['d1-enh', 0] });
+        // D2 -> END REUSE (use existing), D2 -> END REJECTED, D2 -> stage 4 (request changes)
+        var yu = s.d2.cy - 40;
+        D.push({ pts: [dia(s.d2, out, -40), [s.reuse.cx, yu], [s.reuse.cx, s.reuse.b]], c: 'g', lab: ['d2-use', 0] });
+        var yr = s.d2.cy + 55;
+        D.push({ pts: [dia(s.d2, out, 55), [out > 0 ? s.rej.l : s.rej.r, yr]], c: 'bad', lab: ['d2-rej', 0] });
+        var y4b = s.s4.t + s.s4.h * 0.72;
+        D.push({ pts: [dia(s.d2, loop, 0), [g2, s.d2.cy], [g2, y4b], edge(s.s4, loop, y4b)], c: 'warn', dash: 1, lab: ['d2-chg', 0] });
+        // D3 -> stage 6 (revision loop)
+        D.push({ pts: [dia(s.d3, loop, 0), [g1, s.d3.cy], [g1, s.s6.cy], edge(s.s6, loop, s.s6.cy)], c: 'warn', dash: 1, lab: ['d3-no', 0] });
+        D.forEach(function (d) { draw(svg, labs, d); });
+        // secondary "Revision loop" labels on the vertical dashed segments
+        var set = function (id, x, y) { var el = labs.querySelector('[data-lab="' + id + '"]'); if (el) { el.hidden = false; el.style.left = x + 'px'; el.style.top = y + 'px'; } };
+        set('d2-loop', g2, (s.d2.cy + y4b) / 2); set('d3-loop', g1, (s.d3.cy + s.s6.cy) / 2);
+      }
+
+      function layoutB() {
+        var box = document.getElementById('sw'), svg = document.getElementById('swSvg'), labs = document.getElementById('swLabs');
+        if (!box) return; prep(svg);
+        labs.querySelectorAll('.cn-lab').forEach(function (l) { l.hidden = true; });
+        var W = []; for (var i = 1; i <= 11; i++) W.push(rel(document.getElementById('w' + i), box));
+        for (var k = 0; k < 10; k++) {
+          var a = W[k], b = W[k + 1], c = (k === 6 || k === 9) ? 'ok' : 'g';
+          var pts;
+          if (Math.abs(a.cx - b.cx) < 2) pts = [[a.cx, a.b], [b.cx, b.t]];
+          else { var my = (a.b + b.t) / 2; pts = [[a.cx, a.b], [a.cx, my], [b.cx, my], [b.cx, b.t]]; }
+          draw(svg, labs, { pts: pts, c: c });
+        }
+        function loop(from, to, lab) { // from = later step, to = earlier step (return path in the gap between the two columns)
+          var a = W[from - 1], b = W[to - 1], s = Math.sign(b.cx - a.cx) || 1;
+          var xa = s > 0 ? a.r : a.l, xb = s > 0 ? b.l : b.r, gx = (xa + xb) / 2;
+          var ya = a.cy - 16, yb = b.cy + 16;
+          draw(svg, labs, { pts: [[xa, ya], [gx, ya], [gx, yb], [xb, yb]], c: 'warn', dash: 1, lab: [lab, 1] });
+        }
+        loop(5, 4, 'b-chg'); loop(7, 6, 'b-qa');
+      }
+
+      function all() { layoutA(); layoutB(); }
+      document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('.print-btn')) { all(); window.print(); } });
+      if (window.matchMedia) { var mq = window.matchMedia('print'); var onp = function () { all(); setTimeout(all, 50); }; if (mq.addEventListener) mq.addEventListener('change', onp); else mq.addListener(onp); }
+      window.addEventListener('beforeprint', all); window.addEventListener('afterprint', function () { setTimeout(all, 50); });
+      var t; function later() { clearTimeout(t); t = setTimeout(all, 60); }
+      window.addEventListener('load', all); window.addEventListener('resize', later);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(all);
+      document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('.lang-toggle')) { later(); setTimeout(all, 300); } });
+      if (window.ResizeObserver) { var ro = new ResizeObserver(later); ['fc', 'sw'].forEach(function (id) { var el = document.getElementById(id); if (el) ro.observe(el); }); }
+    })();
+
+  </script>
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

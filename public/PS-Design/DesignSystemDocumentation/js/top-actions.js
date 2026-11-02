@@ -1,3 +1,248 @@
+(function protectDocs() {
+  // Strict anti-inspect layer for every docs page (all pages load this file).
+  // Client-side code can only deter, not guarantee: see the notes in the project docs.
+  // Owner switch: set to false only to debug these pages yourself. Everyone else gets the protection, localhost included.
+  var PROTECT_ENABLED = true;
+  if (!PROTECT_ENABLED) {
+    return;
+  }
+
+  var locked = false;
+  var OWNER_ROLE = "Design System Architect & UX/DesignOps Lead · Omar Mokhtar";
+  function copy() {
+    var ar = document.documentElement.lang === "ar";
+    return {
+      dir: ar ? "rtl" : "ltr",
+      title: ar ? "لا يمكن الفحص" : "Inspection is not allowed",
+      body: ar
+        ? "هذه الصفحة محمية. محتواها وتصميمها وكودها ملك لصاحبها."
+        : "This page is protected. Its content, design and code belong to their owner.",
+      label: ar ? "ملكية الوثيقة" : "Document ownership",
+      close: ar ? "إغلاق" : "Close",
+      cont: ar ? "متابعة" : "Continue",
+      hint: ar ? "أغلق أدوات المطوّر أولًا ثم اضغط متابعة." : "Close the developer tools first, then press Continue.",
+    };
+  }
+
+  // Builds the message card. `mode` is "notice" (dismissible dialog) or "lock" (DevTools are open).
+  function buildCard(mode, onAction) {
+    var c = copy();
+    var wrap = document.createElement("div");
+    wrap.setAttribute("role", "alertdialog");
+    wrap.setAttribute("aria-modal", "true");
+    wrap.dir = c.dir;
+    wrap.style.cssText =
+      "position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;padding:20px;font-family:system-ui,'IBM Plex Sans Arabic',sans-serif;" +
+      (mode === "lock" ? "background:#f4f7f5;" : "background:rgba(17,25,39,.55);backdrop-filter:blur(3px);");
+    var card = document.createElement("div");
+    card.style.cssText =
+      "width:min(92vw,460px);background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(17,25,39,.28);text-align:center;";
+    var band = document.createElement("div");
+    band.style.cssText = "background:#14573a;padding:26px 20px 22px;color:#fff;";
+    var icon = document.createElement("div");
+    icon.style.cssText =
+      "width:52px;height:52px;margin:0 auto 12px;border-radius:50%;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;";
+    icon.innerHTML =
+      '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+    var title = document.createElement("div");
+    title.style.cssText = "font-size:20px;font-weight:700;";
+    title.textContent = c.title;
+    band.appendChild(icon);
+    band.appendChild(title);
+    var inner = document.createElement("div");
+    inner.style.cssText = "padding:20px 22px 22px;display:grid;gap:14px;";
+    var body = document.createElement("div");
+    body.style.cssText = "color:#4b5563;font-size:14px;line-height:1.8;";
+    body.textContent = c.body;
+    var owner = document.createElement("div");
+    owner.style.cssText = "background:#f3fcf6;border:1px solid #b8eacb;border-radius:12px;padding:10px 14px;text-align:start;";
+    var lab = document.createElement("div");
+    lab.style.cssText = "font-size:12px;font-weight:700;color:#166a45;letter-spacing:.02em;";
+    lab.textContent = c.label;
+    var val = document.createElement("div");
+    val.dir = "ltr";
+    val.style.cssText = "font-size:13.5px;font-weight:600;color:#111927;text-align:start;";
+    val.textContent = OWNER_ROLE;
+    owner.appendChild(lab);
+    owner.appendChild(val);
+    var hint = document.createElement("div");
+    hint.style.cssText = "display:none;color:#b54708;font-size:13px;";
+    hint.textContent = c.hint;
+    var button = document.createElement("button");
+    button.type = "button";
+    button.textContent = mode === "lock" ? c.cont : c.close;
+    button.style.cssText =
+      "justify-self:center;min-width:150px;padding:10px 22px;border:1px solid #111927;border-radius:6px;background:#111927;color:#fcfcfd;font:600 14px system-ui,'IBM Plex Sans Arabic',sans-serif;cursor:pointer;";
+    button.addEventListener("click", function () {
+      onAction(hint);
+    });
+    inner.appendChild(body);
+    inner.appendChild(owner);
+    inner.appendChild(hint);
+    inner.appendChild(button);
+    card.appendChild(band);
+    card.appendChild(inner);
+    wrap.appendChild(card);
+    window.setTimeout(function () {
+      button.focus();
+    }, 0);
+    return wrap;
+  }
+
+  function closeNotice() {
+    var existing = document.getElementById("ps-protect-notice");
+    if (existing) {
+      existing.remove();
+    }
+  }
+
+  function showNotice() {
+    if (locked || document.getElementById("ps-protect-notice")) {
+      return;
+    }
+    var dialog = buildCard("notice", closeNotice);
+    dialog.id = "ps-protect-notice";
+    dialog.addEventListener("click", function (event) {
+      if (event.target === dialog) {
+        closeNotice();
+      }
+    });
+    (document.body || document.documentElement).appendChild(dialog);
+  }
+
+  window.addEventListener(
+    "keydown",
+    function (event) {
+      if (event.key === "Escape") {
+        closeNotice();
+      }
+    },
+    true,
+  );
+
+  // ---- 1. Context menu, drag, and every DevTools / view-source shortcut ----
+  function stop(event, notify) {
+    event.preventDefault();
+    event.stopPropagation();
+    if (notify) {
+      showNotice();
+    }
+    return false;
+  }
+  document.addEventListener("dragstart", stop, true);
+  ["contextmenu"].forEach(function (name) {
+    document.addEventListener(name, function (event) { stop(event, true); }, true);
+  });
+  window.addEventListener(
+    "keydown",
+    function (event) {
+      var key = (event.key || "").toLowerCase();
+      var cmdOrCtrl = event.ctrlKey || event.metaKey;
+      var panels = ["i", "j", "c", "k", "e", "m", "p"];
+      if (
+        event.keyCode === 123 || // F12
+        key === "f12" ||
+        (cmdOrCtrl && event.shiftKey && panels.indexOf(key) > -1) || // Ctrl/Cmd + Shift + I, J, C, K, E, M, P
+        (cmdOrCtrl && event.altKey && ["i", "j", "c", "u", "k"].indexOf(key) > -1) || // Cmd + Option + I, J, C, U, K (macOS)
+        (cmdOrCtrl && ["u", "s"].indexOf(key) > -1 && !event.shiftKey) // view-source, save page
+      ) {
+        stop(event, true);
+      }
+    },
+    true,
+  );
+
+  // ---- 2. Silence the console so nothing useful is printed there ----
+  var rawDebug = console.debug ? console.debug.bind(console) : function () {};
+  try {
+    ["log", "info", "warn", "error", "debug", "table", "dir", "trace"].forEach(function (name) {
+      console[name] = function () {};
+    });
+  } catch (error) {}
+
+  // ---- 3. Detect an open DevTools and lock the page while it stays open ----
+  var baseline = {
+    dpr: window.devicePixelRatio,
+    dw: window.outerWidth - window.innerWidth,
+    dh: window.outerHeight - window.innerHeight,
+  };
+  var debuggerHit = false;
+  var consoleHit = false;
+
+  function setLocked(state) {
+    if (state === locked) {
+      return;
+    }
+    if (!state) {
+      // DevTools closed again: reload so the page comes back clean.
+      window.location.reload();
+      return;
+    }
+    locked = true;
+    // Wipe the page from the DOM so the Elements panel shows nothing while DevTools is open.
+    if (document.body) {
+      document.body.innerHTML = "";
+      document.body.className = "";
+    }
+    var overlay = buildCard("lock", function (hint) {
+      // Continue only works once DevTools are closed again; then the page reloads clean.
+      if (sizeCheck() || debuggerCheck() || consoleCheck()) {
+        hint.style.display = "block";
+      } else {
+        window.location.reload();
+      }
+    });
+    overlay.id = "ps-protect-lock";
+    (document.body || document.documentElement).appendChild(overlay);
+  }
+
+  function sizeCheck() {
+    // Docked DevTools shrinks the viewport without changing the window; browser zoom changes the pixel ratio, so it is ignored.
+    if (window.devicePixelRatio !== baseline.dpr) {
+      baseline.dpr = window.devicePixelRatio;
+      baseline.dw = window.outerWidth - window.innerWidth;
+      baseline.dh = window.outerHeight - window.innerHeight;
+      return false;
+    }
+    var dw = window.outerWidth - window.innerWidth;
+    var dh = window.outerHeight - window.innerHeight;
+    return dw - baseline.dw > 160 || dh - baseline.dh > 160;
+  }
+
+  function consoleCheck() {
+    // Chrome/Edge evaluate getters of logged objects only while the console is open.
+    var probe = new Image();
+    Object.defineProperty(probe, "id", {
+      get: function () {
+        consoleHit = true;
+        return "";
+      },
+    });
+    consoleHit = false;
+    rawDebug(probe);
+    return consoleHit;
+  }
+
+  function debuggerCheck() {
+    var start = performance.now();
+    (function () {}.constructor("debugger")());
+    debuggerHit = performance.now() - start > 120;
+    return debuggerHit;
+  }
+
+  var hits = 0;
+  function evaluate() {
+    // Two consecutive detections are required so a single stall or resize glitch never locks the page.
+    var detected = sizeCheck() || debuggerCheck() || consoleCheck();
+    hits = detected ? hits + 1 : 0;
+    setLocked(hits >= 2);
+  }
+
+  window.addEventListener("resize", evaluate);
+  window.setInterval(evaluate, 700);
+  document.addEventListener("DOMContentLoaded", evaluate);
+})();
+
 (function () {
   const STORAGE_KEY = "ps-lang";
   const DOC_GROUPS = [
@@ -6,6 +251,7 @@
       ar: null,
       pages: [
         { file: "index.html", en: "Introduction", ar: "نظرة عامة" },
+        { file: "governance-workflow.html", en: "Governance Workflow", ar: "سير عمل الحوكمة" },
         { file: "changelog.html", en: "Release Notes", ar: "سجل التغييرات" },
       ],
     },
