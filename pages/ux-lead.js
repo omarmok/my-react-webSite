@@ -65,8 +65,8 @@ export default function UXLead() {
         }
         description={
           isRTL
-            ? "أكثر من 19 عامًا من قيادة استراتيجية تجربة المستخدم وحوكمة التصميم وتسليم المنتج للمنصات الحكومية والمؤسسية في المملكة العربية السعودية."
-            : "Over 19 years of leading UX strategy, design governance, and product delivery for government and enterprise platforms across Saudi Arabia."
+            ? "تمتد خلفيتي المهنية عبر تصميم تجربة المستخدم والواجهات وتنفيذ الواجهات الأمامية، مع تركيز حالي على قيادة تجربة المستخدم وأنظمة التصميم وعمليات التصميم."
+            : "My background spans UX/UI design and front-end implementation, with my current focus on UX leadership, design systems, and DesignOps."
         }
         actions={[
           {
@@ -240,8 +240,8 @@ export default function UXLead() {
               margin: "0 0 16px",
             }}>
             {isRTL
-              ? "قيادة UX عبر القطاعات الرئيسية"
-              : "UX Leadership Across Key Sectors"}
+              ? "تصميم تجربة المستخدم والتسليم عبر القطاعات الرئيسية"
+              : "UX Design and Delivery Across Key Sectors"}
           </h2>
           <Rule />
           <p
@@ -253,8 +253,8 @@ export default function UXLead() {
               maxWidth: "68ch",
             }}>
             {isRTL
-              ? "عبر أكثر من 19 عامًا، قدت جهود UX في قطاعات الحكومة والإسكان والتعليم والمؤسسات. كل سياق جاء بمتطلبات مختلفة — من امتثال الوصول للمنصات الحكومية إلى تحديات توسع نظم التصميم في بيئات المؤسسات الكبيرة."
-              : "Over 19+ years, I have led UX efforts across government, housing, education, and enterprise sectors. Each context brought distinct requirements — from compliance on government platforms to design system scaling challenges in large enterprise environments."}
+              ? "يشمل عملي في القطاعات الحكومية والإسكان والتعليم والمؤسسات تصميم تجربة المستخدم والواجهات وتنفيذ الواجهات الأمامية. قدت جهود UX/UI ضمن فريق من أربعة أشخاص في مشروع هيئة حقوق الإنسان. وفي دوري الحالي، أدير عمليات UX وحوكمة التصميم وتطوير أنظمة التصميم."
+              : "My work across government, housing, education, and enterprise platforms spans UX/UI design and front-end implementation. I led UX/UI within a four-person team on the Human Rights Commission project. In my current role, I manage UX processes, design governance, and design systems."}
           </p>
           <div
             style={{

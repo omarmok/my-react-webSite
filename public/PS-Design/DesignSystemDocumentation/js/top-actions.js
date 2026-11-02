@@ -285,6 +285,7 @@
       ar: "الأسس",
       pages: [
         { file: "ColorSystem.html", en: "Color System", ar: "نظام الألوان" },
+        { file: "themes.html", en: "Themes (Light & Dark)", ar: "الثيمات (فاتح وداكن)" },
         { file: "typography.html", en: "Typography", ar: "الطباعة" },
         { file: "iconography.html", en: "Iconography", ar: "الأيقونات" },
         { file: "spacing.html", en: "Spacing", ar: "التباعد" },
@@ -299,6 +300,7 @@
       pages: [
         { file: "buttons.html", en: "Buttons", ar: "الأزرار" },
         { file: "text-fields.html", en: "Text Fields", ar: "حقول النص" },
+        { file: "checkbox.html", en: "Checkbox", ar: "مربع الاختيار" },
         { file: "treeselect.html", en: "Tree Select", ar: "القائمة الشجرية" },
         { file: "datepicker.html", en: "Date Picker", ar: "منتقي التاريخ" },
         { file: "switch.html", en: "Switches", ar: "مفاتيح التبديل" },
@@ -323,7 +325,6 @@
         { file: "sweet-alert.html", en: "Sweet Alert", ar: "التنبيهات المنبثقة" },
         { file: "modal.html", en: "Modal", ar: "النافذة" },
         { file: "tooltip.html", en: "Tooltip", ar: "التلميح" },
-        { file: "empty-state.html", en: "Empty State", ar: "الحالة الفارغة" },
       ],
     },
     {
@@ -333,8 +334,20 @@
         { file: "table.html", en: "Table", ar: "الجدول" },
         { file: "card.html", en: "Card", ar: "البطاقة" },
         { file: "tags.html", en: "Tags", ar: "الوسوم" },
+        { file: "avatar.html", en: "Avatar", ar: "الصورة الرمزية" },
+        { file: "charts.html", en: "Charts", ar: "المخططات" },
         { file: "timeline.html", en: "Timeline", ar: "الخط الزمني" },
         { file: "map.html", en: "Map", ar: "الخريطة" },
+      ],
+    },
+    {
+      en: "Patterns",
+      ar: "الأنماط",
+      pages: [
+        { file: "empty-state.html", en: "Empty State", ar: "الحالة الفارغة" },
+        { file: "error-pages.html", en: "Error Pages", ar: "صفحات الخطأ" },
+        { file: "session-expired.html", en: "Session Expired", ar: "انتهاء الجلسة" },
+        { file: "inquiry-person.html", en: "Inquiry Person", ar: "الاستعلام عن شخص" },
       ],
     },
     {
@@ -343,6 +356,9 @@
       pages: [
         { file: "personcard.html", en: "Person Card", ar: "بطاقة الشخص" },
         { file: "Entity.html", en: "Entity Card", ar: "كارت المنشأة" },
+        { file: "vehicle-card.html", en: "Vehicle Card", ar: "بطاقة المركبة" },
+        { file: "image-card.html", en: "Image Card", ar: "بطاقة الصورة" },
+        { file: "authentication.html", en: "Authentication", ar: "المصادقة" },
       ],
     },
   ];

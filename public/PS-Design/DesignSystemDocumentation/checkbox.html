@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkbox | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  
+    .docs-table { width:100%; border-collapse:collapse; font-size:.9rem; }
+    .docs-table th { text-align:start; background:#f3f4f6; padding:10px 12px; font-weight:700; border-bottom:1px solid #e5e7eb; }
+    .docs-table td { padding:10px 12px; border-bottom:1px solid #eef0f3; vertical-align:top; color:#374151; }
+    .docs-table code, .code-inline { font-size:.82rem; }
+    .demo { padding:18px; border:1px dashed #d2d6db; border-radius:12px; background:#fcfcfd; display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin:12px 0; }
+    .demo .cap { font-size:.75rem; color:#6c737f; display:block; margin-top:4px; text-align:center; }
+    .dd-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:12px; }
+    .dd-card { border-radius:12px; padding:14px 18px; border:1px solid; }
+    .dd-card h4 { margin:0 0 6px; font-size:1rem; } .dd-card ul { margin:0; padding-inline-start:18px; display:grid; gap:6px; font-size:.9rem; }
+    .dd-do { background:#f3fcf6; border-color:#b8eacb; } .dd-do h4 { color:#166a45; }
+    .dd-dont { background:#fef3f2; border-color:#fecdca; } .dd-dont h4 { color:#b42318; }
+    .st-row { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 10px; }
+    .st-pill { border-radius:999px; padding:3px 12px; font-size:.78rem; font-weight:600; border:1px solid; }
+    .st-ok { background:#f3fcf6; color:#166a45; border-color:#b8eacb; } .st-warn { background:#fffaeb; color:#b54708; border-color:#fedf89; } .st-todo { background:#f3f4f6; color:#4d5761; border-color:#d2d6db; }
+    .sub-t { font-size:1.05rem; font-weight:700; margin:22px 0 6px; }
+    .swatch { display:inline-block; width:18px; height:18px; border-radius:4px; border:1px solid rgba(0,0,0,.12); vertical-align:middle; }
+  </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav"></nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top"><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span></button>
+      </div>
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="الإجراءات والنماذج / مربع الاختيار">Actions & Forms / Checkbox</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="مربع الاختيار">Checkbox</h1>
+        <p class="text-muted mb-0" data-i18n data-ar="تشغيل خيار أو إيقافه، أو اختيار عدة خيارات من قائمة.">Turn one option on or off, or choose several from a list.</p>
+      </header>
+      <div class="metadata-row"><span class="metadata-pill" data-i18n data-ar="المكوّن: مربع الاختيار">Component: Checkbox</span><span class="metadata-pill" data-i18n data-ar="الملفات: _checkbox.scss">Files: _checkbox.scss</span><span class="metadata-pill" data-i18n data-ar="آخر تحديث: 2 نوفمبر 2026">Last updated: November 2, 2026</span></div>
+<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2><div class="st-row"><span class="st-pill st-ok" data-i18n data-ar="مربع الاختيار: موجود في الكود">Checkbox: in code</span><span class="st-pill st-warn" data-i18n data-ar="زر الاختيار: داخل صفحة واحدة فقط ويحتاج موافقة المالك">Radio: page-scoped only, needs owner approval</span></div><p class="section-note" data-i18n data-ar="يتيح مربع الاختيار للمستخدم تشغيل خيار أو إيقافه، أو اختيار عدة خيارات من قائمة. ينسَّق فوق ‎&lt;code class=&quot;code-inline&quot;&gt;.form-check-input&lt;/code&gt;‎ في ‎&lt;code class=&quot;code-inline&quot;&gt;css/common/_checkbox.scss&lt;/code&gt;‎ ويطابق مكوّن «Checkbox» في Figma (16×16 ونصف قطر 4 وحد 2px؛ غير محدد / محدد / مختلط × افتراضي / معطّل / تركيز).">A checkbox lets the user turn one option on or off, or pick several options from a list. It is styled on top of Bootstrap's <code class="code-inline">.form-check-input</code> in <code class="code-inline">css/common/_checkbox.scss</code>, and matches the Figma «Checkbox» component (16×16, radius 4, 2px border; Unchecked / Checked / Mixed × Default / Disabled / Focused).</p></div></section>
+<section class="section" id="anatomy"><div class="section-card"><h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2><ul class="accessibility-list"><li data-i18n data-ar="&lt;b&gt;المربع&lt;/b&gt; — ‎&lt;code&gt;.form-check-input&lt;/code&gt;‎ بحجم 16×16."><b>Box</b> — <code>.form-check-input</code>, 16×16.</li><li data-i18n data-ar="&lt;b&gt;النص&lt;/b&gt; — ‎&lt;code&gt;.form-check-label&lt;/code&gt;‎ موجود دائمًا ومرتبط بـ ‎&lt;code&gt;for&lt;/code&gt;‎."><b>Label</b> — <code>.form-check-label</code>, always present and linked with <code>for</code>.</li><li data-i18n data-ar="&lt;b&gt;الغلاف&lt;/b&gt; — ‎&lt;code&gt;.form-check&lt;/code&gt;‎ يبقي المربع والنص في سطر واحد."><b>Wrapper</b> — <code>.form-check</code> keeps box and label on one line.</li></ul></div></section>
+<section class="section" id="states"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الحالات">States</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الحالة">State</th><th scope="col" data-i18n data-ar="المحدد">Selector</th><th scope="col" data-i18n data-ar="الشكل">Look</th></tr></thead><tbody><tr><td data-i18n data-ar="غير محدد">Unchecked</td><td><code>.form-check-input[type="checkbox"]</code></td><td data-i18n data-ar="16×16 بحد 2px بلون &lt;code&gt;$Neutral-300&lt;/code&gt; ونصف قطر &lt;code&gt;$radius-xs&lt;/code&gt; وخلفية بيضاء">16×16, 2px border <code>$Neutral-300</code>, radius <code>$radius-xs</code>, white fill</td></tr><tr><td data-i18n data-ar="محدد">Checked</td><td><code>:checked</code></td><td data-i18n data-ar="خلفية وحد &lt;code&gt;$Primary-600&lt;/code&gt; مع علامة صح بيضاء (أيقونة &lt;code&gt;tick-02&lt;/code&gt;)"><code>$Primary-600</code> fill and border, white tick (system icon <code>tick-02</code>)</td></tr><tr><td data-i18n data-ar="مختلط">Mixed</td><td><code>:indeterminate</code></td><td data-i18n data-ar="نفس لون المحدد مع شرطة بيضاء (&lt;code&gt;minus-sign&lt;/code&gt; بحجم 12px)">Same fill as checked, white dash (<code>minus-sign</code>, 12px)</td></tr><tr><td data-i18n data-ar="التركيز">Focus</td><td><code>:focus</code></td><td data-i18n data-ar="يصبح الحد &lt;code&gt;$Primary-600&lt;/code&gt;">Border becomes <code>$Primary-600</code></td></tr><tr><td data-i18n data-ar="التركيز بالكيبورد">Focus (keyboard)</td><td><code>:focus-visible</code></td><td data-i18n data-ar="حلقة: فراغ أبيض 2px ثم 2px بلون &lt;code&gt;$Primary-600&lt;/code&gt;">Ring: 2px white gap + 2px <code>$Primary-600</code></td></tr><tr><td data-i18n data-ar="معطّل">Disabled</td><td><code>:disabled</code></td><td data-i18n data-ar="خلفية &lt;code&gt;$Neutral-200&lt;/code&gt; وحد &lt;code&gt;$Neutral-300&lt;/code&gt; والنص &lt;code&gt;$Neutral-400&lt;/code&gt; ومؤشر ممنوع"><code>$Neutral-200</code> fill, <code>$Neutral-300</code> border, label <code>$Neutral-400</code>, not-allowed cursor</td></tr><tr><td data-i18n data-ar="محدد أو مختلط ومعطّل">Checked / mixed + disabled</td><td><code>:checked:disabled</code></td><td data-i18n data-ar="خلفية وحد &lt;code&gt;$Neutral-300&lt;/code&gt;"><code>$Neutral-300</code> fill and border</td></tr></tbody></table></div></div></section>
+<section class="section" id="live"><div class="section-card"><h2 class="section-title" data-i18n data-ar="مثال حي">Live example</h2><div class="demo" id="cbDemo">
+  <div class="form-check"><input class="form-check-input" type="checkbox" id="cb-off"><label class="form-check-label" for="cb-off" data-i18n data-ar="غير محدد">Unchecked</label></div>
+  <div class="form-check"><input class="form-check-input" type="checkbox" id="cb-on" checked><label class="form-check-label" for="cb-on" data-i18n data-ar="محدد">Checked</label></div>
+  <div class="form-check"><input class="form-check-input" type="checkbox" id="cb-mixed"><label class="form-check-label" for="cb-mixed" data-i18n data-ar="مختلط">Mixed</label></div>
+  <div class="form-check"><input class="form-check-input" type="checkbox" id="cb-dis" disabled><label class="form-check-label" for="cb-dis" data-i18n data-ar="معطّل">Disabled</label></div>
+  <div class="form-check"><input class="form-check-input" type="checkbox" id="cb-ondis" checked disabled><label class="form-check-label" for="cb-ondis" data-i18n data-ar="محدد ومعطّل">Checked, disabled</label></div>
+</div><p class="section-note" data-i18n data-ar="جرّب الكيبورد (Tab وSpace) لترى التركيز والتبديل.">Use the keyboard (Tab, Space) to see focus and toggling.</p></div></section>
+<section class="section" id="code"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الكود">Code</h2><div class="code-block"><pre><code class="language-html">&lt;div class=&quot;form-check&quot;&gt;
+  &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;terms&quot;&gt;
+  &lt;label class=&quot;form-check-label&quot; for=&quot;terms&quot;&gt;أوافق على الشروط&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;!-- Mixed (indeterminate) is a JS property, not an attribute --&gt;
+&lt;script&gt;document.getElementById(&quot;select-all&quot;).indeterminate = true;&lt;/script&gt;</code></pre></div></div></section>
+<section class="section" id="radio"><div class="section-card"><h2 class="section-title" data-i18n data-ar="حالة زر الاختيار (Radio)">Radio status</h2><p class="section-note" data-i18n data-ar="لا يوجد مكوّن مشترك لزر الاختيار حتى الآن. النمط الوحيد في المشروع (‎&lt;code class=&quot;code-inline&quot;&gt;label.radio&lt;/code&gt;‎ مع ‎&lt;code class=&quot;code-inline&quot;&gt;input[type=&quot;radio&quot;]&lt;/code&gt;‎) محصور داخل ‎&lt;code class=&quot;code-inline&quot;&gt;#Accidents&lt;/code&gt;‎ في ‎&lt;code class=&quot;code-inline&quot;&gt;css/common/_common.scss&lt;/code&gt;‎. أُلغيت محاولة سابقة لتعميمه بفئة جديدة لأن إضافة فئة عامة تحتاج موافقة المالك. إلى حينها لا تنسخ النمط المحصور إلى شاشات أخرى، واطلب مكوّن Radio مشتركًا.">There is no shared radio component yet. The only radio style in the project (<code class="code-inline">label.radio</code> with <code class="code-inline">input[type="radio"]</code>) is scoped inside <code class="code-inline">#Accidents</code> in <code class="code-inline">css/common/_common.scss</code>. A previous attempt to centralize it with a new wrapper class was reverted, because adding a public class needs the owner's approval. Until then, do not copy the scoped style into other screens: ask for a shared Radio.</p></div></section>
+<section class="section" id="accessibility"><div class="section-card"><h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2><ul class="accessibility-list"><li data-i18n data-ar="لكل مربع نص ظاهر مرتبط بـ ‎&lt;code&gt;for&lt;/code&gt;/&lt;code&gt;id&lt;/code&gt;‎، والضغط على النص يبدّل المربع.">Every box needs a visible label connected with <code>for</code>/<code>id</code>; clicking the label toggles the box.</li><li data-i18n data-ar="الكيبورد: ‎&lt;code&gt;Tab&lt;/code&gt;‎ للتنقل و‎&lt;code&gt;Space&lt;/code&gt;‎ للتبديل. حلقة التركيز تظهر لمستخدم الكيبورد فقط.">Keyboard: <code>Tab</code> moves between boxes, <code>Space</code> toggles. The focus ring appears for keyboard users only (<code>:focus-visible</code>).</li><li data-i18n data-ar="اجمع المربعات المترابطة في ‎&lt;code&gt;fieldset&lt;/code&gt;‎ مع ‎&lt;code&gt;legend&lt;/code&gt;‎.">Group related boxes in a <code>fieldset</code> with a <code>legend</code>.</li><li data-i18n data-ar="الحالة المختلطة بصرية فقط: اعرض الحالة الفعلية (مثل العدد) لقارئ الشاشة أيضًا.">Mixed state is visual only: also expose the real state (for example, a count) to screen readers.</li></ul></div></section>
+<section class="section" id="do-dont"><div class="section-card"><h2 class="section-title" data-i18n data-ar="افعل ولا تفعل">Do & Don't</h2><div class="dd-grid"><div class="dd-card dd-do"><h4 data-i18n data-ar="افعل">Do</h4><ul><li data-i18n data-ar="استخدمه للاختيارات المستقلة (نعم/لا) وقوائم الاختيار المتعدد.">Use a checkbox for independent yes/no choices and multi-select lists.</li><li data-i18n data-ar="اكتب النص بحيث يُقرأ كعبارة صحيحة عند التحديد.">Write the label so it reads as a true statement when checked.</li></ul></div><div class="dd-card dd-dont"><h4 data-i18n data-ar="لا تفعل">Don't</h4><ul><li data-i18n data-ar="لا تستخدمه عندما يُسمح بخيار واحد فقط.">Do not use a checkbox when only one option may be chosen.</li><li data-i18n data-ar="لا تخفِ النص ولا تعتمد على اللون وحده.">Do not hide the label or rely on color alone.</li></ul></div></div></div></section>
+<section class="section" id="rtl"><div class="section-card"><h2 class="section-title" data-i18n data-ar="ملاحظات RTL">RTL notes</h2><ul class="accessibility-list"><li data-i18n data-ar="يقع المربع في جهة بداية النص فيظهر يمين النص بالعربية؛ والتخطيط ينعكس مع ‎&lt;code&gt;dir&lt;/code&gt;‎ دون فئة إضافية.">The box sits at the start side of the label, so it appears on the right in Arabic; the layout mirrors with <code>dir</code>, no extra class.</li><li data-i18n data-ar="علامة الصح والشرطة متماثلتان ولا تُعكسان.">The tick and dash are symmetrical and are not mirrored.</li></ul></div></section>
+
+    </div>
+  </main>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>document.getElementById("cb-mixed").indeterminate = true;</script>
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

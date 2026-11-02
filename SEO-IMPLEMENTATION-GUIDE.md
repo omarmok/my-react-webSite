@@ -76,7 +76,7 @@
 
 2. **Case Studies**
    - "Redesigning Government Portal: A UX Case Study"
-   - "Mobile-First Design: Lessons from 17 Years of Experience"
+   - "Mobile-First Design: Lessons from UX/UI Design and Front-End Practice"
 
 3. **Technical Articles**
    - "Advanced SVG Techniques for Web Design"

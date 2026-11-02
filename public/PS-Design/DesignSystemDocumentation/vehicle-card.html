@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vehicle Card | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  
+    .docs-table { width:100%; border-collapse:collapse; font-size:.9rem; }
+    .docs-table th { text-align:start; background:#f3f4f6; padding:10px 12px; font-weight:700; border-bottom:1px solid #e5e7eb; }
+    .docs-table td { padding:10px 12px; border-bottom:1px solid #eef0f3; vertical-align:top; color:#374151; }
+    .docs-table code, .code-inline { font-size:.82rem; }
+    .demo { padding:18px; border:1px dashed #d2d6db; border-radius:12px; background:#fcfcfd; display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin:12px 0; }
+    .demo .cap { font-size:.75rem; color:#6c737f; display:block; margin-top:4px; text-align:center; }
+    .dd-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:12px; }
+    .dd-card { border-radius:12px; padding:14px 18px; border:1px solid; }
+    .dd-card h4 { margin:0 0 6px; font-size:1rem; } .dd-card ul { margin:0; padding-inline-start:18px; display:grid; gap:6px; font-size:.9rem; }
+    .dd-do { background:#f3fcf6; border-color:#b8eacb; } .dd-do h4 { color:#166a45; }
+    .dd-dont { background:#fef3f2; border-color:#fecdca; } .dd-dont h4 { color:#b42318; }
+    .st-row { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 10px; }
+    .st-pill { border-radius:999px; padding:3px 12px; font-size:.78rem; font-weight:600; border:1px solid; }
+    .st-ok { background:#f3fcf6; color:#166a45; border-color:#b8eacb; } .st-warn { background:#fffaeb; color:#b54708; border-color:#fedf89; } .st-todo { background:#f3f4f6; color:#4d5761; border-color:#d2d6db; }
+    .sub-t { font-size:1.05rem; font-weight:700; margin:22px 0 6px; }
+    .swatch { display:inline-block; width:18px; height:18px; border-radius:4px; border:1px solid rgba(0,0,0,.12); vertical-align:middle; }
+  </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav"></nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top"><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span></button>
+      </div>
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="مكوّنات الأعمال / بطاقة المركبة">Business Components / Vehicle Card</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="بطاقة المركبة">Vehicle Card</h1>
+        <p class="text-muted mb-0" data-i18n data-ar="ملخص مركبة يُستخدم في الاستعلامات وسجلات الحالات.">A vehicle summary used in inquiries and case records.</p>
+      </header>
+      <div class="metadata-row"><span class="metadata-pill" data-i18n data-ar="المكوّن: Car Component">Component: Car Component</span><span class="metadata-pill" data-i18n data-ar="الملفات: _vehiclemodal.scss">Files: _vehiclemodal.scss</span><span class="metadata-pill" data-i18n data-ar="آخر تحديث: 2 نوفمبر 2026">Last updated: November 2, 2026</span></div>
+<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2><div class="st-row"><span class="st-pill st-ok" data-i18n data-ar="Figma: moi-vehicle-card">Figma: moi-vehicle-card</span><span class="st-pill st-warn" data-i18n data-ar="الكود: قديم ومحصور بالصفحات">Code: legacy, page-scoped</span></div><p class="section-note" data-i18n data-ar="تلخّص بطاقة المركبة المركبة في نتائج الاستعلام وسجلات الحالات: اللوحة والماركة والموديل والحالة وأهم بيانات التسجيل. تضم صفحة «Business Components / Car Component» في Figma أيضًا ‎&lt;code class=&quot;code-inline&quot;&gt;car-info&lt;/code&gt;‎ و‎&lt;code class=&quot;code-inline&quot;&gt;carComponent&lt;/code&gt;‎ (إحصائيات) وكتل المالك والمستخدم والتفاصيل، ومكوّن السلاح على النمط نفسه.">The vehicle card summarizes a vehicle in inquiry results and case records: plate, make and model, status and key registration data. Figma «Business Components / Car Component» also holds <code class="code-inline">car-info</code>, <code class="code-inline">carComponent</code> (statistics) and owner/user/details blocks, plus a weapon component built on the same pattern.</p></div></section>
+<section class="section" id="figma"><div class="section-card"><h2 class="section-title" data-i18n data-ar="مكوّن Figma">Figma component</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="خاصية Figma">Figma property</th><th scope="col" data-i18n data-ar="المعنى">Meaning</th></tr></thead><tbody><tr><td><code>plate-no</code></td><td data-i18n data-ar="رقم اللوحة (حروف وأرقام عربية ولاتينية)">Plate number (letters and digits, Arabic and Latin)</td></tr><tr><td><code>brand</code> · <code>model</code> · <code>year</code> · <code>color</code></td><td data-i18n data-ar="الماركة والموديل والسنة واللون">Make, model, year and color</td></tr><tr><td><code>registration-type</code></td><td data-i18n data-ar="نوع التسجيل">Registration type</td></tr><tr><td><code>chassis-no</code></td><td data-i18n data-ar="رقم الهيكل">Chassis number</td></tr><tr><td><code>insurance-status</code></td><td data-i18n data-ar="حالة التأمين تظهر كوسم">Insurance status shown as a tag</td></tr><tr><td><code>action btns</code></td><td data-i18n data-ar="أزرار إجراء اختيارية في الرأس">Optional action buttons in the header</td></tr></tbody></table></div></div></section>
+<section class="section" id="code-status"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الموجود في الكود">What exists in code</h2><ul class="accessibility-list"><li data-i18n data-ar="لا توجد فئة مشتركة ‎&lt;code&gt;.moi-vehicle-card&lt;/code&gt;‎ بعد. تُعرض المركبات ببطاقة قديمة محصورة بالصفحات ‎&lt;code&gt;.newIms--inquiryDs--card&lt;/code&gt;‎ (راجع ‎&lt;code&gt;Inquiry/car.html&lt;/code&gt;‎): رأس بالصورة والحالة وجسم بحقول للقراءة فقط.">No shared <code>.moi-vehicle-card</code> class yet. Vehicles render with the legacy page-scoped card <code>.newIms--inquiryDs--card</code> (see <code>Inquiry/car.html</code>): header with image and status, body with read-only fields.</li><li data-i18n data-ar="جدول المركبات المرتبطة: ‎&lt;code&gt;#vehicleModal .relatedVecielsTableSeetings&lt;/code&gt;‎ و‎&lt;code&gt;.tablecontainer .table&lt;/code&gt;‎ في ‎&lt;code&gt;_vehiclemodal.scss&lt;/code&gt;‎ (ألوان ثابتة ‎&lt;code&gt;#f4f5fb&lt;/code&gt;‎ و‎&lt;code&gt;#e6e8f0&lt;/code&gt;‎ و‎&lt;code&gt;red&lt;/code&gt;‎ يجب أن تصبح رموزًا).">Related vehicles table: <code>#vehicleModal .relatedVecielsTableSeetings</code> and <code>.tablecontainer .table</code> in <code>_vehiclemodal.scss</code> (hard-coded <code>#f4f5fb</code>, <code>#e6e8f0</code>, <code>red</code> that should become tokens).</li><li data-i18n data-ar="إلى أن تُعتمد فئة مشتركة ابنِ الشاشات الجديدة من مكوّنات النظام: ‎&lt;a href=&quot;./card.html&quot;&gt;البطاقة&lt;/a&gt;‎ و‎&lt;a href=&quot;./tags.html&quot;&gt;الوسوم&lt;/a&gt;‎ و‎&lt;a href=&quot;./text-fields.html&quot;&gt;الحقول&lt;/a&gt;‎ للقراءة فقط.">Until a shared class is approved, build new screens from the system pieces: <a href="./card.html">Card</a> + <a href="./tags.html">Tags</a> + read-only <a href="./text-fields.html">fields</a>.</li></ul></div></section>
+<section class="section" id="accessibility"><div class="section-card"><h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2><ul class="accessibility-list"><li data-i18n data-ar="تخلط اللوحات الحروف العربية واللاتينية: اعرضها داخل ‎&lt;code&gt;&amp;lt;bdi&amp;gt;&lt;/code&gt;‎ منفصل حتى لا يضطرب الترتيب في RTL.">Plate numbers mix Arabic and Latin letters: render them in an isolated <code>&lt;bdi&gt;</code> so the order is not scrambled in RTL.</li><li data-i18n data-ar="الحالة مثل «مطلوب» يجب أن تكون نصًا لا لونًا فقط.">Status such as «wanted» must be text, not color only.</li><li data-i18n data-ar="الحقول للقراءة فقط تستخدم ‎&lt;code&gt;readonly&lt;/code&gt;‎ بدل ‎&lt;code&gt;disabled&lt;/code&gt;‎ لتبقى مقروءة وقابلة للتركيز.">Read-only fields should use <code>readonly</code> rather than <code>disabled</code> so they stay readable and focusable.</li></ul></div></section>
+<section class="section" id="rtl"><div class="section-card"><h2 class="section-title" data-i18n data-ar="ملاحظات RTL">RTL notes</h2><ul class="accessibility-list"><li data-i18n data-ar="تخلط اللوحات الاتجاهات: غلّفها بـ ‎&lt;code&gt;&amp;lt;bdi&amp;gt;&lt;/code&gt;‎ وأبقِ الحروف اللاتينية والأرقام بترتيب الطباعة على اللوحة.">Plate numbers mix directions: wrap them in <code>&lt;bdi&gt;</code>, and keep Latin letters and digits in the order printed on the plate.</li><li data-i18n data-ar="عناوين الحقول وقيمها تُحاذى جهة البداية في اللغتين.">Field labels and values align to the start side in both languages.</li></ul></div></section>
+
+    </div>
+  </main>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

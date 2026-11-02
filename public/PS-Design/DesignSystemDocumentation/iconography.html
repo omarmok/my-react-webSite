@@ -307,6 +307,23 @@
 
   </style>
   <link href="./css/top-actions.css" rel="stylesheet" />
+  <style>
+    .ic-bar { display:flex; gap:12px; align-items:center; margin:8px 0 14px; flex-wrap:wrap; }
+    .ic-bar input { max-width:420px; } .ic-count { color:#6c737f; font-size:.85rem; }
+    .ic-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; }
+    .ic-tile { border:1px solid #e5e7eb; border-radius:12px; background:#fff; padding:12px; display:grid; gap:8px; justify-items:center; text-align:center; }
+    .ic-prev { width:56px; height:56px; border-radius:10px; display:flex; align-items:center; justify-content:center; background:#f9fafb; color:#111927; }
+    .ic-prev.on-dark { background:#14573a; }
+    .ic-prev svg { width:32px; height:32px; }
+    .ic-name { font-size:.78rem; color:#374151; word-break:break-word; direction:ltr; line-height:1.4; }
+    .ic-actions { display:flex; gap:6px; flex-wrap:wrap; justify-content:center; }
+    .ic-actions .btn { padding:3px 10px; font-size:.74rem; min-height:0; height:auto; }
+    .ic-toast { position:fixed; bottom:84px; left:50%; transform:translateX(-50%); background:#111927; color:#fff; padding:8px 18px; border-radius:999px; font-size:.85rem; z-index:2000; box-shadow:0 10px 24px rgba(0,0,0,.25); }
+    .isz-row { align-items:flex-end; gap:28px; } .isz { display:grid; justify-items:center; gap:6px; color:#111927; } .isz small { color:#6c737f; }
+    .isz-i { display:inline-flex; } .isz-i svg { width:100%; height:100%; }
+    .isz-warn { margin:12px 0; padding:12px 16px; border:1px solid #fedf89; background:#fffaeb; border-radius:12px; color:#7a2e0e; font-size:.9rem; }
+    .visually-hidden { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  </style>
 </head>
 
 <body>
@@ -465,7 +482,9 @@
         </div>
       </section>
 
-      <section class="section" id="token-mapping">
+      <section class="section" id="library"><div class="section-card"><h2 class="section-title" data-i18n data-ar="مكتبة الأيقونات">Icon library</h2><p class="section-note" data-i18n data-ar="كل الأيقونات المُسلَّمة في ‎&lt;code class=&quot;code-inline&quot;&gt;images/icon-*.svg&lt;/code&gt;‎. ابحث بالاسم ثم اضغط &lt;b&gt;نسخ SVG&lt;/b&gt; لنسخ كود الأيقونة كاملًا أو &lt;b&gt;نسخ الاسم&lt;/b&gt; لاسم الملف. بعد إضافة أيقونة شغّل ‎&lt;code class=&quot;code-inline&quot;&gt;node scripts/build-icons-data.mjs&lt;/code&gt;‎ لتحديث القائمة.">Every icon shipped in <code class="code-inline">images/icon-*.svg</code>. Search by name, then press <b>Copy SVG</b> to copy the full SVG code, or <b>Copy name</b> for the file name. After adding an icon, run <code class="code-inline">node scripts/build-icons-data.mjs</code> to refresh this list.</p><div class="ic-bar"><label class="visually-hidden" for="iconSearch" data-i18n data-ar="ابحث عن أيقونة">Search icons</label><input id="iconSearch" type="search" class="form-control" autocomplete="off" placeholder="Search icons (for example: arrow, user, print)" /><span id="iconCount" class="ic-count" aria-live="polite"></span></div><div id="iconGrid" class="ic-grid"></div><p id="iconEmpty" class="section-note" hidden data-i18n data-ar="لا توجد أيقونة بهذا الاسم.">No icon matches your search.</p><div id="iconToast" class="ic-toast" role="status" aria-live="polite" hidden></div></div></section>
+<section class="section" id="sizes"><div class="section-card"><h2 class="section-title" data-i18n data-ar="أحجام الأيقونات">Icon sizes</h2><div class="demo isz-row"><div class="isz"><span class="isz-i" style="width:16px;height:16px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span><b>xs</b><small>16px</small></div><div class="isz"><span class="isz-i" style="width:20px;height:20px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span><b>sm</b><small>20px</small></div><div class="isz"><span class="isz-i" style="width:24px;height:24px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span><b>md</b><small>24px</small></div><div class="isz"><span class="isz-i" style="width:32px;height:32px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span><b>lg</b><small>32px</small></div><div class="isz"><span class="isz-i" style="width:40px;height:40px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span><b>xl</b><small>40px</small></div><div class="isz"><span class="isz-i" style="width:48px;height:48px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span><b>2xl</b><small>48px</small></div><div class="isz"><span class="isz-i" style="width:96px;height:96px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span><b>illustration</b><small>96px</small></div></div><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الحجم">Size</th><th scope="col" data-i18n data-ar="رمز Figma">Figma token</th><th scope="col" data-i18n data-ar="البكسل">Pixels</th><th scope="col" data-i18n data-ar="الفئة في الكود حاليًا">Code class today</th><th scope="col" data-i18n data-ar="الاستخدام">Use for</th></tr></thead><tbody><tr><td><b>xs</b></td><td><code>icon-xs</code></td><td>16px</td><td><code>.icon-sm</code></td><td data-i18n data-ar="داخل الوسم (Tag) أو الشارة (Badge)، أو أيقونة صغيرة بجانب نص رابط.">Inside a Tag or Badge, or a small icon beside link text.</td></tr><tr><td><b>sm</b></td><td><code>icon-sm</code></td><td>20px</td><td><code>.icon-md</code></td><td data-i18n data-ar="أيقونة البحث داخل مربع الإدخال، وأيقونة إظهار/إخفاء كلمة المرور، وأي أيقونة داخل حقل.">Search icon inside an input; show/hide icon in a password field; any icon inside a field.</td></tr><tr><td><b>md</b></td><td><code>icon-md</code></td><td>24px</td><td><code>.icon-lg</code></td><td data-i18n data-ar="أيقونات التنقل: القوائم، والأزرار في الشريط العلوي أو السفلي.">Navigation icons: menus, and buttons in the top or bottom bar.</td></tr><tr><td><b>lg</b></td><td><code>icon-lg</code></td><td>32px</td><td><code>.icon-xl</code></td><td data-i18n data-ar="أيقونة الإعدادات داخل بطاقة أو Tile، والزر الرئيسي الكبير، وأيقونة قائمة الخدمات.">Settings icon inside a card or Tile; the main large button; an icon in the services list.</td></tr><tr><td><b>xl</b></td><td><code>icon-xl</code></td><td>40px</td><td><code>.icon-2xl</code></td><td data-i18n data-ar="زر «إضافة جديد»: الزر الرئيسي أسفل الشاشة (FAB).">«Add new» button: the main button at the bottom of the screen (FAB).</td></tr><tr><td><b>2xl</b></td><td><code>icon-2xl</code></td><td>48px</td><td><code>.icon-3xl</code></td><td data-i18n data-ar="أيقونة في صفحة فارغة: صفحة بداية أو Onboarding (حالة فارغة).">Icon on an empty page: start page or onboarding (Empty State).</td></tr><tr><td><b>illustration</b></td><td><code>illustration</code></td><td>96px</td><td><code>— (none)</code></td><td data-i18n data-ar="أيقونة «لا توجد بيانات»، وصفحات الـ Onboarding، وشاشات النجاح أو الخطأ الكبيرة.">«No data found» icon, onboarding pages, and large success or error screens.</td></tr></tbody></table></div><p class="section-note" data-i18n data-ar="ويوجد في Figma حجمان خاصان بالأزرار: ‎&lt;code class=&quot;code-inline&quot;&gt;icon-btn-sm&lt;/code&gt;‎ (14px) و‎&lt;code class=&quot;code-inline&quot;&gt;icon-btn-xl&lt;/code&gt;‎ (34px).">Two button-only sizes also exist in Figma: <code class="code-inline">icon-btn-sm</code> (14px) and <code class="code-inline">icon-btn-xl</code> (34px).</p><div class="isz-warn"><p data-i18n data-ar="&lt;b&gt;اختلاف في التسمية (قرار للمالك):&lt;/b&gt; مقياس الكود في ‎&lt;code&gt;css/helpers/_icons.scss&lt;/code&gt;‎ (‎&lt;code&gt;$moi-icon-sizes&lt;/code&gt;‎) مُزاح خطوة واحدة عن Figma: الفئة ‎&lt;code&gt;.icon-sm&lt;/code&gt;‎ في الكود 16px بينما ‎&lt;code&gt;xs&lt;/code&gt;‎ في Figma هو 16px. ويحوي الكود ‎&lt;code&gt;.icon-4xl&lt;/code&gt;‎ (64px) ولا يعرّفه Figma، وليس فيه حجم الرسم التوضيحي 96px. استخدم أسماء Figma في المواصفات وعمود الفئة عند كتابة الكود إلى أن يُوحَّد المقياس."><b>Naming mismatch (owner decision):</b> the code scale in <code>css/helpers/_icons.scss</code> (<code>$moi-icon-sizes</code>) is shifted one step from Figma: code <code>.icon-sm</code> is 16px while Figma <code>xs</code> is 16px. The code also has <code>.icon-4xl</code> (64px), which Figma does not define, and has no 96px illustration size. Use the Figma names in design specs and the class column when writing code, until the scale is aligned.</p></div><p class="section-note" data-i18n data-ar="الألوان: تأخذ الأيقونات ‎&lt;code class=&quot;code-inline&quot;&gt;currentColor&lt;/code&gt;‎؛ اختر اللون من رمز النص للعنصر المحيط.">Colors: icons take <code class="code-inline">currentColor</code>; pick the color from the text token of the surrounding element.</p></div></section>
+<section class="section" id="token-mapping">
         <div class="section-card">
           <h2 class="section-title" data-i18n data-ar="رسم خرائط الرموز">Token mapping</h2>
           <p class="section-note" data-i18n
@@ -913,6 +932,65 @@
           link.classList.add('is-active');
         }
       });
+    })();
+  </script>
+  <script src="./js/icons-data.js"></script>
+  <script>
+    (function () {
+      var icons = window.MOI_ICONS || [];
+      var grid = document.getElementById("iconGrid");
+      var input = document.getElementById("iconSearch");
+      var count = document.getElementById("iconCount");
+      var empty = document.getElementById("iconEmpty");
+      var toast = document.getElementById("iconToast");
+      var toastTimer = null;
+      function isAr() { return document.documentElement.lang === "ar"; }
+      function label(en, ar) { return isAr() ? ar : en; }
+      function pretty(n) { return n.replace(/^icon-/, ""); }
+      function norm(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, ""); }
+
+      function say(msg) {
+        toast.textContent = msg; toast.hidden = false;
+        clearTimeout(toastTimer); toastTimer = setTimeout(function () { toast.hidden = true; }, 1800);
+      }
+      function copy(text, okMsg) {
+        function done() { say(okMsg); }
+        if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(done, fallback); } else { fallback(); }
+        function fallback() {
+          var ta = document.createElement("textarea"); ta.value = text; ta.setAttribute("readonly", "");
+          ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select();
+          try { document.execCommand("copy"); done(); } catch (e) { say(label("Copy failed", "تعذّر النسخ")); }
+          document.body.removeChild(ta);
+        }
+      }
+
+      icons.forEach(function (ic) {
+        ic._k = norm(ic.n);
+        var tile = document.createElement("div"); tile.className = "ic-tile"; tile.dataset.k = ic._k;
+        var prev = document.createElement("div"); prev.className = "ic-prev" + (ic.l ? " on-dark" : ""); prev.innerHTML = ic.s;
+        var svg = prev.querySelector("svg"); if (svg) { svg.removeAttribute("width"); svg.removeAttribute("height"); svg.setAttribute("aria-hidden", "true"); }
+        var name = document.createElement("div"); name.className = "ic-name"; name.textContent = pretty(ic.n);
+        var acts = document.createElement("div"); acts.className = "ic-actions";
+        var b1 = document.createElement("button"); b1.type = "button"; b1.className = "btn moi-btn--black"; b1.setAttribute("data-size", "sm"); b1.setAttribute("data-i18n", ""); b1.setAttribute("data-ar", "نسخ SVG"); b1.textContent = "Copy SVG";
+        var b2 = document.createElement("button"); b2.type = "button"; b2.className = "btn moi-btn--Neutral--outline"; b2.setAttribute("data-size", "sm"); b2.setAttribute("data-i18n", ""); b2.setAttribute("data-ar", "نسخ الاسم"); b2.textContent = "Copy name";
+        b1.addEventListener("click", function () { copy(ic.s, label("SVG code copied: ", "تم نسخ كود SVG: ") + pretty(ic.n)); });
+        b2.addEventListener("click", function () { copy(ic.n + ".svg", label("Name copied: ", "تم نسخ الاسم: ") + ic.n + ".svg"); });
+        acts.appendChild(b1); acts.appendChild(b2);
+        tile.appendChild(prev); tile.appendChild(name); tile.appendChild(acts); grid.appendChild(tile);
+      });
+
+      function filter() {
+        var q = norm(input.value), shown = 0;
+        Array.prototype.forEach.call(grid.children, function (tile) {
+          var hit = !q || tile.dataset.k.indexOf(q) > -1; tile.hidden = !hit; if (hit) { shown++; }
+        });
+        count.textContent = shown + " / " + icons.length + " " + label("icons", "أيقونة");
+        empty.hidden = shown !== 0;
+      }
+      input.addEventListener("input", filter);
+      filter();
+      new MutationObserver(function () { filter(); input.placeholder = label("Search icons (for example: arrow, user, print)", "ابحث عن أيقونة (مثل: arrow أو user أو print)"); })
+        .observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
     })();
   </script>
   <script src="./js/top-actions.js"></script>

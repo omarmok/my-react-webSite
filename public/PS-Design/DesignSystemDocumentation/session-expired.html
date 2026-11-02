@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Session Expired | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  
+    .docs-table { width:100%; border-collapse:collapse; font-size:.9rem; }
+    .docs-table th { text-align:start; background:#f3f4f6; padding:10px 12px; font-weight:700; border-bottom:1px solid #e5e7eb; }
+    .docs-table td { padding:10px 12px; border-bottom:1px solid #eef0f3; vertical-align:top; color:#374151; }
+    .docs-table code, .code-inline { font-size:.82rem; }
+    .demo { padding:18px; border:1px dashed #d2d6db; border-radius:12px; background:#fcfcfd; display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin:12px 0; }
+    .demo .cap { font-size:.75rem; color:#6c737f; display:block; margin-top:4px; text-align:center; }
+    .dd-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:12px; }
+    .dd-card { border-radius:12px; padding:14px 18px; border:1px solid; }
+    .dd-card h4 { margin:0 0 6px; font-size:1rem; } .dd-card ul { margin:0; padding-inline-start:18px; display:grid; gap:6px; font-size:.9rem; }
+    .dd-do { background:#f3fcf6; border-color:#b8eacb; } .dd-do h4 { color:#166a45; }
+    .dd-dont { background:#fef3f2; border-color:#fecdca; } .dd-dont h4 { color:#b42318; }
+    .st-row { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 10px; }
+    .st-pill { border-radius:999px; padding:3px 12px; font-size:.78rem; font-weight:600; border:1px solid; }
+    .st-ok { background:#f3fcf6; color:#166a45; border-color:#b8eacb; } .st-warn { background:#fffaeb; color:#b54708; border-color:#fedf89; } .st-todo { background:#f3f4f6; color:#4d5761; border-color:#d2d6db; }
+    .sub-t { font-size:1.05rem; font-weight:700; margin:22px 0 6px; }
+    .swatch { display:inline-block; width:18px; height:18px; border-radius:4px; border:1px solid rgba(0,0,0,.12); vertical-align:middle; }
+  </style>
+  <link href="../libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+  <link href="./css/top-actions.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav"></nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top"><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span></button>
+      </div>
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="الأنماط / انتهاء الجلسة">Patterns / Session Expired</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="انتهاء الجلسة">Session Expired</h1>
+        <p class="text-muted mb-0" data-i18n data-ar="التنبيه قبل انتهاء الجلسة وشرح ما سيحدث بعدها.">Warn before a session ends and explain what happens next.</p>
+      </header>
+      <div class="metadata-row"><span class="metadata-pill" data-i18n data-ar="النمط: انتهاء الجلسة">Pattern: Session Expired</span><span class="metadata-pill" data-i18n data-ar="يُبنى بـ: SweetAlert2">Built with: SweetAlert2</span><span class="metadata-pill" data-i18n data-ar="آخر تحديث: 2 نوفمبر 2026">Last updated: November 2, 2026</span></div>
+<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2><div class="st-row"><span class="st-pill st-ok" data-i18n data-ar="Figma: انتهاء الجلسة">Figma: Session Expired</span><span class="st-pill st-warn" data-i18n data-ar="الكود: يُبنى بـ SweetAlert2 (بلا فئة مخصصة)">Code: built with SweetAlert2 (no dedicated class)</span></div><p class="section-note" data-i18n data-ar="يحمي انتهاء الجلسة حسابًا تُرك مفتوحًا. ينبّه النمط قبل حدوثه، ويتيح التمديد، ويشرح ما يفعله المستخدم بعد الانتهاء. يُعرض بنافذة النظام (‎&lt;a href=&quot;./sweet-alert.html&quot;&gt;Sweet Alert&lt;/a&gt;‎)، وتعطي هذه الصفحة النصوص والسلوك من إطارات «انتهاء الجلسة» في Figma.">A session timeout protects an account that was left open. The pattern warns before it happens, lets the user extend it, and explains what to do after it ends. It is shown with the system dialog (<a href="./sweet-alert.html">Sweet Alert</a>); this page gives the wording and behavior from the Figma «Session Expired» frames.</p></div></section>
+<section class="section" id="moments"><div class="section-card"><h2 class="section-title" data-i18n data-ar="اللحظات">Moments</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="اللحظة">Moment</th><th scope="col" data-i18n data-ar="ما يراه المستخدم">What the user sees</th><th scope="col" data-i18n data-ar="الإجراءات">Actions</th></tr></thead><tbody><tr><td data-i18n data-ar="التحذير">Warning</td><td data-i18n data-ar="«ستنتهي جلستك قريبا» مع عدّ تنازلي («سيتم تسجيل خروجك خلال 8 ثواني»)">«Your session is about to expire» with a countdown («You will be signed out in 8 seconds»)</td><td data-i18n data-ar="تمديد الجلسة (أساسي) · اغلاق">Extend session (primary) · Close</td></tr><tr><td data-i18n data-ar="الانتهاء">Expired</td><td data-i18n data-ar="«يرجى تحديث الصفحة، لا تقلق، لقد احتفظنا بجميع بياناتك في مكانها.»">«Please refresh the page. Don't worry, we kept all your data in place.»</td><td data-i18n data-ar="تحديث / تسجيل الدخول مجددًا">Refresh / sign in again</td></tr></tbody></table></div></div></section>
+<section class="section" id="live"><div class="section-card"><h2 class="section-title" data-i18n data-ar="مثال حي">Live example</h2><div class="demo">
+  <button class="btn moi-btn--Info" type="button" id="swWarn" data-i18n data-ar="عرض تحذير انتهاء الجلسة">Show session warning</button>
+  <button class="btn moi-btn--Neutral--outline" type="button" id="swExpired" data-i18n data-ar="عرض انتهاء الجلسة">Show session expired</button>
+</div></div></section>
+<section class="section" id="code"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الكود">Code</h2><div class="code-block"><pre><code class="language-javascript">let seconds = 8;
+Swal.fire({
+  title: &quot;ستنتهي جلستك قريبا&quot;,
+  html: &#x27;سيتم تسجيل خروجك خلال &lt;b&gt;8&lt;/b&gt; ثواني.&#x27;,
+  icon: &quot;warning&quot;,
+  timer: 8000,
+  timerProgressBar: true,
+  showCancelButton: true,
+  confirmButtonText: &quot;تمديد الجلسة&quot;,
+  cancelButtonText: &quot;اغلاق&quot;,
+  didOpen: (el) =&gt; {
+    const b = el.querySelector(&quot;b&quot;);
+    const t = setInterval(() =&gt; (b.textContent = Math.ceil(Swal.getTimerLeft() / 1000)), 200);
+    Swal.getPopup()._t = t;
+  },
+  willClose: (el) =&gt; clearInterval(el._t),
+}).then((r) =&gt; { r.isConfirmed ? extendSession() : logout(); });</code></pre></div></div></section>
+<section class="section" id="rules"><div class="section-card"><h2 class="section-title" data-i18n data-ar="القواعد">Rules</h2><ul class="accessibility-list"><li data-i18n data-ar="نبّه قبل تسجيل الخروج بـ 60 ثانية على الأقل في الاستخدام الفعلي؛ العدّ من 8 ثوانٍ هنا للعرض فقط.">Warn at least 60 seconds before sign-out in real use; the 8-second countdown here is only for the demo.</li><li data-i18n data-ar="اضبط المهلة حسب حساسية البيانات: أقصر لبيانات الحالات والهويات.">Set the timeout by data sensitivity: shorter for case and identity data.</li><li data-i18n data-ar="احفظ النماذج تلقائيًا حتى لا يضيع شيء عند انتهاء الجلسة.">Auto-save forms so nothing is lost when the session ends.</li><li data-i18n data-ar="امسح بيانات الجلسة من الخادم ولا تعتمد على المتصفح وحده.">Clear session data on the server; never rely only on the browser.</li><li data-i18n data-ar="حوّل إلى تسجيل الدخول مع سبب واضح لا خطأ عامًا.">Redirect to sign-in with a clear reason, not a generic error.</li></ul></div></section>
+<section class="section" id="accessibility"><div class="section-card"><h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2><ul class="accessibility-list"><li data-i18n data-ar="يجب أن تأخذ النافذة التركيز وتعلن عن نفسها (يضبط SweetAlert2 ‎&lt;code&gt;role=&quot;dialog&quot;&lt;/code&gt;‎).">The dialog must take focus and announce itself (SweetAlert2 sets <code>role="dialog"</code>).</li><li data-i18n data-ar="العدّ التنازلي لا يحبس المستخدم: زر التمديد قابل للوصول ويمكن التمديد بالكيبورد.">The countdown must not trap users: the extend button stays reachable and the timer can be extended with the keyboard.</li><li data-i18n data-ar="WCAG 2.2.1: يجب أن يستطيع المستخدم تمديد المهلة.">WCAG 2.2.1: users must be able to extend a time limit.</li></ul></div></section>
+<section class="section" id="rtl"><div class="section-card"><h2 class="section-title" data-i18n data-ar="ملاحظات RTL">RTL notes</h2><ul class="accessibility-list"><li data-i18n data-ar="يعكس SweetAlert2 النافذة وترتيب أزرارها مع ‎&lt;code&gt;dir&lt;/code&gt;‎؛ ويبقى زر «تمديد الجلسة» الأساسي في جهة البداية.">SweetAlert2 mirrors the dialog and its button order with <code>dir</code>; the primary «Extend session» button stays on the start side.</li><li data-i18n data-ar="ضع الرقم داخل ‎&lt;code&gt;&amp;lt;b&amp;gt;&lt;/code&gt;‎ حتى لا تتغير أرقام العدّ داخل النص العربي.">Put the number in a <code>&lt;b&gt;</code> so the countdown digits are not reordered inside Arabic text.</li></ul></div></section>
+
+    </div>
+  </main>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="../libs/sweetalert2/sweetalert2.min.js"></script>
+  <script>
+    (function () {
+      function ar() { return document.documentElement.lang === "ar"; }
+      document.getElementById("swWarn").addEventListener("click", function () {
+        Swal.fire({
+          title: "ستنتهي جلستك قريبا",
+          html: "سيتم تسجيل خروجك خلال <b>8</b> ثواني.",
+          icon: "warning", timer: 8000, timerProgressBar: true, showCancelButton: true,
+          confirmButtonText: "تمديد الجلسة", cancelButtonText: "اغلاق",
+          didOpen: function (el) {
+            var b = el.querySelector("b");
+            el._t = setInterval(function () { b.textContent = Math.max(0, Math.ceil(Swal.getTimerLeft() / 1000)); }, 200);
+          },
+          willClose: function (el) { clearInterval(el._t); }
+        });
+      });
+      document.getElementById("swExpired").addEventListener("click", function () {
+        Swal.fire({
+          title: "انتهت جلستك", text: "يرجى تحديث الصفحة، لا تقلق، لقد احتفظنا بجميع بياناتك في مكانها.",
+          icon: "info", confirmButtonText: "تحديث الصفحة"
+        });
+      });
+    })();
+  </script>
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

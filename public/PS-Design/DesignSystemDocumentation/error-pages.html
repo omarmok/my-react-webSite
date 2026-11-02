@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error Pages | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  
+    .docs-table { width:100%; border-collapse:collapse; font-size:.9rem; }
+    .docs-table th { text-align:start; background:#f3f4f6; padding:10px 12px; font-weight:700; border-bottom:1px solid #e5e7eb; }
+    .docs-table td { padding:10px 12px; border-bottom:1px solid #eef0f3; vertical-align:top; color:#374151; }
+    .docs-table code, .code-inline { font-size:.82rem; }
+    .demo { padding:18px; border:1px dashed #d2d6db; border-radius:12px; background:#fcfcfd; display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin:12px 0; }
+    .demo .cap { font-size:.75rem; color:#6c737f; display:block; margin-top:4px; text-align:center; }
+    .dd-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:12px; }
+    .dd-card { border-radius:12px; padding:14px 18px; border:1px solid; }
+    .dd-card h4 { margin:0 0 6px; font-size:1rem; } .dd-card ul { margin:0; padding-inline-start:18px; display:grid; gap:6px; font-size:.9rem; }
+    .dd-do { background:#f3fcf6; border-color:#b8eacb; } .dd-do h4 { color:#166a45; }
+    .dd-dont { background:#fef3f2; border-color:#fecdca; } .dd-dont h4 { color:#b42318; }
+    .st-row { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 10px; }
+    .st-pill { border-radius:999px; padding:3px 12px; font-size:.78rem; font-weight:600; border:1px solid; }
+    .st-ok { background:#f3fcf6; color:#166a45; border-color:#b8eacb; } .st-warn { background:#fffaeb; color:#b54708; border-color:#fedf89; } .st-todo { background:#f3f4f6; color:#4d5761; border-color:#d2d6db; }
+    .sub-t { font-size:1.05rem; font-weight:700; margin:22px 0 6px; }
+    .swatch { display:inline-block; width:18px; height:18px; border-radius:4px; border:1px solid rgba(0,0,0,.12); vertical-align:middle; }
+.err { display:grid; justify-items:center; gap:10px; text-align:center; padding:12px; min-width:240px; flex:1; }
+    .err img { height:140px; } .err h6 { margin:0; font-weight:700; } .err p { margin:0; color:#4b5563; font-size:.9rem; }  </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav"></nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top"><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span></button>
+      </div>
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="الأنماط / صفحات الخطأ">Patterns / Error Pages</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="صفحات الخطأ">Error Pages</h1>
+        <p class="text-muted mb-0" data-i18n data-ar="شاشات الأخطاء 404 و400 و401 والخطأ العام.">404, 400, 401 and generic error screens.</p>
+      </header>
+      <div class="metadata-row"><span class="metadata-pill" data-i18n data-ar="النمط: صفحات الخطأ">Pattern: Error Pages</span><span class="metadata-pill" data-i18n data-ar="الملفات: _common.scss (.AccessDenied)">Files: _common.scss (.AccessDenied)</span><span class="metadata-pill" data-i18n data-ar="آخر تحديث: 2 نوفمبر 2026">Last updated: November 2, 2026</span></div>
+<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2><div class="st-row"><span class="st-pill st-ok" data-i18n data-ar="Figma: 404 و400 و401 وخطأ عام">Figma: 404, 400, 401, Error (Generic)</span><span class="st-pill st-warn" data-i18n data-ar="الكود: حاوية 401 فقط">Code: only the 401 container</span></div><p class="section-note" data-i18n data-ar="توضّح صفحات الخطأ للمستخدم ما حدث وتعطيه مخرجًا واحدًا واضحًا. يعرّف Figma أربعًا: &lt;b&gt;404&lt;/b&gt; و&lt;b&gt;400&lt;/b&gt; و&lt;b&gt;401&lt;/b&gt; و&lt;b&gt;خطأ عام&lt;/b&gt;. في الكود توجد ‎&lt;code class=&quot;code-inline&quot;&gt;.AccessDenied-container&lt;/code&gt;‎ و‎&lt;code class=&quot;code-inline&quot;&gt;.AccessDenied&lt;/code&gt;‎ فقط (في ‎&lt;code class=&quot;code-inline&quot;&gt;css/common/_common.scss&lt;/code&gt;‎)، وصفحتا العيّنة القديمتان ‎&lt;code class=&quot;code-inline&quot;&gt;404.html&lt;/code&gt;‎ و‎&lt;code class=&quot;code-inline&quot;&gt;AccessDenied.html&lt;/code&gt;‎ مُعلَّمتان بأنهما قديمتان، فابنِ الصفحات الجديدة من هذه الصفحة.">Error pages tell the user what happened and give one clear way out. Figma defines four: <b>404</b>, <b>400</b>, <b>401</b> and a <b>generic error</b>. In code only <code class="code-inline">.AccessDenied-container</code> / <code class="code-inline">.AccessDenied</code> (in <code class="code-inline">css/common/_common.scss</code>) exist; the old sample pages <code class="code-inline">404.html</code> and <code class="code-inline">AccessDenied.html</code> are marked deprecated, so build new pages from this page.</p></div></section>
+<section class="section" id="types"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الأنواع">Types</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الرمز">Code</th><th scope="col" data-i18n data-ar="العنوان (عربي)">Title (Arabic)</th><th scope="col" data-i18n data-ar="الرسالة">Message</th><th scope="col" data-i18n data-ar="الإجراء">Action</th><th scope="col" data-i18n data-ar="الرسم">Illustration</th></tr></thead><tbody><tr><td>404</td><td>لم يتم العثور على هذه الصفحة</td><td data-i18n data-ar="الصفحة المطلوبة غير موجودة؛ رابط «التفاصيل» اختياري">The requested page does not exist; optional «Details» link</td><td data-i18n data-ar="العودة إلى الرئيسية">Back to home</td><td><code>images/404.svg</code></td></tr><tr><td>400</td><td>حدث خطأ داخلي أثناء طلبك!</td><td data-i18n data-ar="خطأ داخلي أثناء معالجة الطلب">Internal error while handling the request</td><td data-i18n data-ar="العودة إلى الرئيسية">Back to home</td><td><code>images/400.svg</code></td></tr><tr><td>401</td><td>دخول غير مسموح</td><td data-i18n data-ar="لا توجد صلاحيات للاطلاع على الصفحة">No permission to view the page</td><td data-i18n data-ar="العودة للصفحة الرئيسية">Back to home</td><td><code>images/401.svg</code></td></tr><tr><td data-i18n data-ar="عام">Generic</td><td>—</td><td data-i18n data-ar="التخطيط نفسه لأي خطأ آخر">Same layout for any other error</td><td data-i18n data-ar="العودة إلى الرئيسية">Back to home</td><td data-i18n data-ar="رسم من التصميم">Illustration from the design</td></tr></tbody></table></div></div></section>
+<section class="section" id="live"><div class="section-card"><h2 class="section-title" data-i18n data-ar="معاينة حيّة">Live preview</h2><div class="demo"><div class="err"><img src="../images/404.svg" alt=""><b dir="ltr">404</b><h6 data-i18n data-ar="لم يتم العثور على هذه الصفحة">This page was not found</h6><p data-i18n data-ar="الصفحة المطلوبة غير موجودة.">The page you asked for does not exist.</p><a class="btn moi-btn--black" href="./index.html" data-i18n data-ar="العودة إلى الرئيسية">Back to home</a></div><div class="err"><img src="../images/400.svg" alt=""><b dir="ltr">400</b><h6 data-i18n data-ar="حدث خطأ داخلي أثناء طلبك!">An internal error occurred</h6><p data-i18n data-ar="تعذّر إكمال طلبك. حاول مرة أخرى.">We could not complete your request. Try again.</p><a class="btn moi-btn--black" href="./index.html" data-i18n data-ar="العودة إلى الرئيسية">Back to home</a></div><div class="err"><img src="../images/401.svg" alt=""><b dir="ltr">401</b><h6 data-i18n data-ar="دخول غير مسموح">Access denied</h6><p data-i18n data-ar="لا توجد لديك صلاحيات للاطلاع على معلومات الصفحة.">You do not have permission to view this page.</p><a class="btn moi-btn--black" href="./index.html" data-i18n data-ar="العودة للصفحة الرئيسية">Back to home</a></div></div></div></section>
+<section class="section" id="code"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الكود (401 حاليًا)">Code (401 today)</h2><div class="code-block"><pre><code class="language-html">&lt;div class=&quot;AccessDenied-container&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col-lg-6 col-12 mx-auto&quot;&gt;
+    &lt;img src=&quot;../images/401.svg&quot; alt=&quot;&quot;&gt;
+    &lt;div class=&quot;AccessDenied&quot;&gt;
+      &lt;div&gt;
+        &lt;h6 class=&quot;text-danger&quot;&gt;دخول غير مسموح&lt;/h6&gt;
+        &lt;p class=&quot;text-danger&quot;&gt;لا توجد لديك صلاحيات للاطلاع على معلومات الصفحة&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;a class=&quot;btn d-flex align-items-center btn-danger&quot; href=&quot;/&quot;&gt;العودة للصفحة الرئيسية&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div></div></section>
+<section class="section" id="guidelines"><div class="section-card"><h2 class="section-title" data-i18n data-ar="إرشادات الكتابة">Writing guidelines</h2><ul class="accessibility-list"><li data-i18n data-ar="قل ما حدث بكلمات بسيطة ثم ما يستطيع المستخدم فعله. لا رموز تقنية ولا تفاصيل أخطاء على الشاشة.">Say what happened in plain words, then what the user can do. No codes or stack traces on screen.</li><li data-i18n data-ar="إجراء رئيسي واحد («العودة إلى الرئيسية») وأضف «التفاصيل» لصفحة 404 عند الفائدة.">One primary action («Back to home»); add «Details» only for 404 when helpful.</li><li data-i18n data-ar="استخدم أسلوب الرسم نفسه لكل الرموز.">Use the same illustration style across all codes.</li></ul></div></section>
+<section class="section" id="accessibility"><div class="section-card"><h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2><ul class="accessibility-list"><li data-i18n data-ar="عنوان الصفحة والعنوان الرئيسي يجب أن يذكرا الخطأ (مثل «404 · الصفحة غير موجودة»).">The page title and the main heading must say the error (for example «404 · Page not found»).</li><li data-i18n data-ar="أعد رمز حالة HTTP الحقيقي وليس صفحة ودّية فقط.">Return the real HTTP status code, not only a friendly page.</li><li data-i18n data-ar="الرسوم الزخرفية تستخدم ‎&lt;code&gt;alt=&quot;&quot;&lt;/code&gt;‎.">Decorative illustrations use <code>alt=""</code>.</li></ul></div></section>
+<section class="section" id="rtl"><div class="section-card"><h2 class="section-title" data-i18n data-ar="ملاحظات RTL">RTL notes</h2><ul class="accessibility-list"><li data-i18n data-ar="السهم داخل الزر مُدار 180° في الأنماط الحالية ليشير نحو بداية القراءة في RTL؛ تحقق منه عند إعادة استخدام الكود في LTR.">The back arrow inside the button is rotated 180° in the existing styles so it points toward the reading start in RTL; check it when you reuse the markup in LTR.</li><li data-i18n data-ar="النص متمركز فالتخطيط واحد في الاتجاهين.">Text is centered, so the layout is the same in both directions.</li></ul></div></section>
+
+    </div>
+  </main>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

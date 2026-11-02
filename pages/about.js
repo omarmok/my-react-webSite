@@ -11,7 +11,7 @@ const getAboutCopy = (isRTL) =>
         eyebrow: "نبذة عني",
         title: "خبرة تربط استراتيجية UX بالتسليم الفعلي",
         description:
-          "أكثر من 19 عامًا في تصميم تجربة المستخدم وقيادة أنظمة التصميم وعمليات التصميم عبر منصات حكومية ومؤسسية وتعليمية.",
+          "أكثر من 19 عامًا من الخبرة المهنية في تصميم تجربة المستخدم والواجهات وتنفيذ الواجهات الأمامية، مع تركيز حالي على قيادة تجربة المستخدم وأنظمة التصميم وعمليات التصميم.",
         summaryTitle: "قائد UX عملي بعقلية الأنظمة",
         summary:
           "أقود تجربة المستخدم للمنتجات الرقمية المعقدة في المملكة العربية السعودية. يجمع عملي بين استراتيجية التجربة، وأنظمة التصميم، والحوكمة، وفهم التنفيذ؛ حتى تستمر جودة القرار من الاكتشاف إلى المنتج الفعلي.",
@@ -67,7 +67,7 @@ const getAboutCopy = (isRTL) =>
         eyebrow: "About",
         title: "Experience that connects UX strategy to delivery",
         description:
-          "19+ years across UX design, design systems, and DesignOps leadership in government, enterprise, and education platforms.",
+          "19+ years of professional experience spanning UX/UI design and front-end implementation, with a current focus on UX leadership, design systems, and DesignOps.",
         summaryTitle: "A hands-on UX leader with a systems mindset",
         summary:
           "I lead UX for complex digital products in Saudi Arabia. My work connects experience strategy, design systems, governance, and implementation awareness so the quality of a decision survives from discovery to the released product.",

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charts | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  
+    .docs-table { width:100%; border-collapse:collapse; font-size:.9rem; }
+    .docs-table th { text-align:start; background:#f3f4f6; padding:10px 12px; font-weight:700; border-bottom:1px solid #e5e7eb; }
+    .docs-table td { padding:10px 12px; border-bottom:1px solid #eef0f3; vertical-align:top; color:#374151; }
+    .docs-table code, .code-inline { font-size:.82rem; }
+    .demo { padding:18px; border:1px dashed #d2d6db; border-radius:12px; background:#fcfcfd; display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin:12px 0; }
+    .demo .cap { font-size:.75rem; color:#6c737f; display:block; margin-top:4px; text-align:center; }
+    .dd-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:12px; }
+    .dd-card { border-radius:12px; padding:14px 18px; border:1px solid; }
+    .dd-card h4 { margin:0 0 6px; font-size:1rem; } .dd-card ul { margin:0; padding-inline-start:18px; display:grid; gap:6px; font-size:.9rem; }
+    .dd-do { background:#f3fcf6; border-color:#b8eacb; } .dd-do h4 { color:#166a45; }
+    .dd-dont { background:#fef3f2; border-color:#fecdca; } .dd-dont h4 { color:#b42318; }
+    .st-row { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 10px; }
+    .st-pill { border-radius:999px; padding:3px 12px; font-size:.78rem; font-weight:600; border:1px solid; }
+    .st-ok { background:#f3fcf6; color:#166a45; border-color:#b8eacb; } .st-warn { background:#fffaeb; color:#b54708; border-color:#fedf89; } .st-todo { background:#f3f4f6; color:#4d5761; border-color:#d2d6db; }
+    .sub-t { font-size:1.05rem; font-weight:700; margin:22px 0 6px; }
+    .swatch { display:inline-block; width:18px; height:18px; border-radius:4px; border:1px solid rgba(0,0,0,.12); vertical-align:middle; }
+.donut { width:150px; height:150px; border-radius:50%; background:conic-gradient(#53b1fd 0 38%, #80519f 0 62%, #88d8ad 0 82%, #f7d54d 0 100%); position:relative; }
+    .donut::after { content:""; position:absolute; inset:34px; border-radius:50%; background:#fff; }
+    .donut b { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:2; font-size:1.5rem; }
+    .donut b small { font-size:.7rem; color:#6c737f; font-weight:500; }
+    .lg { list-style:none; margin:0; padding:0; display:grid; gap:8px; font-size:.9rem; } .lg li { display:flex; gap:8px; align-items:center; } .lg i { width:12px; height:12px; border-radius:3px; display:inline-block; }  </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav"></nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top"><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span></button>
+      </div>
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="عرض البيانات / المخططات">Data Display / Charts</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="المخططات">Charts</h1>
+        <p class="text-muted mb-0" data-i18n data-ar="المخطط الدائري وألوان المخططات لعدّادات لوحات المتابعة.">Donut chart and chart colors for dashboard counts.</p>
+      </header>
+      <div class="metadata-row"><span class="metadata-pill" data-i18n data-ar="المكوّن: المخططات">Component: Charts</span><span class="metadata-pill" data-i18n data-ar="الملفات: _charts.scss">Files: _charts.scss</span><span class="metadata-pill" data-i18n data-ar="آخر تحديث: 2 نوفمبر 2026">Last updated: November 2, 2026</span></div>
+<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2><div class="st-row"><span class="st-pill st-ok" data-i18n data-ar="Figma: ألوان المخططات">Figma: chart colors</span><span class="st-pill st-warn" data-i18n data-ar="الكود: مخطط دائري قديم في _charts.scss">Code: legacy pie in _charts.scss</span></div><p class="section-note" data-i18n data-ar="تلخّص المخططات الأعداد حسب الحالة في لوحات المتابعة. يحوي المستودع نمط مخطط واحدًا هو الدائري المستخدم في لوحة القضايا (‎&lt;code class=&quot;code-inline&quot;&gt;css/components/_charts.scss&lt;/code&gt;‎) وتُرسم قطاعاته بسكربت الصفحة لا بمكوّن مشترك. يعرّف Figma لوحة ألوان للمخططات في متغيّرات &lt;b&gt;Themes&lt;/b&gt; (مجموعة &lt;b&gt;Charts&lt;/b&gt;) ولونًا لـ &lt;b&gt;Progress Bar&lt;/b&gt;. ما زالت شارات الدليل في الكود تستخدم ألوانًا ثابتة (‎&lt;code class=&quot;code-inline&quot;&gt;#7DCD18&lt;/code&gt;‎ و‎&lt;code class=&quot;code-inline&quot;&gt;#ff8103&lt;/code&gt;‎ و‎&lt;code class=&quot;code-inline&quot;&gt;#0652c2&lt;/code&gt;‎)، فاللوحة أدناه هي الهدف.">Charts summarize counts by status on dashboards. The repository ships one chart style, the donut used on the cases dashboard (<code class="code-inline">css/components/_charts.scss</code>); the slices are drawn by the page script, not by a shared component. Figma defines a chart palette in the <b>Themes</b> variables (group <b>Charts</b>) and a <b>Progress Bar</b> color. The legend badges in code still use hard-coded colors (<code class="code-inline">#7DCD18</code>, <code class="code-inline">#ff8103</code>, <code class="code-inline">#0652c2</code>), so the palette below is the target.</p></div></section>
+<section class="section" id="palette"><div class="section-card"><h2 class="section-title" data-i18n data-ar="لوحة ألوان المخططات (Figma)">Chart palette (Figma)</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="اللون">Color</th><th scope="col" data-i18n data-ar="رمز Figma (Themes)">Figma token (Themes)</th><th scope="col" data-i18n data-ar="القيمة">Value</th></tr></thead><tbody><tr><td><span class="swatch" style="background:#53b1fd"></span></td><td><code>Charts-Blue</code></td><td><code>#53b1fd</code></td></tr><tr><td><span class="swatch" style="background:#80519f"></span></td><td><code>Charts-Lavendar</code></td><td><code>#80519f</code></td></tr><tr><td><span class="swatch" style="background:#88d8ad"></span></td><td><code>Charts-Green</code></td><td><code>#88d8ad</code></td></tr><tr><td><span class="swatch" style="background:#f7d54d"></span></td><td><code>Charts-Gold</code></td><td><code>#f7d54d</code></td></tr><tr><td><span class="swatch" style="background:#f97066"></span></td><td><code>Charts-Red</code></td><td><code>#f97066</code></td></tr><tr><td><span class="swatch" style="background:#fdb022"></span></td><td><code>Charts-Yellow</code></td><td><code>#fdb022</code></td></tr><tr><td><span class="swatch" style="background:#b8eacb"></span></td><td><code>Charts-Green-Primary 200</code></td><td><code>#b8eacb</code></td></tr><tr><td><span class="swatch" style="background:#384250"></span></td><td><code>Progress Bar-Neutral</code></td><td><code>#384250</code></td></tr></tbody></table></div></div></section>
+<section class="section" id="anatomy"><div class="section-card"><h2 class="section-title" data-i18n data-ar="التركيب (الكود الحالي)">Anatomy (code today)</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الجزء">Part</th><th scope="col" data-i18n data-ar="الفئة">Class</th><th scope="col" data-i18n data-ar="ملاحظات">Notes</th></tr></thead><tbody><tr><td data-i18n data-ar="الحلقة">Ring</td><td><code>.piecontainer</code> · <code>.pie</code> · <code>.pie::before</code></td><td data-i18n data-ar="دائرة 180px بفتحة داخلية 100px">180px circle, 100px inner hole</td></tr><tr><td data-i18n data-ar="القطاعات">Slices</td><td><code>.slice</code> · <code>.slice span</code></td><td data-i18n data-ar="تُرسم بسكربت الصفحة، قطاع لكل جزء">Drawn by the page script, one per segment</td></tr><tr><td data-i18n data-ar="الإجمالي">Centre total</td><td><code>.center-date</code> · <code>.center-datebg</code> · <code>.scnd-font-color</code></td><td data-i18n data-ar="الرقم الإجمالي والعنوان في الوسط">Total number and caption in the middle</td></tr><tr><td data-i18n data-ar="دليل الألوان">Legend</td><td><code>.pieID li</code> · <code>.number</code> · <code>.underprocess</code> · <code>.finished</code></td><td data-i18n data-ar="شارات بأرقام ملونة لكل حالة">Colored count badges per status</td></tr></tbody></table></div></div></section>
+<section class="section" id="live"><div class="section-card"><h2 class="section-title" data-i18n data-ar="معاينة لوحة Figma">Preview of the Figma palette</h2><div class="demo"><div class="donut" role="img" aria-label="38% / 24% / 20% / 18%"><b>1055<small data-i18n data-ar="الإجمالي">Total</small></b></div><ul class="lg"><li><i style="background:#53b1fd"></i><span data-i18n data-ar="قيد المعالجة">In progress</span> 38%</li><li><i style="background:#80519f"></i><span data-i18n data-ar="مُحالة">Referred</span> 24%</li><li><i style="background:#88d8ad"></i><span data-i18n data-ar="منتهية">Finished</span> 20%</li><li><i style="background:#f7d54d"></i><span data-i18n data-ar="مؤرشفة">Archived</span> 18%</li></ul></div><p class="section-note" data-i18n data-ar="معاينة توضيحية بـ CSS فقط، وليست مكوّنًا مُسلَّمًا.">Illustrative preview built with CSS only; it is not a shipped component.</p></div></section>
+<section class="section" id="accessibility"><div class="section-card"><h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2><ul class="accessibility-list"><li data-i18n data-ar="لا تعتمد على اللون وحده: اطبع القيمة واسم الحالة في الدليل.">Never rely on color alone: print the value and the status name in the legend.</li><li data-i18n data-ar="أعطِ المخطط بديلًا نصيًا (‎&lt;code&gt;role=&quot;img&quot;&lt;/code&gt;‎ مع ‎&lt;code&gt;aria-label&lt;/code&gt;‎) أو جدول بيانات.">Give the chart a text alternative (<code>role="img"</code> + <code>aria-label</code>) or a data table.</li><li data-i18n data-ar="استخدم ستة قطاعات كحد أقصى وجمّع الباقي تحت «أخرى».">Use at most six segments; group the rest as «Other».</li></ul></div></section>
+<section class="section" id="rtl"><div class="section-card"><h2 class="section-title" data-i18n data-ar="ملاحظات RTL">RTL notes</h2><ul class="accessibility-list"><li data-i18n data-ar="الدائرة نفسها لا تُعكس؛ أما ترتيب الدليل وأماكن الشارات فيتبعان اتجاه الصفحة.">The donut itself is not mirrored; the legend order and badge positions follow the page direction.</li><li data-i18n data-ar="استخدم نمط الأرقام نفسه في الصفحة (لا تخلط الأرقام الهندية والغربية في مخطط واحد).">Digits use the page numeral style consistently (do not mix Arabic-Indic and Western digits in one chart).</li></ul></div></section>
+
+    </div>
+  </main>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

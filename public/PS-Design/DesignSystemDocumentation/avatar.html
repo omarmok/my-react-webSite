@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avatar | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  
+    .docs-table { width:100%; border-collapse:collapse; font-size:.9rem; }
+    .docs-table th { text-align:start; background:#f3f4f6; padding:10px 12px; font-weight:700; border-bottom:1px solid #e5e7eb; }
+    .docs-table td { padding:10px 12px; border-bottom:1px solid #eef0f3; vertical-align:top; color:#374151; }
+    .docs-table code, .code-inline { font-size:.82rem; }
+    .demo { padding:18px; border:1px dashed #d2d6db; border-radius:12px; background:#fcfcfd; display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin:12px 0; }
+    .demo .cap { font-size:.75rem; color:#6c737f; display:block; margin-top:4px; text-align:center; }
+    .dd-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:12px; }
+    .dd-card { border-radius:12px; padding:14px 18px; border:1px solid; }
+    .dd-card h4 { margin:0 0 6px; font-size:1rem; } .dd-card ul { margin:0; padding-inline-start:18px; display:grid; gap:6px; font-size:.9rem; }
+    .dd-do { background:#f3fcf6; border-color:#b8eacb; } .dd-do h4 { color:#166a45; }
+    .dd-dont { background:#fef3f2; border-color:#fecdca; } .dd-dont h4 { color:#b42318; }
+    .st-row { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 10px; }
+    .st-pill { border-radius:999px; padding:3px 12px; font-size:.78rem; font-weight:600; border:1px solid; }
+    .st-ok { background:#f3fcf6; color:#166a45; border-color:#b8eacb; } .st-warn { background:#fffaeb; color:#b54708; border-color:#fedf89; } .st-todo { background:#f3f4f6; color:#4d5761; border-color:#d2d6db; }
+    .sub-t { font-size:1.05rem; font-weight:700; margin:22px 0 6px; }
+    .swatch { display:inline-block; width:18px; height:18px; border-radius:4px; border:1px solid rgba(0,0,0,.12); vertical-align:middle; }
+
+    .av { display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:#e5e7eb; color:#384250; font-weight:600; overflow:hidden; flex:none; border:2px solid #fff; box-shadow:0 0 0 1px #d2d6db; }
+    .av.sq { border-radius:8px; } .av svg { width:55%; height:55%; fill:currentColor; }
+    .av-group { display:inline-flex; } .av-group .av + .av { margin-inline-start:-10px; }
+    .pres { position:relative; display:inline-block; } .pres::after { content:""; position:absolute; bottom:0; inset-inline-end:0; width:9px; height:9px; border-radius:50%; border:2px solid #fff; background:var(--pc); }
+      </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav"></nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top"><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span></button>
+      </div>
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="عرض البيانات / الصورة الرمزية">Data Display / Avatar</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="الصورة الرمزية">Avatar</h1>
+        <p class="text-muted mb-0" data-i18n data-ar="صورة أو أحرف أولى أو أيقونة تمثّل شخصًا أو جهة.">A picture, initials or icon that represents a person or entity.</p>
+      </header>
+      <div class="metadata-row"><span class="metadata-pill" data-i18n data-ar="المكوّن: الصورة الرمزية">Component: Avatar</span><span class="metadata-pill" data-i18n data-ar="المصدر: Figma (الكود قيد الاعتماد)">Source: Figma (code pending)</span><span class="metadata-pill" data-i18n data-ar="آخر تحديث: 2 نوفمبر 2026">Last updated: November 2, 2026</span></div>
+<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2><div class="st-row"><span class="st-pill st-ok" data-i18n data-ar="Figma: معرّف">Figma: defined</span><span class="st-pill st-warn" data-i18n data-ar="الكود: لا توجد فئة مشتركة بعد">Code: no shared class yet</span></div><p class="section-note" data-i18n data-ar="الصورة الرمزية (Avatar) صورة صغيرة أو أحرف أولى أو أيقونة تمثّل شخصًا أو جهة. المكوّن معرّف في Figma («Components / Avatar»: 42 متغيّرًا مع مجموعة صور ومؤشر الحضور). لا توجد في المستودع &lt;b&gt;فئة مشتركة&lt;/b&gt; بعد، فقط إشارات في ‎&lt;code class=&quot;code-inline&quot;&gt;_layout.scss&lt;/code&gt;‎ و‎&lt;code class=&quot;code-inline&quot;&gt;_identity-access.scss&lt;/code&gt;‎. إضافة فئة جديدة تحتاج موافقة المالك حسب قواعد الواجهة العامة، لذلك المعاينات أدناه توضّح مواصفات Figma فقط وهي &lt;b&gt;ليست&lt;/b&gt; أنماطًا مُسلَّمة.">An avatar is a small picture, initials or icon that represents a person or entity. The component exists in Figma («Components / Avatar»: 42 variants, an Avatar Group and a presence indicator). The repository has <b>no shared avatar class</b> yet; only page-level mentions in <code class="code-inline">_layout.scss</code> and <code class="code-inline">_identity-access.scss</code>. Per the Public API rules a new class needs the owner's approval, so the previews below only illustrate the Figma spec and are <b>not</b> shipped styles.</p></div></section>
+<section class="section" id="properties"><div class="section-card"><h2 class="section-title" data-i18n data-ar="خصائص Figma">Figma properties</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الخاصية">Property</th><th scope="col" data-i18n data-ar="القيم">Values</th><th scope="col" data-i18n data-ar="ملاحظات">Notes</th></tr></thead><tbody><tr><td><code>Type</code></td><td>Image · Initials · Icon</td><td data-i18n data-ar="ما يملأ الدائرة">What fills the circle</td></tr><tr><td><code>Size</code></td><td>24 · 32 · 40 · 48 · 64 · 80 · 120 px</td><td data-i18n data-ar="الافتراضي 32px">Default 32px</td></tr><tr><td><code>Square</code></td><td>False · True</td><td data-i18n data-ar="True يعطي مربعًا بزوايا مستديرة (للجهات)">True gives rounded square (for entities)</td></tr><tr><td><code>Border</code></td><td>Boolean</td><td data-i18n data-ar="حلقة بيضاء تفصل الصور المتراكبة">White ring that separates stacked avatars</td></tr><tr><td><code>Text</code></td><td>Text (e.g. AB)</td><td data-i18n data-ar="الأحرف الأولى عند النوع Initials">Initials shown when Type = Initials</td></tr><tr><td><code>Avatar Group / Stacked</code></td><td>True · False</td><td data-i18n data-ar="صف متراكب لعدة أشخاص">Overlapping row for several people</td></tr><tr><td><code>presence-status / status</code></td><td>online · busy · At Mission · OFF</td><td data-i18n data-ar="نقطة 9×9 في الزاوية السفلية">9×9 dot at the bottom corner</td></tr></tbody></table></div></div></section>
+<section class="section" id="sizes"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الأحجام">Sizes</h2><div class="demo"><div><span class="av" style="width:24px;height:24px;font-size:10px">AB</span><span class="cap">24px</span></div><div><span class="av" style="width:32px;height:32px;font-size:10px">AB</span><span class="cap">32px</span></div><div><span class="av" style="width:40px;height:40px;font-size:13px">AB</span><span class="cap">40px</span></div><div><span class="av" style="width:48px;height:48px;font-size:16px">AB</span><span class="cap">48px</span></div><div><span class="av" style="width:64px;height:64px;font-size:21px">AB</span><span class="cap">64px</span></div><div><span class="av" style="width:80px;height:80px;font-size:26px">AB</span><span class="cap">80px</span></div><div><span class="av" style="width:120px;height:120px;font-size:40px">AB</span><span class="cap">120px</span></div></div></div></section>
+<section class="section" id="types"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الأنواع">Types</h2><div class="demo"><div><span class="av" style="width:48px;height:48px"><img src="../images/Avatar.png" alt="" style="width:100%;height:100%;object-fit:cover"></span><span class="cap">Image</span></div><div><span class="av" style="width:48px;height:48px;font-size:16px">AB</span><span class="cap">Initials</span></div><div><span class="av" style="width:48px;height:48px"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.2-8 5v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-2.8-3.6-5-8-5Z"/></svg></span><span class="cap">Icon</span></div><div><span class="av sq" style="width:48px;height:48px;font-size:16px">AB</span><span class="cap">Square</span></div></div></div></section>
+<section class="section" id="presence"><div class="section-card"><h2 class="section-title" data-i18n data-ar="حالة الحضور">Presence status</h2><div class="demo"><div><span class="pres" style="--pc:#079455"><span class="av" style="width:40px;height:40px;font-size:14px">AB</span></span><span class="cap">online</span></div><div><span class="pres" style="--pc:#d92d20"><span class="av" style="width:40px;height:40px;font-size:14px">AB</span></span><span class="cap">busy</span></div><div><span class="pres" style="--pc:#dc6803"><span class="av" style="width:40px;height:40px;font-size:14px">AB</span></span><span class="cap">At Mission</span></div><div><span class="pres" style="--pc:#9da4ae"><span class="av" style="width:40px;height:40px;font-size:14px">AB</span></span><span class="cap">OFF</span></div></div><p class="section-note" data-i18n data-ar="الألوان توضيحية إلى أن تُعتمد رموز الحالة.">Colors are illustrative until the status tokens are confirmed.</p></div></section>
+<section class="section" id="group"><div class="section-card"><h2 class="section-title" data-i18n data-ar="مجموعة الصور">Avatar group</h2><div class="demo"><div><span class="av-group"><span class="av" style="width:32px;height:32px;font-size:11px">AB</span><span class="av" style="width:32px;height:32px;font-size:11px">CD</span><span class="av" style="width:32px;height:32px;font-size:11px">EF</span><span class="av" style="width:32px;height:32px;font-size:11px">+3</span></span><span class="cap">Stacked</span></div></div></div></section>
+<section class="section" id="accessibility"><div class="section-card"><h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2><ul class="accessibility-list"><li data-i18n data-ar="الصورة تحتاج نص ‎&lt;code&gt;alt&lt;/code&gt;‎ باسم الشخص، والصور الزخرفية بجوار اسم ظاهر تستخدم ‎&lt;code&gt;alt=&quot;&quot;&lt;/code&gt;‎.">A photo needs <code>alt</code> text with the person's name; decorative avatars next to a visible name use <code>alt=""</code>.</li><li data-i18n data-ar="لا تعتمد حالة الحضور على اللون وحده: أضف نصًا أو تلميحًا (متصل، مشغول).">Presence must not rely on color alone: add a text or tooltip («online», «busy»).</li><li data-i18n data-ar="اجعل الأحرف حرفين واضمن تباين النص مع الخلفية.">Keep initials to two characters and make sure text and background pass contrast.</li></ul></div></section>
+<section class="section" id="status"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الخطوة التالية">Next step</h2><p class="section-note" data-i18n data-ar="اطلب من المالك اعتماد واجهة مشتركة ‎&lt;code class=&quot;code-inline&quot;&gt;.moi-avatar&lt;/code&gt;‎ (الحجم بـ ‎&lt;code class=&quot;code-inline&quot;&gt;data-size&lt;/code&gt;‎ والنوع بـ ‎&lt;code class=&quot;code-inline&quot;&gt;data-type&lt;/code&gt;‎)، ثم تُضاف إلى ‎&lt;code class=&quot;code-inline&quot;&gt;css/components/&lt;/code&gt;‎ وتكون هذه الصفحة توثيقها.">Ask the owner to approve a shared <code class="code-inline">.moi-avatar</code> API (size via <code class="code-inline">data-size</code>, type via <code class="code-inline">data-type</code>), then add it to <code class="code-inline">css/components/</code> with this page as its documentation.</p></div></section>
+<section class="section" id="rtl"><div class="section-card"><h2 class="section-title" data-i18n data-ar="ملاحظات RTL">RTL notes</h2><ul class="accessibility-list"><li data-i18n data-ar="تتراكب الصور نحو جهة البداية وتقع نقطة الحضور في زاوية نهاية السطر فتنعكسان في RTL.">Stacked avatars overlap toward the start side and the presence dot sits at the inline-end corner, so both mirror in RTL.</li><li data-i18n data-ar="الأحرف الأولى: الحرف الأول من الاسم الأول والأخير بلغة الصفحة (حرفان عربيان دون فراغ بينهما).">Initials: use the first letter of the first and last name in the page language (two Arabic letters are not joined with a gap).</li></ul></div></section>
+
+    </div>
+  </main>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

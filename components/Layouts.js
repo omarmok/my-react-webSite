@@ -86,7 +86,8 @@ const Layouts = ({
       alternateName: ["Omar Mokhtar Ayed", "Omar M. Mokhtar", "عمر مختار عايد"],
       jobTitle: "UX & DesignOps Lead",
       description:
-        "UX Design Lead with 19+ years of experience in government digital transformation, enterprise UX, and design systems across Saudi Arabia",
+        dictionaryMeta["/"]?.structuredData?.description ??
+        fallbackMeta["/"]?.structuredData?.description,
       url: "https://omarmokhtar.com",
       image: "https://omarmokhtar.com/images/omar.png",
       hasOccupation: [
@@ -337,7 +338,7 @@ const Layouts = ({
               "@type": "WebSite",
               name: "Omar Mokhtar Ayed — UX Design Lead Saudi Arabia",
               description:
-                "Portfolio and expertise showcase of Omar Mokhtar Ayed, UX Design Lead and DesignOps specialist with 19+ years across Saudi Arabia's government, enterprise, and education sectors.",
+                dictionaryMeta["/"]?.description ?? fallbackMeta["/"]?.description,
               url: "https://omarmokhtar.com",
               inLanguage: ["en", "ar"],
               about: [

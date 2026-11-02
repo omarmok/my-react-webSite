@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inquiry Person | PS-Design</title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="../css/animate.css" rel="stylesheet" />
+  <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <style>
+    :root {
+      --page-max: 1100px;
+      --card-radius: 16px;
+      --muted: #6b7280;
+      --border: #eceff3;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      background: var(--bg);
+      text-align: left;
+      direction: ltr;
+      font-family: "IBMPlexSansArabic", "29LT Bukra", sans-serif;
+    }
+
+    .page-shell {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .page-header {
+      background: #1c8354;
+      color: #fff;
+      border-radius: var(--card-radius);
+      padding: 22px 26px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    .page-header .eyebrow,
+    .page-header .text-muted,
+    .page-header .section-note {
+      color: #fff !important;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .accessibility-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #4b5563;
+      display: grid;
+      gap: 8px;
+    }
+
+    .code-inline {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .code-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-nav .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 14px 0 2px;
+    }
+
+    .sidebar-nav .sidebar-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav a {
+      color: #1f2937;
+      text-decoration: none;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .sidebar-nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(28, 131, 84, 0.05);
+      border-color: rgba(28, 131, 84, 0.25);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-nav a:focus-visible {
+      outline: 2px solid #1c8354;
+      outline-offset: 2px;
+    }
+
+    .sidebar-nav a.is-active {
+      background: rgba(28, 131, 84, 0.08);
+      border-color: rgba(28, 131, 84, 0.35);
+      color: #145c38;
+      box-shadow: none;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] .docs-table th,
+    html[dir="rtl"] .docs-table td {
+      text-align: right;
+    }
+
+    html[dir="rtl"] pre,
+    html[dir="rtl"] code,
+    html[dir="rtl"] .code-inline {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-sidebar {
+        position: static;
+      }
+    }
+
+    .metadata-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metadata-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #fff;
+      color: #1f2a37;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+  
+    .docs-table { width:100%; border-collapse:collapse; font-size:.9rem; }
+    .docs-table th { text-align:start; background:#f3f4f6; padding:10px 12px; font-weight:700; border-bottom:1px solid #e5e7eb; }
+    .docs-table td { padding:10px 12px; border-bottom:1px solid #eef0f3; vertical-align:top; color:#374151; }
+    .docs-table code, .code-inline { font-size:.82rem; }
+    .demo { padding:18px; border:1px dashed #d2d6db; border-radius:12px; background:#fcfcfd; display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin:12px 0; }
+    .demo .cap { font-size:.75rem; color:#6c737f; display:block; margin-top:4px; text-align:center; }
+    .dd-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:12px; }
+    .dd-card { border-radius:12px; padding:14px 18px; border:1px solid; }
+    .dd-card h4 { margin:0 0 6px; font-size:1rem; } .dd-card ul { margin:0; padding-inline-start:18px; display:grid; gap:6px; font-size:.9rem; }
+    .dd-do { background:#f3fcf6; border-color:#b8eacb; } .dd-do h4 { color:#166a45; }
+    .dd-dont { background:#fef3f2; border-color:#fecdca; } .dd-dont h4 { color:#b42318; }
+    .st-row { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 10px; }
+    .st-pill { border-radius:999px; padding:3px 12px; font-size:.78rem; font-weight:600; border:1px solid; }
+    .st-ok { background:#f3fcf6; color:#166a45; border-color:#b8eacb; } .st-warn { background:#fffaeb; color:#b54708; border-color:#fedf89; } .st-todo { background:#f3f4f6; color:#4d5761; border-color:#d2d6db; }
+    .sub-t { font-size:1.05rem; font-weight:700; margin:22px 0 6px; }
+    .swatch { display:inline-block; width:18px; height:18px; border-radius:4px; border:1px solid rgba(0,0,0,.12); vertical-align:middle; }
+  </style>
+  <link href="./css/top-actions.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main class="docs-shell container page-layout">
+    <aside class="docs-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" data-i18n data-ar="التوثيق">Documentation</div>
+        <nav class="sidebar-nav"></nav>
+      </div>
+    </aside>
+    <div class="page-content">
+      <div class="top-actions" role="group" aria-label="Page utilities">
+        <button class="btn moi-btn--Info lang-toggle mt-0" type="button" aria-label="Change language"><span>العربية</span></button>
+        <button class="btn moi-btn--Info scroll-top" type="button" aria-label="Scroll to top"><span data-i18n="" data-ar="أعلى" data-en="Top">Top</span></button>
+      </div>
+      <header class="page-header">
+        <div class="eyebrow" data-i18n data-ar="الأنماط / الاستعلام عن شخص">Patterns / Inquiry Person</div>
+        <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="الاستعلام عن شخص">Inquiry Person</h1>
+        <p class="text-muted mb-0" data-i18n data-ar="البحث عن شخص وقراءة النتيجة بنظرة سريعة.">Look a person up and read the result at a glance.</p>
+      </header>
+      <div class="metadata-row"><span class="metadata-pill" data-i18n data-ar="النمط: الاستعلام عن شخص">Pattern: Inquiry Person</span><span class="metadata-pill" data-i18n data-ar="الملفات: _personInquiry.scss">Files: _personInquiry.scss</span><span class="metadata-pill" data-i18n data-ar="آخر تحديث: 2 نوفمبر 2026">Last updated: November 2, 2026</span></div>
+<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2><div class="st-row"><span class="st-pill st-ok" data-i18n data-ar="Figma: نمط الاستعلام عن شخص">Figma: Inquiry Person pattern</span><span class="st-pill st-ok" data-i18n data-ar="الكود: _personInquiry.scss">Code: _personInquiry.scss</span></div><p class="section-note" data-i18n data-ar="يتيح نمط الاستعلام للضابط البحث عن شخص وقراءة النتيجة سريعًا: الصورة والاسم والهوية وهل هو مطلوب والإجراءات التالية. يُبنى من ‎&lt;a href=&quot;./personcard.html&quot;&gt;بطاقة الشخص&lt;/a&gt;‎ و‎&lt;a href=&quot;./tags.html&quot;&gt;الوسوم&lt;/a&gt;‎ و‎&lt;a href=&quot;./buttons.html&quot;&gt;الأزرار&lt;/a&gt;‎ مع فئات الاستعلام أدناه (‎&lt;code class=&quot;code-inline&quot;&gt;css/components/_personInquiry.scss&lt;/code&gt;‎). ويوجد استعلام مماثل للمركبات؛ راجع ‎&lt;a href=&quot;./vehicle-card.html&quot;&gt;بطاقة المركبة&lt;/a&gt;‎.">The inquiry pattern lets an officer look a person up and read the result at a glance: photo, name, ID, whether the person is wanted, and the next actions. It is built from the <a href="./personcard.html">Person Card</a>, <a href="./tags.html">Tags</a> and <a href="./buttons.html">Buttons</a>, plus the inquiry classes below (<code class="code-inline">css/components/_personInquiry.scss</code>). A matching vehicle inquiry exists; see the <a href="./vehicle-card.html">Vehicle Card</a>.</p></div></section>
+<section class="section" id="anatomy"><div class="section-card"><h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الجزء">Part</th><th scope="col" data-i18n data-ar="الفئة">Class</th><th scope="col" data-i18n data-ar="ملاحظات">Notes</th></tr></thead><tbody><tr><td data-i18n data-ar="الحاوية">Container</td><td><code>.inquiryContainer</code></td><td data-i18n data-ar="منطقة البحث والنتائج">Search area and results</td></tr><tr><td data-i18n data-ar="النتيجة">Result</td><td><code>.inquery-person-resalut</code></td><td data-i18n data-ar="شخص مطابق واحد">One matched person</td></tr><tr><td data-i18n data-ar="الصورة والاسم">Photo and name</td><td><code>.user__image</code> · <code>.pesonName</code></td><td data-i18n data-ar="الصورة مع الاسم الكامل">Photo with the full name</td></tr><tr><td data-i18n data-ar="علامة مطلوب">Wanted flag</td><td><code>.wanted-title</code> · <code>.wanted</code></td><td data-i18n data-ar="شريط أحمر عند كون الشخص مطلوبًا">Red banner when the person is wanted</td></tr><tr><td data-i18n data-ar="البيانات">Details</td><td><code>.main-person-details .block</code></td><td data-i18n data-ar="بيانات أساسية في كتل بعناوين">Key facts in labelled blocks</td></tr><tr><td data-i18n data-ar="الإجراءات">Actions</td><td><code>--personActions</code> · <code>--buttons</code></td><td data-i18n data-ar="الخطوات التالية مثل فتح السجل">Next steps such as open the record</td></tr><tr><td data-i18n data-ar="فارغ">Empty</td><td><code>.no-data</code></td><td data-i18n data-ar="لا توجد نتيجة">No match found</td></tr></tbody></table></div></div></section>
+<section class="section" id="flow"><div class="section-card"><h2 class="section-title" data-i18n data-ar="سير التفاعل">Flow</h2><ul class="accessibility-list"><li data-i18n data-ar="أدخل الهوية أو الاسم ثم ابحث (مفتاح Enter يعمل).">Enter ID or name, then press search (Enter works).</li><li data-i18n data-ar="أثناء البحث اعرض حالة تحميل ولا تمسح النتيجة السابقة حتى تصل الجديدة.">While searching, show a loading state; do not clear the previous result until the new one arrives.</li><li data-i18n data-ar="إن لم توجد نتيجة اعرض الحالة الفارغة (‎&lt;a href=&quot;./empty-state.html&quot;&gt;Empty State&lt;/a&gt;‎) مع طريقة لتعديل الاستعلام.">If nothing matches, show the empty state (<a href="./empty-state.html">Empty State</a>) with a way to change the query.</li><li data-i18n data-ar="يجب أن يكون الشخص المطلوب واضحًا تمامًا: الشريط الأحمر مع نص، وليس لونًا فقط.">A wanted person must be unmistakable: the red banner plus text, never color alone.</li></ul></div></section>
+<section class="section" id="accessibility"><div class="section-card"><h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2><ul class="accessibility-list"><li data-i18n data-ar="أعلن عدد النتائج في منطقة ‎&lt;code&gt;aria-live=&quot;polite&quot;&lt;/code&gt;‎.">Announce the result count in an <code>aria-live="polite"</code> region.</li><li data-i18n data-ar="الصور تحتاج ‎&lt;code&gt;alt&lt;/code&gt;‎ باسم الشخص.">Photos need <code>alt</code> with the person's name.</li><li data-i18n data-ar="أبقِ أزرار الإجراءات قابلة للوصول بالكيبورد بترتيب منطقي.">Keep action buttons reachable by keyboard in a logical order.</li></ul></div></section>
+<section class="section" id="rtl"><div class="section-card"><h2 class="section-title" data-i18n data-ar="ملاحظات RTL">RTL notes</h2><ul class="accessibility-list"><li data-i18n data-ar="تنعكس بطاقات النتائج وكتل البيانات مع اتجاه الصفحة، ويمتد شريط «مطلوب» بعرض كامل في الاتجاهين.">Result cards and detail blocks mirror with the page direction; the wanted banner spans the full width in both.</li><li data-i18n data-ar="تبقى قيم الهوية واللوحة من اليسار لليمين داخل ‎&lt;code&gt;&amp;lt;bdi&amp;gt;&lt;/code&gt;‎.">ID and plate values stay left-to-right inside <code>&lt;bdi&gt;</code>.</li></ul></div></section>
+
+    </div>
+  </main>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/top-actions.js"></script>
+</body>
+
+</html>

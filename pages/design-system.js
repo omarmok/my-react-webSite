@@ -112,7 +112,7 @@ const DesignSystemPage = () => {
         experienceLabel: "Experience Highlight",
         experienceTitle: "أكثر من 19 عامًا من الخبرة",
         experienceBody:
-          "يعكس هذا العرض ما يقارب عقدين من الخبرة في تجربة المستخدم، وتصميم الواجهات، وأنظمة التصميم، وDesignOps، وتطوير الواجهات الأمامية، وتصميم المنتجات الرقمية.",
+          "يستند هذا العرض إلى خبرتي المهنية في تصميم تجربة المستخدم والواجهات وتنفيذ الواجهات الأمامية، ويبرز تركيزي الحالي على أنظمة التصميم وحوكمة التصميم وعمليات التصميم.",
         discoverLabel: "What You'll Discover Inside",
         discoverTitle: "ماذا ستجد بالداخل؟",
         discoverBody:
@@ -211,7 +211,7 @@ const DesignSystemPage = () => {
         experienceLabel: "Experience Highlight",
         experienceTitle: "19+ Years of Experience",
         experienceBody:
-          "The showcase reflects nearly two decades of experience across UX, UI, Design Systems, DesignOps, Front-End Development, and digital product design.",
+          "The showcase draws on my professional background in UX/UI design and front-end implementation, highlighting my current focus on design systems, design governance, and DesignOps.",
         discoverLabel: "What You'll Discover Inside",
         discoverTitle: "What You'll Discover Inside",
         discoverBody:
