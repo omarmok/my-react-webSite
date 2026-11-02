@@ -925,3 +925,13 @@ html[dir="rtl"] .page-header {
 .page-header .text-muted {
   color: #dff6e7 !important;
 }
+
+/* Popups (date picker calendar, tree-select menu...) open inside a .section-card. The cards use backdrop-filter,
+   which makes each one its own stacking context, so a popup was painted under the next card.
+   Raise the card that holds the open field/popup above the cards that follow it. */
+.section-card:focus-within,
+.section-card:has(.bootstrap-datetimepicker-widget),
+.section-card:has(.vue-treeselect--open) {
+  position: relative;
+  z-index: 50;
+}

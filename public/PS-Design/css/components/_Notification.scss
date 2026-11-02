@@ -55,7 +55,7 @@
   color: var(--moi-notification-color);
   background-color: var(--moi-notification-bg);
   border: 0;
-  border-bottom: 3px solid var(--moi-notification-border-color);
+  border-bottom: 1px solid var(--moi-notification-border-color);
   border-radius: 0;
 
   &[data-status="neutral"] {
@@ -172,7 +172,7 @@
   &.alert {
     margin-bottom: 0;
     border: 0;
-    border-bottom: 3px solid var(--moi-notification-border-color);
+    border-bottom: 1px solid var(--moi-notification-border-color);
   }
 
   &__content,

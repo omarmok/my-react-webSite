@@ -684,6 +684,9 @@
     }
   </style>
   <link href="./css/top-actions.css" rel="stylesheet" />
+  <style>
+    .fu-demo { padding:16px; border:1px dashed #d2d6db; border-radius:12px; background:#f9fafb; }
+  </style>
 </head>
 
 <body>
@@ -695,7 +698,6 @@
           <a href="./index.html" data-i18n data-ar="نظرة عامة">Introduction</a>
           <div class="sidebar-title" data-i18n data-ar="أدلة">Guides</div>
           <a href="./StartDeveloping.html" data-i18n data-ar="ابدأ التطوير">Start Developing</a>
-          <a href="./NewFeature.html" data-i18n data-ar="ميزة جديدة">New Feature</a>
           <div class="sidebar-title" data-i18n data-ar="الأسس">Foundations</div>
           <a href="./ColorSystem.html" data-i18n data-ar="نظام الألوان">Color System</a>
           <a href="./typography.html" data-i18n data-ar="الطباعة">Typography</a>
@@ -723,7 +725,6 @@
           <a href="./modal.html" data-i18n data-ar="النافذة">Modal</a>
           <a href="./tooltip.html" data-i18n data-ar="التلميح">Tooltip</a>
           <a href="./breadcrumb.html" data-i18n data-ar="مسار التنقل">Breadcrumb</a>
-          <a href="./dropdown.html" data-i18n data-ar="القائمة المنسدلة">Dropdown</a>
           <a href="./empty-state.html" data-i18n data-ar="الحالة الفارغة">Empty State</a>
           <a href="./page-title.html" data-i18n data-ar="عنوان الصفحة">Page Title</a>
           <a href="./map.html" data-i18n data-ar="الخريطة">Map</a>
@@ -759,7 +760,7 @@
       <div class="metadata-row">
         <span class="metadata-pill" data-i18n data-ar="المكوّن: رافع الملفات">Component: File Uploader</span>
         <span class="metadata-pill" data-i18n data-ar="الإصدار: 1.2 (تحسينات الوصول والمعاينة)">Version: 1.2 (Accessibility &amp; Preview enhancements)</span>
-        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 25 أكتوبر 2026">Last updated: October 25, 2026</span>
+        <span class="metadata-pill" data-i18n data-ar="آخر تحديث: 2 نوفمبر 2026">Last updated: November 2, 2026</span>
       </div>
 
       <section class="section" id="overview">
@@ -878,6 +879,65 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="section" id="our-uploader">
+        <div class="section-card">
+          <h2 class="section-title" data-i18n data-ar="أمثلة حيّة: رافع الملفات المعتمد">Live examples: the approved uploader</h2>
+          <p class="section-note" data-i18n data-ar="هذا هو رافع الملفات المستخدم في النظام بنفس الـ HTML المعتمد (‎.file__uploader‎). التصميم كله من الـ SCSS في ‎css/common/_common.scss‎، والنصوص قابلة للتعديل من الـ HTML. جرّب اختيار ملف أو سحبه إلى الإطار.">This is the uploader used across the system, with the approved HTML (<code class="code-inline">.file__uploader</code>). All of the styling comes from the SCSS in <code class="code-inline">css/common/_common.scss</code>, and the texts can be changed in the HTML. Try choosing a file or dragging one onto the frame.</p>
+
+          <h3 class="section-title mt-3" data-i18n data-ar="١. الحالة الافتراضية (تفاعلي)">1. Default state (interactive)</h3>
+          <p class="section-note" data-i18n data-ar="زر «حفظ» معطّل حتى تختار ملفًا وتكتب وصفًا. الملف الأكبر من 5MB يُرفض.">The Save button stays disabled until you choose a file and type a description. A file over 5MB is rejected.</p>
+          <div class="fu-demo mb-3">
+            <div class="moi-card" data-status="create">
+              <div class="moi-card__header"><div class="moi-card__title-group"><h4 class="moi-card__title" data-i18n data-ar="المرفقات">Attachments</h4></div></div>
+              <div class="d-flex flex-column file__uploader"><div class="upload-area"><div class="upload-area__header"><p class="upload-area__paragraph"><strong class="upload-area__tooltip"><span class="upload-area__tooltip-data"></span></strong></p></div>
+  <div class="uploadheader"><div class="d-flex flex-column align-items-center">
+    <div class="upload-area__drop-zoon drop-zoon">
+      <span class="drop-zoon__loading-text"> Message:Wait </span>
+      <div class="drop-zoon__hint">الصيغ المدعومة: DOC, DOCX, PDF, XLS, XLSX, PPT, PPTX, JPG, JPEG, PNG, ZIP, MP4 و الحد الأقصى لحجم الملف: 5MB</div>
+      <input type="file" class="drop-zoon__file-input d-block uploader-v2 font-md-400" id="fu1-file">
+    </div>
+    <div class="upload-area__file-details file-details"><h4 class="file-details__title"> الملف المرفوع </h4><div class="uploaded-file"><div class="uploaded-file__icon-container"><span class="uploaded-file__icon-text"></span></div></div></div>
+  </div></div>
+  <div class="w-50 description"><input type="text" placeholder="يرجي إضافة وصف للملف المرفوع" class="w-100 form-control" id="fu1-desc"><div><span id="fu1-info">الحجم الأقصى المسموح به: 5 MB.</span></div></div>
+  <button disabled="disabled" type="button" class="btn moi-btn--primary" id="fu1-save">حفظ</button></div></div>
+            </div>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="٢. جاهز للحفظ">2. Ready to save</h3>
+          <p class="section-note" data-i18n data-ar="بعد اختيار الملف وكتابة الوصف يتفعّل زر «حفظ».">Once a file is chosen and a description typed, the Save button becomes active.</p>
+          <div class="fu-demo mb-3" id="fu-ready">
+            <div class="moi-card" data-status="create">
+              <div class="moi-card__header"><div class="moi-card__title-group"><h4 class="moi-card__title" data-i18n data-ar="المرفقات">Attachments</h4></div></div>
+              <div class="d-flex flex-column file__uploader"><div class="upload-area"><div class="upload-area__header"><p class="upload-area__paragraph"><strong class="upload-area__tooltip"><span class="upload-area__tooltip-data"></span></strong></p></div>
+  <div class="uploadheader"><div class="d-flex flex-column align-items-center">
+    <div class="upload-area__drop-zoon drop-zoon">
+      <span class="drop-zoon__loading-text"> Message:Wait </span>
+      <div class="drop-zoon__hint">الصيغ المدعومة: DOC, DOCX, PDF, XLS, XLSX, PPT, PPTX, JPG, JPEG, PNG, ZIP, MP4 و الحد الأقصى لحجم الملف: 5MB</div>
+      <input type="file" class="drop-zoon__file-input d-block uploader-v2 font-md-400" id="fu2-file">
+    </div>
+    <div class="upload-area__file-details file-details"><h4 class="file-details__title"> الملف المرفوع </h4><div class="uploaded-file"><div class="uploaded-file__icon-container"><span class="uploaded-file__icon-text"></span></div></div></div>
+  </div></div>
+  <div class="w-50 description"><input type="text" placeholder="يرجي إضافة وصف للملف المرفوع" class="w-100 form-control" id="fu2-desc" value="صورة الهوية الوطنية"><div><span id="fu2-info">الحجم الأقصى المسموح به: 5 MB.</span></div></div>
+  <button type="button" class="btn moi-btn--primary" id="fu2-save">حفظ</button></div></div>
+            </div>
+          </div>
+
+          <h3 class="section-title mt-4" data-i18n data-ar="الكود">Code</h3>
+          <p class="section-note" data-i18n data-ar="انسخ هذا الـ HTML كما هو. عنصر ‎.drop-zoon__hint‎ يحمل نص الصيغ المدعومة والحد الأقصى فيمكنك تغييره بحرية دون المساس بالتصميم.">Copy this HTML as it is. The <code class="code-inline">.drop-zoon__hint</code> element holds the supported formats and size limit text, so you can change it freely without touching the design.</p>
+          <div class="code-block"><pre><code class="language-html">&lt;div class=&quot;d-flex flex-column file__uploader&quot;&gt;&lt;div class=&quot;upload-area&quot;&gt;&lt;div class=&quot;upload-area__header&quot;&gt;&lt;p class=&quot;upload-area__paragraph&quot;&gt;&lt;strong class=&quot;upload-area__tooltip&quot;&gt;&lt;span class=&quot;upload-area__tooltip-data&quot;&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+  &lt;div class=&quot;uploadheader&quot;&gt;&lt;div class=&quot;d-flex flex-column align-items-center&quot;&gt;
+    &lt;div class=&quot;upload-area__drop-zoon drop-zoon&quot;&gt;
+      &lt;span class=&quot;drop-zoon__loading-text&quot;&gt; Message:Wait &lt;/span&gt;
+      &lt;div class=&quot;drop-zoon__hint&quot;&gt;الصيغ المدعومة: DOC, DOCX, PDF, XLS, XLSX, PPT, PPTX, JPG, JPEG, PNG, ZIP, MP4 و الحد الأقصى لحجم الملف: 5MB&lt;/div&gt;
+      &lt;input type=&quot;file&quot; class=&quot;drop-zoon__file-input d-block uploader-v2 font-md-400&quot; id=&quot;attachments-file&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;upload-area__file-details file-details&quot;&gt;&lt;h4 class=&quot;file-details__title&quot;&gt; الملف المرفوع &lt;/h4&gt;&lt;div class=&quot;uploaded-file&quot;&gt;&lt;div class=&quot;uploaded-file__icon-container&quot;&gt;&lt;span class=&quot;uploaded-file__icon-text&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;w-50 description&quot;&gt;&lt;input type=&quot;text&quot; placeholder=&quot;يرجي إضافة وصف للملف المرفوع&quot; class=&quot;w-100 form-control&quot; id=&quot;attachments-desc&quot;&gt;&lt;div&gt;&lt;span id=&quot;attachments-info&quot;&gt;الحجم الأقصى المسموح به: 5 MB.&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;button disabled=&quot;disabled&quot; type=&quot;button&quot; class=&quot;btn moi-btn--primary&quot; id=&quot;attachments-save&quot;&gt;حفظ&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;</code></pre></div>
         </div>
       </section>
 
@@ -2071,6 +2131,25 @@
         if (decodeURIComponent(href.replace('./', '')) === current) {
           link.classList.add('is-active');
         }
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      document.querySelectorAll(".fu-demo").forEach(function (demo) {
+        var file = demo.querySelector('input[type="file"]');
+        var desc = demo.querySelector(".description input");
+        var save = demo.querySelector(".file__uploader > .upload-area > button");
+        var info = demo.querySelector(".description span");
+        var idle = info.textContent;
+        function sync() { save.disabled = !(file.files[0] && desc.value.trim()); }
+        file.addEventListener("change", function () {
+          var f = file.files[0];
+          if (f && f.size > 5 * 1024 * 1024) { file.value = ""; info.textContent = "تجاوز الملف الحد الأقصى (5 MB)."; }
+          else { info.textContent = f ? f.name : idle; }
+          sync();
+        });
+        desc.addEventListener("input", sync);
       });
     })();
   </script>

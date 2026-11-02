@@ -196,12 +196,30 @@
     (document.body || document.documentElement).appendChild(overlay);
   }
 
+  var lastOuter = { w: window.outerWidth, h: window.outerHeight };
+  function rebaseline() {
+    baseline.dpr = window.devicePixelRatio;
+    baseline.dw = window.outerWidth - window.innerWidth;
+    baseline.dh = window.outerHeight - window.innerHeight;
+    lastOuter.w = window.outerWidth;
+    lastOuter.h = window.outerHeight;
+  }
+
   function sizeCheck() {
-    // Docked DevTools shrinks the viewport without changing the window; browser zoom changes the pixel ratio, so it is ignored.
-    if (window.devicePixelRatio !== baseline.dpr) {
-      baseline.dpr = window.devicePixelRatio;
-      baseline.dw = window.outerWidth - window.innerWidth;
-      baseline.dh = window.outerHeight - window.innerHeight;
+    // Docked DevTools shrinks the viewport while the window itself keeps its size and pixel ratio.
+    // Anything else (zoom, moving to another screen, resizing/maximizing, a window reporting 0x0 while loading)
+    // re-measures the baseline instead of being treated as DevTools.
+    if (!window.outerWidth || !window.outerHeight) {
+      return false;
+    }
+    if (
+      window.devicePixelRatio !== baseline.dpr ||
+      window.outerWidth !== lastOuter.w ||
+      window.outerHeight !== lastOuter.h ||
+      !baseline.ready
+    ) {
+      rebaseline();
+      baseline.ready = true;
       return false;
     }
     var dw = window.outerWidth - window.innerWidth;
@@ -260,7 +278,6 @@
       ar: "أدلة",
       pages: [
         { file: "StartDeveloping.html", en: "Start Developing", ar: "ابدأ التطوير" },
-        { file: "NewFeature.html", en: "New Feature", ar: "ميزة جديدة" },
       ],
     },
     {
@@ -282,7 +299,6 @@
       pages: [
         { file: "buttons.html", en: "Buttons", ar: "الأزرار" },
         { file: "text-fields.html", en: "Text Fields", ar: "حقول النص" },
-        { file: "dropdown.html", en: "Dropdown", ar: "القائمة المنسدلة" },
         { file: "treeselect.html", en: "Tree Select", ar: "القائمة الشجرية" },
         { file: "datepicker.html", en: "Date Picker", ar: "منتقي التاريخ" },
         { file: "switch.html", en: "Switches", ar: "مفاتيح التبديل" },

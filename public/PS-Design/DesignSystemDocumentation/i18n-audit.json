@@ -22,17 +22,6 @@
     "hasCentralJS": true
   },
   {
-    "file": "PS-Design/DesignSystemDocumentation/NewFeature.html",
-    "topActionsCount": 1,
-    "hasLangToggle": true,
-    "hasScrollTop": true,
-    "countI18nNodes": 92,
-    "missingDataArCount": 0,
-    "missingDataEnCount": 91,
-    "scriptSrc": "./js/top-actions.js",
-    "hasCentralJS": true
-  },
-  {
     "file": "PS-Design/DesignSystemDocumentation/StartDeveloping.html",
     "topActionsCount": 1,
     "hasLangToggle": true,
