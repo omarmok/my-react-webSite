@@ -1,0 +1,149 @@
+// =============================================================================
+// IMAGE CARD  —  matches Figma «imageCard-V2» (node 25992:18805)
+// =============================================================================
+// 324px card: image slider with pager dots, a caption and two actions
+// (Delete / View). Replaces the legacy `.imagecard` in common/_common.scss,
+// which is kept only for existing screens.
+//
+//   <article class="moi-image-card">
+//     <div class="moi-image-card__slider">
+//       <img src="…" alt="…" />
+//       <div class="moi-image-card__dots" aria-hidden="true"><i></i><i class="is-active"></i><i></i></div>
+//     </div>
+//     <h4 class="moi-image-card__title">Rear side</h4>
+//     <div class="moi-image-card__actions">
+//       <button class="btn moi-btn moi-btn--Error--outline" type="button">…</button>
+//       <button class="btn moi-btn moi-btn--Primary--outline" type="button">…</button>
+//     </div>
+//   </article>
+//
+//   Optional counter (more than one picture):
+//   <span class="moi-image-card__count"><svg …/>4</span> inside __slider
+//
+// Figma properties: imagetitle (text) → __title, image-title (boolean) → omit
+// __title, action (boolean) → omit __actions.
+// =============================================================================
+
+@use "../helpers" as *;
+
+.moi-image-card {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-md;
+  width: 324px;
+  max-width: 100%;
+  padding: $padding-lg;
+  background: $white-100;
+  border: 1px solid $Neutral-300;
+  border-radius: $radius-md;
+}
+
+.moi-image-card__slider {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border-radius: $radius-xs;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Pager dots: bottom center, always left-to-right so the order matches the slides.
+.moi-image-card__dots {
+  position: absolute;
+  inset-inline: 0;
+  bottom: $gap-md;
+  display: flex;
+  justify-content: center;
+  gap: $gap-xxs;
+  direction: ltr;
+
+  i,
+  button {
+    display: block;
+    flex: none;
+    width: 11px;
+    height: 11px;
+    padding: 0;
+    border: 0;
+    border-radius: $radius-md;
+    background: $Neutral-300;
+    transition: width 0.15s ease, background-color 0.15s ease;
+
+    &.is-active {
+      width: 25px;
+      background: $Neutral-600;
+    }
+  }
+
+  // Buttons switch the picture; plain <i> dots are decorative.
+  button {
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid $Primary-400;
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Picture counter: shown only when the card holds more than one picture.
+.moi-image-card__count {
+  position: absolute;
+  inset-block-start: $gap-md;
+  inset-inline-end: $gap-md;
+  display: inline-flex;
+  align-items: center;
+  gap: $gap-xs;
+  padding: $gap-xxs $gap-md;
+  border-radius: $radius-md;
+  background: rgb(17 25 39 / 72%);
+  color: $white-100;
+  font-size: typography-size(0.75rem);
+  font-weight: 500;
+  line-height: 1.5;
+
+  svg {
+    flex: none;
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+  }
+}
+
+.moi-image-card__title {
+  margin: 0;
+  color: $Neutral-700;
+  font-size: typography-size(0.875rem);
+  font-weight: 500;
+  line-height: typography-line-height(1.43);
+}
+
+.moi-image-card__actions {
+  display: flex;
+  gap: $gap-md;
+
+  // Button tokens from the button system (see components/_buttons): Figma uses a 34px
+  // button with a 16px stroke icon. `fill: none` keeps outline icons from filling in.
+  .btn.moi-btn {
+    --btn-height: 34px;
+    --btn-px: #{$gap-md};
+    --btn-font-size: 0.75rem;
+    --btn-radius: #{$radius-xs};
+    --btn-icon-size: 16px;
+    --btn-gap: #{$gap-xs};
+    background: $white-100;
+    font-weight: 500;
+
+    svg {
+      flex: none;
+      fill: none;
+      stroke: currentColor;
+    }
+  }
+}

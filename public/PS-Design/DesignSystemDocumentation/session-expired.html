@@ -8,6 +8,7 @@
   <link href="../css/bootstrap-v5.css" rel="stylesheet" />
   <link href="../css/animate.css" rel="stylesheet" />
   <link href="../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
   <link href="../css/main.css" rel="stylesheet" />
   <style>
     :root {
@@ -242,7 +243,7 @@
     .sub-t { font-size:1.05rem; font-weight:700; margin:22px 0 6px; }
     .swatch { display:inline-block; width:18px; height:18px; border-radius:4px; border:1px solid rgba(0,0,0,.12); vertical-align:middle; }
   </style>
-  <link href="../libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+  <link href="../css/sweet-alert.css" rel="stylesheet" />
   <link href="./css/top-actions.css" rel="stylesheet" />
 </head>
 
@@ -264,15 +265,16 @@
         <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="انتهاء الجلسة">Session Expired</h1>
         <p class="text-muted mb-0" data-i18n data-ar="التنبيه قبل انتهاء الجلسة وشرح ما سيحدث بعدها.">Warn before a session ends and explain what happens next.</p>
       </header>
-      <div class="metadata-row"><span class="metadata-pill" data-i18n data-ar="النمط: انتهاء الجلسة">Pattern: Session Expired</span><span class="metadata-pill" data-i18n data-ar="يُبنى بـ: SweetAlert2">Built with: SweetAlert2</span><span class="metadata-pill" data-i18n data-ar="آخر تحديث: 2 نوفمبر 2026">Last updated: November 2, 2026</span></div>
-<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2><div class="st-row"><span class="st-pill st-ok" data-i18n data-ar="Figma: انتهاء الجلسة">Figma: Session Expired</span><span class="st-pill st-warn" data-i18n data-ar="الكود: يُبنى بـ SweetAlert2 (بلا فئة مخصصة)">Code: built with SweetAlert2 (no dedicated class)</span></div><p class="section-note" data-i18n data-ar="يحمي انتهاء الجلسة حسابًا تُرك مفتوحًا. ينبّه النمط قبل حدوثه، ويتيح التمديد، ويشرح ما يفعله المستخدم بعد الانتهاء. يُعرض بنافذة النظام (‎&lt;a href=&quot;./sweet-alert.html&quot;&gt;Sweet Alert&lt;/a&gt;‎)، وتعطي هذه الصفحة النصوص والسلوك من إطارات «انتهاء الجلسة» في Figma.">A session timeout protects an account that was left open. The pattern warns before it happens, lets the user extend it, and explains what to do after it ends. It is shown with the system dialog (<a href="./sweet-alert.html">Sweet Alert</a>); this page gives the wording and behavior from the Figma «Session Expired» frames.</p></div></section>
+      <div class="metadata-row"><span class="metadata-pill" data-i18n data-ar="النمط: انتهاء الجلسة">Pattern: Session Expired</span><span class="metadata-pill" data-i18n data-ar="يُبنى بـ: MoiSwal (SweetAlert2 بثيم النظام)">Built with: MoiSwal (SweetAlert2 + system theme)</span><span class="metadata-pill" data-i18n data-ar="آخر تحديث: 2 نوفمبر 2026">Last updated: November 2, 2026</span></div>
+<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2><div class="st-row"><span class="st-pill st-ok" data-i18n data-ar="Figma: انتهاء الجلسة">Figma: Session Expired</span><span class="st-pill st-ok" data-i18n data-ar="الكود: MoiSwal (SweetAlert2 بثيم النظام في sweet-alert.css)">Code: MoiSwal (SweetAlert2 + system theme in sweet-alert.css)</span></div><p class="section-note" data-i18n data-ar="يحمي انتهاء الجلسة حسابًا تُرك مفتوحًا. ينبّه النمط قبل حدوثه، ويتيح التمديد، ويشرح ما يفعله المستخدم بعد الانتهاء. يُعرض بنافذة النظام (‎&lt;a href=&quot;./sweet-alert.html&quot;&gt;Sweet Alert&lt;/a&gt;‎)، وتعطي هذه الصفحة النصوص والسلوك من إطارات «انتهاء الجلسة» في Figma.">A session timeout protects an account that was left open. The pattern warns before it happens, lets the user extend it, and explains what to do after it ends. It is shown with the system dialog (<a href="./sweet-alert.html">Sweet Alert</a>); this page gives the wording and behavior from the Figma «Session Expired» frames.</p></div></section>
 <section class="section" id="moments"><div class="section-card"><h2 class="section-title" data-i18n data-ar="اللحظات">Moments</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="اللحظة">Moment</th><th scope="col" data-i18n data-ar="ما يراه المستخدم">What the user sees</th><th scope="col" data-i18n data-ar="الإجراءات">Actions</th></tr></thead><tbody><tr><td data-i18n data-ar="التحذير">Warning</td><td data-i18n data-ar="«ستنتهي جلستك قريبا» مع عدّ تنازلي («سيتم تسجيل خروجك خلال 8 ثواني»)">«Your session is about to expire» with a countdown («You will be signed out in 8 seconds»)</td><td data-i18n data-ar="تمديد الجلسة (أساسي) · اغلاق">Extend session (primary) · Close</td></tr><tr><td data-i18n data-ar="الانتهاء">Expired</td><td data-i18n data-ar="«يرجى تحديث الصفحة، لا تقلق، لقد احتفظنا بجميع بياناتك في مكانها.»">«Please refresh the page. Don't worry, we kept all your data in place.»</td><td data-i18n data-ar="تحديث / تسجيل الدخول مجددًا">Refresh / sign in again</td></tr></tbody></table></div></div></section>
 <section class="section" id="live"><div class="section-card"><h2 class="section-title" data-i18n data-ar="مثال حي">Live example</h2><div class="demo">
   <button class="btn moi-btn--Info" type="button" id="swWarn" data-i18n data-ar="عرض تحذير انتهاء الجلسة">Show session warning</button>
   <button class="btn moi-btn--Neutral--outline" type="button" id="swExpired" data-i18n data-ar="عرض انتهاء الجلسة">Show session expired</button>
 </div></div></section>
-<section class="section" id="code"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الكود">Code</h2><div class="code-block"><pre><code class="language-javascript">let seconds = 8;
-Swal.fire({
+<section class="section" id="code"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الكود">Code</h2><div class="code-block"><pre><code class="language-javascript">const MoiSwal = Swal.mixin({ confirmButtonText: &quot;تأكيد&quot;, cancelButtonText: &quot;إلغاء&quot;, denyButtonText: &quot;عدم الحفظ&quot; });
+
+MoiSwal.fire({
   title: &quot;ستنتهي جلستك قريبا&quot;,
   html: &#x27;سيتم تسجيل خروجك خلال &lt;b&gt;8&lt;/b&gt; ثواني.&#x27;,
   icon: &quot;warning&quot;,
@@ -292,6 +294,8 @@ Swal.fire({
 <section class="section" id="accessibility"><div class="section-card"><h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2><ul class="accessibility-list"><li data-i18n data-ar="يجب أن تأخذ النافذة التركيز وتعلن عن نفسها (يضبط SweetAlert2 ‎&lt;code&gt;role=&quot;dialog&quot;&lt;/code&gt;‎).">The dialog must take focus and announce itself (SweetAlert2 sets <code>role="dialog"</code>).</li><li data-i18n data-ar="العدّ التنازلي لا يحبس المستخدم: زر التمديد قابل للوصول ويمكن التمديد بالكيبورد.">The countdown must not trap users: the extend button stays reachable and the timer can be extended with the keyboard.</li><li data-i18n data-ar="WCAG 2.2.1: يجب أن يستطيع المستخدم تمديد المهلة.">WCAG 2.2.1: users must be able to extend a time limit.</li></ul></div></section>
 <section class="section" id="rtl"><div class="section-card"><h2 class="section-title" data-i18n data-ar="ملاحظات RTL">RTL notes</h2><ul class="accessibility-list"><li data-i18n data-ar="يعكس SweetAlert2 النافذة وترتيب أزرارها مع ‎&lt;code&gt;dir&lt;/code&gt;‎؛ ويبقى زر «تمديد الجلسة» الأساسي في جهة البداية.">SweetAlert2 mirrors the dialog and its button order with <code>dir</code>; the primary «Extend session» button stays on the start side.</li><li data-i18n data-ar="ضع الرقم داخل ‎&lt;code&gt;&amp;lt;b&amp;gt;&lt;/code&gt;‎ حتى لا تتغير أرقام العدّ داخل النص العربي.">Put the number in a <code>&lt;b&gt;</code> so the countdown digits are not reordered inside Arabic text.</li></ul></div></section>
 
+    <section class="section" id="anatomy"><div class="section-card"><h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الجزء">Part</th><th scope="col" data-i18n data-ar="الفئة / العنصر">Class / element</th><th scope="col" data-i18n data-ar="ملاحظات">Notes</th></tr></thead><tbody><tr><td data-i18n data-ar="النافذة">Dialog</td><td><code class="code-inline">Swal.mixin (MoiSwal)</code></td><td data-i18n data-ar="SweetAlert2 بتنسيق ‎css/sweet-alert.css‎.">SweetAlert2 themed by css/sweet-alert.css.</td></tr><tr><td data-i18n data-ar="الأيقونة">Icon</td><td><code class="code-inline">.swal2-icon</code></td><td data-i18n data-ar="أيقونة تحذير لانتهاء الجلسة.">Warning icon for the expired session.</td></tr><tr><td data-i18n data-ar="العنوان والنص">Title and text</td><td><code class="code-inline">.swal2-title / .swal2-html-container</code></td><td data-i18n data-ar="اذكر أن الجلسة انتهت وسببها.">Say the session ended and why.</td></tr><tr><td data-i18n data-ar="الإجراء">Action</td><td><code class="code-inline">.swal2-confirm</code></td><td data-i18n data-ar="زر واحد: تسجيل الدخول من جديد.">One button: sign in again.</td></tr></tbody></table></div></div></section>
+<section class="section" id="do-dont"><div class="section-card"><h2 class="section-title" data-i18n data-ar="افعل ولا تفعل">Do & Don't</h2><div class="dd-grid"><div class="dd-card dd-do"><h4 data-i18n data-ar="افعل">Do</h4><ul><li data-i18n data-ar="احجب الصفحة خلف النافذة وانقل التركيز إليها.">Block the page behind the dialog and move focus into it.</li><li data-i18n data-ar="قدّم إجراءً واحدًا واضحًا: تسجيل الدخول من جديد.">Offer one clear action: sign in again.</li></ul></div><div class="dd-card dd-dont"><h4 data-i18n data-ar="لا تفعل">Don't</h4><ul><li data-i18n data-ar="لا تُغلق النافذة بالنقر خارجها؛ يجب أن يتصرف المستخدم.">Do not close the dialog by clicking outside; the user must act.</li><li data-i18n data-ar="لا تُفقد المدخلات غير المحفوظة بصمت؛ نبّه قبل انتهاء الجلسة إن أمكن.">Do not lose unsaved input silently; warn before the session ends when possible.</li></ul></div></div></div></section>
     </div>
   </main>
 
@@ -301,9 +305,9 @@ Swal.fire({
   <script src="../libs/sweetalert2/sweetalert2.min.js"></script>
   <script>
     (function () {
-      function ar() { return document.documentElement.lang === "ar"; }
+      var MoiSwal = Swal.mixin({ confirmButtonText: "تأكيد", cancelButtonText: "إلغاء", denyButtonText: "عدم الحفظ" });
       document.getElementById("swWarn").addEventListener("click", function () {
-        Swal.fire({
+        MoiSwal.fire({
           title: "ستنتهي جلستك قريبا",
           html: "سيتم تسجيل خروجك خلال <b>8</b> ثواني.",
           icon: "warning", timer: 8000, timerProgressBar: true, showCancelButton: true,
@@ -316,7 +320,7 @@ Swal.fire({
         });
       });
       document.getElementById("swExpired").addEventListener("click", function () {
-        Swal.fire({
+        MoiSwal.fire({
           title: "انتهت جلستك", text: "يرجى تحديث الصفحة، لا تقلق، لقد احتفظنا بجميع بياناتك في مكانها.",
           icon: "info", confirmButtonText: "تحديث الصفحة"
         });

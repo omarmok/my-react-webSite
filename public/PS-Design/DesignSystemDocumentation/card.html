@@ -577,7 +577,6 @@
           <a href="./breadcrumb.html" data-i18n data-ar="مسار التنقل">Breadcrumb</a>
           <a href="./empty-state.html" data-i18n data-ar="الحالة الفارغة">Empty State</a>
           <a href="./page-title.html" data-i18n data-ar="عنوان الصفحة">Page Title</a>
-          <a href="./map.html" data-i18n data-ar="الخريطة">Map</a>
         </nav>
       </div>
 
@@ -1293,7 +1292,9 @@
             </div>
           </div>
 
-        </div>
+        <section class="section" id="accessibility"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الوصولية">Accessibility</h2><ul class="accessibility-list"><li data-i18n data-ar="اجعل البطاقة كلها رابطًا واحدًا فقط عند وجود وجهة واحدة؛ وإلا أبقِ أزرارًا منفصلة.">Make the whole card a single link only when it has one destination; otherwise keep separate buttons.</li><li data-i18n data-ar="استخدم عناوين حقيقية لعناوين البطاقات ليبقى هيكل الصفحة صحيحًا.">Use real headings for card titles so the page outline stays correct.</li><li data-i18n data-ar="كل عنصر تفاعلي يمكن الوصول إليه بلوحة المفاتيح ويُظهر حلقة تركيز واضحة.">Every interactive element is reachable by keyboard and shows a visible focus ring.</li><li data-i18n data-ar="تباين النص والأيقونات 4.5:1 على الأقل (3:1 للنص الكبير وحدود المكوّنات).">Text and icon contrast must be at least 4.5:1 (3:1 for large text and UI borders).</li></ul></div></section>
+<section class="section" id="rtl"><div class="section-card"><h2 class="section-title" data-i18n data-ar="ملاحظات RTL">RTL notes</h2><ul class="accessibility-list"><li data-i18n data-ar="استخدم الخصائص المنطقية (margin-inline وpadding-inline وinset-inline) لينعكس التخطيط مع ‎dir=&quot;rtl&quot;‎ دون CSS إضافي.">Use logical properties (margin-inline, padding-inline, inset-inline) so the layout mirrors with dir="rtl" without extra CSS.</li><li data-i18n data-ar="الأيقونات الاتجاهية (الأسهم والأقواس) تُعكس في RTL، أما الأيقونات المحايدة (بحث، إغلاق، حذف) فلا.">Directional icons (arrows, chevrons) must be mirrored in RTL; neutral icons (search, close, trash) are not.</li><li data-i18n data-ar="عند خلط العربية والإنجليزية والأرقام: اترك كل قيمة باتجاهها (مثل ‎dir=&quot;auto&quot;‎ أو ‎unicode-bidi: plaintext‎ على القيمة).">Mixed Arabic / English / digits: keep each value in its own direction (for example dir="auto" or unicode-bidi: plaintext on the value).</li></ul></div></section>
+    </div>
   </main>
 
   <script>

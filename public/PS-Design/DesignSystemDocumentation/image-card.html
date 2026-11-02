@@ -241,7 +241,24 @@
     .st-ok { background:#f3fcf6; color:#166a45; border-color:#b8eacb; } .st-warn { background:#fffaeb; color:#b54708; border-color:#fedf89; } .st-todo { background:#f3f4f6; color:#4d5761; border-color:#d2d6db; }
     .sub-t { font-size:1.05rem; font-weight:700; margin:22px 0 6px; }
     .swatch { display:inline-block; width:18px; height:18px; border-radius:4px; border:1px solid rgba(0,0,0,.12); vertical-align:middle; }
-.imgdemo { width:260px; max-width:100%; } .imgdemo .card { border:1px solid #e5e7eb; border-radius:8px; overflow:hidden; }  </style>
+
+    .ic-opt + .ic-opt { margin-top:28px; padding-top:22px; border-top:1px solid #eef0f3; }
+    .ic-opt .sub-t { margin-top:0; }
+    .ig { display:flex; gap:24px; flex-wrap:wrap; align-items:flex-start; padding:20px; border:1px dashed #d2d6db; border-radius:12px; background:#fcfcfd; }
+    .ic-ex { display:flex; flex-direction:column; gap:8px; align-items:flex-start; } .ic-copy { display:inline-flex; align-items:center; gap:6px; }
+  </style>
+  <style id="ic-viewer-css">
+    .ic-viewer .modal-body { padding:16px; }
+    .ic-viewer__stage { position:relative; display:flex; align-items:center; justify-content:center; }
+    .ic-viewer__stage img { display:block; width:100%; max-height:62vh; object-fit:contain; border-radius:8px; }
+    .ic-viewer__nav { position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:50%; border:1px solid #d2d6db; background:rgba(255,255,255,.92); color:#1f2a37; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+    .ic-viewer__nav svg { width:20px; height:20px; }
+    .ic-viewer__prev { inset-inline-start:8px; } .ic-viewer__next { inset-inline-end:8px; }
+    .ic-viewer__next svg { transform:scaleX(-1); }
+    [dir="rtl"] .ic-viewer__prev svg { transform:scaleX(-1); } [dir="rtl"] .ic-viewer__next svg { transform:none; }
+    .ic-viewer__dots { display:flex; gap:4px; direction:ltr; } .ic-viewer__dots i { width:8px; height:8px; border-radius:8px; background:#d2d6db; } .ic-viewer__dots i.is-active { width:20px; background:#4d5761; }
+    .ic-viewer.is-single .ic-viewer__nav, .ic-viewer.is-single .ic-viewer__dots { display:none; }
+  </style>
   <link href="./css/top-actions.css" rel="stylesheet" />
 </head>
 
@@ -261,38 +278,174 @@
       <header class="page-header">
         <div class="eyebrow" data-i18n data-ar="مكوّنات الأعمال / بطاقة الصورة">Business Components / Image Card</div>
         <h1 class="fw-bold mt-2 mb-3" data-i18n data-ar="بطاقة الصورة">Image Card</h1>
-        <p class="text-muted mb-0" data-i18n data-ar="صورة مرفقة مع وصف وإجراء اختياري.">An attached image with a caption and an optional action.</p>
+        <p class="text-muted mb-0" data-i18n data-ar="صورة مرفقة مع مؤشر تنقل وعنوان وإجراءي حذف ومشاهدة.">An attached picture with a pager, a title and Delete / View actions.</p>
       </header>
-      <div class="metadata-row"><span class="metadata-pill" data-i18n data-ar="المكوّن: بطاقة الصورة">Component: Image Card</span><span class="metadata-pill" data-i18n data-ar="الملفات: _common.scss (.imagecard)">Files: _common.scss (.imagecard)</span><span class="metadata-pill" data-i18n data-ar="آخر تحديث: 2 نوفمبر 2026">Last updated: November 2, 2026</span></div>
-<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2><div class="st-row"><span class="st-pill st-ok" data-i18n data-ar="Figma: imageCard-V2">Figma: imageCard-V2</span><span class="st-pill st-warn" data-i18n data-ar="الكود: فئات قديمة في _common.scss">Code: legacy classes in _common.scss</span></div><p class="section-note" data-i18n data-ar="بطاقة تعرض صورة مرفقة مع وصف قصير وإجراء دائري اختياري (مثل «اجعلها الرئيسية»). تُستخدم لصور الأدلة والمرفقات. في الكود هي الكتلة ‎&lt;code class=&quot;code-inline&quot;&gt;.imagecard&lt;/code&gt;‎ في ‎&lt;code class=&quot;code-inline&quot;&gt;css/common/_common.scss&lt;/code&gt;‎، وما زالت تستخدم ألوانًا ثابتة (‎&lt;code class=&quot;code-inline&quot;&gt;#e2b785&lt;/code&gt;‎ و‎&lt;code class=&quot;code-inline&quot;&gt;#4caf50&lt;/code&gt;‎) يجب نقلها إلى الرموز.">A card that shows an attached image with a short caption and an optional round action (for example, mark as main). Used for evidence photos and attachments. In code it is the <code class="code-inline">.imagecard</code> block in <code class="code-inline">css/common/_common.scss</code>; it still uses hard-coded colors (<code class="code-inline">#e2b785</code>, <code class="code-inline">#4caf50</code>) that should move to tokens.</p></div></section>
-<section class="section" id="anatomy"><div class="section-card"><h2 class="section-title" data-i18n data-ar="التركيب">Anatomy</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الجزء">Part</th><th scope="col" data-i18n data-ar="الفئة">Class</th><th scope="col" data-i18n data-ar="ملاحظات">Notes</th></tr></thead><tbody><tr><td data-i18n data-ar="الصورة">Image</td><td><code>.innerimg img</code></td><td data-i18n data-ar="ارتفاع 150px و&lt;code&gt;object-fit: cover&lt;/code&gt; وزوايا علوية مستديرة">150px high, <code>object-fit: cover</code>, rounded top corners</td></tr><tr><td data-i18n data-ar="الطبقة">Overlay</td><td><code>.overlay</code></td><td data-i18n data-ar="تدرّج من الداكن إلى الشفاف فوق الصورة لتبقى أيقونة الإجراء واضحة">Dark-to-clear gradient over the image so the action button stays readable</td></tr><tr><td data-i18n data-ar="زر الإجراء">Action button</td><td><code>.actionutton .btn</code></td><td data-i18n data-ar="زر دائري 30px في الزاوية العلوية">30px round button in the top corner</td></tr><tr><td data-i18n data-ar="الوصف">Caption</td><td><code>.imageDescription</code></td><td data-i18n data-ar="ارتفاع 90px مع قص النص وحد علوي ذهبي 5px">90px high, text clipped, 5px gold top border</td></tr></tbody></table></div></div></section>
-<section class="section" id="live"><div class="section-card"><h2 class="section-title" data-i18n data-ar="مثال حي">Live example</h2><div class="demo"><div class="imgdemo"><div class="imagecard"><div class="card">
-  <div class="innerimg"><div class="overlay"></div>
-    <div class="actionutton"><button class="btn" type="button" aria-label="تحديد"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 7 7 .6-5.3 4.6 1.6 7.1L12 17.8 5.7 21.3l1.6-7.1L2 9.6 9 9z"/></svg></button></div>
-    <img src="../images/thumbnail.jpg" alt="">
+      <div class="metadata-row"><span class="metadata-pill" data-i18n data-ar="المكوّن: imageCard-V2">Component: imageCard-V2</span><span class="metadata-pill" data-i18n data-ar="المصدر: Figma «image card»">Source: Figma «image card»</span><span class="metadata-pill" data-i18n data-ar="آخر تحديث: 2 نوفمبر 2026">Last updated: November 2, 2026</span></div>
+<section class="section" id="overview"><div class="section-card"><h2 class="section-title" data-i18n data-ar="نظرة عامة">Overview</h2><div class="st-row"><span class="st-pill st-ok" data-i18n data-ar="Figma: imageCard-V2">Figma: imageCard-V2</span><span class="st-pill st-ok" data-i18n data-ar="الكود: ‎.moi-image-card‎">Code: .moi-image-card</span></div><p class="section-note" data-i18n data-ar="تعرض بطاقة الصورة صورة مرفقة واحدة مع مؤشر تنقل وعنوان قصير وإجراءين: &lt;b&gt;حذف&lt;/b&gt; و&lt;b&gt;مشاهدة&lt;/b&gt;. تُستخدم لصور الأدلة والمرفقات، غالبًا كصف من البطاقات (في Figma: «Image Gallery»). الفئة ‎&lt;code class=&quot;code-inline&quot;&gt;.moi-image-card&lt;/code&gt;‎ الجديدة في ‎&lt;code class=&quot;code-inline&quot;&gt;css/components/_image-card.scss&lt;/code&gt;‎ تطابق Figma. أما ‎&lt;code class=&quot;code-inline&quot;&gt;.imagecard&lt;/code&gt;‎ القديمة في ‎&lt;code class=&quot;code-inline&quot;&gt;_common.scss&lt;/code&gt;‎ فبقيت للشاشات الحالية فقط ولا تُستخدم في الأعمال الجديدة. أعد بناء ‎&lt;code class=&quot;code-inline&quot;&gt;main.css&lt;/code&gt;‎ بعد السحب.">The image card shows one attached picture with a pager, a short title and two actions: <b>Delete</b> and <b>View</b>. It is used for evidence photos and attachments, usually as a row of cards (Figma «Image Gallery»). The new <code class="code-inline">.moi-image-card</code> in <code class="code-inline">css/components/_image-card.scss</code> matches Figma. The older <code class="code-inline">.imagecard</code> in <code class="code-inline">_common.scss</code> stays for existing screens only and is not used for new work. Rebuild <code class="code-inline">main.css</code> after pulling.</p></div></section>
+<section class="section" id="live"><div class="section-card"><h2 class="section-title" data-i18n data-ar="معرض الصور (معاينة حيّة)">Image gallery (live preview)</h2><div class="ic-opt"><h3 class="sub-t" data-i18n data-ar="الخيار الأول: صورة واحدة في النافذة">Option 1: one picture in the dialog</h3><p class="section-note" data-i18n data-ar="يفتح زر «مشاهدة» مودل النظام ويعرض الصورة.">The View button opens the system modal with the picture.</p><div class="ig"><article class="moi-image-card">
+  <div class="moi-image-card__slider">
+    <img src="../images/thumbnail.jpg" alt="الجانب الخلفي للمركبة">
+    <div class="moi-image-card__dots" aria-hidden="true"><i></i><i class="is-active"></i><i></i><i></i></div>
   </div>
-  <div class="imageDescription p-2">وصف الصورة المرفقة بالحالة</div>
-</div></div></div></div></div></section>
-<section class="section" id="code"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الكود">Code</h2><div class="code-block"><pre><code class="language-html">&lt;div class=&quot;imagecard&quot;&gt;
-  &lt;div class=&quot;card&quot;&gt;
-    &lt;div class=&quot;innerimg&quot;&gt;
-      &lt;div class=&quot;overlay&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;actionutton&quot;&gt;&lt;button class=&quot;btn&quot; type=&quot;button&quot; aria-label=&quot;تحديد&quot;&gt;&lt;svg&gt;…&lt;/svg&gt;&lt;/button&gt;&lt;/div&gt;
-      &lt;img src=&quot;…&quot; alt=&quot;&quot;&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;imageDescription p-2&quot;&gt;وصف الصورة&lt;/div&gt;
+  <h4 class="moi-image-card__title">الجانب الخلفي</h4>
+  <div class="moi-image-card__actions">
+    <button class="btn moi-btn moi-btn--Error--outline" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2m2 0-1 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1L6 6m4 5v6m4-6v6"/></svg><span>حذف</span></button>
+    <button class="btn moi-btn moi-btn--Primary--outline" type="button" data-image-view><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span>مشاهدة</span></button>
+  </div>
+</article>
+<article class="moi-image-card">
+  <div class="moi-image-card__slider">
+    <img src="../images/thumbnail.jpg" alt="الجانب الأمامي للمركبة">
+    <div class="moi-image-card__dots" aria-hidden="true"><i></i><i class="is-active"></i><i></i><i></i></div>
+  </div>
+  <h4 class="moi-image-card__title">الجانب الأمامي</h4>
+  <div class="moi-image-card__actions">
+    <button class="btn moi-btn moi-btn--Error--outline" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2m2 0-1 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1L6 6m4 5v6m4-6v6"/></svg><span>حذف</span></button>
+    <button class="btn moi-btn moi-btn--Primary--outline" type="button" data-image-view><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span>مشاهدة</span></button>
+  </div>
+</article></div></div><div class="ic-opt"><h3 class="sub-t" data-i18n data-ar="الخيار الثاني: عدة صور بسلايدر">Option 2: several pictures with a slider</h3><p class="section-note" data-i18n data-ar="تعرض البطاقة عدّاد الصور، وتبدّل النقاط الصورة على البطاقة، ويفتح زر «مشاهدة» المودل بأسهم سابق/تالي وعدّاد ونقاط. وتعمل مفاتيح الأسهم أيضًا.">The card shows a picture counter. The dots switch the picture on the card, and the View button opens the modal with previous / next arrows, a counter and dots. Arrow keys also work.</p><div class="ig"><article class="moi-image-card">
+  <div class="moi-image-card__slider">
+    <img src="../images/thumbnail.jpg" alt="الجانب الخلفي">
+    <div class="moi-image-card__dots" role="group" aria-label="Pictures"><button type="button" aria-label="1" class="is-active"></button><button type="button" aria-label="2"></button><button type="button" aria-label="3"></button><button type="button" aria-label="4"></button></div>
+    <span class="moi-image-card__count" title="4 صور"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>4</span>
+  </div>
+  <h4 class="moi-image-card__title">الجانب الخلفي</h4>
+  <div class="moi-image-card__actions">
+    <button class="btn moi-btn moi-btn--Error--outline" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2m2 0-1 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1L6 6m4 5v6m4-6v6"/></svg><span>حذف</span></button>
+    <button class="btn moi-btn moi-btn--Primary--outline" type="button" data-image-view data-images='["../images/thumbnail.jpg", "../images/da-car.jpeg", "../images/injcar.png", "../images/thumbnail.jpg"]' data-titles='["الجانب الخلفي", "الجانب الأمامي", "الجانب الأيمن", "الجانب الأيسر"]'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span>مشاهدة</span></button>
+  </div>
+</article></div></div></div></section>
+<section class="section" id="anatomy"><div class="section-card"><h2 class="section-title" data-i18n data-ar="التركيب والرموز">Anatomy and tokens</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="الجزء">Part</th><th scope="col" data-i18n data-ar="قيمة Figma">Figma value</th><th scope="col" data-i18n data-ar="رمز النظام">System token</th></tr></thead><tbody><tr><td data-i18n data-ar="البطاقة">Card</td><td>324 × 300, white, 1px border, radius 8</td><td><code>$white-100</code> · <code>$Neutral-300</code> · <code>$radius-md</code></td></tr><tr><td data-i18n data-ar="الحشو / المسافة">Padding / gap</td><td>12 / 8</td><td><code>$padding-lg</code> · <code>$gap-md</code></td></tr><tr><td data-i18n data-ar="السلايدر">Slider</td><td>300 × 200, radius 4; image radius 8</td><td><code>$radius-xs</code> (4)</td></tr><tr><td data-i18n data-ar="نقاط التنقل">Pager dots</td><td>11 × 11 dots, active 25 × 11, gap 2, bottom center</td><td data-i18n data-ar="غير النشطة ‎&lt;code&gt;$Neutral-300&lt;/code&gt;‎ والنشطة ‎&lt;code&gt;$Neutral-600&lt;/code&gt;‎ (أقرب رمزين لقيم Figma)">Inactive <code>$Neutral-300</code>, active <code>$Neutral-600</code> (closest tokens to the Figma values)</td></tr><tr><td data-i18n data-ar="العنوان">Title</td><td>14 / Medium, <code>#383a42</code></td><td data-i18n data-ar="نص 14 Medium؛ أقرب رمز ‎&lt;code&gt;$Neutral-700&lt;/code&gt;‎">Text 14 Medium; closest token <code>$Neutral-700</code></td></tr><tr><td data-i18n data-ar="زر الحذف">Delete action</td><td>Button 34 high, radius 4, 1px border, 12 Medium, <code>#b42318</code></td><td><code>moi-btn--Error--outline</code> (<code>$Error-700</code>)</td></tr><tr><td data-i18n data-ar="زر المشاهدة">View action</td><td>Button 34 high, radius 4, 1px border, 12 Medium, <code>#166a45</code></td><td><code>moi-btn--Primary--outline</code> (<code>$Primary-700</code>)</td></tr><tr><td data-i18n data-ar="عدّاد الصور">Picture count</td><td>Pill at the slider corner, 12 Medium, white on dark</td><td data-i18n data-ar="يظهر فقط عند وجود أكثر من صورة؛ ‎&lt;code&gt;.moi-image-card__count&lt;/code&gt;‎"><code>.moi-image-card__count</code>, shown only when there is more than one picture</td></tr></tbody></table></div></div></section>
+<section class="section" id="props"><div class="section-card"><h2 class="section-title" data-i18n data-ar="خصائص مكوّن Figma">Figma component properties</h2><div class="table-responsive"><table class="docs-table"><thead><tr><th scope="col" data-i18n data-ar="خاصية Figma">Figma property</th><th scope="col" data-i18n data-ar="النوع">Type</th><th scope="col" data-i18n data-ar="الافتراضي">Default</th></tr></thead><tbody><tr><td><code>imagetitle</code></td><td>Text</td><td data-i18n data-ar="«الجانب الخلفي» (عنوان الصورة)">«الجانب الخلفي» (the picture caption)</td></tr><tr><td><code>image-title</code></td><td>Boolean</td><td>true</td></tr><tr><td><code>action</code></td><td>Boolean</td><td data-i18n data-ar="true: إظهار زري الحذف والمشاهدة">true: show the Delete and View buttons</td></tr><tr><td><code>count</code></td><td>Boolean</td><td data-i18n data-ar="false: يظهر العدّاد عندما تحتوي البطاقة أكثر من صورة">false: shown when the card holds more than one picture</td></tr></tbody></table></div></div></section>
+<section class="section" id="markup"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الترميز">Markup</h2><div class="code-block"><pre><code class="language-html">&lt;article class=&quot;moi-image-card&quot;&gt;
+  &lt;div class=&quot;moi-image-card__slider&quot;&gt;
+    &lt;img src=&quot;../images/thumbnail.jpg&quot; alt=&quot;الجانب الخلفي للمركبة&quot;&gt;
+    &lt;div class=&quot;moi-image-card__dots&quot; aria-hidden=&quot;true&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;i class=&quot;is-active&quot;&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre></div></div></section>
-<section class="section" id="accessibility"><div class="section-card"><h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2><ul class="accessibility-list"><li data-i18n data-ar="اكتب نصًا بديلًا ‎&lt;code&gt;alt&lt;/code&gt;‎ ذا معنى للصورة، فالوصف وحده لا يكفي لمن لا يراها.">Give the image a meaningful <code>alt</code>; the caption alone is not enough for people who cannot see it.</li><li data-i18n data-ar="زر الإجراء يحتاج ‎&lt;code&gt;aria-label&lt;/code&gt;‎ لأنه أيقونة فقط.">The action button needs an <code>aria-label</code> because it only has an icon.</li><li data-i18n data-ar="عند قص الوصف الطويل أبقِ النص الكامل متاحًا (عنوان أو شاشة تفاصيل).">Clip long captions with care: keep the full text available (title or detail view).</li></ul></div></section>
-<section class="section" id="do-dont"><div class="section-card"><h2 class="section-title" data-i18n data-ar="افعل ولا تفعل">Do & Don't</h2><div class="dd-grid"><div class="dd-card dd-do"><h4 data-i18n data-ar="افعل">Do</h4><ul><li data-i18n data-ar="استخدم نسبة أبعاد واحدة للصور في الشبكة نفسها.">Use one aspect ratio for images in the same grid.</li><li data-i18n data-ar="اجعل الوصف سطرين قصيرين.">Keep captions to two short lines.</li></ul></div><div class="dd-card dd-dont"><h4 data-i18n data-ar="لا تفعل">Don't</h4><ul><li data-i18n data-ar="لا تمدّ الصور: البطاقة تقصّها بـ ‎&lt;code&gt;object-fit: cover&lt;/code&gt;‎.">Do not stretch images: the card crops with <code>object-fit: cover</code>.</li><li data-i18n data-ar="لا تضع أكثر من زر إجراء على الصورة.">Do not place several action buttons on one image.</li></ul></div></div></div></section>
-<section class="section" id="rtl"><div class="section-card"><h2 class="section-title" data-i18n data-ar="ملاحظات RTL">RTL notes</h2><ul class="accessibility-list"><li data-i18n data-ar="يستخدم زر الإجراء إزاحة ‎&lt;code&gt;left&lt;/code&gt;‎ فعلية فيبقى يسارًا في الاتجاهين؛ أبقِه هناك للاتساق.">The action button uses a physical <code>left</code> offset, so it stays on the left in both directions; keep it there for consistency.</li><li data-i18n data-ar="نص الوصف يتبع اتجاه الصفحة.">Caption text follows the page direction.</li></ul></div></section>
+  &lt;h4 class=&quot;moi-image-card__title&quot;&gt;الجانب الخلفي&lt;/h4&gt;
+  &lt;div class=&quot;moi-image-card__actions&quot;&gt;
+    &lt;button class=&quot;btn moi-btn moi-btn--Error--outline&quot; type=&quot;button&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;…&lt;/svg&gt;&lt;span&gt;حذف&lt;/span&gt;&lt;/button&gt;
+    &lt;button class=&quot;btn moi-btn moi-btn--Primary--outline&quot; type=&quot;button&quot; data-image-view&gt;&lt;span&gt;مشاهدة&lt;/span&gt;&lt;svg viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;…&lt;/svg&gt;&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre></div></div></section>
+<section class="section" id="accessibility"><div class="section-card"><h2 class="section-title" data-i18n data-ar="إمكانية الوصول">Accessibility</h2><ul class="accessibility-list"><li data-i18n data-ar="اكتب نصًا بديلًا ‎&lt;code&gt;alt&lt;/code&gt;‎ ذا معنى للصورة، فالعنوان وحده لا يكفي لمن لا يراها.">Give the picture a meaningful <code>alt</code>; the title alone is not enough for people who cannot see it.</li><li data-i18n data-ar="اجعل مؤشر التنقل قابلًا للوصول: أزرار السابق/التالي أو السحب مع أسهم الكيبورد، وأعلن الموضع («2 من 4»).">Make the pager reachable: previous/next buttons or swipe plus keyboard arrows, and announce the position («2 of 4»).</li><li data-i18n data-ar="للزرين نص ظاهر («حذف» و«مشاهدة»)، والحذف يطلب تأكيدًا (‎&lt;a href=&quot;./sweet-alert.html&quot;&gt;Sweet Alert&lt;/a&gt;‎).">Both buttons carry visible text («حذف», «مشاهدة»); deleting must ask for confirmation (<a href="./sweet-alert.html">Sweet Alert</a>).</li></ul></div></section>
+<section class="section" id="rtl"><div class="section-card"><h2 class="section-title" data-i18n data-ar="ملاحظات RTL">RTL notes</h2><ul class="accessibility-list"><li data-i18n data-ar="يُحاذى العنوان والأزرار جهة البداية؛ زر الحذف أولًا ثم المشاهدة.">Title and buttons align to the start side; the Delete button comes first, then View.</li><li data-i18n data-ar="تبقى نقاط التنقل في صف من اليسار لليمين متمركزًا في الأسفل في الاتجاهين.">The pager dots stay in a left-to-right row centered at the bottom, in both directions.</li></ul></div></section>
+<section class="section" id="do-dont"><div class="section-card"><h2 class="section-title" data-i18n data-ar="افعل ولا تفعل">Do & Don't</h2><div class="dd-grid"><div class="dd-card dd-do"><h4 data-i18n data-ar="افعل">Do</h4><ul><li data-i18n data-ar="استخدم نسبة أبعاد واحدة لكل بطاقات المعرض.">Use one aspect ratio for all cards in a gallery.</li><li data-i18n data-ar="اجعل العنوان سطرًا قصيرًا واحدًا.">Keep the title to one short line.</li></ul></div><div class="dd-card dd-dont"><h4 data-i18n data-ar="لا تفعل">Don't</h4><ul><li data-i18n data-ar="لا تضف إجراءً ثالثًا؛ انقل الإضافي إلى قائمة.">Do not add a third action; move extras to a menu.</li><li data-i18n data-ar="لا تمدّ الصور: السلايدر يقصّها لتغطية الإطار.">Do not stretch images: the slider crops to cover.</li></ul></div></div></div></section>
 
     </div>
   </main>
 
-  <script src="./js/jquery-3.6.0.min.js"></script>
-  <script src="./js/popper.min.js"></script>
-  <script src="./js/bootstrap.min.js"></script>
+  <script src="../js/jquery-3.6.0.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <div class="modal fade ic-viewer" id="imageViewModal" tabindex="-1" aria-labelledby="imageViewTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageViewTitle"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="ic-viewer__stage">
+            <button type="button" class="ic-viewer__nav ic-viewer__prev" aria-label="Previous" data-step="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+            <img id="imageViewImg" src="" alt="">
+            <button type="button" class="ic-viewer__nav ic-viewer__next" aria-label="Next" data-step="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <span id="imageViewCount" aria-live="polite"></span>
+          <div class="ic-viewer__dots" id="imageViewDots"></div>
+          <button class="moi-btn moi-btn--Neutral--outline" data-size="md" type="button" data-bs-dismiss="modal" data-i18n data-ar="إغلاق">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script id="ic-viewer-js">
+    (function () {
+      var el = document.getElementById("imageViewModal"), img = document.getElementById("imageViewImg");
+      var title = document.getElementById("imageViewTitle"), count = document.getElementById("imageViewCount"), dots = document.getElementById("imageViewDots");
+      var list = [], names = [], idx = 0;
+      function show(i) {
+        idx = (i + list.length) % list.length;
+        img.src = list[idx]; img.alt = names[idx]; title.textContent = names[idx];
+        count.textContent = list.length > 1 ? (idx + 1) + " / " + list.length : "";
+        [].forEach.call(dots.children, function (d, k) { d.className = k === idx ? "is-active" : ""; });
+      }
+      document.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-image-view]");
+        if (b) {
+          var card = b.closest(".moi-image-card"), pic = card.querySelector(".moi-image-card__slider img");
+          var many = b.getAttribute("data-images");
+          list = many ? JSON.parse(many) : [pic.getAttribute("src")];
+          names = b.getAttribute("data-titles") ? JSON.parse(b.getAttribute("data-titles")) : [card.querySelector(".moi-image-card__title").textContent];
+          dots.innerHTML = list.map(function () { return "<i></i>"; }).join("");
+          el.classList.toggle("is-single", list.length < 2);
+          show(0); bootstrap.Modal.getOrCreateInstance(el).show(); return;
+        }
+        var st = e.target.closest("[data-step]");
+        if (st) { show(idx + Number(st.getAttribute("data-step"))); }
+      });
+      document.addEventListener("keydown", function (e) {
+        if (!el.classList.contains("show") || list.length < 2) { return; }
+        var rtl = document.documentElement.dir === "rtl";
+        if (e.key === "ArrowRight") { show(idx + (rtl ? -1 : 1)); }
+        if (e.key === "ArrowLeft") { show(idx + (rtl ? 1 : -1)); }
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      var COPY = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>';
+      function ar() { return document.documentElement.lang === "ar"; }
+      function lab(done) { return done ? (ar() ? "تم النسخ" : "Copied") : (ar() ? "نسخ الكود" : "Copy code"); }
+      function fullCode(card) {
+        var abs = function (u) { return new URL(u, location.href).href; };
+        var clone = card.cloneNode(true);
+        clone.querySelectorAll("img").forEach(function (im) { im.setAttribute("src", abs(im.getAttribute("src"))); });
+        var vb = clone.querySelector("[data-images]");
+        if (vb) { vb.setAttribute("data-images", JSON.stringify(JSON.parse(vb.getAttribute("data-images")).map(abs))); }
+        var out = "<!-- Card -->\n" + clone.outerHTML.replace(/\n\s*\n/g, "\n");
+        if (vb) { out += "\n\n<script>\n" + document.getElementById("ic-slider-js").textContent.trim() + "\n<\/script>"; }
+        if (card.querySelector("[data-image-view]")) {
+          out += "\n\n<!-- Image viewer dialog -->\n" + document.getElementById("imageViewModal").outerHTML;
+          out += "\n\n<style>\n" + document.getElementById("ic-viewer-css").textContent.trim() + "\n</style>";
+          out += "\n\n<script>\n" + document.getElementById("ic-viewer-js").textContent.trim() + "\n<\/script>";
+        }
+        return out;
+      }
+      function copy(text, done) {
+        function ok() { done(); }
+        function fb() { var t = document.createElement("textarea"); t.value = text; t.style.position = "fixed"; t.style.opacity = "0"; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); ok(); } catch (e) {} document.body.removeChild(t); }
+        if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(ok, fb); } else { fb(); }
+      }
+      var btns = [];
+      document.querySelectorAll(".ig > .moi-image-card").forEach(function (card) {
+        var wrap = document.createElement("div"); wrap.className = "ic-ex";
+        card.parentNode.insertBefore(wrap, card); wrap.appendChild(card);
+        var b = document.createElement("button"); b.type = "button"; b.className = "btn moi-btn--Neutral--outline ic-copy"; b.setAttribute("data-size", "sm");
+        b.innerHTML = COPY + "<span>" + lab(false) + "</span>"; wrap.appendChild(b); btns.push(b);
+        b.addEventListener("click", function () {
+          copy(fullCode(card), function () { b.lastChild.textContent = lab(true); setTimeout(function () { b.lastChild.textContent = lab(false); }, 1600); });
+        });
+      });
+      new MutationObserver(function () { btns.forEach(function (b) { b.lastChild.textContent = lab(false); }); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+    })();
+  </script>
+  <script id="ic-slider-js">
+    // Card slider: the dots switch the picture and the title (cards whose View button has data-images).
+    document.querySelectorAll(".moi-image-card").forEach(function (card) {
+      var view = card.querySelector("[data-images]"); if (!view) { return; }
+      var list = JSON.parse(view.getAttribute("data-images")), names = JSON.parse(view.getAttribute("data-titles") || "[]");
+      var img = card.querySelector(".moi-image-card__slider img"), title = card.querySelector(".moi-image-card__title");
+      var dots = card.querySelectorAll(".moi-image-card__dots button");
+      dots.forEach(function (d, n) {
+        d.addEventListener("click", function () {
+          img.src = list[n]; if (names[n]) { img.alt = names[n]; title.textContent = names[n]; }
+          dots.forEach(function (x, m) { x.classList.toggle("is-active", m === n); });
+        });
+      });
+    });
+  </script>
   <script src="./js/top-actions.js"></script>
 </body>
 

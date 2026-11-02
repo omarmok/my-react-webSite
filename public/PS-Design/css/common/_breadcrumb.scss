@@ -1,114 +1,160 @@
 // =============================================================================
-// BREADCRUMB  —  PS-Design v2
+// BREADCRUMB  —  PS-Design v2 (aligned with the Figma «• Breadcrumb» page)
 // =============================================================================
-// Extends Bootstrap .breadcrumb with project tokens.
-// Source of truth: project tokens ($Primary-*, $Neutral-*, etc.)
-// Bootstrap fills the structural gap; project overrides semantics.
+// Rules taken from Figma:
+//   • Every item OWNS the separator that comes before it, so hiding or removing
+//     an item never leaves a dangling separator.
+//   • Parent items: Regular, muted. Current page: SemiBold, strongest text.
+//   • Long labels stay on ONE line and end with an ellipsis
+//     (parent / middle item max 240px, current page max 320px).
+//     Put the full name in the `title` attribute (tooltip).
+//   • The separator points toward the child: it is mirrored automatically in RTL.
+//   • Narrow containers: the component hugs its content, nothing wraps or scrolls.
 //
-// Usage:
-//   <nav aria-label="breadcrumb">
-//     <ol class="breadcrumb moi-breadcrumb">
-//       <li class="breadcrumb-item"><a href="#">الرئيسية</a></li>
-//       <li class="breadcrumb-item active" aria-current="page">الحالات</li>
+// Markup:
+//   <nav aria-label="Breadcrumb">
+//     <ol class="moi-breadcrumb">
+//       <li class="moi-breadcrumb__item moi-breadcrumb__home"><a href="/" aria-label="Home"><svg …/></a></li>
+//       <li class="moi-breadcrumb__item"><a href="/services">Service name</a></li>
+//       <li class="moi-breadcrumb__item" aria-current="page"><span>Service details</span></li>
 //     </ol>
 //   </nav>
 //
 // Variants:
-//   .moi-breadcrumb           → default (light bg, chevron separator)
-//   .moi-breadcrumb--compact  → smaller, tighter gap
-//   .moi-breadcrumb--pill     → pill-background wrapper
+//   .moi-breadcrumb       → default, 14px text, 16px home icon
+//   .moi-breadcrumb--lg   → 16px text (the original Figma size)
+//
+// The legacy `.breadcrumb-container .breadcrumb` (Bootstrap) markup in
+// _common.scss is kept for existing screens; use `.moi-breadcrumb` for new work.
 // =============================================================================
 
 @use "../helpers" as *;
 @use "sass:map";
 
-// ── Separator token ──────────────────────────────────────────────────────────
-$breadcrumb-sep-color: $Neutral-400;
-$breadcrumb-active-color: $Neutral-700;
-$breadcrumb-link-color: $Primary-600;
+// ── Tokens (component level) ─────────────────────────────────────────────────
+$breadcrumb-link-color: $Neutral-500;
 $breadcrumb-link-hover: $Primary-700;
+$breadcrumb-current-color: $Neutral-800;
+$breadcrumb-sep-color: $Neutral-400;
+$breadcrumb-focus-color: $Primary-400;
+$breadcrumb-item-max: 240px;
+$breadcrumb-current-max: 320px;
 
-// ── Base ─────────────────────────────────────────────────────────────────────
+// Chevron used as the separator (a mask, so the color follows the token).
+$breadcrumb-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 3.5 5.5 8l4.5 4.5'/%3E%3C/svg%3E");
+
 .moi-breadcrumb {
+  --moi-breadcrumb-font-size: #{typography-size(map.get($font-sizes, md))};
+  --moi-breadcrumb-icon-size: 16px;
+  --moi-breadcrumb-gap: #{$gap-xs};
+
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  padding: 0;
+  gap: var(--moi-breadcrumb-gap);
+  max-width: 100%;
+  min-width: 0;
   margin: 0;
+  padding: 0;
   list-style: none;
-  background: none;
-  gap: $gap-xs;
+  font-size: var(--moi-breadcrumb-font-size);
+  line-height: typography-line-height(1.5);
+}
 
-  // Override Bootstrap separator
-  --bs-breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239da4ae' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='15 18 9 12 15 6'%3E%3C/polyline%3E%3C/svg%3E");
+.moi-breadcrumb--lg {
+  --moi-breadcrumb-font-size: #{typography-size(map.get($font-sizes, lg))};
+  --moi-breadcrumb-icon-size: 20px;
+  --moi-breadcrumb-gap: #{$gap-xs};
+}
 
-  .breadcrumb-item {
+// ── Item (owns the separator that precedes it) ───────────────────────────────
+.moi-breadcrumb__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--moi-breadcrumb-gap);
+  min-width: 0;
+  max-width: $breadcrumb-item-max;
+  color: $breadcrumb-link-color;
+  font-weight: 400;
+
+  // The separator belongs to the item, not to its neighbour.
+  &:not(:first-child)::before {
+    content: "";
+    flex: none;
+    width: var(--moi-breadcrumb-icon-size);
+    height: var(--moi-breadcrumb-icon-size);
+    background-color: $breadcrumb-sep-color;
+    -webkit-mask: $breadcrumb-chevron center / contain no-repeat;
+    mask: $breadcrumb-chevron center / contain no-repeat;
+  }
+
+  a,
+  span {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    border-radius: $radius-xxs;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: $breadcrumb-link-hover;
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $breadcrumb-focus-color;
+      outline-offset: 2px;
+    }
+  }
+
+  // Current page: the strongest text, never a link, longer limit.
+  &[aria-current="page"] {
+    max-width: $breadcrumb-current-max;
+    color: $breadcrumb-current-color;
+    font-weight: 600;
+  }
+}
+
+// Home item: icon only, never shrinks.
+.moi-breadcrumb__home {
+  flex: none;
+
+  a {
     display: inline-flex;
     align-items: center;
-    // Autonomous Migration pass: 0.875rem matched $font-sizes' `md` exactly.
-    // Uses the raw map (not the @include font-md-500 mixin) because that
-    // mixin bundles `!important`, which this rule does not use — the same
-    // map-access pattern already established in _form.scss.
-    font-size: typography-size(map.get($font-sizes, md));
-    font-weight: 500;
-    line-height: typography-line-height(1.4);
-    color: $breadcrumb-active-color;
+  }
 
-    // Link items
-    a {
-      color: $breadcrumb-link-color;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.15s ease;
-
-      &:hover {
-        color: $breadcrumb-link-hover;
-        text-decoration: underline;
-      }
-
-      &:focus-visible {
-        outline: 2px solid $Primary-400;
-        outline-offset: 2px;
-        border-radius: $radius-xxs;
-      }
-    }
-
-    // Active (current page)
-    &.active {
-      color: $breadcrumb-active-color;
-      font-weight: 600;
-      pointer-events: none;
-    }
-
-    // Separator — RTL-aware (Bootstrap handles ::before, we restyle)
-    & + .breadcrumb-item::before {
-      color: $breadcrumb-sep-color;
-      // Autonomous Migration pass: 0.75rem matched $font-sizes' `sm` exactly.
-      font-size: typography-size(map.get($font-sizes, sm));
-    }
+  svg,
+  img {
+    width: var(--moi-breadcrumb-icon-size);
+    height: var(--moi-breadcrumb-icon-size);
   }
 }
 
-// RTL: flip the chevron for RTL layouts
-[dir="rtl"] .moi-breadcrumb,
-.moi-breadcrumb[dir="rtl"] {
-  --bs-breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239da4ae' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+// RTL: the separator points toward the child, so the chevron is mirrored.
+[dir="rtl"] .moi-breadcrumb__item:not(:first-child)::before,
+.moi-breadcrumb[dir="rtl"] .moi-breadcrumb__item:not(:first-child)::before {
+  transform: scaleX(-1);
 }
 
-// ── Compact variant ───────────────────────────────────────────────────────────
-.moi-breadcrumb--compact {
-  @extend .moi-breadcrumb;
-  gap: $gap-xxs;
-
-  .breadcrumb-item {
-    font-size: typography-size(map.get($font-sizes, md));
-  }
+// Mixed content (Arabic + digits + English) keeps its own direction per label.
+.moi-breadcrumb__item a,
+.moi-breadcrumb__item span {
+  unicode-bidi: plaintext;
 }
 
-// ── Pill / surface variant ────────────────────────────────────────────────────
+// ── Surface wrapper (optional) ───────────────────────────────────────────────
 .moi-breadcrumb-wrap {
   display: inline-flex;
   align-items: center;
+  max-width: 100%;
   background: $Neutral-50;
   border: 1px solid $Neutral-200;
   border-radius: $Radius-100;

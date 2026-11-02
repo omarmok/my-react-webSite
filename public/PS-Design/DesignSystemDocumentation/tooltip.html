@@ -267,7 +267,6 @@
           <a href="./breadcrumb.html" data-i18n data-ar="مسار التنقل">Breadcrumb</a>
           <a href="./empty-state.html" data-i18n data-ar="الحالة الفارغة">Empty State</a>
           <a href="./page-title.html" data-i18n data-ar="عنوان الصفحة">Page Title</a>
-          <a href="./map.html" data-i18n data-ar="الخريطة">Map</a>
         </nav>
       </div>
     </aside>
@@ -305,6 +304,9 @@
     new bootstrap.Tooltip(el, { customClass: 'moi-tooltip' }));
 &lt;/script&gt;</code></pre></div></div></section>
 
+    <section class="section" id="accessibility"><div class="section-card"><h2 class="section-title" data-i18n data-ar="الوصولية">Accessibility</h2><ul class="accessibility-list"><li data-i18n data-ar="اعرض التلميح عند التركيز كما عند المرور، وأخفِه بمفتاح Escape.">Show the tooltip on focus as well as hover, and hide it with Escape.</li><li data-i18n data-ar="اربطه بـ ‎aria-describedby‎؛ ولا تضع معلومة أساسية في التلميح وحده.">Link it with aria-describedby; never put essential information only in a tooltip.</li><li data-i18n data-ar="تباين النص والأيقونات 4.5:1 على الأقل (3:1 للنص الكبير وحدود المكوّنات).">Text and icon contrast must be at least 4.5:1 (3:1 for large text and UI borders).</li></ul></div></section>
+<section class="section" id="rtl"><div class="section-card"><h2 class="section-title" data-i18n data-ar="ملاحظات RTL">RTL notes</h2><ul class="accessibility-list"><li data-i18n data-ar="يتبدل موضع البداية والنهاية مع اتجاه الصفحة؛ اختبر الأعلى والأسفل قرب حواف الشاشة.">Placement start / end flips with the page direction; test top and bottom near the viewport edges.</li><li data-i18n data-ar="عند خلط العربية والإنجليزية والأرقام: اترك كل قيمة باتجاهها (مثل ‎dir=&quot;auto&quot;‎ أو ‎unicode-bidi: plaintext‎ على القيمة).">Mixed Arabic / English / digits: keep each value in its own direction (for example dir="auto" or unicode-bidi: plaintext on the value).</li></ul></div></section>
+<section class="section" id="do-dont"><div class="section-card"><h2 class="section-title" data-i18n data-ar="افعل ولا تفعل">Do & Don't</h2><div class="dd-grid"><div class="dd-card dd-do"><h4 data-i18n data-ar="افعل">Do</h4><ul><li data-i18n data-ar="اجعله جملة قصيرة واحدة.">Keep it to one short sentence.</li><li data-i18n data-ar="استخدمه لشرح أيقونة أو تسمية مقتطعة.">Use it to explain an icon or a truncated label.</li></ul></div><div class="dd-card dd-dont"><h4 data-i18n data-ar="لا تفعل">Don't</h4><ul><li data-i18n data-ar="لا تضع روابط أو أزرارًا داخل التلميح.">Do not put links or buttons inside a tooltip.</li><li data-i18n data-ar="لا تعتمد عليه في أجهزة اللمس.">Do not rely on it on touch devices.</li></ul></div></div></div></section>
     </div>
   </main>
 
