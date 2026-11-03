@@ -607,6 +607,121 @@
     sidebarTitle.insertAdjacentElement("afterend", toggle);
   }
 
+
+  // ---------------------------------------------------------------------------
+  // Site bridge: a way back to the author's website (omarmokhtar.com) from the docs.
+  // Web = slim header under the browser chrome; phone = bottom tab bar (like the site's app bar).
+  // ---------------------------------------------------------------------------
+  const SITE_ORIGIN = "https://omarmokhtar.com";
+  const BRIDGE_ICONS = {
+    home: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5 12 4l8 6.5V20a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 20v-9.5Z" stroke="currentColor" stroke-width="1.85" stroke-linejoin="round"/><path d="M9 21.5v-6h6v6" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    work: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5" stroke="currentColor" stroke-width="1.85"/><path d="M8 4.5V3.75A1.75 1.75 0 0 1 9.75 2h4.5A1.75 1.75 0 0 1 16 3.75v.75M3.5 10.5h17" stroke="currentColor" stroke-width="1.85" stroke-linecap="round"/></svg>',
+    ds: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="m12 3 8 4-8 4-8-4 8-4Z" stroke="currentColor" stroke-width="1.85" stroke-linejoin="round"/><path d="m4 12 8 4 8-4m-16 5 8 4 8-4" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    about: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.25" stroke="currentColor" stroke-width="1.85"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0" stroke="currentColor" stroke-width="1.85" stroke-linecap="round"/></svg>',
+    more: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><circle cx="6" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="18" cy="12" r="1.8" fill="currentColor"/></svg>'
+  };
+  const BRIDGE_MAIN = [
+    { key: "home", icon: "home", path: "/", en: "Home", ar: "الرئيسية" },
+    { key: "work", icon: "work", path: "/projects", en: "Projects", ar: "المشاريع" },
+    { key: "ds", icon: "ds", path: "/design-system", en: "Design System", ar: "نظام التصميم", current: true },
+    { key: "about", icon: "about", path: "/about", en: "About", ar: "من أنا" }
+  ];
+  const BRIDGE_MORE = [
+    { path: "/government-ux", en: "Government UX", ar: "تجربة المستخدم الحكومية" },
+    { path: "/designops", en: "DesignOps", ar: "عمليات التصميم" },
+    { path: "/ux-lead", en: "UX Lead", ar: "قيادة UX" },
+    { path: "/certifications", en: "Certifications", ar: "الشهادات" },
+    { path: "/blog", en: "Blog", ar: "المدونة" },
+    { path: "/recommendations", en: "Recommendations", ar: "التوصيات" },
+    { path: "/contact", en: "Contact", ar: "تواصل" }
+  ];
+
+  function siteHref(path) {
+    const host = window.location.hostname;
+    const own = host === "omarmokhtar.com" || host === "www.omarmokhtar.com";
+    return (own ? "" : SITE_ORIGIN) + path;
+  }
+
+  function bridgeLang() {
+    return document.documentElement.lang === "ar" ? "ar" : "en";
+  }
+
+  function renderSiteBridge() {
+    const lang = bridgeLang();
+    const text = (item) => item[lang];
+    const mainLinks = BRIDGE_MAIN.map((item) =>
+      `<a class="sb-link${item.current ? " is-current" : ""}" href="${siteHref(item.path)}"${item.current ? ' aria-current="page"' : ""}><span class="sb-icon">${BRIDGE_ICONS[item.icon]}</span><span class="sb-label">${text(item)}</span></a>`
+    ).join("");
+    const moreLinks = BRIDGE_MORE.map((item) => `<a href="${siteHref(item.path)}">${text(item)}</a>`).join("");
+    const moreLabel = lang === "ar" ? "المزيد" : "More";
+    const switchLabel = lang === "ar" ? "English" : "العربية";
+    const brand = lang === "ar" ? "مدير تجربة المستخدم وعمليات التصميم" : "UX & DesignOps Lead";
+
+    let header = document.querySelector(".site-bridge");
+    let bottom = document.querySelector(".site-bridge-bottom");
+    if (!header) {
+      header = document.createElement("header");
+      header.className = "site-bridge";
+      document.body.insertBefore(header, document.body.firstChild);
+    }
+    if (!bottom) {
+      bottom = document.createElement("nav");
+      bottom.className = "site-bridge-bottom";
+      document.body.appendChild(bottom);
+    }
+    const wasOpenTop = header.querySelector(".sb-more-wrap.is-open") !== null;
+    const wasOpenBottom = bottom.querySelector(".sb-sheet.is-open") !== null;
+
+    header.setAttribute("aria-label", lang === "ar" ? "التنقل إلى موقع عمر مختار" : "Back to the Omar Mokhtar website");
+    header.innerHTML =
+      `<div class="sb-inner"><a class="sb-brand" href="${siteHref("/")}"><img src="${SITE_ORIGIN}/images/mylogo.png" alt="" width="34" height="41" /><span>${brand}</span></a>` +
+      `<nav class="sb-nav" aria-label="${lang === "ar" ? "روابط الموقع" : "Site links"}">${mainLinks.replace(/sb-icon/g, "sb-icon sb-icon--hidden")}` +
+      `<a class="sb-link" href="${siteHref("/recommendations")}"><span class="sb-label">${lang === "ar" ? "التوصيات" : "Recommendations"}</span></a>` +
+      `<div class="sb-more-wrap${wasOpenTop ? " is-open" : ""}"><button type="button" class="sb-link sb-more-btn" aria-expanded="${wasOpenTop}"><span class="sb-label">${moreLabel}</span><span class="sb-caret" aria-hidden="true"></span></button><div class="sb-menu">${moreLinks}</div></div>` +
+      `<a class="sb-link" href="${siteHref("/contact")}"><span class="sb-label">${lang === "ar" ? "تواصل" : "Contact"}</span></a></nav>` +
+      `<button type="button" class="sb-lang">${switchLabel}</button></div>`;
+
+    bottom.setAttribute("aria-label", lang === "ar" ? "التنقل إلى موقع عمر مختار" : "Back to the Omar Mokhtar website");
+    bottom.innerHTML =
+      `<div class="sb-sheet${wasOpenBottom ? " is-open" : ""}" role="menu">${moreLinks}</div>` +
+      `<div class="sb-bar">${mainLinks}<button type="button" class="sb-link sb-more-btn" aria-expanded="${wasOpenBottom}"><span class="sb-icon">${BRIDGE_ICONS.more}</span><span class="sb-label">${moreLabel}</span></button></div>`;
+    document.body.classList.add("has-site-bridge");
+  }
+
+  function bindSiteBridge() {
+    document.addEventListener("click", (event) => {
+      const moreBtn = event.target.closest(".site-bridge .sb-more-btn");
+      if (moreBtn) {
+        const wrap = moreBtn.closest(".sb-more-wrap");
+        const open = !wrap.classList.contains("is-open");
+        wrap.classList.toggle("is-open", open);
+        moreBtn.setAttribute("aria-expanded", String(open));
+        return;
+      }
+      const bottomBtn = event.target.closest(".site-bridge-bottom .sb-more-btn");
+      if (bottomBtn) {
+        const sheet = document.querySelector(".site-bridge-bottom .sb-sheet");
+        const open = !sheet.classList.contains("is-open");
+        sheet.classList.toggle("is-open", open);
+        bottomBtn.setAttribute("aria-expanded", String(open));
+        return;
+      }
+      if (event.target.closest(".site-bridge .sb-lang")) {
+        const docsToggle = document.querySelector(".top-actions .lang-toggle");
+        if (docsToggle) { docsToggle.click(); }
+        return;
+      }
+      document.querySelectorAll(".sb-more-wrap.is-open, .sb-sheet.is-open").forEach((el) => {
+        if (!el.contains(event.target)) {
+          el.classList.remove("is-open");
+          const btn = el.parentElement.querySelector(".sb-more-btn");
+          if (btn) { btn.setAttribute("aria-expanded", "false"); }
+        }
+      });
+    });
+    new MutationObserver(renderSiteBridge).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+  }
+
   function sidebarSearchLabel(lang) {
     return lang === "ar" ? "ابحث في التوثيق" : "Search docs";
   }
@@ -794,6 +909,8 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     ensureDocsShell();
+    renderSiteBridge();
+    bindSiteBridge();
     renderSidebarNav();
     fixKnownBrokenLinks();
     applyLanguage(getSavedLang());
