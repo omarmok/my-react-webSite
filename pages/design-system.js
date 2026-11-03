@@ -6,7 +6,9 @@ import Loader from "../components/Loader";
 import PageHeader from "../components/PageHeader";
 import DesignSystemPreviewGallery from "../components/DesignSystemPreviewGallery";
 import { useTranslation } from "../src/i18n/useTranslation";
+import { FaWhatsapp } from "react-icons/fa";
 import whatsappQr from "../public/images/whatsapp-qr.png";
+import { getWhatsAppAccessUrl } from "../src/data/contact";
 import designSystemPreviewOne from "../public/images/ds-1.png";
 import designSystemPreviewTwo from "../public/images/ds-2.png";
 import designSystemPreviewThree from "../public/images/ds-3.png";
@@ -14,7 +16,6 @@ import designSystemPreviewFour from "../public/images/ds-4.png";
 import designSystemPreviewFive from "../public/images/ds-5.png";
 
 const REDIRECT_URL = "/PS-Design/DesignSystemDocumentation/index.html";
-const WHATSAPP_URL = "https://wa.me/+966535468309";
 
 const purple = "var(--theme-brand-primary)";
 const ink = "var(--theme-text-primary)";
@@ -103,8 +104,24 @@ const DesignSystemPage = () => {
   const isRTL = language === "ar";
   const copy = isRTL
     ? {
-        heroLabel: "Private Design System Showcase",
-        heroTitle: "عرض خاص لنظام التصميم",
+        heroLabel: "نظام التصميم · معاينة خاصة",
+        heroTitle: "نظام تصميم متكامل، من الـ Tokens إلى كود الإنتاج",
+        heroDescription:
+          "نظام تصميم مؤسسي أنشأته وأملكه، تعمل عليه منصة حكومية تضم 14 نظامًا وتطبيقاتها على الجوال والويب: مكونات وTokens في Figma، ومكتبة SCSS مبنية على Bootstrap، وتوثيق ثنائي اللغة. التوثيق الكامل محمي، ويمكنك الدخول بكلمة المرور أو طلب الصلاحية.",
+        heroEnter: "الدخول بكلمة المرور",
+        heroRequest: "اطلب الصلاحية عبر واتساب",
+        valueLabel: "قيمة النظام",
+        valueTitle: "ما الذي بنيته، بالأرقام المؤكدة",
+        valueBody:
+          "صممت النظام في Figma وكتبت كوده بنفسي، فيبقى التصميم والتنفيذ مصدرًا واحدًا يعمل منه المصممون والمطورون وفرق الشركات المنفذة.",
+        valueItems: [
+          ["01", "الـ Tokens", "236 متغيرًا في SCSS تطابق Tokens في Figma للألوان والخطوط والمسافات والزوايا والظلال."],
+          ["02", "المكونات", "أكثر من 30 ملف أنماط للمكونات، وكل مكوّن موثّق بقالب واحد: التركيب والحالات وخصائص Figma مقابل واجهة الكود."],
+          ["03", "التوثيق", "موقع ثنائي اللغة من 38 صفحة يغطي الأسس والمكونات والأنماط والحوكمة، مع مكتبة قابلة للبحث من 4,371 أيقونة في 61 فئة."],
+          ["04", "RTL والوصولية", "مكونات عربية أولًا تنعكس فيها الأيقونات والفواصل تلقائيًا، مع ملاحظات وصولية في مواصفات كل مكوّن."],
+          ["05", "من التصميم إلى الكود", "أي تغيير مؤثر يُحدَّث في Figma وفي SCSS معًا، ويُعاد بناء المكونات في الكود لتطابق المواصفات."],
+          ["06", "الحوكمة", "إصدارات مرقّمة، وسجل تغييرات ثنائي اللغة، ومراجعة مساهمات تتطلب موافقة مصمم ومطور، ومسار تسليم للشركات المنفذة."],
+        ],
         heroBody:
           "يقدم هذا العرض الخاص أمثلة مختارة توضح كيف تم توظيف أنظمة التصميم، وممارسات DesignOps، والتوثيق، وحوكمة التصميم، والتنفيذ البرمجي لبناء تجارب رقمية متسقة وقابلة للتوسع.",
         heroBody2:
@@ -146,7 +163,7 @@ const DesignSystemPage = () => {
         previewLabel: "لمحة من التوثيق",
         previewTitle: "معاينة نظام التصميم",
         previewBody:
-          "معاينة صغيرة من توثيق نظام PS Design System، تشمل التوكنز، والمكونات، وإرشادات التنفيذ، وأمثلة تسليم العمل للمطورين.",
+          "معاينة صغيرة من توثيق نظام التصميم، تشمل التوكنز، والمكونات، وإرشادات التنفيذ، وأمثلة تسليم العمل للمطورين.",
         previewOpenLabel: "فتح معاينة نظام التصميم",
         previewCloseLabel: "إغلاق المعاينة",
         previewImages: [
@@ -171,7 +188,7 @@ const DesignSystemPage = () => {
             alt: "معاينة من توثيق نظام التصميم - الشاشة الخامسة",
           },
         ],
-        previewHighlightsTitle: "أبرز ما يقدمه PS Design System",
+        previewHighlightsTitle: "أبرز ما يقدمه نظام التصميم",
         previewHighlights: [
           "توثيق Design Tokens",
           "مكتبة مكونات",
@@ -180,10 +197,12 @@ const DesignSystemPage = () => {
           "دعم تسليم العمل للمطورين",
           "جاهز لـ RTL والتصميم المتجاوب",
         ],
-        accessLabel: "Request Access",
-        accessTitle: "الدخول إلى عرض نظام التصميم",
+        accessLabel: "الوصول",
+        accessTitle: "الدخول إلى نظام التصميم",
+        accessIntro: "طريقتان للوصول إلى التوثيق الكامل:",
+        passwordTitle: "لديك كلمة مرور؟",
         accessBody:
-          "إذا تم تزويدك بكلمة مرور الوصول، يمكنك إدخالها أدناه للمتابعة.",
+          "أدخل كلمة مرور الوصول التي وصلتك لفتح التوثيق الكامل.",
         accessButtonLabel: "الدخول إلى نظام التصميم",
         noticeTitle: "تنويه مهم:",
         noticeBody:
@@ -192,7 +211,9 @@ const DesignSystemPage = () => {
         contactBody:
           "يتم منح صلاحيات الوصول بشكل فردي لأغراض التقييم المهني، والمقابلات الوظيفية، وجلسات الاستعراض المتخصصة.",
         contactBody2:
-          "إذا كنت ترغب في الحصول على صلاحية الوصول أو استعراض النظام بشكل مباشر، يمكنك التواصل معي عبر واتساب من خلال مسح رمز QR أدناه.",
+          "راسلني على واتساب لطلب الصلاحية أو ترتيب جلسة استعراض للنظام.",
+        whatsappButton: "اطلب الصلاحية عبر واتساب",
+        qrLead: "أو امسح الرمز من جوالك",
         qrTitle: "التواصل عبر واتساب",
         qrBody:
           "امسح رمز QR للتواصل معي مباشرة وطلب صلاحية الوصول أو ترتيب جلسة استعراض للنظام.",
@@ -202,8 +223,24 @@ const DesignSystemPage = () => {
         qrAlt: "رمز QR للتواصل عبر واتساب",
       }
     : {
-        heroLabel: "Private Design System Showcase",
-        heroTitle: "Private Design System Showcase",
+        heroLabel: "Design System · Private preview",
+        heroTitle: "A complete design system, from tokens to production code",
+        heroDescription:
+          "An enterprise design system I created and own, used across a government platform of 14 systems and its mobile and web apps: Figma components and tokens, a Bootstrap-based SCSS library, and bilingual documentation. The full documentation is protected; sign in with a password or request access.",
+        heroEnter: "Sign in with a password",
+        heroRequest: "Request access on WhatsApp",
+        valueLabel: "Why it matters",
+        valueTitle: "What I built, in verified numbers",
+        valueBody:
+          "I designed the system in Figma and wrote its code myself, so design and implementation stay one source that designers, developers, and vendor teams all build from.",
+        valueItems: [
+          ["01", "Tokens", "236 SCSS variables matching the Figma tokens for color, typography, spacing, radius, and shadows."],
+          ["02", "Components", "30+ component stylesheets, each documented on one template: anatomy, states, and Figma properties against the code API."],
+          ["03", "Documentation", "A 38-page bilingual site covering foundations, components, patterns, and governance, with a searchable library of 4,371 icons in 61 categories."],
+          ["04", "RTL & accessibility", "Arabic-first components where icons and separators mirror automatically, with accessibility notes in every component spec."],
+          ["05", "Design-to-code", "Any impactful change is updated in Figma and SCSS together, and components are rebuilt in code to match the spec."],
+          ["06", "Governance", "Versioned releases, a bilingual changelog, contribution review with designer and engineer approval, and a handover workflow for vendor teams."],
+        ],
         heroBody:
           "A private showcase presenting selected examples of how Design Systems, DesignOps practices, documentation, design governance, and front-end implementation were combined to create scalable and consistent digital experiences.",
         heroBody2:
@@ -246,32 +283,32 @@ const DesignSystemPage = () => {
         previewLabel: "Documentation Preview",
         previewTitle: "Design System Preview",
         previewBody:
-          "A small preview of the PS Design System documentation, including tokens, components, implementation guidance, and developer handoff examples.",
+          "A small preview of the design system documentation, including tokens, components, implementation guidance, and developer handoff examples.",
         previewOpenLabel: "Open design system preview",
         previewCloseLabel: "Close preview",
         previewImages: [
           {
             src: designSystemPreviewOne,
-            alt: "Preview of the PS Design System documentation, screen one",
+            alt: "Preview of the design system documentation, screen one",
           },
           {
             src: designSystemPreviewTwo,
-            alt: "Preview of the PS Design System documentation, screen two",
+            alt: "Preview of the design system documentation, screen two",
           },
           {
             src: designSystemPreviewThree,
-            alt: "Preview of the PS Design System documentation, screen three",
+            alt: "Preview of the design system documentation, screen three",
           },
           {
             src: designSystemPreviewFour,
-            alt: "Preview of the PS Design System documentation, screen four",
+            alt: "Preview of the design system documentation, screen four",
           },
           {
             src: designSystemPreviewFive,
-            alt: "Preview of the PS Design System documentation, screen five",
+            alt: "Preview of the design system documentation, screen five",
           },
         ],
-        previewHighlightsTitle: "PS Design System Highlights",
+        previewHighlightsTitle: "Design System Highlights",
         previewHighlights: [
           "Design Tokens Documentation",
           "Components Library",
@@ -280,10 +317,12 @@ const DesignSystemPage = () => {
           "Developer Handoff Support",
           "RTL & Responsive Ready",
         ],
-        accessLabel: "Request Access",
-        accessTitle: "Access the Design System Showcase",
+        accessLabel: "Access",
+        accessTitle: "Enter the design system",
+        accessIntro: "Two ways into the full documentation:",
+        passwordTitle: "Have a password?",
         accessBody:
-          "If you have received an access password, enter it below to continue.",
+          "Enter the access password you received to open the full documentation.",
         accessButtonLabel: "Access Design System",
         noticeTitle: "Please note:",
         noticeBody:
@@ -292,7 +331,9 @@ const DesignSystemPage = () => {
         contactBody:
           "Access credentials are shared individually for evaluation, hiring discussions, and professional walkthroughs.",
         contactBody2:
-          "If you would like access or a guided overview of the system, you can contact me directly by scanning the QR code below.",
+          "Message me on WhatsApp to request access or arrange a walkthrough of the system.",
+        whatsappButton: "Request access on WhatsApp",
+        qrLead: "Or scan the code with your phone",
         qrTitle: "Contact via WhatsApp",
         qrBody:
           "Scan the QR code to contact me directly and request access or arrange a walkthrough of the Design System.",
@@ -376,52 +417,27 @@ const DesignSystemPage = () => {
       <PageHeader
         eyebrow={copy.heroLabel}
         title={copy.heroTitle}
-        description={
-          isRTL
-            ? "أنظمة التصميم ليست مكتبات مكونات فقط؛ بل هي أنظمة تشغيل للاتساق والحوكمة والتسليم القابل للتوسع."
-            : "Design systems are not component libraries. I use them as operating systems for consistency, governance, and scalable delivery."
-        }
+        description={copy.heroDescription}
+        actions={[
+          { href: "#ds-access", label: copy.heroEnter, variant: "solid" },
+          {
+            href: getWhatsAppAccessUrl(language),
+            label: copy.heroRequest,
+            variant: "ghost",
+            target: "_blank",
+          },
+        ]}
       />
 
       <SectionWrap>
-        <SectionLabel>
-          {isRTL ? "نموذج نظام التصميم" : "Design System Operating Model"}
-        </SectionLabel>
-        <SectionTitle>
-          {isRTL
-            ? "من الأسس إلى الحوكمة والتنفيذ"
-            : "From foundations to governance and implementation"}
-        </SectionTitle>
+        <SectionLabel>{copy.valueLabel}</SectionLabel>
+        <SectionTitle>{copy.valueTitle}</SectionTitle>
         <SectionRule />
         <SectionBody style={{ maxWidth: "74ch", marginBottom: 24 }}>
-          {isRTL
-            ? "يعكس هذا النموذج خبرة عملية في المنصات الحكومية والمؤسسية، ويربط قرارات التصميم بما يحتاجه المصممون والمطورون وفرق المنتجات للعمل من مصدر واضح ومستدام."
-            : "This model reflects hands-on work across government and enterprise platforms, connecting design decisions to the standards designers, engineers, and product teams need for sustained delivery."}
+          {copy.valueBody}
         </SectionBody>
         <div className="design-system-model">
-          {(
-            isRTL
-              ? [
-                  ["01", "الأسس والتوكنز", "الألوان والخطوط والمسافات ونصف القطر والارتفاع كقرارات موثقة وقابلة لإعادة الاستخدام."],
-                  ["02", "المكونات", "حالات ومتغيرات وسلوك متجاوب ومواصفات واضحة للتنفيذ."],
-                  ["03", "الأنماط", "حلول متكررة للتنقل والنماذج والتغذية الراجعة وتدفقات الخدمات."],
-                  ["04", "التوثيق", "إرشادات استخدام وسلوك وأمثلة تساعد التصميم والهندسة على اتخاذ القرار نفسه."],
-                  ["05", "الحوكمة", "ملكية ومراجعة وإدارة تغيير تحافظ على جودة النظام مع تطوره."],
-                  ["06", "الوصولية", "تباين وتركيز ولوحة مفاتيح ودلالات مدمجة في المكونات منذ البداية."],
-                  ["07", "Design-to-Code", "ربط Figma والتوكنز وSCSS والمكونات الجاهزة للإنتاج."],
-                  ["08", "التعاون الهندسي", "مراجعات مشتركة وتسليم واضح وUX QA لتقليل الغموض في التنفيذ."],
-                ]
-              : [
-                  ["01", "Foundations & Tokens", "Color, type, spacing, radius, and elevation expressed as documented, reusable decisions."],
-                  ["02", "Components", "States, variants, responsive behavior, and implementation-ready specifications."],
-                  ["03", "Patterns", "Repeatable solutions for navigation, forms, feedback, and service flows."],
-                  ["04", "Documentation", "Usage, behavior, and examples that help design and engineering make the same decision."],
-                  ["05", "Governance", "Ownership, review, and change management that protect quality as the system evolves."],
-                  ["06", "Accessibility", "Contrast, focus, keyboard, and semantic requirements built into components from the start."],
-                  ["07", "Design-to-Code", "Connections between Figma, tokens, SCSS, and production-ready components."],
-                  ["08", "Engineering Collaboration", "Shared reviews, clear handoff, and UX QA that reduce implementation ambiguity."],
-                ]
-          ).map(([number, title, body]) => (
+          {copy.valueItems.map(([number, title, body]) => (
             <article key={title}>
               <span>{number}</span>
               <h3>{title}</h3>
@@ -446,6 +462,83 @@ const DesignSystemPage = () => {
           closeLabel={copy.previewCloseLabel}
         />
       </SectionWrap>
+
+      <section id="ds-access" className="ds-access" aria-labelledby="ds-access-title">
+        <div className="site-container">
+          <SectionLabel>{copy.accessLabel}</SectionLabel>
+          <h2 id="ds-access-title" className="ds-access__title">{copy.accessTitle}</h2>
+          <SectionRule />
+          <SectionBody style={{ maxWidth: "60ch", marginBottom: 20 }}>
+            {copy.accessIntro}
+          </SectionBody>
+          <div className="ds-access__grid">
+            <div className="ds-access__card">
+              <h3>{copy.passwordTitle}</h3>
+              <p>{copy.accessBody}</p>
+              <form onSubmit={handleSubmit} noValidate>
+                <label htmlFor="casebook-password" className="form-label fw-semibold">
+                  {casebook.access.passwordLabel}
+                </label>
+                <input
+                  id="casebook-password"
+                  name="casebook-password"
+                  type="password"
+                  autoComplete="current-password"
+                  className="form-control"
+                  value={password}
+                  onChange={(event) => {
+                    setPassword(event.target.value);
+                    if (loginError) {
+                      setLoginError(null);
+                    }
+                  }}
+                  placeholder={casebook.access.passwordPlaceholder}
+                  aria-describedby={loginError ? "casebook-password-error" : undefined}
+                  aria-invalid={loginError === "passwordError"}
+                />
+                <button type="submit" className="btn btn-warning ds-access__submit" disabled={isLoading}>
+                  {isLoading ? "..." : copy.accessButtonLabel}
+                </button>
+                {loginError ? (
+                  <p
+                    id="casebook-password-error"
+                    className="text-danger mt-3 mb-0"
+                    role="alert"
+                    aria-live="assertive">
+                    {casebook.access[loginError]}
+                  </p>
+                ) : null}
+              </form>
+              <p className="ds-access__notice">
+                <strong>{copy.noticeTitle}</strong> {copy.noticeBody}
+              </p>
+            </div>
+
+            <div className="ds-access__card">
+              <h3>{copy.contactTitle}</h3>
+              <p>{copy.contactBody}</p>
+              <p>{copy.contactBody2}</p>
+              <a
+                href={getWhatsAppAccessUrl(language)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="whatsapp-cta whatsapp-cta--solid">
+                <FaWhatsapp aria-hidden="true" focusable="false" />
+                {copy.whatsappButton}
+              </a>
+              <div className="ds-access__qr">
+                <Image
+                  src={whatsappQr}
+                  alt={copy.qrAlt}
+                  width={112}
+                  height={112}
+                />
+                <p>{copy.qrLead}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <SectionWrap>
         <SectionLabel>
@@ -483,155 +576,6 @@ const DesignSystemPage = () => {
         </div>
       </SectionWrap>
 
-      <SectionWrap>
-        <SectionLabel>{copy.accessLabel}</SectionLabel>
-        <SectionTitle>{copy.accessTitle}</SectionTitle>
-        <SectionRule />
-        <div
-          style={{
-            background: card,
-            border: `1px solid ${border}`,
-            borderRadius: 14,
-            padding: "22px",
-            boxShadow: "0px 8px 24px rgba(15, 23, 42, 0.05)",
-          }}>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 18,
-              alignItems: "flex-start",
-            }}>
-            <div style={{ flex: "1.5 1 420px", minWidth: 0 }}>
-              <SectionBody style={{ marginBottom: 16, maxWidth: "60ch" }}>
-                {copy.accessBody}
-              </SectionBody>
-              <form onSubmit={handleSubmit} noValidate>
-                <label
-                  htmlFor="casebook-password"
-                  className="form-label fw-semibold">
-                  {casebook.access.passwordLabel}
-                </label>
-                <input
-                  id="casebook-password"
-                  name="casebook-password"
-                  type="password"
-                  autoComplete="current-password"
-                  className="form-control"
-                  value={password}
-                  onChange={(event) => {
-                    setPassword(event.target.value);
-                    if (loginError) {
-                      setLoginError(null);
-                    }
-                  }}
-                  placeholder={casebook.access.passwordPlaceholder}
-                  aria-describedby={
-                    loginError ? "casebook-password-error" : undefined
-                  }
-                  aria-invalid={loginError === "passwordError"}
-                />
-                <button
-                  type="submit"
-                  className="btn btn-warning mt-3"
-                  disabled={isLoading}>
-                  {isLoading ? "..." : copy.accessButtonLabel}
-                </button>
-                {loginError ? (
-                  <p
-                    id="casebook-password-error"
-                    className="text-danger mt-3 mb-0"
-                    role="alert"
-                    aria-live="assertive">
-                    {casebook.access[loginError]}
-                  </p>
-                ) : null}
-              </form>
-            </div>
-            <aside
-              style={{
-                flex: "1 1 400px",
-                maxWidth: 400,
-                width: "100%",
-                marginInlineStart: "auto",
-                background: bg,
-                border: `1px solid ${border}`,
-                borderRadius: 12,
-                padding: "14px",
-                textAlign: "center",
-              }}>
-              <h3
-                style={{
-                  margin: "0 0 6px",
-                  fontSize: 18,
-                  fontWeight: 800,
-                  color: ink,
-                }}>
-                {copy.contactTitle}
-              </h3>
-              <SectionBody style={{ marginBottom: 6, fontSize: 14 }}>
-                {copy.contactBody}
-              </SectionBody>
-              <SectionBody style={{ marginBottom: 12, fontSize: 14 }}>
-                {copy.contactBody2}
-              </SectionBody>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label={copy.whatsappAria}
-                style={{ display: "inline-block", textDecoration: "none" }}>
-                <div
-                  style={{
-                    background: surface,
-                    border: `1px solid ${border}`,
-                    borderRadius: 10,
-                    padding: 10,
-                    display: "inline-block",
-                  }}>
-                  <Image
-                    src={whatsappQr}
-                    alt={copy.qrAlt}
-                    width={170}
-                    height={170}
-                    style={{ width: "100%", maxWidth: 170, height: "auto" }}
-                  />
-                </div>
-                <p
-                  style={{
-                    margin: "8px 0 6px",
-                    color: inkLight,
-                    fontSize: 12,
-                    fontWeight: 600,
-                    lineHeight: 1.45,
-                  }}>
-                  {copy.qrHint}
-                </p>
-                <span
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 7,
-                    fontSize: 14,
-                    fontWeight: 700,
-                    color: purple,
-                    textDecoration: "none",
-                  }}>
-                  {/* <Image
-                    src={whatsappIcon}
-                    alt=""
-                    aria-hidden="true"
-                    width={18}
-                    height={18}
-                    style={{ flexShrink: 0 }}
-                  /> */}
-                  {copy.whatsappLabel}
-                </span>
-              </a>
-            </aside>
-          </div>
-        </div>
-      </SectionWrap>
     </div>
   );
 };

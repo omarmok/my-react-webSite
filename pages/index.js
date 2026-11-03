@@ -7,9 +7,27 @@ import photoAVIF from "../public/images/omar.avif";
 
 const REDIRECT_URL = "/PS-Design/DesignSystemDocumentation/index.html";
 
-import { FaBehance, FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
+import { FaBehance, FaGithub, FaEnvelope, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "../src/i18n/useTranslation";
 import ResumeModal from "../components/ResumeModal";
+import { getWhatsAppAccessUrl } from "../src/data/contact";
+import dsPreviewIcons from "../public/images/ds-1.png";
+import dsPreviewSwitches from "../public/images/ds-3.png";
+import dsPreviewComponents from "../public/images/ds-4.png";
+
+const DS_PREVIEW_IMAGES = {
+  icons: dsPreviewIcons,
+  switches: dsPreviewSwitches,
+  components: dsPreviewComponents,
+};
+
+// Small lock glyph for "protected content" notes next to Design System links.
+const LockIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+    <rect x="4" y="10" width="16" height="11" rx="2.5" stroke="currentColor" strokeWidth="2" />
+    <path d="M8 10V7a4 4 0 1 1 8 0v3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
 
 const ICON_LIBRARY = {
   calendar: (
@@ -317,9 +335,25 @@ export default function Home() {
             detail: "معايير جودة قابلة للتوسع والاستدامة.",
           },
         ],
-        designSystemTitle: "عرض نظام التصميم",
+        designSystemEyebrow: "نظام التصميم · معاينة خاصة",
+        designSystemTitle: "نظام تصميم متكامل، من الـ Tokens إلى كود الإنتاج",
         designSystemIntro:
-          "نظرة أعمق على خبرتي في بناء أنظمة تصميم قابلة للتوسع، مكونات قابلة لإعادة الاستخدام، التوثيق، الحوكمة، معايير الوصول، والتعاون بين التصميم والترميز.",
+          "أقوى دليل عملي على خبرتي: نظام تصميم مؤسسي أنشأته وأملكه، تعمل عليه منصة حكومية تضم 14 نظامًا وتطبيقاتها على الجوال والويب. بنيته في Figma وفي الكود، وأطوّر الاثنين بنفسي.",
+        designSystemFacts: [
+          ["الـ Tokens", "236 متغيرًا في SCSS تطابق Tokens في Figma للألوان والخطوط والمسافات والزوايا والظلال."],
+          ["المكونات", "أكثر من 30 ملف أنماط للمكونات، وكل مكوّن موثّق بحالاته وخصائص Figma مقابل واجهة الكود وملاحظات الوصولية."],
+          ["التوثيق", "موقع ثنائي اللغة من 38 صفحة، مع مكتبة قابلة للبحث من 4,371 أيقونة."],
+          ["RTL", "مكونات عربية أولًا تنعكس فيها الأيقونات والفواصل تلقائيًا في RTL."],
+          ["من التصميم إلى الكود", "Figma وSCSS يُحدَّثان معًا، مع إصدارات مرقّمة وسجل تغييرات ثنائي اللغة."],
+        ],
+        designSystemLockNote:
+          "التوثيق الكامل محمي. ادخل بكلمة مرور الوصول، أو اطلب الصلاحية عبر واتساب.",
+        designSystemPreviewTitle: "شاشات حقيقية من التوثيق",
+        designSystemPreviewImages: [
+          ["icons", "صفحة الأيقونات في توثيق نظام التصميم"],
+          ["switches", "صفحة مكوّن المفتاح (Switch) في توثيق نظام التصميم"],
+          ["components", "صفحة مكوّن في توثيق نظام التصميم"],
+        ],
         designSystemDescription:
           "يسلط هذا القسم الضوء على كيف أخلق أنظمة تصميم تدعم الموثوقية والتسليم السريع مع اتساق بصري ومواصفات تنفيذية واضحة.",
         designSystemCta: "الوصول إلى قسم نظام التصميم →",
@@ -353,10 +387,12 @@ export default function Home() {
         ],
         designSystemAccess: {
           label: "طلب الوصول",
-          title: "الدخول إلى عرض نظام التصميم",
-          body: "إذا كان لديك كلمة مرور، أدخلها أدناه للمتابعة إلى عرض نظام التصميم الخاص.",
-          buttonLabel: "الوصول إلى نظام التصميم",
-          learnMoreLabel: "استكشف نظام التصميم →",
+          title: "الدخول إلى نظام التصميم",
+          body: "لديك كلمة مرور؟ أدخلها لفتح التوثيق الكامل.",
+          buttonLabel: "الدخول إلى نظام التصميم",
+          learnMoreLabel: "استعرض نظام التصميم",
+          orLabel: "ليس لديك كلمة مرور؟",
+          whatsappButton: "اطلب الصلاحية عبر واتساب",
           learnMoreHref: "/design-system",
           contactTitle: "هل تحتاج إلى صلاحية الوصول؟",
           contactBody:
@@ -472,9 +508,25 @@ export default function Home() {
             detail: "Scalable quality standards.",
           },
         ],
-        designSystemTitle: "Design System Showcase",
+        designSystemEyebrow: "Design System · Private preview",
+        designSystemTitle: "A complete design system, from tokens to production code",
         designSystemIntro:
-          "A closer look at my experience building scalable design systems, reusable components, documentation, governance, accessibility standards, and design-to-code collaboration.",
+          "The strongest evidence of my work: an enterprise design system I created and own, used across a government platform of 14 systems and its mobile and web apps. I built it in Figma and in code, and I maintain both.",
+        designSystemFacts: [
+          ["Tokens", "236 SCSS variables matching the Figma tokens for color, typography, spacing, radius, and shadows."],
+          ["Components", "30+ component stylesheets, each documented with states, Figma properties against the code API, and accessibility notes."],
+          ["Documentation", "A 38-page bilingual site with a searchable library of 4,371 icons."],
+          ["RTL", "Arabic-first components where icons and separators mirror automatically in RTL."],
+          ["Design-to-code", "Figma and SCSS updated together, with versioned releases and a bilingual changelog."],
+        ],
+        designSystemLockNote:
+          "The full documentation is protected. Sign in with your access password, or request access on WhatsApp.",
+        designSystemPreviewTitle: "Real screens from the documentation",
+        designSystemPreviewImages: [
+          ["icons", "Iconography page from the design system documentation"],
+          ["switches", "Switch component page from the design system documentation"],
+          ["components", "Component page from the design system documentation"],
+        ],
         designSystemDescription:
           "A portfolio highlight that explains why design systems are one of my strongest areas — built to support consistent experiences, faster delivery, and collaborative product teams.",
         designSystemCta: "Access the Design System Showcase →",
@@ -508,10 +560,12 @@ export default function Home() {
         ],
         designSystemAccess: {
           label: "Request Access",
-          title: "Access the Design System Showcase",
-          body: "If you have received an access password, enter it below to continue to the private Design System showcase.",
+          title: "Enter the design system",
+          body: "Have a password? Enter it to open the full documentation.",
           buttonLabel: "Access Design System",
-          learnMoreLabel: "Explore Design System →",
+          learnMoreLabel: "Explore the Design System",
+          orLabel: "No password yet?",
+          whatsappButton: "Request access on WhatsApp",
           learnMoreHref: "/design-system",
           contactTitle: "Need Access?",
           contactBody:
@@ -707,7 +761,7 @@ export default function Home() {
                   <Link
                     href="/design-system"
                     className="homepage-hero-nav__cta homepage-hero-nav__cta--primary">
-                    {isRTL ? "استكشف نظام التصميم" : "Explore Design System"} →
+                    {isRTL ? "استعرض نظام التصميم" : "Explore the Design System"} →
                   </Link>
                   <Link
                     href="/government-ux"
@@ -715,6 +769,13 @@ export default function Home() {
                     {isRTL ? "استكشف خبراتي الحكومية" : "Explore Government UX"} →
                   </Link>
                 </div>
+
+                <p className="homepage-hero-nav__note">
+                  <LockIcon />
+                  {isRTL
+                    ? "معاينة محمية: ادخل بكلمة المرور أو اطلب صلاحية الوصول."
+                    : "Protected preview: sign in with a password or request access."}
+                </p>
 
                 {/* 3 · Professional summary */}
                 <div className="hero-summary">
@@ -842,34 +903,15 @@ export default function Home() {
         </div>
 
         <section
-          className="homepage-credibility"
-          aria-labelledby="homepage-credibility-title"
-          dir={isRTL ? "rtl" : "ltr"}>
-          <h2
-            id="homepage-credibility-title"
-            className="homepage-section-title">
-            {strategyCopy.credibilityTitle}
-          </h2>
-          <p className="homepage-credibility__intro">
-            {strategyCopy.credibilityIntro}
-          </p>
-          <div className="homepage-credibility__grid">
-            {strategyCopy.credibilityItems.map((item) => (
-              <article key={item.title} className="homepage-proof-card">
-                <SectionIcon iconName={item.icon} />
-                <h3 className="homepage-proof-card__title">{item.title}</h3>
-                <p className="homepage-proof-card__detail">{item.detail}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section
-          className="homepage-designsystem"
+          className="homepage-designsystem homepage-designsystem--featured"
+          id="design-system-preview"
           aria-labelledby="homepage-designsystem-title"
           dir={isRTL ? "rtl" : "ltr"}>
           <div className="homepage-designsystem__columns">
             <div className="homepage-designsystem__content">
+              <p className="homepage-designsystem__eyebrow">
+                {strategyCopy.designSystemEyebrow}
+              </p>
               <h2
                 id="homepage-designsystem-title"
                 className="homepage-section-title">
@@ -878,25 +920,27 @@ export default function Home() {
               <p className="homepage-designsystem__subtitle">
                 {strategyCopy.designSystemIntro}
               </p>
-              <p className="homepage-designsystem__description">
-                {strategyCopy.designSystemDescription}
-              </p>
 
-              <Link
-                href={strategyCopy.designSystemAccess.learnMoreHref}
-                className="homepage-designsystem__secondary-cta">
-                {strategyCopy.designSystemAccess.learnMoreLabel}
-              </Link>
-
-              <ul
-                className="homepage-designsystem__features"
-                aria-label={
-                  isRTL ? "ما يتضمنه نظام التصميم" : "What's included"
-                }>
-                {strategyCopy.designSystemFeatures.map((feature) => (
-                  <li key={feature}>{feature}</li>
+              <dl className="homepage-designsystem__facts">
+                {strategyCopy.designSystemFacts.map(([term, detail]) => (
+                  <div key={term}>
+                    <dt>{term}</dt>
+                    <dd>{detail}</dd>
+                  </div>
                 ))}
-              </ul>
+              </dl>
+
+              <div className="homepage-designsystem__ctas">
+                <Link
+                  href={strategyCopy.designSystemAccess.learnMoreHref}
+                  className="homepage-designsystem__cta">
+                  {strategyCopy.designSystemAccess.learnMoreLabel} →
+                </Link>
+              </div>
+              <p className="homepage-designsystem__lock">
+                <LockIcon />
+                {strategyCopy.designSystemLockNote}
+              </p>
             </div>
 
             <div className="homepage-designsystem__access-panel">
@@ -951,8 +995,63 @@ export default function Home() {
                     </p>
                   ) : null}
                 </form>
+
+                <div className="homepage-designsystem__request">
+                  <p>{strategyCopy.designSystemAccess.orLabel}</p>
+                  <a
+                    href={getWhatsAppAccessUrl(language)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="whatsapp-cta">
+                    <FaWhatsapp aria-hidden="true" focusable="false" />
+                    {strategyCopy.designSystemAccess.whatsappButton}
+                  </a>
+                </div>
               </div>
             </div>
+          </div>
+
+          <figure className="homepage-designsystem__preview">
+            <figcaption>{strategyCopy.designSystemPreviewTitle}</figcaption>
+            <div className="homepage-designsystem__preview-grid">
+              {strategyCopy.designSystemPreviewImages.map(([key, alt]) => (
+                <Link
+                  key={key}
+                  href={strategyCopy.designSystemAccess.learnMoreHref}
+                  className="homepage-designsystem__shot"
+                  aria-label={`${alt} — ${strategyCopy.designSystemAccess.learnMoreLabel}`}>
+                  <Image
+                    src={DS_PREVIEW_IMAGES[key]}
+                    alt={alt}
+                    sizes="(min-width: 992px) 33vw, 90vw"
+                    style={{ width: "100%", height: "auto", display: "block" }}
+                  />
+                </Link>
+              ))}
+            </div>
+          </figure>
+        </section>
+
+        <section
+          className="homepage-credibility"
+          aria-labelledby="homepage-credibility-title"
+          dir={isRTL ? "rtl" : "ltr"}>
+          <h2
+            id="homepage-credibility-title"
+            className="homepage-section-title">
+            {strategyCopy.credibilityTitle}
+          </h2>
+          <p className="homepage-credibility__intro">
+            {strategyCopy.credibilityIntro}
+          </p>
+          <div className="homepage-credibility__grid">
+            {strategyCopy.credibilityItems.map((item) => (
+              <article key={item.title} className="homepage-proof-card">
+                <SectionIcon iconName={item.icon} />
+                <h3 className="homepage-proof-card__title">{item.title}</h3>
+                <p className="homepage-proof-card__detail">{item.detail}</p>
+              </article>
+            ))}
           </div>
         </section>
 
