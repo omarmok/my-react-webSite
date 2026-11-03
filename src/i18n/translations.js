@@ -123,18 +123,18 @@ const experienceTranslations = {
   en: {
     1: {
       date: "Jan 2023 - Present",
-      jobtitle: "UX & DesignOps Lead",
+      jobtitle: "UX Design Lead",
       companyname: "Confidential Government",
-      progression: "UI/UX Designer (Jan 2023) → UX & DesignOps Lead (Jul 2025)",
-      role: `Joined as a UI/UX Designer, contributing to the UX improvement of a large-scale enterprise platform and companion mobile application, while building core components of the design system and collaborating closely with business analysts, developers, and QA.
+      progression: "UI/UX Designer (Jan 2023) → UX Design Lead (Jul 2025)",
+      role: `Joined as a UI/UX Designer on a large-scale enterprise platform and its companion mobile app, building the core components of the design system with business analysts, developers, and QA.
 
-Promoted in July 2025 to UX & DesignOps Lead, taking ownership of UX processes, design governance, system-wide consistency, and the ongoing evolution of a scalable design system across digital products.`,
+Promoted in July 2025 to UX Design Lead. I now lead the internal design team, give design direction to external vendor teams, and own the design system and its governance across web and mobile products.`,
     },
     3: {
       date: "Feb 2019 - Dec 2022",
-      jobtitle: "UI/UX Designer",
+      jobtitle: "Interface Development Specialist",
       companyname: "National Housing Company (NHC)",
-      role: "Designed wireframes, prototypes, and UI kits for web platforms serving national housing stakeholders. Delivered front-end implementation in HTML, CSS, JavaScript, and Vue.js. Collaborated with analysts, developers, and QA throughout the delivery lifecycle to ensure specifications were met with accuracy.",
+      role: "UX/UI design and front-end development in the BS – Technology department. I designed national housing web platforms and built them myself, from wireframes and prototypes to responsive production pages in HTML, CSS, JavaScript, and Vue.js, and created UI kits and reusable front-end components shared with engineering and QA.",
     },
     4: {
       date: "2021 - 2022",
@@ -145,39 +145,45 @@ Promoted in July 2025 to UX & DesignOps Lead, taking ownership of UX processes, 
 Collaborated with the development team on page rebuilds using HTML, Vue.js, and JavaScript.`,
     },
     5: {
-      date: "Mar 2016 - Feb 2019",
-      jobtitle: "UX/UI Engineer",
-      companyname: "Al-Majma’ah University",
-      role: "UX/UI designer and front-end developer for the university e-portal unit. Translated student and staff needs into digital solutions, collaborated with analysts, developers, and QA throughout the delivery lifecycle, and maintained close communication with academic stakeholders on product improvements and new requirements.",
+      date: "Mar 2016 - Jan 2019",
+      jobtitle: "Web Designer",
+      companyname: "Majmaah University — Deanship of Information Technology",
+      role: "Contracted through an external company. Designed and built the front end (HTML, CSS, JavaScript) of university portals and web applications, including the University Web Portal, Electronic Services Portal, Recruitment Portal, and University Housing Portal. Worked directly with deans and IT leadership on new services and improvements.",
     },
     6: {
-      date: "Nov 2013 - Feb 2016",
+      date: "2012 - Feb 2016",
       jobtitle: "UI Designer",
-      companyname: "SURE International Technology - SURE",
+      companyname: "SURE International Technology",
       role: "Interface designer delivering digital solutions for government agencies and educational institutions — including the National Guard, Shaqra University, and the Saudi Food and Drug Authority. Worked within a collaborative design team across front-end implementation using HTML and CSS.",
     },
     7: {
       date: "May 2012 - 2013",
-      jobtitle: "UX/UI Designer-Developer",
+      jobtitle: "UI/UX Designer & Developer",
       companyname: "Jazan University",
       role: "UX/UI designer and front-end developer for the university e-portal unit. Gathered student and staff requirements, collaborated with analysts, developers, and QA to ensure delivery met specifications, and engaged stakeholders on product enhancements and new feature requests.",
+    },
+    8: {
+      date: "2007 - 2012",
+      jobtitle: "Junior Web Designer → Web Designer",
+      companyname: "Earlier career · several companies",
+      role: "Web interface design and HTML page building — the foundation for the UI/UX, front-end, and design system work that followed.",
     },
   },
   ar: {
     1: {
       date: "يناير 2023 – الآن",
-      jobtitle: "قائد تجربة المستخدم وعمليات التصميم",
+      jobtitle: "قائد تصميم تجربة المستخدم",
       companyname: "جهة حكومية",
-      progression: "مصمم واجهات وتجربة المستخدم (يناير 2023) ← قائد تجربة المستخدم وعمليات التصميم (يوليو 2025)",
-      role: `انضممت بصفتي مصمم واجهات وتجربة المستخدم، وساهمت في تحسين تجربة منصة مؤسسية واسعة النطاق وتطبيق جوال مرافق، مع بناء المكونات الأساسية لنظام التصميم والتعاون الوثيق مع محللي الأعمال والمطورين وفرق ضمان الجودة.
+      progression: "مصمم واجهات وتجربة المستخدم (يناير 2023) ← قائد تصميم تجربة المستخدم (يوليو 2025)",
+      role: `انضممت بصفتي مصمم واجهات وتجربة المستخدم في منصة مؤسسية واسعة النطاق وتطبيق جوال مرافق لها، وبنيت المكونات الأساسية لنظام التصميم بالتعاون مع محللي الأعمال والمطورين وفرق ضمان الجودة.
 
-تمت ترقيتي في يوليو 2025 إلى قائد تجربة المستخدم وعمليات التصميم، وتوليت مسؤولية عمليات UX وحوكمة التصميم والاتساق على مستوى النظام والتطوير المستمر لنظام تصميم قابل للتوسع عبر المنتجات الرقمية.`,
+تمت ترقيتي في يوليو 2025 إلى قائد تصميم تجربة المستخدم. أقود اليوم فريق التصميم الداخلي، وأوجّه أعمال التصميم لدى فرق الشركات المنفذة الخارجية، وأملك نظام التصميم وحوكمته عبر منتجات الويب والجوال.`,
     },
     3: {
       date: "فبراير 2019 – ديسمبر 2022",
-      jobtitle: "مصمم واجهات وتجربة المستخدم",
+      jobtitle: "أخصائي تطوير واجهات",
       companyname: "الشركة الوطنية للإسكان (NHC)",
-      role: "مصمم واجهات وتجربة المستخدم يركز على رسم الهياكل السلكية، والنمذجة الأولية، وتطوير الواجهة الأمامية (HTML، CSS، JavaScript، Vue.js). أنشأت مجموعات واجهات وحلولًا تصميمية للمنصات، وتعاونت بشكل وثيق مع المحللين والمطورين وضمان الجودة لضمان التنفيذ وفق مواصفات UX وUI.",
+      role: "تصميم تجربة المستخدم والواجهات وتطوير الواجهة الأمامية في إدارة BS – التقنية. صممت منصات الإسكان الوطنية وبنيتها بنفسي، من الهياكل السلكية والنماذج الأولية إلى صفحات فعلية متجاوبة بـ HTML وCSS وJavaScript وVue.js، وأنشأت مجموعات واجهات ومكونات قابلة لإعادة الاستخدام يتشاركها فريقا الهندسة وضمان الجودة.",
     },
     4: {
       date: "2021 – 2022",
@@ -188,13 +194,13 @@ Collaborated with the development team on page rebuilds using HTML, Vue.js, and 
 تعاونت مع فريق التطوير لإعادة بناء الصفحات باستخدام HTML وVue.js وJavaScript.`,
     },
     5: {
-      date: "مارس 2016 – فبراير 2019",
-      jobtitle: "مهندس واجهات وتجربة المستخدم",
-      companyname: "جامعة المجمعة",
-      role: "مهندس واجهات وتجربة المستخدم بخبرة في تطوير الواجهة الأمامية (HTML، CSS، JavaScript) والتصميم المرئي ضمن وحدة البوابة الإلكترونية. ترجمت احتياجات الطلاب والموظفين إلى حلول رقمية، وتعاونت مع المحللين والمطورين وضمان الجودة، وتواصلت مع أصحاب المصلحة حول التحسين المستمر والاحتياجات الجديدة.",
+      date: "مارس 2016 – يناير 2019",
+      jobtitle: "مصمم ويب",
+      companyname: "جامعة المجمعة — عمادة تقنية المعلومات",
+      role: "عبر شركة متعاقدة خارجية. صممت وبنيت الواجهة الأمامية (HTML وCSS وJavaScript) لبوابات الجامعة وتطبيقاتها، ومنها البوابة الإلكترونية للجامعة، وبوابة الخدمات الإلكترونية، وبوابة التوظيف، وبوابة الإسكان الجامعي. وعملت مباشرة مع العمداء وقيادة تقنية المعلومات على الخدمات الجديدة وتحسين الأنظمة القائمة.",
     },
     6: {
-      date: "نوفمبر 2013 – فبراير 2016",
+      date: "2012 – فبراير 2016",
       jobtitle: "مصمم واجهات",
       companyname: "شركة شور العالمية للتقنية (SURE)",
       role: "مصمم واجهات (HTML، CSS) عملت ضمن فريق التصميم لتقديم حلول لجهات حكومية وجامعات، بما في ذلك الحرس الوطني وجامعة شقراء وهيئة الغذاء والدواء.",
@@ -204,6 +210,12 @@ Collaborated with the development team on page rebuilds using HTML, Vue.js, and 
       jobtitle: "مصمم ومطور واجهات وتجربة المستخدم",
       companyname: "جامعة جازان",
       role: "مصمم ومطور واجهات وتجربة المستخدم عمل على رسم الهياكل السلكية، وتطوير الواجهة الأمامية (HTML، CSS، JavaScript)، والتصميم المرئي لوحدة البوابة الإلكترونية. حددت احتياجات الطلاب والموظفين، وتعاونت مع المحللين والمطورين وضمان الجودة لضمان تلبية المتطلبات، وتواصلت مع أصحاب المصلحة لتحسين المنتجات وتطوير أفكار جديدة.",
+    },
+    8: {
+      date: "2007 – 2012",
+      jobtitle: "مصمم ويب مبتدئ ← مصمم ويب",
+      companyname: "بداية المسيرة · عدة شركات",
+      role: "تصميم واجهات الويب وبناء الصفحات بـ HTML، وهو الأساس الذي قام عليه عملي اللاحق في تجربة المستخدم والواجهات والواجهة الأمامية وأنظمة التصميم.",
     },
   },
 };
@@ -465,6 +477,13 @@ export const translations = {
       title: "About",
       downloadButton: "Download Resume",
       downloadTitle: "Download Omar Mokhtar Ayed resume",
+      modalTitle: "Get my CV",
+      modalText: "Choose how you would like to open it.",
+      modalWord: "Download Word",
+      modalWordMeta: "Editable .docx file",
+      modalPdf: "View PDF",
+      modalPdfMeta: "Opens in a new browser tab",
+      modalClose: "Close",
       videoLink: "Watch a brief overview of my background and approach.",
       emptyExperience: "Experience data is currently unavailable.",
       certificationsTeaserTitle: "Professional Certifications",
@@ -1030,7 +1049,6 @@ export const translations = {
             { "@type": "Occupation", name: "DesignOps Practitioner" },
             { "@type": "Occupation", name: "Government UX Specialist" },
           ],
-          nationality: { "@type": "Country", name: "Saudi Arabia" },
           address: {
             "@type": "PostalAddress",
             addressCountry: "SA",
@@ -1054,12 +1072,11 @@ export const translations = {
         },
       },
       "/about": {
-        title:
-          "Omar Mokhtar Ayed — UX Design Lead, DesignOps & Government UX | Career & Experience",
+        title: "About Omar Mokhtar | UX & DesignOps Lead",
         description:
-          "19+ years of professional experience in UX/UI design and front-end implementation across government, education, and enterprise platforms. Current focus: UX leadership, design systems, and DesignOps.",
+          "UX Design Lead in Riyadh with 19+ years in digital design. Leads an internal design team, directs vendor design teams, and builds and governs enterprise design systems from Figma tokens to front-end code.",
         keywords:
-          "Omar Mokhtar Ayed, Omar Mokhtar Ayed UX Lead, Omar Mokhtar Ayed Design Systems, Omar Mokhtar Ayed DesignOps, Omar Mokhtar Ayed Government UX, UX Design Lead Saudi Arabia",
+          "Omar Mokhtar, Omar Mokhtar Ayed, UX Design Lead, UX Leadership, Design Systems Lead, Design System Architect, DesignOps Lead, Enterprise UX, Government UX, Design-to-Code, UX Design Lead Riyadh",
         canonical: `${baseUrl}/about`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "en_US",
@@ -1330,6 +1347,13 @@ export const translations = {
       title: "من أنا",
       downloadButton: "تحميل السيرة الذاتية",
       downloadTitle: "تحميل سيرة عمر مختار عايد الذاتية",
+      modalTitle: "احصل على سيرتي الذاتية",
+      modalText: "اختر طريقة فتحها.",
+      modalWord: "تحميل ملف Word",
+      modalWordMeta: "ملف .docx قابل للتعديل",
+      modalPdf: "عرض ملف PDF",
+      modalPdfMeta: "يفتح في تبويب جديد",
+      modalClose: "إغلاق",
       videoLink:
         "للاطلاع على نبذة موجزة عن خلفيتي وأسلوب عملي، يمكنك مشاهدة هذا الفيديو.",
       emptyExperience: "بيانات الخبرة غير متوفرة حاليًا.",
@@ -1895,7 +1919,6 @@ export const translations = {
             { "@type": "Occupation", name: "ممارس عمليات التصميم" },
             { "@type": "Occupation", name: "متخصص تجربة المستخدم الحكومية" },
           ],
-          nationality: { "@type": "Country", name: "Saudi Arabia" },
           address: {
             "@type": "PostalAddress",
             addressCountry: "SA",
@@ -1919,12 +1942,11 @@ export const translations = {
         },
       },
       "/about": {
-        title:
-          "عمر مختار عايد — قائد تصميم تجربة المستخدم وعمليات التصميم وخبير التجربة الحكومية | الخبرة والمسار",
+        title: "عن عمر مختار | قائد تجربة المستخدم وعمليات التصميم",
         description:
-          "أكثر من 19 عامًا من الخبرة المهنية في تصميم تجربة المستخدم والواجهات وتنفيذ الواجهات الأمامية عبر المنصات الحكومية والتعليمية والمؤسسية. التركيز الحالي: قيادة تجربة المستخدم وأنظمة التصميم وعمليات التصميم.",
+          "قائد تصميم تجربة المستخدم في الرياض بخبرة تتجاوز 19 عامًا في التصميم الرقمي. يقود فريق تصميم داخليًا، ويوجّه فرق التصميم لدى الشركات المنفذة، ويبني أنظمة تصميم مؤسسية ويحوكمها من Tokens في Figma إلى كود الواجهة الأمامية.",
         keywords:
-          "عمر مختار عايد, عمر مختار عايد تجربة المستخدم, عمر مختار عايد مصمم تجربة المستخدم, عمر مختار عايد أنظمة التصميم, عمر مختار عايد عمليات التصميم, عمر مختار عايد السعودية",
+          "عمر مختار, عمر مختار عايد, قائد تصميم تجربة المستخدم, قيادة تجربة المستخدم, أنظمة التصميم, مهندس أنظمة التصميم, عمليات التصميم, DesignOps, تجربة المستخدم المؤسسية, تجربة المستخدم الحكومية, الرياض",
         canonical: `${baseUrl}/about`,
         ogImage: `${baseUrl}/images/omar.png`,
         ogLocale: "ar_SA",

@@ -43,6 +43,7 @@ const PageHeader = ({
   tags = [],
   meta = [],
   actions = [],
+  actionsSlot = null,
 }) => {
   const lines = Array.isArray(description)
     ? description.filter(Boolean)
@@ -75,8 +76,9 @@ const PageHeader = ({
           </div>
         ) : null}
 
-        {Array.isArray(actions) && actions.length > 0 ? (
+        {actionsSlot || (Array.isArray(actions) && actions.length > 0) ? (
           <div className="page-header__actions">
+            {actionsSlot}
             {actions.map((action) => (
               <ActionLink
                 action={action}

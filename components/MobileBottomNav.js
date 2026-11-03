@@ -5,9 +5,9 @@ import ThemeToggle from "./ThemeToggle";
 
 const bottomNavItems = [
   { key: "home", href: "/", icon: "home" },
+  { key: "about", href: "/about", icon: "about" },
   { key: "work", href: "/projects", icon: "work" },
   { key: "casebook", href: "/design-system", icon: "casebook" },
-  { key: "about", href: "/about", icon: "about" },
   { key: "more", icon: "more" },
 ];
 

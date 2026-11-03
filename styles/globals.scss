@@ -8300,6 +8300,266 @@ html[data-theme="dark"] .mobile-app-nav__utility-icon {
   border-radius: 8px;
 }
 
+// About: multi-paragraph overview, leadership row, and credentials.
+.about-overview__summary > .about-overview__text {
+  max-width: 68ch;
+  margin: 18px 0 0;
+  color: var(--theme-text-secondary);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.about-overview__summary > .about-overview__text + .about-overview__text {
+  margin-top: 14px;
+}
+
+.about-overview__aside {
+  display: grid;
+  align-content: start;
+  gap: 36px;
+}
+
+.about-achievements__intro {
+  max-width: 68ch;
+  margin: 18px 0 0;
+  color: var(--theme-text-secondary);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.about-achievements--three .about-achievements__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 32px;
+}
+
+.about-credentials {
+  padding: 82px 0;
+  border-bottom: 1px solid var(--theme-border-strong);
+}
+
+.about-credentials > h2 {
+  margin: 0;
+  color: var(--theme-text-primary);
+  font-size: clamp(1.75rem, 3.5vw, 2.7rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+.about-credentials__grid {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  gap: 0 56px;
+}
+
+.about-credentials h3 {
+  margin: 0;
+  padding: 26px 0 10px;
+  border-top: 1px solid var(--theme-border);
+  color: var(--theme-text-primary);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.about-credentials ul {
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.about-credentials li {
+  padding: 8px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2px 16px;
+}
+
+.about-credentials__name {
+  color: var(--theme-text-primary);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.about-credentials__meta {
+  color: var(--theme-text-muted);
+  font-size: 0.82rem;
+}
+
+.about-credentials__link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--theme-text-primary);
+  font-size: 0.85rem;
+  font-weight: 750;
+  text-decoration: underline;
+  text-decoration-color: var(--theme-border-strong);
+  text-underline-offset: 5px;
+}
+
+.about-credentials__link:hover {
+  color: var(--theme-brand-primary);
+}
+
+.about-credentials__link:focus-visible {
+  outline: 3px solid var(--theme-focus-ring);
+  outline-offset: 2px;
+}
+
+.about-frontend__stack {
+  margin-top: 26px;
+}
+
+.about-frontend__stack h3 {
+  margin: 0 0 10px;
+  color: var(--theme-text-muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.about-frontend__stack ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  list-style: none;
+}
+
+.about-frontend__stack li {
+  color: var(--theme-text-primary);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.about-frontend__evidence {
+  max-width: 76ch;
+  margin: 8px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--theme-border);
+  color: var(--theme-text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.72;
+}
+
+// Download CV modal (About header): Word download or PDF in a new tab.
+.resume-modal__trigger {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.resume-modal {
+  width: min(440px, calc(100% - 32px));
+  padding: 0;
+  border: 1px solid var(--theme-border);
+  border-radius: 16px;
+  color: var(--theme-text-primary);
+  background: var(--theme-bg-surface);
+  box-shadow: var(--theme-shadow-card);
+}
+
+.resume-modal::backdrop {
+  background: rgba(10, 14, 12, 0.55);
+}
+
+.resume-modal__panel {
+  padding: 24px;
+}
+
+.resume-modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.resume-modal__head h2 {
+  margin: 0;
+  color: var(--theme-text-primary);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.resume-modal__close {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--theme-border);
+  border-radius: 8px;
+  color: var(--theme-text-primary);
+  background: transparent;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.resume-modal__text {
+  margin: 6px 0 18px;
+  color: var(--theme-text-secondary);
+  font-size: 0.9rem;
+}
+
+.resume-modal__options {
+  display: grid;
+  gap: 10px;
+}
+
+.resume-modal__option {
+  display: grid;
+  gap: 2px;
+  padding: 14px 16px;
+  border: 1px solid var(--theme-border);
+  border-radius: 12px;
+  color: var(--theme-text-primary);
+  background: var(--theme-bg-subtle);
+  text-decoration: none;
+}
+
+.resume-modal__option:hover {
+  border-color: var(--theme-brand-primary);
+  color: var(--theme-text-primary);
+  text-decoration: none;
+}
+
+.resume-modal__option-title {
+  font-size: 0.98rem;
+  font-weight: 800;
+}
+
+.resume-modal__option-meta {
+  color: var(--theme-text-muted);
+  font-size: 0.8rem;
+}
+
+.resume-modal__close:focus-visible,
+.resume-modal__option:focus-visible {
+  outline: 3px solid var(--theme-focus-ring);
+  outline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+  .about-achievements--three .about-achievements__grid,
+  .about-credentials__grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .about-overview__aside {
+    gap: 28px;
+  }
+
+  .about-credentials {
+    padding: 58px 0;
+  }
+}
+
 // Keep supporting evidence structured without turning it into a dashboard.
 .design-system-model {
   gap: 0 36px;

@@ -108,11 +108,10 @@ const Layouts = ({
           name: "Government UX Specialist",
         },
       ],
-      nationality: { "@type": "Country", name: "Saudi Arabia" },
       address: {
         "@type": "PostalAddress",
+        addressLocality: "Riyadh",
         addressCountry: "SA",
-        addressRegion: "Saudi Arabia",
       },
       knowsAbout: [
         "UX Design",

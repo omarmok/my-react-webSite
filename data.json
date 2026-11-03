@@ -55,18 +55,18 @@
       "id": 1,
       "url": "...",
       "date": "Jan 2023 - Present",
-      "jobtitle": "UX & DesignOps Lead",
+      "jobtitle": "UX Design Lead",
       "companyname": "Confidential Government",
-      "progression": "UI/UX Designer (Jan 2023) → UX & DesignOps Lead (Jul 2025)",
-      "role": "Joined as a UI/UX Designer, contributing to the UX improvement of a large-scale enterprise platform and companion mobile application, while building core components of the design system and collaborating closely with business analysts, developers, and QA.\n\nPromoted in July 2025 to UX & DesignOps Lead, taking ownership of UX processes, design governance, system-wide consistency, and the ongoing evolution of a scalable design system across digital products."
+      "progression": "UI/UX Designer (Jan 2023) → UX Design Lead (Jul 2025)",
+      "role": "Joined as a UI/UX Designer on a large-scale enterprise platform and its companion mobile app, building the core components of the design system with business analysts, developers, and QA.\n\nPromoted in July 2025 to UX Design Lead. I now lead the internal design team, give design direction to external vendor teams, and own the design system and its governance across web and mobile products."
     },
     {
       "id": 3,
       "url": "https://nhc.sa/",
       "date": "Feb 2019 - Dec 2022",
-      "jobtitle": "UI/UX Designer",
+      "jobtitle": "Interface Development Specialist",
       "companyname": "National Housing Company (NHC)",
-      "role": "UI/UX Designer focused on wireframing, prototyping, and front-end web development (HTML, CSS, JavaScript, Vue.js). Built UI kits and design solutions for web platforms, and collaborated closely with analysts, developers, and QA testers to ensure the product was developed according to UX and UI specifications."
+      "role": "UX/UI design and front-end development in the BS – Technology department. I designed national housing web platforms and built them myself, from wireframes and prototypes to responsive production pages in HTML, CSS, JavaScript, and Vue.js, and created UI kits and reusable front-end components shared with engineering and QA."
     },
     {
       "id": 4,
@@ -79,26 +79,34 @@
     {
       "id": 5,
       "url": "https://www.mu.edu.sa/ar",
-      "date": "Mar 2016 - Feb 2019",
-      "jobtitle": "UI/UX Engineer",
-      "companyname": "Al-Majma’ah University",
-      "role": "UI/UX Designer with front-end web development experience (HTML, CSS, JavaScript) and graphic design for the e-portal unit. Translated student and employee needs into digital solutions, collaborated with analysts, developers, and QA testers, and communicated daily with stakeholders (e.g., deans) on new product ideas and continuous improvement of existing systems."
+      "date": "Mar 2016 - Jan 2019",
+      "jobtitle": "Web Designer",
+      "companyname": "Majmaah University — Deanship of Information Technology",
+      "role": "Contracted through an external company. Designed and built the front end (HTML, CSS, JavaScript) of university portals and web applications, including the University Web Portal, Electronic Services Portal, Recruitment Portal, and University Housing Portal. Worked directly with deans and IT leadership on new services and improvements."
     },
     {
       "id": 6,
       "url": "https://www.sure.com.sa/en/",
-      "date": "Nov 2013 - Feb 2016",
+      "date": "2012 - Feb 2016",
       "jobtitle": "UI Designer",
-      "companyname": "SURE International Technology - SURE",
+      "companyname": "SURE International Technology",
       "role": "Interface Designer (HTML, CSS). Worked within the design team to deliver solutions for government agencies and universities, including the National Guard, Shaqra University, and the Food and Drug Authority."
     },
     {
       "id": 7,
       "url": "https://www.jazanu.edu.sa/ar",
       "date": "May 2012 - 2013",
-      "jobtitle": "UI/UX Designer-Developer",
+      "jobtitle": "UI/UX Designer & Developer",
       "companyname": "Jazan University",
       "role": "UI/UX Designer with wireframing and front-end web development (HTML, CSS, JavaScript) and graphic design for the e-portal unit. Identified student and employee needs, collaborated with analysts, developers, and QA testers to ensure requirements were met, and communicated with stakeholders on product enhancements and new ideas."
+    },
+    {
+      "id": 8,
+      "url": "",
+      "date": "2007 - 2012",
+      "jobtitle": "Junior Web Designer → Web Designer",
+      "companyname": "Earlier career · several companies",
+      "role": "Web interface design and HTML page building — the foundation for the UI/UX, front-end, and design system work that followed."
     }
   ],
   "Certifications": [

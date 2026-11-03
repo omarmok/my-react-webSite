@@ -1,8 +1,8 @@
 export const mainNavLinks = [
   { key: "home", href: "/" },
+  { key: "about", href: "/about" },
   { key: "work", href: "/projects" },
   { key: "casebook", href: "/design-system" },
-  { key: "about", href: "/about" },
   { key: "recommendations", href: "/recommendations" },
 ];
 
