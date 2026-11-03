@@ -119,6 +119,34 @@ body.docs-page {
   outline: none;
 }
 
+/* Mobile: make it obvious that this card opens the documentation menu (menu icon + state chevron). */
+.sidebar-toggle::before,
+.sidebar-toggle::after {
+  background-color: currentColor;
+  content: "";
+  flex: none;
+  height: 18px;
+  width: 18px;
+  -webkit-mask: center / contain no-repeat;
+  mask: center / contain no-repeat;
+}
+
+.sidebar-toggle::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%3E%3Cpath%20d%3D%27M4%207h16M4%2012h16M4%2017h16%27%2F%3E%3C%2Fsvg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%3E%3Cpath%20d%3D%27M4%207h16M4%2012h16M4%2017h16%27%2F%3E%3C%2Fsvg%3E");
+}
+
+.sidebar-toggle::after {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m6%209%206%206%206-6%27%2F%3E%3C%2Fsvg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m6%209%206%206%206-6%27%2F%3E%3C%2Fsvg%3E");
+  transition: transform 0.16s ease;
+}
+
+.sidebar-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+
 .sidebar-nav {
   display: grid;
   gap: 8px;

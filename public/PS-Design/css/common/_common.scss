@@ -2152,7 +2152,7 @@ $plus-circle-icon: svg-data-uri(
     // File icon on top, title below it
     &::before {
       @include font-lg-600;
-      content: "اسحب الملفات وأفلتها هنا لتحميلها";
+      content: "اضغط هنا لإرفاق الملف";
       order: 0;
       padding-top: 44px;
       color: $Neutral-900;

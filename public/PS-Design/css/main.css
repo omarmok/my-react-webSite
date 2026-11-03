@@ -15321,7 +15321,7 @@ input:checked + .slider:before {
 .file__uploader .upload-area__drop-zoon::before {
   font-size: calc(1rem * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1)) !important;
   font-weight: 600 !important;
-  content: "اسحب الملفات وأفلتها هنا لتحميلها";
+  content: "اضغط هنا لإرفاق الملف";
   order: 0;
   padding-top: 44px;
   color: #111927;
@@ -24731,5 +24731,4 @@ nav {
 
 .previewBG {
   background: rgba(0, 0, 0, 0.48);
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
