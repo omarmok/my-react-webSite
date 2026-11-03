@@ -1,5 +1,6 @@
 @use "../_helpers" as *;
 @use "sass:map";
+@use "../common/buttons";
 
 // NOTE:
 // This file still needs direct visibility of the utility selectors referenced
@@ -11,271 +12,374 @@
 // Root
 // =========================================================================
 .moi-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $gap-lg;
+  padding: $padding-md; // was $padding-xl [Omar 2026-11-03]
+  background-color: $white-100;
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+  // ---------------------------------------------------------------------
+  // Status Variants (create / edit / details)
+  // Each variant recolors the header background plus title/icon/detail-
+  // label text for its status. Values differ per variant (and "create"
+  // shares one color across title/icon/detail-label while "edit" and
+  // "details" use two), so the three blocks below are not safely
+  // mergeable without introducing a new combined selector into the
+  // compiled CSS — left as three separate blocks to keep compiled output
+  // byte-identical. `--legacy-*` modifier classes are kept as literal
+  // legacy aliases; do not remove.
+  // ---------------------------------------------------------------------
+  &[data-status="create"],
+  &--legacy-create {
+    .moi-card__header {
+      background-color: $Neutral-50;
+    }
+
+    .moi-card__title,
+    .moi-card__icon,
+    .moi-card__detail-label {
+      color: $Neutral-800;
+    }
+  }
+
+  &[data-status="edit"],
+  &--legacy-edit {
+    .moi-card__header {
+      background-color: $Info-25;
+    }
+
+    .moi-card__title,
+    .moi-card__icon {
+      color: $Info-800;
+    }
+
+    .moi-card__detail-label {
+      color: $Info-700;
+    }
+  }
+
+  &[data-status="details"],
+  &--legacy-details {
+    .moi-card__header {
+      background-color: $Primary-25;
+    }
+
+    .moi-card__title,
+    .moi-card__icon {
+      color: $Primary-800;
+    }
+
+    .moi-card__detail-label {
+      color: $Primary-600;
+    }
+  }
+  // ---------------------------------------------------------------------
+  // Header
+  // ---------------------------------------------------------------------
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: $gap-lg;
     min-width: 0;
+    padding: $padding-md; // Figma Card__header: padding-md (8)
+  }
+
+  &__title-group {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    gap: $gap-xs;
+    min-width: 0;
+    padding: $padding-md;
+  }
+  // Icon Size Migration (Design System Icon Size Migration pass):
+  // 24px matched css/helpers/_icons.scss's $moi-icon-sizes map exactly —
+  // `lg: 1.5rem` (documented there as "~24px", true at the browser's
+  // default 16px root font-size). Migrated to map.get($moi-icon-sizes,
+  // lg) so this component reads its icon size from the single shared
+  // source of truth instead of a re-typed literal, per explicit Owner
+  // instruction to consolidate icon sizing project-wide (this reverses
+  // the more conservative "leave unchanged" call from the earlier,
+  // narrower Card-only pass — see .ai/KNOWN_DECISIONS.md for the
+  // reasoning behind the change). Caveat kept on record: since the token
+  // is `rem`-based, the icon will now scale with the user's root
+  // font-size/browser zoom, whereas the old literal `24px` did not —
+  // visually identical at default settings, per the Owner's "effectively
+  // identical" acceptance bar for this migration. The wrapper and its
+  // inner <svg> still each need their own explicit width/height (not
+  // safely mergeable via `width: inherit` without changing the declared
+  // value).
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    //width: map.get($moi-icon-sizes, lg);
+    //height: map.get($moi-icon-sizes, lg);
+    line-height: 0;
+
+    svg {
+      display: block;
+      //width: map.get($moi-icon-sizes, lg);
+      //height: map.get($moi-icon-sizes, lg);
+    }
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  &__header-action {
+    flex: 0 0 auto;
+  }
+
+  &__title {
+    @include font-lg-600;
+    margin: 0;
+  }
+  // ---------------------------------------------------------------------
+  // Body
+  // ---------------------------------------------------------------------
+  &__body {
     display: flex;
     flex-direction: column;
     gap: $gap-lg;
-    padding: $padding-xl; // Figma Card: padding-xl (16)
+    min-width: 0;
+    padding: $padding-sm; // Figma Card__body: padding-md (8)
+  }
+  // ---------------------------------------------------------------------
+  // Content
+  // ---------------------------------------------------------------------
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: $gap-md;
+    min-width: 0;
+
+    &--block {
+      // These 4 @extend calls are intentional and confirmed safe:
+      // .bg-Neutral-50 / .border-Neutral-100 (css/_customClasses.scss)
+      // and .radius-sm / .padding-md (css/helpers/_spacing.scss,
+      // _variables.scss) are real, existing utility classes, not
+      // placeholders. Do not remove — see the `@import` note at the
+      // top of this file for why they can only resolve here because
+      // of that import.
+      @extend .bg-Neutral-50;
+      @extend .border-Neutral-100;
+      @extend .radius-sm;
+      @extend .padding-md;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      // `label`/`span` are bare element selectors rather than
+      // component-specific classes (e.g. `.moi-card__content-label`).
+      // Replacing them would require an HTML markup change, which is
+      // out of scope for an internal-quality-only pass - recorded as
+      // a Needs Owner Approval recommendation in
+      // .ai/IMPROVEMENT_BACKLOG.md instead of changed here.
+      label {
+        color: $Primary-600;
+      }
+
+      span {
+        color: $Neutral-800;
+      }
+    }
+
+    > :not(.moi-card__actions) {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+  }
+  // ---------------------------------------------------------------------
+  // Actions
+  // ---------------------------------------------------------------------
+  &__actions {
+    display: flex;
+    flex: 1 0 100%;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: $gap-sm;
+    width: 100%;
+  }
+
+  &__divider {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    border-top: 1px solid $Neutral-200;
+    opacity: 1;
+  }
+  // ---------------------------------------------------------------------
+  // Footer
+  // ---------------------------------------------------------------------
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: $gap-lg; // Figma Card__footer: gap 12
+    padding: $padding-sm; // Figma Card__footer: padding-sm (6)
+  }
+  // ---------------------------------------------------------------------
+  // Details
+  // ---------------------------------------------------------------------
+  // The spacing between detail columns is a real `gap` (not column padding):
+  // padding made the columns look narrower than their width and double the
+  // space at the card edge. Because a gap is not part of a column's width,
+  // every width below is "share of the row minus the gaps" — including the
+  // Bootstrap width utilities some markup puts on the columns (w-25 / w-50 /
+  // w-75 / w-100), which would otherwise be 50% + 50% + gap and wrap.
+  $details-gap: $gap-lg; // was $padding-sm on each column
+
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $details-gap;
+    // Always the full width of the body: the columns' widths (default 4 per
+    // row, w-25 / w-50 / w-75 / w-100) are shares of THIS box, so it must not
+    // shrink to its content even when the body or a legacy rule changes how
+    // its children are aligned.
+    flex: 0 0 100%;
+    align-self: stretch;
+    width: 100%;
+    min-width: 0;
+  }
+
+  // `__details-column` is accepted as an alias: markup in the wild uses both
+  // spellings, and without a match the column gets no gap-aware width, so
+  // w-50 + w-50 + gap wraps into one column per row.
+  &__detail-column,
+  &__details-column {
+    // 4 per row by default
+    width: calc((100% - #{$details-gap} * 3) / 4);
+    min-width: 0;
+    padding: 0;
+  }
+
+  // Width utilities on ANY direct child of the details box (whatever its
+  // class name) count the gap. Specificity beats Bootstrap's !important .w-*.
+  &__details > .w-25 {
+    width: calc((100% - #{$details-gap} * 3) / 4) !important;
+  }
+
+  &__details > .w-50 {
+    width: calc((100% - #{$details-gap}) / 2) !important;
+  }
+
+  &__details > .w-75 {
+    width: calc((100% - #{$details-gap} * 3) / 4 * 3 + #{$details-gap} * 2) !important;
+  }
+
+  &__details > .w-100 {
+    width: 100% !important;
+  }
+
+  // min-height: 120px has no matching Design Token (spacing/gap/radius
+  // scales don't reach this value) — kept literal, not approximated.
+  &__detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-none;
+    height: 100%;
+    min-height: 80px;
+    padding: $padding-sm;
     background-color: $white-100;
-    border-radius: $radius-md;
-    box-shadow: $shadow-md;
-    // ---------------------------------------------------------------------
-    // Status Variants (create / edit / details)
-    // Each variant recolors the header background plus title/icon/detail-
-    // label text for its status. Values differ per variant (and "create"
-    // shares one color across title/icon/detail-label while "edit" and
-    // "details" use two), so the three blocks below are not safely
-    // mergeable without introducing a new combined selector into the
-    // compiled CSS — left as three separate blocks to keep compiled output
-    // byte-identical. `--legacy-*` modifier classes are kept as literal
-    // legacy aliases; do not remove.
-    // ---------------------------------------------------------------------
-    &[data-status="create"],
-    &--legacy-create {
-        .moi-card__header {
-            background-color: $Neutral-50;
-        }
+    border: 1px solid $Neutral-200;
+    border-radius: $radius-sm;
+  }
 
-        .moi-card__title,
-        .moi-card__icon,
-        .moi-card__detail-label {
-            color: $Neutral-800;
-        }
+  &__detail-label {
+    @include font-md-700;
+    margin: 0;
+  }
+
+  &__detail-value {
+    @include font-md-700;
+    flex: 1 1 auto; // fills the rest of the item: no white strip under it
+    min-width: 0;
+    min-height: map.get(map.get(buttons.$moi-btn-sizes, md), height); // .moi-btn md
+    display: flex;
+    align-items: center;
+    overflow-wrap: anywhere;
+    padding: $padding-sm;
+    background-color: $Neutral-50;
+  }
+  // ---------------------------------------------------------------------
+  // Responsive
+  // 991.98px / 767.98px are standard Bootstrap lg/md breakpoints, used
+  // literally elsewhere throughout the project — no breakpoint token
+  // exists in css/helpers/_variables.scss, so these are kept as-is.
+  // ---------------------------------------------------------------------
+  @media (max-width: 991.98px) {
+    &__detail-column,
+    &__details-column {
+      width: calc((100% - #{$details-gap}) / 2);
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    &__detail-column,
+    &__details-column {
+      width: 100%;
+    }
+  }
+}
+
+// =============================================================================
+// ENTITY DETAILS GRID  —  label + value cards (Entity__card__Details--items)
+// =============================================================================
+// Markup (see DesignSystemDocumentation/Entity.html):
+//   <div class="row g-3 Entity__card__Details">
+//     <div class="col-12 col-md-6 col-lg-3">
+//       <div class="d-flex flex-column gap-md padding-md radius-sm border border-Neutral-200 white-100 Entity__card__Details--items">
+//         <label class="Primary-800 font-lg-600">…</label>
+//         <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">…</span>
+//       </div>
+//     </div>
+//   </div>
+//
+// Why this file exists: the card was built from utilities only, so every card
+// was as tall as its own content. Cards side by side ended up with different
+// heights (a tag, a wrapped value or an empty "-" changes the value box) and a
+// white strip appeared under the gray value box of the shorter one.
+//
+//  1. `.col-*` becomes a flex container → the card stretches to the tallest
+//     card of the row.
+//  2. The value box takes the remaining height (`flex: 1`) → the gray area
+//     always reaches the card padding, no white strip.
+//  3. A minimum value height (the `.moi-btn` md height) keeps text, tag and "-"
+//     boxes the same height.
+//  4. Long values wrap (`overflow-wrap: anywhere`) instead of widening the card.
+// Card padding is `padding-md` (set in the markup — the utility is
+// `!important`); the gap between label and value is `gap-md`.
+
+.Entity__card__Details {
+  > [class*="col-"] {
+    display: flex;
+  }
+
+  &--items {
+    flex: 1 1 0;
+    min-width: 0;
+
+    > label {
+      margin: 0;
     }
 
-    &[data-status="edit"],
-    &--legacy-edit {
-        .moi-card__header {
-            background-color: $Info-25;
-        }
-
-        .moi-card__title,
-        .moi-card__icon {
-            color: $Info-800;
-        }
-
-        .moi-card__detail-label {
-            color: $Info-700;
-        }
+    > span {
+      flex: 1 1 auto;
+      min-width: 0;
+      min-height: map.get(map.get(buttons.$moi-btn-sizes, md), height); // .moi-btn md
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      overflow-wrap: anywhere;
     }
-
-    &[data-status="details"],
-    &--legacy-details {
-        .moi-card__header {
-            background-color: $Primary-25;
-        }
-
-        .moi-card__title,
-        .moi-card__icon {
-            color: $Primary-800;
-        }
-
-        .moi-card__detail-label {
-            color: $Primary-600;
-        }
-    }
-    // ---------------------------------------------------------------------
-    // Header
-    // ---------------------------------------------------------------------
-    &__header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: $gap-lg;
-        min-width: 0;
-        padding: $padding-md; // Figma Card__header: padding-md (8)
-    }
-
-    &__title-group {
-        display: flex;
-        align-items: center;
-        flex: 1 1 auto;
-        gap: $gap-xs;
-        min-width: 0;
-        padding: $padding-md;
-    }
-    // Icon Size Migration (Design System Icon Size Migration pass):
-    // 24px matched css/helpers/_icons.scss's $moi-icon-sizes map exactly —
-    // `lg: 1.5rem` (documented there as "~24px", true at the browser's
-    // default 16px root font-size). Migrated to map.get($moi-icon-sizes,
-    // lg) so this component reads its icon size from the single shared
-    // source of truth instead of a re-typed literal, per explicit Owner
-    // instruction to consolidate icon sizing project-wide (this reverses
-    // the more conservative "leave unchanged" call from the earlier,
-    // narrower Card-only pass — see .ai/KNOWN_DECISIONS.md for the
-    // reasoning behind the change). Caveat kept on record: since the token
-    // is `rem`-based, the icon will now scale with the user's root
-    // font-size/browser zoom, whereas the old literal `24px` did not —
-    // visually identical at default settings, per the Owner's "effectively
-    // identical" acceptance bar for this migration. The wrapper and its
-    // inner <svg> still each need their own explicit width/height (not
-    // safely mergeable via `width: inherit` without changing the declared
-    // value).
-    &__icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        flex: 0 0 auto;
-        //width: map.get($moi-icon-sizes, lg);
-        //height: map.get($moi-icon-sizes, lg);
-        line-height: 0;
-
-        svg {
-            display: block;
-            //width: map.get($moi-icon-sizes, lg);
-            //height: map.get($moi-icon-sizes, lg);
-        }
-
-        path {
-            fill: currentColor;
-        }
-    }
-
-    &__header-action {
-        flex: 0 0 auto;
-    }
-
-    &__title {
-        @include font-lg-600;
-        margin: 0;
-    }
-    // ---------------------------------------------------------------------
-    // Body
-    // ---------------------------------------------------------------------
-    &__body {
-        display: flex;
-        flex-direction: column;
-        gap: $gap-lg;
-        min-width: 0;
-        padding: $padding-md; // Figma Card__body: padding-md (8)
-    }
-    // ---------------------------------------------------------------------
-    // Content
-    // ---------------------------------------------------------------------
-    &__content {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: $gap-md;
-        min-width: 0;
-
-        &--block {
-            // These 4 @extend calls are intentional and confirmed safe:
-            // .bg-Neutral-50 / .border-Neutral-100 (css/_customClasses.scss)
-            // and .radius-sm / .padding-md (css/helpers/_spacing.scss,
-            // _variables.scss) are real, existing utility classes, not
-            // placeholders. Do not remove — see the `@import` note at the
-            // top of this file for why they can only resolve here because
-            // of that import.
-            @extend .bg-Neutral-50;
-            @extend .border-Neutral-100;
-            @extend .radius-sm;
-            @extend .padding-md;
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            // `label`/`span` are bare element selectors rather than
-            // component-specific classes (e.g. `.moi-card__content-label`).
-            // Replacing them would require an HTML markup change, which is
-            // out of scope for an internal-quality-only pass - recorded as
-            // a Needs Owner Approval recommendation in
-            // .ai/IMPROVEMENT_BACKLOG.md instead of changed here.
-            label {
-                color: $Primary-600;
-            }
-
-            span {
-                color: $Neutral-800;
-            }
-        }
-
-        > :not(.moi-card__actions) {
-            flex: 1 1 0;
-            min-width: 0;
-        }
-    }
-    // ---------------------------------------------------------------------
-    // Actions
-    // ---------------------------------------------------------------------
-    &__actions {
-        display: flex;
-        flex: 1 0 100%;
-        flex-wrap: wrap;
-        align-items: flex-end;
-        gap: $gap-sm;
-        width: 100%;
-    }
-
-    &__divider {
-        width: 100%;
-        margin: 0;
-        border: 0;
-        border-top: 1px solid $Neutral-200;
-        opacity: 1;
-    }
-    // ---------------------------------------------------------------------
-    // Footer
-    // ---------------------------------------------------------------------
-    &__footer {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        flex-wrap: wrap;
-        gap: $gap-lg; // Figma Card__footer: gap 12
-        padding: $padding-sm; // Figma Card__footer: padding-sm (6)
-    }
-    // ---------------------------------------------------------------------
-    // Details
-    // ---------------------------------------------------------------------
-    &__details {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    &__detail-column {
-        width: 25%;
-        padding: $padding-sm;
-    }
-    // min-height: 120px has no matching Design Token (spacing/gap/radius
-    // scales don't reach this value) — kept literal, not approximated.
-    &__detail-item {
-        display: flex;
-        flex-direction: column;
-        gap: $gap-none;
-        height: 100%;
-        min-height: 80px;
-        padding: $padding-sm;
-        background-color: $white-100;
-        border: 1px solid $Neutral-200;
-        border-radius: $radius-sm;
-    }
-
-    &__detail-label {
-        @include font-md-700;
-        margin: 0;
-    }
-
-    &__detail-value {
-        @include font-md-700;
-        padding: $padding-sm;
-        background-color: $Neutral-50;
-    }
-    // ---------------------------------------------------------------------
-    // Responsive
-    // 991.98px / 767.98px are standard Bootstrap lg/md breakpoints, used
-    // literally elsewhere throughout the project — no breakpoint token
-    // exists in css/helpers/_variables.scss, so these are kept as-is.
-    // ---------------------------------------------------------------------
-    @media (max-width: 991.98px) {
-        &__detail-column {
-            width: 50%;
-        }
-    }
-
-    @media (max-width: 767.98px) {
-        &__detail-column {
-            width: 100%;
-        }
-    }
+  }
 }

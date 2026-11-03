@@ -2061,6 +2061,1199 @@
 }
 
 
+/* =========================
+   Button size map
+   ========================= */
+:root {
+  --moi-focus-inner: rgba(255, 255, 255, 0.95);
+  --moi-focus-outer: rgba(255, 255, 255, 0.55);
+  --moi-focus-gap: 3px;
+  --moi-focus-inner-width: 1px;
+}
+
+/* Icon sizing inside buttons (matches button size map) */
+.moi-btn--sm .icon,
+.moi-btn[data-size=sm] .icon,
+.swal2-container .swal2-popup .swal2-actions [data-size=sm]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn) .icon {
+  font-size: 0.875rem;
+}
+
+.moi-btn--md .icon,
+.moi-btn[data-size=md] .icon,
+.swal2-container .swal2-popup .swal2-actions [data-size=md]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn) .icon {
+  font-size: 1rem;
+}
+
+.moi-btn--lg .icon,
+.moi-btn[data-size=lg] .icon,
+.swal2-container .swal2-popup .swal2-actions [data-size=lg]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn) .icon {
+  font-size: 1.5rem;
+}
+
+.moi-btn--xl .icon,
+.moi-btn[data-size=xl] .icon,
+.swal2-container .swal2-popup .swal2-actions [data-size=xl]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn) .icon {
+  font-size: 2.125rem;
+}
+
+/* =========================
+   MOI Buttons
+   ========================= */
+.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn {
+  --btn-height: 2.75rem;
+  --btn-px: 1rem;
+  --btn-py: 0px;
+  --btn-font-size: 1rem;
+  --btn-radius: 0.375rem;
+  --btn-gap: 0.25rem;
+  --btn-icon-size: 1.5rem;
+  --btn-line-height: 1.5;
+}
+.moi-btn[data-size=sm], .swal2-container .swal2-popup .swal2-actions [data-size=sm]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn[data-size=sm] {
+  --btn-height: 2.125rem;
+  --btn-px: 0.5rem;
+  --btn-font-size: 0.75rem;
+  --btn-radius: 0.25rem;
+  --btn-gap: 0.25rem;
+  --btn-icon-size: 0.875rem;
+  --btn-line-height: 1.5;
+}
+.moi-btn[data-size=md], .swal2-container .swal2-popup .swal2-actions [data-size=md]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn[data-size=md] {
+  --btn-height: 2.5rem;
+  --btn-px: 1rem;
+  --btn-font-size: 0.875rem;
+  --btn-radius: 0.25rem;
+  --btn-gap: 0.25rem;
+  --btn-icon-size: 1rem;
+  --btn-line-height: 1.5;
+}
+.moi-btn[data-size=lg], .swal2-container .swal2-popup .swal2-actions [data-size=lg]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn[data-size=lg] {
+  --btn-height: 2.75rem;
+  --btn-px: 1.25rem;
+  --btn-font-size: 1.125rem;
+  --btn-radius: 0.25rem;
+  --btn-gap: 0.25rem;
+  --btn-icon-size: 1.5rem;
+  --btn-line-height: 1.5;
+}
+.moi-btn[data-size=xl], .swal2-container .swal2-popup .swal2-actions [data-size=xl]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn[data-size=xl] {
+  --btn-height: 3rem;
+  --btn-px: 1.375rem;
+  --btn-font-size: 1.25rem;
+  --btn-radius: 0.25rem;
+  --btn-gap: 0.25rem;
+  --btn-icon-size: 2.125rem;
+  --btn-line-height: 1.5;
+}
+.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn {
+  border-radius: var(--btn-radius, 6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-height, 44px);
+  min-height: var(--btn-height, 44px);
+  white-space: nowrap;
+  text-align: center;
+  box-shadow: none;
+  cursor: pointer !important;
+  padding-inline: var(--btn-px, 12px);
+  padding-block: 0;
+  gap: var(--btn-gap, 2px);
+  font-size: calc(var(--btn-font-size, 1rem) * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1));
+  font-weight: 500;
+  line-height: calc(var(--btn-line-height, 1.5) * var(--font-family-line-height, 1));
+  text-decoration: none;
+  vertical-align: middle;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.moi-btn img, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn) img,
+.swal2-container .swal2-actions .moi-btn img {
+  margin-left: 5px;
+}
+.moi-btn svg, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn) svg,
+.swal2-container .swal2-actions .moi-btn svg {
+  height: var(--btn-icon-size);
+  width: var(--btn-icon-size);
+}
+.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+.moi-btn:focus, .swal2-container .swal2-popup .swal2-actions :focus:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn), .moi-btn:focus-visible, .swal2-container .swal2-popup .swal2-actions :focus-visible:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn:focus,
+.swal2-container .swal2-actions .moi-btn:focus-visible {
+  outline: 0 !important;
+}
+.moi-btn:focus-visible, .swal2-container .swal2-popup .swal2-actions :focus-visible:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn:focus-visible {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4);
+}
+.moi-btn:disabled, .swal2-container .swal2-popup .swal2-actions :disabled:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn), .moi-btn[aria-disabled=true], .swal2-container .swal2-popup .swal2-actions [aria-disabled=true]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn), .moi-btn.disabled, .swal2-container .swal2-popup .swal2-actions .disabled:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn:disabled,
+.swal2-container .swal2-actions .moi-btn[aria-disabled=true],
+.swal2-container .swal2-actions .moi-btn.disabled {
+  color: #9da4ae;
+  background-color: #e5e7eb;
+}
+.moi-btn:disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny):is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn), .moi-btn[aria-disabled=true]:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions [aria-disabled=true]:where(.swal2-confirm, .swal2-cancel, .swal2-deny):is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn), .moi-btn.disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions .disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny):is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn:disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn[aria-disabled=true]:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn.disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #e5e7eb !important;
+}
+.moi-btn:disabled, .swal2-container .swal2-popup .swal2-actions :disabled:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn), .moi-btn[aria-disabled=true], .swal2-container .swal2-popup .swal2-actions [aria-disabled=true]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn), .moi-btn.disabled, .swal2-container .swal2-popup .swal2-actions .disabled:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn:disabled,
+.swal2-container .swal2-actions .moi-btn[aria-disabled=true],
+.swal2-container .swal2-actions .moi-btn.disabled {
+  border-color: #9da4ae;
+  box-shadow: none !important;
+  opacity: 1;
+  cursor: not-allowed;
+}
+.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn {
+  height: var(--btn-height) !important;
+  min-height: var(--btn-height) !important;
+  padding-inline: var(--btn-px) !important;
+  padding-block: var(--btn-py) !important;
+  font-size: calc(var(--btn-font-size, 1rem) * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1)) !important;
+  line-height: calc(var(--btn-line-height, 1.5) * var(--font-family-line-height, 1)) !important;
+  border-radius: var(--btn-radius) !important;
+  gap: var(--btn-gap);
+  /* ✅ SVG sizing from vars */
+}
+.moi-btn svg, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn) svg,
+.swal2-container .swal2-actions .moi-btn svg {
+  width: var(--btn-icon-size, 1.5rem);
+  height: var(--btn-icon-size, 1.5rem);
+  fill: currentColor;
+}
+.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn {
+  /* ✅ keep your hit-area */
+}
+.moi-btn::after, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn)::after,
+.swal2-container .swal2-actions .moi-btn::after {
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: max(44px, 100%);
+  height: max(44px, 100%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.moi-btn[data-icon-only=true], .swal2-container .swal2-popup .swal2-actions [data-icon-only=true]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn[data-icon-only=true] {
+  padding-inline: 0 !important;
+  width: max(44px, var(--btn-height));
+  min-width: max(44px, var(--btn-height));
+  justify-content: center;
+}
+.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn {
+  /* Neutral */
+}
+.moi-btn--Neutral,
+.swal2-container .swal2-actions .moi-btn--Neutral {
+  color: #111927;
+  background-color: #f9fafb;
+}
+.moi-btn--Neutral:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Neutral:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #f9fafb !important;
+}
+.moi-btn--Neutral,
+.swal2-container .swal2-actions .moi-btn--Neutral {
+  border: 1px solid #f9fafb;
+  --moi-focus-outer: rgba(17, 25, 39, 0.35);
+  --moi-focus-inner: rgba(255, 255, 255, 0.95);
+}
+.moi-btn--Neutral:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Neutral:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #f3f4f6;
+}
+.moi-btn--Neutral:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Neutral:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #f3f4f6 !important;
+}
+.moi-btn--Neutral:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Neutral:hover:not(:disabled):not([aria-disabled=true]) {
+  border-color: #f3f4f6;
+}
+.moi-btn--Neutral:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Neutral:active:not(:disabled):not([aria-disabled=true]) {
+  background: #e5e7eb;
+}
+.moi-btn--Neutral:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Neutral:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #e5e7eb !important;
+}
+.moi-btn--Neutral:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Neutral:active:not(:disabled):not([aria-disabled=true]) {
+  border-color: #e5e7eb;
+  opacity: 0.8;
+}
+.moi-btn--Neutral--solid,
+.swal2-container .swal2-actions .moi-btn--Neutral--solid {
+  color: #111927;
+  background-color: #f3f4f6;
+}
+.moi-btn--Neutral--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Neutral--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #f3f4f6 !important;
+}
+.moi-btn--Neutral--solid,
+.swal2-container .swal2-actions .moi-btn--Neutral--solid {
+  border: 1px solid #f3f4f6;
+  --moi-focus-outer: rgba(108, 115, 127, 0.45);
+  --moi-focus-inner: rgba(255, 255, 255, 0.95);
+}
+.moi-btn--Neutral--solid:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Neutral--solid:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #d2d6db;
+}
+.moi-btn--Neutral--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Neutral--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #d2d6db !important;
+}
+.moi-btn--Neutral--solid:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Neutral--solid:hover:not(:disabled):not([aria-disabled=true]) {
+  border-color: #d2d6db;
+}
+.moi-btn--Neutral--solid:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Neutral--solid:active:not(:disabled):not([aria-disabled=true]) {
+  background: #9da4ae;
+}
+.moi-btn--Neutral--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Neutral--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #9da4ae !important;
+}
+.moi-btn--Neutral--solid:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Neutral--solid:active:not(:disabled):not([aria-disabled=true]) {
+  border-color: #9da4ae;
+}
+.moi-btn--Neutral--outline, .swal2-container .swal2-popup .swal2-actions :where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel,
+.swal2-container .swal2-actions .moi-btn--Cancel,
+.swal2-container .swal2-actions .moi-btn--Neutral--outline,
+.swal2-container .swal2-popup .swal2-actions :where(.swal2-cancel):not(.moi-btn) {
+  color: #111927;
+  background-color: #ffffff;
+}
+.moi-btn--Neutral--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Cancel:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Neutral--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-cancel):not(.moi-btn) {
+  background-color: #ffffff !important;
+}
+.moi-btn--Neutral--outline, .swal2-container .swal2-popup .swal2-actions :where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel,
+.swal2-container .swal2-actions .moi-btn--Cancel,
+.swal2-container .swal2-actions .moi-btn--Neutral--outline,
+.swal2-container .swal2-popup .swal2-actions :where(.swal2-cancel):not(.moi-btn) {
+  border: 1px solid #d2d6db;
+  --moi-focus-outer: rgba(17, 25, 39, 0.35);
+  --moi-focus-inner: rgba(17, 25, 39, 0.75);
+}
+.moi-btn--Neutral--outline:hover:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Neutral--outline:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #f3f4f6;
+}
+.moi-btn--Neutral--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Neutral--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #f3f4f6 !important;
+}
+.moi-btn--Neutral--outline:active:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Neutral--outline:active:not(:disabled):not([aria-disabled=true]) {
+  background: #f9fafb;
+}
+.moi-btn--Neutral--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Neutral--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #f9fafb !important;
+}
+.moi-btn--Neutral--outline:active:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Neutral--outline:active:not(:disabled):not([aria-disabled=true]) {
+  border-color: #111927;
+}
+.moi-btn--Neutral--outline:focus-visible, .swal2-container .swal2-popup .swal2-actions :focus-visible:where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel:focus-visible,
+.swal2-container .swal2-actions .moi-btn--Cancel:focus-visible,
+.swal2-container .swal2-actions .moi-btn--Neutral--outline:focus-visible {
+  border-color: #111927;
+}
+.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn {
+  /* Primary */
+}
+.moi-btn--Primary, .swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm):not(.moi-btn), .moi-btn--Save, .moi-btn--Send,
+.swal2-container .swal2-actions .moi-btn--Save,
+.swal2-container .swal2-actions .moi-btn--Send,
+.swal2-container .swal2-actions .moi-btn--Primary,
+.swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm):not(.moi-btn) {
+  color: #f7fdf9;
+  background-color: #25935f;
+}
+.moi-btn--Primary:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-confirm):not(.moi-btn), .moi-btn--Save:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .moi-btn--Send:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Save:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Send:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Primary:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-confirm):not(.moi-btn) {
+  background-color: #25935f !important;
+}
+.moi-btn--Primary, .swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm):not(.moi-btn), .moi-btn--Save, .moi-btn--Send,
+.swal2-container .swal2-actions .moi-btn--Save,
+.swal2-container .swal2-actions .moi-btn--Send,
+.swal2-container .swal2-actions .moi-btn--Primary,
+.swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm):not(.moi-btn) {
+  border: 1px solid #25935f;
+  --moi-focus-outer: rgba(22, 106, 69, 0.35);
+  --moi-focus-inner: rgba(255, 255, 255, 0.95);
+}
+.moi-btn--Primary:hover:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn), .moi-btn--Save:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Send:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Primary:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #dff6e7;
+}
+.moi-btn--Primary:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-confirm):not(.moi-btn), .moi-btn--Save:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .moi-btn--Send:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Primary:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #dff6e7 !important;
+}
+.moi-btn--Primary:hover:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn), .moi-btn--Save:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Send:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Primary:hover:not(:disabled):not([aria-disabled=true]) {
+  border-color: #dff6e7;
+  color: #1b8354;
+}
+.moi-btn--Primary:active:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn), .moi-btn--Save:active:not(:disabled):not([aria-disabled=true]), .moi-btn--Send:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Primary:active:not(:disabled):not([aria-disabled=true]) {
+  background: #b8eacb;
+}
+.moi-btn--Primary:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-confirm):not(.moi-btn), .moi-btn--Save:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .moi-btn--Send:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Primary:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #b8eacb !important;
+}
+.moi-btn--Primary:active:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn), .moi-btn--Save:active:not(:disabled):not([aria-disabled=true]), .moi-btn--Send:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Primary:active:not(:disabled):not([aria-disabled=true]) {
+  border-color: #b8eacb;
+}
+.moi-btn--Primary--solid,
+.swal2-container .swal2-actions .moi-btn--Primary--solid {
+  color: #1b8354;
+  background-color: #f7fdf9;
+}
+.moi-btn--Primary--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Primary--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #f7fdf9 !important;
+}
+.moi-btn--Primary--solid,
+.swal2-container .swal2-actions .moi-btn--Primary--solid {
+  border: 1px solid #f7fdf9;
+  --moi-focus-outer: rgba(20, 87, 58, 0.35);
+  --moi-focus-inner: rgba(20, 87, 58, 0.75);
+}
+.moi-btn--Primary--solid:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Primary--solid:focus-visible:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Primary--solid:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Primary--solid:focus-visible:not(:disabled):not([aria-disabled=true]) {
+  background: #25935f;
+}
+.moi-btn--Primary--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .moi-btn--Primary--solid:focus-visible:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Primary--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Primary--solid:focus-visible:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #25935f !important;
+}
+.moi-btn--Primary--solid:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Primary--solid:focus-visible:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Primary--solid:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Primary--solid:focus-visible:not(:disabled):not([aria-disabled=true]) {
+  border-color: #25935f;
+  color: #fcfcfd;
+}
+.moi-btn--Primary--solid:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Primary--solid:active:not(:disabled):not([aria-disabled=true]) {
+  background: #25935f;
+}
+.moi-btn--Primary--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Primary--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #25935f !important;
+}
+.moi-btn--Primary--solid:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Primary--solid:active:not(:disabled):not([aria-disabled=true]) {
+  border-color: #25935f;
+}
+.moi-btn--Primary--outline,
+.swal2-container .swal2-actions .moi-btn--Primary--outline {
+  color: #166a45;
+  background-color: #ffffff;
+}
+.moi-btn--Primary--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Primary--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #ffffff !important;
+}
+.moi-btn--Primary--outline,
+.swal2-container .swal2-actions .moi-btn--Primary--outline {
+  border: 1px solid #166a45;
+  --moi-focus-outer: rgba(22, 106, 69, 0.35);
+  --moi-focus-inner: rgba(22, 106, 69, 0.85);
+}
+.moi-btn--Primary--outline:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Primary--outline:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #f3fcf6;
+}
+.moi-btn--Primary--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Primary--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #f3fcf6 !important;
+}
+.moi-btn--Primary--outline:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Primary--outline:active:not(:disabled):not([aria-disabled=true]) {
+  background: #dff6e7;
+}
+.moi-btn--Primary--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Primary--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #dff6e7 !important;
+}
+.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn {
+  /* Lavender */
+}
+.moi-btn--Lavender,
+.swal2-container .swal2-actions .moi-btn--Lavender {
+  color: #fefcff;
+  background-color: #80519f;
+}
+.moi-btn--Lavender:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Lavender:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #80519f !important;
+}
+.moi-btn--Lavender,
+.swal2-container .swal2-actions .moi-btn--Lavender {
+  border: 1px solid #80519f;
+  --moi-focus-outer: rgba(83, 45, 117, 0.35);
+  --moi-focus-inner: rgba(255, 255, 255, 0.95);
+}
+.moi-btn--Lavender:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Lavender:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #f2e9f5;
+}
+.moi-btn--Lavender:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Lavender:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #f2e9f5 !important;
+}
+.moi-btn--Lavender:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Lavender:hover:not(:disabled):not([aria-disabled=true]) {
+  border-color: #f2e9f5;
+  color: #6d428f;
+}
+.moi-btn--Lavender:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Lavender:active:not(:disabled):not([aria-disabled=true]) {
+  background: #e1cce8;
+}
+.moi-btn--Lavender:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Lavender:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #e1cce8 !important;
+}
+.moi-btn--Lavender:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Lavender:active:not(:disabled):not([aria-disabled=true]) {
+  border-color: #e1cce8;
+}
+.moi-btn--Lavender--solid,
+.swal2-container .swal2-actions .moi-btn--Lavender--solid {
+  color: #532d75;
+  background-color: #fefcff;
+}
+.moi-btn--Lavender--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Lavender--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fefcff !important;
+}
+.moi-btn--Lavender--solid,
+.swal2-container .swal2-actions .moi-btn--Lavender--solid {
+  border: 1px solid #fefcff;
+  --moi-focus-outer: rgba(61, 29, 94, 0.35);
+  --moi-focus-inner: rgba(61, 29, 94, 0.75);
+}
+.moi-btn--Lavender--solid:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Lavender--solid:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #6d428f;
+}
+.moi-btn--Lavender--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Lavender--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #6d428f !important;
+}
+.moi-btn--Lavender--solid:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Lavender--solid:hover:not(:disabled):not([aria-disabled=true]) {
+  border-color: #6d428f;
+  color: #fefcff;
+}
+.moi-btn--Lavender--solid:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Lavender--solid:active:not(:disabled):not([aria-disabled=true]) {
+  background: #532d75;
+}
+.moi-btn--Lavender--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Lavender--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #532d75 !important;
+}
+.moi-btn--Lavender--solid:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Lavender--solid:active:not(:disabled):not([aria-disabled=true]) {
+  border-color: #532d75;
+}
+.moi-btn--Lavender--outline,
+.swal2-container .swal2-actions .moi-btn--Lavender--outline {
+  color: #532d75;
+  background-color: #ffffff;
+}
+.moi-btn--Lavender--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Lavender--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #ffffff !important;
+}
+.moi-btn--Lavender--outline,
+.swal2-container .swal2-actions .moi-btn--Lavender--outline {
+  border: 1px solid #532d75;
+  --moi-focus-outer: rgba(83, 45, 117, 0.35);
+  --moi-focus-inner: rgba(83, 45, 117, 0.85);
+}
+.moi-btn--Lavender--outline:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Lavender--outline:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #f9f5fa;
+}
+.moi-btn--Lavender--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Lavender--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #f9f5fa !important;
+}
+.moi-btn--Lavender--outline:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Lavender--outline:active:not(:disabled):not([aria-disabled=true]) {
+  background: #f2e9f5;
+}
+.moi-btn--Lavender--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Lavender--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #f2e9f5 !important;
+}
+.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn {
+  /* Info */
+}
+.moi-btn--Info,
+.swal2-container .swal2-actions .moi-btn--Info {
+  color: #f5faff;
+  background-color: #2e90fa;
+}
+.moi-btn--Info:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Info:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #2e90fa !important;
+}
+.moi-btn--Info,
+.swal2-container .swal2-actions .moi-btn--Info {
+  border: 1px solid #2e90fa;
+  --moi-focus-outer: rgba(23, 92, 211, 0.35);
+  --moi-focus-inner: rgba(255, 255, 255, 0.95);
+}
+.moi-btn--Info:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Info:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #d1e9ff;
+}
+.moi-btn--Info:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Info:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #d1e9ff !important;
+}
+.moi-btn--Info:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Info:hover:not(:disabled):not([aria-disabled=true]) {
+  border-color: #d1e9ff;
+  color: #1570ef;
+}
+.moi-btn--Info:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Info:active:not(:disabled):not([aria-disabled=true]) {
+  background: #b2ddff;
+}
+.moi-btn--Info:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Info:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #b2ddff !important;
+}
+.moi-btn--Info:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Info:active:not(:disabled):not([aria-disabled=true]) {
+  border-color: #b2ddff;
+}
+.moi-btn--Info--solid, .moi-btn--Save-later,
+.swal2-container .swal2-actions .moi-btn--Save-later,
+.swal2-container .swal2-actions .moi-btn--Info--solid {
+  color: #175cd3;
+  background-color: #f5faff;
+}
+.moi-btn--Info--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .moi-btn--Save-later:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Save-later:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Info--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #f5faff !important;
+}
+.moi-btn--Info--solid, .moi-btn--Save-later,
+.swal2-container .swal2-actions .moi-btn--Save-later,
+.swal2-container .swal2-actions .moi-btn--Info--solid {
+  border: 1px solid #f5faff;
+  --moi-focus-outer: rgba(23, 92, 211, 0.35);
+  --moi-focus-inner: rgba(23, 92, 211, 0.85);
+}
+.moi-btn--Info--solid:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Save-later:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Info--solid:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #1570ef;
+}
+.moi-btn--Info--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .moi-btn--Save-later:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Info--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #1570ef !important;
+}
+.moi-btn--Info--solid:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Save-later:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Info--solid:hover:not(:disabled):not([aria-disabled=true]) {
+  border-color: #1570ef;
+  color: #f5faff;
+}
+.moi-btn--Info--outline,
+.swal2-container .swal2-actions .moi-btn--Info--outline {
+  color: #175cd3;
+  background-color: #ffffff;
+}
+.moi-btn--Info--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Info--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #ffffff !important;
+}
+.moi-btn--Info--outline,
+.swal2-container .swal2-actions .moi-btn--Info--outline {
+  border: 1px solid #175cd3;
+  --moi-focus-outer: rgba(23, 92, 211, 0.35);
+  --moi-focus-inner: rgba(23, 92, 211, 0.85);
+}
+.moi-btn--Info--outline:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Info--outline:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #eff8ff;
+}
+.moi-btn--Info--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Info--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #eff8ff !important;
+}
+.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn {
+  /* Warning */
+}
+.moi-btn--Warning,
+.swal2-container .swal2-actions .moi-btn--Warning {
+  color: #fffcf5;
+  background-color: #f79009;
+}
+.moi-btn--Warning:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Warning:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #f79009 !important;
+}
+.moi-btn--Warning,
+.swal2-container .swal2-actions .moi-btn--Warning {
+  border: 1px solid #f79009;
+  --moi-focus-outer: rgba(181, 71, 8, 0.35);
+  --moi-focus-inner: rgba(255, 255, 255, 0.95);
+}
+.moi-btn--Warning:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Warning:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #fef0c7;
+}
+.moi-btn--Warning:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Warning:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fef0c7 !important;
+}
+.moi-btn--Warning:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Warning:hover:not(:disabled):not([aria-disabled=true]) {
+  border-color: #fef0c7;
+  color: #dc6803;
+}
+.moi-btn--Warning:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Warning:active:not(:disabled):not([aria-disabled=true]) {
+  background: #fedf89;
+}
+.moi-btn--Warning:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Warning:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fedf89 !important;
+}
+.moi-btn--Warning:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Warning:active:not(:disabled):not([aria-disabled=true]) {
+  border-color: #fedf89;
+}
+.moi-btn--Warning--solid,
+.swal2-container .swal2-actions .moi-btn--Warning--solid {
+  color: #b54708;
+  background-color: #fffcf5;
+}
+.moi-btn--Warning--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Warning--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fffcf5 !important;
+}
+.moi-btn--Warning--solid,
+.swal2-container .swal2-actions .moi-btn--Warning--solid {
+  border: 1px solid #fffcf5;
+  --moi-focus-outer: rgba(181, 71, 8, 0.35);
+  --moi-focus-inner: rgba(181, 71, 8, 0.85);
+}
+.moi-btn--Warning--solid:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Warning--solid:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #fef0c7;
+}
+.moi-btn--Warning--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Warning--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fef0c7 !important;
+}
+.moi-btn--Warning--solid:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Warning--solid:hover:not(:disabled):not([aria-disabled=true]) {
+  border-color: #fef0c7;
+  color: #dc6803;
+}
+.moi-btn--Warning--solid:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Warning--solid:active:not(:disabled):not([aria-disabled=true]) {
+  background: #fedf89;
+}
+.moi-btn--Warning--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Warning--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fedf89 !important;
+}
+.moi-btn--Warning--solid:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Warning--solid:active:not(:disabled):not([aria-disabled=true]) {
+  border-color: #fedf89;
+}
+.moi-btn--Warning--outline,
+.swal2-container .swal2-actions .moi-btn--Warning--outline {
+  color: #b54708;
+  background-color: #ffffff;
+}
+.moi-btn--Warning--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Warning--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #ffffff !important;
+}
+.moi-btn--Warning--outline,
+.swal2-container .swal2-actions .moi-btn--Warning--outline {
+  border: 1px solid #b54708;
+  --moi-focus-outer: rgba(181, 71, 8, 0.35);
+  --moi-focus-inner: rgba(181, 71, 8, 0.85);
+}
+.moi-btn--Warning--outline:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Warning--outline:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #fef0c7;
+}
+.moi-btn--Warning--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Warning--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fef0c7 !important;
+}
+.moi-btn--Warning--outline:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Warning--outline:hover:not(:disabled):not([aria-disabled=true]) {
+  color: #dc6803;
+}
+.moi-btn--Warning--outline:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Warning--outline:active:not(:disabled):not([aria-disabled=true]) {
+  background: #fedf89;
+}
+.moi-btn--Warning--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Warning--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fedf89 !important;
+}
+.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn {
+  /* Error */
+}
+.moi-btn--Error, .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :where(.swal2-confirm):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error {
+  color: #fffbfa;
+  background-color: #f04438;
+}
+.moi-btn--Error:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-confirm):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #f04438 !important;
+}
+.moi-btn--Error, .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :where(.swal2-confirm):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error {
+  border: 1px solid #f04438;
+  --moi-focus-outer: rgba(180, 35, 24, 0.35);
+  --moi-focus-inner: rgba(255, 255, 255, 0.95);
+}
+.moi-btn--Error:hover:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #fee4e2;
+}
+.moi-btn--Error:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-confirm):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fee4e2 !important;
+}
+.moi-btn--Error:hover:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error:hover:not(:disabled):not([aria-disabled=true]) {
+  border-color: #fee4e2;
+  color: #d92d20;
+}
+.moi-btn--Error:active:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error:active:not(:disabled):not([aria-disabled=true]) {
+  background: #fecdca;
+}
+.moi-btn--Error:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-confirm):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fecdca !important;
+}
+.moi-btn--Error:active:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error:active:not(:disabled):not([aria-disabled=true]) {
+  border-color: #fecdca;
+}
+.moi-btn--Error--solid,
+.swal2-container .swal2-actions .moi-btn--Error--solid {
+  color: #b42318;
+  background-color: #fffbfa;
+}
+.moi-btn--Error--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Error--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fffbfa !important;
+}
+.moi-btn--Error--solid,
+.swal2-container .swal2-actions .moi-btn--Error--solid {
+  border: 1px solid #fffbfa;
+  --moi-focus-outer: rgba(180, 35, 24, 0.35);
+  --moi-focus-inner: rgba(180, 35, 24, 0.85);
+}
+.moi-btn--Error--solid:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Error--solid:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #fee4e2;
+}
+.moi-btn--Error--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Error--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fee4e2 !important;
+}
+.moi-btn--Error--solid:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Error--solid:hover:not(:disabled):not([aria-disabled=true]) {
+  border-color: #fee4e2;
+  color: #d92d20;
+}
+.moi-btn--Error--solid:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Error--solid:active:not(:disabled):not([aria-disabled=true]) {
+  background: #fecdca;
+}
+.moi-btn--Error--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Error--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fecdca !important;
+}
+.moi-btn--Error--solid:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--Error--solid:active:not(:disabled):not([aria-disabled=true]) {
+  border-color: #fecdca;
+}
+.moi-btn--Error--outline, .swal2-container .swal2-popup .swal2-actions :where(.swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error--outline,
+.swal2-container .swal2-popup .swal2-actions :where(.swal2-deny):not(.moi-btn) {
+  color: #b42318;
+  background-color: #ffffff;
+}
+.moi-btn--Error--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-deny):not(.moi-btn) {
+  background-color: #ffffff !important;
+}
+.moi-btn--Error--outline, .swal2-container .swal2-popup .swal2-actions :where(.swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error--outline,
+.swal2-container .swal2-popup .swal2-actions :where(.swal2-deny):not(.moi-btn) {
+  border: 1px solid #b42318;
+  --moi-focus-outer: rgba(180, 35, 24, 0.35);
+  --moi-focus-inner: rgba(180, 35, 24, 0.85);
+}
+.moi-btn--Error--outline:hover:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error--outline:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #fee4e2;
+}
+.moi-btn--Error--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fee4e2 !important;
+}
+.moi-btn--Error--outline:hover:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error--outline:hover:not(:disabled):not([aria-disabled=true]) {
+  color: #d92d20;
+}
+.moi-btn--Error--outline:active:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error--outline:active:not(:disabled):not([aria-disabled=true]) {
+  background: #fecdca;
+}
+.moi-btn--Error--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn--Error--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fecdca !important;
+}
+.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn {
+  /* Black — Figma «Style=black / black--solid / black--outline» (2026-10-13).
+     .moi-btn--black also exists in _oldButtons.scss; this block comes later
+     and replaces its colours with the Figma ones (class name unchanged).
+     Figma Gray-* mapped to the Neutral-* tokens with the same names. */
+}
+.moi-btn--black,
+.swal2-container .swal2-actions .moi-btn--black {
+  color: #fcfcfd;
+  background-color: #111927;
+}
+.moi-btn--black:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--black:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #111927 !important;
+}
+.moi-btn--black,
+.swal2-container .swal2-actions .moi-btn--black {
+  border: 1px solid #111927;
+}
+.moi-btn--black:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--black:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #1f2a37;
+}
+.moi-btn--black:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--black:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #1f2a37 !important;
+}
+.moi-btn--black:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--black:hover:not(:disabled):not([aria-disabled=true]) {
+  border-color: #1f2a37;
+  color: #fcfcfd;
+}
+.moi-btn--black:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--black:active:not(:disabled):not([aria-disabled=true]) {
+  background: #384250;
+}
+.moi-btn--black:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--black:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #384250 !important;
+}
+.moi-btn--black:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--black:active:not(:disabled):not([aria-disabled=true]) {
+  border-color: #384250;
+  color: #fcfcfd;
+  opacity: 1;
+}
+.moi-btn--black--solid,
+.swal2-container .swal2-actions .moi-btn--black--solid {
+  color: #384250;
+  background-color: #fcfcfd;
+}
+.moi-btn--black--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--black--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #fcfcfd !important;
+}
+.moi-btn--black--solid,
+.swal2-container .swal2-actions .moi-btn--black--solid {
+  border: 1px solid #fcfcfd;
+}
+.moi-btn--black--solid:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--black--solid:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #4d5761;
+}
+.moi-btn--black--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--black--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #4d5761 !important;
+}
+.moi-btn--black--solid:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--black--solid:hover:not(:disabled):not([aria-disabled=true]) {
+  border-color: #4d5761;
+  color: #fcfcfd;
+}
+.moi-btn--black--solid:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--black--solid:active:not(:disabled):not([aria-disabled=true]) {
+  background: #384250;
+}
+.moi-btn--black--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--black--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #384250 !important;
+}
+.moi-btn--black--solid:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--black--solid:active:not(:disabled):not([aria-disabled=true]) {
+  border-color: #384250;
+  color: #fcfcfd;
+}
+.moi-btn--black--outline,
+.swal2-container .swal2-actions .moi-btn--black--outline {
+  color: #384250;
+  background-color: #ffffff;
+}
+.moi-btn--black--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--black--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #ffffff !important;
+}
+.moi-btn--black--outline,
+.swal2-container .swal2-actions .moi-btn--black--outline {
+  border: 1px solid #384250;
+}
+.moi-btn--black--outline:hover:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--black--outline:hover:not(:disabled):not([aria-disabled=true]) {
+  background: #f9fafb;
+}
+.moi-btn--black--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--black--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #f9fafb !important;
+}
+.moi-btn--black--outline:active:not(:disabled):not([aria-disabled=true]),
+.swal2-container .swal2-actions .moi-btn--black--outline:active:not(:disabled):not([aria-disabled=true]) {
+  background: #f3f4f6;
+}
+.moi-btn--black--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--black--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #f3f4f6 !important;
+}
+.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn {
+  /* Text — Figma «Style=Text»: no background, no border, Primary-700 label. */
+}
+.moi-btn--Text,
+.swal2-container .swal2-actions .moi-btn--Text {
+  color: #166a45;
+  background-color: transparent;
+}
+.moi-btn--Text:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
+.swal2-container .swal2-actions .moi-btn--Text:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: transparent !important;
+}
+.moi-btn--Text,
+.swal2-container .swal2-actions .moi-btn--Text {
+  border: 1px solid transparent;
+}
+.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn {
+  /* Action presets — Figma «Style=Save / Cancel / Send / Save later».
+     Same colours as an existing style; the label and trailing icon come from the markup
+     (Save = bookmark-03, Cancel = cancel-01, Send = mail-send-02, Save later = bookmark-03). */
+}
+.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn {
+  /* Loading — Figma «State=Loading»: same colours as Default, the lead icon is
+     loading-03 and spins; clicks are blocked so the action is not sent twice.
+     Markup: data-state="loading" aria-busy="true" + <svg class="moi-btn__loader">. */
+}
+.moi-btn[data-state=loading], .swal2-container .swal2-popup .swal2-actions [data-state=loading]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
+.swal2-container .swal2-actions .moi-btn[data-state=loading] {
+  pointer-events: none;
+  cursor: progress;
+}
+.moi-btn__loader,
+.swal2-container .swal2-actions .moi-btn__loader {
+  flex-shrink: 0;
+  animation: moi-btn-spin 1s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .moi-btn__loader,
+  .swal2-container .swal2-actions .moi-btn__loader {
+    animation: none;
+  }
+}
+
+/* =========================
+   Support variant-only usage
+   (e.g., class="btn moi-btn--Primary")
+   ========================= */
+.btn[class*=moi-btn--] {
+  --btn-height: 2.75rem;
+  --btn-px: 1rem;
+  --btn-py: 0px;
+  --btn-font-size: 1rem;
+  --btn-radius: 0.375rem;
+  --btn-gap: 0.25rem;
+  --btn-icon-size: 1.5rem;
+  --btn-line-height: 1.5;
+}
+.btn[class*=moi-btn--][data-size=sm] {
+  --btn-height: 2.125rem;
+  --btn-px: 0.5rem;
+  --btn-font-size: 0.75rem;
+  --btn-radius: 0.25rem;
+  --btn-gap: 0.25rem;
+  --btn-icon-size: 0.875rem;
+  --btn-line-height: 1.5;
+}
+.btn[class*=moi-btn--][data-size=md] {
+  --btn-height: 2.5rem;
+  --btn-px: 1rem;
+  --btn-font-size: 0.875rem;
+  --btn-radius: 0.25rem;
+  --btn-gap: 0.25rem;
+  --btn-icon-size: 1rem;
+  --btn-line-height: 1.5;
+}
+.btn[class*=moi-btn--][data-size=lg] {
+  --btn-height: 2.75rem;
+  --btn-px: 1.25rem;
+  --btn-font-size: 1.125rem;
+  --btn-radius: 0.25rem;
+  --btn-gap: 0.25rem;
+  --btn-icon-size: 1.5rem;
+  --btn-line-height: 1.5;
+}
+.btn[class*=moi-btn--][data-size=xl] {
+  --btn-height: 3rem;
+  --btn-px: 1.375rem;
+  --btn-font-size: 1.25rem;
+  --btn-radius: 0.25rem;
+  --btn-gap: 0.25rem;
+  --btn-icon-size: 2.125rem;
+  --btn-line-height: 1.5;
+}
+.btn[class*=moi-btn--] {
+  border-radius: var(--btn-radius, 6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-height, 44px);
+  min-height: var(--btn-height, 44px);
+  white-space: nowrap;
+  text-align: center;
+  box-shadow: none;
+  cursor: pointer !important;
+  padding-inline: var(--btn-px, 12px);
+  padding-block: 0;
+  gap: var(--btn-gap, 2px);
+  font-size: calc(var(--btn-font-size, 1rem) * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1));
+  font-weight: 500;
+  line-height: calc(var(--btn-line-height, 1.5) * var(--font-family-line-height, 1));
+  text-decoration: none;
+  vertical-align: middle;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.btn[class*=moi-btn--] img {
+  margin-left: 5px;
+}
+.btn[class*=moi-btn--] svg {
+  height: var(--btn-icon-size);
+  width: var(--btn-icon-size);
+}
+.btn[class*=moi-btn--] {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+.btn[class*=moi-btn--]:focus, .btn[class*=moi-btn--]:focus-visible {
+  outline: 0 !important;
+}
+.btn[class*=moi-btn--]:focus-visible {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4);
+}
+.btn[class*=moi-btn--]:disabled, .btn[class*=moi-btn--][aria-disabled=true], .btn[class*=moi-btn--].disabled {
+  color: #9da4ae;
+  background-color: #e5e7eb;
+}
+.btn[class*=moi-btn--]:disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .btn[class*=moi-btn--][aria-disabled=true]:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .btn[class*=moi-btn--].disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+  background-color: #e5e7eb !important;
+}
+.btn[class*=moi-btn--]:disabled, .btn[class*=moi-btn--][aria-disabled=true], .btn[class*=moi-btn--].disabled {
+  border-color: #9da4ae;
+  box-shadow: none !important;
+  opacity: 1;
+  cursor: not-allowed;
+}
+.btn[class*=moi-btn--] {
+  --btn-icon-size: 24px;
+  height: var(--btn-height) !important;
+  min-height: var(--btn-height) !important;
+  padding-inline: var(--btn-px) !important;
+  padding-block: var(--btn-py) !important;
+  font-size: var(--btn-font-size) !important;
+  line-height: 1 !important;
+  border-radius: var(--btn-radius) !important;
+  gap: var(--btn-gap);
+}
+.btn[class*=moi-btn--] svg {
+  width: var(--btn-icon-size, 1.5rem);
+  height: var(--btn-icon-size, 1.5rem);
+  fill: currentColor;
+}
+
+@keyframes moi-btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 .flex-3 {
   flex: 3;
 }
@@ -3856,7 +5049,7 @@ border colors */
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 16px;
+  padding: 8px;
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
@@ -3936,7 +5129,7 @@ border colors */
   flex-direction: column;
   gap: 12px;
   min-width: 0;
-  padding: 8px;
+  padding: 6px;
 }
 .moi-card__content {
   display: flex;
@@ -3986,10 +5179,28 @@ border colors */
 .moi-card__details {
   display: flex;
   flex-wrap: wrap;
+  gap: 12px;
+  flex: 0 0 100%;
+  align-self: stretch;
+  width: 100%;
+  min-width: 0;
 }
-.moi-card__detail-column {
-  width: 25%;
-  padding: 6px;
+.moi-card__detail-column, .moi-card__details-column {
+  width: calc((100% - 12px * 3) / 4);
+  min-width: 0;
+  padding: 0;
+}
+.moi-card__details > .w-25 {
+  width: calc((100% - 12px * 3) / 4) !important;
+}
+.moi-card__details > .w-50 {
+  width: calc((100% - 12px) / 2) !important;
+}
+.moi-card__details > .w-75 {
+  width: calc((100% - 12px * 3) / 4 * 3 + 12px * 2) !important;
+}
+.moi-card__details > .w-100 {
+  width: 100% !important;
 }
 .moi-card__detail-item {
   display: flex;
@@ -4010,1213 +5221,46 @@ border colors */
 .moi-card__detail-value {
   font-size: calc(0.875rem * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1)) !important;
   font-weight: 700 !important;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  overflow-wrap: anywhere;
   padding: 6px;
   background-color: #f9fafb;
 }
 @media (max-width: 991.98px) {
-  .moi-card__detail-column {
-    width: 50%;
+  .moi-card__detail-column, .moi-card__details-column {
+    width: calc((100% - 12px) / 2);
   }
 }
 @media (max-width: 767.98px) {
-  .moi-card__detail-column {
+  .moi-card__detail-column, .moi-card__details-column {
     width: 100%;
   }
 }
 
-/* =========================
-   Button size map
-   ========================= */
-:root {
-  --moi-focus-inner: rgba(255, 255, 255, 0.95);
-  --moi-focus-outer: rgba(255, 255, 255, 0.55);
-  --moi-focus-gap: 3px;
-  --moi-focus-inner-width: 1px;
+.Entity__card__Details > [class*=col-] {
+  display: flex;
 }
-
-/* Icon sizing inside buttons (matches button size map) */
-.moi-btn--sm .icon,
-.moi-btn[data-size=sm] .icon,
-.swal2-container .swal2-popup .swal2-actions [data-size=sm]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn) .icon {
-  font-size: 0.875rem;
+.Entity__card__Details--items {
+  flex: 1 1 0;
+  min-width: 0;
 }
-
-.moi-btn--md .icon,
-.moi-btn[data-size=md] .icon,
-.swal2-container .swal2-popup .swal2-actions [data-size=md]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn) .icon {
-  font-size: 1rem;
+.Entity__card__Details--items > label {
+  margin: 0;
 }
-
-.moi-btn--lg .icon,
-.moi-btn[data-size=lg] .icon,
-.swal2-container .swal2-popup .swal2-actions [data-size=lg]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn) .icon {
-  font-size: 1.5rem;
-}
-
-.moi-btn--xl .icon,
-.moi-btn[data-size=xl] .icon,
-.swal2-container .swal2-popup .swal2-actions [data-size=xl]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn) .icon {
-  font-size: 2.125rem;
-}
-
-/* =========================
-   MOI Buttons
-   ========================= */
-.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn {
-  --btn-height: 2.75rem;
-  --btn-px: 1rem;
-  --btn-py: 0px;
-  --btn-font-size: 1rem;
-  --btn-radius: 0.375rem;
-  --btn-gap: 0.25rem;
-  --btn-icon-size: 1.5rem;
-  --btn-line-height: 1.5;
-}
-.moi-btn[data-size=sm], .swal2-container .swal2-popup .swal2-actions [data-size=sm]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn[data-size=sm] {
-  --btn-height: 2.125rem;
-  --btn-px: 0.5rem;
-  --btn-font-size: 0.75rem;
-  --btn-radius: 0.25rem;
-  --btn-gap: 0.25rem;
-  --btn-icon-size: 0.875rem;
-  --btn-line-height: 1.5;
-}
-.moi-btn[data-size=md], .swal2-container .swal2-popup .swal2-actions [data-size=md]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn[data-size=md] {
-  --btn-height: 2.5rem;
-  --btn-px: 1rem;
-  --btn-font-size: 0.875rem;
-  --btn-radius: 0.25rem;
-  --btn-gap: 0.25rem;
-  --btn-icon-size: 1rem;
-  --btn-line-height: 1.5;
-}
-.moi-btn[data-size=lg], .swal2-container .swal2-popup .swal2-actions [data-size=lg]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn[data-size=lg] {
-  --btn-height: 2.75rem;
-  --btn-px: 1.25rem;
-  --btn-font-size: 1.125rem;
-  --btn-radius: 0.25rem;
-  --btn-gap: 0.25rem;
-  --btn-icon-size: 1.5rem;
-  --btn-line-height: 1.5;
-}
-.moi-btn[data-size=xl], .swal2-container .swal2-popup .swal2-actions [data-size=xl]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn[data-size=xl] {
-  --btn-height: 3rem;
-  --btn-px: 1.375rem;
-  --btn-font-size: 1.25rem;
-  --btn-radius: 0.25rem;
-  --btn-gap: 0.25rem;
-  --btn-icon-size: 2.125rem;
-  --btn-line-height: 1.5;
-}
-.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn {
-  border-radius: var(--btn-radius, 6px);
+.Entity__card__Details--items > span {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 2.5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: var(--btn-height, 44px);
-  min-height: var(--btn-height, 44px);
-  white-space: nowrap;
-  text-align: center;
-  box-shadow: none;
-  cursor: pointer !important;
-  padding-inline: var(--btn-px, 12px);
-  padding-block: 0;
-  gap: var(--btn-gap, 2px);
-  font-size: calc(var(--btn-font-size, 1rem) * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1));
-  font-weight: 500;
-  line-height: calc(var(--btn-line-height, 1.5) * var(--font-family-line-height, 1));
-  text-decoration: none;
-  vertical-align: middle;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-.moi-btn img, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn) img,
-.swal2-container .swal2-actions .moi-btn img {
-  margin-left: 5px;
-}
-.moi-btn svg, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn) svg,
-.swal2-container .swal2-actions .moi-btn svg {
-  height: var(--btn-icon-size);
-  width: var(--btn-icon-size);
-}
-.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn {
-  position: relative;
-  isolation: isolate;
-  overflow: visible;
-}
-.moi-btn:focus, .swal2-container .swal2-popup .swal2-actions :focus:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn), .moi-btn:focus-visible, .swal2-container .swal2-popup .swal2-actions :focus-visible:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn:focus,
-.swal2-container .swal2-actions .moi-btn:focus-visible {
-  outline: 0 !important;
-}
-.moi-btn:focus-visible, .swal2-container .swal2-popup .swal2-actions :focus-visible:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn:focus-visible {
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4);
-}
-.moi-btn:disabled, .swal2-container .swal2-popup .swal2-actions :disabled:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn), .moi-btn[aria-disabled=true], .swal2-container .swal2-popup .swal2-actions [aria-disabled=true]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn), .moi-btn.disabled, .swal2-container .swal2-popup .swal2-actions .disabled:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn:disabled,
-.swal2-container .swal2-actions .moi-btn[aria-disabled=true],
-.swal2-container .swal2-actions .moi-btn.disabled {
-  color: #9da4ae;
-  background-color: #e5e7eb;
-}
-.moi-btn:disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny):is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn), .moi-btn[aria-disabled=true]:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions [aria-disabled=true]:where(.swal2-confirm, .swal2-cancel, .swal2-deny):is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn), .moi-btn.disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions .disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny):is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn:disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn[aria-disabled=true]:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn.disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #e5e7eb !important;
-}
-.moi-btn:disabled, .swal2-container .swal2-popup .swal2-actions :disabled:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn), .moi-btn[aria-disabled=true], .swal2-container .swal2-popup .swal2-actions [aria-disabled=true]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn), .moi-btn.disabled, .swal2-container .swal2-popup .swal2-actions .disabled:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn:disabled,
-.swal2-container .swal2-actions .moi-btn[aria-disabled=true],
-.swal2-container .swal2-actions .moi-btn.disabled {
-  border-color: #9da4ae;
-  box-shadow: none !important;
-  opacity: 1;
-  cursor: not-allowed;
-}
-.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn {
-  height: var(--btn-height) !important;
-  min-height: var(--btn-height) !important;
-  padding-inline: var(--btn-px) !important;
-  padding-block: var(--btn-py) !important;
-  font-size: calc(var(--btn-font-size, 1rem) * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1)) !important;
-  line-height: calc(var(--btn-line-height, 1.5) * var(--font-family-line-height, 1)) !important;
-  border-radius: var(--btn-radius) !important;
-  gap: var(--btn-gap);
-  /* ✅ SVG sizing from vars */
-}
-.moi-btn svg, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn) svg,
-.swal2-container .swal2-actions .moi-btn svg {
-  width: var(--btn-icon-size, 1.5rem);
-  height: var(--btn-icon-size, 1.5rem);
-  fill: currentColor;
-}
-.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn {
-  /* ✅ keep your hit-area */
-}
-.moi-btn::after, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn)::after,
-.swal2-container .swal2-actions .moi-btn::after {
-  content: "";
-  position: absolute;
-  inset: 50% auto auto 50%;
-  width: max(44px, 100%);
-  height: max(44px, 100%);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.moi-btn[data-icon-only=true], .swal2-container .swal2-popup .swal2-actions [data-icon-only=true]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn[data-icon-only=true] {
-  padding-inline: 0 !important;
-  width: max(44px, var(--btn-height));
-  min-width: max(44px, var(--btn-height));
-  justify-content: center;
-}
-.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn {
-  /* Neutral */
-}
-.moi-btn--Neutral,
-.swal2-container .swal2-actions .moi-btn--Neutral {
-  color: #111927;
-  background-color: #f9fafb;
-}
-.moi-btn--Neutral:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Neutral:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #f9fafb !important;
-}
-.moi-btn--Neutral,
-.swal2-container .swal2-actions .moi-btn--Neutral {
-  border: 1px solid #f9fafb;
-  --moi-focus-outer: rgba(17, 25, 39, 0.35);
-  --moi-focus-inner: rgba(255, 255, 255, 0.95);
-}
-.moi-btn--Neutral:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Neutral:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #f3f4f6;
-}
-.moi-btn--Neutral:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Neutral:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #f3f4f6 !important;
-}
-.moi-btn--Neutral:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Neutral:hover:not(:disabled):not([aria-disabled=true]) {
-  border-color: #f3f4f6;
-}
-.moi-btn--Neutral:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Neutral:active:not(:disabled):not([aria-disabled=true]) {
-  background: #e5e7eb;
-}
-.moi-btn--Neutral:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Neutral:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #e5e7eb !important;
-}
-.moi-btn--Neutral:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Neutral:active:not(:disabled):not([aria-disabled=true]) {
-  border-color: #e5e7eb;
-  opacity: 0.8;
-}
-.moi-btn--Neutral--solid,
-.swal2-container .swal2-actions .moi-btn--Neutral--solid {
-  color: #111927;
-  background-color: #f3f4f6;
-}
-.moi-btn--Neutral--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Neutral--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #f3f4f6 !important;
-}
-.moi-btn--Neutral--solid,
-.swal2-container .swal2-actions .moi-btn--Neutral--solid {
-  border: 1px solid #f3f4f6;
-  --moi-focus-outer: rgba(108, 115, 127, 0.45);
-  --moi-focus-inner: rgba(255, 255, 255, 0.95);
-}
-.moi-btn--Neutral--solid:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Neutral--solid:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #d2d6db;
-}
-.moi-btn--Neutral--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Neutral--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #d2d6db !important;
-}
-.moi-btn--Neutral--solid:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Neutral--solid:hover:not(:disabled):not([aria-disabled=true]) {
-  border-color: #d2d6db;
-}
-.moi-btn--Neutral--solid:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Neutral--solid:active:not(:disabled):not([aria-disabled=true]) {
-  background: #9da4ae;
-}
-.moi-btn--Neutral--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Neutral--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #9da4ae !important;
-}
-.moi-btn--Neutral--solid:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Neutral--solid:active:not(:disabled):not([aria-disabled=true]) {
-  border-color: #9da4ae;
-}
-.moi-btn--Neutral--outline, .swal2-container .swal2-popup .swal2-actions :where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel,
-.swal2-container .swal2-actions .moi-btn--Cancel,
-.swal2-container .swal2-actions .moi-btn--Neutral--outline,
-.swal2-container .swal2-popup .swal2-actions :where(.swal2-cancel):not(.moi-btn) {
-  color: #111927;
-  background-color: #ffffff;
-}
-.moi-btn--Neutral--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Cancel:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Neutral--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-cancel):not(.moi-btn) {
-  background-color: #ffffff !important;
-}
-.moi-btn--Neutral--outline, .swal2-container .swal2-popup .swal2-actions :where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel,
-.swal2-container .swal2-actions .moi-btn--Cancel,
-.swal2-container .swal2-actions .moi-btn--Neutral--outline,
-.swal2-container .swal2-popup .swal2-actions :where(.swal2-cancel):not(.moi-btn) {
-  border: 1px solid #d2d6db;
-  --moi-focus-outer: rgba(17, 25, 39, 0.35);
-  --moi-focus-inner: rgba(17, 25, 39, 0.75);
-}
-.moi-btn--Neutral--outline:hover:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Neutral--outline:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #f3f4f6;
-}
-.moi-btn--Neutral--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Neutral--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #f3f4f6 !important;
-}
-.moi-btn--Neutral--outline:active:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Neutral--outline:active:not(:disabled):not([aria-disabled=true]) {
-  background: #f9fafb;
-}
-.moi-btn--Neutral--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Neutral--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #f9fafb !important;
-}
-.moi-btn--Neutral--outline:active:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Neutral--outline:active:not(:disabled):not([aria-disabled=true]) {
-  border-color: #111927;
-}
-.moi-btn--Neutral--outline:focus-visible, .swal2-container .swal2-popup .swal2-actions :focus-visible:where(.swal2-cancel):not(.moi-btn), .moi-btn--Cancel:focus-visible,
-.swal2-container .swal2-actions .moi-btn--Cancel:focus-visible,
-.swal2-container .swal2-actions .moi-btn--Neutral--outline:focus-visible {
-  border-color: #111927;
-}
-.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn {
-  /* Primary */
-}
-.moi-btn--Primary, .swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm):not(.moi-btn), .moi-btn--Save, .moi-btn--Send,
-.swal2-container .swal2-actions .moi-btn--Save,
-.swal2-container .swal2-actions .moi-btn--Send,
-.swal2-container .swal2-actions .moi-btn--Primary,
-.swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm):not(.moi-btn) {
-  color: #f7fdf9;
-  background-color: #25935f;
-}
-.moi-btn--Primary:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-confirm):not(.moi-btn), .moi-btn--Save:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .moi-btn--Send:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Save:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Send:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Primary:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-confirm):not(.moi-btn) {
-  background-color: #25935f !important;
-}
-.moi-btn--Primary, .swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm):not(.moi-btn), .moi-btn--Save, .moi-btn--Send,
-.swal2-container .swal2-actions .moi-btn--Save,
-.swal2-container .swal2-actions .moi-btn--Send,
-.swal2-container .swal2-actions .moi-btn--Primary,
-.swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm):not(.moi-btn) {
-  border: 1px solid #25935f;
-  --moi-focus-outer: rgba(22, 106, 69, 0.35);
-  --moi-focus-inner: rgba(255, 255, 255, 0.95);
-}
-.moi-btn--Primary:hover:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn), .moi-btn--Save:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Send:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Primary:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #dff6e7;
-}
-.moi-btn--Primary:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-confirm):not(.moi-btn), .moi-btn--Save:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .moi-btn--Send:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Primary:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #dff6e7 !important;
-}
-.moi-btn--Primary:hover:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn), .moi-btn--Save:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Send:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Primary:hover:not(:disabled):not([aria-disabled=true]) {
-  border-color: #dff6e7;
-  color: #1b8354;
-}
-.moi-btn--Primary:active:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn), .moi-btn--Save:active:not(:disabled):not([aria-disabled=true]), .moi-btn--Send:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Primary:active:not(:disabled):not([aria-disabled=true]) {
-  background: #b8eacb;
-}
-.moi-btn--Primary:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-confirm):not(.moi-btn), .moi-btn--Save:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .moi-btn--Send:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Primary:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #b8eacb !important;
-}
-.moi-btn--Primary:active:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn), .moi-btn--Save:active:not(:disabled):not([aria-disabled=true]), .moi-btn--Send:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Primary:active:not(:disabled):not([aria-disabled=true]) {
-  border-color: #b8eacb;
-}
-.moi-btn--Primary--solid,
-.swal2-container .swal2-actions .moi-btn--Primary--solid {
-  color: #1b8354;
-  background-color: #f7fdf9;
-}
-.moi-btn--Primary--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Primary--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #f7fdf9 !important;
-}
-.moi-btn--Primary--solid,
-.swal2-container .swal2-actions .moi-btn--Primary--solid {
-  border: 1px solid #f7fdf9;
-  --moi-focus-outer: rgba(20, 87, 58, 0.35);
-  --moi-focus-inner: rgba(20, 87, 58, 0.75);
-}
-.moi-btn--Primary--solid:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Primary--solid:focus-visible:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Primary--solid:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Primary--solid:focus-visible:not(:disabled):not([aria-disabled=true]) {
-  background: #25935f;
-}
-.moi-btn--Primary--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .moi-btn--Primary--solid:focus-visible:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Primary--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Primary--solid:focus-visible:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #25935f !important;
-}
-.moi-btn--Primary--solid:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Primary--solid:focus-visible:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Primary--solid:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Primary--solid:focus-visible:not(:disabled):not([aria-disabled=true]) {
-  border-color: #25935f;
-  color: #fcfcfd;
-}
-.moi-btn--Primary--solid:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Primary--solid:active:not(:disabled):not([aria-disabled=true]) {
-  background: #25935f;
-}
-.moi-btn--Primary--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Primary--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #25935f !important;
-}
-.moi-btn--Primary--solid:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Primary--solid:active:not(:disabled):not([aria-disabled=true]) {
-  border-color: #25935f;
-}
-.moi-btn--Primary--outline,
-.swal2-container .swal2-actions .moi-btn--Primary--outline {
-  color: #166a45;
-  background-color: #ffffff;
-}
-.moi-btn--Primary--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Primary--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #ffffff !important;
-}
-.moi-btn--Primary--outline,
-.swal2-container .swal2-actions .moi-btn--Primary--outline {
-  border: 1px solid #166a45;
-  --moi-focus-outer: rgba(22, 106, 69, 0.35);
-  --moi-focus-inner: rgba(22, 106, 69, 0.85);
-}
-.moi-btn--Primary--outline:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Primary--outline:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #f3fcf6;
-}
-.moi-btn--Primary--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Primary--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #f3fcf6 !important;
-}
-.moi-btn--Primary--outline:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Primary--outline:active:not(:disabled):not([aria-disabled=true]) {
-  background: #dff6e7;
-}
-.moi-btn--Primary--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Primary--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #dff6e7 !important;
-}
-.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn {
-  /* Lavender */
-}
-.moi-btn--Lavender,
-.swal2-container .swal2-actions .moi-btn--Lavender {
-  color: #fefcff;
-  background-color: #80519f;
-}
-.moi-btn--Lavender:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Lavender:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #80519f !important;
-}
-.moi-btn--Lavender,
-.swal2-container .swal2-actions .moi-btn--Lavender {
-  border: 1px solid #80519f;
-  --moi-focus-outer: rgba(83, 45, 117, 0.35);
-  --moi-focus-inner: rgba(255, 255, 255, 0.95);
-}
-.moi-btn--Lavender:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Lavender:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #f2e9f5;
-}
-.moi-btn--Lavender:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Lavender:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #f2e9f5 !important;
-}
-.moi-btn--Lavender:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Lavender:hover:not(:disabled):not([aria-disabled=true]) {
-  border-color: #f2e9f5;
-  color: #6d428f;
-}
-.moi-btn--Lavender:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Lavender:active:not(:disabled):not([aria-disabled=true]) {
-  background: #e1cce8;
-}
-.moi-btn--Lavender:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Lavender:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #e1cce8 !important;
-}
-.moi-btn--Lavender:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Lavender:active:not(:disabled):not([aria-disabled=true]) {
-  border-color: #e1cce8;
-}
-.moi-btn--Lavender--solid,
-.swal2-container .swal2-actions .moi-btn--Lavender--solid {
-  color: #532d75;
-  background-color: #fefcff;
-}
-.moi-btn--Lavender--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Lavender--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fefcff !important;
-}
-.moi-btn--Lavender--solid,
-.swal2-container .swal2-actions .moi-btn--Lavender--solid {
-  border: 1px solid #fefcff;
-  --moi-focus-outer: rgba(61, 29, 94, 0.35);
-  --moi-focus-inner: rgba(61, 29, 94, 0.75);
-}
-.moi-btn--Lavender--solid:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Lavender--solid:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #6d428f;
-}
-.moi-btn--Lavender--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Lavender--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #6d428f !important;
-}
-.moi-btn--Lavender--solid:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Lavender--solid:hover:not(:disabled):not([aria-disabled=true]) {
-  border-color: #6d428f;
-  color: #fefcff;
-}
-.moi-btn--Lavender--solid:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Lavender--solid:active:not(:disabled):not([aria-disabled=true]) {
-  background: #532d75;
-}
-.moi-btn--Lavender--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Lavender--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #532d75 !important;
-}
-.moi-btn--Lavender--solid:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Lavender--solid:active:not(:disabled):not([aria-disabled=true]) {
-  border-color: #532d75;
-}
-.moi-btn--Lavender--outline,
-.swal2-container .swal2-actions .moi-btn--Lavender--outline {
-  color: #532d75;
-  background-color: #ffffff;
-}
-.moi-btn--Lavender--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Lavender--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #ffffff !important;
-}
-.moi-btn--Lavender--outline,
-.swal2-container .swal2-actions .moi-btn--Lavender--outline {
-  border: 1px solid #532d75;
-  --moi-focus-outer: rgba(83, 45, 117, 0.35);
-  --moi-focus-inner: rgba(83, 45, 117, 0.85);
-}
-.moi-btn--Lavender--outline:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Lavender--outline:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #f9f5fa;
-}
-.moi-btn--Lavender--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Lavender--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #f9f5fa !important;
-}
-.moi-btn--Lavender--outline:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Lavender--outline:active:not(:disabled):not([aria-disabled=true]) {
-  background: #f2e9f5;
-}
-.moi-btn--Lavender--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Lavender--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #f2e9f5 !important;
-}
-.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn {
-  /* Info */
-}
-.moi-btn--Info,
-.swal2-container .swal2-actions .moi-btn--Info {
-  color: #f5faff;
-  background-color: #2e90fa;
-}
-.moi-btn--Info:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Info:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #2e90fa !important;
-}
-.moi-btn--Info,
-.swal2-container .swal2-actions .moi-btn--Info {
-  border: 1px solid #2e90fa;
-  --moi-focus-outer: rgba(23, 92, 211, 0.35);
-  --moi-focus-inner: rgba(255, 255, 255, 0.95);
-}
-.moi-btn--Info:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Info:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #d1e9ff;
-}
-.moi-btn--Info:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Info:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #d1e9ff !important;
-}
-.moi-btn--Info:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Info:hover:not(:disabled):not([aria-disabled=true]) {
-  border-color: #d1e9ff;
-  color: #1570ef;
-}
-.moi-btn--Info:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Info:active:not(:disabled):not([aria-disabled=true]) {
-  background: #b2ddff;
-}
-.moi-btn--Info:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Info:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #b2ddff !important;
-}
-.moi-btn--Info:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Info:active:not(:disabled):not([aria-disabled=true]) {
-  border-color: #b2ddff;
-}
-.moi-btn--Info--solid, .moi-btn--Save-later,
-.swal2-container .swal2-actions .moi-btn--Save-later,
-.swal2-container .swal2-actions .moi-btn--Info--solid {
-  color: #175cd3;
-  background-color: #f5faff;
-}
-.moi-btn--Info--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .moi-btn--Save-later:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Save-later:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Info--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #f5faff !important;
-}
-.moi-btn--Info--solid, .moi-btn--Save-later,
-.swal2-container .swal2-actions .moi-btn--Save-later,
-.swal2-container .swal2-actions .moi-btn--Info--solid {
-  border: 1px solid #f5faff;
-  --moi-focus-outer: rgba(23, 92, 211, 0.35);
-  --moi-focus-inner: rgba(23, 92, 211, 0.85);
-}
-.moi-btn--Info--solid:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Save-later:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Info--solid:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #1570ef;
-}
-.moi-btn--Info--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .moi-btn--Save-later:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Info--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #1570ef !important;
-}
-.moi-btn--Info--solid:hover:not(:disabled):not([aria-disabled=true]), .moi-btn--Save-later:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Info--solid:hover:not(:disabled):not([aria-disabled=true]) {
-  border-color: #1570ef;
-  color: #f5faff;
-}
-.moi-btn--Info--outline,
-.swal2-container .swal2-actions .moi-btn--Info--outline {
-  color: #175cd3;
-  background-color: #ffffff;
-}
-.moi-btn--Info--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Info--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #ffffff !important;
-}
-.moi-btn--Info--outline,
-.swal2-container .swal2-actions .moi-btn--Info--outline {
-  border: 1px solid #175cd3;
-  --moi-focus-outer: rgba(23, 92, 211, 0.35);
-  --moi-focus-inner: rgba(23, 92, 211, 0.85);
-}
-.moi-btn--Info--outline:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Info--outline:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #eff8ff;
-}
-.moi-btn--Info--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Info--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #eff8ff !important;
-}
-.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn {
-  /* Warning */
-}
-.moi-btn--Warning,
-.swal2-container .swal2-actions .moi-btn--Warning {
-  color: #fffcf5;
-  background-color: #f79009;
-}
-.moi-btn--Warning:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Warning:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #f79009 !important;
-}
-.moi-btn--Warning,
-.swal2-container .swal2-actions .moi-btn--Warning {
-  border: 1px solid #f79009;
-  --moi-focus-outer: rgba(181, 71, 8, 0.35);
-  --moi-focus-inner: rgba(255, 255, 255, 0.95);
-}
-.moi-btn--Warning:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Warning:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #fef0c7;
-}
-.moi-btn--Warning:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Warning:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fef0c7 !important;
-}
-.moi-btn--Warning:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Warning:hover:not(:disabled):not([aria-disabled=true]) {
-  border-color: #fef0c7;
-  color: #dc6803;
-}
-.moi-btn--Warning:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Warning:active:not(:disabled):not([aria-disabled=true]) {
-  background: #fedf89;
-}
-.moi-btn--Warning:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Warning:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fedf89 !important;
-}
-.moi-btn--Warning:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Warning:active:not(:disabled):not([aria-disabled=true]) {
-  border-color: #fedf89;
-}
-.moi-btn--Warning--solid,
-.swal2-container .swal2-actions .moi-btn--Warning--solid {
-  color: #b54708;
-  background-color: #fffcf5;
-}
-.moi-btn--Warning--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Warning--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fffcf5 !important;
-}
-.moi-btn--Warning--solid,
-.swal2-container .swal2-actions .moi-btn--Warning--solid {
-  border: 1px solid #fffcf5;
-  --moi-focus-outer: rgba(181, 71, 8, 0.35);
-  --moi-focus-inner: rgba(181, 71, 8, 0.85);
-}
-.moi-btn--Warning--solid:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Warning--solid:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #fef0c7;
-}
-.moi-btn--Warning--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Warning--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fef0c7 !important;
-}
-.moi-btn--Warning--solid:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Warning--solid:hover:not(:disabled):not([aria-disabled=true]) {
-  border-color: #fef0c7;
-  color: #dc6803;
-}
-.moi-btn--Warning--solid:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Warning--solid:active:not(:disabled):not([aria-disabled=true]) {
-  background: #fedf89;
-}
-.moi-btn--Warning--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Warning--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fedf89 !important;
-}
-.moi-btn--Warning--solid:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Warning--solid:active:not(:disabled):not([aria-disabled=true]) {
-  border-color: #fedf89;
-}
-.moi-btn--Warning--outline,
-.swal2-container .swal2-actions .moi-btn--Warning--outline {
-  color: #b54708;
-  background-color: #ffffff;
-}
-.moi-btn--Warning--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Warning--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #ffffff !important;
-}
-.moi-btn--Warning--outline,
-.swal2-container .swal2-actions .moi-btn--Warning--outline {
-  border: 1px solid #b54708;
-  --moi-focus-outer: rgba(181, 71, 8, 0.35);
-  --moi-focus-inner: rgba(181, 71, 8, 0.85);
-}
-.moi-btn--Warning--outline:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Warning--outline:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #fef0c7;
-}
-.moi-btn--Warning--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Warning--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fef0c7 !important;
-}
-.moi-btn--Warning--outline:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Warning--outline:hover:not(:disabled):not([aria-disabled=true]) {
-  color: #dc6803;
-}
-.moi-btn--Warning--outline:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Warning--outline:active:not(:disabled):not([aria-disabled=true]) {
-  background: #fedf89;
-}
-.moi-btn--Warning--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Warning--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fedf89 !important;
-}
-.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn {
-  /* Error */
-}
-.moi-btn--Error, .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :where(.swal2-confirm):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error {
-  color: #fffbfa;
-  background-color: #f04438;
-}
-.moi-btn--Error:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-confirm):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #f04438 !important;
-}
-.moi-btn--Error, .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :where(.swal2-confirm):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error {
-  border: 1px solid #f04438;
-  --moi-focus-outer: rgba(180, 35, 24, 0.35);
-  --moi-focus-inner: rgba(255, 255, 255, 0.95);
-}
-.moi-btn--Error:hover:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #fee4e2;
-}
-.moi-btn--Error:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-confirm):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fee4e2 !important;
-}
-.moi-btn--Error:hover:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error:hover:not(:disabled):not([aria-disabled=true]) {
-  border-color: #fee4e2;
-  color: #d92d20;
-}
-.moi-btn--Error:active:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error:active:not(:disabled):not([aria-disabled=true]) {
-  background: #fecdca;
-}
-.moi-btn--Error:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-confirm):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fecdca !important;
-}
-.moi-btn--Error:active:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup.moi-swal--danger .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error:active:not(:disabled):not([aria-disabled=true]) {
-  border-color: #fecdca;
-}
-.moi-btn--Error--solid,
-.swal2-container .swal2-actions .moi-btn--Error--solid {
-  color: #b42318;
-  background-color: #fffbfa;
-}
-.moi-btn--Error--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Error--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fffbfa !important;
-}
-.moi-btn--Error--solid,
-.swal2-container .swal2-actions .moi-btn--Error--solid {
-  border: 1px solid #fffbfa;
-  --moi-focus-outer: rgba(180, 35, 24, 0.35);
-  --moi-focus-inner: rgba(180, 35, 24, 0.85);
-}
-.moi-btn--Error--solid:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Error--solid:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #fee4e2;
-}
-.moi-btn--Error--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Error--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fee4e2 !important;
-}
-.moi-btn--Error--solid:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Error--solid:hover:not(:disabled):not([aria-disabled=true]) {
-  border-color: #fee4e2;
-  color: #d92d20;
-}
-.moi-btn--Error--solid:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Error--solid:active:not(:disabled):not([aria-disabled=true]) {
-  background: #fecdca;
-}
-.moi-btn--Error--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Error--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fecdca !important;
-}
-.moi-btn--Error--solid:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--Error--solid:active:not(:disabled):not([aria-disabled=true]) {
-  border-color: #fecdca;
-}
-.moi-btn--Error--outline, .swal2-container .swal2-popup .swal2-actions :where(.swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error--outline,
-.swal2-container .swal2-popup .swal2-actions :where(.swal2-deny):not(.moi-btn) {
-  color: #b42318;
-  background-color: #ffffff;
-}
-.moi-btn--Error--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-popup .swal2-actions :where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-deny):not(.moi-btn) {
-  background-color: #ffffff !important;
-}
-.moi-btn--Error--outline, .swal2-container .swal2-popup .swal2-actions :where(.swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error--outline,
-.swal2-container .swal2-popup .swal2-actions :where(.swal2-deny):not(.moi-btn) {
-  border: 1px solid #b42318;
-  --moi-focus-outer: rgba(180, 35, 24, 0.35);
-  --moi-focus-inner: rgba(180, 35, 24, 0.85);
-}
-.moi-btn--Error--outline:hover:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error--outline:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #fee4e2;
-}
-.moi-btn--Error--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fee4e2 !important;
-}
-.moi-btn--Error--outline:hover:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :hover:not(:disabled):not([aria-disabled=true]):where(.swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error--outline:hover:not(:disabled):not([aria-disabled=true]) {
-  color: #d92d20;
-}
-.moi-btn--Error--outline:active:not(:disabled):not([aria-disabled=true]), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error--outline:active:not(:disabled):not([aria-disabled=true]) {
-  background: #fecdca;
-}
-.moi-btn--Error--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny), .swal2-container .swal2-popup .swal2-actions :active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny):where(.swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn--Error--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fecdca !important;
-}
-.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn {
-  /* Black — Figma «Style=black / black--solid / black--outline» (2026-10-13).
-     .moi-btn--black also exists in _oldButtons.scss; this block comes later
-     and replaces its colours with the Figma ones (class name unchanged).
-     Figma Gray-* mapped to the Neutral-* tokens with the same names. */
-}
-.moi-btn--black,
-.swal2-container .swal2-actions .moi-btn--black {
-  color: #fcfcfd;
-  background-color: #111927;
-}
-.moi-btn--black:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--black:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #111927 !important;
-}
-.moi-btn--black,
-.swal2-container .swal2-actions .moi-btn--black {
-  border: 1px solid #111927;
-}
-.moi-btn--black:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--black:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #1f2a37;
-}
-.moi-btn--black:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--black:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #1f2a37 !important;
-}
-.moi-btn--black:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--black:hover:not(:disabled):not([aria-disabled=true]) {
-  border-color: #1f2a37;
-  color: #fcfcfd;
-}
-.moi-btn--black:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--black:active:not(:disabled):not([aria-disabled=true]) {
-  background: #384250;
-}
-.moi-btn--black:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--black:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #384250 !important;
-}
-.moi-btn--black:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--black:active:not(:disabled):not([aria-disabled=true]) {
-  border-color: #384250;
-  color: #fcfcfd;
-  opacity: 1;
-}
-.moi-btn--black--solid,
-.swal2-container .swal2-actions .moi-btn--black--solid {
-  color: #384250;
-  background-color: #fcfcfd;
-}
-.moi-btn--black--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--black--solid:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #fcfcfd !important;
-}
-.moi-btn--black--solid,
-.swal2-container .swal2-actions .moi-btn--black--solid {
-  border: 1px solid #fcfcfd;
-}
-.moi-btn--black--solid:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--black--solid:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #4d5761;
-}
-.moi-btn--black--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--black--solid:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #4d5761 !important;
-}
-.moi-btn--black--solid:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--black--solid:hover:not(:disabled):not([aria-disabled=true]) {
-  border-color: #4d5761;
-  color: #fcfcfd;
-}
-.moi-btn--black--solid:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--black--solid:active:not(:disabled):not([aria-disabled=true]) {
-  background: #384250;
-}
-.moi-btn--black--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--black--solid:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #384250 !important;
-}
-.moi-btn--black--solid:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--black--solid:active:not(:disabled):not([aria-disabled=true]) {
-  border-color: #384250;
-  color: #fcfcfd;
-}
-.moi-btn--black--outline,
-.swal2-container .swal2-actions .moi-btn--black--outline {
-  color: #384250;
-  background-color: #ffffff;
-}
-.moi-btn--black--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--black--outline:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #ffffff !important;
-}
-.moi-btn--black--outline,
-.swal2-container .swal2-actions .moi-btn--black--outline {
-  border: 1px solid #384250;
-}
-.moi-btn--black--outline:hover:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--black--outline:hover:not(:disabled):not([aria-disabled=true]) {
-  background: #f9fafb;
-}
-.moi-btn--black--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--black--outline:hover:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #f9fafb !important;
-}
-.moi-btn--black--outline:active:not(:disabled):not([aria-disabled=true]),
-.swal2-container .swal2-actions .moi-btn--black--outline:active:not(:disabled):not([aria-disabled=true]) {
-  background: #f3f4f6;
-}
-.moi-btn--black--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--black--outline:active:not(:disabled):not([aria-disabled=true]):where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #f3f4f6 !important;
-}
-.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn {
-  /* Text — Figma «Style=Text»: no background, no border, Primary-700 label. */
-}
-.moi-btn--Text,
-.swal2-container .swal2-actions .moi-btn--Text {
-  color: #166a45;
-  background-color: transparent;
-}
-.moi-btn--Text:where(.swal2-confirm, .swal2-cancel, .swal2-deny),
-.swal2-container .swal2-actions .moi-btn--Text:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: transparent !important;
-}
-.moi-btn--Text,
-.swal2-container .swal2-actions .moi-btn--Text {
-  border: 1px solid transparent;
-}
-.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn {
-  /* Action presets — Figma «Style=Save / Cancel / Send / Save later».
-     Same colours as an existing style; the label and trailing icon come from the markup
-     (Save = bookmark-03, Cancel = cancel-01, Send = mail-send-02, Save later = bookmark-03). */
-}
-.moi-btn, .swal2-container .swal2-popup .swal2-actions :is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn {
-  /* Loading — Figma «State=Loading»: same colours as Default, the lead icon is
-     loading-03 and spins; clicks are blocked so the action is not sent twice.
-     Markup: data-state="loading" aria-busy="true" + <svg class="moi-btn__loader">. */
-}
-.moi-btn[data-state=loading], .swal2-container .swal2-popup .swal2-actions [data-state=loading]:is(.swal2-confirm, .swal2-cancel, .swal2-deny):not(.moi-btn),
-.swal2-container .swal2-actions .moi-btn[data-state=loading] {
-  pointer-events: none;
-  cursor: progress;
-}
-.moi-btn__loader,
-.swal2-container .swal2-actions .moi-btn__loader {
-  flex-shrink: 0;
-  animation: moi-btn-spin 1s linear infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .moi-btn__loader,
-  .swal2-container .swal2-actions .moi-btn__loader {
-    animation: none;
-  }
+  justify-content: flex-start;
+  overflow-wrap: anywhere;
 }
 
-/* =========================
-   Support variant-only usage
-   (e.g., class="btn moi-btn--Primary")
-   ========================= */
-.btn[class*=moi-btn--] {
-  --btn-height: 2.75rem;
-  --btn-px: 1rem;
-  --btn-py: 0px;
-  --btn-font-size: 1rem;
-  --btn-radius: 0.375rem;
-  --btn-gap: 0.25rem;
-  --btn-icon-size: 1.5rem;
-  --btn-line-height: 1.5;
-}
-.btn[class*=moi-btn--][data-size=sm] {
-  --btn-height: 2.125rem;
-  --btn-px: 0.5rem;
-  --btn-font-size: 0.75rem;
-  --btn-radius: 0.25rem;
-  --btn-gap: 0.25rem;
-  --btn-icon-size: 0.875rem;
-  --btn-line-height: 1.5;
-}
-.btn[class*=moi-btn--][data-size=md] {
-  --btn-height: 2.5rem;
-  --btn-px: 1rem;
-  --btn-font-size: 0.875rem;
-  --btn-radius: 0.25rem;
-  --btn-gap: 0.25rem;
-  --btn-icon-size: 1rem;
-  --btn-line-height: 1.5;
-}
-.btn[class*=moi-btn--][data-size=lg] {
-  --btn-height: 2.75rem;
-  --btn-px: 1.25rem;
-  --btn-font-size: 1.125rem;
-  --btn-radius: 0.25rem;
-  --btn-gap: 0.25rem;
-  --btn-icon-size: 1.5rem;
-  --btn-line-height: 1.5;
-}
-.btn[class*=moi-btn--][data-size=xl] {
-  --btn-height: 3rem;
-  --btn-px: 1.375rem;
-  --btn-font-size: 1.25rem;
-  --btn-radius: 0.25rem;
-  --btn-gap: 0.25rem;
-  --btn-icon-size: 2.125rem;
-  --btn-line-height: 1.5;
-}
-.btn[class*=moi-btn--] {
-  border-radius: var(--btn-radius, 6px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: var(--btn-height, 44px);
-  min-height: var(--btn-height, 44px);
-  white-space: nowrap;
-  text-align: center;
-  box-shadow: none;
-  cursor: pointer !important;
-  padding-inline: var(--btn-px, 12px);
-  padding-block: 0;
-  gap: var(--btn-gap, 2px);
-  font-size: calc(var(--btn-font-size, 1rem) * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1));
-  font-weight: 500;
-  line-height: calc(var(--btn-line-height, 1.5) * var(--font-family-line-height, 1));
-  text-decoration: none;
-  vertical-align: middle;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-.btn[class*=moi-btn--] img {
-  margin-left: 5px;
-}
-.btn[class*=moi-btn--] svg {
-  height: var(--btn-icon-size);
-  width: var(--btn-icon-size);
-}
-.btn[class*=moi-btn--] {
-  position: relative;
-  isolation: isolate;
-  overflow: visible;
-}
-.btn[class*=moi-btn--]:focus, .btn[class*=moi-btn--]:focus-visible {
-  outline: 0 !important;
-}
-.btn[class*=moi-btn--]:focus-visible {
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4);
-}
-.btn[class*=moi-btn--]:disabled, .btn[class*=moi-btn--][aria-disabled=true], .btn[class*=moi-btn--].disabled {
-  color: #9da4ae;
-  background-color: #e5e7eb;
-}
-.btn[class*=moi-btn--]:disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .btn[class*=moi-btn--][aria-disabled=true]:where(.swal2-confirm, .swal2-cancel, .swal2-deny), .btn[class*=moi-btn--].disabled:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
-  background-color: #e5e7eb !important;
-}
-.btn[class*=moi-btn--]:disabled, .btn[class*=moi-btn--][aria-disabled=true], .btn[class*=moi-btn--].disabled {
-  border-color: #9da4ae;
-  box-shadow: none !important;
-  opacity: 1;
-  cursor: not-allowed;
-}
-.btn[class*=moi-btn--] {
-  --btn-icon-size: 24px;
-  height: var(--btn-height) !important;
-  min-height: var(--btn-height) !important;
-  padding-inline: var(--btn-px) !important;
-  padding-block: var(--btn-py) !important;
-  font-size: var(--btn-font-size) !important;
-  line-height: 1 !important;
-  border-radius: var(--btn-radius) !important;
-  gap: var(--btn-gap);
-}
-.btn[class*=moi-btn--] svg {
-  width: var(--btn-icon-size, 1.5rem);
-  height: var(--btn-icon-size, 1.5rem);
-  fill: currentColor;
-}
-
-@keyframes moi-btn-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
 @keyframes moi-file-uploader-fade-up {
   from {
     opacity: 0;
