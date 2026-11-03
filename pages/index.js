@@ -9,7 +9,7 @@ const REDIRECT_URL = "/PS-Design/DesignSystemDocumentation/index.html";
 
 import { FaBehance, FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
 import { useTranslation } from "../src/i18n/useTranslation";
-import ResumeDownloadMenu from "../components/ResumeDownloadMenu";
+import ResumeModal from "../components/ResumeModal";
 
 const ICON_LIBRARY = {
   calendar: (
@@ -304,7 +304,7 @@ export default function Home() {
           {
             icon: "implementation",
             title: "تنفيذ الواجهة الأمامية",
-            detail: "خبرة عملية في HTML وCSS وJavaScript.",
+            detail: "أكتب HTML وCSS وSCSS وJavaScript بنفسي.",
           },
           {
             icon: "team",
@@ -459,7 +459,7 @@ export default function Home() {
           {
             icon: "implementation",
             title: "Front-End Implementation",
-            detail: "HTML, CSS, and JavaScript expertise.",
+            detail: "Hands-on HTML, CSS, SCSS, and JavaScript.",
           },
           {
             icon: "team",
@@ -672,7 +672,7 @@ export default function Home() {
                     />
                   </picture>
                   <div className="downloadresume">
-                    <ResumeDownloadMenu />
+                    <ResumeModal variant="home" />
                   </div>
                 </div>
               </div>

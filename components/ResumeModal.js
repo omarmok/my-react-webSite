@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef } from "react";
+import { FaDownload } from "react-icons/fa";
 import { useTranslation } from "../src/i18n/useTranslation";
 
 const resumeFiles = {
@@ -7,9 +8,11 @@ const resumeFiles = {
 };
 
 // Download CV button that asks how to open the CV: download Word, or view the PDF in a new tab.
-const ResumeModal = ({ className = "" }) => {
+// variant "header" matches PageHeader actions; "home" keeps the Home photo-card button design.
+const ResumeModal = ({ className = "", variant = "header" }) => {
   const { dictionary } = useTranslation();
   const copy = dictionary.about;
+  const hero = dictionary.home.hero;
   const dialogRef = useRef(null);
   const triggerRef = useRef(null);
   const titleId = useId();
@@ -29,15 +32,33 @@ const ResumeModal = ({ className = "" }) => {
 
   return (
     <>
-      <button
-        type="button"
-        ref={triggerRef}
-        className={`page-header__action page-header__action--solid resume-modal__trigger ${className}`.trim()}
-        aria-haspopup="dialog"
-        aria-label={copy.downloadTitle}
-        onClick={open}>
-        {copy.downloadButton}
-      </button>
+      {variant === "home" ? (
+        <div className={`resume-cta-menu ${className}`.trim()}>
+          <button
+            type="button"
+            ref={triggerRef}
+            className="resume-cta resume-cta--trigger resume-modal__trigger"
+            aria-haspopup="dialog"
+            aria-label={hero.downloadTitle}
+            onClick={open}>
+            <span className="resume-cta__label">
+              <FaDownload aria-hidden="true" focusable="false" />
+              {hero.downloadButton}
+            </span>
+            <span className="resume-cta__sub">{hero.resumeSubtext}</span>
+          </button>
+        </div>
+      ) : (
+        <button
+          type="button"
+          ref={triggerRef}
+          className={`page-header__action page-header__action--solid resume-modal__trigger ${className}`.trim()}
+          aria-haspopup="dialog"
+          aria-label={copy.downloadTitle}
+          onClick={open}>
+          {copy.downloadButton}
+        </button>
+      )}
 
       <dialog
         ref={dialogRef}

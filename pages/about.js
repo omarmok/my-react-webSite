@@ -16,9 +16,11 @@ const getAboutCopy = (isRTL) =>
         projectsButton: "استعرض المشاريع",
         summaryEyebrow: "نظرة مهنية",
         summaryTitle: "من تصميم الويب في 2007 إلى قيادة تجربة المستخدم وعمليات التصميم",
+        pathLabel: "المسار",
+        path: ["تصميم الويب", "تصميم تجربة المستخدم والواجهات", "تطوير الواجهات المؤسسية", "أنظمة التصميم", "عمليات التصميم", "قيادة تجربة المستخدم"],
         summary: [
           "بدأت عام 2007 مصمم ويب مبتدئًا أبني الصفحات يدويًا بـ HTML، ولم تفارقني هذه العادة. من تصميم الواجهات لجهات حكومية وجامعية، إلى تطوير الواجهات في الشركة الوطنية للإسكان، ثم قيادة تجربة المستخدم اليوم، عملت دائمًا على طرفي التسليم: التصميم والتنفيذ.",
-          "أقود اليوم تجربة المستخدم لمنصة حكومية مؤسسية تضم 14 نظامًا، ولتطبيق ميداني منفصل على الجوال والويب يجمع خدمات مختارة من هذه الأنظمة، مثل الحالات الأمنية والمخالفات. وهي منتجات عربية أولًا تدعم RTL وتخدم إجراءات تشغيلية معقدة. أقود فريق تصميم داخليًا، وأضع المعايير التي تصمم وفقها فرق الشركات المنفذة الخارجية، وأملك نظام التصميم الذي يحافظ على اتساق عمل الجميع.",
+          "أقود اليوم تجربة المستخدم لمنصة حكومية مؤسسية تضم 14 نظامًا، ولتطبيق منفصل على الجوال والويب للعمل خارج المكاتب، يجمع خدمات مختارة من هذه الأنظمة، مثل الحالات الأمنية والمخالفات. وهي منتجات عربية أولًا تدعم RTL وتخدم إجراءات تشغيلية معقدة. أقود فريق تصميم متعدد التخصصات، وأضع المعايير التي تصمم وفقها فرق الشركات المنفذة الخارجية، وأملك نظام التصميم الذي يحافظ على اتساق عمل الجميع.",
           "ما يهمني هو أن يصمد القرار التصميمي حتى التسليم. لا يكتمل التصميم إلا حين يصل إلى المستخدم كما أُريد له، لذلك أبذل في الـ Tokens والتوثيق والمراجعات والكود الجهد نفسه الذي أبذله في الشاشات.",
         ],
         stats: [
@@ -32,11 +34,11 @@ const getAboutCopy = (isRTL) =>
         leadershipEyebrow: "القيادة",
         leadershipTitle: "قيادة الجودة عبر الفرق الداخلية والخارجية",
         leadershipIntro:
-          "نوعان من القيادة أفصل بينهما بوضوح: فريق أقوده مباشرة، وفرق لدى شركات منفذة أوجّه أعمالها التصميمية وأراجعها.",
+          "نوعان من القيادة أفصل بينهما بوضوح: فريق تصميم متعدد التخصصات أقوده مباشرة، وفرق لدى شركات منفذة أوجّه أعمالها التصميمية وأراجعها، مع مراجعات تصميم وضمان جودة ومعايير مكونات موحّدة للجميع.",
         leadership: [
           {
-            title: "فريق التصميم الداخلي",
-            body: "أقود فريق التصميم الداخلي عبر أنظمة المنصة وتطبيقيها على الجوال والويب: أحدد التوجه التصميمي، وأنسّق العمل، وأراجع التصاميم قبل تسليمها للمطورين، وأحافظ على معايير UX/UI والالتزام بنظام التصميم.",
+            title: "فريق تصميم متعدد التخصصات",
+            body: "أقود فريق التصميم الداخلي عبر أنظمة المنصة وتطبيقيها على الجوال والويب: أحدد التوجه التصميمي، وأنسّق العمل، وأدير مراجعات التصميم وضمان جودته قبل التسليم للمطورين، وأحافظ على معايير UX/UI والالتزام بنظام التصميم.",
           },
           {
             title: "فرق الشركات المنفذة",
@@ -110,7 +112,7 @@ const getAboutCopy = (isRTL) =>
           },
           {
             title: "تصميم المنتجات للويب والجوال",
-            body: "تجربة منتج متكاملة لمنصة ويب وتطبيقها الميداني على الجوال، من هندسة المعلومات إلى النماذج الأولية والإطلاق.",
+            body: "تجربة منتج متكاملة لمنصة ويب وتطبيق جوال مرافق لها، من هندسة المعلومات إلى النماذج الأولية والإطلاق.",
           },
           {
             title: "الوصولية والتصميم العربي أولًا",
@@ -172,9 +174,11 @@ const getAboutCopy = (isRTL) =>
         projectsButton: "View projects",
         summaryEyebrow: "Professional overview",
         summaryTitle: "From web design in 2007 to UX and DesignOps leadership",
+        pathLabel: "Path",
+        path: ["Web Design", "UI/UX Design", "Enterprise Interface Development", "Design Systems", "DesignOps", "UX Leadership"],
         summary: [
           "I started in 2007 as a junior web designer, building pages by hand in HTML, and that habit never left. Through UI design for government and university clients, interface development at the National Housing Company, and UX leadership today, I have always worked on both sides of the handoff: design and implementation.",
-          "Today I lead UX for an enterprise government platform of 14 systems, and a separate field app for mobile and web that brings selected services from those systems together, such as security cases and violations. These are Arabic-first, RTL products for complex operational workflows. I lead an internal design team, set the standards external vendor teams design to, and own the design system that keeps all of that work consistent.",
+          "Today I lead UX for an enterprise government platform of 14 systems, and a separate field app for mobile and web that brings selected services from those systems together, such as security cases and violations. These are Arabic-first, RTL products for complex operational workflows. I lead a multidisciplinary design team, set the standards external vendor teams design to, and own the design system that keeps all of that work consistent.",
           "What I care about is decisions that survive delivery. A design is only finished when it ships the way it was intended, so I put as much effort into tokens, documentation, reviews, and code as into the screens themselves.",
         ],
         stats: [
@@ -188,11 +192,11 @@ const getAboutCopy = (isRTL) =>
         leadershipEyebrow: "Leadership",
         leadershipTitle: "Leading quality across internal and external teams",
         leadershipIntro:
-          "Two kinds of leadership, kept distinct: a team I lead directly, and vendor teams whose design work I direct and review.",
+          "Two kinds of leadership, kept distinct: a multidisciplinary design team I lead directly, and vendor teams whose design work I direct and review, with design reviews, design QA, and shared component standards for everyone.",
         leadership: [
           {
-            title: "Internal design team",
-            body: "I lead the internal design team across the platform's systems and its mobile and web apps: setting design direction, coordinating work, reviewing designs before developer handoff, and holding UX/UI standards and design system use.",
+            title: "Multidisciplinary design team",
+            body: "I lead the internal design team across the platform's systems and its mobile and web apps: setting design direction, coordinating work, running design reviews and design QA before developer handoff, and holding UX/UI standards and design system use.",
           },
           {
             title: "External vendor teams",
@@ -358,6 +362,11 @@ function About({ experience = [] }) {
           <div className="about-overview__summary">
             <p className="portfolio-eyebrow">{copy.summaryEyebrow}</p>
             <h2 id="about-summary-title">{copy.summaryTitle}</h2>
+            <ol className="about-overview__path" aria-label={copy.pathLabel}>
+              {copy.path.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
             {copy.summary.map((paragraph) => (
               <p className="about-overview__text" key={paragraph.slice(0, 24)}>
                 {paragraph}

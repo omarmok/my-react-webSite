@@ -8313,6 +8313,33 @@ html[data-theme="dark"] .mobile-app-nav__utility-icon {
   margin-top: 14px;
 }
 
+// Career path: Web Design → … → UX Leadership, as a plain ordered list.
+.about-overview__path {
+  margin: 20px 0 4px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 0;
+  list-style: none;
+}
+
+.about-overview__path li {
+  color: var(--theme-text-primary);
+  font-size: 0.86rem;
+  font-weight: 750;
+}
+
+.about-overview__path li + li::before {
+  content: "→";
+  margin-inline: 10px;
+  color: var(--theme-brand-primary);
+  font-weight: 700;
+}
+
+[dir="rtl"] .about-overview__path li + li::before {
+  content: "←";
+}
+
 .about-overview__aside {
   display: grid;
   align-content: start;
