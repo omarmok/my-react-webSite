@@ -12,8 +12,6 @@ import { getWhatsAppAccessUrl } from "../src/data/contact";
 import designSystemPreviewOne from "../public/images/ds-1.png";
 import designSystemPreviewTwo from "../public/images/ds-2.png";
 import designSystemPreviewThree from "../public/images/ds-3.png";
-import designSystemPreviewFour from "../public/images/ds-4.png";
-import designSystemPreviewFive from "../public/images/ds-5.png";
 
 const REDIRECT_URL = "/PS-Design/DesignSystemDocumentation/index.html";
 
@@ -179,14 +177,6 @@ const DesignSystemPage = () => {
             src: designSystemPreviewThree,
             alt: "معاينة من توثيق نظام التصميم - الشاشة الثالثة",
           },
-          {
-            src: designSystemPreviewFour,
-            alt: "معاينة من توثيق نظام التصميم - الشاشة الرابعة",
-          },
-          {
-            src: designSystemPreviewFive,
-            alt: "معاينة من توثيق نظام التصميم - الشاشة الخامسة",
-          },
         ],
         previewHighlightsTitle: "أبرز ما يقدمه نظام التصميم",
         previewHighlights: [
@@ -298,14 +288,6 @@ const DesignSystemPage = () => {
           {
             src: designSystemPreviewThree,
             alt: "Preview of the design system documentation, screen three",
-          },
-          {
-            src: designSystemPreviewFour,
-            alt: "Preview of the design system documentation, screen four",
-          },
-          {
-            src: designSystemPreviewFive,
-            alt: "Preview of the design system documentation, screen five",
           },
         ],
         previewHighlightsTitle: "Design System Highlights",

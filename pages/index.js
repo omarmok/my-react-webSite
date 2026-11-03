@@ -13,12 +13,12 @@ import ResumeModal from "../components/ResumeModal";
 import { getWhatsAppAccessUrl } from "../src/data/contact";
 import dsPreviewIcons from "../public/images/ds-1.png";
 import dsPreviewSwitches from "../public/images/ds-3.png";
-import dsPreviewComponents from "../public/images/ds-4.png";
+import dsPreviewRadius from "../public/images/ds-2.png";
 
 const DS_PREVIEW_IMAGES = {
   icons: dsPreviewIcons,
   switches: dsPreviewSwitches,
-  components: dsPreviewComponents,
+  radius: dsPreviewRadius,
 };
 
 // Small lock glyph for "protected content" notes next to Design System links.
@@ -352,7 +352,7 @@ export default function Home() {
         designSystemPreviewImages: [
           ["icons", "صفحة الأيقونات في توثيق نظام التصميم"],
           ["switches", "صفحة مكوّن المفتاح (Switch) في توثيق نظام التصميم"],
-          ["components", "صفحة مكوّن في توثيق نظام التصميم"],
+          ["radius", "صفحة الزوايا (Radius) في توثيق نظام التصميم"],
         ],
         designSystemDescription:
           "يسلط هذا القسم الضوء على كيف أخلق أنظمة تصميم تدعم الموثوقية والتسليم السريع مع اتساق بصري ومواصفات تنفيذية واضحة.",
@@ -525,7 +525,7 @@ export default function Home() {
         designSystemPreviewImages: [
           ["icons", "Iconography page from the design system documentation"],
           ["switches", "Switch component page from the design system documentation"],
-          ["components", "Component page from the design system documentation"],
+          ["radius", "Radius tokens page from the design system documentation"],
         ],
         designSystemDescription:
           "A portfolio highlight that explains why design systems are one of my strongest areas — built to support consistent experiences, faster delivery, and collaborative product teams.",

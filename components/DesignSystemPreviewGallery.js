@@ -158,12 +158,12 @@ const DesignSystemPreviewGallery = ({
           );
         }
 
-        .ds-preview__image {
+        .ds-preview__frame :global(.ds-preview__image) {
           object-fit: cover;
           transition: transform 0.28s ease;
         }
 
-        .ds-preview__card:hover .ds-preview__image {
+        .ds-preview__card:hover :global(.ds-preview__image) {
           transform: scale(1.02);
         }
 
@@ -229,7 +229,7 @@ const DesignSystemPreviewGallery = ({
           background: var(--theme-bg-surface);
         }
 
-        .ds-preview__lightbox-image {
+        .ds-preview__lightbox-content :global(.ds-preview__lightbox-image) {
           display: block;
           width: 100%;
           height: auto;
@@ -288,7 +288,7 @@ const DesignSystemPreviewGallery = ({
           }
 
           .ds-preview__lightbox-content,
-          .ds-preview__lightbox-image {
+          .ds-preview__lightbox-content :global(.ds-preview__lightbox-image) {
             max-height: calc(100vh - 72px);
           }
 
@@ -300,7 +300,7 @@ const DesignSystemPreviewGallery = ({
 
         @media (prefers-reduced-motion: reduce) {
           .ds-preview__card,
-          .ds-preview__image,
+          .ds-preview__frame :global(.ds-preview__image),
           .ds-preview__lightbox-close {
             transition: none;
           }
