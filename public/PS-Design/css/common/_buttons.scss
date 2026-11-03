@@ -6,6 +6,20 @@
    ========================= */
 $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.25rem, gap: 0.25rem, icon: 0.875rem, ), md: ( height: 2.5rem, px: 1rem, font: 0.875rem, radius: 0.25rem, gap: 0.25rem, icon: 1rem, ), lg: ( height: 2.75rem, px: 1.25rem, font: 1.125rem, radius: 0.25rem, gap: 0.25rem, icon: 1.5rem, ), xl: ( height: 3rem, px: 1.375rem, font: 1.25rem, radius: 0.25rem, gap: 0.25rem, icon: 2.125rem, ), );
 
+// Keep the same variant/state colour when SweetAlert2 adds an inline
+// background via *ButtonColor. Other project buttons keep their normal cascade.
+@mixin moi-btn-background($color, $reset: false) {
+    @if $reset {
+        background: $color;
+    } @else {
+        background-color: $color;
+    }
+
+    &:where(.swal2-confirm, .swal2-cancel, .swal2-deny) {
+        background-color: $color !important;
+    }
+}
+
 :root {
     --moi-focus-inner: rgba(255, 255, 255, 0.95);
     --moi-focus-outer: rgba(255, 255, 255, 0.55);
@@ -68,7 +82,7 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
     &[aria-disabled="true"],
     &.disabled {
         color: $Neutral-400;
-        background-color: $Neutral-200;
+        @include moi-btn-background($Neutral-200);
         border-color: $Neutral-400;
         box-shadow: none !important;
         opacity: 1;
@@ -79,7 +93,8 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 /* =========================
    MOI Buttons
    ========================= */
-.moi-btn {
+.moi-btn,
+.swal2-container .swal2-actions .moi-btn {
     @include moi-btn-size-vars;
     @include buttonStyles;
     @include moi-focus-ring;
@@ -117,18 +132,18 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
     /* Neutral */
     &--Neutral {
         color: $Neutral-900;
-        background-color: $Neutral-50;
+        @include moi-btn-background($Neutral-50);
         border: 1px solid $Neutral-50;
         --moi-focus-outer: #{rgba($Neutral-900, 0.35)};
         --moi-focus-inner: rgba(255, 255, 255, 0.95);
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Neutral-100;
+            @include moi-btn-background($Neutral-100, $reset: true);
             border-color: $Neutral-100;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Neutral-200;
+            @include moi-btn-background($Neutral-200, $reset: true);
             border-color: $Neutral-200;
             opacity: 0.8;
         }
@@ -136,35 +151,35 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
     &--Neutral--solid {
         color: $Neutral-900;
-        background-color: $Neutral-100;
+        @include moi-btn-background($Neutral-100);
         border: 1px solid $Neutral-100;
         --moi-focus-outer: #{rgba($Neutral-500, 0.45)};
         --moi-focus-inner: rgba(255, 255, 255, 0.95);
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Neutral-300;
+            @include moi-btn-background($Neutral-300, $reset: true);
             border-color: $Neutral-300;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Neutral-400;
+            @include moi-btn-background($Neutral-400, $reset: true);
             border-color: $Neutral-400;
         }
     }
 
     &--Neutral--outline {
         color: $Neutral-900;
-        background-color: $white-100;
+        @include moi-btn-background($white-100);
         border: 1px solid $Neutral-300;
         --moi-focus-outer: #{rgba($Neutral-900, 0.35)};
         --moi-focus-inner: #{rgba($Neutral-900, 0.75)};
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Neutral-100;
+            @include moi-btn-background($Neutral-100, $reset: true);
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Neutral-50;
+            @include moi-btn-background($Neutral-50, $reset: true);
             border-color: $Neutral-900;
         }
 
@@ -175,141 +190,141 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
     /* Primary */
     &--Primary {
         color: $Primary-25;
-        background-color: $Primary-500;
+        @include moi-btn-background($Primary-500);
         border: 1px solid $Primary-500;
         --moi-focus-outer: #{rgba($Primary-700, 0.35)};
         --moi-focus-inner: rgba(255, 255, 255, 0.95);
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Primary-100;
+            @include moi-btn-background($Primary-100, $reset: true);
             border-color: $Primary-100;
             color: $Primary-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Primary-200;
+            @include moi-btn-background($Primary-200, $reset: true);
             border-color: $Primary-200;
         }
     }
 
     &--Primary--solid {
         color: $Primary-600;
-        background-color: $Primary-25;
+        @include moi-btn-background($Primary-25);
         border: 1px solid $Primary-25;
         --moi-focus-outer: #{rgba($Primary-800, 0.35)};
         --moi-focus-inner: #{rgba($Primary-800, 0.75)};
 
         &:hover:not(:disabled):not([aria-disabled="true"]),
         &:focus-visible:not(:disabled):not([aria-disabled="true"]) {
-            background: $Primary-500;
+            @include moi-btn-background($Primary-500, $reset: true);
             border-color: $Primary-500;
             color: $Neutral-25;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Primary-500;
+            @include moi-btn-background($Primary-500, $reset: true);
             border-color: $Primary-500;
         }
     }
 
     &--Primary--outline {
         color: $Primary-700;
-        background-color: $white-100;
+        @include moi-btn-background($white-100);
         border: 1px solid $Primary-700;
         --moi-focus-outer: #{rgba($Primary-700, 0.35)};
         --moi-focus-inner: #{rgba($Primary-700, 0.85)};
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Primary-50;
+            @include moi-btn-background($Primary-50, $reset: true);
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Primary-100;
+            @include moi-btn-background($Primary-100, $reset: true);
         }
     }
     /* Lavender */
     &--Lavender {
         color: $Lavender-25;
-        background-color: $Lavender-500;
+        @include moi-btn-background($Lavender-500);
         border: 1px solid $Lavender-500;
         --moi-focus-outer: #{rgba($Lavender-700, 0.35)};
         --moi-focus-inner: rgba(255, 255, 255, 0.95);
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Lavender-100;
+            @include moi-btn-background($Lavender-100, $reset: true);
             border-color: $Lavender-100;
             color: $Lavender-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Lavender-200;
+            @include moi-btn-background($Lavender-200, $reset: true);
             border-color: $Lavender-200;
         }
     }
 
     &--Lavender--solid {
         color: $Lavender-700;
-        background-color: $Lavender-25;
+        @include moi-btn-background($Lavender-25);
         border: 1px solid $Lavender-25;
         --moi-focus-outer: #{rgba($Lavender-800, 0.35)};
         --moi-focus-inner: #{rgba($Lavender-800, 0.75)};
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Lavender-600;
+            @include moi-btn-background($Lavender-600, $reset: true);
             border-color: $Lavender-600;
             color: $Lavender-25;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Lavender-700;
+            @include moi-btn-background($Lavender-700, $reset: true);
             border-color: $Lavender-700;
         }
     }
 
     &--Lavender--outline {
         color: $Lavender-700;
-        background-color: $white-100;
+        @include moi-btn-background($white-100);
         border: 1px solid $Lavender-700;
         --moi-focus-outer: #{rgba($Lavender-700, 0.35)};
         --moi-focus-inner: #{rgba($Lavender-700, 0.85)};
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Lavender-50;
+            @include moi-btn-background($Lavender-50, $reset: true);
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Lavender-100;
+            @include moi-btn-background($Lavender-100, $reset: true);
         }
     }
     /* Info */
     &--Info {
         color: $Info-25;
-        background-color: $Info-500;
+        @include moi-btn-background($Info-500);
         border: 1px solid $Info-500;
         --moi-focus-outer: #{rgba($Info-700, 0.35)};
         --moi-focus-inner: rgba(255, 255, 255, 0.95);
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Info-100;
+            @include moi-btn-background($Info-100, $reset: true);
             border-color: $Info-100;
             color: $Info-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Info-200;
+            @include moi-btn-background($Info-200, $reset: true);
             border-color: $Info-200;
         }
     }
 
     &--Info--solid {
         color: $Info-700;
-        background-color: $Info-25;
+        @include moi-btn-background($Info-25);
         border: 1px solid $Info-25;
         --moi-focus-outer: #{rgba($Info-700, 0.35)};
         --moi-focus-inner: #{rgba($Info-700, 0.85)};
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Info-600;
+            @include moi-btn-background($Info-600, $reset: true);
             border-color: $Info-600;
             color: $Info-25;
         }
@@ -317,50 +332,50 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
     &--Info--outline {
         color: $Info-700;
-        background-color: $white-100;
+        @include moi-btn-background($white-100);
         border: 1px solid $Info-700;
         --moi-focus-outer: #{rgba($Info-700, 0.35)};
         --moi-focus-inner: #{rgba($Info-700, 0.85)};
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Info-50;
+            @include moi-btn-background($Info-50, $reset: true);
         }
     }
     /* Warning */
     &--Warning {
         color: $Warning-25;
-        background-color: $Warning-500;
+        @include moi-btn-background($Warning-500);
         border: 1px solid $Warning-500;
         --moi-focus-outer: #{rgba($Warning-700, 0.35)};
         --moi-focus-inner: rgba(255, 255, 255, 0.95);
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Warning-100;
+            @include moi-btn-background($Warning-100, $reset: true);
             border-color: $Warning-100;
             color: $Warning-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Warning-200;
+            @include moi-btn-background($Warning-200, $reset: true);
             border-color: $Warning-200;
         }
     }
 
     &--Warning--solid {
         color: $Warning-700;
-        background-color: $Warning-25;
+        @include moi-btn-background($Warning-25);
         border: 1px solid $Warning-25;
         --moi-focus-outer: #{rgba($Warning-700, 0.35)};
         --moi-focus-inner: #{rgba($Warning-700, 0.85)};
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Warning-100;
+            @include moi-btn-background($Warning-100, $reset: true);
             border-color: $Warning-100;
             color: $Warning-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Warning-200;
+            @include moi-btn-background($Warning-200, $reset: true);
             border-color: $Warning-200;
         }
     }
@@ -368,55 +383,55 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
     &--Warning--outline {
         color: $Warning-700;
-        background-color: $white-100;
+        @include moi-btn-background($white-100);
         border: 1px solid $Warning-700;
         --moi-focus-outer: #{rgba($Warning-700, 0.35)};
         --moi-focus-inner: #{rgba($Warning-700, 0.85)};
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Warning-100;
+            @include moi-btn-background($Warning-100, $reset: true);
             color: $Warning-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Warning-200;
+            @include moi-btn-background($Warning-200, $reset: true);
         }
     }
     /* Error */
     &--Error {
         color: $Error-25;
-        background-color: $Error-500;
+        @include moi-btn-background($Error-500);
         border: 1px solid $Error-500;
         --moi-focus-outer: #{rgba($Error-700, 0.35)};
         --moi-focus-inner: rgba(255, 255, 255, 0.95);
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Error-100;
+            @include moi-btn-background($Error-100, $reset: true);
             border-color: $Error-100;
             color: $Error-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Error-200;
+            @include moi-btn-background($Error-200, $reset: true);
             border-color: $Error-200;
         }
     }
 
     &--Error--solid {
         color: $Error-700;
-        background-color: $Error-25;
+        @include moi-btn-background($Error-25);
         border: 1px solid $Error-25;
         --moi-focus-outer: #{rgba($Error-700, 0.35)};
         --moi-focus-inner: #{rgba($Error-700, 0.85)};
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Error-100;
+            @include moi-btn-background($Error-100, $reset: true);
             border-color: $Error-100;
             color: $Error-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Error-200;
+            @include moi-btn-background($Error-200, $reset: true);
             border-color: $Error-200;
         }
     }
@@ -424,18 +439,18 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
     &--Error--outline {
         color: $Error-700;
-        background-color: $white-100;
+        @include moi-btn-background($white-100);
         border: 1px solid $Error-700;
         --moi-focus-outer: #{rgba($Error-700, 0.35)};
         --moi-focus-inner: #{rgba($Error-700, 0.85)};
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Error-100;
+            @include moi-btn-background($Error-100, $reset: true);
             color: $Error-600;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Error-200;
+            @include moi-btn-background($Error-200, $reset: true);
         }
     }
 
@@ -445,17 +460,17 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
        Figma Gray-* mapped to the Neutral-* tokens with the same names. */
     &--black {
         color: $Neutral-25;
-        background-color: $Neutral-900;
+        @include moi-btn-background($Neutral-900);
         border: 1px solid $Neutral-900;
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Neutral-800;
+            @include moi-btn-background($Neutral-800, $reset: true);
             border-color: $Neutral-800;
             color: $Neutral-25;
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Neutral-700;
+            @include moi-btn-background($Neutral-700, $reset: true);
             border-color: $Neutral-700;
             color: $Neutral-25;
             opacity: 1;
@@ -464,18 +479,18 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
     &--black--solid {
         color: $Neutral-700;
-        background-color: $Neutral-25;
+        @include moi-btn-background($Neutral-25);
         border: 1px solid $Neutral-25;
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Neutral-600;
+            @include moi-btn-background($Neutral-600, $reset: true);
             border-color: $Neutral-600;
             color: $Neutral-25;
         }
 
         // Figma uses Primary-700 here, which looks like a slip; Neutral-700 keeps the black family.
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Neutral-700;
+            @include moi-btn-background($Neutral-700, $reset: true);
             border-color: $Neutral-700;
             color: $Neutral-25;
         }
@@ -483,22 +498,22 @@ $moi-btn-sizes: ( sm: ( height: 2.125rem, px: 0.5rem, font: 0.75rem, radius: 0.2
 
     &--black--outline {
         color: $Neutral-700;
-        background-color: $white-100;
+        @include moi-btn-background($white-100);
         border: 1px solid $Neutral-700;
 
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-            background: $Neutral-50;
+            @include moi-btn-background($Neutral-50, $reset: true);
         }
 
         &:active:not(:disabled):not([aria-disabled="true"]) {
-            background: $Neutral-100;
+            @include moi-btn-background($Neutral-100, $reset: true);
         }
     }
 
     /* Text — Figma «Style=Text»: no background, no border, Primary-700 label. */
     &--Text {
         color: $Primary-700;
-        background-color: transparent;
+        @include moi-btn-background(transparent);
         border: 1px solid transparent;
     }
 

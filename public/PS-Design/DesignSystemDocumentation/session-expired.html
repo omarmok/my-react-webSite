@@ -243,7 +243,6 @@
     .sub-t { font-size:1.05rem; font-weight:700; margin:22px 0 6px; }
     .swatch { display:inline-block; width:18px; height:18px; border-radius:4px; border:1px solid rgba(0,0,0,.12); vertical-align:middle; }
   </style>
-  <link href="../css/sweet-alert.css" rel="stylesheet" />
   <link href="./css/top-actions.css" rel="stylesheet" />
 </head>
 
@@ -305,7 +304,7 @@ MoiSwal.fire({
   <script src="../libs/sweetalert2/sweetalert2.min.js"></script>
   <script>
     (function () {
-      var MoiSwal = Swal.mixin({ confirmButtonText: "تأكيد", cancelButtonText: "إلغاء", denyButtonText: "عدم الحفظ" });
+            var MoiSwal = Swal.mixin({ confirmButtonText: "تأكيد", cancelButtonText: "إلغاء", denyButtonText: "عدم الحفظ" });
       document.getElementById("swWarn").addEventListener("click", function () {
         MoiSwal.fire({
           title: "ستنتهي جلستك قريبا",

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة أمن — نماذج SweetAlert2</title>
+
+    <!-- Project styles -->
+    <link href="./css/bootstrap-v5.css" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- SweetAlert2 library (local copy: libs/sweetalert2, v11.7.1) -->
+    <link href="./libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="./libs/sweetalert2/sweetalert2.min.js"></script>
+
+    <!-- Project theme for SweetAlert2 (title, buttons, Figma icons) — load after main.css -->
+    
+
+    <!-- Page-only layout for this test page -->
+    <style>
+        body {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            background: #f9fafb;
+        }
+
+        .swal-demo {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 16px 64px;
+        }
+
+        .swal-demo__header {
+            margin-bottom: 24px;
+        }
+
+        .swal-demo__header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .swal-demo__header p {
+            color: #384250;
+            margin: 0;
+        }
+
+        .swal-demo__section {
+            margin-top: 32px;
+        }
+
+        .swal-demo__section h2 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .swal-demo__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .swal-demo__card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .swal-demo__card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .swal-demo__card p {
+            font-size: 0.875rem;
+            color: #384250;
+            margin: 0;
+            flex: 1;
+        }
+
+        .swal-demo__card .moi-btn {
+            align-self: flex-start;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="swal-demo">
+        <header class="swal-demo__header">
+            <h1>نماذج SweetAlert2</h1>
+            <p>صفحة اختبار للتنبيهات والنوافذ باستخدام مكتبة SweetAlert2 من مجلد <code>libs/sweetalert2</code>،
+                مع أزرار وخط واتجاه مشروع منصة أمن. كل النماذج تستخدم الإعداد الموحد <code>MoiSwal</code>.</p>
+        </header>
+
+        <section class="swal-demo__section" aria-labelledby="sec-basic">
+            <h2 id="sec-basic">التنبيهات الأساسية</h2>
+            <div class="swal-demo__grid">
+                <div class="swal-demo__card">
+                    <h3>نجاح</h3>
+                    <p>رسالة بعد تنفيذ إجراء بنجاح.</p>
+                    <button class="moi-btn moi-btn--Primary" data-size="md" data-demo="success">عرض</button>
+                </div>
+                <div class="swal-demo__card">
+                    <h3>خطأ</h3>
+                    <p>رسالة عند فشل الحفظ أو الإرسال.</p>
+                    <button class="moi-btn moi-btn--Primary" data-size="md" data-demo="error">عرض</button>
+                </div>
+                <div class="swal-demo__card">
+                    <h3>تحذير</h3>
+                    <p>تنبيه قبل متابعة إجراء له أثر.</p>
+                    <button class="moi-btn moi-btn--Primary" data-size="md" data-demo="warning">عرض</button>
+                </div>
+                <div class="swal-demo__card">
+                    <h3>معلومة</h3>
+                    <p>رسالة توضيحية للمستخدم.</p>
+                    <button class="moi-btn moi-btn--Primary" data-size="md" data-demo="info">عرض</button>
+                </div>
+                <div class="swal-demo__card">
+                    <h3>سؤال</h3>
+                    <p>سؤال بسيط بزر واحد.</p>
+                    <button class="moi-btn moi-btn--Primary" data-size="md" data-demo="question">عرض</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="swal-demo__section" aria-labelledby="sec-confirm">
+            <h2 id="sec-confirm">التأكيد</h2>
+            <div class="swal-demo__grid">
+                <div class="swal-demo__card">
+                    <h3>تأكيد إجراء</h3>
+                    <p>تأكيد / إلغاء، ثم رسالة بالنتيجة.</p>
+                    <button class="moi-btn moi-btn--Primary" data-size="md" data-demo="confirm">عرض</button>
+                </div>
+                <div class="swal-demo__card">
+                    <h3>تأكيد حذف</h3>
+                    <p>إجراء لا يمكن التراجع عنه، زر التأكيد بلون الخطأ.</p>
+                    <button class="moi-btn moi-btn--Error--outline" data-size="md" data-demo="delete">عرض</button>
+                </div>
+                <div class="swal-demo__card">
+                    <h3>ثلاثة خيارات</h3>
+                    <p>حفظ / عدم الحفظ / إلغاء عند الخروج من نموذج.</p>
+                    <button class="moi-btn moi-btn--Primary" data-size="md" data-demo="deny">عرض</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="swal-demo__section" aria-labelledby="sec-input">
+            <h2 id="sec-input">الإدخال</h2>
+            <div class="swal-demo__grid">
+                <div class="swal-demo__card">
+                    <h3>إدخال نص</h3>
+                    <p>حقل نص مع تحقق قبل الإرسال.</p>
+                    <button class="moi-btn moi-btn--Primary" data-size="md" data-demo="input-text">عرض</button>
+                </div>
+                <div class="swal-demo__card">
+                    <h3>سبب الرفض</h3>
+                    <p>حقل نص طويل إلزامي.</p>
+                    <button class="moi-btn moi-btn--Primary" data-size="md" data-demo="input-textarea">عرض</button>
+                </div>
+                <div class="swal-demo__card">
+                    <h3>اختيار من قائمة</h3>
+                    <p>قائمة منسدلة لاختيار الجهة.</p>
+                    <button class="moi-btn moi-btn--Primary" data-size="md" data-demo="input-select">عرض</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="swal-demo__section" aria-labelledby="sec-more">
+            <h2 id="sec-more">أنماط أخرى</h2>
+            <div class="swal-demo__grid">
+                <div class="swal-demo__card">
+                    <h3>رسالة منبثقة (Toast)</h3>
+                    <p>رسالة صغيرة في أعلى الشاشة تختفي تلقائيًا.</p>
+                    <button class="moi-btn moi-btn--Primary" data-size="md" data-demo="toast">عرض</button>
+                </div>
+                <div class="swal-demo__card">
+                    <h3>إغلاق تلقائي</h3>
+                    <p>رسالة تُغلق بعد 3 ثوانٍ مع شريط تقدم.</p>
+                    <button class="moi-btn moi-btn--Primary" data-size="md" data-demo="timer">عرض</button>
+                </div>
+                <div class="swal-demo__card">
+                    <h3>جاري التحميل</h3>
+                    <p>لودر المشروع داخل التنبيه أثناء إرسال الطلب، ثم رسالة النجاح.</p>
+                    <button class="moi-btn moi-btn--Primary" data-size="md" data-demo="loading">عرض</button>
+                </div>
+                <div class="swal-demo__card">
+                    <h3>محتوى مخصص</h3>
+                    <p>نص HTML داخل التنبيه (رقم مرجعي مثلاً).</p>
+                    <button class="moi-btn moi-btn--Primary" data-size="md" data-demo="html">عرض</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Buttons, title and icons are styled by the SweetAlert2 theme in css/main.css.
+        // This mixin only sets the Arabic button labels.
+        const MoiSwal = Swal.mixin({
+            confirmButtonText: 'تأكيد',
+            cancelButtonText: 'إلغاء',
+            denyButtonText: 'عدم الحفظ'
+        });
+
+        const demos = {
+            success: () => MoiSwal.fire({ icon: 'success', title: 'تم الحفظ بنجاح', text: 'تم حفظ بيانات الحادث.', confirmButtonText: 'حسناً' }),
+            error: () => MoiSwal.fire({ icon: 'error', title: 'تعذّر حفظ البيانات', text: 'حاول مرة أخرى.', confirmButtonText: 'حسناً' }),
+            warning: () => MoiSwal.fire({ icon: 'warning', title: 'بيانات غير مكتملة', text: 'أكمل البيانات الإلزامية قبل الإرسال.', confirmButtonText: 'حسناً' }),
+            info: () => MoiSwal.fire({ icon: 'info', title: 'معلومة', text: 'يمكنك حفظ النموذج واستكماله لاحقاً.', confirmButtonText: 'حسناً' }),
+            question: () => MoiSwal.fire({ icon: 'question', title: 'هل تحتاج مساعدة؟', text: 'راجع دليل الاستخدام من القائمة.', confirmButtonText: 'حسناً' }),
+
+            confirm: async () => {
+                const r = await MoiSwal.fire({ icon: 'question', title: 'إرسال الحادث؟', text: 'لن تتمكن من تعديل البيانات بعد الإرسال.', showCancelButton: true, confirmButtonText: 'إرسال' });
+                if (r.isConfirmed) MoiSwal.fire({ icon: 'success', title: 'تم الإرسال', confirmButtonText: 'حسناً' });
+            },
+            delete: async () => {
+                const r = await MoiSwal.fire({
+                    icon: 'warning', title: 'حذف المركبة؟', text: 'سيتم حذف المركبة وكل بياناتها، ولا يمكن التراجع.',
+                    showCancelButton: true, confirmButtonText: 'حذف', focusCancel: true,
+                    customClass: { popup: 'moi-swal--danger' }
+                });
+                if (r.isConfirmed) MoiSwal.fire({ icon: 'success', title: 'تم الحذف', confirmButtonText: 'حسناً' });
+            },
+            deny: async () => {
+                const r = await MoiSwal.fire({ icon: 'warning', title: 'حفظ التغييرات قبل الخروج؟', showDenyButton: true, showCancelButton: true, confirmButtonText: 'حفظ' });
+                if (r.isConfirmed) MoiSwal.fire({ icon: 'success', title: 'تم الحفظ', confirmButtonText: 'حسناً' });
+                else if (r.isDenied) MoiSwal.fire({ icon: 'info', title: 'لم يتم حفظ التغييرات', confirmButtonText: 'حسناً' });
+            },
+
+            'input-text': async () => {
+                const r = await MoiSwal.fire({
+                    title: 'رقم الحادث', input: 'text', inputLabel: 'أدخل رقم الحادث', inputPlaceholder: 'مثال: 4500200102',
+                    showCancelButton: true, confirmButtonText: 'بحث',
+                    inputValidator: v => !v && 'أدخل رقم الحادث'
+                });
+                if (r.isConfirmed) MoiSwal.fire({ icon: 'info', title: 'البحث عن: ' + r.value, confirmButtonText: 'حسناً' });
+            },
+            'input-textarea': async () => {
+                const r = await MoiSwal.fire({
+                    title: 'رفض الطلب', input: 'textarea', inputLabel: 'سبب الرفض', inputPlaceholder: 'أدخل سبب الرفض',
+                    showCancelButton: true, confirmButtonText: 'رفض',
+                    customClass: { popup: 'moi-swal--danger' },
+                    inputValidator: v => !v && 'أدخل سبب الرفض'
+                });
+                if (r.isConfirmed) MoiSwal.fire({ icon: 'success', title: 'تم رفض الطلب', confirmButtonText: 'حسناً' });
+            },
+            'input-select': async () => {
+                const r = await MoiSwal.fire({
+                    title: 'إسناد الحادث', input: 'select', inputLabel: 'الجهة الأمنية',
+                    inputOptions: { olaya: 'مركز شرطة العليا', malaz: 'مركز شرطة الملز', naseem: 'مركز شرطة النسيم' },
+                    inputPlaceholder: 'اختر الجهة', showCancelButton: true, confirmButtonText: 'إسناد',
+                    inputValidator: v => !v && 'اختر الجهة الأمنية'
+                });
+                if (r.isConfirmed) MoiSwal.fire({ icon: 'success', title: 'تم الإسناد', confirmButtonText: 'حسناً' });
+            },
+
+            toast: () => MoiSwal.fire({ toast: true, position: 'top-end', icon: 'success', title: 'تم حفظ المسودة', showConfirmButton: false, timer: 3000, timerProgressBar: true }),
+            timer: () => MoiSwal.fire({ icon: 'info', title: 'سيتم إغلاق الرسالة تلقائياً', timer: 3000, timerProgressBar: true, showConfirmButton: false }),
+            loading: () => {
+                // Project loader (#loaderDiv) inside the alert
+                MoiSwal.fire({
+                    html: `<div id="loaderDiv" class="mainlooder" aria-hidden="true">
+                               <div class="loader">
+                                   <div class="contain">
+                                       <img src="./images/amn-logo.svg" alt="">
+                                       <h3>جاري تحميل البيانات</h3>
+                                   </div>
+                               </div>
+                           </div>`,
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    customClass: { popup: 'moi-swal--loader' }
+                });
+                setTimeout(() => MoiSwal.fire({ icon: 'success', title: 'تم الإرسال بنجاح', confirmButtonText: 'حسناً' }), 2000);
+            },
+            html: () => MoiSwal.fire({
+                icon: 'success', title: 'تم تسجيل الحادث',
+                html: 'الرقم المرجعي: <strong dir="ltr">4500200102</strong><br>يمكنك متابعة الحادث من سجل الحوادث.',
+                showCancelButton: true, confirmButtonText: 'سجل الحوادث', cancelButtonText: 'إغلاق'
+            })
+        };
+
+        document.querySelectorAll('[data-demo]').forEach(btn => {
+            btn.addEventListener('click', () => demos[btn.dataset.demo]());
+        });
+    </script>
+</body>
+
+</html>

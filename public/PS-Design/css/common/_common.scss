@@ -1122,15 +1122,7 @@ $moi-field-icon-clock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
   }
 }
 
-// sweetAlert
-
-.swal2-title {
-  @include font-sm-500;
-}
-
-.swal2-styled.swal2-confirm {
-  @include font-sm-500;
-}
+// sweetAlert theme: css/components/_sweet-alert.scss
 
 .errorpage {
   svg {
