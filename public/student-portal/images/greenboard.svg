@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="532.949" height="270.021" viewBox="0 0 532.949 270.021">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d59d70"/>
+      <stop offset="1" stop-color="#905e43"/>
+    </linearGradient>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#2aa265"/>
+      <stop offset="1" stop-color="#257143"/>
+    </radialGradient>
+  </defs>
+  <g id="Group_56" data-name="Group 56" transform="translate(8 0.753)">
+    <g id="Group_51" data-name="Group 51" transform="translate(-8 -0.753)">
+      <path id="Rectangle_34" data-name="Rectangle 34" d="M24,0H520.425a12.524,12.524,0,0,1,12.524,12.524v233.5a24,24,0,0,1-24,24H24a24,24,0,0,1-24-24V24A24,24,0,0,1,24,0Z" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+      <path id="Path_181" data-name="Path 181" d="M5.961,0H511.8c3.292,0,5.961,2.385,5.961,5.327V248.92c0,2.942-2.669,5.326-5.96,5.326H5.961c-3.292,0-5.961-2.385-5.961-5.327V5.327C0,2.385,2.669,0,5.961,0Z" transform="translate(7.486 7.887)" fill="url(#radial-gradient)"/>
+    </g>
+    <rect id="Rectangle_40" data-name="Rectangle 40" width="15.847" height="3.241" transform="translate(30.432 258.143)" fill="#fff"/>
+    <rect id="Rectangle_41" data-name="Rectangle 41" width="15.847" height="3.241" transform="translate(55.772 258.143)" fill="#fff"/>
+  </g>
+</svg>

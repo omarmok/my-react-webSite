@@ -46,7 +46,7 @@ const projectTranslations = {
     },
     5: {
       info: "Majmaah University Portal",
-      Issued: "Aug 2019 - Sep 2020",
+      Issued: "2016 - 2019",
       summary:
         "Unified student portal experience combining multiple academic services into one accessible dashboard for daily university tasks.",
       tags: ["University Platform", "Enterprise UX"],
@@ -97,7 +97,7 @@ const projectTranslations = {
     },
     5: {
       info: "بوابة جامعة المجمعة",
-      Issued: "أغسطس 2019 – سبتمبر 2020",
+      Issued: "2016 – 2019",
       summary:
         "تجربة بوابة طلابية موحّدة تجمع عدة خدمات أكاديمية في لوحة واحدة سهلة الوصول للاستخدام اليومي داخل الجامعة.",
       tags: ["منصة جامعية", "UX المؤسسي"],
@@ -674,8 +674,8 @@ export const translations = {
         coverAlt: "Case study cover",
       },
       caseStudyExternal: {
-        text: "View live prototype",
-        aria: "Open the student portal live prototype in a new tab",
+        text: "Try the interactive prototype",
+        aria: "Open the student portal interactive prototype in a new tab",
       },
       moreProjectsTitle: "Additional Projects",
       linkedInButton: {
@@ -690,16 +690,17 @@ export const translations = {
       iframeTitle: "Figma case study",
       back: "Back to Projects",
       backAria: "Back to the projects page",
-      checkWebsite: "View Live Student Portal Prototype",
-      checkWebsiteAria: "View the student portal live prototype",
+      checkWebsite: "Try the Interactive Prototype",
+      checkWebsiteAria: "Open the student portal interactive prototype in a new tab",
       hero: {
         title: "Majmaah University Student Portal",
         subtitle:
           "A unified Arabic student portal — consolidating academic services, schedule access, and university systems into a single daily dashboard.",
         tags: ["UX Case Study", "University Portal", "RTL"],
         meta: [
-          { label: "Role", value: "UX/UI Engineer" },
-          { label: "Timeline", value: "Aug 2019 – Sep 2020" },
+          { label: "Role", value: "Web Designer" },
+          { label: "Timeline", value: "2016 – 2019, during my time at the university" },
+          { label: "Status", value: "Shipped; replaced after I left" },
           { label: "University", value: "Majmaah University, KSA" },
         ],
         imageAlt: "Majmaah University Student Portal dashboard",
@@ -721,7 +722,7 @@ export const translations = {
           "Announcements, events, and news",
           "Personal and academic information via modal overlays",
           "Important contacts and a feedback form",
-          "Single sign-on — one session for everything",
+          "Single sign-on through Nafath — one session for everything",
         ],
       },
       problem: {
@@ -752,7 +753,7 @@ export const translations = {
         label: "Student Persona",
         h2: "Who I was designing for",
         intro:
-          "Every decision in the portal traces back to a clear picture of who actually uses it and when. The profile below represents the typical daily pattern the design was built around.",
+          "This profile comes from two or three interviews with students, so it is a working picture rather than a validated persona. It captures the daily pattern the design was built around.",
         name: "فيصل — Faisal",
         age: "21 · Computer Science · 3rd year",
         desc: "Faisal uses his phone for almost everything. He checks his schedule first thing in the morning, usually before getting out of bed. Between classes he quickly looks up exam dates or checks his GPA. He doesn't browse — he arrives at the portal with a specific task and wants it done in under a minute.",
@@ -1142,7 +1143,7 @@ export const translations = {
         title:
           "Majmaah University Student Portal — UX Case Study | Omar Mokhtar Ayed",
         description:
-          "UX case study: consolidating 7 university systems into a single RTL-first student portal for Majmaah University. Covers research, design decisions, accessibility, and measurable outcomes.",
+          "UX case study: consolidating 7 university systems into a single RTL-first student portal for Majmaah University. Covers the problem, design decisions, RTL, and single sign-on through Nafath.",
         keywords:
           "Majmaah University Portal UX Case Study, University Portal Design Saudi Arabia, RTL UX Design, Student Dashboard Design, Arabic UX Design, Government Education UX, Design Systems Saudi Arabia, مصمم تجربة مستخدم السعودية, نظام تصميم مؤسسي, تصميم الأنظمة الحكومية",
         canonical: `${baseUrl}/casestudy`,
@@ -1559,16 +1560,17 @@ export const translations = {
       iframeTitle: "دراسة حالة في فيجما",
       back: "العودة إلى المشاريع",
       backAria: "الرجوع إلى صفحة المشاريع",
-      checkWebsite: "عرض النموذج الحي لبوابة الطلاب",
-      checkWebsiteAria: "عرض النموذج الحي لبوابة الطالب الداخلية",
+      checkWebsite: "جرّب النموذج التفاعلي",
+      checkWebsiteAria: "فتح النموذج التفاعلي لبوابة الطلاب في تبويب جديد",
       hero: {
         title: "بوابة طلاب جامعة المجمعة",
         subtitle:
           "بوابة أكاديمية موحدة باللغة العربية — تجمع الخدمات الطلابية والجدول الدراسي وأنظمة الجامعة في لوحة تحكم واحدة للاستخدام اليومي.",
         tags: ["دراسة حالة UX", "بوابة جامعية", "RTL"],
         meta: [
-          { label: "الدور", value: "مهندس UX/UI" },
-          { label: "المدة", value: "أغسطس 2019 – سبتمبر 2020" },
+          { label: "الدور", value: "مصمم ويب" },
+          { label: "المدة", value: "2016 – 2019، أثناء عملي في الجامعة" },
+          { label: "الحالة", value: "نُفّذ فعليًا، واستُبدل بعد انتهاء عملي" },
           {
             label: "الجامعة",
             value: "جامعة المجمعة، المملكة العربية السعودية",
@@ -1594,7 +1596,7 @@ export const translations = {
           "الإعلانات والفعاليات والأخبار",
           "المعلومات الشخصية والأكاديمية عبر نوافذ تفاعلية",
           "جهات الاتصال الهامة ونموذج الملاحظات",
-          "دخول موحد — جلسة واحدة لكل شيء",
+          "دخول موحد عبر نفاذ — جلسة واحدة لكل شيء",
         ],
       },
       problem: {
@@ -1625,7 +1627,7 @@ export const translations = {
         label: "شخصية الطالب",
         h2: "من كنت أصمّم له؟",
         intro:
-          "كل قرار في البوابة يعود إلى صورة واضحة عمن يستخدمها فعلًا، ومتى. الملف أدناه يمثّل النمط اليومي الذي بُني التصميم حوله.",
+          "استند هذا الملف إلى مقابلتين أو ثلاث مع الطلاب، فهو صورة عملية وليس شخصية مُتحققًا منها. ويوضح النمط اليومي الذي بُني عليه التصميم.",
         name: "فيصل — Faisal",
         age: "٢١ · علوم الحاسب · السنة الثالثة",
         desc: "يعتمد فيصل على هاتفه في كل شيء تقريبًا. يطّلع على جدوله الدراسي أول شيء في الصباح — في الغالب قبل أن يغادر السرير. في الفترات بين المحاضرات يبحث سريعًا عن مواعيد الاختبارات أو يتحقق من معدله. لا يتصفح البوابة — يفتحها وهو يعرف بالضبط ما يريده، ويريد إنجازه في أقل من دقيقة.",
@@ -2018,7 +2020,7 @@ export const translations = {
       "/casestudy": {
         title: "بوابة طلاب جامعة المجمعة — دراسة حالة UX | عمر مختار عايد",
         description:
-          "دراسة حالة UX: توحيد 7 أنظمة جامعية في بوابة طلابية واحدة بدعم RTL أصلي لجامعة المجمعة. تشمل البحث وقرارات التصميم وإمكانية الوصول والنتائج الفعلية.",
+          "دراسة حالة UX: توحيد 7 أنظمة جامعية في بوابة طلابية واحدة بدعم RTL أصلي لجامعة المجمعة. تشمل المشكلة وقرارات التصميم وRTL والدخول الموحد عبر نفاذ.",
         keywords:
           "دراسة حالة بوابة جامعة المجمعة, تصميم بوابة جامعية السعودية, تصميم RTL UX, تصميم لوحة الطالب, تصميم UX بالعربية, UX التعليم الحكومي, مصمم تجربة مستخدم السعودية, نظام تصميم مؤسسي, تصميم الأنظمة الحكومية, تحول رقمي رؤية 2030",
         canonical: `${baseUrl}/casestudy`,

@@ -11,6 +11,8 @@ const config = {
     '/PS-Design',
     '/PS-Design/*',
     '/PS-Design/**',
+    '/student-portal',
+    '/student-portal/*',
     '/api/*',
     '/About',
     '/Projects',

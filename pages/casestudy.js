@@ -496,12 +496,12 @@ const CaseStudy = () => {
                   {
                     value: "+15",
                     title: "خدمة طلابية",
-                    body: "جُمعت في لوحة تحكم واحدة بدل الوصول إلى خدمات متفرقة.",
+                    body: "أكثر من 15 خدمة أصبحت في مكان واحد للطالب، بعد أن كانت موزعة على 7 أنظمة منفصلة.",
                   },
                   {
                     value: "SSO",
-                    title: "جلسة موحّدة",
-                    body: "وصول إلى الأنظمة الجامعية دون تكرار تسجيل الدخول.",
+                    title: "دخول موحد عبر نفاذ",
+                    body: "يدخل الطالب عبر نفاذ ويتابع كل طلباته من مكان واحد، دون تكرار تسجيل الدخول.",
                   },
                   {
                     value: "RTL",
@@ -513,12 +513,12 @@ const CaseStudy = () => {
                   {
                     value: "15+",
                     title: "Student services",
-                    body: "Consolidated into one dashboard instead of scattered access points.",
+                    body: "More than 15 services now sit in one place for students, instead of being spread across 7 separate systems.",
                   },
                   {
                     value: "SSO",
-                    title: "One authenticated session",
-                    body: "Access to university systems without repeated sign-ins.",
+                    title: "Single sign-on through Nafath",
+                    body: "Students sign in through Nafath and track all their requests in one place, without repeated logins.",
                   },
                   {
                     value: "RTL",
@@ -561,7 +561,9 @@ const CaseStudy = () => {
             alignItems: "center",
           }}>
           <Link
-            href="https://omarmok.github.io/studentCode/"
+            href="/student-portal/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn "
             aria-label={cs.checkWebsiteAria}
             style={{ padding: "8px 18px" }}>

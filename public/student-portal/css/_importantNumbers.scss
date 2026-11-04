@@ -1,0 +1,83 @@
+.importantNumbers{
+    text-align: right;
+    padding: 15px;
+    background: url(../images/supportbg.svg) no-repeat bottom left #fff;
+    h3{
+        color:#030303;
+        font-size: 18px;
+        font-weight: bold;
+    }
+.numbersContainer{
+  
+
+
+  .importantnumberitem{
+    background: whitesmoke;
+    padding: 15px;
+    height: 115px;
+    overflow-y: scroll;
+    border: 1px solid #e6e6e6;
+    h5{
+      font-size: 14px;
+      color: #0b9688;
+      border-bottom: 1px solid #d6d2d2;
+      padding-bottom: 13px;  font-weight: bold;
+    }
+
+  }
+  .slick-slide{
+    padding: 0;
+  }
+  button.slick-prev, button.slick-prev:hover {
+    background: #fe350c;
+  }
+  button.slick-next, button.slick-next:hover {
+  
+    background: #fe350c;
+  }
+  
+    .d-flex{
+        padding: 10px;
+        border-bottom: 1px solid #f1f1f1;
+    }
+    .title{
+        font-size: 12px;
+        color:#030303;
+        margin-left: 20px;
+        font-weight: 600;
+    }
+
+    .description{
+        font-size: 12px;
+        color: #756a6a;
+        font-weight:500;
+    }
+
+
+    }
+
+    /* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #81b400;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fe350c;
+  }
+
+   
+}
+
+

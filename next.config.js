@@ -27,8 +27,23 @@ const nextConfig = {
     turbopackFileSystemCacheForDev: false,
     turbopackFileSystemCacheForBuild: false,
   },
+  async redirects() {
+    return [
+      {
+        source: '/student-portal',
+        destination: '/student-portal/index.html',
+        permanent: false,
+      },
+    ];
+  },
   async headers() {
     return [
+      {
+        source: '/student-portal/:path*',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+        ],
+      },
       {
         source: '/design-system',
         headers: [

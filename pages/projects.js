@@ -16,10 +16,10 @@ const Projects = ({ projects = [] }) => {
   const projectItems = dictionary.data.projects ?? projects;
   const roleByProject = {
     1: isRTL ? "مصمم UI/UX" : "UI/UX Designer",
-    2: isRTL ? "مهندس UX/UI" : "UX/UI Engineer",
+    2: isRTL ? "مصمم ويب" : "Web Designer",
     3: isRTL ? "مصمم UI/UX" : "UI/UX Designer",
     4: isRTL ? "مصمم UI/UX" : "UI/UX Designer",
-    5: isRTL ? "مهندس UX/UI" : "UX/UI Engineer",
+    5: isRTL ? "مصمم ويب" : "Web Designer",
     6: isRTL ? "تصميم واجهات المستخدم" : "UI Design",
     7: isRTL ? "تصميم وتنفيذ الواجهة" : "UI & Front-End",
   };

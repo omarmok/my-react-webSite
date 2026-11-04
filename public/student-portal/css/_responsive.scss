@@ -1,0 +1,128 @@
+@media only screen and (max-width: 1024px) {
+ 
+    body {
+        // background: red  !important;
+        padding: 5px !important;
+
+    }
+    .bg{
+        display: none;
+    }
+    .userarea{
+        .buttons{
+            .green__btn{
+            //    margin-left: 0  !important;
+            }
+            // flex-direction: column;
+        }
+       
+    }
+    .greencircle{
+        display: none;
+    }
+    .orangecircle{
+        display: none;
+    }
+    .apps{
+        flex-direction: column  !important;
+        
+        .title{
+            width: 100%;
+            padding: 5px 30px;
+            border-radius: 0;
+            flex-direction: row;
+            align-items: center;
+            img{
+                // margin: 0;
+            }
+        }
+        .appssliderContainer{
+            width: 100%;
+        }
+    }
+
+
+
+
+   
+    .apps .appsslider .slider__content img {
+        height: 35px;
+        margin: 10px;
+    }
+
+    .news .newsslider .newsItem .content a{
+        font-size: 10px;
+    }
+
+
+    .importantNumbers{
+        background:#fff;
+        .numbersContainer{
+            height: 70px;
+        min-height: 70px; 
+        max-height: 70px; 
+        overflow-x: scroll;
+        overflow-y: hidden;
+        display: flex;
+         flex-wrap: nowrap;
+         .d-flex{
+            flex: 0 0 250px;
+         }
+    }
+    }
+
+    .programs {
+        flex-direction: column  !important;
+        
+        .title{
+            width: 100%;
+            padding: 5px 30px;
+            border-radius: 0;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            img{
+                margin-left: 10px;
+                margin-bottom: 0;
+                height: 45px;
+            }
+        }
+        .progsliderContainer{
+            width: 100%;
+            .slick-slide{
+                img {
+                    height: 80px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+  }
+ 
+
+  @media only screen and (max-width: 600px) {
+    .userarea .buttons .red__btn, .userarea .buttons .green__btn {
+        font-size: 14px;
+    }
+    header .leftarea{
+        font-size: 10px;
+        color: #7A7A7A;
+        img{
+            width: 14px;
+            height: 14px;
+        }
+     .notification{
+        span {
+            width: 5px;
+            height: 5px;
+     }
+    }  }
+
+    .cd-schedule .events .single-event{
+        height: 60px;
+    }
+  }

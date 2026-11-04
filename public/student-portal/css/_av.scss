@@ -1,0 +1,31 @@
+.avertis{
+    text-align: right;
+    padding: 15px;
+    h3{
+        color:#030303;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .carousel-indicators{
+        top: -20px;
+        right: auto;
+        margin-left: 0;
+            li{
+                background-color: #0b9688;
+                height: 5px;
+                cursor: pointer;
+            }
+       
+            .active{
+                background-color: #fe6d0d;
+            }
+    }
+
+img{
+    height: 150px;
+    object-fit: cover;
+}
+
+
+}

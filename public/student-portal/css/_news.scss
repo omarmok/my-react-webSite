@@ -1,0 +1,29 @@
+.news{
+    text-align: right;
+    padding: 15px;
+    h3{
+        color:#030303;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .slick-slide{
+        padding: 0;
+    }
+    .newsslider{
+        .newsItem{
+           .content {
+               display: flex;    align-items: center;
+               a{
+                font-size: 12px;
+                color: #000;
+                text-decoration: underline !important;
+                line-height: 1.9;
+               }
+               img{
+                height: 73px;
+                width: 105px;
+            }
+           }
+        }
+    }
+}
