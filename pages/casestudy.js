@@ -3,130 +3,253 @@ import Image from "next/image";
 import Loader from "../components/Loader";
 import PageHeader from "../components/PageHeader";
 import { useTranslation } from "../src/i18n/useTranslation";
+import originalDashboard from "../public/images/casestudy/original-dashboard.webp";
+import originalSchedule from "../public/images/casestudy/original-schedule.webp";
+import originalAcademic from "../public/images/casestudy/original-academic-modal.webp";
+import originalMobileSchedule from "../public/images/casestudy/original-mobile-schedule.webp";
+import refreshedDashboard from "../public/images/casestudy/refreshed-dashboard.webp";
+import refreshedMobile from "../public/images/casestudy/refreshed-mobile.webp";
 
-/* ── shared values ─────────────────────────────────────────────────────── */
-const purple = "var(--theme-brand-primary)";
-const ink = "var(--theme-text-primary)";
-const inkMid = "var(--theme-text-secondary)";
-const inkLight = "var(--theme-text-muted)";
-const border = "var(--theme-border)";
-const bg = "var(--theme-bg-subtle)";
-const purpleLight = "var(--theme-brand-soft)";
-const surface = "var(--theme-bg-surface)";
-const card = "var(--theme-bg-card)";
+const PROTOTYPE_HREF = "/student-portal/login.html";
 
-/* ── tiny reusable pieces ──────────────────────────────────────────────── */
-const Label = ({ children }) => (
-  <p
-    style={{
-      fontSize: 12,
-      fontWeight: 700,
-      letterSpacing: "0.1em",
-      textTransform: "uppercase",
-      color: purple,
-      margin: "0 0 10px",
-      display: "flex",
-      alignItems: "center",
-      gap: 8,
-    }}>
-    <span
-      style={{
-        width: 20,
-        height: 2,
-        background: purple,
-        display: "inline-block",
-        borderRadius: 2,
-        flexShrink: 0,
-      }}
-    />
-    {children}
-  </p>
-);
+const getCopy = (isRTL) =>
+  isRTL
+    ? {
+        glanceTitle: "دراسة الحالة في 30 ثانية",
+        glance: [
+          ["المشكلة", "كان الطلاب يتنقلون بين 7 أنظمة منفصلة، لكل منها تسجيل دخول، لإنجاز مهام أكاديمية يومية."],
+          ["دوري", "صممت تجربة المستخدم والواجهة، ونفذت الواجهة الأمامية بـ HTML وCSS وJavaScript."],
+          ["ما نُفّذ", "بوابة عربية أولًا فيها جدول زمني، ولوحة واحدة للأنظمة، ودخول موحد عبر نفاذ."],
+          ["النتيجة", "أكثر من 15 خدمة أصبحت في مكان واحد للطالب."],
+        ],
+        problemLabel: "01 — المشكلة",
+        problemTitle: "المشكلة كانت في المسافة بين الأنظمة",
+        problemBody:
+          "لم يكن الخلل في نظام بعينه. كان الطالب يبدأ كل مهمة بالانتقال إلى نظام آخر وتسجيل دخول جديد، والجدول الدراسي، أكثر معلومة يحتاجها يوميًا، يتطلب عدة خطوات. ولم تكن الأنظمة مهيأة للجوال، رغم أن الطلاب يستخدمون هواتفهم بين المحاضرات.",
+        mapBefore: "قبل: 7 أنظمة منفصلة",
+        mapAfter: "بعد: بوابة واحدة",
+        mapAfterBody: "جلسة واحدة عبر نفاذ، وأكثر من 15 خدمة في مكان واحد.",
+        systems: ["النظام الأكاديمي", "بلاك بورد", "المكتبة الرقمية", "حجز الاختبارات", "النقل الجامعي", "البريد الإلكتروني", "اللجان والمجالس"],
+        whoLabel: "02 — المستخدم",
+        whoTitle: "طالب يأتي لمهمة محددة ويريد إنجازها بسرعة",
+        whoBody:
+          "استند هذا الملف إلى مقابلتين أو ثلاث مع الطلاب، فهو صورة عملية وليس شخصية مُتحققًا منها.",
+        personaName: "فيصل",
+        personaMeta: "ملف توضيحي · 21 عامًا · علوم الحاسب · السنة الثالثة",
+        personaBody:
+          "يستخدم هاتفه لكل شيء. يتحقق من جدوله صباحًا، ويبحث بين المحاضرات عن موعد اختبار أو معدله. لا يتصفح البوابة، بل يدخلها لمهمة واحدة.",
+        needsTitle: "ما يحتاجه",
+        needs: ["جدول اليوم دون تنقل", "الوصول إلى بلاك بورد دون تسجيل دخول منفصل", "معرفة المعدل وموعد الاختبار بسرعة"],
+        painsTitle: "ما كان يعطله",
+        pains: ["7 أنظمة بتسجيلات دخول مختلفة", "الإعلانات المهمة تبدو مثل الأخبار العامة", "لا شيء يعمل جيدًا على الهاتف"],
+        decisionsLabel: "03 — القرارات الرئيسية",
+        decisionsTitle: "أربعة قرارات شكّلت التجربة",
+        problemTag: "المشكلة",
+        decisionTag: "القرار",
+        whyTag: "لماذا",
+        decisions: [
+          {
+            title: "جدول يُقرأ بنظرة واحدة",
+            problem: "الجدول هو أكثر معلومة يطلبها الطالب، لكنه كان داخل النظام الأكاديمي بعد عدة خطوات.",
+            decision: "جعلته محور الصفحة: شبكة لخمسة أيام، تظهر فيها كل مادة في وقتها الفعلي، وتتميز المواد بالألوان. ويفتح الضغط على المادة تفاصيلها.",
+            why: "يرى الطالب مدة كل محاضرة والفراغات بينها وشكل يومه، دون قراءة قائمة أو مغادرة الصفحة.",
+            image: originalSchedule,
+            alt: "الجدول الدراسي الأسبوعي في البوابة الأصلية، والمواد موزعة حسب أوقاتها",
+          },
+          {
+            title: "لوحة واحدة لسبعة أنظمة، ودخول واحد",
+            problem: "بلاك بورد والمكتبة وحجز الاختبارات والنقل وغيرها كانت تتطلب تسجيل دخول وتنقلًا منفصلًا.",
+            decision: "جمعت الأنظمة السبعة في لوحة واحدة على الصفحة الرئيسية، خلف دخول موحد عبر نفاذ.",
+            why: "لم تعد المهمة اليومية تبدأ بالانتقال بين الأنظمة، وأصبح الطالب يتابع كل طلباته من مكان واحد.",
+            image: originalDashboard,
+            alt: "الصفحة الرئيسية في البوابة الأصلية، وفيها بطاقة الطالب ولوحة الإعلانات ولوحة الأنظمة",
+          },
+          {
+            title: "المعلومات الشخصية والدراسية على بُعد ضغطة",
+            problem: "يحتاج الطالب إلى رقمه الجامعي أو معدله بسرعة، ولا ينبغي أن يبحث عنهما.",
+            decision: "بطاقة طالب ثابتة فيها زران، للمعلومات الشخصية والدراسية، يفتح كل منهما نافذة مركزة.",
+            why: "تظهر الإجابة بضغطة واحدة من البطاقة التي يراها الطالب كل مرة، دون صفحة ملف شخصي.",
+            image: originalAcademic,
+            alt: "نافذة المعلومات الدراسية في البوابة الأصلية، وفيها الرقم الجامعي والمعدل والمرشد الأكاديمي",
+          },
+          {
+            title: "مصممة للهاتف",
+            problem: "الطلاب على هواتفهم بين المحاضرات، والأنظمة لم تكن مهيأة للشاشات الصغيرة أو اللمس.",
+            decision: "على الجوال يصبح كل يوم صفًا من المحاضرات يُسحب أفقيًا، والبطاقات بمقاس مناسب للمس.",
+            why: "يصل الطالب إلى جدوله بسهولة من هاتفه، بين المحاضرات.",
+            image: originalMobileSchedule,
+            alt: "الجدول الدراسي على الجوال في البوابة الأصلية، وكل يوم في صف مستقل",
+            mobile: true,
+          },
+        ],
+        roleLabel: "04 — دوري",
+        roleTitle: "من هيكلة التجربة إلى تنفيذها",
+        role: [
+          "هيكلة التجربة ولوحة التحكم",
+          "تصميم مسارات الخدمات الأكاديمية",
+          "واجهة متجاوبة بالعربية أولًا",
+          "التعاون مع المحللين والمطورين وفرق ضمان الجودة",
+          "تنفيذ الواجهة بـ HTML وCSS وJavaScript",
+        ],
+        outcomeLabel: "05 — النتيجة",
+        outcomeTitle: "نقطة دخول واحدة للحياة الأكاديمية اليومية",
+        outcomes: [
+          ["+15", "خدمة طلابية", "أصبحت في مكان واحد للطالب، بعد أن كانت موزعة على 7 أنظمة منفصلة."],
+          ["نفاذ", "دخول موحد", "يدخل الطالب عبر نفاذ ويتابع كل طلباته دون تكرار تسجيل الدخول."],
+          ["RTL", "عربية أولًا", "تخطيط واتجاه وتفاعل بُني للاستخدام العربي اليومي."],
+        ],
+        outcomeNote: "نُفّذت البوابة فعليًا أثناء عملي في الجامعة، واستُبدلت بعد انتهاء عملي.",
+        reflectionLabel: "06 — ما تعلمته",
+        reflectionTitle: "ما نجح، وما كنت سأفعله بشكل مختلف",
+        workedTitle: "ما نجح",
+        worked: [
+          "التعامل مع المسافة بين الأنظمة كمشكلة أساسية، بدل إعادة تصميم كل نظام وحده.",
+          "تصميم الواجهة وتنفيذها بنفسي، فوصلت القرارات إلى الطلاب كما صُممت.",
+        ],
+        differentTitle: "ما كنت سأغيره",
+        different: [
+          "كان البحث محدودًا بمقابلتين أو ثلاث. اليوم كنت سأختبر مع عدد أكبر من الطلاب وأقيس زمن المهام قبل الإطلاق وبعده.",
+          "استُبدلت البوابة بعد انتهاء عملي، فلا أملك بيانات استخدام طويلة المدى.",
+        ],
+        refreshLabel: "جرّبها الآن",
+        refreshTitle: "نسخة تفاعلية محدّثة",
+        refreshBody:
+          "الشاشات أعلاه من التصميم الأصلي. وهذه نسخة تفاعلية محدّثة أعدتها لاحقًا ببيانات تجريبية، بحركة أقل وجدول يبدأ بما يحتاجه الطالب اليوم. وهي ليست ما نُفّذ وقتها.",
+        refreshDesktopAlt: "النسخة المحدّثة من البوابة على شاشة كبيرة",
+        refreshMobileAlt: "النسخة المحدّثة من الجدول على الجوال",
+        nextDesign: "استعرض نظام التصميم",
+      }
+    : {
+        glanceTitle: "This case study in 30 seconds",
+        glance: [
+          ["Problem", "Students moved between 7 separate systems, each with its own login, for routine academic tasks."],
+          ["My role", "I designed the UX and UI, and built the front end in HTML, CSS, and JavaScript."],
+          ["What shipped", "An Arabic-first portal with a time-based schedule, one systems panel, and single sign-on through Nafath."],
+          ["Result", "15+ services in one place for students."],
+        ],
+        problemLabel: "01 — Problem",
+        problemTitle: "The problem was the space between systems",
+        problemBody:
+          "No single system was at fault. Every task started with a switch to another system and another login, and the timetable, the thing students checked most, took several steps to reach. The systems weren't built for phones either, even though students used theirs between classes.",
+        mapBefore: "Before: 7 separate systems",
+        mapAfter: "After: one portal",
+        mapAfterBody: "One session through Nafath, and 15+ services in one place.",
+        systems: ["Academic system", "Blackboard", "Digital library", "Exam booking", "Transportation", "Email", "Committees"],
+        whoLabel: "02 — User",
+        whoTitle: "A student with one task who wants it done quickly",
+        whoBody:
+          "This profile comes from two or three interviews with students, so it is a working picture rather than a validated persona.",
+        personaName: "Faisal",
+        personaMeta: "Illustrative profile · 21 · Computer Science · 3rd year",
+        personaBody:
+          "He uses his phone for almost everything. He checks his schedule in the morning, and looks up an exam date or his GPA between classes. He doesn't browse the portal; he arrives with one task.",
+        needsTitle: "What he needs",
+        needs: ["Today's schedule without navigating", "Blackboard without a separate login", "His GPA and exam date, quickly"],
+        painsTitle: "What slowed him down",
+        pains: ["7 systems with different logins", "Important notices looked like general news", "Nothing worked well on his phone"],
+        decisionsLabel: "03 — Key decisions",
+        decisionsTitle: "Four decisions that shaped the experience",
+        problemTag: "Problem",
+        decisionTag: "Decision",
+        whyTag: "Why",
+        decisions: [
+          {
+            title: "A schedule students can read at a glance",
+            problem: "The timetable was the most-checked information in a student's day, but it sat several steps inside the academic system.",
+            decision: "I made it the center of the page: a five-day grid where each course sits at its real time, with color separating courses. Selecting a course opens its details.",
+            why: "Students see duration, gaps, and the shape of their day without reading a list or leaving the page.",
+            image: originalSchedule,
+            alt: "The weekly schedule in the original portal, with courses placed by their real times",
+          },
+          {
+            title: "One panel for seven systems, one sign-in",
+            problem: "Blackboard, the library, exam booking, transportation, and others each needed their own login and navigation.",
+            decision: "All seven systems sit in one panel on the dashboard, behind single sign-on through Nafath.",
+            why: "A routine task no longer starts with a switch between systems, and students follow all their requests from one place.",
+            image: originalDashboard,
+            alt: "The original portal dashboard with the student card, announcement board, and systems panel",
+          },
+          {
+            title: "Personal and academic details one tap away",
+            problem: "Students need a student ID or GPA quickly, and shouldn't have to look for them.",
+            decision: "A persistent student card holds two buttons, personal and academic, each opening a focused modal.",
+            why: "The answer appears in one tap from the card students see every visit, with no profile page.",
+            image: originalAcademic,
+            alt: "The academic details modal in the original portal, showing student ID, GPA, and advisor",
+          },
+          {
+            title: "Built for the phone",
+            problem: "Students were on their phones between classes, and the systems weren't built for small screens or touch.",
+            decision: "On mobile, each day becomes a row of classes students swipe through, with cards sized for touch.",
+            why: "Students can reach their schedule easily from their phone, between classes.",
+            image: originalMobileSchedule,
+            alt: "The mobile schedule in the original portal, with each day in its own row",
+            mobile: true,
+          },
+        ],
+        roleLabel: "04 — My role",
+        roleTitle: "From experience structure to implementation",
+        role: [
+          "Experience and dashboard structure",
+          "Academic service journey design",
+          "Responsive, Arabic-first interface",
+          "Collaboration with analysts, developers, and QA",
+          "Front-end implementation in HTML, CSS, and JavaScript",
+        ],
+        outcomeLabel: "05 — Outcome",
+        outcomeTitle: "One entry point for daily academic life",
+        outcomes: [
+          ["15+", "Student services", "Now in one place for students, instead of spread across 7 separate systems."],
+          ["Nafath", "Single sign-on", "Students sign in through Nafath and track all their requests without repeated logins."],
+          ["RTL", "Arabic-first", "Layout, direction, and interaction built for daily Arabic use."],
+        ],
+        outcomeNote: "The portal shipped during my time at the university and was replaced after I left.",
+        reflectionLabel: "06 — What I learned",
+        reflectionTitle: "What worked, and what I'd do differently",
+        workedTitle: "What worked",
+        worked: [
+          "Treating the space between systems as the core problem, instead of redesigning each system on its own.",
+          "Designing and building the interface myself, so decisions reached students as designed.",
+        ],
+        differentTitle: "What I'd change",
+        different: [
+          "Research was limited to two or three interviews. Today I would test with more students and measure task time before and after launch.",
+          "The portal was replaced after I left, so I have no long-term usage data.",
+        ],
+        refreshLabel: "Try it now",
+        refreshTitle: "A refreshed interactive demo",
+        refreshBody:
+          "The screens above are from the original design. This is an interactive demo I refreshed later with sample data, with less motion and a schedule that opens on what a student needs today. It is not what shipped at the time.",
+        refreshDesktopAlt: "The refreshed portal on a large screen",
+        refreshMobileAlt: "The refreshed schedule on a phone",
+        nextDesign: "Explore the Design System",
+      };
 
-const H2 = ({ children }) => (
-  <h2
-    style={{
-      fontSize: "clamp(1.5rem, 3vw, 2rem)",
-      fontWeight: 800,
-      color: ink,
-      margin: "0 0 20px",
-      lineHeight: 1.25,
-    }}>
-    {children}
-  </h2>
-);
+const Label = ({ children }) => <p className="cs-label">{children}</p>;
 
-const Body = ({ children, style = {} }) => (
-  <p
-    style={{
-      fontSize: 16,
-      color: inkMid,
-      lineHeight: 1.8,
-      margin: "0 0 16px",
-      maxWidth: "none",
-      ...style,
-    }}>
-    {children}
-  </p>
-);
-
-const Rule = () => (
-  <div
-    style={{
-      width: 40,
-      height: 3,
-      background: purple,
-      borderRadius: 3,
-      margin: "0 0 28px",
-    }}
-  />
-);
-
-const Wrap = ({ children, bg: background = surface, style = {} }) => (
-  <section style={{ background: background, padding: "48px 0", ...style }}>
-    <div className="site-container">{children}</div>
+const Section = ({ tone = "surface", label, title, children }) => (
+  <section className={`cs-section cs-section--${tone}`}>
+    <div className="site-container">
+      <Label>{label}</Label>
+      <h2 className="cs-title">{title}</h2>
+      {children}
+    </div>
   </section>
 );
 
-const Dot = () => (
-  <span
-    style={{
-      display: "inline-block",
-      width: 6,
-      height: 6,
-      borderRadius: "50%",
-      background: purple,
-      flexShrink: 0,
-      marginTop: 7,
-    }}
-  />
+const List = ({ items }) => (
+  <ul className="cs-list">
+    {items.map((item) => (
+      <li key={item}>{item}</li>
+    ))}
+  </ul>
 );
 
-const BulletItem = ({ children }) => (
-  <li
-    style={{
-      display: "flex",
-      gap: 12,
-      alignItems: "flex-start",
-      fontSize: 15,
-      color: inkMid,
-      lineHeight: 1.7,
-      marginBottom: 10,
-      listStyle: "none",
-      padding: 0,
-    }}>
-    <Dot />
-    <span>{children}</span>
-  </li>
-);
-
-/* ──────────────────────────────────────────────────────────────────────────
-   MAIN
-────────────────────────────────────────────────────────────────────────── */
 const CaseStudy = () => {
   const { dictionary, language } = useTranslation();
   const cs = dictionary.caseStudyPage;
   const isRTL = language === "ar";
+  const copy = getCopy(isRTL);
 
   return (
     <div className="page-container" dir={isRTL ? "rtl" : "ltr"}>
@@ -139,7 +262,6 @@ const CaseStudy = () => {
         meta={cs.hero.meta}
       />
 
-      {/* ── HERO IMAGE ───────────────────────────────────────────────────── */}
       <div className="case-study-hero-image-wrap">
         <div className="case-study-hero-image">
           <Image
@@ -153,431 +275,165 @@ const CaseStudy = () => {
         </div>
       </div>
 
-      {/* ── OVERVIEW ─────────────────────────────────────────────────────── */}
-      <Wrap>
-        <Label>{isRTL ? "01 — السياق" : "01 — Context"}</Label>
-        <H2>{cs.overview.h2}</H2>
-        <Rule />
+      <section className="cs-glance" aria-labelledby="cs-glance-title">
+        <div className="site-container">
+          <h2 id="cs-glance-title" className="cs-glance__title">
+            {copy.glanceTitle}
+          </h2>
+          <dl className="cs-glance__grid">
+            {copy.glance.map(([term, detail]) => (
+              <div key={term}>
+                <dt>{term}</dt>
+                <dd>{detail}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
 
-        <div className="case-study-overview-grid">
+      <Section label={copy.problemLabel} title={copy.problemTitle}>
+        <p className="cs-body">{copy.problemBody}</p>
+        <div className="cs-map">
           <div>
-            <Body>{cs.overview.body1}</Body>
-            <Body>{cs.overview.body2}</Body>
-            <Body style={{ marginBottom: 0 }}>{cs.overview.body3}</Body>
-          </div>
-
-          <div
-            style={{
-              background: bg,
-              border: `1px solid ${border}`,
-              borderRadius: 14,
-              padding: 24,
-            }}>
-            <div
-              style={{
-                fontWeight: 700,
-                fontSize: 13,
-                color: ink,
-                marginBottom: 16,
-                textTransform: "uppercase",
-                letterSpacing: "0.06em",
-              }}>
-              {cs.overview.sidebarTitle}
-            </div>
-            <ul style={{ margin: 0, padding: 0 }}>
-              {cs.overview.bullets.map((item) => (
-                <BulletItem key={item}>{item}</BulletItem>
+            <h3>{copy.mapBefore}</h3>
+            <ul>
+              {copy.systems.map((system) => (
+                <li key={system}>{system}</li>
               ))}
             </ul>
           </div>
-        </div>
-      </Wrap>
-
-      {/* ── THE PROBLEM ──────────────────────────────────────────────────── */}
-      <Wrap bg={bg}>
-        <Label>{isRTL ? "02 — التحدي" : "02 — Challenge"}</Label>
-        <H2>{cs.problem.h2}</H2>
-        <Rule />
-
-        <Body style={{ maxWidth: "60ch" }}>{cs.problem.intro}</Body>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: 16,
-            marginTop: 8,
-          }}>
-          {cs.problem.cards.map(({ title, body }) => (
-            <div
-              key={title}
-              style={{
-                background: card,
-                border: `1px solid ${border}`,
-                borderRadius: 12,
-                padding: "20px 18px",
-                borderTop: `3px solid ${purple}`,
-              }}>
-              <div
-                style={{
-                  fontWeight: 700,
-                  fontSize: 15,
-                  color: ink,
-                  marginBottom: 8,
-                }}>
-                {title}
-              </div>
-              <div style={{ fontSize: 14, color: inkMid, lineHeight: 1.7 }}>
-                {body}
-              </div>
-            </div>
-          ))}
-        </div>
-      </Wrap>
-
-      {/* ── MY ROLE ──────────────────────────────────────────────────────── */}
-      <Wrap>
-        <Label>{isRTL ? "03 — دوري" : "03 — My Role"}</Label>
-        <H2>
-          {isRTL
-            ? "ملكية التصميم من الهيكلة إلى التنفيذ"
-            : "Design ownership from structure to implementation"}
-        </H2>
-        <Rule />
-        <Body style={{ maxWidth: "68ch" }}>
-          {isRTL
-            ? "كنت مسؤولًا عن تصميم تجربة المستخدم وتنفيذ الواجهة الأمامية، مع تحويل احتياجات الطلاب وأصحاب المصلحة إلى بنية واضحة ومكونات متجاوبة قابلة للتنفيذ."
-            : "I owned the UX design and front-end implementation, translating student and stakeholder needs into a clear structure and responsive, buildable interface components."}
-        </Body>
-        <ul className="case-study-role-list">
-          {(
-            isRTL
-              ? [
-                  "هندسة التجربة وبنية لوحة التحكم",
-                  "تصميم مسارات الخدمات الأكاديمية",
-                  "تصميم RTL متجاوب للويب والجوال",
-                  "التعاون مع المحللين والمطورين وفرق ضمان الجودة",
-                  "تنفيذ الواجهة باستخدام HTML وCSS وJavaScript",
-                ]
-              : [
-                  "Experience architecture and dashboard structure",
-                  "Academic service journey design",
-                  "Responsive, RTL-first interface design",
-                  "Collaboration with analysts, developers, and QA",
-                  "Front-end implementation in HTML, CSS, and JavaScript",
-                ]
-          ).map((item) => (
-            <BulletItem key={item}>{item}</BulletItem>
-          ))}
-        </ul>
-      </Wrap>
-
-      {/* ── STUDENT PERSONA ──────────────────────────────────────────────── */}
-      <Wrap bg={bg}>
-        <Label>{isRTL ? "04 — ما اكتشفته" : "04 — What I Found"}</Label>
-        <H2>{cs.persona.h2}</H2>
-        <Rule />
-
-        <Body style={{ maxWidth: "60ch", marginBottom: 24 }}>
-          {cs.persona.intro}
-        </Body>
-
-        <div className="case-study-persona-card">
-          <div className="case-study-persona-avatar">
-            👨‍🎓
+          <span className="cs-map__arrow" aria-hidden="true">
+            {isRTL ? "←" : "→"}
+          </span>
+          <div className="cs-map__after">
+            <h3>{copy.mapAfter}</h3>
+            <p>{copy.mapAfterBody}</p>
           </div>
+        </div>
+      </Section>
 
+      <Section tone="subtle" label={copy.whoLabel} title={copy.whoTitle}>
+        <p className="cs-body">{copy.whoBody}</p>
+        <div className="cs-persona">
+          <div className="cs-persona__intro">
+            <h3>{copy.personaName}</h3>
+            <p className="cs-persona__meta">{copy.personaMeta}</p>
+            <p>{copy.personaBody}</p>
+          </div>
           <div>
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "baseline",
-                gap: 12,
-                marginBottom: 6,
-              }}>
-              <span style={{ fontWeight: 800, fontSize: 20, color: ink }}>
-                {cs.persona.name}
-              </span>
-              <span style={{ fontSize: 14, color: inkLight }}>
-                {cs.persona.age}
-              </span>
-            </div>
-
-            <p
-              style={{
-                fontSize: 14,
-                color: inkMid,
-                lineHeight: 1.75,
-                margin: "0 0 20px",
-                maxWidth: "none",
-              }}>
-              {cs.persona.desc}
-            </p>
-
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-                gap: 12,
-              }}>
-              {[
-                { heading: cs.persona.needsHeading, items: cs.persona.needs },
-                { heading: cs.persona.slowedHeading, items: cs.persona.slowed },
-              ].map(({ heading, items }) => (
-                <div key={heading}>
-                  <div
-                    style={{
-                      fontSize: 12,
-                      fontWeight: 700,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.07em",
-                      color: purple,
-                      marginBottom: 10,
-                    }}>
-                    {heading}
-                  </div>
-                  <ul style={{ margin: 0, padding: 0 }}>
-                    {items.map((item) => (
-                      <li
-                        key={item}
-                        style={{
-                          display: "flex",
-                          gap: 10,
-                          fontSize: 13,
-                          color: inkMid,
-                          lineHeight: 1.6,
-                          marginBottom: 8,
-                          listStyle: "none",
-                          padding: 0,
-                          alignItems: "flex-start",
-                        }}>
-                        <span
-                          style={{
-                            color: purple,
-                            flexShrink: 0,
-                            marginTop: 1,
-                          }}>
-                          ›
-                        </span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            <h4>{copy.needsTitle}</h4>
+            <List items={copy.needs} />
+          </div>
+          <div>
+            <h4>{copy.painsTitle}</h4>
+            <List items={copy.pains} />
           </div>
         </div>
-      </Wrap>
+      </Section>
 
-      {/* ── UX DECISIONS ─────────────────────────────────────────────────── */}
-      <Wrap>
-        <Label>{isRTL ? "05 — القرارات الرئيسية" : "05 — Key Decisions"}</Label>
-        <H2>{cs.uxDecisions.h2}</H2>
-        <Rule />
-
-        <Body style={{ maxWidth: "60ch", marginBottom: 8 }}>
-          {cs.uxDecisions.intro}
-        </Body>
-
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          {cs.uxDecisions.items.map(({ title, body }, i) => (
-            <div
-              key={title}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "auto 1fr",
-                gap: 20,
-                padding: "24px 0",
-                borderBottom:
-                  i < cs.uxDecisions.items.length - 1
-                    ? `1px solid ${border}`
-                    : "none",
-                alignItems: "flex-start",
-              }}>
-              <div
-                style={{
-                  width: 32,
-                  height: 32,
-                  borderRadius: 8,
-                  background: purpleLight,
-                  color: purple,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 13,
-                  fontWeight: 800,
-                  flexShrink: 0,
-                }}>
-                {String(i + 1).padStart(2, "0")}
+      <Section label={copy.decisionsLabel} title={copy.decisionsTitle}>
+        <div className="cs-decisions">
+          {copy.decisions.map((item, index) => (
+            <article
+              className={`cs-decision${item.mobile ? " cs-decision--mobile" : ""}`}
+              key={item.title}>
+              <div className="cs-decision__text">
+                <span className="cs-decision__number">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3>{item.title}</h3>
+                <dl>
+                  <dt>{copy.problemTag}</dt>
+                  <dd>{item.problem}</dd>
+                  <dt>{copy.decisionTag}</dt>
+                  <dd>{item.decision}</dd>
+                  <dt>{copy.whyTag}</dt>
+                  <dd>{item.why}</dd>
+                </dl>
               </div>
-              <div>
-                <div
-                  style={{
-                    fontWeight: 700,
-                    fontSize: 16,
-                    color: ink,
-                    marginBottom: 8,
-                  }}>
-                  {title}
-                </div>
-                <div style={{ fontSize: 15, color: inkMid, lineHeight: 1.75 }}>
-                  {body}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Wrap>
-
-      {/* ── KEY FEATURES ─────────────────────────────────────────────────── */}
-      <Wrap bg={bg}>
-        <Label>{isRTL ? "06 — التصميم والتنفيذ" : "06 — Design / Execution"}</Label>
-        <H2>{cs.features.h2}</H2>
-        <Rule />
-
-        <Body style={{ maxWidth: "60ch" }}>{cs.features.intro}</Body>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: 12,
-            marginTop: 8,
-          }}>
-          {cs.features.items.map(({ icon, name, note }) => (
-            <div
-              key={name}
-              style={{
-                background: bg,
-                border: `1px solid ${border}`,
-                borderRadius: 10,
-                padding: "14px 16px",
-                display: "flex",
-                gap: 12,
-                alignItems: "flex-start",
-              }}>
-              <span style={{ fontSize: 20, flexShrink: 0, lineHeight: 1.4 }}>
-                {icon}
-              </span>
-              <div>
-                <div style={{ fontWeight: 700, fontSize: 14, color: ink }}>
-                  {name}
-                </div>
-                <div
-                  style={{
-                    fontSize: 12,
-                    color: inkLight,
-                    marginTop: 2,
-                    lineHeight: 1.5,
-                  }}>
-                  {note}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Wrap>
-
-      {/* ── OUTCOME ──────────────────────────────────────────────────────── */}
-      <Wrap>
-        <Label>{isRTL ? "07 — النتيجة والأثر" : "07 — Outcome / Impact"}</Label>
-        <H2>
-          {isRTL
-            ? "نقطة دخول واحدة للحياة الأكاديمية اليومية"
-            : "One entry point for daily academic life"}
-        </H2>
-        <Rule />
-        <div className="case-study-outcome-grid">
-          {(
-            isRTL
-              ? [
-                  {
-                    value: "+15",
-                    title: "خدمة طلابية",
-                    body: "أكثر من 15 خدمة أصبحت في مكان واحد للطالب، بعد أن كانت موزعة على 7 أنظمة منفصلة.",
-                  },
-                  {
-                    value: "SSO",
-                    title: "دخول موحد عبر نفاذ",
-                    body: "يدخل الطالب عبر نفاذ ويتابع كل طلباته من مكان واحد، دون تكرار تسجيل الدخول.",
-                  },
-                  {
-                    value: "RTL",
-                    title: "مصمم للعربية أولًا",
-                    body: "تخطيط واتجاه وتفاعل متجاوب بُني للاستخدام العربي اليومي.",
-                  },
-                ]
-              : [
-                  {
-                    value: "15+",
-                    title: "Student services",
-                    body: "More than 15 services now sit in one place for students, instead of being spread across 7 separate systems.",
-                  },
-                  {
-                    value: "SSO",
-                    title: "Single sign-on through Nafath",
-                    body: "Students sign in through Nafath and track all their requests in one place, without repeated logins.",
-                  },
-                  {
-                    value: "RTL",
-                    title: "Arabic-first delivery",
-                    body: "Responsive layout, direction, and interaction built for daily Arabic use.",
-                  },
-                ]
-          ).map((item) => (
-            <article key={item.title}>
-              <strong>{item.value}</strong>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
+              <figure className="cs-decision__media">
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  sizes="(min-width: 992px) 50vw, 100vw"
+                  style={{ width: "100%", height: "auto", display: "block" }}
+                />
+              </figure>
             </article>
           ))}
         </div>
-      </Wrap>
+      </Section>
 
-      {/* ── REFLECTION ───────────────────────────────────────────────────── */}
-      <Wrap bg={bg}>
-        <Label>{isRTL ? "08 — ما يوضحه هذا المشروع" : "08 — Reflection"}</Label>
-        <H2>
-          {isRTL ? "ما يوضحه هذا المشروع" : "What this project demonstrates"}
-        </H2>
-        <Rule />
-        <blockquote className="case-study-reflection">
-          {isRTL
-            ? "يوضح هذا المشروع نهجي في تحويل منظومة خدمات معقدة إلى تجربة واحدة واضحة، مع ربط بنية المعلومات وتصميم RTL والتنفيذ الأمامي في قرار منتج متماسك."
-            : "This project demonstrates how I turn a complex service ecosystem into one coherent experience—connecting information architecture, RTL product design, and front-end implementation in the same delivery decision."}
-        </blockquote>
-      </Wrap>
+      <Section tone="subtle" label={copy.roleLabel} title={copy.roleTitle}>
+        <List items={copy.role} />
+      </Section>
 
-      {/* ── BOTTOM — CHECK WEBSITE ───────────────────────────────────────── */}
-      <div style={{ padding: "28px 0 44px" }}>
-        <div
-          className="site-container"
-          style={{
-            display: "flex",
-            gap: 12,
-            flexWrap: "wrap",
-            alignItems: "center",
-          }}>
+      <Section label={copy.outcomeLabel} title={copy.outcomeTitle}>
+        <div className="case-study-outcome-grid">
+          {copy.outcomes.map(([value, title, body]) => (
+            <article key={title}>
+              <strong>{value}</strong>
+              <h3>{title}</h3>
+              <p>{body}</p>
+            </article>
+          ))}
+        </div>
+        <p className="cs-note">{copy.outcomeNote}</p>
+      </Section>
+
+      <Section
+        tone="subtle"
+        label={copy.reflectionLabel}
+        title={copy.reflectionTitle}>
+        <div className="cs-reflection">
+          <div>
+            <h3>{copy.workedTitle}</h3>
+            <List items={copy.worked} />
+          </div>
+          <div>
+            <h3>{copy.differentTitle}</h3>
+            <List items={copy.different} />
+          </div>
+        </div>
+      </Section>
+
+      <Section label={copy.refreshLabel} title={copy.refreshTitle}>
+        <p className="cs-body">{copy.refreshBody}</p>
+        <div className="cs-refresh">
+          <figure>
+            <Image
+              src={refreshedDashboard}
+              alt={copy.refreshDesktopAlt}
+              sizes="(min-width: 992px) 70vw, 100vw"
+              style={{ width: "100%", height: "auto", display: "block" }}
+            />
+          </figure>
+          <figure>
+            <Image
+              src={refreshedMobile}
+              alt={copy.refreshMobileAlt}
+              sizes="(min-width: 992px) 24vw, 60vw"
+              style={{ width: "100%", height: "auto", display: "block" }}
+            />
+          </figure>
+        </div>
+        <div className="cs-actions">
           <Link
-            href="/student-portal/index.html"
+            href={PROTOTYPE_HREF}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn "
-            aria-label={cs.checkWebsiteAria}
-            style={{ padding: "8px 18px" }}>
+            className="btn"
+            aria-label={cs.checkWebsiteAria}>
             {cs.checkWebsite}
           </Link>
-          <Link
-            href="/projects"
-            className="btn outlinebtn"
-            aria-label={cs.backAria}
-            style={{ padding: "8px 18px" }}>
+          <Link href="/design-system" className="btn outlinebtn">
+            {copy.nextDesign}
+          </Link>
+          <Link href="/projects" className="btn outlinebtn" aria-label={cs.backAria}>
             {cs.back}
           </Link>
         </div>
-      </div>
+      </Section>
     </div>
   );
 };

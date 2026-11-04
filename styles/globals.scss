@@ -9038,3 +9038,348 @@ html[data-theme="dark"] .mobile-app-nav__utility-icon {
     padding: 20px 18px;
   }
 }
+
+// ─── Case study: summary, system map, decisions, and refreshed demo ──────────
+
+.cs-section {
+  padding: clamp(44px, 6vw, 72px) 0;
+  background: var(--theme-bg-surface);
+}
+
+.cs-section--subtle {
+  background: var(--theme-bg-subtle);
+}
+
+.cs-label {
+  margin: 0 0 10px;
+  color: var(--theme-brand-primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.cs-title {
+  max-width: 24em;
+  margin: 0 0 18px;
+  color: var(--theme-text-primary);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.cs-body {
+  max-width: 70ch;
+  margin: 0 0 26px;
+  color: var(--theme-text-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.cs-list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  list-style: none;
+}
+
+.cs-list li {
+  position: relative;
+  padding-inline-start: 16px;
+  color: var(--theme-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.cs-list li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.68em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--theme-brand-primary);
+}
+
+.cs-glance {
+  padding: 36px 0;
+  background: var(--theme-bg-subtle);
+  border-bottom: 1px solid var(--theme-border);
+}
+
+.cs-glance__title {
+  margin: 0 0 16px;
+  color: var(--theme-text-primary);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.cs-glance__grid {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 28px;
+}
+
+.cs-glance__grid > div {
+  padding-top: 12px;
+  border-top: 2px solid var(--theme-brand-primary);
+}
+
+.cs-glance__grid dt {
+  margin-bottom: 4px;
+  color: var(--theme-brand-primary);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.cs-glance__grid dd {
+  margin: 0;
+  color: var(--theme-text-primary);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.cs-map {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) auto minmax(0, 1fr);
+  gap: 20px;
+  align-items: center;
+}
+
+.cs-map > div {
+  height: 100%;
+  padding: 22px;
+  border: 1px solid var(--theme-border);
+  border-radius: 14px;
+  background: var(--theme-bg-card);
+}
+
+.cs-map h3 {
+  margin: 0 0 12px;
+  color: var(--theme-text-primary);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.cs-map ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+
+.cs-map li {
+  padding: 6px 12px;
+  border: 1px dashed var(--theme-border-strong);
+  border-radius: 8px;
+  color: var(--theme-text-secondary);
+  font-size: 0.85rem;
+  font-weight: 650;
+}
+
+.cs-map__arrow {
+  color: var(--theme-brand-primary);
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.cs-map .cs-map__after {
+  border-color: var(--theme-brand-primary);
+  background: var(--theme-brand-soft);
+}
+
+.cs-map__after p {
+  margin: 0;
+  color: var(--theme-text-primary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.cs-persona {
+  padding: 26px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 28px;
+  border: 1px solid var(--theme-border);
+  border-radius: 14px;
+  background: var(--theme-bg-card);
+}
+
+.cs-persona h3 {
+  margin: 0;
+  color: var(--theme-text-primary);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.cs-persona h4 {
+  margin: 0 0 10px;
+  color: var(--theme-brand-primary);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.cs-persona p {
+  margin: 0;
+  color: var(--theme-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.cs-persona .cs-persona__meta {
+  margin: 2px 0 10px;
+  color: var(--theme-text-muted);
+  font-size: 0.82rem;
+}
+
+.cs-decisions {
+  display: grid;
+  gap: clamp(36px, 5vw, 60px);
+  margin-top: 12px;
+}
+
+.cs-decision {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+}
+
+.cs-decision--mobile {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 280px);
+  justify-content: space-between;
+}
+
+.cs-decision__number {
+  color: var(--theme-brand-primary);
+  font-size: 0.8rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.cs-decision h3 {
+  margin: 6px 0 14px;
+  color: var(--theme-text-primary);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.cs-decision dl {
+  margin: 0;
+}
+
+.cs-decision dt {
+  color: var(--theme-text-primary);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.cs-decision dd {
+  margin: 2px 0 12px;
+  color: var(--theme-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.cs-decision dd:last-child {
+  margin-bottom: 0;
+}
+
+.cs-decision__media,
+.cs-refresh figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--theme-border);
+  border-radius: 12px;
+  background: var(--theme-bg-card);
+  box-shadow: var(--theme-shadow-card);
+}
+
+.cs-note {
+  margin: 20px 0 0;
+  color: var(--theme-text-muted);
+  font-size: 0.88rem;
+}
+
+.cs-reflection {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px;
+}
+
+.cs-reflection h3 {
+  margin: 0 0 12px;
+  color: var(--theme-text-primary);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.cs-refresh {
+  display: grid;
+  grid-template-columns: minmax(0, 2.6fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.cs-actions {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 991px) {
+  .cs-glance__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 24px;
+  }
+
+  .cs-persona {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cs-persona__intro {
+    grid-column: 1 / -1;
+  }
+
+  .cs-decision,
+  .cs-decision--mobile {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-decision--mobile .cs-decision__media {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cs-glance__grid,
+  .cs-persona,
+  .cs-reflection,
+  .cs-map {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-map__arrow {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+
+  [dir="rtl"] .cs-map__arrow {
+    transform: rotate(-90deg);
+  }
+
+  .cs-refresh {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-refresh figure:last-child {
+    max-width: 280px;
+  }
+}

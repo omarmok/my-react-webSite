@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 	<meta charset="UTF-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -11,14 +11,15 @@
 	<link href="./css/all.css" rel="stylesheet">
 	<link href="./css/style.css" rel="stylesheet">
 	<link href="./css/login.css" rel="stylesheet">
-	<title>البوابه الداخلية للطلاب</title>
+	<link href="./css/calm.css" rel="stylesheet">
+	<title>تسجيل الدخول | البوابة الداخلية للطلاب</title>
 </head>
 <body>
 	<div class="main-web">
 		<div class="container " >
-			<a href="https://mu.edu.sa/"><img  alt="test"  src="./images/logo.png" style="height: 80px; margin: 0 auto; display: block; margin-bottom: 30px;"></a>
+			<a href="https://mu.edu.sa/"><img  alt="شعار جامعة المجمعة"  src="./images/logo.png" style="height: 80px; margin: 0 auto; display: block; margin-bottom: 30px;"></a>
 			<main class="body-login" role="main">
-				<form action="" class="b-form-tag" method="post">
+				<form action="./index.html" class="b-form-tag" method="get">
 					<div class="page-login">
 						<div class="">
 							<div class="desc-logo">
@@ -26,7 +27,11 @@
 							</div>
 							<div class="main__login">
 								<div class="login_in_container" >
-                                    <label>رقم الهوية</label> <input class="form-control w-100 mb-4" name="NationalId" type="text">
+                                    <div class="demo-notice" role="note">
+										<strong>نسخة توضيحية للتجربة</strong>
+										<span>لا تحتاج رقم هوية أو كلمة مرور. اضغط «تسجيل الدخول» مباشرة، وستظهر بيانات طالب تجريبية. في البوابة الفعلية كان الدخول عبر النفاذ الوطني الموحد.</span>
+									</div>
+                                    <label for="demoNationalId">رقم الهوية <span class="optional">(اختياري هنا)</span></label> <input class="form-control w-100 mb-4" id="demoNationalId" type="text" inputmode="numeric" autocomplete="off" placeholder="يمكنك تركه فارغًا">
                                      <a  href="./index.html" class="btn btn-primary btn-lg btn-block" style="    line-height: 40px;">
 								تسجيل الدخول
 									 </a>

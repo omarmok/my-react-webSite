@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 	<meta charset="UTF-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -11,7 +11,8 @@
 	<link href="./css/all.css" rel="stylesheet">
 	<link href="./css/aos.css" rel="stylesheet">
 	<link href="./css/style.css" rel="stylesheet">
-	<title>البوابه الداخلية للطلاب</title>
+	<link href="./css/calm.css" rel="stylesheet">
+	<title>البوابة الداخلية للطلاب</title>
 </head>
 <body>
 	<div class="bg">
@@ -21,34 +22,34 @@
 			<div id="Ellipse_6"></div>
 		</div>
 	</div>
-	<div class="orangecircle"><img  alt="test"  src="./images/orangecircle.svg"></div>
-	<div class="greencircle"><img  alt="test"  src="./images/greencircle.svg"></div>
-	<header data-aos="fade-down"  data-aos-easing="linear"data-aos-duration="1200">
+	<div class="orangecircle"><img  alt=""  src="./images/orangecircle.svg"></div>
+	<div class="greencircle"><img  alt=""  src="./images/greencircle.svg"></div>
+	<header data-aos="fade" data-aos-duration="400">
 		<div class="container-fluid">
 			<div class="row align-items-center">
 				<div class="col-12  col-lg-6">
 					<div class="d-flex align-items-center rightarea">
-						<a href="./index.html" title="الشعار"><img  alt="test"  alt="" src="./images/logo.png" srcset=""></a> <span></span>
+						<a href="./index.html" title="الشعار"><img alt="شعار جامعة المجمعة" src="./images/logo.png" srcset=""></a> <span></span>
 						<div class="page__title">
-							البوابه الداخلية للطلاب
+							البوابة الداخلية للطلاب
 						</div>
 					</div>
 				</div>
 				<div class="col-12 col-lg-6">
 					<div class="leftarea">
 						<div class="date">
-							<img  alt="test"  alt="" src="./images/calendar.svg" srcset="">
+							<img  alt="" src="./images/calendar.svg" srcset="">
 							<div id="topnav_Date"></div>
 						</div>
 						<div class="clock">
-							<img  alt="test"  alt="" src="./images/clock.svg" srcset=""> 08.20 pm
+							<img  alt="" src="./images/clock.svg" srcset=""> <span id="topnav_Time"></span>
 						</div>
 						<div class="weather">
-							<img  alt="test"  alt="" src="./images/cloudy.svg" srcset=""> 38
+							<img  alt="" src="./images/cloudy.svg" srcset=""> 38°
 						</div>
-						<div class="notification">
-							<img  alt="test"  alt="" src="./images/notification.svg" srcset=""> <span></span>
-						</div><a class="logout" href="./login.html" title="تسجيل الخروج"><img  alt="test"  alt="" src="./images/log-out.svg" srcset=""></a>
+						<div class="notification" role="button" tabindex="0" aria-label="الإشعارات">
+							<img  alt="" src="./images/notification.svg" srcset=""> <span></span>
+						</div><a class="logout" href="./login.html" title="تسجيل الخروج" aria-label="تسجيل الخروج"><img  alt="" src="./images/log-out.svg" srcset=""></a>
 					</div>
 				</div>
 			</div>
@@ -58,20 +59,22 @@
 		<div class="row stratchedRow">
 			<!-- start user area -->
 			<div class="col-12 col-md-4 col-lg-3  mb-3">
-				<div class="bg-white customrounded shadow-sm userarea  " data-aos="fade-left" data-aos-easing="linear"data-aos-duration="1200">
+				<div class="bg-white customrounded shadow-sm userarea  " data-aos="fade" data-aos-duration="400">
 					<div class="round-wrap">
 						<div class="roundtwo">
-							<div class="round-animation"><img  alt="test"  alt="" src="./images/user.jpg"></div>
+							<div class="round-animation"><img  alt="" src="./images/user.jpg"></div>
 						</div>
 					</div>
-					<div class="username">
-						احمد محمد علي احمد
-					</div>
-					<div class="usercollage">
-						كلية الحساب الالي
-					</div>
+					<p class="student-greeting" id="studentGreeting"></p>
+					<div class="username">أحمد محمد علي أحمد</div>
+					<div class="usercollage">كلية الحاسب الآلي</div>
+					<dl class="student-stats">
+						<div><dt>المعدل</dt><dd>3.4</dd></div>
+						<div><dt>المستوى</dt><dd>7</dd></div>
+						<div><dt>الإنذارات</dt><dd>0</dd></div>
+					</dl>
 					<div class="d-flex mt-3 buttons">
-						<button class="btn green__btn ml-1" data-target="#personalmodal" data-toggle="modal"><img  alt="test"  alt="" src="./images/information.svg"> الشخصية</button> <button class="btn red__btn" data-target="#studymodal" data-toggle="modal"><img  alt="test"  alt="" src="./images/information.svg"> الدراسية</button>
+						<button class="btn green__btn ml-1" data-target="#personalmodal" data-toggle="modal"><img  alt="" src="./images/information.svg"> الشخصية</button> <button class="btn red__btn" data-target="#studymodal" data-toggle="modal"><img  alt="" src="./images/information.svg"> الدراسية</button>
 					</div>
 				</div>
 			</div><!-- personalmodal -->
@@ -86,57 +89,32 @@
 						<div class="d-flex align-items-center flex-wrap">
 							<div class="info">
 								<div class="title">رقم الهوية</div>
-								<div class="description">2302215307</div>
+								<div class="description">1098765432</div>
 							</div>
-
 							<div class="info">
-								<div class="title">المتبقي علي المكافئة</div>
-								<div class="description">053654544</div>
+								<div class="title">الكلية</div>
+								<div class="description">الحاسب الآلي</div>
 							</div>
-
 							<div class="info">
-								<div class="title">رقم الهوية</div>
-								<div class="description">2302215307</div>
+								<div class="title">القسم</div>
+								<div class="description">علوم الحاسب</div>
 							</div>
-
 							<div class="info">
-								<div class="title">رقم الهوية</div>
-								<div class="description">2302215307</div>
+								<div class="title">رقم الجوال</div>
+								<div class="description">05X XXX XXXX</div>
 							</div>
-
-							
 							<div class="info">
-								<div class="title">رقم الهوية</div>
-								<div class="description">2302215307</div>
+								<div class="title">البريد الجامعي</div>
+								<div class="description">a.ahmed@s.mu.edu.sa</div>
 							</div>
-
-							
 							<div class="info">
-								<div class="title">رقم الهوية</div>
-								<div class="description">2302215307</div>
-							</div>
-
-							
-							<div class="info">
-								<div class="title">رقم الهوية</div>
-								<div class="description">2302215307</div>
-							</div>
-							
-							<div class="info">
-								<div class="title">رقم الهوية</div>
-								<div class="description">2302215307</div>
-							</div>
-							
-							<div class="info">
-								<div class="title">رقم الهوية</div>
-								<div class="description">2302215307</div>
+								<div class="title">المتبقي من المكافأة</div>
+								<div class="description">990 ريال</div>
 							</div>
 						</div>
-
-
 						</div>
 						<div class="modal-footer">
-							<button class="btn btn-secondary" data-dismiss="modal" type="button">اغلاق</button>
+							<button class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
 						</div>
 					</div>
 				</div>
@@ -156,8 +134,8 @@
 								</div>
 	
 								<div class="info">
-									<div class="title">المستوي </div>
-									<div class="description">10</div>
+									<div class="title">المستوى</div>
+									<div class="description">7</div>
 								</div>
 	
 								<div class="info">
@@ -167,12 +145,12 @@
 
 								<div class="info">
 									<div class="title">المعدل التراكمي</div>
-									<div class="description">2.0</div>
+									<div class="description">3.4</div>
 								</div>
 
 								
 								<div class="info">
-									<div class="title">عدد الأنذارات</div>
+									<div class="title">عدد الإنذارات</div>
 									<div class="description">0</div>
 								</div>
 
@@ -187,17 +165,17 @@
 	
 						</div>
 						<div class="modal-footer">
-							<button class="btn btn-secondary" data-dismiss="modal" type="button">اغلاق</button>
+							<button class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
 						</div>
 					</div>
 				</div>
 			</div><!-- start advertisementboard -->
 			<div class=" col-12 col-md-8 col-lg-5 mb-3">
-				<div class="bg-white customrounded shadow-sm advertisementboard  " data-aos="fade-up" data-aos-easing="linear"data-aos-duration="1200">
+				<div class="bg-white customrounded shadow-sm advertisementboard  " data-aos="fade" data-aos-duration="400">
 					<div class="advimage">
-						<img  alt="test"  alt="" src="./images/megaphone.svg"> <span class=" mr-3">لوحة الإعلانات</span>
+						<img  alt="" src="./images/megaphone.svg"> <span class=" mr-3">لوحة الإعلانات</span>
 					</div>
-					<div class="greenboardslider">
+					<div class="greenboardslider" role="region" aria-label="الإعلانات">
 
 						<div class="item ">
 							<p>زيارة قيادات كلية التربية بالمجمعة لمعالي رئيس الجامعة مع عرض لمبادرات الكلية النوعية</p>
@@ -205,12 +183,12 @@
 						</div>
 
 						<div class="item ">
-							<p>زيارة قيادات كلية التربية بالمجمعة لمعالي رئيس الجامعة مع عرض لمبادرات الكلية النوعية</p>
+							<p>تسجيل لقاء البرنامج التدريبي "كيف تبني محتواك التعليمي؟ “</p>
 							<button class="btn ca__btn  " >التفاصيل</button>
 						</div>
 
 						<div class="item ">
-							<p>زيارة قيادات كلية التربية بالمجمعة لمعالي رئيس الجامعة مع عرض لمبادرات الكلية النوعية</p>
+							<p>عالي رئيس الجامعة يترأس مجلس الجامعة في جلسته السابعة للعام الجامعي 1441 / 1442 هـ</p>
 							<button class="btn ca__btn  ">التفاصيل</button>
 						</div>
 <!-- 						
@@ -232,19 +210,19 @@
 							</div>
 						</div>
 					</div> -->
-					<!-- <img  alt="test"  alt="" class="ab" src="./images/greenboard.svg"> -->
+					<!-- <img  alt="" class="ab" src="./images/greenboard.svg"> -->
 				</div>
 				</div>
 			</div><!-- end advertisementboard -->
 			<!-- start Systemsrograms -->
 			<div class="col-12 col-md-12 col-lg-4 mb-3">
-				<div class="customrounded d-flex Systemsrograms " data-aos="fade-right" data-aos-easing="linear"data-aos-duration="1200">
+				<div class="customrounded d-flex Systemsrograms " data-aos="fade" data-aos-duration="400">
 					<div class="title">
-						<img  alt="test"  src="./images/Outline.svg"> <span>الانظمة</span>
+						<img  alt=""  src="./images/Outline.svg"> <span>الانظمة</span>
 					</div>
 					<div class="systems">
 						<div class=" systems__container">
-							<a class="system" href="" title="النظام الاكاديمي"><img  alt="test"  src="./images/graduated.svg"> <span>النظام الاكاديمي</span></a> <a class="system" href="" title="النظام الاكاديمي"><img  alt="test"  src="./images/bus.svg"> <span>النقل الجامعي</span></a> <a class="system" href="" title="النظام الاكاديمي"><img  alt="test"  src="./images/email.svg"> <span>البريد الإلكتروني</span></a> <a class="system" href="" title="النظام الاكاديمي"><img  alt="test"  src="./images/blackboard.svg"> <span>بلاك بورد</span></a> <a class="system" href="" title="النظام الاكاديمي"><img  alt="test"  src="./images/meeting.svg"> <span>اللجان والمجالس</span></a> <a class="system" href="" title="النظام الاكاديمي"><img  alt="test"  src="./images/online-learning.svg"> <span>المكتبة الرقمية</span></a> <a class="system" href="" title="النظام الاكاديمي"><img  alt="test"  src="./images/exam.svg"> <span>حجز الاختبارات</span></a>
+							<a class="system" href="#" title="النظام الاكاديمي"><img  alt=""  src="./images/graduated.svg"> <span>النظام الاكاديمي</span></a> <a class="system" href="#" title="النظام الاكاديمي"><img  alt=""  src="./images/bus.svg"> <span>النقل الجامعي</span></a> <a class="system" href="#" title="النظام الاكاديمي"><img  alt=""  src="./images/email.svg"> <span>البريد الإلكتروني</span></a> <a class="system" href="#" title="النظام الاكاديمي"><img  alt=""  src="./images/blackboard.svg"> <span>بلاك بورد</span></a> <a class="system" href="#" title="النظام الاكاديمي"><img  alt=""  src="./images/meeting.svg"> <span>اللجان والمجالس</span></a> <a class="system" href="#" title="النظام الاكاديمي"><img  alt=""  src="./images/online-learning.svg"> <span>المكتبة الرقمية</span></a> <a class="system" href="#" title="النظام الاكاديمي"><img  alt=""  src="./images/exam.svg"> <span>حجز الاختبارات</span></a>
 						</div>
 					</div>
 				</div>
@@ -254,266 +232,11 @@
 	<div class="container-fluid mt-4 p-0">
 		<div class="row">
 			<div class="col">
-				<div class="bg-white customrounded shadow-sm mb-3 schedule "  data-aos="fade-up"  data-aos-easing="ease-in-sine" data-aos-duration="1000">
+				<div class="bg-white customrounded shadow-sm mb-3 schedule "  data-aos="fade" data-aos-duration="400">
 					<div class="title">
-						<img  alt="test"  src="./images/timetable.svg"> <span>الجدول الدراسي</span>
+						<img  alt=""  src="./images/timetable.svg"> <span>الجدول الدراسي</span>
 					</div>
-					<!-- <div class="table-responsive p-4">
-						<table class="table table-bordered">
-							<thead class="thead-dark">
-								<tr>
-									<td class="empety" scope="col"></td>
-									<th scope="col">9:00</th>
-									<th scope="col">10:00</th>
-									<th scope="col">11:00</th>
-									<th scope="col">12:00</th>
-									<th scope="col">1:00</th>
-									<th scope="col">2:00</th>
-									<th scope="col">3:00</th>
-									<th scope="col">4:00</th>
-									<th scope="col">5:00</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td class="days">الأحد</td>
-									<td class="lesson">تصميم وتحليل</td>
-									<td class="lesson">تصميم وتحليل</td>
-									<td></td>
-									<td></td>
-									<td class="lesson">تصميم وتحليل</td>
-									<td></td>
-									<td></td>
-									<td class="lesson">تصميم وتحليل</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td class="days">الأثنين</td>
-									<td></td>
-									<td></td>
-									<td class="lesson">تصميم وتحليل</td>
-									<td></td>
-									<td class="lesson">تصميم وتحليل</td>
-									<td></td>
-									<td class="lesson">تصميم وتحليل</td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td class="days">الثلاثاء</td>
-									<td></td>
-									<td class="lesson">تصميم وتحليل</td>
-									<td class="lesson">تصميم وتحليل</td>
-									<td></td>
-									<td></td>
-									<td class="lesson">تصميم وتحليل</td>
-									<td></td>
-									<td></td>
-									<td class="lesson">تصميم وتحليل</td>
-								</tr>
-								<tr>
-									<td class="days">الأربعاء</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td class="lesson">تصميم وتحليل</td>
-									<td></td>
-									<td></td>
-									<td class="lesson">تصميم وتحليل</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td class="days">الخميس</td>
-									<td class="lesson">تصميم وتحليل</td>
-									<td></td>
-									<td></td>
-									<td class="lesson">تصميم وتحليل</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td class="lesson">تصميم وتحليل</td>
-									<td class="lesson">تصميم وتحليل</td>
-								</tr>
-							</tbody>
-						</table>
-					</div> -->
-				
-				
-					<div class="cd-schedule loading">
-					
-					
-						<div class="events">
-							<ul class="wrap">
-								<li class="events-group">
-									<div class="top-info"><span>الأحد</span></div>
-									<ul>
-										<li class="single-event" data-start="09:30" data-end="10:30"  data-event="event-1" data-toggle="modal" data-target="#exampleModal">
-											<a href="#0">
-													<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-					
-										<li class="single-event" data-start="11:00" data-end="12:30"  data-event="event-2" data-toggle="modal" data-target="#exampleModal2">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-					
-										<li class="single-event" data-start="14:00" data-end="15:15"   data-event="event-3">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-									</ul>
-								</li>
-					
-								<li class="events-group">
-									<div class="top-info"><span>الأثنين</span></div>
-					
-									<ul>
-										<li class="single-event" data-start="10:00" data-end="11:00"   data-event="event-2">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-					
-										<li class="single-event" data-start="11:30" data-end="13:00"   data-event="event-4">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-					
-										<li class="single-event" data-start="13:30" data-end="15:00"  data-event="event-1">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-					
-										<li class="single-event" data-start="15:45" data-end="16:45"   data-event="event-3">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-									</ul>
-								</li>
-					
-								<li class="events-group">
-									<div class="top-info"><span>الثلاثاء</span></div>
-					
-									<ul>
-										<li class="single-event" data-start="09:00" data-end="10:15"  data-event="event-4">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-					
-										<li class="single-event" data-start="10:45" data-end="11:45"  data-event="event-3">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-					
-										<!-- <li class="single-event" data-start="12:00" data-end="13:45"   data-event="event-2">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li> -->
-					
-										<li class="single-event" data-start="13:45" data-end="15:00"  data-event="event-3">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-									</ul>
-								</li>
-					
-								<li class="events-group">
-									<div class="top-info"><span>الأربعاء</span></div>
-					
-									<ul>
-										<li class="single-event" data-start="09:30" data-end="10:30"  data-event="event-1">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-					
-										<li class="single-event" data-start="12:00" data-end="13:45"  data-event="event-4">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-					
-										<li class="single-event" data-start="15:30" data-end="16:30"  data-event="event-1">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-					
-										<li class="single-event" data-start="17:00" data-end="18:30"   data-event="event-2">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-									</ul>
-								</li>
-					
-								<li class="events-group">
-									<div class="top-info"><span>الخميس</span></div>
-					
-									<ul>
-										<li class="single-event" data-start="10:00" data-end="11:00"  data-event="event-2">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-					
-										<li class="single-event" data-start="12:30" data-end="14:00"  data-event="event-1">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-					
-										<li class="single-event" data-start="15:45" data-end="16:45"   data-event="event-3">
-											<a href="#0">
-												<div class="event-name">تصميم وتحليل</div>
-											</a>
-										</li>
-									</ul>
-								</li>
-					 
-							</ul>
-						</div>
-
-
-						<div class="timeline">
-							<ul>
-								<li><span>09:00</span></li>
-								<li><span>09:30</span></li>
-								<li><span>10:00</span></li>
-								<li><span>10:30</span></li>
-								<li><span>11:00</span></li>
-								<li><span>11:30</span></li>
-								<li><span>12:00</span></li>
-								<li><span>12:30</span></li>
-								<li><span>13:00</span></li>
-								<li><span>13:30</span></li>
-								<li><span>14:00</span></li>
-								<li><span>14:30</span></li>
-								<li><span>15:00</span></li>
-								<li><span>15:30</span></li>
-								<li><span>16:00</span></li>
-								<li><span>16:30</span></li>
-								<li><span>17:00</span></li>
-								<li><span>17:30</span></li>
-								<li><span>18:00</span></li>
-							</ul>
-						</div> <!-- .timeline -->
-				
-					</div>
-					
-					
-				
-					<!-- .cd-schedule -->
+					<div id="studentSchedule" class="student-schedule"></div>
 
 
 
@@ -526,64 +249,33 @@
 
 
 
-<!-- sample modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-		<div class="modal-dialog" role="document">
-		  <div class="modal-content">
-			<div class="modal-header single-event selected-event" data-event="event-1" data-start="10:45" data-end="11:45">
-			  <h5 class="modal-title d-flex flex-column text-right" id="exampleModalLabel" >تصميم وتحليل
-			
-				<span  class="event-date" style="font-size: 12px;"> 15:45 - 15:45</span>
-			  </h5>
-			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			  </button>
+<div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="courseModalTitle" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title d-flex flex-column text-right" id="courseModalTitle">
+					<span class="course-name"></span>
+					<span class="course-time"></span>
+				</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="إغلاق">
+					<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
 			<div class="modal-body">
-				اسم المادة 
-				رمز المقرر
-				المحاضر 
-				عدد الغيابات 
-				الدرجة الشهرية
+				<dl class="course-details">
+					<div><dt>رمز المقرر</dt><dd class="course-code"></dd></div>
+					<div><dt>المحاضر</dt><dd class="course-teacher"></dd></div>
+					<div><dt>القاعة</dt><dd class="course-room"></dd></div>
+					<div><dt>عدد الغيابات</dt><dd class="course-absences"></dd></div>
+					<div><dt>الدرجة الشهرية</dt><dd class="course-grade"></dd></div>
+				</dl>
 			</div>
 			<div class="modal-footer">
-			  <button type="button" class="btn red__btn" data-dismiss="modal">اغلاق</button>
-			
+				<button type="button" class="btn red__btn" data-dismiss="modal">إغلاق</button>
 			</div>
-		  </div>
 		</div>
-	  </div>
-<!-- end sample modal -->
-
-
-<!-- sample modal -->
-<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-	<div class="modal-dialog" role="document">
-	  <div class="modal-content">
-		<div class="modal-header single-event" data-event="event-2" >
-		  <h5 class="modal-title d-flex flex-column text-right" id="exampleModalLabel">تصميم وتحليل
-		
-			<span style="font-size: 12px;"> 15:45 - 15:45</span>
-		  </h5>
-		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		  </button>
-		</div>
-		<div class="modal-body">
-			اسم المادة 
-			رمز المقرر
-			المحاضر 
-			عدد الغيابات 
-			الدرجة الشهرية
-		</div>
-		<div class="modal-footer">
-		  <button type="button" class="btn red__btn" data-dismiss="modal">اغلاق</button>
-		
-		</div>
-	  </div>
 	</div>
-  </div>
-<!-- end sample modal -->
+</div>
 
 
 
@@ -593,40 +285,36 @@
 	<div class="container-fluid mt-4 p-0">
 		<div class="row">
 			<div class="col-12 col-lg-4 mb-3">
-				<div class="bg-white customrounded shadow-sm programs d-flex"  data-aos="fade-right"
-				data-aos-easing="ease-out-cubic"
-				data-aos-duration="2000">
+				<div class="bg-white customrounded shadow-sm programs d-flex"  data-aos="fade" data-aos-duration="400">
 					<div class="title">
-						<img  alt="test"  src="./images/folder.svg"> <span>البرامج</span>
+						<img  alt=""  src="./images/folder.svg"> <span>البرامج</span>
 					</div>
 					<div class=" p-3 progsliderContainer">
 						<div class="progslider">
 							<div class="program">
-								<a href="#"><img  alt="test"  alt="First slide" src="./images/office-365.png"></a>
+								<a href="#"><img  alt="" src="./images/office-365.png"></a>
 							</div>
 							<div class="program">
-								<a href="#"><img  alt="test"  alt="First slide" src="./images/office-365.png"></a>
+								<a href="#"><img  alt="" src="./images/office-365.png"></a>
 							</div>
 							<div class="program">
-								<a href="#"><img  alt="test"  alt="First slide" src="./images/office-365.png"></a>
+								<a href="#"><img  alt="" src="./images/office-365.png"></a>
 							</div>
 							<div class="program">
-								<a href="#"><img  alt="test"  alt="First slide" src="./images/office-365.png"></a>
+								<a href="#"><img  alt="" src="./images/office-365.png"></a>
 							</div>
 							<div class="program">
-								<a href="#"><img  alt="test"  alt="First slide" src="./images/office-365.png"></a>
+								<a href="#"><img  alt="" src="./images/office-365.png"></a>
 							</div>
 							<div class="program">
-								<a href="#"><img  alt="test"  alt="First slide" src="./images/office-365.png"></a>
+								<a href="#"><img  alt="" src="./images/office-365.png"></a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-12 col-lg-4 mb-3">
-				<div class="bg-white customrounded shadow-sm events"  data-aos="fade-down"
-				data-aos-easing="ease-out-cubic"
-				data-aos-duration="2000"> 
+				<div class="bg-white customrounded shadow-sm events"  data-aos="fade" data-aos-duration="400"> 
 					<h3>أحداث وفعاليات</h3>
 					<div class="eventslider">
 						<div class="event">
@@ -653,44 +341,42 @@
 				</div>
 			</div>
 			<div class="col-12 col-lg-4 mb-3">
-				<div class="bg-white customrounded shadow-sm news" data-aos="fade-left"
-				data-aos-easing="ease-out-cubic"
-				data-aos-duration="2000">
+				<div class="bg-white customrounded shadow-sm news" data-aos="fade" data-aos-duration="400">
 					<h3>اخبار جهتي</h3>
 					<div class="newsslider">
 						<div class="newsItem">
 							<div class="content">
-								<img  alt="test"  alt="" class="ml-3" src="./images/1_0.jpeg"> <a href="">وكيل الجامعة يُكّرم المشاركين في ورشة آليات توثيق المنجزات للمنشآت المجتمعية</a>
+								<img  alt="" class="ml-3" src="./images/1_0.jpeg"> <a href="#">وكيل الجامعة يُكّرم المشاركين في ورشة آليات توثيق المنجزات للمنشآت المجتمعية</a>
 							</div>
 						</div>
 						<div class="newsItem">
 							<div class="content">
-								<img  alt="test"  alt="" class="ml-3" src="./images/1_0.jpeg"> <a href="">وكيل الجامعة يُكّرم المشاركين في ورشة آليات توثيق المنجزات للمنشآت المجتمعية</a>
+								<img  alt="" class="ml-3" src="./images/1_0.jpeg"> <a href="#">وكيل الجامعة يُكّرم المشاركين في ورشة آليات توثيق المنجزات للمنشآت المجتمعية</a>
 							</div>
 						</div>
 						<div class="newsItem">
 							<div class="content">
-								<img  alt="test"  alt="" class="ml-3" src="./images/1_0.jpeg"> <a href="">وكيل الجامعة يُكّرم المشاركين في ورشة آليات توثيق المنجزات للمنشآت المجتمعية</a>
+								<img  alt="" class="ml-3" src="./images/1_0.jpeg"> <a href="#">وكيل الجامعة يُكّرم المشاركين في ورشة آليات توثيق المنجزات للمنشآت المجتمعية</a>
 							</div>
 						</div>
 						<div class="newsItem">
 							<div class="content">
-								<img  alt="test"  alt="" class="ml-3" src="./images/1_0.jpeg"> <a href="">وكيل الجامعة يُكّرم المشاركين في ورشة آليات توثيق المنجزات للمنشآت المجتمعية</a>
+								<img  alt="" class="ml-3" src="./images/1_0.jpeg"> <a href="#">وكيل الجامعة يُكّرم المشاركين في ورشة آليات توثيق المنجزات للمنشآت المجتمعية</a>
 							</div>
 						</div>
 						<div class="newsItem">
 							<div class="content">
-								<img  alt="test"  alt="" class="ml-3" src="./images/1_0.jpeg"> <a href="">وكيل الجامعة يُكّرم المشاركين في ورشة آليات توثيق المنجزات للمنشآت المجتمعية</a>
+								<img  alt="" class="ml-3" src="./images/1_0.jpeg"> <a href="#">وكيل الجامعة يُكّرم المشاركين في ورشة آليات توثيق المنجزات للمنشآت المجتمعية</a>
 							</div>
 						</div>
 						<div class="newsItem">
 							<div class="content">
-								<img  alt="test"  alt="" class="ml-3" src="./images/1_0.jpeg"> <a href="">وكيل الجامعة يُكّرم المشاركين في ورشة آليات توثيق المنجزات للمنشآت المجتمعية</a>
+								<img  alt="" class="ml-3" src="./images/1_0.jpeg"> <a href="#">وكيل الجامعة يُكّرم المشاركين في ورشة آليات توثيق المنجزات للمنشآت المجتمعية</a>
 							</div>
 						</div>
 						<div class="newsItem">
 							<div class="content">
-								<img  alt="test"  alt="" class="ml-3" src="./images/1_0.jpeg"> <a href="">وكيل الجامعة يُكّرم المشاركين في ورشة آليات توثيق المنجزات للمنشآت المجتمعية</a>
+								<img  alt="" class="ml-3" src="./images/1_0.jpeg"> <a href="#">وكيل الجامعة يُكّرم المشاركين في ورشة آليات توثيق المنجزات للمنشآت المجتمعية</a>
 							</div>
 						</div>
 					</div>
@@ -701,52 +387,50 @@
 	<div class="container-fluid mt-4 mb-3 p-0">
 		<div class="row">
 			<div class="col-12 mb-3">
-				<div class="bg-white customrounded shadow-sm apps d-flex" data-aos="fade-up"
-				data-aos-easing="ease-out-cubic"
-				data-aos-duration="2000">
+				<div class="bg-white customrounded shadow-sm apps d-flex" data-aos="fade" data-aos-duration="400">
 					<div class="title">
-						<img  alt="test"  src="./images/mobile-app.svg"> <span>تطبيقات الجامعة</span>
+						<img  alt=""  src="./images/mobile-app.svg"> <span>تطبيقات الجامعة</span>
 					</div>
 					<div class=" p-3 appssliderContainer">
 						<div class="appsslider">
 							<div class="slider__content">
 								<div class="apptitle">
-									تطبيق خدماتي
+									خدماتي
 								</div>
 								<div class="d-flex">
-									<a href="#"><img  alt="test"  alt="First slide" class="" src="./images/apple.png"></a> <a href="#"><img  alt="test"  alt="First slide" class="" src="./images/google.png"></a>
+									<a href="#"><img  alt="" class="" src="./images/apple.png"></a> <a href="#"><img  alt="" class="" src="./images/google.png"></a>
 								</div>
 							</div>
 							<div class="slider__content">
 								<div class="apptitle">
-									تطبيق خدماتي
+									بلاك بورد
 								</div>
 								<div class="d-flex">
-									<a href="#"><img  alt="test"  alt="First slide" class="" src="./images/apple.png"></a> <a href="#"><img  alt="test"  alt="First slide" class="" src="./images/google.png"></a>
+									<a href="#"><img  alt="" class="" src="./images/apple.png"></a> <a href="#"><img  alt="" class="" src="./images/google.png"></a>
 								</div>
 							</div>
 							<div class="slider__content">
 								<div class="apptitle">
-									تطبيق خدماتي
+									مكتبتي
 								</div>
 								<div class="d-flex">
-									<a href="#"><img  alt="test"  alt="First slide" class="" src="./images/apple.png"></a> <a href="#"><img  alt="test"  alt="First slide" class="" src="./images/google.png"></a>
+									<a href="#"><img  alt="" class="" src="./images/apple.png"></a> <a href="#"><img  alt="" class="" src="./images/google.png"></a>
 								</div>
 							</div>
 							<div class="slider__content">
 								<div class="apptitle">
-									تطبيق خدماتي
+									النقل الجامعي
 								</div>
 								<div class="d-flex">
-									<a href="#"><img  alt="test"  alt="First slide" class="" src="./images/apple.png"></a> <a href="#"><img  alt="test"  alt="First slide" class="" src="./images/google.png"></a>
+									<a href="#"><img  alt="" class="" src="./images/apple.png"></a> <a href="#"><img  alt="" class="" src="./images/google.png"></a>
 								</div>
 							</div>
 							<div class="slider__content">
 								<div class="apptitle">
-									تطبيق خدماتي
+									حجز الاختبارات
 								</div>
 								<div class="d-flex">
-									<a href="#"><img  alt="test"  alt="First slide" class="" src="./images/apple.png"></a> <a href="#"><img  alt="test"  alt="First slide" class="" src="./images/google.png"></a>
+									<a href="#"><img  alt="" class="" src="./images/apple.png"></a> <a href="#"><img  alt="" class="" src="./images/google.png"></a>
 								</div>
 							</div>
 						</div>
@@ -770,28 +454,24 @@
 	<div class="container-fluid mt-4 mb-4 p-0">
 		<div class="row">
 			<div class="col-md-4 col-sm-12  mb-4">
-				<div class="bg-white customrounded shadow-sm avertis" data-aos="fade-left"
-				data-aos-easing="ease-in-sine"
-				data-aos-duration="2000">
+				<div class="bg-white customrounded shadow-sm avertis" data-aos="fade" data-aos-duration="400">
 					<h3>إعلان</h3>
-					<div class="carousel slide" data-ride="carousel" id="avertis">
+					<div class="carousel slide" data-ride="carousel" data-interval="9000" id="avertis">
 						<ol class="carousel-indicators">
 							<li class="active" data-slide-to="0" data-target="#avertis"></li>
 							<li data-slide-to="1" data-target="#avertis"></li>
 							<li data-slide-to="2" data-target="#avertis"></li>
 						</ol>
 						<div class="carousel-inner">
-							<div class="carousel-item active"><img  alt="test"  alt="First slide" class="d-block w-100" src="./images/av.png"></div>
-							<div class="carousel-item"><img  alt="test"  alt="Second slide" class="d-block w-100" src="./images/av.png"></div>
-							<div class="carousel-item"><img  alt="test"  alt="Third slide" class="d-block w-100" src="./images/av.png"></div>
+							<div class="carousel-item active"><img  alt="" class="d-block w-100" src="./images/av.png"></div>
+							<div class="carousel-item"><img  alt="" class="d-block w-100" src="./images/av.png"></div>
+							<div class="carousel-item"><img  alt="" class="d-block w-100" src="./images/av.png"></div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-12  mb-4">
-				<div class="bg-white customrounded shadow-sm importantNumbers" data-aos="fade-down"
-				data-aos-easing="ease-in-sine"
-				data-aos-duration="2000">
+				<div class="bg-white customrounded shadow-sm importantNumbers" data-aos="fade" data-aos-duration="400">
 					<h3>أرقام تهمك</h3>
 					<hr>
 					<div class="numbersContainer">
@@ -937,13 +617,12 @@
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-12  mb-4">
-				<div class="bg-white customrounded shadow-sm opinion" data-aos="fade-up"
-				data-aos-easing="ease-in-sine"
-				data-aos-duration="2000">
+				<div class="bg-white customrounded shadow-sm opinion" data-aos="fade" data-aos-duration="400">
 					<h3>رأيك يهمنا</h3>
 					<div class="form-group">
-						<textarea class="form-control" id="exampleFormControlTextarea1" placeholder="نسعد برأيك...استفسارك...دعمك...اقتراحك" rows="3"></textarea>
-					</div><button class="btn red__btn">إرسال</button>
+						<textarea class="form-control" id="exampleFormControlTextarea1" aria-label="رأيك أو استفسارك" placeholder="نسعد برأيك...استفسارك...دعمك...اقتراحك" rows="3"></textarea>
+					</div><button class="btn red__btn" type="button">إرسال</button>
+					<p class="opinion-status" role="status"></p>
 				</div>
 			</div>
 		</div>
@@ -977,6 +656,8 @@
 	</script> 
 	<script src="./js/main.js">
 	</script>
+	<script src="./js/schedule.js"></script>
+	<script src="./js/portal-ui.js"></script>
 	<script>
 	
 	  </script>

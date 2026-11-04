@@ -1,0 +1,2003 @@
+/* Refinement layer over the original portal: same sections and identity,
+   with one palette, one type scale, one button style, and much less motion.
+   Remove this file (and js/schedule.js) to return to the original look. */
+
+:root {
+  --portal-teal: #1b7f75;
+  --portal-teal-dark: #166a62;
+  --portal-teal-soft: #e5f1ef;
+  --portal-orange: #c4552f;
+  --portal-navy: #4a6096;
+  --portal-green: #55803e;
+  --portal-ink: #24324a;
+  --portal-muted: #55606e;
+  --portal-line: #dde4ea;
+  --portal-page: #f3f6f9;
+  --portal-wood: #b98d63;
+  --portal-text-lg: 18px;
+  --portal-text: 14px;
+  --portal-text-sm: 12px;
+  --portal-radius: 10px;
+  --portal-shadow: 0 2px 10px rgba(22, 60, 90, 0.07);
+}
+
+/* ---------- Background: the same colors as a quiet wash ---------- */
+html,
+body {
+  background:
+    radial-gradient(900px 480px at 100% 0, rgba(27, 127, 117, 0.1), transparent 70%),
+    radial-gradient(720px 420px at 0 100%, rgba(196, 85, 47, 0.05), transparent 70%),
+    var(--portal-page);
+  background-attachment: fixed;
+}
+
+body {
+  color: var(--portal-ink);
+  font-size: var(--portal-text);
+}
+
+@media only screen and (min-width: 1025px) {
+  body {
+    padding: 36px 64px;
+  }
+}
+
+.bg,
+.bubbles,
+.orangecircle,
+.greencircle {
+  display: none;
+}
+
+/* ---------- Motion ---------- */
+.userarea .round-wrap,
+.userarea .round-wrap .roundtwo,
+.userarea .round-wrap .roundtwo .round-animation,
+.Systemsrograms .title::before,
+.Systemsrograms .title::after,
+.schedule .title::after,
+.programs .title::before,
+.programs .title::after,
+.apps .title::before,
+.apps .title::after {
+  animation: none !important;
+  -webkit-animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Cards ---------- */
+header,
+.shadow-sm,
+.Systemsrograms {
+  box-shadow: var(--portal-shadow);
+}
+
+header {
+  border-radius: var(--portal-radius);
+}
+
+.customrounded {
+  border-radius: var(--portal-radius);
+}
+
+/* ---------- Type scale: 20 / 18 / 14 / 12 ---------- */
+.page__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--portal-teal-dark);
+}
+
+.events h3,
+.news h3,
+.avertis h3,
+.importantNumbers h3,
+.opinion h3,
+.Systemsrograms .title,
+.schedule .title,
+.programs .title,
+.apps .title {
+  font-size: var(--portal-text-lg);
+  font-weight: 700;
+}
+
+.events h3,
+.news h3,
+.avertis h3,
+.importantNumbers h3,
+.opinion h3 {
+  color: var(--portal-ink);
+}
+
+header .leftarea,
+header .date,
+.usercollage,
+.events .description,
+.importantNumbers .description,
+.opinion textarea,
+.news a,
+.apps .apptitle,
+.importantNumbers .title,
+.importantnumberitem h5 {
+  font-size: var(--portal-text);
+}
+
+.username {
+  font-size: var(--portal-text);
+  color: var(--portal-ink);
+}
+
+.usercollage,
+header .date,
+.events .description,
+.importantNumbers .description {
+  color: var(--portal-muted);
+}
+
+.news a,
+.apps .apptitle,
+.importantNumbers .title {
+  color: var(--portal-ink);
+}
+
+.events .date,
+.importantnumberitem h5 {
+  color: var(--portal-teal-dark);
+}
+
+.system,
+footer p {
+  font-size: var(--portal-text-sm);
+}
+
+.system {
+  color: var(--portal-ink);
+}
+
+footer p {
+  color: var(--portal-muted);
+}
+
+/* ---------- One button ---------- */
+.btn.red__btn,
+.btn.green__btn,
+.btn.ca__btn,
+.btn.btn-secondary,
+.opinion .btn,
+.modal-footer .btn {
+  min-height: 40px;
+  padding: 8px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  background: var(--portal-teal) !important;
+  font-size: var(--portal-text);
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.btn.red__btn:hover,
+.btn.green__btn:hover,
+.btn.ca__btn:hover,
+.btn.btn-secondary:hover,
+.opinion .btn:hover,
+.modal-footer .btn:hover {
+  color: #fff;
+  background: var(--portal-teal-dark) !important;
+}
+
+a:focus-visible,
+button:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #f2cf5b;
+  outline-offset: 2px;
+}
+
+/* ---------- Section bands and modals ---------- */
+.Systemsrograms .title,
+.schedule .title,
+.programs .title,
+.apps .title,
+#personalmodal .modal-header,
+#studymodal .modal-header,
+#courseModal .modal-header {
+  background: var(--portal-teal);
+}
+
+.Systemsrograms {
+  background-color: #fff;
+}
+
+#courseModal .modal-header,
+#courseModal .modal-header .close {
+  color: #fff;
+  opacity: 1;
+}
+
+#courseModal .course-time {
+  margin-top: 4px;
+  font-size: var(--portal-text-sm);
+}
+
+#courseModal .course-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+#courseModal .course-details div {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--portal-page);
+}
+
+#courseModal .course-details dt {
+  color: var(--portal-muted);
+  font-size: var(--portal-text-sm);
+  font-weight: 400;
+}
+
+#courseModal .course-details dd {
+  margin: 2px 0 0;
+  color: var(--portal-ink);
+  font-size: var(--portal-text);
+  font-weight: 700;
+}
+
+/* ---------- Chalkboard: the page's announcement centerpiece ---------- */
+.advertisementboard {
+  position: relative;
+  padding: 18px 22px 14px;
+  border: 10px solid var(--portal-wood);
+  border-radius: 12px;
+  background-image:
+    linear-gradient(rgba(16, 58, 46, 0.34), rgba(16, 58, 46, 0.34)),
+    url("../images/boardBG.jpg") !important;
+  background-size: cover;
+  box-shadow:
+    inset 0 0 26px rgba(0, 0, 0, 0.28),
+    0 8px 20px rgba(22, 60, 90, 0.16);
+}
+
+.advertisementboard .advimage {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+
+.advertisementboard .advimage img {
+  height: 40px;
+  margin-bottom: 0;
+}
+
+.advertisementboard .greenboardslider {
+  padding: 0 44px 34px;
+  margin: 0;
+}
+
+.advertisementboard .greenboardslider .item p {
+  min-height: 3.6em;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.advertisementboard .greenboardslider .item .btn.ca__btn {
+  color: var(--portal-teal-dark);
+  background: #fff !important;
+}
+
+.advertisementboard .greenboardslider .item .btn.ca__btn:hover {
+  color: var(--portal-teal-dark);
+  background: var(--portal-teal-soft) !important;
+}
+
+.advertisementboard .greenboardslider button.slick-arrow,
+.advertisementboard .greenboardslider button.slick-arrow:hover {
+  width: 38px;
+  height: 38px;
+  top: 40%;
+  transform: translateY(-50%);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: transparent;
+  font-size: 0;
+  z-index: 2;
+}
+
+.advertisementboard .greenboardslider button.slick-arrow:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.advertisementboard .greenboardslider button.slick-arrow::before {
+  color: #fff;
+  font-size: 24px;
+  line-height: 32px;
+  opacity: 1;
+}
+
+.advertisementboard .greenboardslider button.slick-prev {
+  right: -2px;
+  left: auto;
+}
+
+.advertisementboard .greenboardslider button.slick-next {
+  left: -2px;
+  right: auto;
+}
+
+.advertisementboard .greenboardslider button.slick-prev::before {
+  content: "›";
+}
+
+.advertisementboard .greenboardslider button.slick-next::before {
+  content: "‹";
+}
+
+.advertisementboard .slick-dots {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex !important;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.advertisementboard .slick-dots li {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.advertisementboard .slick-dots button {
+  width: 11px;
+  height: 11px;
+  padding: 0;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  background: transparent;
+  color: transparent;
+  font-size: 0;
+  cursor: pointer;
+}
+
+.advertisementboard .slick-dots .slick-active button {
+  background: #fff;
+}
+
+/* ---------- Systems: all seven visible, no hidden scroll ---------- */
+.Systemsrograms .systems .systems__container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  padding: 12px;
+  overflow: visible;
+}
+
+.Systemsrograms .systems .systems__container .system {
+  flex: none;
+  width: auto;
+  margin: 0;
+  padding: 10px 4px;
+  border: 1px solid var(--portal-line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: none;
+  text-align: center;
+}
+
+.Systemsrograms .systems .systems__container .system:hover {
+  border-color: var(--portal-teal);
+  background: var(--portal-teal-soft);
+}
+
+.Systemsrograms .systems .systems__container .system img {
+  height: 28px;
+  margin-bottom: 6px;
+}
+
+/* ---------- Small sliders: calm, consistent arrows ---------- */
+.progslider,
+.appsslider,
+.eventslider,
+.newsslider,
+.numbersContainer {
+  padding-inline: 30px;
+}
+
+.progsliderContainer button.slick-arrow,
+.appsslider button.slick-arrow,
+.eventslider button.slick-arrow,
+.newsslider button.slick-arrow,
+.numbersContainer button.slick-arrow,
+.progsliderContainer button.slick-arrow:hover,
+.appsslider button.slick-arrow:hover,
+.eventslider button.slick-arrow:hover,
+.newsslider button.slick-arrow:hover,
+.numbersContainer button.slick-arrow:hover {
+  width: 26px;
+  height: 26px;
+  top: 50% !important;
+  transform: translateY(-50%);
+  border: 1px solid var(--portal-line);
+  border-radius: 50%;
+  background: #fff;
+  color: transparent;
+  font-size: 0;
+  z-index: 2;
+}
+
+.progsliderContainer button.slick-prev,
+.appsslider button.slick-prev,
+.eventslider button.slick-prev,
+.newsslider button.slick-prev,
+.numbersContainer button.slick-prev {
+  right: 0;
+  left: auto;
+}
+
+.progsliderContainer button.slick-next,
+.appsslider button.slick-next,
+.eventslider button.slick-next,
+.newsslider button.slick-next,
+.numbersContainer button.slick-next {
+  left: 0;
+  right: auto;
+}
+
+.progsliderContainer button.slick-arrow::before,
+.appsslider button.slick-arrow::before,
+.eventslider button.slick-arrow::before,
+.newsslider button.slick-arrow::before,
+.numbersContainer button.slick-arrow::before {
+  color: var(--portal-teal-dark);
+  font-size: 18px;
+  line-height: 22px;
+  opacity: 1;
+}
+
+.progsliderContainer button.slick-prev::before,
+.appsslider button.slick-prev::before,
+.eventslider button.slick-prev::before,
+.newsslider button.slick-prev::before,
+.numbersContainer button.slick-prev::before {
+  content: "›";
+}
+
+.progsliderContainer button.slick-next::before,
+.appsslider button.slick-next::before,
+.eventslider button.slick-next::before,
+.newsslider button.slick-next::before,
+.numbersContainer button.slick-next::before {
+  content: "‹";
+}
+
+/* ---------- Schedule: today first, the week one click away ---------- */
+.schedule .title {
+  margin-bottom: 0;
+}
+
+.student-schedule {
+  padding: 18px;
+}
+
+.ss-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ss-days,
+.ss-views {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 10px;
+  background: var(--portal-page);
+}
+
+.ss-days button,
+.ss-views button {
+  min-height: 40px;
+  padding: 6px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  border-radius: 8px;
+  color: var(--portal-muted);
+  background: transparent;
+  font-family: inherit;
+  font-size: var(--portal-text);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ss-days button:hover,
+.ss-views button:hover {
+  color: var(--portal-ink);
+}
+
+.ss-days button[aria-selected="true"],
+.ss-views button[aria-pressed="true"] {
+  color: #fff;
+  background: var(--portal-teal);
+}
+
+.ss-today {
+  padding: 1px 6px;
+  border-radius: 999px;
+  color: var(--portal-teal-dark);
+  background: var(--portal-teal-soft);
+  font-size: 11px;
+}
+
+.ss-week-title {
+  margin: 0;
+  font-size: var(--portal-text);
+  font-weight: 700;
+}
+
+.ss-summary {
+  margin: 14px 0 12px;
+  color: var(--portal-muted);
+  font-size: var(--portal-text);
+}
+
+.ss-agenda {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* The four course colors stay, as a stripe and a soft tint */
+.ss-c1 { --course: var(--portal-navy); --tint: #eef1f8; }
+.ss-c2 { --course: var(--portal-orange); --tint: #faf0ec; }
+.ss-c3 { --course: var(--portal-teal); --tint: #e9f4f2; }
+.ss-c4 { --course: var(--portal-green); --tint: #eff5ea; }
+
+.ss-lesson {
+  width: 100%;
+  min-height: 64px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--portal-line);
+  border-inline-start: 4px solid var(--course);
+  border-radius: 8px;
+  color: var(--portal-ink);
+  background: #fff;
+  font-family: inherit;
+  text-align: right;
+  cursor: pointer;
+}
+
+.ss-lesson:hover {
+  background: var(--tint);
+}
+
+.ss-lesson.is-past {
+  opacity: 0.6;
+}
+
+.ss-lesson.is-now,
+.ss-lesson.is-next {
+  background: var(--tint);
+}
+
+.ss-time {
+  width: 58px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  color: var(--portal-muted);
+  font-size: var(--portal-text-sm);
+}
+
+.ss-time strong {
+  color: var(--portal-ink);
+  font-size: var(--portal-text);
+}
+
+.ss-body {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ss-name {
+  font-size: var(--portal-text);
+  font-weight: 700;
+}
+
+.ss-meta {
+  color: var(--portal-muted);
+  font-size: var(--portal-text-sm);
+}
+
+.ss-chip {
+  flex-shrink: 0;
+  padding: 3px 10px;
+  border-radius: 999px;
+  color: var(--portal-teal-dark);
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--portal-teal);
+  font-size: var(--portal-text-sm);
+  font-weight: 700;
+}
+
+.ss-chip--now {
+  color: #fff;
+  background: var(--portal-teal);
+}
+
+.ss-chevron {
+  flex-shrink: 0;
+  color: var(--portal-muted);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.ss-week {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.ss-hours {
+  width: 48px;
+  flex-shrink: 0;
+  padding-top: 36px;
+  color: var(--portal-muted);
+  font-size: var(--portal-text-sm);
+}
+
+.ss-hour {
+  display: block;
+}
+
+.ss-columns {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.ss-column h4 {
+  height: 36px;
+  margin: 0;
+  color: var(--portal-ink);
+  font-size: var(--portal-text);
+  font-weight: 700;
+  line-height: 30px;
+  text-align: center;
+}
+
+.ss-column.is-today h4 {
+  border-radius: 8px;
+  color: var(--portal-teal-dark);
+  background: var(--portal-teal-soft);
+  height: 30px;
+  margin-bottom: 6px;
+}
+
+.ss-track {
+  position: relative;
+  border-radius: 8px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--portal-page) 0,
+    var(--portal-page) 1px,
+    transparent 1px,
+    transparent 58px
+  );
+}
+
+.ss-block {
+  position: absolute;
+  right: 2px;
+  left: 2px;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+  border: 0;
+  border-inline-start: 3px solid var(--course);
+  border-radius: 6px;
+  color: var(--portal-ink);
+  background: var(--tint);
+  font-family: inherit;
+  text-align: right;
+  cursor: pointer;
+}
+
+.ss-block:hover {
+  box-shadow: inset 0 0 0 1px var(--course);
+}
+
+@media only screen and (max-width: 767px) {
+  .student-schedule {
+    padding: 14px 12px;
+  }
+
+  .ss-views {
+    display: none;
+  }
+
+  .ss-days {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .ss-days::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ss-days button {
+    flex: 1 0 auto;
+    padding: 6px 10px;
+    justify-content: center;
+  }
+
+  .ss-lesson {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .advertisementboard {
+    padding: 14px 12px 10px;
+  }
+
+  .advertisementboard .greenboardslider {
+    padding: 0 0 34px;
+  }
+
+  .advertisementboard .greenboardslider button.slick-arrow,
+  .advertisementboard .greenboardslider button.slick-arrow:hover {
+    top: auto;
+    bottom: -4px;
+    width: 32px;
+    height: 32px;
+    transform: none;
+  }
+
+  .advertisementboard .greenboardslider button.slick-arrow::before {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  #courseModal .course-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Neumorphism: one surface, raised and pressed with paired shadows.
+   Text and primary buttons keep full contrast, so depth is never the only signal. ---------- */
+:root {
+  --n-surface: #eef2f8;
+  --n-light: #ffffff;
+  --n-dark: #cfd8e5;
+  --n-raised: 7px 7px 16px var(--n-dark), -7px -7px 16px var(--n-light);
+  --n-raised-sm: 4px 4px 9px var(--n-dark), -4px -4px 9px var(--n-light);
+  --n-pressed: inset 3px 3px 7px var(--n-dark), inset -3px -3px 7px var(--n-light);
+}
+
+html,
+body {
+  background: var(--n-surface);
+}
+
+.bg-white,
+header,
+.Systemsrograms,
+.modal-content {
+  background-color: var(--n-surface) !important;
+}
+
+header,
+.shadow-sm,
+.Systemsrograms {
+  border: 0;
+  border-radius: 16px;
+  box-shadow: var(--n-raised);
+}
+
+.schedule .title,
+.Systemsrograms .title {
+  border-radius: 16px 16px 0 0;
+}
+
+.programs .title,
+.apps .title {
+  border-radius: 0 16px 16px 0;
+}
+
+/* Tiles and rows are raised; hovering presses them in */
+.Systemsrograms .systems .systems__container .system,
+.ss-lesson {
+  border: 0;
+  background: var(--n-surface);
+  box-shadow: var(--n-raised-sm);
+  transition: box-shadow 0.15s ease;
+}
+
+.ss-lesson {
+  border-inline-start: 4px solid var(--course);
+}
+
+.Systemsrograms .systems .systems__container .system:hover,
+.ss-lesson:hover {
+  background: var(--n-surface);
+  box-shadow: var(--n-pressed);
+}
+
+.ss-lesson.is-now,
+.ss-lesson.is-next {
+  background: var(--tint);
+}
+
+/* Troughs: controls and fields sit inside the surface */
+.ss-days,
+.ss-views,
+.opinion .form-control,
+.opinion textarea {
+  border: 0;
+  background: var(--n-surface);
+  box-shadow: var(--n-pressed);
+}
+
+.opinion textarea {
+  border-radius: 12px;
+  color: var(--portal-ink);
+}
+
+.ss-track {
+  border-radius: 12px;
+  background: var(--n-surface);
+  box-shadow: var(--n-pressed);
+}
+
+.ss-block {
+  background: var(--tint);
+  box-shadow: 2px 2px 5px var(--n-dark);
+}
+
+#courseModal .course-details div,
+.stratchedRow .modal .modal-body .info {
+  background: var(--n-surface);
+  box-shadow: var(--n-pressed);
+  border-radius: 10px;
+}
+
+/* Primary actions stay solid so they read as the main action */
+.btn.red__btn,
+.btn.green__btn,
+.btn.btn-secondary,
+.opinion .btn,
+.modal-footer .btn,
+.ss-days button[aria-selected="true"],
+.ss-views button[aria-pressed="true"] {
+  box-shadow: 3px 3px 7px var(--n-dark), -3px -3px 7px var(--n-light);
+}
+
+.btn.red__btn:active,
+.btn.green__btn:active,
+.btn.btn-secondary:active,
+.opinion .btn:active,
+.modal-footer .btn:active {
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+.progsliderContainer button.slick-arrow,
+.appsslider button.slick-arrow,
+.eventslider button.slick-arrow,
+.newsslider button.slick-arrow,
+.numbersContainer button.slick-arrow,
+.progsliderContainer button.slick-arrow:hover,
+.appsslider button.slick-arrow:hover,
+.eventslider button.slick-arrow:hover,
+.newsslider button.slick-arrow:hover,
+.numbersContainer button.slick-arrow:hover {
+  border: 0;
+  background: var(--n-surface);
+  box-shadow: var(--n-raised-sm);
+}
+
+/* The chalkboard stays dark and framed; only its outer lift follows the surface */
+.advertisementboard {
+  background-color: #2f6b4f !important;
+  box-shadow:
+    inset 0 0 26px rgba(0, 0, 0, 0.28),
+    var(--n-raised);
+}
+
+@media (prefers-contrast: more) {
+  .bg-white,
+  header,
+  .Systemsrograms,
+  .ss-lesson,
+  .Systemsrograms .systems .systems__container .system {
+    border: 1px solid var(--portal-muted);
+  }
+}
+
+/* Soft pastel backdrop from the portal's own teal and orange, on a cool grey-blue surface */
+:root {
+  --n-surface: #e9eef5;
+  --n-dark: #c7d0dd;
+  --n-radius: 20px;
+}
+
+html {
+  background: var(--n-surface);
+}
+
+body {
+  background:
+    radial-gradient(70vw 60vh at 100% 0, rgba(120, 200, 186, 0.26), transparent 65%),
+    radial-gradient(60vw 55vh at 0 42%, rgba(160, 178, 224, 0.2), transparent 65%),
+    radial-gradient(70vw 60vh at 12% 100%, rgba(244, 186, 158, 0.2), transparent 65%),
+    var(--n-surface);
+  background-attachment: fixed;
+}
+
+header,
+.shadow-sm,
+.Systemsrograms,
+.customrounded,
+.modal-content {
+  border-radius: var(--n-radius);
+}
+
+.schedule .title,
+.Systemsrograms .title {
+  border-radius: var(--n-radius) var(--n-radius) 0 0;
+}
+
+.programs .title,
+.apps .title {
+  border-radius: 0 var(--n-radius) var(--n-radius) 0;
+}
+
+.modal-header {
+  border-radius: var(--n-radius) var(--n-radius) 0 0;
+}
+
+.advertisementboard {
+  border-radius: 18px;
+}
+
+.Systemsrograms .systems .systems__container .system,
+.ss-lesson {
+  border-radius: 14px;
+}
+
+.btn.red__btn,
+.btn.green__btn,
+.btn.ca__btn,
+.btn.btn-secondary,
+.opinion .btn,
+.modal-footer .btn,
+.ss-days button,
+.ss-views button {
+  border-radius: 12px;
+}
+
+.ss-days,
+.ss-views {
+  border-radius: 14px;
+}
+
+/* Logos sit on the surface and keep their full shape */
+.programs .progsliderContainer .slick-slide img,
+.progslider img {
+  width: auto;
+  max-width: 100%;
+  max-height: 72px;
+  margin: 0 auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+@media only screen and (max-width: 767px) {
+  header .leftarea {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 6px 12px;
+    font-size: var(--portal-text-sm);
+  }
+
+  header .leftarea > div,
+  header .leftarea .date {
+    margin: 0;
+    white-space: nowrap;
+    font-size: var(--portal-text-sm);
+  }
+
+  .ss-days {
+    overflow: visible;
+  }
+
+  .ss-days button {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 6px 2px;
+    position: relative;
+    font-size: 13px;
+  }
+
+  /* On small screens "today" becomes a dot so all five days fit */
+  .ss-today {
+    position: absolute;
+    top: 4px;
+    inset-inline-start: 4px;
+    width: 6px;
+    height: 6px;
+    padding: 0;
+    overflow: hidden;
+    background: var(--portal-orange);
+    color: transparent;
+    font-size: 0;
+  }
+}
+
+/* Wooden frame stays on the chalkboard (the neumorphic card rule removes borders) */
+.advertisementboard.shadow-sm {
+  border: 10px solid var(--portal-wood);
+  border-radius: 18px;
+}
+
+/* Important numbers: full content, same arrows as the other sliders */
+.importantNumbers {
+  background: var(--n-surface) !important;
+}
+
+.importantNumbers .numbersContainer button.slick-prev,
+.importantNumbers .numbersContainer button.slick-next,
+.importantNumbers .numbersContainer button.slick-prev:hover,
+.importantNumbers .numbersContainer button.slick-next:hover {
+  background: var(--n-surface);
+}
+
+.importantNumbers .numbersContainer .importantnumberitem {
+  height: auto;
+  min-height: 115px;
+  overflow: visible;
+  border: 0;
+  border-radius: 12px;
+  background: var(--n-surface);
+  box-shadow: var(--n-pressed);
+}
+
+.importantNumbers .numbersContainer .importantnumberitem h5 {
+  border-bottom-color: var(--n-dark);
+}
+
+/* Login button matches the portal's one button */
+form button,
+form .btn,
+form .btn-primary {
+  min-height: 44px;
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  background: var(--portal-teal) !important;
+  font-weight: 700;
+}
+
+form button:hover,
+form .btn:hover,
+form .btn-primary:hover {
+  background: var(--portal-teal-dark) !important;
+}
+
+/* Slider dots: an older rule collapses them, so size them explicitly */
+.advertisementboard .slick-dots li button {
+  display: block !important;
+  width: 11px !important;
+  height: 11px !important;
+  min-width: 11px;
+  min-height: 11px;
+  padding: 0;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: none;
+}
+
+.advertisementboard .slick-dots li button::before {
+  content: none;
+}
+
+.advertisementboard .slick-dots li.slick-active button {
+  background: #fff;
+}
+
+/* Bottom row: three cards at one level; the numbers list scrolls inside its card */
+@media only screen and (min-width: 768px) {
+  .avertis,
+  .importantNumbers,
+  .opinion {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .avertis .carousel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .importantNumbers .numbersContainer .importantnumberitem {
+    height: 132px;
+    min-height: 0;
+    overflow-y: auto;
+  }
+
+  .opinion .form-group {
+    flex: 1;
+    display: flex;
+  }
+
+  .opinion textarea {
+    height: auto;
+  }
+}
+
+/* ---------- Clear titles: no shapes behind icons or text ---------- */
+.Systemsrograms .title::before,
+.Systemsrograms .title::after,
+.schedule .title::before,
+.schedule .title::after,
+.programs .title::before,
+.programs .title::after,
+.apps .title::before,
+.apps .title::after {
+  display: none !important;
+}
+
+.Systemsrograms .title,
+.schedule .title {
+  min-height: 64px;
+  padding: 14px 22px;
+  gap: 12px;
+}
+
+.Systemsrograms .title img,
+.schedule .title img {
+  height: 34px;
+  margin: 0;
+}
+
+.programs .title,
+.apps .title {
+  flex: 0 0 148px;
+  width: 148px;
+  padding: 18px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  line-height: 1.5;
+  white-space: normal;
+  overflow: visible;
+}
+
+.programs .title img,
+.apps .title img {
+  height: 44px;
+  margin: 0;
+}
+
+.programs .title span,
+.apps .title span {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+}
+
+/* ---------- Student buttons: same shape, each with its own color ---------- */
+.userarea .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.userarea .btn.red__btn {
+  background: var(--portal-orange) !important;
+}
+
+.userarea .btn.red__btn:hover {
+  background: #a94725 !important;
+}
+
+#studymodal .modal-header {
+  background: var(--portal-orange);
+}
+
+/* ---------- Systems: more room around every tile ---------- */
+.Systemsrograms .systems .systems__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 22px 18px 24px;
+}
+
+.Systemsrograms .systems .systems__container .system {
+  flex: 0 0 calc(25% - 12px);
+  min-height: 104px;
+  padding: 14px 6px 12px;
+  justify-content: center;
+  line-height: 1.5;
+}
+
+.Systemsrograms .systems .systems__container .system img {
+  height: 32px;
+  margin-bottom: 8px;
+}
+
+/* ---------- Slider arrows: chevrons drawn in CSS so they sit exactly centered ---------- */
+.slick-slider button.slick-arrow {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.slick-slider button.slick-arrow::before {
+  content: "" !important;
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-style: solid;
+  border-width: 2px 2px 0 0;
+  border-color: var(--portal-teal-dark);
+  font-size: 0;
+  line-height: 0;
+}
+
+.slick-slider button.slick-prev::before {
+  transform: translateX(-1px) rotate(45deg);
+}
+
+.slick-slider button.slick-next::before {
+  transform: translateX(1px) rotate(-135deg);
+}
+
+.advertisementboard .greenboardslider button.slick-arrow::before {
+  width: 10px;
+  height: 10px;
+  border-color: #fff;
+}
+
+.advertisementboard .greenboardslider button.slick-arrow,
+.advertisementboard .greenboardslider button.slick-arrow:hover {
+  width: 36px;
+  height: 36px;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.advertisementboard .greenboardslider button.slick-prev {
+  right: 2px;
+}
+
+.advertisementboard .greenboardslider button.slick-next {
+  left: 2px;
+}
+
+/* ---------- Page rhythm: more air between and inside sections ---------- */
+@media only screen and (min-width: 1025px) {
+  body {
+    padding: 40px 72px;
+  }
+}
+
+header {
+  padding: 14px 18px;
+}
+
+.stratchedRow {
+  margin-top: 28px;
+}
+
+.container-fluid.mt-4 {
+  margin-top: 12px !important;
+}
+
+.col-12.mb-3,
+.col.mb-3,
+.schedule.mb-3 {
+  margin-bottom: 26px !important;
+}
+
+.events,
+.news,
+.avertis,
+.importantNumbers,
+.opinion {
+  padding: 24px;
+}
+
+.events h3,
+.news h3,
+.avertis h3,
+.importantNumbers h3,
+.opinion h3 {
+  margin-bottom: 16px;
+}
+
+.userarea {
+  padding: 24px 18px;
+}
+
+.student-schedule {
+  padding: 22px 24px 26px;
+}
+
+.ss-agenda {
+  gap: 12px;
+}
+
+@media only screen and (max-width: 767px) {
+  .student-schedule {
+    padding: 16px 12px 18px;
+  }
+
+  .stratchedRow {
+    margin-top: 18px;
+  }
+
+  .Systemsrograms .systems .systems__container {
+    gap: 12px;
+    padding: 16px 12px 18px;
+  }
+
+  .Systemsrograms .systems .systems__container .system {
+    flex: 0 0 calc(33.33% - 8px);
+  }
+
+  .programs .title,
+  .apps .title {
+    flex: 1 1 auto;
+    width: 100%;
+    flex-direction: row;
+    border-radius: var(--n-radius) var(--n-radius) 0 0;
+  }
+
+  .programs .title span,
+  .apps .title span {
+    width: auto;
+  }
+
+  .advertisementboard .greenboardslider button.slick-arrow,
+  .advertisementboard .greenboardslider button.slick-arrow:hover {
+    width: 34px;
+    height: 34px;
+    bottom: -4px;
+  }
+}
+
+/* ---------- Header: information grouped, not spread across the bar ---------- */
+header .leftarea {
+  justify-content: flex-end;
+  gap: 26px;
+  color: var(--portal-muted);
+}
+
+header .leftarea > div {
+  display: flex;
+  align-items: center;
+}
+
+header .leftarea .notification,
+header .leftarea .logout {
+  min-width: 40px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+header .leftarea .notification {
+  box-shadow: var(--n-raised-sm);
+}
+
+header .leftarea .logout {
+  box-shadow: var(--n-raised-sm);
+}
+
+header .leftarea .notification img,
+header .leftarea .logout img {
+  margin: 0;
+}
+
+/* ---------- Student card: a greeting and the numbers checked most ---------- */
+.student-greeting {
+  margin: 14px 0 2px;
+  color: var(--portal-teal-dark);
+  font-size: var(--portal-text-lg);
+  font-weight: 700;
+}
+
+.userarea .username {
+  margin-top: 0;
+  font-weight: 400;
+}
+
+.student-stats {
+  width: 100%;
+  margin: 14px 0 2px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.student-stats div {
+  padding: 8px 4px;
+  border-radius: 12px;
+  box-shadow: var(--n-pressed);
+}
+
+.student-stats dt {
+  color: var(--portal-muted);
+  font-size: var(--portal-text-sm);
+  font-weight: 400;
+}
+
+.student-stats dd {
+  margin: 0;
+  color: var(--portal-ink);
+  font-size: var(--portal-text-lg);
+  font-weight: 700;
+}
+
+/* ---------- Modals: quiet labels, strong values, one neutral close ---------- */
+.stratchedRow .modal .modal-body .info {
+  padding: 10px 14px;
+  background: var(--n-surface);
+}
+
+.stratchedRow .modal .modal-body .info .title,
+#courseModal .course-details dt {
+  color: var(--portal-muted);
+  font-size: var(--portal-text-sm);
+  font-weight: 400;
+}
+
+.stratchedRow .modal .modal-body .info .description,
+#courseModal .course-details dd {
+  color: var(--portal-ink);
+  font-size: var(--portal-text);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.modal-footer {
+  border-top: 0;
+}
+
+.modal-footer .btn,
+.modal-footer .btn:hover {
+  color: var(--portal-ink);
+  background: var(--n-surface) !important;
+  box-shadow: var(--n-raised-sm);
+}
+
+.modal-footer .btn:hover {
+  box-shadow: var(--n-pressed);
+}
+
+.modal-header .close {
+  min-width: 40px;
+  min-height: 40px;
+  color: #fff;
+  opacity: 1;
+  text-shadow: none;
+}
+
+/* ---------- Schedule status: what's next and how the day is going ---------- */
+.ss-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin: 16px 0 14px;
+}
+
+.ss-summary {
+  margin: 0;
+  color: var(--portal-ink);
+  font-size: 15px;
+}
+
+.ss-summary strong {
+  color: var(--portal-teal-dark);
+}
+
+.ss-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--portal-muted);
+  font-size: var(--portal-text-sm);
+}
+
+.ss-progress__bar {
+  width: 120px;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  box-shadow: var(--n-pressed);
+}
+
+.ss-progress__bar span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--portal-teal);
+}
+
+.ss-chip--past {
+  color: var(--portal-muted);
+  background: transparent;
+  box-shadow: none;
+  font-weight: 400;
+}
+
+/* ---------- Feedback for demo actions ---------- */
+.portal-toast {
+  position: fixed;
+  z-index: 2000;
+  right: 50%;
+  bottom: 24px;
+  max-width: min(420px, calc(100vw - 32px));
+  width: max-content;
+  padding: 12px 18px;
+  border-radius: 14px;
+  color: #fff;
+  background: var(--portal-ink);
+  box-shadow: 0 10px 24px rgba(22, 40, 60, 0.28);
+  font-size: var(--portal-text);
+  line-height: 1.6;
+  text-align: center;
+  transform: translate(50%, 12px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.portal-toast.is-visible {
+  transform: translate(50%, 0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.opinion-status {
+  min-height: 20px;
+  margin: 8px 0 0;
+  color: var(--portal-teal-dark);
+  font-size: var(--portal-text-sm);
+}
+
+/* ---------- Phones first: students open this between classes ---------- */
+@media only screen and (max-width: 767px) {
+  body {
+    font-size: 15px;
+  }
+
+  header .leftarea {
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+
+  .userarea {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 0 14px;
+    padding: 18px 16px;
+    text-align: right;
+    align-items: center;
+  }
+
+  .userarea .round-wrap {
+    grid-row: 1 / span 3;
+    width: 72px;
+    height: 72px;
+  }
+
+  .userarea .round-wrap .roundtwo .round-animation,
+  .userarea .round-wrap .roundtwo .round-animation img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .student-greeting {
+    margin: 0;
+  }
+
+  .student-stats,
+  .userarea .buttons {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .userarea .buttons .btn {
+    flex: 1;
+  }
+
+  .ss-name,
+  .ss-time strong {
+    font-size: 15px;
+  }
+
+  .ss-lesson {
+    min-height: 72px;
+  }
+
+  .ss-progress__bar {
+    flex: 1;
+    width: auto;
+  }
+
+  .ss-progress {
+    width: 100%;
+  }
+
+  #personalmodal .info,
+  #studymodal .info {
+    width: 100%;
+  }
+}
+
+/* Close buttons are neutral, with readable text */
+.modal-footer .btn.btn-secondary,
+.modal-footer .btn.red__btn,
+.modal-footer .btn.btn-secondary:hover,
+.modal-footer .btn.red__btn:hover {
+  color: var(--portal-ink);
+}
+
+.student-stats div {
+  text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .page__title {
+    font-size: 17px;
+  }
+
+  header .leftarea {
+    flex-wrap: wrap;
+    gap: 8px 14px;
+  }
+
+  header .leftarea .date {
+    flex: 1 0 100%;
+  }
+
+  /* The avatar's layers use fixed sizes, so scale the whole group */
+  .userarea .round-wrap {
+    width: 120px;
+    height: 120px;
+    margin: 0 0 -46px -46px;
+    transform: scale(0.62);
+    transform-origin: top right;
+  }
+}
+
+#personalmodal .modal-footer .btn,
+#studymodal .modal-footer .btn,
+#personalmodal .modal-footer .btn:hover,
+#studymodal .modal-footer .btn:hover {
+  border: 0;
+  color: var(--portal-ink) !important;
+  background: var(--n-surface) !important;
+}
+
+/* ---------- Login: the portal's entry, on the same surface ---------- */
+html body:has(.body-login) {
+  height: auto;
+  min-height: 100vh;
+  overflow: auto;
+  font-size: var(--portal-text);
+  color: var(--portal-ink);
+  background:
+    radial-gradient(70vw 60vh at 100% 0, rgba(120, 200, 186, 0.26), transparent 65%),
+    radial-gradient(70vw 60vh at 0 100%, rgba(244, 186, 158, 0.2), transparent 65%),
+    var(--n-surface) !important;
+}
+
+.body-login {
+  max-width: 480px;
+  border-radius: var(--n-radius);
+  background: var(--n-surface);
+  box-shadow: var(--n-raised);
+}
+
+.page-login .desc-logo {
+  padding: 22px 24px 4px;
+  border: 0;
+  border-radius: var(--n-radius) var(--n-radius) 0 0;
+  color: var(--portal-teal-dark);
+  background: transparent;
+  font-size: var(--portal-text-lg);
+  font-weight: 700;
+}
+
+.page-login .main__login {
+  padding: 14px 24px 26px;
+}
+
+.b-form-tag {
+  margin-right: 0;
+  font-size: var(--portal-text);
+}
+
+.b-form-tag label {
+  color: var(--portal-ink);
+  font-size: var(--portal-text);
+  font-weight: 700;
+}
+
+.b-form-tag label .optional {
+  color: var(--portal-muted);
+  font-weight: 400;
+}
+
+.demo-notice {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  display: grid;
+  gap: 4px;
+  border-inline-start: 4px solid var(--portal-teal);
+  border-radius: 12px;
+  color: var(--portal-ink);
+  background: var(--portal-teal-soft);
+  font-size: var(--portal-text);
+  line-height: 1.7;
+}
+
+.demo-notice strong {
+  color: var(--portal-teal-dark);
+}
+
+form .form-control {
+  border-radius: 12px;
+  color: var(--portal-ink);
+  background: var(--n-surface);
+  box-shadow: var(--n-pressed);
+  font-size: var(--portal-text);
+}
+
+form .form-control::placeholder {
+  color: var(--portal-muted);
+}
+
+form .btn.btn-primary {
+  height: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  box-shadow: var(--n-raised-sm) !important;
+  font-size: 15px;
+  line-height: 1 !important;
+}
+
+.main-web > .container > .mt-4,
+.main-web .mt-4.text-center {
+  color: var(--portal-muted);
+  font-size: var(--portal-text-sm);
+  line-height: 1.8;
+}
+
+@media only screen and (max-width: 767px) {
+  .main-web .mt-4.text-center .d-flex {
+    flex-wrap: wrap;
+    gap: 2px 8px;
+  }
+
+  .main-web .mt-4.text-center .mr-2 {
+    margin: 0 !important;
+  }
+}
+
+/* Programs, events and news: one row, one height, centered content */
+@media only screen and (min-width: 992px) {
+  .programs,
+  .events,
+  .news {
+    height: 100%;
+  }
+
+  .programs .progsliderContainer {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .programs .progslider {
+    width: 100%;
+  }
+
+  .events,
+  .news {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .events .eventslider,
+  .news .newsslider {
+    width: 100%;
+    margin-block: auto;
+  }
+}
+
+.news a {
+  text-decoration: none;
+}
+
+.news a:hover {
+  color: var(--portal-teal-dark);
+  text-decoration: underline;
+}
+
+/* ---------- Color pass: richer teal, warmer orange, a small return of the original yellow ---------- */
+:root {
+  --portal-teal: #177f73;
+  --portal-teal-dark: #0f665d;
+  --portal-teal-soft: #dff1ed;
+  --portal-orange: #c9542a;
+  --portal-navy: #3f5a9c;
+  --portal-green: #4d8138;
+  --portal-sun: #f7d365;
+  --portal-band: linear-gradient(135deg, #1b8b7e 0%, #12695f 100%);
+  --portal-band-warm: linear-gradient(135deg, #d4602f 0%, #b34720 100%);
+  --n-surface: #e8eef5;
+  --n-dark: #c3cedd;
+}
+
+.Systemsrograms .title,
+.schedule .title,
+.programs .title,
+.apps .title,
+#personalmodal .modal-header,
+#courseModal .modal-header,
+.btn.green__btn,
+.btn.red__btn,
+.btn.btn-secondary,
+.opinion .btn,
+.ss-days button[aria-selected="true"],
+.ss-views button[aria-pressed="true"],
+form .btn.btn-primary {
+  background: var(--portal-band) !important;
+}
+
+#studymodal .modal-header,
+.userarea .btn.red__btn {
+  background: var(--portal-band-warm) !important;
+}
+
+.btn.green__btn:hover,
+.opinion .btn:hover,
+form .btn.btn-primary:hover {
+  background: var(--portal-teal-dark) !important;
+}
+
+.userarea .btn.red__btn:hover {
+  background: #a84220 !important;
+}
+
+/* Yellow marks "today" only, so it always means the same thing */
+.ss-today {
+  color: var(--portal-ink);
+  background: var(--portal-sun);
+}
+
+.ss-progress__bar span {
+  background: var(--portal-band);
+}
+
+.ss-c1 { --tint: #e9eefa; }
+.ss-c2 { --tint: #fbeae2; }
+.ss-c3 { --tint: #def1ed; }
+.ss-c4 { --tint: #e8f3df; }
+
+.student-stats dd,
+.events .date,
+.importantNumbers .numbersContainer .importantnumberitem h5 {
+  color: var(--portal-teal-dark);
+}
+
+.userarea .usercollage {
+  color: var(--portal-muted);
+}
+
+/* Older rules outrank the type layer here */
+.events .content .description {
+  color: var(--portal-muted);
+  font-size: var(--portal-text);
+  line-height: 1.7;
+}
+
+.events .content span {
+  background: var(--n-dark);
+}
+
+.news .newsslider .newsItem .content a {
+  color: var(--portal-ink);
+  font-size: var(--portal-text);
+  font-weight: 500;
+  line-height: 1.7;
+  text-decoration: none;
+}
+
+.news .newsslider .newsItem .content a:hover {
+  color: var(--portal-teal-dark);
+  text-decoration: underline;
+}
+
+.news .newsslider .newsItem .content img {
+  border-radius: 12px;
+}
+
+.progslider img {
+  border-radius: 10px;
+  mix-blend-mode: normal;
+  box-shadow: var(--n-raised-sm);
+}
+
+.news .newsslider .newsItem .content a {
+  text-decoration: none !important;
+}
+
+.news .newsslider .newsItem .content a:hover {
+  text-decoration: underline !important;
+}
+
+/* Login: the loud floating squares give way to the page's quiet backdrop */
+.bluesquare,
+.bluesquare2,
+.leftsquare,
+.leftsquare2 {
+  display: none;
+}

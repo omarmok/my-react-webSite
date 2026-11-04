@@ -31,7 +31,7 @@ const nextConfig = {
     return [
       {
         source: '/student-portal',
-        destination: '/student-portal/index.html',
+        destination: '/student-portal/login.html',
         permanent: false,
       },
     ];
