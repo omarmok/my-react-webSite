@@ -16633,6 +16633,20 @@ html[dir=rtl] .top-actions {
   top: 90px;
 }
 
+.sticky-actions {
+  position: sticky;
+  top: 0%;
+  z-index: 99999;
+  background: #ffffff;
+  padding: 8px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+}
+
 .sidebar {
   position: fixed;
   top: 0;

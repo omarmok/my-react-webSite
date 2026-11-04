@@ -2694,3 +2694,16 @@ html[dir="rtl"] .top-actions {
   z-index: 99999999;
   top: 90px;
 }
+.sticky-actions {
+  position: sticky;
+  top: 0%;
+  z-index: 99999;
+  background: $white-100;
+  padding: $padding-md;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: $gap-xl;
+  margin-bottom: $margin-xl;
+  box-shadow: $shadow-xl;
+}

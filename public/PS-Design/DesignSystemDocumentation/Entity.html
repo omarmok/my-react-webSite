@@ -674,7 +674,7 @@
           <h3 class="section-title" data-i18n data-ar="حالات الاستخدام">Use Cases</h3>
           <ul>
             <li data-i18n data-ar="الموافقات والطلبات">Approvals and Requests</li>
-            <li data-i18n data-ar="سجلات المنشأت">Entity Records</li>
+            <li data-i18n data-ar="سجلات المنشآت">Entity Records</li>
             <li data-i18n data-ar="إدارة الحالات">Case Management</li>
             <li data-i18n data-ar="عمليات التفتيش والتدقيق">Inspections and Audits</li>
             <li data-i18n data-ar="لوحات المعلومات والتقارير">Dashboards and Reports</li>
@@ -716,7 +716,7 @@
                 </path>
               </svg>
 
-              <span class=" mb-0 " data-i18n data-ar="يمكنك إستيراد الهيكل من Infra">
+              <span class=" mb-0 " data-i18n data-ar="يمكنك استيراد الهيكل من Infra">
                 You can import it from Infra
               </span>
             </div>
@@ -739,7 +739,7 @@
                     </div>
                   </div>
                   <div class="d-flex flex-column align-items-start gap-md mx-3 Entity__card__header--identity">
-                    <span class="font-md-600 Primary-600">الإسم المشأة</span>
+                    <span class="font-md-600 Primary-600">اسم المنشأة</span>
                     <span class="font-lg-600 Neutral-900"> مركز ******* *** *** لتقويم النطق والسمع للاطفال المعوقيين
                     </span>
                   </div>
@@ -809,7 +809,7 @@
                 <div class="col-12 col-md-6 col-lg-3">
                   <div
                     class="d-flex flex-column gap-md padding-md radius-sm border border-Neutral-200 white-100 Entity__card__Details--items">
-                    <label class="Primary-800 font-lg-600">تاريخ الإنتهاء </label>
+                    <label class="Primary-800 font-lg-600">تاريخ الانتهاء </label>
                     <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700">06-02-1414</span>
                   </div>
                 </div>
@@ -841,7 +841,7 @@
                     class="d-flex flex-column gap-md padding-md radius-sm border border-Neutral-200 white-100 Entity__card__Details--items">
                     <label class="Primary-800 font-lg-600"> النشاط </label>
                     <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700"> الخدمات الصبية بالمصحات المتخصصة
-                      ومراكز اعادة التأهيل والصحة </span>
+                      ومراكز إعادة التأهيل والصحة </span>
                   </div>
                 </div>
 
@@ -850,7 +850,7 @@
                   <div
                     class="d-flex flex-column gap-md padding-md radius-sm border border-Neutral-200 white-100 Entity__card__Details--items">
                     <label class="Primary-800 font-lg-600"> وصف نوع المنشأة </label>
-                    <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700"> لايوجد</span>
+                    <span class="padding-md bg-Neutral-50 Neutral-900 font-lg-700"> لا يوجد</span>
                   </div>
                 </div>
 
@@ -913,7 +913,7 @@
           <ul>
             <li data-i18n data-ar="بطاقة المنشأة للقراءة فقط.">The Entity is read-only.</li>
             <li data-i18n data-ar="يجب عرض جميع بيانات المنشأة المتاحة.
-عند الإستعلام">MUST display ALL available Entity details.</li>
+عند الاستعلام">MUST display ALL available Entity details.</li>
             <li data-i18n data-ar="محسّنة لسيناريوهات الاستعلام، التحقيق، والمراجعة.">Optimized for inquiry,
               investigation, and review use cases.</li>
           </ul>
@@ -934,7 +934,7 @@
             <li data-i18n data-ar="رقم السجل التجاري">Commercial Registration Number</li>
             <li data-i18n data-ar="رقم الترخيص">License Number</li>
             <li data-i18n data-ar="تاريخ الإصدار">Issue Date</li>
-            <li data-i18n data-ar="تاريخ الإنتهاء">Expiry Date</li>
+            <li data-i18n data-ar="تاريخ الانتهاء">Expiry Date</li>
             <li data-i18n data-ar="المدينة">City</li>
             <li data-i18n data-ar="الهاتف">Phone</li>
             <li data-i18n data-ar="الفاكس">Fax</li>
@@ -1006,7 +1006,7 @@
           </ul>
         </div>
       </section>
-    <section class="section" id="details-grid"><div class="section-card"><h2 class="section-title" data-i18n data-ar="شبكة حقول التفاصيل (label + value)">Details grid (label + value)</h2><p class="section-note" data-i18n data-ar="الفئة Entity__card__Details--items (في css/components/_card.scss) تجعل الكروت المتجاورة بنفس الارتفاع: العمود col-* يصبح flex فيمتد الكارت إلى أطول كارت في الصف، والصندوق الرمادي يملأ ما تبقى من الكارت فلا يظهر شريط أبيض تحته، وله حد أدنى للارتفاع the md button height ليتساوى النص والوسم والقيمة «-»، والقيم الطويلة تلتف دون توسيع الكارت. padding الكارت padding-md والمسافة بين العنوان والقيمة gap-md.">The Entity__card__Details--items class (css/components/_card.scss) keeps neighbouring cards the same height: the col-* becomes a flex container so the card stretches to the tallest card in the row, the gray value box fills what is left of the card (no white strip under it), it has a the md button height minimum height so text, tag and "-" values match, and long values wrap without widening the card. Card padding is padding-md and the label/value gap is gap-md.</p><div class="code-block"><pre><code>&lt;div class="row g-3 Entity__card__Details"&gt;
+    <section class="section" id="details-grid"><div class="section-card"><h2 class="section-title" data-i18n data-ar="شبكة حقول التفاصيل (label + value)">Details grid (label + value)</h2><p class="section-note" data-i18n data-ar="الفئة Entity__card__Details--items (في css/components/_card.scss) تجعل الكروت المتجاورة بنفس الارتفاع: العمود col-* يصبح flex فيمتد الكارت إلى أطول كارت في الصف، والصندوق الرمادي يملأ ما تبقى من الكارت فلا يظهر شريط أبيض تحته، وله حد أدنى للارتفاع بقدر ارتفاع زر md ليتساوى النص والوسم والقيمة «-»، والقيم الطويلة تلتف دون توسيع الكارت. padding الكارت padding-md والمسافة بين العنوان والقيمة gap-md.">The Entity__card__Details--items class (css/components/_card.scss) keeps neighbouring cards the same height: the col-* becomes a flex container so the card stretches to the tallest card in the row, the gray value box fills what is left of the card (no white strip under it), it has a minimum height equal to the md button height so text, tag and "-" values match, and long values wrap without widening the card. Card padding is padding-md and the label/value gap is gap-md.</p><div class="code-block"><pre><code>&lt;div class="row g-3 Entity__card__Details"&gt;
   &lt;div class="col-12 col-md-6 col-lg-3"&gt;
     &lt;div class="d-flex flex-column gap-md padding-md radius-sm border border-Neutral-200 white-100 Entity__card__Details--items"&gt;
       &lt;label class="Primary-800 font-lg-600"&gt;…&lt;/label&gt;
