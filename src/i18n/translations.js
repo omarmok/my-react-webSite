@@ -654,6 +654,24 @@ export const translations = {
       ],
       descriptionTooltip:
         "Each project brought distinct constraints — from national government platforms to university portals — requiring systems thinking, stakeholder alignment, and delivery focus. Across every engagement, the goal was consistent: coherent, accessible, and production-ready design that holds up in real-world conditions.",
+      designSystemCaseStudy: {
+        title: "Enterprise Design System & Governance",
+        intro:
+          "How I created a design system for a government platform of 14 systems, and the rules that keep internal and vendor teams building from one source.",
+        tooltip:
+          "A leadership case study on design systems architecture, DesignOps, and vendor design governance.",
+        features: [
+          "236 SCSS token variables matching Figma",
+          "30+ component stylesheets on Bootstrap",
+          "38 pages of bilingual documentation",
+          "An 8-stage workflow for vendor teams",
+        ],
+        closing:
+          "Names and internal details are omitted for confidentiality.",
+        button: "Read the Case Study",
+        buttonAria: "Read the design system case study",
+        coverAlt: "A component page from the design system documentation",
+      },
       caseStudy: {
         title: "Student Internal Portal",
         intro:
@@ -688,8 +706,8 @@ export const translations = {
     },
     caseStudyPage: {
       iframeTitle: "Figma case study",
-      back: "Back to Projects",
-      backAria: "Back to the projects page",
+      back: "All Case Studies",
+      backAria: "Back to all case studies",
       checkWebsite: "Try the Interactive Prototype",
       checkWebsiteAria: "Open the student portal interactive prototype in a new tab",
       hero: {
@@ -954,6 +972,28 @@ export const translations = {
           "Omar Mokhtar Ayed certifications, Omar Mokhtar Ayed UX certifications, Design System Bootcamp, Google UX Design Professional Certificate, DesignOps, User Research",
         canonical: `${baseUrl}/certifications`,
         ogImage: `${baseUrl}/images/omar.png`,
+        ogLocale: "en_US",
+        language: "English",
+      },
+      "/case-studies": {
+        title: "Case Studies | Omar Mokhtar",
+        description:
+          "Case studies by Omar Mokhtar on leading an enterprise design system and on designing and building an Arabic-first student portal.",
+        keywords:
+          "UX Case Studies, Design System Case Study, DesignOps, Enterprise UX, Product Design, Omar Mokhtar",
+        canonical: `${baseUrl}/case-studies`,
+        ogImage: `${baseUrl}/images/casstudymain.png`,
+        ogLocale: "en_US",
+        language: "English",
+      },
+      "/design-system-case-study": {
+        title: "Enterprise Design System Case Study | Omar Mokhtar",
+        description:
+          "How Omar Mokhtar built and governs an enterprise design system for a government platform of 14 systems: tokens, SCSS components, bilingual documentation, and vendor governance.",
+        keywords:
+          "Design System Case Study, DesignOps Case Study, Design Governance, Design Tokens, Enterprise UX, Vendor Design Governance, Omar Mokhtar",
+        canonical: `${baseUrl}/design-system-case-study`,
+        ogImage: `${baseUrl}/images/ds-2.png`,
         ogLocale: "en_US",
         language: "English",
       },
@@ -1342,6 +1382,23 @@ export const translations = {
       ],
       descriptionTooltip:
         "كل مشروع جاء بمتطلبات مختلفة — من منصات حكومية على المستوى الوطني إلى بوابات جامعية — مما استوجب التفكير المنظومي، والتوافق مع أصحاب المصلحة، والتركيز على التسليم. في كل تعاون، كان الهدف ثابتًا: تصميم متسق وشامل وجاهز للإنتاج يصمد في ظروف العمل الفعلية.",
+      designSystemCaseStudy: {
+        title: "نظام تصميم مؤسسي وحوكمته",
+        intro:
+          "كيف أنشأت نظام تصميم لمنصة حكومية تضم 14 نظامًا، ووضعت القواعد التي تجعل الفرق الداخلية والشركات المنفذة تبني من مصدر واحد.",
+        tooltip:
+          "دراسة حالة قيادية عن هندسة أنظمة التصميم وعمليات التصميم وحوكمة الشركات المنفذة.",
+        features: [
+          "236 متغيرًا في SCSS تطابق الـ Tokens في Figma",
+          "أكثر من 30 ملفًا للمكونات مبنية على Bootstrap",
+          "38 صفحة توثيق ثنائي اللغة",
+          "مسار من 8 مراحل للشركات المنفذة",
+        ],
+        closing: "حُذفت الأسماء والتفاصيل الداخلية حفاظًا على السرية.",
+        button: "اقرأ دراسة الحالة",
+        buttonAria: "قراءة دراسة حالة نظام التصميم",
+        coverAlt: "صفحة مكوّن من توثيق نظام التصميم",
+      },
       caseStudy: {
         title: "بوابة الطالب الداخلية",
         intro:
@@ -1376,8 +1433,8 @@ export const translations = {
     },
     caseStudyPage: {
       iframeTitle: "دراسة حالة في فيجما",
-      back: "العودة إلى المشاريع",
-      backAria: "الرجوع إلى صفحة المشاريع",
+      back: "كل دراسات الحالة",
+      backAria: "العودة إلى كل دراسات الحالة",
       checkWebsite: "جرّب النموذج التفاعلي",
       checkWebsiteAria: "فتح النموذج التفاعلي لبوابة الطلاب في تبويب جديد",
       hero: {
@@ -1657,6 +1714,28 @@ export const translations = {
         robots:
           "noindex, nofollow, noarchive, nosnippet, noimageindex, max-snippet:0, max-image-preview:none, max-video-preview:0",
         googlebot: "noindex, nofollow",
+      },
+      "/case-studies": {
+        title: "دراسات الحالة | عمر مختار",
+        description:
+          "دراسات حالة لعمر مختار عن قيادة نظام تصميم مؤسسي، وعن تصميم وتنفيذ بوابة طلابية بالعربية.",
+        keywords:
+          "دراسات حالة تجربة المستخدم, دراسة حالة نظام تصميم, عمليات التصميم, تجربة المستخدم المؤسسية, عمر مختار",
+        canonical: `${baseUrl}/case-studies`,
+        ogImage: `${baseUrl}/images/casstudymain.png`,
+        ogLocale: "ar_SA",
+        language: "Arabic",
+      },
+      "/design-system-case-study": {
+        title: "دراسة حالة نظام تصميم مؤسسي | عمر مختار",
+        description:
+          "كيف بنى عمر مختار نظام تصميم مؤسسي لمنصة حكومية تضم 14 نظامًا ويحوكمه: الـ Tokens ومكونات SCSS والتوثيق ثنائي اللغة وحوكمة الشركات المنفذة.",
+        keywords:
+          "دراسة حالة نظام تصميم, عمليات التصميم, حوكمة التصميم, Design Tokens, تجربة المستخدم المؤسسية, عمر مختار",
+        canonical: `${baseUrl}/design-system-case-study`,
+        ogImage: `${baseUrl}/images/ds-2.png`,
+        ogLocale: "ar_SA",
+        language: "Arabic",
       },
       "/casestudy": {
         title: "بوابة طلاب جامعة المجمعة — دراسة حالة UX | عمر مختار عايد",

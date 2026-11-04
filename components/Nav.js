@@ -132,10 +132,6 @@ const Nav = ({
       role: role ?? undefined,
     };
 
-    props["data-aos"] = "fade-down";
-    props["data-aos-duration"] = "1000";
-    props["data-aos-delay"] = link.delay;
-
     return props;
   };
 
@@ -231,8 +227,6 @@ const Nav = ({
             <div className="navbar__inner">
               <div
                 className="d-flex align-items-center brand"
-                data-aos="fade-right"
-                data-aos-duration="2000"
               >
                 <Link href="/" className="navbar-brand">
                   <Image

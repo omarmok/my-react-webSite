@@ -3,7 +3,7 @@ export const mainNavLinks = [
   { key: "about", href: "/about" },
   { key: "work", href: "/projects" },
   { key: "casebook", href: "/design-system" },
-  { key: "recommendations", href: "/recommendations" },
+  { key: "caseStudy", href: "/case-studies" },
 ];
 
 export const moreNavLinks = [
@@ -12,6 +12,7 @@ export const moreNavLinks = [
   { key: "uxLead", href: "/ux-lead", icon: "uxLead" },
   { key: "certifications", href: "/certifications", icon: "certifications" },
   { key: "blog", href: "/blog", icon: "blog" },
+  { key: "recommendations", href: "/recommendations", icon: "recommendations" },
 ];
 
 export const contactNavLink = {
@@ -21,11 +22,7 @@ export const contactNavLink = {
 };
 
 export const mobileMoreNavLinks = [
+  { key: "caseStudy", href: "/case-studies", icon: "caseStudy" },
   ...moreNavLinks,
-  {
-    key: "recommendations",
-    href: "/recommendations",
-    icon: "recommendations",
-  },
   contactNavLink,
 ];

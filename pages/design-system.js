@@ -1,28 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import Loader from "../components/Loader";
 import PageHeader from "../components/PageHeader";
+import DesignSystemAccess from "../components/DesignSystemAccess";
 import DesignSystemPreviewGallery from "../components/DesignSystemPreviewGallery";
 import { useTranslation } from "../src/i18n/useTranslation";
-import { FaWhatsapp } from "react-icons/fa";
-import whatsappQr from "../public/images/whatsapp-qr.png";
 import { getWhatsAppAccessUrl } from "../src/data/contact";
 import designSystemPreviewOne from "../public/images/ds-1.png";
 import designSystemPreviewTwo from "../public/images/ds-2.png";
 import designSystemPreviewThree from "../public/images/ds-3.png";
 
-const REDIRECT_URL = "/PS-Design/DesignSystemDocumentation/index.html";
-
 const purple = "var(--theme-brand-primary)";
 const ink = "var(--theme-text-primary)";
 const inkMid = "var(--theme-text-secondary)";
-const inkLight = "var(--theme-text-muted)";
 const border = "var(--theme-border)";
 const bg = "var(--theme-bg-subtle)";
 const surface = "var(--theme-bg-surface)";
-const card = "var(--theme-bg-card)";
 
 const SectionWrap = ({ children, background = surface }) => (
   <section style={{ background, padding: "48px 0" }}>
@@ -98,7 +92,6 @@ const SectionBody = ({ children, style = {} }) => (
 const DesignSystemPage = () => {
   const router = useRouter();
   const { dictionary, language } = useTranslation();
-  const casebook = dictionary.casebook;
   const isRTL = language === "ar";
   const copy = isRTL
     ? {
@@ -187,30 +180,6 @@ const DesignSystemPage = () => {
           "دعم تسليم العمل للمطورين",
           "جاهز لـ RTL والتصميم المتجاوب",
         ],
-        accessLabel: "الوصول",
-        accessTitle: "الدخول إلى نظام التصميم",
-        accessIntro: "طريقتان للوصول إلى التوثيق الكامل:",
-        passwordTitle: "لديك كلمة مرور؟",
-        accessBody:
-          "أدخل كلمة مرور الوصول التي وصلتك لفتح التوثيق الكامل.",
-        accessButtonLabel: "الدخول إلى نظام التصميم",
-        noticeTitle: "تنويه مهم:",
-        noticeBody:
-          "يتم منح بيانات الوصول بشكل فردي، ولا يُسمح بمشاركتها أو إعادة توزيعها أو استخدامها من قبل أي طرف آخر.",
-        contactTitle: "هل تحتاج إلى صلاحية الوصول؟",
-        contactBody:
-          "يتم منح صلاحيات الوصول بشكل فردي لأغراض التقييم المهني، والمقابلات الوظيفية، وجلسات الاستعراض المتخصصة.",
-        contactBody2:
-          "راسلني على واتساب لطلب الصلاحية أو ترتيب جلسة استعراض للنظام.",
-        whatsappButton: "اطلب الصلاحية عبر واتساب",
-        qrLead: "أو امسح الرمز من جوالك",
-        qrTitle: "التواصل عبر واتساب",
-        qrBody:
-          "امسح رمز QR للتواصل معي مباشرة وطلب صلاحية الوصول أو ترتيب جلسة استعراض للنظام.",
-        whatsappLabel: "التواصل عبر واتساب",
-        whatsappAria: "التواصل عبر واتساب",
-        qrHint: "امسح الرمز للتواصل مباشرة",
-        qrAlt: "رمز QR للتواصل عبر واتساب",
       }
     : {
         heroLabel: "Design System · Private preview",
@@ -299,32 +268,12 @@ const DesignSystemPage = () => {
           "Developer Handoff Support",
           "RTL & Responsive Ready",
         ],
-        accessLabel: "Access",
-        accessTitle: "Enter the design system",
-        accessIntro: "Two ways into the full documentation:",
-        passwordTitle: "Have a password?",
-        accessBody:
-          "Enter the access password you received to open the full documentation.",
-        accessButtonLabel: "Access Design System",
-        noticeTitle: "Please note:",
-        noticeBody:
-          "Access credentials are issued individually and should not be shared, redistributed, or reused by other parties.",
-        contactTitle: "Need Access?",
-        contactBody:
-          "Access credentials are shared individually for evaluation, hiring discussions, and professional walkthroughs.",
-        contactBody2:
-          "Message me on WhatsApp to request access or arrange a walkthrough of the system.",
-        whatsappButton: "Request access on WhatsApp",
-        qrLead: "Or scan the code with your phone",
-        qrTitle: "Contact via WhatsApp",
-        qrBody:
-          "Scan the QR code to contact me directly and request access or arrange a walkthrough of the Design System.",
-        whatsappLabel: "Contact via WhatsApp",
-        whatsappAria: "Contact via WhatsApp",
-        qrHint: "Scan to contact directly",
-        qrAlt: "QR code to contact via WhatsApp",
       };
   const supportLinks = [
+    {
+      href: "/design-system-case-study",
+      label: isRTL ? "دراسة حالة نظام التصميم" : "Design system case study",
+    },
     {
       href: "/government-ux",
       label: isRTL ? "تجربة المستخدم الحكومية" : "Government UX",
@@ -341,57 +290,6 @@ const DesignSystemPage = () => {
   const buildSupportLinkProps = (href) => ({
     "aria-current": router.pathname === href ? "page" : undefined,
   });
-
-  const [password, setPassword] = useState("");
-  const [loginError, setLoginError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  // Admin note:
-  // Password configuration location: .env.local
-  // Variable name: DESIGN_SYSTEM_PASSWORD
-  // After updating the value, restart the app.
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setIsLoading(true);
-    setLoginError(null);
-
-    try {
-      const response = await fetch("/api/design-system-login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
-      });
-
-      if (response.ok) {
-        if (
-          typeof window !== "undefined" &&
-          window.history &&
-          typeof window.history.replaceState === "function"
-        ) {
-          window.history.replaceState(
-            { source: "design-system-login" },
-            "",
-            "/",
-          );
-        }
-        window.location.assign(REDIRECT_URL);
-        return;
-      }
-
-      if (response.status === 401) {
-        setLoginError("passwordError");
-        setPassword("");
-      } else if (response.status === 500) {
-        setLoginError("serverError");
-      } else {
-        setLoginError("requestError");
-      }
-    } catch {
-      setLoginError("networkError");
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   return (
     <div className="page-container" dir={isRTL ? "rtl" : "ltr"}>
@@ -445,82 +343,7 @@ const DesignSystemPage = () => {
         />
       </SectionWrap>
 
-      <section id="ds-access" className="ds-access" aria-labelledby="ds-access-title">
-        <div className="site-container">
-          <SectionLabel>{copy.accessLabel}</SectionLabel>
-          <h2 id="ds-access-title" className="ds-access__title">{copy.accessTitle}</h2>
-          <SectionRule />
-          <SectionBody style={{ maxWidth: "60ch", marginBottom: 20 }}>
-            {copy.accessIntro}
-          </SectionBody>
-          <div className="ds-access__grid">
-            <div className="ds-access__card">
-              <h3>{copy.passwordTitle}</h3>
-              <p>{copy.accessBody}</p>
-              <form onSubmit={handleSubmit} noValidate>
-                <label htmlFor="casebook-password" className="form-label fw-semibold">
-                  {casebook.access.passwordLabel}
-                </label>
-                <input
-                  id="casebook-password"
-                  name="casebook-password"
-                  type="password"
-                  autoComplete="current-password"
-                  className="form-control"
-                  value={password}
-                  onChange={(event) => {
-                    setPassword(event.target.value);
-                    if (loginError) {
-                      setLoginError(null);
-                    }
-                  }}
-                  placeholder={casebook.access.passwordPlaceholder}
-                  aria-describedby={loginError ? "casebook-password-error" : undefined}
-                  aria-invalid={loginError === "passwordError"}
-                />
-                <button type="submit" className="btn btn-warning ds-access__submit" disabled={isLoading}>
-                  {isLoading ? "..." : copy.accessButtonLabel}
-                </button>
-                {loginError ? (
-                  <p
-                    id="casebook-password-error"
-                    className="text-danger mt-3 mb-0"
-                    role="alert"
-                    aria-live="assertive">
-                    {casebook.access[loginError]}
-                  </p>
-                ) : null}
-              </form>
-              <p className="ds-access__notice">
-                <strong>{copy.noticeTitle}</strong> {copy.noticeBody}
-              </p>
-            </div>
-
-            <div className="ds-access__card">
-              <h3>{copy.contactTitle}</h3>
-              <p>{copy.contactBody}</p>
-              <p>{copy.contactBody2}</p>
-              <a
-                href={getWhatsAppAccessUrl(language)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="whatsapp-cta whatsapp-cta--solid">
-                <FaWhatsapp aria-hidden="true" focusable="false" />
-                {copy.whatsappButton}
-              </a>
-              <div className="ds-access__qr">
-                <Image
-                  src={whatsappQr}
-                  alt={copy.qrAlt}
-                  width={112}
-                  height={112}
-                />
-                <p>{copy.qrLead}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <DesignSystemAccess />
 
       <SectionWrap>
         <SectionLabel>

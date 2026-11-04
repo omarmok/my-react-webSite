@@ -23,9 +23,9 @@ const Footer = () => {
 
         <nav className="footer__nav" aria-label={t("footer.navAriaLabel")}>
           <Link
-            href="/casestudy"
+            href="/case-studies"
             className="footer__link"
-            {...buildInternalLinkProps("/casestudy")}>
+            {...buildInternalLinkProps("/case-studies")}>
             {t("footer.links.caseStudies")}
           </Link>
           <span className="footer__dot" aria-hidden="true">

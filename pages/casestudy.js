@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Loader from "../components/Loader";
 import PageHeader from "../components/PageHeader";
+import { Glance, List, Section } from "../components/CaseStudyParts";
 import { useTranslation } from "../src/i18n/useTranslation";
 import originalDashboard from "../public/images/casestudy/original-dashboard.webp";
 import originalSchedule from "../public/images/casestudy/original-schedule.webp";
@@ -117,7 +118,7 @@ const getCopy = (isRTL) =>
           "الشاشات أعلاه من التصميم الأصلي. وهذه نسخة تفاعلية محدّثة أعدتها لاحقًا ببيانات تجريبية، بحركة أقل وجدول يبدأ بما يحتاجه الطالب اليوم. وهي ليست ما نُفّذ وقتها.",
         refreshDesktopAlt: "النسخة المحدّثة من البوابة على شاشة كبيرة",
         refreshMobileAlt: "النسخة المحدّثة من الجدول على الجوال",
-        nextDesign: "استعرض نظام التصميم",
+        nextDesign: "دراسة حالة نظام التصميم",
       }
     : {
         glanceTitle: "This case study in 30 seconds",
@@ -222,28 +223,8 @@ const getCopy = (isRTL) =>
           "The screens above are from the original design. This is an interactive demo I refreshed later with sample data, with less motion and a schedule that opens on what a student needs today. It is not what shipped at the time.",
         refreshDesktopAlt: "The refreshed portal on a large screen",
         refreshMobileAlt: "The refreshed schedule on a phone",
-        nextDesign: "Explore the Design System",
+        nextDesign: "Design system case study",
       };
-
-const Label = ({ children }) => <p className="cs-label">{children}</p>;
-
-const Section = ({ tone = "surface", label, title, children }) => (
-  <section className={`cs-section cs-section--${tone}`}>
-    <div className="site-container">
-      <Label>{label}</Label>
-      <h2 className="cs-title">{title}</h2>
-      {children}
-    </div>
-  </section>
-);
-
-const List = ({ items }) => (
-  <ul className="cs-list">
-    {items.map((item) => (
-      <li key={item}>{item}</li>
-    ))}
-  </ul>
-);
 
 const CaseStudy = () => {
   const { dictionary, language } = useTranslation();
@@ -275,21 +256,7 @@ const CaseStudy = () => {
         </div>
       </div>
 
-      <section className="cs-glance" aria-labelledby="cs-glance-title">
-        <div className="site-container">
-          <h2 id="cs-glance-title" className="cs-glance__title">
-            {copy.glanceTitle}
-          </h2>
-          <dl className="cs-glance__grid">
-            {copy.glance.map(([term, detail]) => (
-              <div key={term}>
-                <dt>{term}</dt>
-                <dd>{detail}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
+      <Glance title={copy.glanceTitle} items={copy.glance} />
 
       <Section label={copy.problemLabel} title={copy.problemTitle}>
         <p className="cs-body">{copy.problemBody}</p>
@@ -426,10 +393,10 @@ const CaseStudy = () => {
             aria-label={cs.checkWebsiteAria}>
             {cs.checkWebsite}
           </Link>
-          <Link href="/design-system" className="btn outlinebtn">
+          <Link href="/design-system-case-study" className="btn outlinebtn">
             {copy.nextDesign}
           </Link>
-          <Link href="/projects" className="btn outlinebtn" aria-label={cs.backAria}>
+          <Link href="/case-studies" className="btn outlinebtn" aria-label={cs.backAria}>
             {cs.back}
           </Link>
         </div>

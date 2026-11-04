@@ -38,7 +38,7 @@ const Layouts = ({
   } = pageMeta;
 
   const jsonLd = (data) => JSON.stringify(data).replace(/</g, "\\u003c");
-  const ogType = ["/blog", "/casestudy"].includes(router.pathname)
+  const ogType = ["/blog", "/casestudy", "/design-system-case-study"].includes(router.pathname)
     ? "article"
     : "website";
 
@@ -52,7 +52,9 @@ const Layouts = ({
       "/projects": isRTL ? "المشاريع" : "Portfolio",
       "/blog": isRTL ? "المدونة" : "Blog",
       "/recommendations": isRTL ? "التوصيات" : "Recommendations",
+      "/case-studies": isRTL ? "دراسات الحالة" : "Case Studies",
       "/casestudy": isRTL ? "دراسة حالة" : "Case Study",
+      "/design-system-case-study": isRTL ? "دراسة حالة نظام التصميم" : "Design System Case Study",
       "/contact": isRTL ? "تواصل" : "Contact",
       "/ux-lead": isRTL ? "قيادة UX" : "UX Leadership",
       "/designops": isRTL ? "عمليات التصميم" : "DesignOps Governance",
@@ -192,7 +194,7 @@ const Layouts = ({
       };
     }
 
-    if (router.pathname === "/casestudy") {
+    if (["/casestudy", "/design-system-case-study"].includes(router.pathname)) {
       return {
         "@context": "https://schema.org",
         "@type": "Article",

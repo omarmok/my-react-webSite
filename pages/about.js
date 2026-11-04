@@ -536,6 +536,7 @@ function About({ experience = [] }) {
             <Link href="/ux-lead">{isRTL ? "قيادة UX" : "UX Leadership"}</Link>
             <Link href="/government-ux">{isRTL ? "تجربة المستخدم الحكومية" : "Government UX"}</Link>
             <Link href="/designops">DesignOps</Link>
+            <Link href="/design-system-case-study">{isRTL ? "دراسة حالة نظام التصميم" : "Design system case study"}</Link>
             <Link href="/design-system">{isRTL ? "نظام التصميم" : "Design System"}</Link>
             <Link href="/certifications">{isRTL ? "الشهادات المهنية" : "Professional Certifications"}</Link>
           </nav>
