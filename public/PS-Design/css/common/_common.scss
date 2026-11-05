@@ -2696,10 +2696,10 @@ html[dir="rtl"] .top-actions {
 }
 .sticky-actions {
   position: sticky;
-  top: 0%;
+  top: 90px;
   z-index: 99999;
   background: $white-100;
-  padding: $padding-md;
+  padding: $padding-xl;
   display: flex;
   justify-content: left;
   align-items: center;

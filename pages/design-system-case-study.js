@@ -25,7 +25,7 @@ const getCopy = (isRTL) =>
         glanceTitle: "دراسة الحالة في 30 ثانية",
         glance: [
           ["المشكلة", "فرق داخلية وشركات خارجية تبني منصة واحدة، وتحتاج إلى مصدر مشترك للتصميم والكود."],
-          ["دوري", "أنشأت النظام في Figma وفي الكود، وأملك قراراته، وكتبت قواعد حوكمته."],
+          ["دوري", "أنشأت النظام في Figma وفي الكود، وأملك قراراته، وكتبت قواعد حوكمته. وأشارك أصحاب المصلحة في تطوير أفكار الخدمات من مرحلة مبكرة."],
           ["ما بنيته", "Tokens ومكتبة مكونات وتوثيق ثنائي اللغة من 38 صفحة ومسار تسليم للشركات المنفذة."],
           ["النطاق", "14 نظامًا على منصة واحدة، و3 منصات من شركات أخرى أعمل على ضمّها."],
         ],
@@ -33,7 +33,11 @@ const getCopy = (isRTL) =>
         problemTitle: "منصة كبيرة، وأيدٍ كثيرة تبنيها",
         problemBody:
           "يشارك في المنصة مصممون ومطورون من الفريق الداخلي ومن شركات خارجية. ومن دون قواعد مشتركة، يحل كل فريق المشكلة نفسها بطريقته، وتبتعد النسخ المحلية عن المعيار. لذلك لم يكن المطلوب مكتبة مكونات فقط، بل طريقة عمل يلتزم بها الجميع.",
-        builtLabel: "02 — ما بنيته",
+        earlyLabel: "02 — قبل المتطلبات",
+        earlyTitle: "حين تكون الخدمة ما زالت فكرة",
+        earlyBody:
+          "لا تصل كل خدمة إليّ بمتطلبات مكتملة. فكثير منها يبدأ بفكرة لدى فرق الأعمال، ونناقشها في اجتماعات مع أصحاب المصلحة: كيف يمكن أن تتطور، وما الذي ينقصها، وما القدرات التي قد تضيف قيمة. ثم أحوّل هذه النقاشات إلى تصاميم أولية نعود بها إليهم، فتصبح الفكرة شيئًا يمكن التعليق عليه بدل وصفه. أعدّل التصميم بناءً على ملاحظاتهم، وبعد اعتمادهم للاتجاه أطوّر التصميم النهائي.",
+        builtLabel: "03 — ما بنيته",
         builtTitle: "نظام واحد في Figma وفي الكود",
         built: [
           ["236", "متغيرًا في SCSS", "للألوان والخطوط والمسافات والزوايا والظلال، تطابق الـ Tokens في Figma."],
@@ -41,7 +45,7 @@ const getCopy = (isRTL) =>
           ["38", "صفحة توثيق", "بالعربية والإنجليزية، للأسس والمكونات والأنماط والحوكمة."],
           ["4,371", "أيقونة", "في 61 فئة، بمكتبة قابلة للبحث."],
         ],
-        decisionsLabel: "03 — القرارات الرئيسية",
+        decisionsLabel: "04 — القرارات الرئيسية",
         decisionsTitle: "أربعة قرارات صنعت الفرق",
         problemTag: "المشكلة",
         decisionTag: "القرار",
@@ -76,7 +80,7 @@ const getCopy = (isRTL) =>
             why: "تعرف الفرق ما تغيّر وكيف تتكيف معه، ويتطور النظام دون مفاجآت.",
           },
         ],
-        flowLabel: "04 — الحوكمة",
+        flowLabel: "05 — الحوكمة",
         flowTitle: "من استلام النظام إلى نشر التحسين",
         flowBody:
           "كتبت هذا المسار للشركات المنفذة، ويبدأ بسؤال بسيط: هل يوجد حل معتمد بالفعل؟ ولا يُنشر أي تغيير إلا بعد مراجعته مقابل التصميم والكود والوصولية والتوافق مع المشاريع القائمة.",
@@ -90,21 +94,24 @@ const getCopy = (isRTL) =>
           ["الجودة والاعتماد", "فحص شامل قبل الموافقة النهائية."],
           ["الدمج والنشر", "إصدار رسمي متاح لجميع الشركات."],
         ],
-        roleLabel: "05 — دوري",
+        roleLabel: "06 — دوري",
         roleTitle: "قيادة النظام وبناؤه في الوقت نفسه",
         role: [
           "مالك نظام التصميم، وصاحب الاعتماد النهائي للتغييرات والإصدارات والتغييرات الجذرية والاستثناءات",
           "أقود فريق التصميم الداخلي، وأوجّه أعمال التصميم لدى الشركات المنفذة",
           "أكتب SCSS والتوثيق بنفسي، وأعيد بناء المكونات لتطابق مواصفات Figma",
           "أراجع التنفيذ مع المطورين قبل الإطلاق",
+          "أعمل مع فرق الأعمال وأصحاب المصلحة على تطوير أفكار الخدمات تصميميًا، بينما تبقى قرارات الأعمال واعتماد الاتجاه لديهم",
         ],
-        scopeLabel: "06 — أين وصل النظام",
+        scopeLabel: "07 — أين وصل النظام",
         scopeTitle: "يخدم منصة كاملة، ويمتد إلى شركاء جدد",
         scope: [
           ["14", "نظامًا", "على منصة واحدة ونظام تصميم واحد."],
           ["3", "منصات", "من شركات أخرى أعمل على ضمّها إلى النظام."],
           ["8", "مبادئ حوكمة", "تحكم كل مرحلة من مسار الشركاء."],
         ],
+        scopeBody:
+          "ما يظهر هنا ليس النسخة الأولى من النظام. فقد تطور عبر جولات متتالية من التحسين، بحسب ما احتاجته الخدمات، وما كشفه الاستخدام الفعلي، وما خرج من العمل مع المصممين والمطورين.",
         scopeNote: "حُذفت أسماء الجهة والمنتجات والتفاصيل الداخلية حفاظًا على السرية.",
         systemCta: "استعرض نظام التصميم",
         portalCta: "دراسة حالة بوابة الطلاب",
@@ -125,7 +132,7 @@ const getCopy = (isRTL) =>
         glanceTitle: "This case study in 30 seconds",
         glance: [
           ["Problem", "Internal and external teams build one platform and need a shared source for design and code."],
-          ["My role", "I created the system in Figma and code, own its decisions, and wrote its governance."],
+          ["My role", "I created the system in Figma and code, own its decisions, and wrote its governance. I also work with stakeholders on service ideas from an early stage."],
           ["What I built", "Tokens, a component library, 38 pages of bilingual documentation, and a vendor handover workflow."],
           ["Scope", "14 systems on one platform, with 3 platforms from other companies being brought on."],
         ],
@@ -133,7 +140,11 @@ const getCopy = (isRTL) =>
         problemTitle: "A large platform, built by many hands",
         problemBody:
           "Designers and developers from the internal team and from external companies all work on the platform. Without shared rules, each team solves the same problem its own way, and local copies drift from the standard. So the job wasn't only a component library; it was a way of working everyone could follow.",
-        builtLabel: "02 — What I built",
+        earlyLabel: "02 — Before the requirements",
+        earlyTitle: "When a service is still an idea",
+        earlyBody:
+          "Not every service reaches me with finished requirements. Many begin as an idea with a business team, and we work through it in meetings with stakeholders: how it could develop, what's missing, and which capabilities might add value. I turn those conversations into initial designs and bring them back for review, so the idea becomes something to react to rather than describe. I iterate on their feedback, and once they approve the direction, I develop the final design.",
+        builtLabel: "03 — What I built",
         builtTitle: "One system, in Figma and in code",
         built: [
           ["236", "SCSS variables", "For color, typography, spacing, radius, and shadows, matching the Figma tokens."],
@@ -141,7 +152,7 @@ const getCopy = (isRTL) =>
           ["38", "Documentation pages", "In Arabic and English, covering foundations, components, patterns, and governance."],
           ["4,371", "Icons", "In 61 categories, in a searchable library."],
         ],
-        decisionsLabel: "03 — Key decisions",
+        decisionsLabel: "04 — Key decisions",
         decisionsTitle: "Four decisions that made the difference",
         problemTag: "Problem",
         decisionTag: "Decision",
@@ -176,7 +187,7 @@ const getCopy = (isRTL) =>
             why: "Teams know what changed and how to adapt, and the system evolves without surprises.",
           },
         ],
-        flowLabel: "04 — Governance",
+        flowLabel: "05 — Governance",
         flowTitle: "From receiving the system to publishing an improvement",
         flowBody:
           "I wrote this workflow for vendor companies. It starts with a simple question: does an approved solution already exist? Nothing is published until it has been reviewed against design, code, accessibility, and compatibility with existing projects.",
@@ -190,21 +201,24 @@ const getCopy = (isRTL) =>
           ["QA & approval", "A full check before final approval."],
           ["Merge & release", "An official release, available to every company."],
         ],
-        roleLabel: "05 — My role",
+        roleLabel: "06 — My role",
         roleTitle: "Leading the system while building it",
         role: [
           "Design System Owner, with final approval on changes, releases, breaking changes, and exceptions",
           "Lead the internal design team and direct design work at vendor companies",
           "Write the SCSS and documentation myself, rebuilding components to match the Figma spec",
           "Review implementation with developers before release",
+          "Work with business teams and stakeholders to develop service ideas through design, while business decisions and approval of the direction stay with them",
         ],
-        scopeLabel: "06 — Where it stands",
+        scopeLabel: "07 — Where it stands",
         scopeTitle: "Serving a full platform, and reaching new partners",
         scope: [
           ["14", "Systems", "On one platform and one design system."],
           ["3", "Platforms", "From other companies that I am bringing onto the system."],
           ["8", "Governance principles", "Guiding every stage of the partner workflow."],
         ],
+        scopeBody:
+          "What you see here isn't the system's first version. It has moved through repeated rounds of refinement, shaped by what services needed, what real use revealed, and what came out of working with designers and developers.",
         scopeNote: "Organization names, product names, and internal details are omitted for confidentiality.",
         systemCta: "Explore the Design System",
         portalCta: "Student portal case study",
@@ -235,7 +249,13 @@ function DesignSystemCaseStudy() {
         </p>
       </Section>
 
-      <Section tone="subtle" label={copy.builtLabel} title={copy.builtTitle}>
+      <Section tone="subtle" label={copy.earlyLabel} title={copy.earlyTitle}>
+        <p className="cs-body" style={{ marginBottom: 0 }}>
+          {copy.earlyBody}
+        </p>
+      </Section>
+
+      <Section label={copy.builtLabel} title={copy.builtTitle}>
         <div className="cs-stats">
           {copy.built.map(([value, title, body]) => (
             <article key={title}>
@@ -247,7 +267,7 @@ function DesignSystemCaseStudy() {
         </div>
       </Section>
 
-      <Section label={copy.decisionsLabel} title={copy.decisionsTitle}>
+      <Section tone="subtle" label={copy.decisionsLabel} title={copy.decisionsTitle}>
         <div className="cs-decisions">
           {copy.decisions.map((item, index) => (
             <article
@@ -282,7 +302,7 @@ function DesignSystemCaseStudy() {
         </div>
       </Section>
 
-      <Section tone="subtle" label={copy.flowLabel} title={copy.flowTitle}>
+      <Section label={copy.flowLabel} title={copy.flowTitle}>
         <p className="cs-body">{copy.flowBody}</p>
         <ol className="cs-flow">
           {copy.flow.map(([title, body]) => (
@@ -294,11 +314,12 @@ function DesignSystemCaseStudy() {
         </ol>
       </Section>
 
-      <Section label={copy.roleLabel} title={copy.roleTitle}>
+      <Section tone="subtle" label={copy.roleLabel} title={copy.roleTitle}>
         <List items={copy.role} />
       </Section>
 
-      <Section tone="subtle" label={copy.scopeLabel} title={copy.scopeTitle}>
+      <Section label={copy.scopeLabel} title={copy.scopeTitle}>
+        <p className="cs-body">{copy.scopeBody}</p>
         <div className="case-study-outcome-grid">
           {copy.scope.map(([value, title, body]) => (
             <article key={title}>

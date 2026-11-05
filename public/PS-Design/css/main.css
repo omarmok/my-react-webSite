@@ -16899,10 +16899,10 @@ html[dir=rtl] .top-actions {
 
 .sticky-actions {
   position: sticky;
-  top: 0%;
+  top: 90px;
   z-index: 99999;
   background: #ffffff;
-  padding: 8px;
+  padding: 16px;
   display: flex;
   justify-content: left;
   align-items: center;
@@ -25851,5 +25851,4 @@ nav {
 
 .previewBG {
   background: rgba(0, 0, 0, 0.48);
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

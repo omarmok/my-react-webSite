@@ -442,9 +442,9 @@ export const translations = {
       },
       paragraphs: [
         {
-          text: "UX & DesignOps Lead with 19+ years of experience, from web design in 2007 to leading UX for enterprise and government platforms. I lead a multidisciplinary design team, architect and govern design systems, and give design direction across internal and external teams.",
+          text: "UX & DesignOps Lead with 19+ years of experience, from web design in 2007 to leading UX for enterprise and government platforms. I lead a multidisciplinary design team, architect and govern design systems, and give design direction across internal and external teams. I often come in early, meeting with stakeholders and business teams to shape a service idea before its requirements are settled, and stay with it through to final design.",
           tooltip:
-            "UX & DesignOps Lead with 19+ years of experience, from web design in 2007 to leading UX for enterprise and government platforms. I lead a multidisciplinary design team, architect and govern design systems, and give design direction across internal and external teams.",
+            "UX & DesignOps Lead with 19+ years of experience, from web design in 2007 to leading UX for enterprise and government platforms. I lead a multidisciplinary design team, architect and govern design systems, and give design direction across internal and external teams. I often come in early, meeting with stakeholders and business teams to shape a service idea before its requirements are settled, and stay with it through to final design.",
         },
         {
           text: "I also build what I design: I write the HTML, CSS, SCSS, and JavaScript behind the components I specify, so the bridge between design and engineering is part of my daily work, not a handoff.",
@@ -1169,9 +1169,9 @@ export const translations = {
       },
       paragraphs: [
         {
-          text: "قائد تجربة المستخدم وعمليات التصميم بخبرة تتجاوز 19 عامًا، بدأت بتصميم الويب عام 2007 ووصلت إلى قيادة تجربة المستخدم للمنصات المؤسسية والحكومية. أقود فريق تصميم متعدد التخصصات، وأبني أنظمة التصميم وأحوكمها، وأوجّه أعمال التصميم عبر الفرق الداخلية والخارجية.",
+          text: "قائد تجربة المستخدم وعمليات التصميم بخبرة تتجاوز 19 عامًا، بدأت بتصميم الويب عام 2007 ووصلت إلى قيادة تجربة المستخدم للمنصات المؤسسية والحكومية. أقود فريق تصميم متعدد التخصصات، وأبني أنظمة التصميم وأحوكمها، وأوجّه أعمال التصميم عبر الفرق الداخلية والخارجية. وكثيرًا ما أبدأ مبكرًا في اجتماعات مع أصحاب المصلحة وفرق الأعمال لبلورة فكرة الخدمة قبل اكتمال متطلباتها، ثم أواصل معها حتى التصميم النهائي.",
           tooltip:
-            "قائد تجربة المستخدم وعمليات التصميم بخبرة تتجاوز 19 عامًا، بدأت بتصميم الويب عام 2007 ووصلت إلى قيادة تجربة المستخدم للمنصات المؤسسية والحكومية. أقود فريق تصميم متعدد التخصصات، وأبني أنظمة التصميم وأحوكمها، وأوجّه أعمال التصميم عبر الفرق الداخلية والخارجية.",
+            "قائد تجربة المستخدم وعمليات التصميم بخبرة تتجاوز 19 عامًا، بدأت بتصميم الويب عام 2007 ووصلت إلى قيادة تجربة المستخدم للمنصات المؤسسية والحكومية. أقود فريق تصميم متعدد التخصصات، وأبني أنظمة التصميم وأحوكمها، وأوجّه أعمال التصميم عبر الفرق الداخلية والخارجية. وكثيرًا ما أبدأ مبكرًا في اجتماعات مع أصحاب المصلحة وفرق الأعمال لبلورة فكرة الخدمة قبل اكتمال متطلباتها، ثم أواصل معها حتى التصميم النهائي.",
         },
         {
           text: "وأبني ما أصممه أيضًا: أكتب HTML وCSS وSCSS وJavaScript للمكونات التي أضع مواصفاتها، فيصبح الربط بين التصميم والهندسة جزءًا من عملي اليومي لا مجرد مرحلة تسليم.",
