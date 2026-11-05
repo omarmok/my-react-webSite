@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة أمن</title>
+    <link href="./css/bootstrap-v5.css" rel="stylesheet" />
+    <link href="./css/slick.css" rel="stylesheet" />
+    <link href="./css/slick-theme.css" rel="stylesheet" />
+    <link href="./css/animate.css" rel="stylesheet" />
+    <link href="./css/font-awesome.min.css" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/slick.min.js"></script>
+    <script src="./js/charts.js"></script>
+    <script src="./js/app.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/introjs.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .beta {
+            display: flex;
+            padding: 10px 20px;
+            align-items: center;
+            justify-content: space-between;
+            background: #FF5722;
+            /* Ensure this color has sufficient contrast with the text color */
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            /* Ensure this color has sufficient contrast with the background color */
+            font-weight: 600;
+        }
+
+
+        .horizintalScroller {
+            position: relative;
+            width: 100%;
+            background: #cfe2ff;
+            /* Ensure this color has sufficient contrast with the text color */
+            overflow: hidden;
+            font-weight: 600;
+            text-align: center;
+            padding: 15px;
+            color: #1366df;
+            /* Ensure this color has sufficient contrast with the background color */
+            border: 1px solid #b2caee;
+            font-size: 14px;
+            box-shadow: 0px -4px 10px rgb(132 174 238);
+        }
+
+        .sidebar .menu-bar {
+            box-shadow: none;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            z-index: 99999;
+            width: 100%;
+            display: flex;
+            background: #f8f6f2;
+            /* Ensure this color has sufficient contrast with the text color */
+            padding: 15px;
+            border-top: 1px solid #f4eeee;
+            color: #552e00;
+            /* Ensure this color has sufficient contrast with the background color */
+        }
+
+        .copyright {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 10px;
+            color: #552e00;
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .wapper {
+            padding-bottom: 60px;
+            height: auto;
+        }
+
+        .content__user__area {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content__user__area--picture img {
+            border-radius: 50%;
+
+        }
+
+        .content__user__area--name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .content__user__area--details .block {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .mail__area .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .mail__area .title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .mail__area .mailbody .mail_details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mail__area .mailbody .mail_details .maincontent {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .mail__area .mailbody .mail_details .arrowDetails img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .statistics--container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .statistics--container__toparea {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .statistics--container__toparea--right .btn {
+            margin-right: 10px;
+        }
+
+        .statistics--container__toparea--left .badge {
+            margin-left: 10px;
+        }
+
+        .statistics--container__bottom {
+            display: flex;
+            align-items: center;
+        }
+
+        .statistics--container__bottom .right {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .statistics--container__bottom .left {
+            width: 75%;
+        }
+
+        .Incoming__reports--container {
+            margin-top: 20px;
+        }
+
+        .Incoming__reports__card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .Incoming__reports__card img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .Incoming__reports__card__content {
+            flex: 1;
+            margin-left: 10px;
+        }
+
+        .Incoming__reports__card__content--title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .Incoming__reports__card__content--number {
+            font-size: 18px;
+            font-weight: bold;
+            color: #FF5722;
+        }
+    </style>
+</head>
+
+
+
+<body data-spy="scroll" data-target=".navbar" id="fullscreendiv">
+
+
+    <span class="icon icon-2xl Primary-600" data-icon="car"></span>
+
+
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('.Incoming__reports__card__content--number').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+
+        // $(function () {
+
+        //     var sidebar_toggle = localStorage.getItem("sidebar_toggle");
+        //     if (!sidebar_toggle || sidebar_toggle == null) {
+        //         localStorage.setItem("sidebar_toggle", "open");
+        //         $(".sidebar").addClass("open");
+        //     } else if (sidebar_toggle == "close") {
+        //         $(".sidebar").removeClass("open").addClass("close");
+        //     } else {
+        //         $(".sidebar").addClass("open");
+        //     }
+
+        //     $("#sidebar_toggle_btn").click(function () {
+        //         toggleSidebar();
+        //     });
+
+
+
+        //     document.addEventListener('keydown', function (event) {
+        //         if (event.key === "Escape") {
+        //             toggleSidebar();
+        //         }
+        //     });
+
+
+        // });
+
+
+        // const sidebar = document.querySelector('.sidebar');
+        // const toggleBtn = document.querySelector('.toggle');
+
+        // toggleBtn.onclick = () => {
+        //   sidebar.classList.toggle('close');
+        // };
+
+
+
+        $('.toggle').on('click', function () {
+            $('.sidebar').toggleClass('close');
+        });
+
+
+    </script>
+
+    <script src="./icons.js"></script>
+
+</body>
+
+</html>

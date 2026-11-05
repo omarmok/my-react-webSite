@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="../css/bootstrap-v5.css" rel="stylesheet">
+	<link href="../css/slick.css" rel="stylesheet">
+	<link href="../css/slick-theme.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+	<link href="../css/hover-min.css" rel="stylesheet">
+	<link href="../css/main.css" rel="stylesheet">
+	<script src="../js/jquery-3.6.0.min.js">
+	</script>
+	<script src="../js/popper.min.js">
+	</script>
+	<script src="../js/bootstrap.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/jquery.steps.min.js">
+	</script>
+</head>
+<body data-spy="scroll" data-target=".navbar" id="fullscreendiv">
+	<section class="content">
+		<section class="wapper">
+			<div class="hearing">
+				<div class="page__title">
+					<h3><img alt="" class="me-2 titleimg" src="../images/icon-arrestBracelets.svg">أمر توقيف<img alt="" src="../images/arrow-left-title.svg"> 25454</h3><button class="btn moi-btn--white">عودة <img alt="" class="ms-2" src="../images/arrow-left-title.svg"></button>
+				</div>
+				<div class="container-fluid">
+					<div class="p-3 bg-white ArrestedPersons">
+						<div class="row align-items-stretch">
+
+							<div class="col-lg-3 rightArea">
+								<div class="hearing__mainDetails p-1" style="gap:0">
+
+									<div class="hearing__mainDetails--block w-100">
+										<div class="content page__title m-0 align-items-start ">
+											<h3>البيانات الاساسية للتوقيف</h3>
+
+											<button class="btn moi-btn--text-icon"> <img src="../images/icon-edit-cu.svg" alt="" srcset=""></button>
+										</div>
+									</div>
+
+									<div class="hearing__mainDetails--block w-100">
+										<div class="content">
+											<label for="">حالة التوقيف</label> <input class="form-control disabled" placeholder=" موقوف" type="text">
+										</div>
+									</div>
+									<div class="hearing__mainDetails--block w-100">
+										<div class="content">
+											<label for="">رمز مركز الشرطة</label> <input class="form-control disabled" placeholder="وزارة الداخلية" type="text">
+										</div>
+									</div>
+									<div class="d-flex hearing__mainDetails--block arrtime flex-column w-100 ">
+										<div class="d-flex  flex-column w-100">
+											<label for="" class="required">وقت وتاريخ التوقيف</label>
+											<div class="d-flex" style="gap:10px">
+												<input class="form-control hijri-date-input input-with-icon disabled" type="text" placeholder="10/10/1445 "> <input class="form-control input-with-icon-time disabled" type="text" placeholder="8:00صباحا ">
+											</div>
+										</div>
+									
+									</div>
+
+
+								
+										
+										<div class="d-flex hearing__mainDetails--block arrtime flex-column w-100 ">
+											<label for="" class="required">مدة التوقيف
+                                             <span class="explainInput">(باليوم)</span>
+
+											</label> <input class="form-control disabled" placeholder="1" type="text">
+										</div>
+								
+
+
+
+
+									<div class="d-flex w-100  flex-column" style="gap:10px">
+										<div class="d-flex hearing__mainDetails--block arrtime flex-column w-100 ">
+											<label for="" class="required">الظابط</label>
+											<div class="d-flex w-100 " >
+												<select aria-label="Default select example" class="form-select disabled">
+													<option selected>
+														5006868893 - سليمان الشهري مقدم
+													</option>
+													<option value="1">
+														One
+													</option>
+													<option value="2">
+														Two
+													</option>
+													<option value="3">
+														Three
+													</option>
+												</select>
+											</div>
+										</div>
+									
+									</div>
+									<div class="d-flex w-100" >
+										<div class="d-flex hearing__mainDetails--block arrtime flex-column w-100 ">
+											<label for="">سبب التوقيف</label>
+											<div class="d-flex w-100 " >
+												<textarea class="form-control disabled" id="exampleFormControlTextarea1" placeholder="سداد المبلغ المالي 120000.00 ريال" rows="3" style=" height: 45px;"></textarea>
+											</div>
+										</div>
+									</div>
+
+
+
+									<div class="d-flex w-100 p-2" style="gap:10px">
+										<div class="d-flex arrtime flex-column w-50">
+											<label for="" class="required">هل الزيارة مسموحة</label>
+											<div class="d-flex" style="gap:10px">
+												<div class="d-flex" style="gap:10px">
+													نعم
+													<label class="switch"><input type="checkbox" id="active" name="active" checked> <span class="slider"></span></label>
+													لا
+													
+													</div>											</div>
+										</div>
+										<div class="d-flex arrtime flex-column w-50">
+											<label for="" class="required">نوع التوقيف</label>
+											<div class="d-flex" style="gap:10px">
+												<div class="form-check form-check-inline d-flex align-items-center">
+													<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
+													<label class="form-check-label" for="inlineRadio1">جماعي</label>
+												  </div>
+												  <div class="form-check form-check-inline d-flex align-items-center">
+													<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+													<label class="form-check-label" for="inlineRadio2">فردي</label>
+												  </div>
+												
+												</div>
+									</div>
+
+
+
+
+								</div>
+							</div>
+					   	</div>
+
+							
+							<div class="col-lg-9">
+								<!-- start personComponent -->
+								<div class="personComponent">
+									<div class=" insertedUser mb-2">
+										<div class="tablecontainer position-relative" style="z-index: 999;">
+
+											<table class=" table ">
+												<thead>
+													<tr>
+														<th>صورة الشخص</th>
+														<th>الاسم بالكامل</th>
+														<th>نوع الهوية</th>
+														<th>رقم الهوية</th>
+														<th>تاريخ الميلاد</th>
+														
+														<th> الجنسية</th>
+														<th> المهنة</th>
+														<th> دوره</th>
+													
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="position-relative" style="overflow: inherit;">
+															<div class="zoomimage">
+																<img src="../images/icon-search.svg" alt="" srcset="">
+															</div>
+															<img src="../images/person.png" class="personImage" alt="">
+				
+														</td>
+														<td>عمر مختار زكريا عطيه</td>
+														<td>اقامة</td>
+														<td>2302307307</td>
+														<td>20/10/2005</td>
+														<td>
+															سعودي
+														</td>
+														<td>
+															مدير مكتب خدمة مدنية
+														</td>
+														<td>
+															متهم
+														</td>
+														
+				
+				
+													</tr>
+												</tbody>
+											</table>
+				
+										</div>
+				
+				
+				
+									</div>
+				
+								</div>
+	                            <!-- end personComponent -->
+								<!-- start ArrestedPersonsTabs -->
+								<div class="mt-3 ArrestedPersonsTabs ">
+							
+								<nav>
+									<div class="nav nav-tabs" id="nav-tab" role="tablist">
+									<button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+										بيانات الإحالة
+										<div class="totlal">
+											5
+										</div>
+									</button>
+									<button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+
+										زيارات الموقوفين
+										<div class="totlal">
+										10
+										</div>
+
+									</button>
+									<button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+
+										أوامر التمديد
+										<div class="totlal">
+										20
+										</div>
+									</button>
+
+									<button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+
+										أوامر الإطلاق
+										<div class="totlal">
+										1
+										</div>
+									</button>
+									
+									<button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+										حركة السير
+										<div class="totlal">
+										12
+										</div>
+									</button>
+
+									<button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+										الأمانات الخاصة بالموقوفين
+										<div class="totlal">
+										1
+										</div>
+									</button>
+
+									</div>
+								</nav>
+								<div class="tab-content" id="nav-tabContent">
+									<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+
+
+									   <!-- start noDataAvailable -->	
+							<div class="d-flex flex-column align-items-center mt-5 noDataAvailable">
+											<img  src="../images/no-data-found.svg" alt="no-data-found">
+									<h6 class="fw-bold">
+										لاتوجد بيانات
+									</h6>
+
+										<button class="btn moi-btn--secondary ">
+											<img src="../images/icon-plus-circle.svg" alt="">
+											إضافة إحالة
+										</button>
+							</div>
+
+								   <!-- end noDataAvailable -->	
+
+
+								   <div class="tablecontainer">
+							
+									<table class="table table-hover table-striped tableloader">
+										<thead>
+											<tr>
+												<th class="">تاريخ الإحالة </th>
+											
+												<th class=""> الجهة المُحال لها</th>
+												<th class="">أُحيل بواسطة	</th>
+												
+												<th class="">رقم خطاب الإحالة</th>
+												<th class="">تاريخ خطاب الإحالة</th>
+											
+												<th class="">  الإجراءات</th>
+					
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+										
+											<td>20/10/1444</td>
+											<td> الجهة المُحال لها</td>
+											<td> أُحيل بواسطة	</td>
+											<td> 23564</td>
+											<td>20/10/1444</td>
+											<td>
+												<button class="moi-btn--text-icon"><img alt="" src="../images/icon-file-earmark-text.svg" title="تفاصيل"></button>
+												 <button class="moi-btn--text-icon"><img alt="" class="editbtn" src="../images/icon-edit-cu.svg" title="تعديل"></button>
+												 <button class="moi-btn--text-icon"><img alt="" src="../images/icon-trash2.svg" title="حذف  الطلب"></button>
+												 <button class="moi-btn--text-icon"><img alt="" src="../images/icon-printer.svg" title="طباعة تفاصيل الطلب"></button>
+												</td>
+
+										
+				
+											</tr>
+					
+											
+					
+					
+										</tbody>
+									</table>
+									<nav aria-label="..." class="paginationContainer justify-content-between">
+										<ul class="pagination">
+											<li class="page-item">
+												<a class="page-link"><img alt="" src="./images/icon-arrow-right-pagenation.svg"></a>
+											</li>
+											<li class="page-item">
+												<a class="page-link" href="#">1</a>
+											</li>
+											<li class="page-item active">
+												<a class="page-link" href="#">2</a>
+											</li>
+											<li class="page-item">
+												<a class="page-link" href="#">3</a>
+											</li>
+											<li class="page-item">
+												<a class="page-link" href="#">4</a>
+											</li>
+											<li class="page-item">
+												<a class="page-link" href="#">....</a>
+											</li>
+											<li class="page-item">
+												<a class="page-link" href="#">11</a>
+											</li>
+											<li class="page-item">
+												<a class="page-link" href="#">12</a>
+											</li>
+											<li class="page-item">
+												<a class="page-link" href="#"><img alt="" src="./images/icon-arrow-left-pagenation.svg"></a>
+											</li>
+										</ul>
+										<div class="d-flex leftnav">
+											<div class="d-flex align-items-center pages_number">
+												<label class="form-label" for="exampleFormControlInput1">إظهار</label> <select>
+													<option selected="">
+														10
+													</option>
+													<option value="20">
+														20
+													</option>
+													<option value="50">
+														50
+													</option>
+													<option value="100">
+														100
+													</option>
+												</select> <label class="form-label" for="exampleFormControlInput1">من <span>68</span></label>
+											</div>
+											<div class="d-flex align-items-center goto">
+												<label class="form-label" for="exampleFormControlInput1">الذهاب الي صفحة</label> <input class="form-control" placeholder="2" type="text"> <button class="btn moi-btn--outline" type="submit">ذهاب</button>
+											</div>
+										</div>
+									</nav>
+								</div>
+					
+
+
+
+									</div>
+									<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
+									<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
+								</div>
+
+								</div>
+                               <!-- end ArrestedPersonsTabs -->
+								
+								
+
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				</div>
+
+
+
+			</div>
+		</section>
+	</section>
+	<script src="/PS-Design/js/app.js">
+	</script>
+</body>
+</html>

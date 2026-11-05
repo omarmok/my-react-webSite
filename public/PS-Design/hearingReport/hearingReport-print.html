@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="../css/bootstrap-v5.css" rel="stylesheet">
+	<link href="../css/slick.css" rel="stylesheet">
+	<link href="../css/slick-theme.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+	<link href="../css/hover-min.css" rel="stylesheet">
+	<link href="../css/main.css" rel="stylesheet">
+	<script src="../js/jquery-3.6.0.min.js">
+	</script>
+	<script src="../js/popper.min.js">
+	</script>
+	<script src="../js/bootstrap.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/jquery.steps.min.js">
+	</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap" rel="stylesheet">
+
+<style>
+	body {
+		background: #fff;
+		font-family: "Readex Pro", sans-serif !important;
+	}
+
+	* {
+		font-size: 10px !important;
+	}
+
+    .sidebar{
+		display:none;
+    }
+    .wapper .navbar {
+        display: none;
+    }
+
+    .sidebar.close ~ .wapper {
+        right: 0;
+        height: 100vh;
+        width: 100%;
+    }
+
+    .wapper {
+        right: 0;
+        height: 100vh;
+        width: 100%;
+    }
+
+    .breadcrumb-container {
+        display: none;
+    }
+    #watermark {
+        position: fixed;
+        bottom: 25%;
+        z-index: 99;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+		#watermark img {
+			height: 530px;
+		}
+
+	.printDateand-user {
+		background: #704214;
+    margin-right: 8%;
+    margin-left: 8%;
+    border-radius: 0 0 65px 65px;
+    border-bottom: 5px solid #a7692a;
+    justify-content: space-between;
+    padding: 15px 45px;
+    color: #fff;
+	}
+
+	h6 {
+		font-size: 10px;
+	}
+
+	.summary__body .content .full-width p {
+		font-weight: 500;
+	}
+
+
+	.user-container {
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	.summary__body .content .block-content {
+		flex: 1;
+		width: 100% !important;
+	}
+
+
+	.summary__body .mainDetails .block-content {
+		flex: 0 0 auto;
+		width: 100% !important;
+	}
+
+	.summary__body .content .block-content .block .val .bg-primary {
+		font-size: 6px !important;
+	}
+
+	.summary__body .content .block-content .block {
+		padding: 5px;
+		background: #ffffff;
+	}
+
+	.personName, .seizures {
+		align-items: center;
+		padding: 15px 0;
+	}
+
+	.summary__body .content {
+		padding: 0;
+	}
+
+	label {
+		margin-bottom: 0 !important;
+	}
+
+
+	.summary__body .content .block-content .block img {
+		height: 50px;
+		width: 90px;
+		-o-object-fit: cover;
+		object-fit: contain;
+	}
+
+	.user-container .block-content .block {
+		height: 90%;
+	}
+
+	.summary__body .content .block-content .block .val {
+		margin-top: 0;
+	}
+
+	.summary__body .content .block-content .block .val {
+		white-space: nowrap;
+	}
+
+	.full-width .block .val p {
+		white-space: normal;
+	}
+
+	.summary__body .content .block-content {
+		margin: 0.3%;
+		height: 100%;
+	}
+
+		.summary__body .content .block-content .block .val {
+			font-size: 10px;
+		}
+		.table th{
+		background: #F8F6F2 !important;
+		color: #704214!important;
+
+
+		}
+
+		.tablecontainer .table tr td{
+			max-width: 100%;overflow: auto;text-overflow: inherit;white-space: inherit;
+		}
+</style>
+
+</head>
+<body data-spy="scroll" data-target=".navbar" id="fullscreendiv">
+	
+
+	
+<div id="watermark"><img alt="" src="../images/watermark.svg"></div>
+<div class="reportPrint">
+	<div class="d-flex align-items-center justify-content-between report__header" style="margin-bottom: 20px;">
+		<div class="title" style=" width: 100%;justify-content: center;">
+			<h6 style="font-weight: 600;">وزارة الداخلية/ الأمن العام</h6>
+			<h6 style="font-weight: 600;">شرطة المنطقة الشرقية</h6>
+			<h6 style="font-weight: 600;">مخفر شرطة مربطبة</h6>
+			<div class="report-title" style="color:#B99855;font-weight: 600;">
+				رقم القضية/ <span>4555300003</span>
+			</div>
+		</div>
+		<div class="reportlogo" style=" width: 100%;justify-content: center;display: flex;">
+			<div class="d"><img alt="" src="../images/Public-Security-logo.svg" style="height:85px;"></div>
+		</div>
+		<div class="report__date" style=" display: flex;gap: 10px;width: 100%;justify-content: end;">
+			<div class="d-flex block">
+				<img alt="" src="../images/icon-calendar-check-p.svg" style="height: 24px;">
+				<div class="d-flex flex-column">
+					<label>تاريخ - وقت  سماع الاقوال</label> <span class="font-weight">
+
+						الاثنين/20/04/1444
+						-
+						10:43:45 ص
+
+					</span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="mainPage" style="border: 1px solid #959494; border-radius: 20px;">
+		<div class="summary__body sumaryDetails" style="padding:0;">
+			<div class="page__summary--title" style="padding-top: 0;display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;margin: 0;padding: 0;">
+				<h3 style="font-weight: 600;">محضر سماع أقوال</h3><span>
+					محمد عبد الظاهر محمد عبد الرحمن -
+					بصفته
+					<strong>مبلغ</strong>
+				</span>
+			</div>
+			<div class="content mainDetails">
+				<div class="block-content">
+					<div class="block" style=" text-align: center;padding: 5px; background:#f5f2ee;color: #704214;">
+						<div class="tilte" style="font-weight: 600;line-height: 1.9;">
+							إستنادا للمادة 28 من نظام الأجراءات الجزائية التي تنص علي أن لرجال الضبط الجنائي في أثناء جمع المعلومات أن يستمعوا إلي أقوال من لديهم معلومات عن الوقائع الجنائية وأن يثبتو ذلك
+						</div>
+					</div>
+				</div>
+				<div class="block-content">
+					<div class="block">
+						<div class="val" style="font-weight: 500;">
+                            <strong>	أثبت أنا</strong>
+
+							مقدم - 1059928695 - سليمان محمد عوض الشهري - جوال رقم 050689785
+						</div>
+					</div>
+				</div>
+
+					<div class="block-content">
+					<div class="block">
+
+						<div class="tilte" style="font-weight: 600; margin-bottom: 3px;">
+							أنه في تمام الساعه <span>10:43:45 ص</span> بتاريخ <span>الاثنين/20/04/1444</span> بقضية رقم <span>4555300003</span> تم سماع اقوال
+						</div>
+				
+						</div>
+					</div>
+				</div>
+
+
+					<div class="block-content">
+						<div class="block" style=" text-align:right;padding:5px;background: #fff;color: #000;">
+							<div class="tilte" style=" font-weight: 600; display: flex; align-items: center; gap: 10px;">
+								بيانات المقر بمافيه 
+							</div>
+						</div>
+				<div class="tablecontainer">
+					<table class="table table-hover table-striped mb-3 ">
+						<tr>
+							<th></th>
+							<th>الاسم</th>
+							<th>الهويه</th>
+							<th>رقم الهاتف</th>
+							<th>العمر</th>
+							<th>الجنسية</th>
+							<th>الحالة الاجتماعية</th>
+							<th>دوره</th>
+						</tr>
+
+						<tr>
+							<td>	<img src="../images/soliman.jpg" alt="" srcset="" style="    width: 60px;"></td>
+							<td>	محمد عبد الظاهر محمد عبد الرحمن</td>
+							<td>	بدون</td>
+							<td>0535455654</td>
+							<td>47</td>
+							<td>مصري</td>
+							<td>متزوج</td>
+							<td>مبلغ</td>
+						</tr>
+
+					</table>
+				</div>
+
+				
+					</div>
+
+			
+				<div class="block-content mb-3">
+					<div class="block" style=" text-align: right;padding: 15px; background: #f8fbff;;color: 704214;">
+						<div class="tilte" style="font-weight: 600;">
+							وجاءت اقوال علي النحو التالي
+						</div>
+					</div>
+				</div><!--start  hearing__list -->
+				<div class="block-content">
+					<div class="block" style=" text-align:right;padding:5px;background: #F2F3F5;color: #000;">
+						<div class="tilte" style=" font-weight: 600; display: flex; align-items: center; gap: 10px;">
+							<span style=" background: #000; color: #fff; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-align: center; gap: 1px; line-height: 1;">
+								1<br>
+								س
+							</span> متي أخر مرة شاهدت فيها شقيقك/أحمد وأين بالتحديد؟
+						</div>
+					</div>
+					<div class="block" style=" text-align: right; padding: 5px; background: #ffffff; color: #555555; line-height: 1.9;">
+						<div class="tilte" style="font-weight: 500;">
+							كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564 كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564 كلا غير صحيح حضر الي يوم الاحد الموافقا
+						</div>
+					</div>
+				</div>
+				<div class="block-content">
+					<div class="block" style=" text-align:right;padding:5px;background: #F2F3F5;color: #000;">
+						<div class="tilte" style=" font-weight: 600; display: flex; align-items: center; gap: 10px;">
+							<span style=" background: #000; color: #fff; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-align: center; gap: 1px; line-height: 1;">
+								2<br>
+								س
+							</span> متي أخر مرة شاهدت فيها شقيقك/أحمد وأين بالتحديد؟
+						</div>
+					</div>
+					<div class="block" style=" text-align: right; padding: 5px; background: #ffffff; color: #555555; line-height: 1.9;">
+						<div class="tilte" style="font-weight: 500;">
+							كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافقحضر الي يوم الاحد الموافق
+						</div>
+					</div>
+				</div><!--end  hearing__list -->
+				<div class="block-content">
+					<div class="block" style=" text-align: center;padding: 5px; background: #f8fbff;;color: 704214;">
+						<div class="tilte" style="font-weight: 600;">
+							وأثباتا للواقع تم تحرير وقفل هذا المحضر في الساعه 11:05صباحا من اليوم المبين تاريخه اعلاه
+						</div>
+					</div>
+				</div>
+				<div class="block-content d-flex" style="gap:10px">
+					<div class="block interviewer" style="background: #fff;border-style: solid;border-color: #e2e8f0;text-align: center;padding: 5px;width: 100%;display: flex;align-items: center;flex-direction: column;">
+						<span style="font-weight: 600;margin-bottom: 5px;">المقر بمافيه</span> <img alt="" class="h-50" src="../images/signature.png" srcset="">
+						<div class="tilte" style="font-weight: 500;">
+							5006868893 - محمد عبد الظاهر محمد عبد الرحمن
+						</div>
+					</div>
+					<div class="block interviewee" style="background: #fff;border-style: solid;border-color: #e2e8f0;text-align: center;padding: 5px;width: 100%;display: flex;align-items: center;flex-direction: column;">
+						<span style="font-weight: 600;margin-bottom: 5px;">معد المحضر</span> <img alt="" class="h-50" src="../images/signature.png" srcset="">
+						<div class="tilte" style="font-weight: 500;">
+							1059928695 - سليمان محمد عوض الشهري
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="d-flex printDateand-user">
+		<div class="printDate" style="font-weight: 600;">
+			تاريخ  ووقت الطباعه : <span style="font-weight: 500;">time and date</span>
+		</div>
+		<div class="printDate" style="font-weight: 600;">
+			تمت الطباعة بواسطة: <span style="font-weight: 500;">user id </span>
+		</div>
+	</div>
+    <script src="../js/app.js"></script>
+</body>
+</html>

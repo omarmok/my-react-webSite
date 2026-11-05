@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <title></title>
+  <link href="../css/bootstrap-v5.css" rel="stylesheet">
+  <link href="../css/slick.css" rel="stylesheet">
+  <link href="../css/slick-theme.css" rel="stylesheet">
+  <link href="../css/animate.css" rel="stylesheet">
+  <link href="../css/font-awesome.min.css" rel="stylesheet">
+  <link href="../css/hover-min.css" rel="stylesheet">
+  <link href="../css/main.css" rel="stylesheet">
+  <script src="../js/jquery-3.6.0.min.js">
+  </script>
+  <script src="../js/popper.min.js">
+  </script>
+  <script src="../js/bootstrap.min.js">
+  </script>
+  <script src="../js/slick.min.js">
+  </script>
+  <script src="../js/slick.min.js">
+  </script>
+  <script src="../js/jquery.steps.min.js">
+  </script>
+
+
+  <style>
+    .caseTimeline {
+      display: flex;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      height: 100%;
+      background: #ffff;
+      padding: 15px;
+      box-shadow: rgb(92 92 92) 7px 24px 51px -44px;
+      border-radius: 0 20px 20px 0;
+
+      top: 25%;
+    }
+
+    .timeline-page {
+      height: 770px;
+      overflow: scroll;
+      padding: 15px;
+    }
+
+    .caseTimeline h3 {
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #f8f6f2;
+      padding: 18px;
+      background: #f8f6f2;
+      position: sticky;
+      top: -15px;
+      z-index: 99999;
+    }
+  </style>
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" id="fullscreendiv">
+
+
+  <div class="timeline-page">
+    <div class="moi-timeline">
+      <h3 class="moi-timeline__title">السجل الزمني للقضية</h3>
+
+      <div class="moi-timeline__body">
+        <ul class="moi-timeline__list iq-timeline2 list-inline p-0 m-0">
+
+          <!-- Item 1: إضافة متهم - 11 أغسطس - Default -->
+          <li class="moi-timeline__item moi-timeline__item--default animate animated fadeInUp">
+            <div class="moi-timeline__date">
+              <div class="moi-timeline__date-circle content-date bg-Date">
+                <span class="moi-timeline__date-day date">11</span>
+                <span class="moi-timeline__date-month month">أغسطس</span>
+              </div>
+              <span class="moi-timeline__connector"></span>
+            </div>
+
+            <div class="moi-timeline__content me-5">
+              <div class="moi-card">
+                <div class="moi-card__header moi-timeline__event-header">
+                  <div class="moi-card__title-group">
+                    <h4 class="moi-card__title moi-timeline__event-title">إضافة متهم</h4>
+                  </div>
+                  <small class="moi-timeline__event-meta">
+                    <i class="fa fa-calendar"></i>
+                    11/08/2026 10:21:00 ص
+                  </small>
+                </div>
+
+                <div class="moi-card__body">
+                  <div class="moi-card__content">
+                    <div class="moi-card__content--block">
+                      <label>بواسطة</label>
+                      <span>أحمد محمد علي</span>
+                    </div>
+                  </div>
+
+                  <p class="moi-timeline__event-description mb-0">
+                    تم إضافة متهم جديد إلى القضية وربطه ببيانات الهوية الوطنية.
+                  </p>
+
+                  <div class="moi-timeline__attachments">
+                    <h6 class="moi-timeline__attachments-title">المرفقات</h6>
+                    <div class="tablecontainer">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>اسم المرفق</th>
+                            <th>عرض</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>بيانات هوية المتهم.pdf</td>
+                            <td class="actiontd">
+                              <button class="moi-btn--text-icon" type="button" aria-label="عرض">
+                                <img src="../images/icon-eye.svg" alt="" title="عرض">
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Item 2: إضافة متهم - 12 أغسطس - Default -->
+          <li class="moi-timeline__item moi-timeline__item--default animate animated fadeInRight">
+            <div class="moi-timeline__date">
+              <div class="moi-timeline__date-circle content-date bg-Date">
+                <span class="moi-timeline__date-day date">12</span>
+                <span class="moi-timeline__date-month month">أغسطس</span>
+              </div>
+              <span class="moi-timeline__connector"></span>
+            </div>
+
+            <div class="moi-timeline__content me-5">
+              <div class="moi-card">
+                <div class="moi-card__header moi-timeline__event-header">
+                  <div class="moi-card__title-group">
+                    <h4 class="moi-card__title moi-timeline__event-title">إضافة متهم</h4>
+                  </div>
+                  <small class="moi-timeline__event-meta">
+                    <i class="fa fa-calendar"></i>
+                    12/08/2026 09:40:00 ص
+                  </small>
+                </div>
+
+                <div class="moi-card__body">
+                  <div class="moi-card__content">
+                    <div class="moi-card__content--block">
+                      <label>بواسطة</label>
+                      <span>سليمان محمد عوض الشهري</span>
+                    </div>
+                  </div>
+
+                  <p class="moi-timeline__event-description mb-0">
+                    تم إضافة متهم ثانٍ إلى القضية بعد استكمال التحريات الأولية.
+                  </p>
+
+                  <div class="moi-timeline__attachments">
+                    <h6 class="moi-timeline__attachments-title">المرفقات</h6>
+                    <div class="tablecontainer">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>اسم المرفق</th>
+                            <th>عرض</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>محضر سماع أقوال المتهم.pdf</td>
+                            <td class="actiontd">
+                              <button class="moi-btn--text-icon" type="button" aria-label="عرض">
+                                <img src="../images/icon-eye.svg" alt="" title="عرض">
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Item 3: فشل التحويل - 13 أغسطس - Error -->
+          <li class="moi-timeline__item moi-timeline__item--error animate animated fadeInRight">
+            <div class="moi-timeline__date">
+              <div class="moi-timeline__date-circle content-date text-bg-danger">
+                <span class="moi-timeline__date-day date">13</span>
+                <span class="moi-timeline__date-month month">أغسطس</span>
+              </div>
+              <span class="moi-timeline__connector"></span>
+            </div>
+
+            <div class="moi-timeline__content me-5">
+              <div class="moi-card border border-danger">
+                <div class="moi-card__header moi-timeline__event-header">
+                  <div class="moi-card__title-group">
+                    <h4 class="moi-card__title moi-timeline__event-title">فشل التحويل</h4>
+                  </div>
+                  <small class="moi-timeline__event-meta">
+                    <i class="fa fa-calendar"></i>
+                    13/08/2026 11:15:00 ص
+                  </small>
+                </div>
+
+                <div class="moi-card__body">
+                  <div class="moi-card__content">
+                    <div class="moi-card__content--block">
+                      <label>بواسطة</label>
+                      <span>محمد أحمد موسى الزعيقي</span>
+                    </div>
+                  </div>
+
+                  <p class="moi-timeline__event-description mb-0">
+                    فشلت عملية تحويل القضية إلى الجهة المختصة بسبب نقص في البيانات المطلوبة.
+                  </p>
+
+                  <div class="moi-timeline__attachments">
+                    <h6 class="moi-timeline__attachments-title">المرفقات</h6>
+                    <div class="tablecontainer">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>اسم المرفق</th>
+                            <th>عرض</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>سجل خطأ التحويل.pdf</td>
+                            <td class="actiontd">
+                              <button class="moi-btn--text-icon" type="button" aria-label="عرض">
+                                <img src="../images/icon-eye.svg" alt="" title="عرض">
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Item 4: تم إرسال البيانات - 14 أغسطس - Success (last item: no connector) -->
+          <li class="moi-timeline__item moi-timeline__item--success animate animated fadeInRight">
+            <div class="moi-timeline__date">
+              <div class="moi-timeline__date-circle content-date text-bg-success">
+                <span class="moi-timeline__date-day date">14</span>
+                <span class="moi-timeline__date-month month">أغسطس</span>
+              </div>
+            </div>
+
+            <div class="moi-timeline__content me-5">
+              <div class="moi-card border border-success">
+                <div class="moi-card__header moi-timeline__event-header">
+                  <div class="moi-card__title-group">
+                    <h4 class="moi-card__title moi-timeline__event-title">تم إرسال البيانات</h4>
+                  </div>
+                  <small class="moi-timeline__event-meta">
+                    <i class="fa fa-calendar"></i>
+                    14/08/2026 02:30:00 م
+                  </small>
+                </div>
+
+                <div class="moi-card__body">
+                  <div class="moi-card__content">
+                    <div class="moi-card__content--block">
+                      <label>بواسطة</label>
+                      <span>ياسين محمد حسن حمزة</span>
+                    </div>
+                  </div>
+
+                  <p class="moi-timeline__event-description mb-0">
+                    تم إرسال بيانات القضية بنجاح إلى الجهة المختصة واستلام إشعار التأكيد.
+                  </p>
+
+                  <div class="moi-timeline__attachments">
+                    <h6 class="moi-timeline__attachments-title">المرفقات</h6>
+                    <div class="tablecontainer">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>اسم المرفق</th>
+                            <th>عرض</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>إشعار استلام البيانات.pdf</td>
+                            <td class="actiontd">
+                              <button class="moi-btn--text-icon" type="button" aria-label="عرض">
+                                <img src="../images/icon-eye.svg" alt="" title="عرض">
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="/PS-Design/js/app.js">
+  </script>
+  <script>
+
+    $(".addlass").click(function () {
+      $(".caseTimeline").toggleClass("d-none");
+
+    });
+
+  </script>
+
+</body>
+
+</html>

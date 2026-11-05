@@ -1,0 +1,891 @@
+{
+  "components": [
+    {
+      "name": "Button",
+      "anatomy": [
+        "Container (.moi-btn) with built-in hit-area / pseudo focus ring",
+        "Label / text node",
+        "Icon slot (svg) that inherits currentColor",
+        "Optional icon-only layout that collapses horizontal padding"
+      ],
+      "variants": [
+        {
+          "name": "Primary",
+          "styles": {
+            "ghost": {
+              "default": {
+                "background": "{color.primary.500}",
+                "border": "{color.primary.500}",
+                "text": "{color.primary.25}"
+              },
+              "hover": {
+                "background": "{color.primary.100}",
+                "text": "{color.primary.600}"
+              },
+              "active": {
+                "background": "{color.primary.200}",
+                "border": "{color.primary.500}"
+              }
+            },
+            "solid": {
+              "default": {
+                "background": "{color.primary.25}",
+                "border": "{color.primary.25}",
+                "text": "{color.primary.700}"
+              },
+              "hover": {
+                "background": "{color.primary.600}",
+                "text": "{color.primary.25}"
+              },
+              "active": {
+                "background": "{color.primary.700}"
+              }
+            },
+            "outline": {
+              "default": {
+                "background": "{color.base.white}",
+                "border": "{color.primary.700}",
+                "text": "{color.primary.700}"
+              },
+              "hover": {
+                "background": "{color.primary.50}"
+              },
+              "active": {
+                "background": "{color.primary.100}"
+              }
+            }
+          }
+        },
+        {
+          "name": "Neutral",
+          "styles": {
+            "ghost": {
+              "default": {
+                "background": "{color.neutral.50}",
+                "border": "{color.neutral.50}",
+                "text": "{color.neutral.900}"
+              },
+              "hover": {
+                "background": "{color.neutral.100}"
+              },
+              "active": {
+                "background": "{color.neutral.200}",
+                "border": "{color.neutral.900}",
+                "opacity": "0.8"
+              }
+            },
+            "solid": {
+              "default": {
+                "background": "{color.neutral.100}",
+                "border": "{color.neutral.100}",
+                "text": "{color.neutral.900}"
+              },
+              "hover": {
+                "background": "{color.neutral.300}"
+              },
+              "active": {
+                "background": "{color.neutral.400}",
+                "border": "{color.neutral.900}"
+              }
+            },
+            "outline": {
+              "default": {
+                "background": "{color.base.white}",
+                "border": "{color.neutral.300}",
+                "text": "{color.neutral.900}"
+              },
+              "hover": {
+                "background": "{color.neutral.100}"
+              },
+              "active": {
+                "background": "{color.neutral.50}"
+              }
+            }
+          }
+        },
+        {
+          "name": "Info",
+          "styles": {
+            "ghost": {
+              "default": {
+                "background": "{color.info.500}",
+                "border": "{color.info.500}",
+                "text": "{color.info.25}"
+              },
+              "hover": {
+                "background": "{color.info.100}",
+                "text": "{color.info.600}"
+              },
+              "active": {
+                "background": "{color.info.200}"
+              }
+            },
+            "solid": {
+              "default": {
+                "background": "{color.info.25}",
+                "border": "{color.info.25}",
+                "text": "{color.info.700}"
+              },
+              "hover": {
+                "background": "{color.info.600}",
+                "text": "{color.info.25}"
+              }
+            },
+            "outline": {
+              "default": {
+                "background": "{color.base.white}",
+                "border": "{color.info.700}",
+                "text": "{color.info.700}"
+              },
+              "hover": {
+                "background": "{color.info.50}"
+              }
+            }
+          }
+        }
+      ],
+      "sizeTokens": {
+        "sm": {
+          "height": "{buttons.size.sm.height}",
+          "paddingX": "{buttons.size.sm.paddingX}",
+          "fontSize": "{buttons.size.sm.fontSize}",
+          "radius": "{buttons.size.sm.radius}",
+          "gap": "{buttons.size.sm.gap}",
+          "iconSize": "{buttons.size.sm.iconSize}",
+          "lineHeight": "{buttons.size.sm.lineHeight}"
+        },
+        "md": {
+          "height": "{buttons.size.md.height}",
+          "paddingX": "{buttons.size.md.paddingX}",
+          "fontSize": "{buttons.size.md.fontSize}",
+          "radius": "{buttons.size.md.radius}",
+          "gap": "{buttons.size.md.gap}",
+          "iconSize": "{buttons.size.md.iconSize}",
+          "lineHeight": "{buttons.size.md.lineHeight}"
+        },
+        "lg": {
+          "height": "{buttons.size.lg.height}",
+          "paddingX": "{buttons.size.lg.paddingX}",
+          "fontSize": "{buttons.size.lg.fontSize}",
+          "radius": "{buttons.size.lg.radius}",
+          "gap": "{buttons.size.lg.gap}",
+          "iconSize": "{buttons.size.lg.iconSize}",
+          "lineHeight": "{buttons.size.lg.lineHeight}"
+        },
+        "xl": {
+          "height": "{buttons.size.xl.height}",
+          "paddingX": "{buttons.size.xl.paddingX}",
+          "fontSize": "{buttons.size.xl.fontSize}",
+          "radius": "{buttons.size.xl.radius}",
+          "gap": "{buttons.size.xl.gap}",
+          "iconSize": "{buttons.size.xl.iconSize}",
+          "lineHeight": "{buttons.size.xl.lineHeight}"
+        }
+      },
+      "states": {
+        "focus": {
+          "outerRing": "rgba({color.primary.700}, 0.35) via --moi-focus-outer",
+          "innerRing": "rgba({color.primary.700}, 0.75) via --moi-focus-inner",
+          "outline": "2px solid currentColor"
+        },
+        "disabled": {
+          "background": "{color.neutral.100}",
+          "border": "{color.neutral.300}",
+          "text": "{color.neutral.400}",
+          "cursor": "not-allowed"
+        }
+      },
+      "notes": [
+        "Lavender, Warning and Error tokens mirror the Primary and Neutral patterns (solid/outline) but swap color.* scales.",
+        "Icon-only buttons drop horizontal padding but maintain the height and radius tokens from buttons.size.<size>.",
+        "Active state opacity (0.8) and focus ring opacity (rgba overlays) currently hardcoded and should become dedicated shadow/opacity tokens."
+      ],
+      "documentation": "DesignSystemDocumentation/buttons.html"
+    },
+    {
+      "name": "Input Field",
+      "anatomy": [
+        "Label",
+        "Input / textarea (.form-control)",
+        "Helper text (e.g. .wanted-to or .form-group-info)",
+        "Prefix / suffix icons and text (icons + .input-group-text)"
+      ],
+      "variants": [
+        {
+          "name": "Sizes",
+          "tokens": {
+            "default": "{forms.input.size.default}",
+            "sm": "{forms.input.size.sm}",
+            "md": "{forms.input.size.md}",
+            "lg": "{forms.input.size.lg}",
+            "xl": "{forms.input.size.xl}"
+          }
+        }
+      ],
+      "states": {
+        "default": {
+          "background": "{color.base.white}",
+          "border": "{color.neutral.400}",
+          "text": "{color.neutral.900}",
+          "placeholder": "{color.neutral.500}",
+          "transition": "border-color 0.3s, box-shadow 0.3s"
+        },
+        "focus": {
+          "border": "{color.primary.500}",
+          "boxShadow": "0 0 0 2px rgba({color.primary.500}, 0.16) (needs tokenized opacity)"
+        },
+        "disabled": {
+          "background": "{color.neutral.50}",
+          "border": "{color.neutral.200}",
+          "text": "{color.neutral.500}",
+          "cursor": "not-allowed"
+        }
+      },
+      "notes": [
+        "Helper text uses typography.mixins (meduimfont) so rely on typography.fontSize.sm + fontWeight.600.",
+        "Select2 dropdown items reuse form-control padding but still rely on hard-coded border colors (#bababa).",
+        "Textarea height is hard-coded (150px) and might benefit from spacing tokens if reused."
+      ],
+      "documentation": "DesignSystemDocumentation/text-fields.html"
+    },
+    {
+      "name": "Alert",
+      "anatomy": [
+        "Container (.alert)",
+        "Optional title / body content",
+        "Close button / custom slots"
+      ],
+      "variants": [
+        {
+          "name": "Primary",
+          "default": {
+            "background": "{color.primary.50}",
+            "border": "{color.primary.100}",
+            "text": "{color.primary.600}",
+            "lineHeight": "1.9"
+          }
+        },
+        {
+          "name": "Danger",
+          "default": {
+            "background": "rgba({color.error.500}, 0.05)",
+            "border": "{color.error.100}",
+            "text": "{color.error.500}"
+          }
+        }
+      ],
+      "notes": [
+        "Page-specific helpers (custom-danger-alert/custom-alert-primary) still use raw hex (#d9272d, #0d60da).",
+        "Backgrounds should map to color.*.50 tokens instead of hard-coded values for easier theming."
+      ],
+      "documentation": "DesignSystemDocumentation/alert.html"
+    },
+    {
+      "name": "Badge / Priority Pill",
+      "anatomy": [
+        "Container (.defualtprioroty)",
+        "Status dot (::before)",
+        "Optional filled state"
+      ],
+      "variants": [
+        {
+          "name": "Default",
+          "default": {
+            "background": "{color.neutral.50}",
+            "border": "{color.neutral.200}",
+            "text": "{color.neutral.600}",
+            "dot": "{color.neutral.600}"
+          }
+        },
+        {
+          "name": "High",
+          "default": {
+            "background": "{color.error.50}",
+            "border": "{color.error.200}",
+            "text": "{color.error.600}",
+            "dot": "{color.error.600}"
+          },
+          "filled": {
+            "background": "{color.error.500}",
+            "border": "{color.error.500}",
+            "text": "{color.base.white}",
+            "dot": "{color.base.white}"
+          }
+        },
+        {
+          "name": "Warning",
+          "default": {
+            "background": "{color.warning.50}",
+            "border": "{color.warning.300}",
+            "text": "{color.warning.600}",
+            "dot": "{color.warning.600}"
+          },
+          "filled": {
+            "background": "{color.warning.600}",
+            "border": "{color.warning.600}",
+            "text": "{color.base.white}",
+            "dot": "{color.base.white}"
+          }
+        },
+        {
+          "name": "Info",
+          "default": {
+            "background": "{color.info.50}",
+            "border": "{color.info.200}",
+            "text": "{color.info.600}",
+            "dot": "{color.info.600}"
+          },
+          "filled": {
+            "background": "{color.info.500}",
+            "border": "{color.info.500}",
+            "text": "{color.base.white}",
+            "dot": "{color.base.white}"
+          }
+        }
+      ],
+      "states": {
+        "glyph": "::before uses same tone as text/border",
+        "filled": "Solid OOTD variant flips text to {color.base.white}."
+      },
+      "notes": [
+        "UnderProgress / Returned use raw #6929c4 / #3f739b backgrounds; create tokens for those purple gradients.",
+        "Priority pills leverage radius.{radius-100} for pill shape and spacing.$padding-8 for padding."
+      ],
+      "documentation": "DesignSystemDocumentation/tags.html"
+    },
+    {
+      "name": "Table",
+      "anatomy": [
+        "Toolbar (.table__search)",
+        "Table shell (.tablecontainer > .table)",
+        "Header cells (thead th)",
+        "Body rows (tbody td)",
+        "Pagination toolbar"
+      ],
+      "variants": [
+        {
+          "name": "Search panel",
+          "default": {
+            "background": "{color.base.white}",
+            "boxShadow": "0px 2px 4px 0px rgba(239, 241, 249, 1) (needs token)"
+          }
+        },
+        {
+          "name": "Table header",
+          "default": {
+            "background": "#f4f5fb (align to color.neutral.100)",
+            "border": "{color.neutral.300}",
+            "text": "{color.neutral.600}"
+          },
+          "hover": {
+            "background": "#efe3cf (pending token)",
+            "text": "#704214"
+          }
+        },
+        {
+          "name": "Row body",
+          "default": {
+            "border": "#f6f5f1 (needs token)",
+            "text": "{color.neutral.900}"
+          },
+          "hover": {
+            "background": "var(--bs-table-accent-bg, rgb(248, 250, 254))"
+          },
+          "badge": {
+            "danger": {
+              "background": "{color.error.25}",
+              "border": "#ffd1d1",
+              "text": "{color.error.500}"
+            }
+          }
+        }
+      ],
+      "notes": [
+        "Multiple raw colors (#fff, #f4f5fb, #f6f5f1) and shadows should map to color/shadow tokens for predictable theming.",
+        "Pagination container uses 0px 8px 20px #f1f1f1 shadow; align to shadow tokens or create dedicated table-shadow token."
+      ],
+      "documentation": "DesignSystemDocumentation/table.html"
+    },
+    {
+      "name": "Modal",
+      "anatomy": [
+        "Backdrop (.modal + .modal-backdrop)",
+        "Content (.modal-content)",
+        "Header (.modal-header / .modal-info-header / .modal-danger-header)",
+        "Body (.modal-body)",
+        "Footer (.modal-footer)"
+      ],
+      "variants": [
+        {
+          "name": "Info banner",
+          "default": {
+            "headerBackground": "{color.info.50}",
+            "headerText": "{color.info.600}"
+          }
+        },
+        {
+          "name": "Danger banner",
+          "default": {
+            "headerBackground": "{color.error.500}",
+            "headerText": "{color.base.white}"
+          }
+        }
+      ],
+      "states": {
+        "body": {
+          "background": "{color.neutral.100}",
+          "borderRadius": "{radius.md}",
+          "gap": "{spacing.gap.14}",
+          "padding": "{spacing.padding.14}"
+        }
+      },
+      "notes": [
+        "Close buttons extend %modal-close-button and reuse {color.neutral.800} icons with neutral shadows.",
+        "Danger and info headers already map to color tokens; keep focus on replacing any remaining raw colors (e.g., #baige) inside modals."
+      ],
+      "documentation": "DesignSystemDocumentation/modal.html"
+    },
+    {
+      "name": "Dropdown",
+      "anatomy": [
+        "Toggle (.dropdown-toggle)",
+        "Menu (.dropdown-menu)",
+        "Items (.dropdown-item)",
+        "Decorative → arrow (::after)"
+      ],
+      "variants": [
+        {
+          "name": "User drop-down",
+          "default": {
+            "background": "{color.base.white}",
+            "boxShadow": "0px 2px 14px 0px rgba(235, 235, 235, 1)",
+            "padding": "25px",
+            "border": "none"
+          }
+        },
+        {
+          "name": "Seating drop-down",
+          "default": {
+            "background": "{color.base.white}",
+            "boxShadow": "0px 2px 14px 0px rgba(235, 235, 235, 1)",
+            "padding": "25px",
+            "menuArrow": "custom pseudo (::before) uses {color.base.white}"
+          }
+        }
+      ],
+      "notes": [
+        "Box-shadow and padding are hard-coded (25px); prefer spacing.padding.14 / shadow tokens for consistency.",
+        "Toggle arrow remains an svg asset (../images/dovwn-arrow.svg); consider replacing with tokenized icon color {color.neutral.600}."
+      ],
+      "documentation": "DesignSystemDocumentation/treeselect.html",
+      "documentationNote": "The standalone dropdown.html page was removed (duplicate of treeselect.html). Native select is documented in text-fields.html; searchable/multi/hierarchical lists in treeselect.html."
+    },
+    {
+      "name": "Checkbox",
+      "anatomy": [
+        "Input square (.form-check-input)",
+        "Label (.form-check-label)"
+      ],
+      "states": {
+        "default": {
+          "size": "15px",
+          "border": "{color.neutral.300}",
+          "background": "transparent"
+        },
+        "checked": {
+          "background": "{color.primary.500}",
+          "border": "{color.primary.500}"
+        },
+        "focus": {
+          "outline": "0",
+          "boxShadow": "0 0 0 2px rgba({color.primary.500}, 0.2)"
+        }
+      },
+      "notes": [
+        "Constrain checkbox size to spacing tokens (15px currently hard-coded).",
+        "Focus shadow uses rgba with primary; create an opacity token for reuse."
+      ],
+      "documentation": "DesignSystemDocumentation/checkbox.html"
+    },
+    {
+      "name": "Radio",
+      "anatomy": [
+        "Label (.radio)",
+        "Custom circle (::before)",
+        "Inner dot (::after)"
+      ],
+      "states": {
+        "default": {
+          "border": "{color.neutral.900}",
+          "background": "{color.base.white}"
+        },
+        "hover": {
+          "border": "{color.primary.600}"
+        },
+        "checked": {
+          "dotBackground": "{color.primary.500}",
+          "border": "{color.primary.200}"
+        }
+      },
+      "notes": [
+        "Definitions live under #Accidents; generalize to work outside that scope and keep colors tokenized.",
+        "No approved reusable public Radio API currently exists — this entry documents the only implementation on file (#Accidents-scoped, css/common/_common.scss). A centralized, page-independent Radio API (e.g. a .moi-radio-* class family) requires explicit Owner Approval before implementation; a prior unapproved attempt (.moi-radio-group) was reverted for this reason. See .ai/KNOWN_DECISIONS.md."
+      ],
+      "documentation": "DesignSystemDocumentation/checkbox.html#radio",
+      "status": "Page-scoped only (inside #Accidents); needs owner approval before a shared Radio is created."
+    },
+    {
+      "name": "Card",
+      "purpose": "Structured content container for record summaries (status header, title, icon, detail rows) used across dashboards and detail pages.",
+      "scssFile": "css/components/_card.scss",
+      "documentationPage": "DesignSystemDocumentation/card.html",
+      "anatomy": [
+        "Container (.moi-card)",
+        "Header (.moi-card__header)",
+        "Title (.moi-card__title)",
+        "Icon (.moi-card__icon)",
+        "Detail label (.moi-card__detail-label)"
+      ],
+      "variants": [
+        {
+          "name": "Status",
+          "default": {
+            "attribute": "data-status=\"create\" | \"edit\" | \"details\"",
+            "legacyAliases": "--legacy-create, --legacy-edit, --legacy-details (same styling, kept for backward compatibility)"
+          }
+        }
+      ],
+      "states": {
+        "note": "Primarily a static content container; no dedicated interactive (hover/focus/disabled) states are defined in _card.scss itself."
+      },
+      "notes": [
+        "This entry documents the current, centralized .moi-card component only. It does not cover the separate card-like markup duplicated with raw colors across page-specific SCSS files (dashboard, landing, etc.) noted in the SCSS audit — that fragmentation remains unresolved outside this file.",
+        "_card.scss also contains a legacy @import of _customClasses.scss (Sass @import, not @use); left unchanged as it is outside this update's scope."
+      ],
+      "rtlNotes": "Layout uses gap/padding tokens under flexbox; no physical left/right properties found in this file.",
+      "accessibilityNotes": "Documentation page includes accessibility guidance; the component itself carries no ARIA roles and relies on heading/landmark markup in the consuming page.",
+      "documentation": "DesignSystemDocumentation/card.html"
+    },
+    {
+      "name": "File Uploader",
+      "purpose": "Drag-and-drop / click-to-browse file upload control with compact and spaced layout options.",
+      "scssFile": "css/components/_file-uploader.scss",
+      "documentationPage": "DesignSystemDocumentation/file-uploader.html",
+      "anatomy": [
+        "Container (.moi-file-uploader)",
+        "Dropzone",
+        "File list / preview",
+        "Progress indication"
+      ],
+      "variants": [
+        {
+          "name": "Layout",
+          "default": {
+            "options": "--compact, --spaced"
+          }
+        }
+      ],
+      "states": {
+        "note": "Hover and focus states present in the SCSS; disabled state not independently confirmed in this pass."
+      },
+      "notes": [
+        "Best logical-property RTL usage of any component reviewed in the SCSS audit (5 logical vs 0 physical left/right)."
+      ],
+      "rtlNotes": "Logical properties used consistently; no left/right physical overrides found.",
+      "accessibilityNotes": "Documentation page has the highest accessibility-guidance coverage of the pages reviewed. Confirm the dropzone has a keyboard-operable native file-input fallback — not independently verified in this pass; Needs Owner Confirmation.",
+      "documentation": "DesignSystemDocumentation/file-uploader.html"
+    },
+    {
+      "name": "Stepper",
+      "purpose": "Multi-step progress indicator (wizard) showing current and completed steps.",
+      "scssFile": "css/components/_stepper.scss",
+      "documentationPage": "DesignSystemDocumentation/stepper.html",
+      "anatomy": [
+        "Container (.wizard)",
+        "Step item (.wizerd__item)",
+        "Step number (.stepsNumber)",
+        "Step list (.steps)",
+        "Footer (.steeper__footer)"
+      ],
+      "states": {
+        "current": "&--Currant",
+        "completed": "&--Complated"
+      },
+      "notes": [
+        "Class names are documented exactly as implemented, including the existing spellings (Currant, Complated, steeper__footer, wizerd__item). Renaming was out of scope for this update since it would change the markup API.",
+        "css/components/_radial-stepper.scss is a separate, visually distinct (circular) implementation not covered by this entry. Whether it should be unified with or documented alongside the linear stepper is Needs Owner Confirmation."
+      ],
+      "rtlNotes": "Not independently re-verified in this pass beyond the SCSS audit; treat as unconfirmed pending visual QA.",
+      "accessibilityNotes": "Documentation page covers accessibility guidance. Whether the current step is exposed via aria-current is determined by consuming markup, not enforced by this SCSS file — Needs Owner Confirmation.",
+      "documentation": "DesignSystemDocumentation/stepper.html"
+    },
+    {
+      "name": "Switch",
+      "purpose": "Toggle control built on Bootstrap's native form-switch markup, restyled with tokenized dimensions.",
+      "scssFile": "css/common/_Switch.scss",
+      "documentationPage": "DesignSystemDocumentation/switch.html",
+      "anatomy": [
+        "Container (.form-check.form-switch)",
+        "Input (.form-check-input)",
+        "Label (.form-check-label)"
+      ],
+      "states": {
+        "default": {
+          "border": "{color.neutral.300}",
+          "background": "{color.base.white}"
+        },
+        "hover": {
+          "boxShadow": "rgba({color.primary.700}, 0.12)"
+        },
+        "focus": {
+          "boxShadow": "rgba({color.primary.700}, 0.22)"
+        },
+        "checked": {
+          "background": "{color.primary.500}",
+          "border": "{color.primary.500}"
+        },
+        "disabled": {
+          "opacity": "0.45",
+          "background": "{color.neutral.100}"
+        },
+        "checkedDisabled": {
+          "background": "{color.neutral.200}"
+        }
+      },
+      "notes": [
+        "Includes an explicit @media (prefers-reduced-motion: reduce) override that disables the toggle transition — a genuine accessibility strength not seen elsewhere in the reviewed component set."
+      ],
+      "rtlNotes": "Label spacing uses margin-inline-start (logical property) — correct RTL practice. The thumb offset uses left, positioned relative to the track box rather than the viewport, so it is not a direction-mirroring concern.",
+      "accessibilityNotes": "Reduced-motion support confirmed. Verify consuming markup pairs the input with a visible or aria-label'd .form-check-label in all usages — not independently verified in this pass.",
+      "documentation": "DesignSystemDocumentation/switch.html"
+    },
+    {
+      "name": "Person Card",
+      "purpose": "Person / identity summary card (photo and key fields) used in records and search results.",
+      "scssFile": [
+        "css/components/_personCard.scss",
+        "css/components/_PersonCardInfra.scss"
+      ],
+      "documentationPage": "DesignSystemDocumentation/personcard.html",
+      "anatomy": [
+        "Base container (.moi-person-card, in _PersonCardInfra.scss)",
+        "Simple variant (.simplePersonCard)",
+        "IMS variant (.newIms)"
+      ],
+      "notes": [
+        "Implementation is split across two files. Whether this reflects intentional layering (shared infra vs. page-level usage) or historical duplication was not confirmed in this pass — Needs Owner Confirmation."
+      ],
+      "rtlNotes": "Moderate physical/logical property ratio; not fully logical-property based. Not re-verified visually in this pass.",
+      "accessibilityNotes": "Documentation page has noticeably lower accessibility-guidance coverage than the other component pages reviewed — worth a follow-up pass.",
+      "documentation": "DesignSystemDocumentation/personcard.html"
+    },
+    {
+      "name": "Tags (current .moi-tag API)",
+      "purpose": "Current, data-attribute-driven tag / status-pill component. Distinct from the legacy priority-badge classes already documented above under \"Badge / Priority Pill\", which remain in active use in the same file.",
+      "scssFile": "css/common/_tags.scss",
+      "documentationPage": "DesignSystemDocumentation/tags.html",
+      "anatomy": [
+        "Container (.moi-tag)",
+        "Status dot (::before, hidden automatically when a leading svg/img is present)",
+        "Optional close button (.tag-close)"
+      ],
+      "variants": [
+        {
+          "name": "Size",
+          "default": {
+            "attribute": ".moi-tag--{size}, driven by the $moi-tag-sizes map"
+          }
+        },
+        {
+          "name": "Status",
+          "default": {
+            "attribute": "[data-status=\"...\"]"
+          }
+        },
+        {
+          "name": "Fill",
+          "default": {
+            "attribute": ".moi-tag--filled"
+          }
+        },
+        {
+          "name": "Shape",
+          "default": {
+            "attribute": ".moi-tag--rounded"
+          }
+        }
+      ],
+      "notes": [
+        "tags.html documents both this current .moi-tag API and the legacy priority-badge classes captured under \"Badge / Priority Pill\" in this same components.json file; both remain live in css/common/_tags.scss today.",
+        "This SCSS file was explicitly out of scope for cleanup in this implementation pass; this entry only records what is documented, per Priority 4."
+      ],
+      "rtlNotes": "Uses flex layout with gap (logical) for the dot/icon/label arrangement; no left/right physical overrides found in this block.",
+      "accessibilityNotes": "The optional .tag-close button should carry an aria-label in consuming markup when used for removable tags — not enforced by the SCSS itself; Needs Owner Confirmation.",
+      "documentation": "DesignSystemDocumentation/tags.html"
+    },
+    {
+      "name": "Notifications (current .moi-notification API)",
+      "purpose": "Current, data-status-driven alert/notification component. This is the component alert.html documents as \"Alerts\" — the documented concept and the SCSS file/class name differ (Alerts vs. .moi-notification), a naming mismatch carried over from the underlying implementation.",
+      "scssFile": "css/components/_Notification.scss",
+      "documentationPage": "DesignSystemDocumentation/alert.html",
+      "anatomy": [
+        "Root (.moi-notification, takes data-status)",
+        "Content wrapper (.moi-notification__content)",
+        "Icon (.moi-notification__icon)",
+        "Title (.moi-notification__title)",
+        "Message (.moi-notification__message)",
+        "Actions wrapper (.moi-notification__actions)",
+        "Action button (.moi-notification__btn)",
+        "Close button (.moi-notification__close)"
+      ],
+      "variants": [
+        {
+          "name": "Status",
+          "default": {
+            "attribute": "data-status=\"neutral|info|error|warning|success\""
+          }
+        }
+      ],
+      "notes": [
+        "This is the recommended component for new alert/notification development. A separate, older .alert-primary/.alert-danger/.custom-alert-primary/.custom-danger-alert system exists in css/common/_common.scss for backward compatibility only — see alert.html's \"Legacy Alerts\" section. Do not treat the legacy classes as a second current Alert component.",
+        "Action button variant is applied automatically by JavaScript based on data-status; do not set it manually in markup."
+      ],
+      "rtlNotes": "Uses a bottom-border-only status indicator and flex layout; no left/right physical overrides found in this file.",
+      "accessibilityNotes": "Use role=\"alert\" for critical/high-impact states; aria-hidden=\"true\" on the icon wrapper; the close button must carry a clear aria-label. See alert.html's Accessibility Guidance section.",
+      "documentation": "DesignSystemDocumentation/alert.html"
+    },
+    {
+      "name": "Timeline",
+      "purpose": "Displays a sequence of events or records in chronological order (e.g. case activity log, approval trail, inspection/visit list).",
+      "scssFile": "css/components/_timeline.scss",
+      "documentationPage": "DesignSystemDocumentation/timeline.html",
+      "anatomy": [
+        "Pattern 1 root (.timeline)",
+        "Pattern 1 event container (.timelinecontainer)",
+        "Pattern 1 card (.content)",
+        "Pattern 2 list item (.iq-timeline2 li)",
+        "Pattern 2 date badge (.content-date)",
+        "Pattern 2 content card (.content-block)",
+        "Pattern 3 number badge (.Itinerary .numric)"
+      ],
+      "variants": [
+        {
+          "name": "Side (pattern 1)",
+          "default": {
+            "attribute": ".right / .left"
+          }
+        },
+        {
+          "name": "Current event (pattern 2)",
+          "default": {
+            "attribute": ".bg-Date-currant"
+          }
+        }
+      ],
+      "notes": [
+        "Two structurally distinct patterns coexist in the same file: an alternating left/right card timeline (.timeline) and a date-badge-plus-content-card timeline (.iq-timeline2, reused with different content in .Itinerary). Do not mix the two patterns within the same list.",
+        "Static HTML/SCSS display pattern; no JavaScript-driven interactive behavior found in this file."
+      ],
+      "rtlNotes": "Not independently re-verified visually in this pass; uses a mix of physical left/right properties for the alternating .timeline pattern (side depends on .right/.left, not automatically flipped).",
+      "accessibilityNotes": "Wrap events in a semantic list where possible; avatar images should carry a descriptive or empty alt; do not rely on color alone (.bg-Date-currant) to mark the current event. See timeline.html's Accessibility Guidance section.",
+      "documentation": "DesignSystemDocumentation/timeline.html"
+    },
+    {
+      "name": "Tabs",
+      "purpose": "Two separate, page-scoped tab patterns, both layered on Bootstrap's native tabs: circular icon-style tabs, and a bordered card-style tab panel.",
+      "scssFile": [
+        "css/components/_tabs.scss",
+        "css/components/_tabsDesign.scss"
+      ],
+      "documentationPage": "DesignSystemDocumentation/tabs.html",
+      "anatomy": [
+        "Bootstrap nav:has(> .nav-tabs) (legacy alias .tabsDesign)",
+        "Tab bar (nav > .nav-tabs)",
+        "Content panel (.tab-content)"
+      ],
+      "notes": [
+        "The two files are confirmed not to be duplicates — they are visually and structurally distinct, page-scoped skins over Bootstrap's native tabs, not two competing implementations of the same component.",
+        "Neither pattern has its own custom JavaScript behavior; both rely on standard Bootstrap tab behavior (data-bs-toggle=\"tab\")."
+      ],
+      "rtlNotes": "Not independently re-verified visually in this pass.",
+      "accessibilityNotes": "Follow standard Bootstrap/ARIA tab markup (role=\"tablist\"/\"tab\"/\"tabpanel\", aria-selected). See tabs.html's Accessibility Guidance section.",
+      "documentation": "DesignSystemDocumentation/tabs.html"
+    },
+    {
+      "name": "Avatar",
+      "documentation": "DesignSystemDocumentation/avatar.html",
+      "scssFile": null,
+      "status": "Figma only (42 variants + Avatar Group + presence). No shared class yet."
+    },
+    {
+      "name": "Vehicle Card",
+      "documentation": "DesignSystemDocumentation/vehicle-card.html",
+      "scssFile": "css/components/_PersonCardInfra.scss",
+      "status": "Reuses the Person Card shell (.moi-person-card); see vehicle-card.html."
+    },
+    {
+      "name": "Image Card",
+      "documentation": "DesignSystemDocumentation/image-card.html",
+      "scssFile": null,
+      "status": "Matches Figma imageCard-V2: .moi-image-card in css/components/_image-card.scss. Legacy .imagecard in _common.scss kept for existing screens only."
+    },
+    {
+      "name": "Radial Stepper",
+      "documentation": "DesignSystemDocumentation/stepper.html#radial-stepper",
+      "scssFile": "css/components/_radial-stepper.scss",
+      "status": "Not in Figma; now compiled into main.css."
+    },
+    {
+      "name": "Breadcrumb",
+      "anatomy": [
+        "nav[aria-label] > ol.moi-breadcrumb",
+        "Home item (.moi-breadcrumb__home, icon only)",
+        "Parent items (.moi-breadcrumb__item > a)",
+        "Current page ([aria-current=\"page\"], not a link)",
+        "Separator owned by the following item (::before chevron mask)"
+      ],
+      "variants": [
+        {
+          "name": "Default (14px)"
+        },
+        {
+          "name": "Large (.moi-breadcrumb--lg, 16px)"
+        }
+      ],
+      "states": {
+        "link": {
+          "text": "{color.neutral.500}",
+          "hover": "{color.primary.700}",
+          "focus": "2px solid {color.primary.400}"
+        },
+        "current": {
+          "text": "{color.neutral.800}",
+          "weight": 600
+        },
+        "separator": {
+          "color": "{color.neutral.400}"
+        }
+      },
+      "notes": [
+        "Item max width 240px, current page 320px, single line with ellipsis; full label in title.",
+        "Separator mirrors automatically in RTL.",
+        "Legacy .breadcrumb-container .breadcrumb in _common.scss is kept for existing screens."
+      ],
+      "documentation": "DesignSystemDocumentation/breadcrumb.html"
+    }
+  ],
+  "missingComponents": [
+    {
+      "name": "Chip",
+      "reason": "No dedicated SCSS component (only priority badges and the current .moi-tag pill). Figma has a Chip token group (Themes / Chip); confirm with the owner whether .moi-tag covers it."
+    },
+    {
+      "name": "Avatar",
+      "reason": "Defined in Figma (Components / Avatar) but there is no shared class; needs owner approval for a .moi-avatar API. Documented in avatar.html."
+    },
+    {
+      "name": "Radio (shared)",
+      "reason": "Only a page-scoped radio exists inside #Accidents; a shared Radio needs owner approval."
+    }
+  ]
+}

@@ -211,6 +211,13 @@
     gap: $gap-sm;
   }
 
+  // bulletins panel: the tab row and its content box are one block (Figma: bulletins-tabpanel),
+  // so the tabs sit on the box with no gap; border / radius / padding come from the system `.tab-content`
+  &__bulletins-tabpanel {
+    display: flex;
+    flex-direction: column;
+  }
+
   // timeline-atom list: no gap between atoms (Figma owners-timeline / users-timeline)
   &__owners-timeline,
   &__users-timeline {

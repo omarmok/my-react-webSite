@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <link href="../css/bootstrap-v5.css" rel="stylesheet" />
+    <link href="../css/slick.css" rel="stylesheet" />
+    <link href="../css/slick-theme.css" rel="stylesheet" />
+    <link href="../css/animate.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/main.css" rel="stylesheet" />
+
+    <script src="../js/jquery-3.6.0.min.js" ></script>
+    <script src="../js/popper.min.js" ></script>
+    <script src="../js/bootstrap.min.js" ></script>
+    <script src="../js/slick.min.js" ></script>
+    <script src="../js/slick.min.js" ></script>
+
+    <script src="../js/charts.js"></script>
+
+
+</head>
+<body class="loginBody ">
+
+    <div class="container-fluid">
+      
+  <div class="row align-items-center align-content-center mt-5">
+      <div class="col-12 col-lg-6 ">
+          <div class="loginBody__right__area  mt-5">
+              <div class=" loginBody__right__area__title">
+                  <div class="FlexAlign">
+                      <img alt="" src="../images/amn-logo.svg" class="animate__animated animate__fadeInRight">
+                      <div class="loginBody__right__area__title--subtitle">
+                          <h3 class="animate__animated animate__fadeInUp">نظام أمن</h3><span class="animate__animated animate__fadeInUp animate__delay-1s copyRights">إعادة تعيين كلمة المرور </span>
+                      </div>
+                  </div>
+              </div>
+                <!-- successmassage  -->
+                <div class="d-flex align-content-center flex-column gap-3   resetpassword">
+                 
+                        <div class="successmassage ">
+                            <div class="success-icon animate__animated animate__fadeIn animate__delay-1s" >
+                                <img src="../images/icon-success-modal.svg" alt="">
+                            </div>
+                            <h3 class="mt-4">
+                       تم استعادة كلمة المرور بنجاح
+                            </h3>
+                            <span>   سيتم تحويلك الي صفحة تسجيل الدخول بعد
+
+                                <strong> 10 ثانية</strong>
+                            </span>
+                            <div class="mt-2">
+                                <button type="submit" class="btn moi-btn--primary">تسجيل الدخول</button>
+                            </div>
+                        </div>
+                 
+              
+                 
+                </div>
+         <!-- end add user name -->
+
+     <!-- add user name -->
+              <form method="post" novalidate="novalidate" class="d-flex align-content-center flex-column gap-3   resetpassword">
+                  <div class="">
+                      <label class="form-label" for="exampleFormControlInput1">اسم المستخدم</label>
+                      <div class="position-relative form-content">
+                          <img alt="" src="../images/icon-person.svg" srcset="">
+                          <input class="form-control" id="exampleFormControlInput1" placeholder="يرجي اضافة اسم المستخدم" type="text" data-val="true" data-val-length="يجب أن يكون الحقل اسم المستخدم أو البريد الإلكتروني سلسلة أحرف طولها كحد أقصى 256." data-val-length-max="256" data-val-required="الحقل اسم المستخدم أو البريد الإلكتروني إجباري." maxlength="256" name="LoginInput.UserNameOrEmailAddress" value="">
+  
+                      </div>
+                  </div>
+            
+                  <div class="w-50 ">
+                      <button type="submit" class="btn moi-btn--primary">إعادة تعيين كلمة المرور </button>
+                  </div>
+              </form>
+       <!-- end add user name -->
+
+          <!-- add user name -->
+          <form method="post" novalidate="novalidate" class="d-flex align-content-center flex-column gap-3   resetpassword">
+
+            <div class="">
+
+                <!-- if otp not match use this -->
+
+                <!-- <div class="alert alert-danger  mb-2" >
+                    <i class="fa fa-exclamation-triangle"></i>
+                    <strong>فشل التحقق</strong>
+                    <p class="mb-0">
+                        لم يتم التحقق من الرمز المرسل علي الهاتف رقم 0096653*****33
+                    </p>
+                </div> -->
+
+                <div class="alert alert-primary d-flex align-items-center mb-2">
+                    <img alt="" class="me-1" src="../images/icon-info-lg-circle-alart.svg"> تم إرسال رمز التحقق إلى رقم جوالك المسجل في أبشر 93*********9665+
+                </div>
+                <div class="w-100 d-flex flex-column verficationinterviewerContainer">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="inputs">
+                            <input class="form-control" type="text"> <input class="form-control" type="text"> <input class="form-control" type="text"> <input class="form-control" type="text">
+                        </div>
+                        <div class="absher"><img alt="" src="../images/absher-logo.png"></div>
+                    </div>
+                    <div class="note">
+                        تنتهي مهلة رمز التحقق بعد 20 ثانية
+                    </div>
+                </div>
+            </div>
+            <div class="passworddiv">
+                <label class="form-label" for="exampleFormControlInput1"> كلمة المرور الجديدة</label>
+                    <div class="position-relative form-content">
+                        <img alt="" src="../images/icon-lock.svg" srcset="">
+                        <input class="form-control" id="exampleFormControlInput1" placeholder="ادخال كلمة المرور" type="password" data-val="true" data-val-length="يجب أن يكون الحقل كلمة المرور سلسلة أحرف طولها كحد أقصى 128." data-val-length-max="128" data-val-required="الحقل كلمة المرور إجباري." maxlength="128" name="LoginInput.Password"> <span class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
+                    </div>
+            </div>
+
+            <div class="passworddiv">
+                <label class="form-label" for="exampleFormControlInput1">تأكيد كلمة المرور الجديدة</label>
+                    <div class="position-relative form-content">
+                        <img alt="" src="../images/icon-lock.svg" srcset="">
+                        <input class="form-control" id="exampleFormControlInput1" placeholder="ادخال كلمة المرور" type="password" data-val="true" data-val-length="يجب أن يكون الحقل كلمة المرور سلسلة أحرف طولها كحد أقصى 128." data-val-length-max="128" data-val-required="الحقل كلمة المرور إجباري." maxlength="128" name="LoginInput.Password"> <span class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
+                    </div>
+            </div>
+
+            <div class="formValidationProgress">
+
+                <div class="formvalidationstep ErroStep"></div>
+                <div class="formvalidationstep succestep"></div>
+                <div class="formvalidationstep"></div>
+                <div class="formvalidationstep"></div>
+                <div class="formvalidationstep"></div>
+                <div class="formvalidationstep"></div>
+
+            </div>
+      
+            <div class="w-50 ">
+                <button type="submit" class="btn moi-btn--primary">تغيير كلمة المرور</button>
+            </div>
+        </form>
+
+ 
+            <div class="mt-3 note">
+              <div class="d-flex gap-1 mb-1">
+                <img src="../images/check-double.svg" alt="">
+                كلمة المرور باللغة الإنجليزية فقط.
+              </div>
+              <div class="d-flex gap-1 mb-1">
+                <img src="../images/check-double.svg" alt="">
+                أن تحتوي كلمة المرور على الأقل 8 خانات.
+              </div>
+
+              <div class="d-flex gap-1 mb-1">
+                <img src="../images/check-double.svg" alt="">
+                أن تحتوي حرفا كبيرا بالإضافة الى حرف صغير على الأقل.
+              </div>
+              <div class="d-flex gap-1 mb-1">
+                <img src="../images/check-double.svg" alt="">
+                أن تحتوي على رقم واحد على الأقل.
+              </div>
+              <div class="d-flex gap-1 mb-1">
+                <img src="../images/check-double.svg" alt="">
+                يجب أن  تحتوي على رموز ( @،_ ، %، ! ، ... )
+              </div>
+              <div class="d-flex gap-1 mb-1">
+                <img src="../images/check-double.svg" alt="">
+                يجب ألا تحتوي على أكثر من أربع خانات من اسم المستخدم.
+              </div>
+            </div>
+
+             <!-- end add user name -->
+
+                
+
+          </div>
+      </div>
+      <div class="col-12 col-lg-1">
+      </div>
+      <div class="col-12 col-lg-4 ">
+          <div class="loginBody__left__area  mt-5">
+  
+              <div class="animate__animated animate__fadeInLeft loginbuttons">
+                  <a href="">  <img src="../images/login-user-manual.svg" alt=""></a>
+                  <a href="">   <img src="../images/login-contact-us.svg" alt=""></a>
+              </div>
+  
+  
+              <div class="circle-exterior">
+                  <img alt="" src="../images/Public-Security-logo.svg" srcset="" class=" ">
+              </div>
+  
+              <h3 class="animate__animated animate__fadeInUp animate__delay-1s">
+                  مديرية الأمن العام
+              </h3>
+  
+  
+  
+              <div class="animate__animated animate__fadeInUp animate__delay-2s copyRights">
+                  جميع الحقوق محفوظة – مديرية الأمن العام© 2023
+              </div>
+  
+          </div>
+      </div>
+  </div>
+  
+    </div>
+  
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

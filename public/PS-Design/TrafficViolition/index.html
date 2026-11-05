@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="../css/bootstrap-v5.css" rel="stylesheet">
+	<link href="../css/slick.css" rel="stylesheet">
+	<link href="../css/slick-theme.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+	<link href="../css/hover-min.css" rel="stylesheet">
+	<link href="../css/main.css" rel="stylesheet">
+	<script src="../js/jquery-3.6.0.min.js">
+	</script>
+	<script src="../js/popper.min.js">
+	</script>
+	<script src="../js/bootstrap.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/jquery.steps.min.js">
+	</script>
+
+
+</head>
+<body data-spy="scroll" data-target=".navbar" id="fullscreendiv">
+	<section class="content">
+		<section class="wapper">
+			<div class="breadcrumb-container px-3 mt-4">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item homebread">
+							<a href="/"><img alt="" src="../images/house-door.svg"> الرئيسية</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="/"><img alt="" src="../images/house-door.svg"> المخالفات</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a class="currant__page" href="/"><img alt="" src="../images/house-door.svg"> اضافة مخالفة مرورية</a>
+						</li>
+					</ol>
+				</nav>
+			</div>
+			<div class="page__title">
+				<h3><img alt="" src="/PS-Design/images/icon-violition.svg"> اضافة مخالفة مرورية</h3>
+			</div>
+			<div class="container-fluid createViolitionContainer">
+				<div class="row">
+					<div class="col-12 col-lg-9">
+						<div class="createViolitionContainer--creatviolition--Inquire">
+							<ul class="nav nav-tabs" id="myTab" role="tablist">
+								<li class="nav-item" role="presentation"><button aria-controls="vehicle-tab-pane" aria-selected="false" class="nav-link active" data-bs-target="#vehicle-tab-pane" data-bs-toggle="tab" id="vehicle-tab" role="tab" tabindex="-1">مركبات</button></li>
+								<li class="nav-item" role="presentation"><button aria-controls="persons-tab-pane" aria-selected="true" class="nav-link" data-bs-target="#persons-tab-pane" data-bs-toggle="tab" id="persons-tab" role="tab">اشخاص</button></li>
+							</ul>
+							<div class="tab-content" id="myTabContent">
+								<div aria-labelledby="vehicle-tab" class="tab-pane fade active show" id="vehicle-tab-pane" role="tabpanel" tabindex="0">
+									<div class="searchfields">
+										<div class="form-group">
+											<div class="d-flex">
+												<div class="d-flex flex-column">
+													<label class="required">نوع البحث</label> <select class="form-select">
+														<option selected>
+															اختر نوع البحث
+														</option>
+														<option value="1">
+															رقم لوحة السيارة
+														</option>
+														<option value="3">
+															رقم الشاص
+														</option>
+													</select>
+												</div>
+												<div class="d-flex flex-column">
+													<label class="required">نوع التسجل</label> <select class="form-select" required="" title="اختر نوع تسجيل لوحة المركبة">
+														<option selected>
+															خاص
+														</option>
+														<option>
+															نقل عام
+														</option>
+														<option>
+															نقل خاص
+														</option>
+														<option>
+															حافلة صغيرة عامة
+														</option>
+														<option>
+															حافلة صغيرة خاصة
+														</option>
+														<option>
+															أجرة
+														</option>
+														<option>
+															أشغال عامة
+														</option>
+														<option>
+															تصدير
+														</option>
+														<option>
+															دبلوماسي
+														</option>
+														<option>
+															دراجة آلية
+														</option>
+														<option>
+															مؤقت
+														</option>
+														<option>
+															اقتناء تاريخي
+														</option>
+													</select>
+												</div>
+												<div class="d-flex flex-column">
+													<label class="required">الحروف بالانجليزية</label> <input class="form-control" placeholder="يرجي اضافة الرقم" type="text">
+												</div>
+												<div class="d-flex flex-column">
+													<label class="required">الارقام بالانجليزية</label> <input class="form-control" placeholder="يرجي اضافة الرقم" type="text">
+												</div>
+												<div class="d-flex flex-column">
+													<label class="required" style="visibility: hidden;">نوع البحث</label> <button class="btn moi-btn--secondary--outline ms-2" data-bs-target="#vehicle" data-bs-toggle="modal"><img src="../images/icon-searchtitle.svg"> استعلام</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row animated fadeIn">
+										<div class="createViolitionContainer--creatviolition--person">
+											<h3><img alt="" src="/PS-Design/images/icon-car-outl.svg"> بيانات المركبة</h3>
+											<div class="d-flex details"><img alt="" class="searchPersonIcon" src="/PS-Design/images/3306-loading-animation.gif"></div>
+											<div class="d-flex details">
+												<div class="block p-2">
+													رقم اللوحة <span>2854 س ك أ</span>
+												</div>
+												<div class="block p-2">
+													الماركة <span>تويوتا</span>
+												</div>
+												<div class="block p-2">
+													الموديل <span>2007</span>
+												</div>
+												<div class="block p-2">
+													اللون <span>ابيض</span>
+												</div>
+												<div class="block p-2">
+													تاريخ انتهاء الرخصة <span>10/12/1444</span>
+												</div>
+												<div class="block p-2">
+													نوع التسجيل <span>نقل خاص</span>
+												</div>
+												<div class="block p-2">
+													حالة المركبة <span>غير مطلوبة</span>
+												</div>
+												<div class="block p-2">
+													ازالة <span><button class="btn moi-btn--text-icon"><span><span><img alt="" src="/PS-Design/images/icon-trash2.svg"></span></span></button></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div aria-labelledby="persons-tab" class="tab-pane fade animated fadeIn" id="persons-tab-pane" role="tabpanel" tabindex="0">
+									<div class="searchfields">
+										<div class="label-with-info">
+											<div class="form-group-info">
+												<i class="fa fa-info-circle"></i> يمكنك الاستعلام برقم الهوية الوطنية او الاقامة او رقم الحدود
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="d-flex">
+												<input class="form-control" id="personId" placeholder="يرجي اضافة الرقم" type="text"> <button class="btn moi-btn--secondary--outline ms-2" data-bs-target="#personmodal" data-bs-toggle="modal"><img src="../images/icon-searchtitle.svg"> استعلام</button>
+											</div>
+										</div>
+									</div>
+									<div class="createViolitionContainer--creatviolition--person">
+										<h3><img alt="" src="/PS-Design/images/icon-users.svg"> بيانات الشخص</h3>
+										<div class="d-flex details"><img alt="" class="searchPersonIcon" src="/PS-Design/images/3306-loading-animation.gif"></div>
+										<div class="d-flex details">
+											<div class="block">
+												<div class="user__image"><button class="wanted-title" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button"><i class="fa fa-info-circle"></i> مطلوب</button> <!-- Modal -->
+												<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" tabindex="-1">
+													<div class="modal-dialog">
+														<div class="modal-content">
+															<div class="modal-header modal-danger-header">
+																<h5 class="modal-title" id="exampleModalLabel">جهة الطلب</h5><button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+															</div>
+															<div class="modal-body">
+																<div class="wanted-to">
+																	هذا الشخص مطلوب أمنيا لجهة <span>الهيئة العامة للمخدرات</span>
+																</div>
+															</div>
+															<div class="modal-footer">
+																<button class="btn moi-btn--green" type="button">ارسال</button> <button class="btn moi-btn--secondary--outline" data-bs-dismiss="modal" type="button">اغلاق</button>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="zoomImage">
+													<i class="fa fa-search"></i>
+												</div><img alt=""></div>
+											</div>
+											<div class="block pesonName">
+												الاسم الكامل <span>احمد محمد علي</span>
+											</div>
+											<div class="block">
+												العمر <span>40</span>
+											</div>
+											<div class="block">
+												رقم الهوية <span>1245454757</span>
+											</div>
+											<div class="block">
+												الجنسية <span>سعودي</span>
+											</div>
+											<div class="block">
+												رقم الجوال <span>0536545475</span>
+											</div>
+											<div class="block">
+												المهنة <span>مدير شركة الوطنية</span>
+											</div>
+											<div class="block">
+												ازالة <span><button class="btn moi-btn--text-icon"><span><span><img alt="" src="/PS-Design/images/icon-trash2.svg"></span></span></button></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					
+					<div class="createViolitionContainer--creatviolition--violitionData mt-3 mb-3">
+						<h3><img src="/PS-Design/images/icon-edit-cu.svg" alt="">
+
+							تفاصيل المخالفة
+						</h3>
+						<div class="d-flex details" style="gap: 35px;">
+							<div class="form-group">
+								<label class="required" for="exampleInputEmail1"> الجهة الامنية</label>
+								<div class="d-flex">
+									<select class="form-select" aria-label="Default select example">
+										<option selected>Open this select menu</option>
+										<option value="1">One</option>
+										<option value="2">Two</option>
+										<option value="3">Three</option>
+									  </select>
+								
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="required" for="exampleInputEmail1"> تاريخ المخالفة</label>
+								<div class="d-flex">
+								<input type="text" class="form-control form-control  hijri-date-input input-with-icon">
+								
+								</div>
+							</div>
+
+							
+							<div class="form-group">
+								<label class="required" for="exampleInputEmail1"> وقت المخالفة</label>
+								<div class="d-flex">
+								<input type="text" class="form-control form-control  hijri-date-input input-with-icon">
+								
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="required" for="exampleInputEmail1">  المدينة</label>
+								<div class="d-flex">
+									<select class="form-select" aria-label="Default select example">
+										<option selected>Open this select menu</option>
+										<option value="1">One</option>
+										<option value="2">Two</option>
+										<option value="3">Three</option>
+									  </select>
+								
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="required" for="exampleInputEmail1">  الحي</label>
+								<div class="d-flex">
+									<select class="form-select" aria-label="Default select example">
+										<option selected>Open this select menu</option>
+										<option value="1">One</option>
+										<option value="2">Two</option>
+										<option value="3">Three</option>
+									  </select>
+								
+								</div>
+							</div>
+
+
+
+							<div class="form-group">
+								<label class="required" for="exampleInputEmail1">  المعلم</label>
+								<div class="d-flex">
+									<input type="text" class="form-control form-control ">
+								
+								</div>
+							</div>
+
+
+						</div>
+
+					</div>
+
+					<div class="createViolitionContainer--creatviolition--violitionData mt-3 mb-3">
+					
+
+						<h3><img src="/PS-Design/images/icon-edit-cu.svg" alt="">
+
+					نوع المخالفة
+						</h3>
+						<div class="d-flex details justify-content-start" style="gap: 35px;">
+							<div class="form-group">
+								<label class="required" for="exampleInputEmail1">  التصنيف الرئيسي</label>
+								<div class="d-flex">
+									<select class="form-select" aria-label="Default select example">
+										<option selected>التصنيف الرئيسي</option>
+										<option value="1">One</option>
+										<option value="2">Two</option>
+										<option value="3">Three</option>
+									  </select>
+								
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="required" for="exampleInputEmail1"> التصنيف الفرعي</label>
+								<div class="d-flex">
+									<select class="form-select" aria-label="Default select example">
+										<option selected>التصنيف الفرعي</option>
+										<option value="1">One</option>
+										<option value="2">Two</option>
+										<option value="3">Three</option>
+									  </select>
+								
+								</div>
+							</div>
+
+
+
+
+						</div>
+
+
+
+
+
+					</div>
+
+					<div class="createViolitionContainer--creatviolition--violitionData mt-3 mb-5">
+					
+
+						<h3><img src="/PS-Design/images/icon-edit-cu.svg" alt="">
+
+					اضافة مرفقات
+						</h3>
+						<div class="d-flex details " style=" flex-direction: column;justify-content: center;align-items: center;">
+					
+
+							<!-- Upload Area -->
+							<div id="uploadArea" class="upload-area">
+								<!-- Header -->
+								<div class="upload-area__header">
+									<p class="upload-area__paragraph">
+										<strong class="upload-area__tooltip">
+										<span class="upload-area__tooltip-data"></span>
+										</strong>
+									</p>
+								</div>
+								<!-- End Header -->
+							
+								<!-- Drop Zoon -->
+							<div class="d-flex flex-column align-items-center">
+								<div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
+									<span class="drop-zoon__icon">
+										<i class='fa fa-paperclip'></i>
+									</span>
+									<p class="drop-zoon__paragraph">اسحب الملفات او قم برفعها من جهازك</p>
+									<span id="loadingText" class="drop-zoon__loading-text">انتظر قليلا</span>
+									<img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
+									<input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
+									</div>
+								
+									<div id="fileDetails" class="upload-area__file-details file-details">
+									<h4 class="file-details__title">الملف المرفوع</h4>
+								
+									<div id="uploadedFile" class="uploaded-file">
+										<div class="uploaded-file__icon-container">
+								
+										<span class="uploaded-file__icon-text"></span> 
+										</div>
+								
+										<div id="uploadedFileInfo" class="uploaded-file__info">
+										<span class="uploaded-file__name">Proejct 1</span>
+										<span class="uploaded-file__counter">0%</span>
+										</div>
+									</div>
+									</div>
+							</div>
+							
+							</div>
+					
+							<button class="btn moi-btn--secondary"> اضافة </button>
+
+						
+						</div>
+
+
+
+
+
+					</div>
+
+
+					</div>
+					<div class="col-12 col-lg-3">
+						<div class="createViolitionContainer--violitionSummarry">
+							<div class="createViolitionContainer--violitionSummarry--top">
+								<h4>ملخص المخالفة</h4>
+							</div>
+							<div class="createViolitionContainer--violitionSummarry--body">
+								<div class="createViolitionContainer--violitionSummarry--body__violiters">
+									<h4 class="mt-3">تفاصيل المخالفة</h4>
+									<div class="violitionCreationDetails">
+										<div class="d-flex">
+											<div class="block">
+												الجهه الامنيه <span>مركز شرطة البطحاء/الرياض</span>
+											</div>
+											<div class="block">
+												تاريخ تحرير المخالفة <span>1444-09-15</span>
+											</div>
+											<div class="block">
+												وقت المخالفة <span>08:40</span>
+											</div>
+										</div>
+										<div class="block">
+											الموقع <span>عفيف - شمال الاذاعة</span>
+										</div>
+										<div class="block">
+											المعلم <span>adsdsadsdddasadsdas</span>
+										</div>
+										<div class="block">
+											تفاصيل <span>adaasdadsadsdasadsadsadsdasadsdasdas</span>
+										</div>
+
+										<div class="block">
+											<h4 class="mt-3">نوع المخالفة</h4>
+											<div class="attatched">
+												<div class="attatchedname">
+												 اسم التصنيف
+												</div>
+												<div class="attatchedRemove"><img alt="" src="/PS-Design/images/icon-trash2.svg"></div>
+											</div>
+										
+										</div>
+
+										<div class="block">
+											<h4 class="mt-3">المرفقات</h4>
+											<div class="attatched">
+												<div class="attatchedname">
+													<img alt="" src="/PS-Design/images/Filetypes-jpg.svg"> sdsadsa
+												</div>
+												<div class="attatchedRemove"><img alt="" src="/PS-Design/images/icon-trash2.svg"></div>
+											</div>
+											<div class="attatched">
+												<div class="attatchedname">
+													<img alt="" src="/PS-Design/images/Filetypes-pdf.svg"> saddasads
+												</div>
+												<div class="attatchedRemove"><img alt="" src="/PS-Design/images/icon-trash2.svg"></div>
+											</div>
+											<div class="attatched">
+												<div class="attatchedname">
+													<img alt="" src="/PS-Design/images/Filetypes-png.svg"> dsaadsads
+												</div>
+												<div class="attatchedRemove"><img alt="" src="/PS-Design/images/icon-trash2.svg"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="createViolitionContainer--violitionSummarry--body__actionButtons"><button class="btn moi-btn--green w-100"> حفظ </button> <button class="btn moi-btn--secondary--outline w-100"> إلغاء </button></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tabsDesign">
+				<div class="container-fluid">
+					<div class="searchfields">
+						<div class="advancedSearchContainer mt-3 ">
+							<div class="d-flex">
+								<div class="d-flex flex-column">
+									<label class="required">الجهة الأمنية</label> <select class="form-select">
+										<option selected>
+											اختر نوع البحث
+										</option>
+										<option value="1">
+											1
+										</option>
+										<option value="2">
+											2
+										</option>
+										<option value="3">
+											4
+										</option>
+										<option value="3">
+											5
+										</option>
+										<option value="3">
+											6
+										</option>
+									</select>
+								</div>
+								<div class="d-flex flex-column">
+									<label class="required">مصدر الحالة</label> <select class="form-select">
+										<option selected>
+											اختر نوع البحث
+										</option>
+										<option value="1">
+											1
+										</option>
+										<option value="2">
+											2
+										</option>
+										<option value="3">
+											4
+										</option>
+										<option value="3">
+											5
+										</option>
+										<option value="3">
+											6
+										</option>
+									</select>
+								</div>
+								<div class="d-flex flex-column">
+									<label class="required">الجهة الأمنية</label> <select class="form-select">
+										<option selected>
+											اختر نوع البحث
+										</option>
+										<option value="1">
+											1
+										</option>
+										<option value="2">
+											2
+										</option>
+										<option value="3">
+											4
+										</option>
+										<option value="3">
+											5
+										</option>
+										<option value="3">
+											6
+										</option>
+									</select>
+								</div>
+								<div class="d-flex flex-column">
+									<label class="required">مصدر الحالة</label> <select class="form-select">
+										<option selected>
+											اختر نوع البحث
+										</option>
+										<option value="1">
+											1
+										</option>
+										<option value="2">
+											2
+										</option>
+										<option value="3">
+											4
+										</option>
+										<option value="3">
+											5
+										</option>
+										<option value="3">
+											6
+										</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="d-flex gap-2">
+							<div class="d-flex flex-column w-100">
+								<label class="required">الجهة الأمنية</label> <select class="form-select">
+									<option selected>
+										اختر نوع البحث
+									</option>
+									<option value="1">
+										1
+									</option>
+									<option value="2">
+										2
+									</option>
+									<option value="3">
+										4
+									</option>
+									<option value="3">
+										5
+									</option>
+									<option value="3">
+										6
+									</option>
+								</select>
+							</div>
+							<div class="d-flex flex-column w-100">
+								<label class="required">مصدر الحالة</label> <select class="form-select">
+									<option selected>
+										اختر نوع البحث
+									</option>
+									<option value="1">
+										1
+									</option>
+									<option value="2">
+										2
+									</option>
+									<option value="3">
+										4
+									</option>
+									<option value="3">
+										5
+									</option>
+									<option value="3">
+										6
+									</option>
+								</select>
+							</div>
+							<div class="d-flex flex-column w-100">
+								<label class="required">درجة الأهمية</label> <input class="form-control" type=""
+									value="">
+							</div>
+							<div class="d-flex flex-column">
+								<label class="required" style="visibility: hidden;">نوع البحث</label> <button
+									class="btn moi-btn--secondary ms-2"><img src="./images/icon-searchtitle.svg">
+									بحث</button>
+							</div>
+							<div class="d-flex flex-column">
+								<label class="required" style="visibility: hidden;">نوع البحث</label> <button
+									class="btn moi-btn--Neutral--outline ms-2 advancedSearchBtn"><svg
+										xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+										fill="none">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M12.8759 8.99237C12.9569 8.67505 13 8.34255 13 8C13 7.65744 12.9569 7.32494 12.8759 7.00762C12.9166 7.00259 12.958 7 13 7H21C21.5523 7 22 7.44772 22 8C22 8.55228 21.5523 9 21 9H13C12.958 9 12.9166 8.99741 12.8759 8.99237ZM5.12406 7.00762C5.04306 7.32494 5 7.65744 5 8C5 8.34256 5.04306 8.67506 5.12406 8.99238C5.08342 8.99741 5.04201 9 5 9H3C2.44772 9 2 8.55228 2 8C2 7.44772 2.44772 7 3 7H5C5.04201 7 5.08342 7.00259 5.12406 7.00762ZM19.8759 16.9924C19.9569 16.6751 20 16.3426 20 16C20 15.6574 19.9569 15.3249 19.8759 15.0076C19.9166 15.0026 19.958 15 20 15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H20C19.958 17 19.9166 16.9974 19.8759 16.9924ZM12.1241 15.0076C12.0431 15.3249 12 15.6574 12 16C12 16.3426 12.0431 16.6751 12.1241 16.9924C12.0834 16.9974 12.042 17 12 17H3C2.44772 17 2 16.5523 2 16C2 15.4477 2.44772 15 3 15H12C12.042 15 12.0834 15.0026 12.1241 15.0076Z"
+											fill="black" fill-opacity="0.4" />
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M13 8C13 10.2091 11.2091 12 9 12C6.79086 12 5 10.2091 5 8C5 5.79086 6.79086 4 9 4C11.2091 4 13 5.79086 13 8ZM20 16C20 18.2091 18.2091 20 16 20C13.7909 20 12 18.2091 12 16C12 13.7909 13.7909 12 16 12C18.2091 12 20 13.7909 20 16Z"
+											fill="black" />
+
+									</svg>بحث متقدم</button>
+							</div>
+							<div class="d-flex flex-column">
+								<label class="required" style="visibility: hidden;">نوع البحث</label> <button
+									class=" btn btn moi-btn--Neutral ms-2">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M14.8129 0.338831C15.1781 0.143443 15.6326 0.281132 15.828 0.646367L16.4459 1.80145C16.6309 2.14713 16.7985 2.46044 16.8983 2.70776C16.9498 2.8356 17.0071 3.0014 17.0236 3.17983C17.0412 3.37022 17.0171 3.64693 16.8156 3.8909C16.6054 4.14538 16.3248 4.21366 16.1425 4.22951C15.9657 4.24489 15.7905 4.2204 15.6499 4.1936C15.3756 4.14133 15.0154 4.03438 14.609 3.91368L14.5697 3.90201C13.7581 3.66108 12.8955 3.5311 12 3.5311C7.14613 3.5311 3.25 7.34389 3.25 12.0001C3.25 13.5395 3.67364 14.9817 4.41516 16.2256C4.62725 16.5814 4.51075 17.0418 4.15495 17.2539C3.79916 17.466 3.33879 17.3495 3.1267 16.9937C2.2516 15.5256 1.75 13.8192 1.75 12.0001C1.75 6.47333 6.36046 2.0311 12 2.0311C13.0413 2.0311 14.0477 2.18233 14.9966 2.46405C15.0387 2.47655 15.0793 2.4886 15.1186 2.50023C15.1135 2.49081 15.1085 2.4813 15.1033 2.4717L14.5054 1.35393C14.31 0.988692 14.4477 0.534218 14.8129 0.338831ZM19.845 6.7464C20.2008 6.53431 20.6612 6.65081 20.8733 7.0066C21.7484 8.47465 22.25 10.1811 22.25 12.0001C22.25 17.527 17.6395 21.9692 12 21.9692C10.9587 21.9692 9.95232 21.818 9.00343 21.5362C8.96132 21.5237 8.92067 21.5117 8.88141 21.5001C8.88645 21.5095 8.89154 21.519 8.89668 21.5286L9.49465 22.6464C9.69004 23.0116 9.55235 23.4661 9.18712 23.6615C8.82188 23.8569 8.36741 23.7192 8.17202 23.3539L7.55409 22.1989C7.36911 21.8532 7.20146 21.5399 7.1017 21.2925C7.05014 21.1647 6.99292 20.9989 6.97642 20.8205C6.95881 20.6301 6.98283 20.3534 7.18435 20.1094C7.39455 19.8549 7.6752 19.7866 7.85745 19.7708C8.03429 19.7554 8.20945 19.7799 8.35009 19.8067C8.62446 19.859 8.98463 19.9659 9.39113 20.0866L9.43035 20.0983C10.2419 20.3392 11.1045 20.4692 12 20.4692C16.8539 20.4692 20.75 16.6564 20.75 12.0001C20.75 10.4608 20.3264 9.0186 19.5848 7.77465C19.3728 7.41885 19.4893 6.95849 19.845 6.7464Z"
+											fill="#161616" />
+									</svg>
+
+									إعادة تعيين</button>
+							</div>
+						</div>
+					</div>
+
+
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item" role="presentation">
+							<button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+								data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane"
+								aria-selected="true">الكل</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+								data-bs-target="#profile-tab-pane" type="button" role="tab"
+								aria-controls="profile-tab-pane" aria-selected="false">جديد</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="contact-tab" data-bs-toggle="tab"
+								data-bs-target="#contact-tab-pane" type="button" role="tab"
+								aria-controls="contact-tab-pane" aria-selected="false">تحت الإجراء</button>
+						</li>
+
+					</ul>
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
+							aria-labelledby="home-tab" tabindex="0">
+							<div class="tablecontainer">
+								<div class=" tableSeetings mt-0 ">
+									<h3>عدد الطلبات <span>24572</span></h3>
+									<div class="action-items">
+										<button class="btn moi-btn--Neutral" data-bs-target="#tableSeetingModal"
+											data-bs-toggle="modal"
+											title="يمكنك هذا الزر من تحديد عدد الاعمده التي تريد ظهورها" data-step="2"
+											data-intro="يمكنك هذا الزر من تحديد عدد الاعمده التي تريد ظهورها">
+
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 25">
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M2 6.02988C2 3.82074 3.79086 2.02988 6 2.02988H18C20.2091 2.02988 22 3.82074 22 6.02988V18.0299C22 20.239 20.2091 22.0299 18 22.0299H6C3.79086 22.0299 2 20.239 2 18.0299V6.02988ZM6 4.02988C4.89543 4.02988 4 4.92531 4 6.02988V18.0299C4 19.1344 4.89543 20.0299 6 20.0299H18C19.1046 20.0299 20 19.1344 20 18.0299V6.02988C20 4.92531 19.1046 4.02988 18 4.02988H6Z" />
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M10 4.02988H8V8.02988H4V10.0299H8V14.0299H4V16.0299H8V20.0299H10V16.0299H14V20.0299H16V16.0299H20V14.0299H16V10.0299H20V8.02988H16V4.02988H14V8.02988H10V4.02988ZM14 14.0299V10.0299H10V14.0299H14Z"
+													fill-opacity="0.4" />
+											</svg>
+
+											تخصيص</button>
+
+
+										<button @@click="printTable" class="btn moi-btn--Neutral">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 25" fill="none"
+												class="m-0">
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M9 3.16504C7.89543 3.16504 7 4.06047 7 5.16504V7.16504H9V5.16504H15V7.16504H17V5.16504C17 4.06047 16.1046 3.16504 15 3.16504H9ZM9 19.165V13.165H15V19.165H9ZM7 13.165C6.44772 13.165 6 12.7173 6 12.165C6 11.6128 6.44772 11.165 7 11.165H17C17.5523 11.165 18 11.6128 18 12.165C18 12.7173 17.5523 13.165 17 13.165V19.165C17 20.2696 16.1046 21.165 15 21.165H9C7.89543 21.165 7 20.2696 7 19.165V13.165Z" />
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M5 9.16504C4.44772 9.16504 4 9.61275 4 10.165V15.165C4 15.7173 4.44772 16.165 5 16.165H7V18.165H5C3.34315 18.165 2 16.8219 2 15.165V10.165C2 8.50818 3.34315 7.16504 5 7.16504H19C20.6569 7.16504 22 8.50819 22 10.165V15.165C22 16.8219 20.6569 18.165 19 18.165H17V16.165H19C19.5523 16.165 20 15.7173 20 15.165V10.165C20 9.61275 19.5523 9.16504 19 9.16504H5Z"
+													fill-opacity="0.4" />
+											</svg>
+										</button>
+
+
+									</div>
+								</div><!-- 
+                    class to make grid loader
+                    tableloader -->
+								<div class="table-responsive">
+									<table class="table table-hover table-striped tableloader">
+										<thead>
+											<tr>
+												<th><input class="form-check-input" id="flexCheckDefault"
+														type="checkbox" value=""></th>
+												<th>#</th>
+												<th class="togglevisabile" data-bs-placement="top"
+													data-bs-toggle="tooltip" title="Tooltip on top">مكان المخالفة</th>
+												<th class="">درجة الاهمية</th>
+												<th class="">المعلم</th>
+												<th class="">الجهة الأمنية</th>
+												<th class="">مجموعة المخالفة</th>
+												<th class="">التصنيف الرئيسي</th>
+												<th class="">الاشخاص المرتبطين</th>
+												<th class="">الاجراءات</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><input class="form-check-input" id="flexCheckDefault"
+														type="checkbox" value=""></td>
+												<td>1</td>
+												<td class="togglevisabile">عفيف- العليا</td>
+												<td><span class="highpriority">أهمية عالية</span></td>
+												<td>مسجد</td>
+												<td>شرطة محافظة الرس /القصيم</td>
+												<td>الذوق العام</td>
+												<td class="">
+													<div
+														class="d-flex align-items-center justify-content-center ellipsistd">
+														<div data-tooltip=" إجراءات ضبط قضايا الاعتداء المفضي للغيبوبة">
+															<p>إجراءات ضبط قضايا الاعتداء المفضي للغيبوبة</p>
+														</div>
+														<div class="btn-group dropup">
+															<button aria-expanded="false"
+																class="btn dropdown-toggle moreStutus"
+																data-bs-toggle="dropdown" type="button">+1</button>
+															<div class="dropdown-menu">
+																<h5>التصيفات الرئيسية للحالة الامنية</h5>
+																<ul>
+																	<li class="dropdown-item">إجراءات ضبط قضايا الاعتداء
+																		المفضي للغيبوبة</li>
+																	<li class="dropdown-item">مروري</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</td>
+												<td class="">
+													<div
+														class="d-flex align-items-center justify-content-center custom-tooltip ellipsistd">
+														<div class="userimage">
+															<span
+																data-tooltip="عقيد - 1012872733-عزام ساطى لفا المطيرى"><img
+																	alt="" src="./images/azam.png"></span>
+														</div>
+														<div class="userimage">
+															<span
+																data-tooltip="رقيب - 1071600777-سليمان محمد عوض الشهري"><img
+																	alt="" src="./images/soliman.jpg"></span>
+														</div>
+														<div class="userimage">
+															<span
+																data-tooltip="وكيل رقيب - 1092321577-عبدالوهاب علي عبدالرحمن الشهراني"><img
+																	alt="" src="./images/abdul.png"></span>
+														</div>
+														<div class="btn-group dropup">
+															<button aria-expanded="false"
+																class="btn dropdown-toggle moreStutus"
+																data-bs-toggle="dropdown" type="button">+4</button>
+															<div class="dropdown-menu">
+																<h5>الاشخاص المرتبطين</h5>
+																<ul class="">
+																	<li class="dropdown-item">
+																		<div class="d-flex align-items-center gap-3">
+																			<div class="userimage">
+																				<span><img alt=""
+																						src="./images/soliman.jpg"></span>
+																			</div>
+																			<div class="w-100">
+																				وكيل رقيب - 1092321577-عبدالوهاب علي
+																				عبدالرحمن الشهراني
+																			</div>
+																		</div>
+																	</li>
+																	<li class="dropdown-item">
+																		<div class="d-flex align-items-center gap-3">
+																			<div class="userimage">
+																				<span><img alt=""
+																						src="./images/soliman.jpg"></span>
+																			</div>
+																			<div class="w-100">
+																				وكيل رقيب - 1092321577-عبدالوهاب علي
+																				عبدالرحمن الشهراني
+																			</div>
+																		</div>
+																	</li>
+																	<li class="dropdown-item">
+																		<div class="d-flex align-items-center gap-3">
+																			<div class="userimage">
+																				<span><img alt=""
+																						src="./images/soliman.jpg"></span>
+																			</div>
+																			<div class="w-100">
+																				وكيل رقيب - 1092321577-عبدالوهاب علي
+																				عبدالرحمن الشهراني
+																			</div>
+																		</div>
+																	</li>
+																	<li class="dropdown-item">
+																		<div class="d-flex align-items-center gap-3">
+																			<div class="userimage">
+																				<span><img alt=""
+																						src="./images/soliman.jpg"></span>
+																			</div>
+																			<div class="w-100">
+																				وكيل رقيب - 1092321577-عبدالوهاب علي
+																				عبدالرحمن الشهراني
+																			</div>
+																		</div>
+																	</li>
+																	<li class="dropdown-item">
+																		<div class="d-flex align-items-center gap-3">
+																			<div class="userimage">
+																				<span><img alt=""
+																						src="./images/soliman.jpg"></span>
+																			</div>
+																			<div class="w-100">
+																				وكيل رقيب - 1092321577-عبدالوهاب علي
+																				عبدالرحمن الشهراني
+																			</div>
+																		</div>
+																	</li>
+																	<li class="dropdown-item">
+																		<div class="d-flex align-items-center gap-3">
+																			<div class="userimage">
+																				<span><img alt=""
+																						src="./images/soliman.jpg"></span>
+																			</div>
+																			<div class="w-100">
+																				وكيل رقيب - 1092321577-عبدالوهاب علي
+																				عبدالرحمن الشهراني
+																			</div>
+																		</div>
+																	</li>
+																	<li class="dropdown-item">
+																		<div class="d-flex align-items-center gap-3">
+																			<div class="userimage">
+																				<span><img alt=""
+																						src="./images/soliman.jpg"></span>
+																			</div>
+																			<div class="w-100">
+																				وكيل رقيب - 1092321577-عبدالوهاب علي
+																				عبدالرحمن الشهراني
+																			</div>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</td>
+												<td class="actiontd">
+													<button class="moi-btn--text-icon" title="تعديل">
+
+														<svg viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg">
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M3.375 7.875C3.375 5.38972 5.38972 3.375 7.875 3.375H12.375C12.9963 3.375 13.5 3.87868 13.5 4.5C13.5 5.12132 12.9963 5.625 12.375 5.625H7.875C6.63236 5.625 5.625 6.63236 5.625 7.875V19.125C5.625 20.3676 6.63236 21.375 7.875 21.375H19.125C20.3676 21.375 21.375 20.3676 21.375 19.125V14.625C21.375 14.0037 21.8787 13.5 22.5 13.5C23.1213 13.5 23.625 14.0037 23.625 14.625V19.125C23.625 21.6103 21.6103 23.625 19.125 23.625H7.875C5.38972 23.625 3.375 21.6103 3.375 19.125V7.875Z"
+																fill-opacity="0.4"></path>
+															<path opacity="0.986784"
+																d="M19.125 2.25C18.8269 2.25 18.5276 2.35576 18.3161 2.56613C16.6286 4.25363 16.6286 4.25363 16.0661 4.81613L8.19113 12.6911C7.98076 12.9026 7.875 13.2019 7.875 13.5V18C7.875 18.621 8.379 19.125 9 19.125C9.5625 19.125 12.9375 19.125 13.5 19.125C13.7981 19.125 14.0974 19.0192 14.3089 18.8089L22.1839 10.9339C22.7464 10.3714 22.7464 10.3714 24.4339 8.68387C24.6442 8.47237 24.75 8.17312 24.75 7.875C24.75 6.0345 24.2809 4.71939 23.3089 3.72601C22.3267 2.72476 21.0161 2.25 19.125 2.25ZM19.5829 4.52135C20.5976 4.58098 21.24 4.81274 21.6911 5.27399C22.1524 5.74424 22.4179 6.45414 22.4797 7.44976C21.9296 7.99989 21.5887 8.32614 21.3795 8.53651C20.4874 7.64551 19.3556 6.52385 18.4646 5.63173C18.675 5.42135 19.0327 5.07148 19.5829 4.52135ZM16.8772 7.22928L19.7854 10.1295L13.0072 16.875C12.2962 16.875 11.1611 16.875 10.125 16.875V13.9927L16.8772 7.22928Z">
+															</path>
+														</svg>
+
+													</button>
+													<button class="moi-btn--text-icon" title="تفاصيل">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M6.66668 3.33329C5.7462 3.33329 5.00001 4.07949 5.00001 4.99996V15C5.00001 15.9204 5.7462 16.6666 6.66668 16.6666H13.3333C14.2538 16.6666 15 15.9204 15 15V8.33329H16.6667V15C16.6667 16.8409 15.1743 18.3333 13.3333 18.3333H6.66668C4.82573 18.3333 3.33334 16.8409 3.33334 15V4.99996C3.33334 3.15901 4.82573 1.66663 6.66668 1.66663H10V3.33329H6.66668Z">
+															</path>
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M11.6667 4.99996V3.41664C13.2993 3.74804 14.5852 5.03402 14.9166 6.66663H13.3333C12.4128 6.66663 11.6667 5.92043 11.6667 4.99996ZM16.6667 7.49996V8.33329H13.3333C11.4924 8.33329 9.99999 6.84091 9.99999 4.99996V1.66663H10.8333C14.055 1.66663 16.6667 4.2783 16.6667 7.49996ZM6.66666 7.49996C6.66666 7.03996 7.03999 6.66663 7.49999 6.66663H8.33332C8.79332 6.66663 9.16666 7.03996 9.16666 7.49996C9.16666 7.95996 8.79332 8.3333 8.33332 8.3333H7.49999C7.03999 8.3333 6.66666 7.95996 6.66666 7.49996ZM6.66666 10.8333C6.66666 10.3733 7.03999 9.99997 7.49999 9.99997H12.5C12.96 9.99997 13.3333 10.3733 13.3333 10.8333C13.3333 11.2933 12.96 11.6666 12.5 11.6666H7.49999C7.03999 11.6666 6.66666 11.2933 6.66666 10.8333ZM6.66666 14.1666C6.66666 13.7066 7.03999 13.3333 7.49999 13.3333H12.5C12.96 13.3333 13.3333 13.7066 13.3333 14.1666C13.3333 14.6267 12.96 15 12.5 15H7.49999C7.03999 15 6.66666 14.6267 6.66666 14.1666Z"
+																fill-opacity="0.4"></path>
+														</svg>
+
+
+													</button>
+
+
+
+
+													<button class="moi-btn--text-icon" title="طباعة تفاصيل الطلب">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25"
+															viewBox="0 0 24 25" fill="none">
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M9 3.52991C7.89543 3.52991 7 4.42534 7 5.52991V7.52991H9V5.52991H15V7.52991H17V5.52991C17 4.42534 16.1046 3.52991 15 3.52991H9ZM9 19.5299V13.5299H15V19.5299H9ZM7 13.5299C6.44772 13.5299 6 13.0822 6 12.5299C6 11.9776 6.44772 11.5299 7 11.5299H17C17.5523 11.5299 18 11.9776 18 12.5299C18 13.0822 17.5523 13.5299 17 13.5299V19.5299C17 20.6344 16.1046 21.5299 15 21.5299H9C7.89543 21.5299 7 20.6344 7 19.5299V13.5299Z">
+															</path>
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M5 9.52991C4.44772 9.52991 4 9.97762 4 10.5299V15.5299C4 16.0822 4.44772 16.5299 5 16.5299H7V18.5299H5C3.34315 18.5299 2 17.1867 2 15.5299V10.5299C2 8.87305 3.34315 7.52991 5 7.52991H19C20.6569 7.52991 22 8.87305 22 10.5299V15.5299C22 17.1867 20.6569 18.5299 19 18.5299H17V16.5299H19C19.5523 16.5299 20 16.0822 20 15.5299V10.5299C20 9.97762 19.5523 9.52991 19 9.52991H5Z"
+																fill-opacity="0.4"></path>
+														</svg>
+													</button>
+
+												</td>
+											</tr>
+											<tr>
+												<td><input class="form-check-input" id="flexCheckDefault"
+														type="checkbox" value=""></td>
+												<td>1</td>
+												<td class="togglevisabile">عفيف- العليا</td>
+												<td><span class=" mediumpriority">أهمية متوسطة</span></td>
+												<td>مسجد</td>
+												<td>شرطة محافظة الرس /القصيم</td>
+												<td>الذوق العام</td>
+												<td class="">
+													<div
+														class="d-flex align-items-center justify-content-center ellipsistd">
+														<div data-tooltip=" مروري">
+															<p>مروري</p>
+														</div>
+													</div>
+												</td>
+												<td class="">
+													<div
+														class="d-flex align-items-center justify-content-center custom-tooltip ellipsistd">
+														<div class="userimage">
+															<span
+																data-tooltip="رقيب - 1071600777-سليمان محمد عوض الشهري"><img
+																	alt="" src="./images/soliman.jpg"></span>
+														</div>
+														<div class="userimage">
+															<span
+																data-tooltip="عقيد - 1012872733-عزام ساطى لفا المطيرى"><img
+																	alt="" src="./images/azam.png"></span>
+														</div>
+													</div>
+												</td>
+												<td class="actiontd">
+													<button class="moi-btn--text-icon" title="تعديل">
+
+														<svg viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg">
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M3.375 7.875C3.375 5.38972 5.38972 3.375 7.875 3.375H12.375C12.9963 3.375 13.5 3.87868 13.5 4.5C13.5 5.12132 12.9963 5.625 12.375 5.625H7.875C6.63236 5.625 5.625 6.63236 5.625 7.875V19.125C5.625 20.3676 6.63236 21.375 7.875 21.375H19.125C20.3676 21.375 21.375 20.3676 21.375 19.125V14.625C21.375 14.0037 21.8787 13.5 22.5 13.5C23.1213 13.5 23.625 14.0037 23.625 14.625V19.125C23.625 21.6103 21.6103 23.625 19.125 23.625H7.875C5.38972 23.625 3.375 21.6103 3.375 19.125V7.875Z"
+																fill-opacity="0.4"></path>
+															<path opacity="0.986784"
+																d="M19.125 2.25C18.8269 2.25 18.5276 2.35576 18.3161 2.56613C16.6286 4.25363 16.6286 4.25363 16.0661 4.81613L8.19113 12.6911C7.98076 12.9026 7.875 13.2019 7.875 13.5V18C7.875 18.621 8.379 19.125 9 19.125C9.5625 19.125 12.9375 19.125 13.5 19.125C13.7981 19.125 14.0974 19.0192 14.3089 18.8089L22.1839 10.9339C22.7464 10.3714 22.7464 10.3714 24.4339 8.68387C24.6442 8.47237 24.75 8.17312 24.75 7.875C24.75 6.0345 24.2809 4.71939 23.3089 3.72601C22.3267 2.72476 21.0161 2.25 19.125 2.25ZM19.5829 4.52135C20.5976 4.58098 21.24 4.81274 21.6911 5.27399C22.1524 5.74424 22.4179 6.45414 22.4797 7.44976C21.9296 7.99989 21.5887 8.32614 21.3795 8.53651C20.4874 7.64551 19.3556 6.52385 18.4646 5.63173C18.675 5.42135 19.0327 5.07148 19.5829 4.52135ZM16.8772 7.22928L19.7854 10.1295L13.0072 16.875C12.2962 16.875 11.1611 16.875 10.125 16.875V13.9927L16.8772 7.22928Z">
+															</path>
+														</svg>
+
+													</button>
+													<button class="moi-btn--text-icon" title="تفاصيل">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M6.66668 3.33329C5.7462 3.33329 5.00001 4.07949 5.00001 4.99996V15C5.00001 15.9204 5.7462 16.6666 6.66668 16.6666H13.3333C14.2538 16.6666 15 15.9204 15 15V8.33329H16.6667V15C16.6667 16.8409 15.1743 18.3333 13.3333 18.3333H6.66668C4.82573 18.3333 3.33334 16.8409 3.33334 15V4.99996C3.33334 3.15901 4.82573 1.66663 6.66668 1.66663H10V3.33329H6.66668Z">
+															</path>
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M11.6667 4.99996V3.41664C13.2993 3.74804 14.5852 5.03402 14.9166 6.66663H13.3333C12.4128 6.66663 11.6667 5.92043 11.6667 4.99996ZM16.6667 7.49996V8.33329H13.3333C11.4924 8.33329 9.99999 6.84091 9.99999 4.99996V1.66663H10.8333C14.055 1.66663 16.6667 4.2783 16.6667 7.49996ZM6.66666 7.49996C6.66666 7.03996 7.03999 6.66663 7.49999 6.66663H8.33332C8.79332 6.66663 9.16666 7.03996 9.16666 7.49996C9.16666 7.95996 8.79332 8.3333 8.33332 8.3333H7.49999C7.03999 8.3333 6.66666 7.95996 6.66666 7.49996ZM6.66666 10.8333C6.66666 10.3733 7.03999 9.99997 7.49999 9.99997H12.5C12.96 9.99997 13.3333 10.3733 13.3333 10.8333C13.3333 11.2933 12.96 11.6666 12.5 11.6666H7.49999C7.03999 11.6666 6.66666 11.2933 6.66666 10.8333ZM6.66666 14.1666C6.66666 13.7066 7.03999 13.3333 7.49999 13.3333H12.5C12.96 13.3333 13.3333 13.7066 13.3333 14.1666C13.3333 14.6267 12.96 15 12.5 15H7.49999C7.03999 15 6.66666 14.6267 6.66666 14.1666Z"
+																fill-opacity="0.4"></path>
+														</svg>
+
+
+													</button>
+
+
+
+
+													<button class="moi-btn--text-icon" title="طباعة تفاصيل الطلب">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25"
+															viewBox="0 0 24 25" fill="none">
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M9 3.52991C7.89543 3.52991 7 4.42534 7 5.52991V7.52991H9V5.52991H15V7.52991H17V5.52991C17 4.42534 16.1046 3.52991 15 3.52991H9ZM9 19.5299V13.5299H15V19.5299H9ZM7 13.5299C6.44772 13.5299 6 13.0822 6 12.5299C6 11.9776 6.44772 11.5299 7 11.5299H17C17.5523 11.5299 18 11.9776 18 12.5299C18 13.0822 17.5523 13.5299 17 13.5299V19.5299C17 20.6344 16.1046 21.5299 15 21.5299H9C7.89543 21.5299 7 20.6344 7 19.5299V13.5299Z">
+															</path>
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M5 9.52991C4.44772 9.52991 4 9.97762 4 10.5299V15.5299C4 16.0822 4.44772 16.5299 5 16.5299H7V18.5299H5C3.34315 18.5299 2 17.1867 2 15.5299V10.5299C2 8.87305 3.34315 7.52991 5 7.52991H19C20.6569 7.52991 22 8.87305 22 10.5299V15.5299C22 17.1867 20.6569 18.5299 19 18.5299H17V16.5299H19C19.5523 16.5299 20 16.0822 20 15.5299V10.5299C20 9.97762 19.5523 9.52991 19 9.52991H5Z"
+																fill-opacity="0.4"></path>
+														</svg>
+													</button>
+
+												</td>
+
+
+											</tr>
+											<tr>
+												<td><input class="form-check-input" id="flexCheckDefault"
+														type="checkbox" value=""></td>
+												<td>1</td>
+												<td class="togglevisabile">عفيف- العليا</td>
+												<td><span class=" regular">أهمية عادية</span></td>
+												<td>مسجد</td>
+												<td>شرطة محافظة الرس /القصيم</td>
+												<td>الذوق العام</td>
+												<td class="">
+													<div
+														class="d-flex align-items-center justify-content-center ellipsistd">
+														<div data-tooltip=" إجراءات ضبط قضايا الاعتداء المفضي للغيبوبة">
+															<p>إجراءات ضبط قضايا الاعتداء المفضي للغيبوبة</p>
+														</div>
+														<div class="btn-group dropup">
+															<button aria-expanded="false"
+																class="btn dropdown-toggle moreStutus"
+																data-bs-toggle="dropdown" type="button">+4</button>
+															<div class="dropdown-menu">
+																<h5>التصيفات الرئيسية للحالة الامنية</h5>
+																<ul>
+																	<li class="dropdown-item">إجراءات ضبط قضايا الاعتداء
+																		المفضي للغيبوبة</li>
+																	<li class="dropdown-item">مروري</li>
+																	<li class="dropdown-item">مخدرات</li>
+																	<li class="dropdown-item">مروري</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</td>
+												<td class="">
+													<div
+														class="d-flex align-items-center justify-content-center custom-tooltip ellipsistd">
+														<div class="userimage">
+															<span
+																data-tooltip="رقيب - 1071600777-سليمان محمد عوض الشهري"><img
+																	alt="" src="./images/soliman.jpg"></span>
+														</div>
+													</div>
+												</td>
+												<td class="actiontd">
+													<button class="moi-btn--text-icon" title="تعديل">
+
+														<svg viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg">
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M3.375 7.875C3.375 5.38972 5.38972 3.375 7.875 3.375H12.375C12.9963 3.375 13.5 3.87868 13.5 4.5C13.5 5.12132 12.9963 5.625 12.375 5.625H7.875C6.63236 5.625 5.625 6.63236 5.625 7.875V19.125C5.625 20.3676 6.63236 21.375 7.875 21.375H19.125C20.3676 21.375 21.375 20.3676 21.375 19.125V14.625C21.375 14.0037 21.8787 13.5 22.5 13.5C23.1213 13.5 23.625 14.0037 23.625 14.625V19.125C23.625 21.6103 21.6103 23.625 19.125 23.625H7.875C5.38972 23.625 3.375 21.6103 3.375 19.125V7.875Z"
+																fill-opacity="0.4"></path>
+															<path opacity="0.986784"
+																d="M19.125 2.25C18.8269 2.25 18.5276 2.35576 18.3161 2.56613C16.6286 4.25363 16.6286 4.25363 16.0661 4.81613L8.19113 12.6911C7.98076 12.9026 7.875 13.2019 7.875 13.5V18C7.875 18.621 8.379 19.125 9 19.125C9.5625 19.125 12.9375 19.125 13.5 19.125C13.7981 19.125 14.0974 19.0192 14.3089 18.8089L22.1839 10.9339C22.7464 10.3714 22.7464 10.3714 24.4339 8.68387C24.6442 8.47237 24.75 8.17312 24.75 7.875C24.75 6.0345 24.2809 4.71939 23.3089 3.72601C22.3267 2.72476 21.0161 2.25 19.125 2.25ZM19.5829 4.52135C20.5976 4.58098 21.24 4.81274 21.6911 5.27399C22.1524 5.74424 22.4179 6.45414 22.4797 7.44976C21.9296 7.99989 21.5887 8.32614 21.3795 8.53651C20.4874 7.64551 19.3556 6.52385 18.4646 5.63173C18.675 5.42135 19.0327 5.07148 19.5829 4.52135ZM16.8772 7.22928L19.7854 10.1295L13.0072 16.875C12.2962 16.875 11.1611 16.875 10.125 16.875V13.9927L16.8772 7.22928Z">
+															</path>
+														</svg>
+
+													</button>
+													<button class="moi-btn--text-icon" title="تفاصيل">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M6.66668 3.33329C5.7462 3.33329 5.00001 4.07949 5.00001 4.99996V15C5.00001 15.9204 5.7462 16.6666 6.66668 16.6666H13.3333C14.2538 16.6666 15 15.9204 15 15V8.33329H16.6667V15C16.6667 16.8409 15.1743 18.3333 13.3333 18.3333H6.66668C4.82573 18.3333 3.33334 16.8409 3.33334 15V4.99996C3.33334 3.15901 4.82573 1.66663 6.66668 1.66663H10V3.33329H6.66668Z">
+															</path>
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M11.6667 4.99996V3.41664C13.2993 3.74804 14.5852 5.03402 14.9166 6.66663H13.3333C12.4128 6.66663 11.6667 5.92043 11.6667 4.99996ZM16.6667 7.49996V8.33329H13.3333C11.4924 8.33329 9.99999 6.84091 9.99999 4.99996V1.66663H10.8333C14.055 1.66663 16.6667 4.2783 16.6667 7.49996ZM6.66666 7.49996C6.66666 7.03996 7.03999 6.66663 7.49999 6.66663H8.33332C8.79332 6.66663 9.16666 7.03996 9.16666 7.49996C9.16666 7.95996 8.79332 8.3333 8.33332 8.3333H7.49999C7.03999 8.3333 6.66666 7.95996 6.66666 7.49996ZM6.66666 10.8333C6.66666 10.3733 7.03999 9.99997 7.49999 9.99997H12.5C12.96 9.99997 13.3333 10.3733 13.3333 10.8333C13.3333 11.2933 12.96 11.6666 12.5 11.6666H7.49999C7.03999 11.6666 6.66666 11.2933 6.66666 10.8333ZM6.66666 14.1666C6.66666 13.7066 7.03999 13.3333 7.49999 13.3333H12.5C12.96 13.3333 13.3333 13.7066 13.3333 14.1666C13.3333 14.6267 12.96 15 12.5 15H7.49999C7.03999 15 6.66666 14.6267 6.66666 14.1666Z"
+																fill-opacity="0.4"></path>
+														</svg>
+
+
+													</button>
+
+
+
+
+													<button class="moi-btn--text-icon" title="طباعة تفاصيل الطلب">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25"
+															viewBox="0 0 24 25" fill="none">
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M9 3.52991C7.89543 3.52991 7 4.42534 7 5.52991V7.52991H9V5.52991H15V7.52991H17V5.52991C17 4.42534 16.1046 3.52991 15 3.52991H9ZM9 19.5299V13.5299H15V19.5299H9ZM7 13.5299C6.44772 13.5299 6 13.0822 6 12.5299C6 11.9776 6.44772 11.5299 7 11.5299H17C17.5523 11.5299 18 11.9776 18 12.5299C18 13.0822 17.5523 13.5299 17 13.5299V19.5299C17 20.6344 16.1046 21.5299 15 21.5299H9C7.89543 21.5299 7 20.6344 7 19.5299V13.5299Z">
+															</path>
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M5 9.52991C4.44772 9.52991 4 9.97762 4 10.5299V15.5299C4 16.0822 4.44772 16.5299 5 16.5299H7V18.5299H5C3.34315 18.5299 2 17.1867 2 15.5299V10.5299C2 8.87305 3.34315 7.52991 5 7.52991H19C20.6569 7.52991 22 8.87305 22 10.5299V15.5299C22 17.1867 20.6569 18.5299 19 18.5299H17V16.5299H19C19.5523 16.5299 20 16.0822 20 15.5299V10.5299C20 9.97762 19.5523 9.52991 19 9.52991H5Z"
+																fill-opacity="0.4"></path>
+														</svg>
+													</button>
+
+												</td>
+											</tr><!-- <tr>
+                            <td colspan="10">
+                                <div class="nodataTable">
+                                    <img alt="" src="./images/nodataavailable.png">
+                                    <h5>برجاء اجراء البحث لاستعراض البيانات</h5>
+                                </div>
+                            </td>
+                        </tr> -->
+										</tbody>
+									</table>
+								</div>
+								<nav aria-label="..." class="paginationContainer justify-content-between">
+									<ul class="pagination">
+										<li class="page-item">
+											<a class="page-link"><img alt=""
+													src="/images/icon-arrow-right-pagenation.svg"></a>
+										</li>
+										<li class="page-item">
+											<a class="page-link" href="#">1</a>
+										</li>
+										<li class="page-item active">
+											<a class="page-link" href="#">2</a>
+										</li>
+										<li class="page-item">
+											<a class="page-link" href="#">3</a>
+										</li>
+										<li class="page-item">
+											<a class="page-link" href="#">4</a>
+										</li>
+										<li class="page-item">
+											<a class="page-link" href="#">....</a>
+										</li>
+										<li class="page-item">
+											<a class="page-link" href="#">11</a>
+										</li>
+										<li class="page-item">
+											<a class="page-link" href="#">12</a>
+										</li>
+										<li class="page-item">
+											<a class="page-link" href="#"><img alt=""
+													src="/images/icon-arrow-left-pagenation.svg"></a>
+										</li>
+									</ul>
+									<div class="d-flex leftnav">
+										<div class="d-flex align-items-center pages_number">
+											<label class="form-label" for="exampleFormControlInput1">إظهار</label>
+											<select>
+												<option selected>
+													10
+												</option>
+												<option value="20">
+													20
+												</option>
+												<option value="50">
+													50
+												</option>
+												<option value="100">
+													100
+												</option>
+											</select> <label class="form-label" for="exampleFormControlInput1">من
+												<span>68</span></label>
+										</div>
+										<div class="d-flex align-items-center goto">
+											<label class="form-label" for="exampleFormControlInput1">الذهاب الي
+												صفحة</label> <input class="form-control" placeholder="2" type="text">
+											<button class="btn moi-btn--outline" type="submit">ذهاب <img alt=""
+													src="./images/arrow-left-title.svg"></button>
+										</div>
+									</div>
+								</nav>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+							tabindex="0">...</div>
+						<div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
+							tabindex="0">...</div>
+					</div>
+
+
+
+				</div>
+			</div><!-- table Seeting Modal -->
+			<div aria-hidden="true" aria-labelledby="tableSeetingModalLabel" class="modal fade" id="tableSeetingModal"
+				tabindex="-1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="tableSeetingModalLabel">تخصيص الأعمدة</h5><button
+								aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+						</div>
+						<div class="modal-body">
+							<div class="form-check">
+								<input checked class="form-check-input chooseToClose" id="flexCheckDefault"
+									type="checkbox" value=""> <label class="form-check-label"
+									for="flexCheckDefault">مكان المخالفة</label>
+							</div>
+							<div class="form-check">
+								<input checked class="form-check-input" id="flexCheckChecked" type="checkbox" value="">
+								<label class="form-check-label" for="flexCheckChecked">المعلم</label>
+							</div>
+							<div class="form-check">
+								<input checked class="form-check-input" id="flexCheckChecked" type="checkbox" value="">
+								<label class="form-check-label" for="flexCheckChecked">الجهة الأمنية</label>
+							</div>
+							<div class="form-check">
+								<input checked class="form-check-input" id="flexCheckChecked" type="checkbox" value="">
+								<label class="form-check-label" for="flexCheckChecked">مجموعة المخالفة</label>
+							</div>
+							<div class="form-check">
+								<input checked class="form-check-input" id="flexCheckChecked" type="checkbox" value="">
+								<label class="form-check-label" for="flexCheckChecked">اسم المخالفة</label>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button class="btn moi-btn--green" type="button">حفظ التغييرات</button> <button
+								class="btn moi-btn--outline" data-bs-dismiss="modal" type="button">اغلاق</button>
+						</div>
+					</div>
+				</div>
+			</div><!-- member List Modal  -->
+			<div aria-hidden="true" aria-labelledby="memberListModalLabel" class="modal fade memberListModal"
+				id="memberListModal" tabindex="-1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="memberListModalLabel">نتائج اعضاء التصويت</h5><button
+								aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+						</div>
+						<div class="modal-body">
+							<div class="resualt">
+								<div class="approved">
+									موافق
+									<div class="progress">
+										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25"
+											class="progress-bar bg-success" role="progressbar" style="width: 25%"></div>
+									</div>
+								</div>
+								<div class=" notapproved">
+									غير موافق
+									<div class="progress">
+										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25"
+											class="progress-bar bg-danger" role="progressbar" style="width:66%"></div>
+									</div>
+								</div>
+							</div>
+							<div class="tablecontainer">
+								<table class="mt-3 table table-hover">
+									<thead>
+										<tr>
+											<th>اسم العضو</th>
+											<th class="">النتيجة</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>أحمد محمد علي خالد</td>
+											<td>نعم</td>
+										</tr>
+										<tr>
+											<td>علي باشر الشهري</td>
+											<td>لا</td>
+										</tr>
+										<tr>
+											<td>أحمد محمد علي خالد</td>
+											<td>لا</td>
+										</tr>
+										<tr>
+											<td>علي باشر الشهري</td>
+											<td>لا</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button class="btn moi-btn--outline" data-bs-dismiss="modal" type="button">اغلاق</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+		</section>
+	</section>
+	<script src="/PS-Design/js/app.js">
+	</script>
+
+</body>
+</html>

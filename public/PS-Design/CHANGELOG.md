@@ -27,6 +27,8 @@ The format follows **Keep a Changelog** and adheres to **Semantic Versioning (Se
 
 ### Changed
 
+- Vehicle Card (2026-11-05): circulars history has two tabs — «Current circulars» and «Previous circulars» (example only) — using `.nav.nav-tabs` on a `.tab-content` box (`$Primary-600` border, `$radius-lg`) with no gap, in `.moi-vehicle-card__bulletins-tabpanel`. Rebuild `main.css`.
+- بطاقة المركبة (2026-11-05): سجل التعميمات بتبويبين — «التعميمات الحالية» و«التعميمات السابقة» (مثال فقط) — بـ `.nav.nav-tabs` ملاصقة لصندوق `.tab-content` (إطار `$Primary-600` و`$radius-lg`) داخل `.moi-vehicle-card__bulletins-tabpanel`. أعد بناء `main.css`.
 - Docs sidebar (2026-11-05): collapsible groups (current group open, search ignores folding) with related pages nested under their parent. Tabs: removed the tab-bar background; Bootstrap `.nav-tabs .nav-link` now follow Figma `tabs-tab` (default / active / focus / disabled, `.badge` count). Rebuild `main.css`.
 - القائمة الجانبية (2026-11-05): مجموعات قابلة للطي مع صفحات فرعية، وحُذفت خلفية شريط التبويبات، وروابط `.nav-tabs .nav-link` تتبع تصميم `tabs-tab` في Figma. أعد بناء `main.css`.
 - Tabs (2026-11-05): removed the legacy `.create__tabs`; plain Bootstrap tabs (`nav-tabs` + `tab-content`) take the system look with no wrapper class (`.tabsDesign` kept as an alias; `.tab-content` is now global). Rebuild `main.css`.

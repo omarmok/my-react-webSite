@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>المرفقات</title>
+	<link href="./css/bootstrap-v5.css" rel="stylesheet">
+	<link href="./css/animate.css" rel="stylesheet">
+	<link href="./css/font-awesome.min.css" rel="stylesheet">
+	<link href="./css/main.css" rel="stylesheet">
+	<script src="./js/jquery-3.6.0.min.js"></script>
+	<script src="./js/popper.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="m-5">
+		<div class="moi-card" data-status="create">
+			<div class="moi-card__header">
+				<div class="moi-card__title-group">
+					<span class="moi-card__icon" aria-hidden="true"><img src="./images/icon-paperclip.svg" alt=""></span>
+					<h4 class="moi-card__title">المرفقات</h4>
+				</div>
+			</div>
+
+			<div class="d-flex flex-column file__uploader">
+				<div id="uploadArea" class="upload-area">
+					<div class="upload-area__header">
+						<p class="upload-area__paragraph">
+							<strong class="upload-area__tooltip">
+								<span class="upload-area__tooltip-data"></span>
+							</strong>
+						</p>
+					</div>
+
+					<div class="uploadheader">
+						<div class="d-flex flex-column align-items-center">
+							<div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
+								<span id="loadingText" class="drop-zoon__loading-text"> Message:Wait </span>
+								<div class="drop-zoon__hint">الصيغ المدعومة: DOC, DOCX, PDF, XLS, XLSX, PPT, PPTX, JPG, JPEG, PNG, ZIP, MP4 و الحد الأقصى لحجم الملف: 5MB</div>
+								<input type="file" class="drop-zoon__file-input d-block uploader-v2 font-md-400">
+							</div>
+
+							<div id="fileDetails" class="upload-area__file-details file-details">
+								<h4 class="file-details__title"> الملف المرفوع </h4>
+								<div id="uploadedFile" class="uploaded-file">
+									<div class="uploaded-file__icon-container">
+										<span class="uploaded-file__icon-text"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="w-50 description">
+						<input type="text" placeholder="يرجي إضافة وصف للملف المرفوع" class="w-100 form-control">
+						<div>
+							<span>الحجم الأقصى المسموح به: 5 MB.</span>
+						</div>
+					</div>
+
+					<button disabled="disabled" type="button" class="btn moi-btn--primary">حفظ</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		const fileEl = document.querySelector('input[type=file]');
+		const descEl = document.querySelector('.description input');
+		const saveEl = document.querySelector('.file__uploader button');
+		const sizeEl = document.querySelector('.description span');
+		function sync() { saveEl.disabled = !(fileEl.files[0] && descEl.value.trim()); }
+		fileEl.addEventListener('change', () => {
+			const f = fileEl.files[0];
+			if (f && f.size > 5 * 1024 * 1024) { fileEl.value = ''; sizeEl.textContent = 'تجاوز الملف الحد الأقصى (5 MB).'; }
+			else sizeEl.textContent = f ? f.name : 'الحجم الأقصى المسموح به: 5 MB.';
+			sync();
+		});
+		descEl.addEventListener('input', sync);
+	</script>
+</body>
+
+</html>

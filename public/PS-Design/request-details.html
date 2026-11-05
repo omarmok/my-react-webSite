@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تفاصيل الطلب - منصة أمن</title>
+  <link href="./css/bootstrap-v5.css" rel="stylesheet" />
+  <link href="./css/slick.css" rel="stylesheet" />
+  <link href="./css/slick-theme.css" rel="stylesheet" />
+  <link href="./css/animate.css" rel="stylesheet" />
+  <link href="./css/font-awesome.min.css" rel="stylesheet" />
+  <link href="./css/main.css" rel="stylesheet" />
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/charts.js"></script>
+  <script src="./js/app.js"></script>
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" id="fullscreendiv">
+  <section class="content">
+    <nav class="sidebar">
+      <header>
+        <div class="image-text">
+          <span class="image">
+            <img src="./images/amn-logo.svg" alt="منصة أمن" />
+          </span>
+          <div class="text logo-text">
+            <h4>منصة أمن</h4>
+            <span class="name">إدارة المستخدمين والصلاحيات</span>
+          </div>
+        </div>
+        <div class="toggle">
+          <img src="./images/arrow-left-circle-fill.svg" alt="طي القائمة" />
+        </div>
+      </header>
+
+      <ul class="menu-bar nav-links">
+        <li>
+          <div class="iocn-link">
+            <a href="./index.html">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M18.0042 9.4082C18.0014 9.43845 18 9.46908 18 9.50004V17C18 18.1046 17.1046 19 16 19H8C6.89543 19 6 18.1046 6 17V9.50004C6 9.46908 5.99859 9.43845 5.99584 9.4082L4 11.4129V17C4 19.2092 5.79086 21 8 21H16C18.2091 21 20 19.2092 20 17V11.4129L18.0042 9.4082Z"
+                  fill-opacity="0.4" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M10.9409 4.44103C11.5263 3.85299 12.4737 3.85299 13.0591 4.44103L20.2913 11.7055C20.681 12.0969 21.3141 12.0983 21.7055 11.7087C22.0969 11.319 22.0983 10.6859 21.7087 10.2945L19 7.57371V4.96448C19 4.41219 18.5523 3.96448 18 3.96448C17.4477 3.96448 17 4.41219 17 4.96448V5.56478L14.4764 3.02997C13.1093 1.65668 10.8907 1.65668 9.52356 3.02997L2.29132 10.2945C1.90167 10.6859 1.90308 11.319 2.29447 11.7087C2.68586 12.0983 3.31902 12.0969 3.70868 11.7055L10.9409 4.44103Z" />
+              </svg>
+              <span class="text nav-text">الرئيسية</span>
+            </a>
+            <span class="customtooltip">الرئيسية</span>
+          </div>
+        </li>
+
+        <li>
+          <div class="iocn-link">
+            <a href="./Cases/index.html">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M5 6C5 4.34315 6.34315 3 8 3H18C19.6569 3 21 4.34315 21 6V18C21 19.6569 19.6569 21 18 21H8C6.34315 21 5 19.6569 5 18V6ZM8 5C7.44772 5 7 5.44772 7 6V18C7 18.5523 7.44772 19 8 19H18C18.5523 19 19 18.5523 19 18V6C19 5.44772 18.5523 5 18 5H8Z"
+                  fill-opacity="0.4" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M5 6C5 5.64936 5.06015 5.31278 5.17071 5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H5V6ZM5 18V17H4C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19H5.17071C5.06015 18.6872 5 18.3506 5 18ZM4 15H5V13H4C3.44772 13 3 13.4477 3 14C3 14.5523 3.44772 15 4 15ZM5 11V9H4C3.44772 9 3 9.44772 3 10C3 10.5523 3.44772 11 4 11H5ZM10.2929 9.29289C10.6834 8.90237 11.3166 8.90237 11.7071 9.29289L13 10.5858L14.2929 9.29289C14.6834 8.90237 15.3166 8.90237 15.7071 9.29289C16.0976 9.68342 16.0976 10.3166 15.7071 10.7071L14.4142 12L15.7071 13.2929C16.0976 13.6834 16.0976 14.3166 15.7071 14.7071C15.3166 15.0976 14.6834 15.0976 14.2929 14.7071L13 13.4142L11.7071 14.7071C11.3166 15.0976 10.6834 15.0976 10.2929 14.7071C9.90237 14.3166 9.90237 13.6834 10.2929 13.2929L11.5858 12L10.2929 10.7071Z" />
+              </svg>
+              <span class="text nav-text">القضايا والطلبات</span>
+            </a>
+            <span class="customtooltip">القضايا والطلبات</span>
+          </div>
+        </li>
+
+        <li>
+          <div class="iocn-link active">
+            <a href="./request-details.html" aria-current="page">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M7 3C5.34315 3 4 4.34315 4 6V18C4 19.6569 5.34315 21 7 21H17C18.6569 21 20 19.6569 20 18V9.82843C20 9.03278 19.6839 8.26972 19.1213 7.70711L15.2929 3.87868C14.7303 3.31607 13.9672 3 13.1716 3H7ZM14 5.41421L17.5858 9H15C14.4477 9 14 8.55228 14 8V5.41421ZM8 12C8 11.4477 8.44772 11 9 11H15C15.5523 11 16 11.4477 16 12C16 12.5523 15.5523 13 15 13H9C8.44772 13 8 12.5523 8 12ZM8 16C8 15.4477 8.44772 15 9 15H13C13.5523 15 14 15.4477 14 16C14 16.5523 13.5523 17 13 17H9C8.44772 17 8 16.5523 8 16Z"
+                  fill-opacity="0.4" />
+                <path d="M15 3.5V8C15 8.27614 15.2239 8.5 15.5 8.5H20" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="text nav-text">تفاصيل الطلب</span>
+            </a>
+            <span class="customtooltip">تفاصيل الطلب</span>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="wapper">
+      <div class="navbar">
+        <div class="amn__title">
+          <h4>منصة أمن</h4>
+          <span>الحالات الامنية</span>
+        </div>
+
+        <div class="left__area">
+          <button class="btn moi-btn--info">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M14.9056 16.32C15.4339 15.9094 15.9092 15.434 16.3199 14.9058L21.7071 20.293C22.0976 20.6835 22.0976 21.3167 21.7071 21.7072C21.3166 22.0977 20.6834 22.0977 20.2929 21.7072L14.9056 16.32Z" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M10 16C13.3137 16 16 13.3137 16 10C16 6.68629 13.3137 4 10 4C6.68629 4 4 6.68629 4 10C4 13.3137 6.68629 16 10 16ZM10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" />
+            </svg>
+            الاستعلامات العامة
+          </button>
+
+          <div class="dropdown user-detaiolsdrop">
+            <button class="user__details dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="user__details--avatar">
+                <img src="./images/Avatar.png" alt="صورة المستخدم" />
+              </div>
+              <div class="user__details--user">
+                <div class="login-date">تسجيل أخر دخول/٢٠/يناير/٢٠٢٣ الوقت ٠٣/١٢مساءا</div>
+              </div>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./index.html">الرئيسية</a></li>
+              <li><a class="dropdown-item" href="./request-details.html">تفاصيل الطلب</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown seatingdrop">
+            <button class="seating" type="button" id="appsMenu" data-bs-toggle="dropdown" data-bs-auto-close="false"
+              aria-expanded="false" aria-label="فتح تطبيقات إضافية">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M15 3C13.8954 3 13 3.895 13 5V9C13 10.105 13.8954 11 15 11H19C20.1046 11 21 10.105 21 9V5C21 3.895 20.1046 3 19 3H15ZM5 13C3.8954 13 3 13.895 3 15V19C3 20.105 3.8954 21 5 21H9C10.1046 21 11 20.105 11 19V15C11 13.895 10.1046 13 9 13H5ZM13 15C13 13.895 13.8954 13 15 13H19C20.1046 13 21 13.895 21 15V19C21 20.105 20.1046 21 19 21H15C13.8954 21 13 20.105 13 19V15Z"
+                  fill-opacity="0.4"></path>
+                <path
+                  d="M4.99805 3C3.89345 3 2.99805 3.895 2.99805 5V9C2.99805 10.105 3.89345 11 4.99805 11H8.99805C10.1026 11 10.998 10.105 10.998 9V5C10.998 3.895 10.1026 3 8.99805 3H4.99805Z">
+                </path>
+              </svg>
+            </button>
+            <div class="dropdown-menu apps" aria-labelledby="appsMenu">
+              <ul class="apps__items">
+                <li><a href="https://10.5.15.205/PS.Violation.Web/">إدارة المخالفات</a></li>
+                <li><a href="https://10.5.15.205/PS.IMS.Web/">الحالات الأمنية</a></li>
+                <li><a href="https://10.5.15.205/PS.Cases.Web/">القضايا الأمنية</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <button class="seating notification_btn" title="الإشعارات">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd"
+                d="M9 21C9 20.4477 9.44772 20 10 20H14C14.5523 20 15 20.4477 15 21C15 21.5523 14.5523 22 14 22H10C9.44772 22 9 21.5523 9 21Z" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M6 8C6 4.68629 8.68629 2 12 2C15.3137 2 18 4.68629 18 8V9.75736C18 10.2878 18.2107 10.7965 18.5858 11.1716L20.1213 12.7071C20.6839 13.2697 21 14.0328 21 14.8284V15C21 16.6569 19.6569 18 18 18H6C4.34315 18 3 16.6569 3 15V14.8284C3 14.0328 3.31607 13.2697 3.87868 12.7071L5.41421 11.1716C5.78929 10.7965 6 10.2878 6 9.75736V8ZM12 4C9.79086 4 8 5.79086 8 8V9.75736C8 10.8182 7.57857 11.8356 6.82843 12.5858L5.29289 14.1213C5.10536 14.3089 5 14.5632 5 14.8284V15C5 15.5523 5.44772 16 6 16H18C18.5523 16 19 15.5523 19 15V14.8284C19 14.5632 18.8946 14.3089 18.7071 14.1213L17.1716 12.5858C16.4214 11.8356 16 10.8182 16 9.75736V8C16 5.79086 14.2091 4 12 4Z" />
+              <circle cx="8" cy="5" r="3" fill="red" class="notification_bullet" />
+            </svg>
+          </button>
+
+          <button class="seating js-toggle-fullscreen-btn toggle-fullscreen-btn" aria-label="Enter fullscreen mode"
+            type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M6.99805 3C4.78905 3 2.99805 4.791 2.99805 7V10C2.99805 10.552 3.44605 11 3.99805 11C4.55005 11 4.99805 10.552 4.99805 10V7C4.99805 5.895 5.89305 5 6.99805 5H9.99805C10.55 5 10.998 4.552 10.998 4C10.998 3.448 10.55 3 9.99805 3H6.99805ZM13.998 3C13.446 3 12.998 3.448 12.998 4C12.998 4.552 13.446 5 13.998 5H16.998C18.103 5 18.998 5.895 18.998 7V10C18.998 10.552 19.446 11 19.998 11C20.55 11 20.998 10.552 20.998 10V7C20.998 4.791 19.207 3 16.998 3H13.998ZM3.99805 13C3.44605 13 2.99805 13.448 2.99805 14V17C2.99805 19.209 4.78905 21 6.99805 21H9.99805C10.55 21 10.998 20.552 10.998 20C10.998 19.448 10.55 19 9.99805 19H6.99805C5.89305 19 4.99805 18.105 4.99805 17V14C4.99805 13.448 4.55005 13 3.99805 13ZM19.998 13C19.446 13 18.998 13.448 18.998 14V17C18.998 18.105 18.103 19 16.998 19H13.998C13.446 19 12.998 19.448 12.998 20C12.998 20.552 13.446 21 13.998 21H16.998C19.207 21 20.998 19.209 20.998 17V14C20.998 13.448 20.55 13 19.998 13Z"
+                fill-opacity="0.4"></path>
+              <path
+                d="M13.998 3C13.446 3 12.998 3.448 12.998 4C12.998 4.552 13.446 5 13.998 5H16.998C18.103 5 18.998 5.895 18.998 7V10C18.998 10.552 19.446 11 19.998 11C20.55 11 20.998 10.552 20.998 10V7C20.998 4.791 19.207 3 16.998 3H13.998ZM3.99805 13C3.44605 13 2.99805 13.448 2.99805 14V17C2.99805 19.209 4.78905 21 6.99805 21H9.99805C10.55 21 10.998 20.552 10.998 20C10.998 19.448 10.55 19 9.99805 19H6.99805C5.89305 19 4.99805 18.105 4.99805 17V14C4.99805 13.448 4.55005 13 3.99805 13Z">
+              </path>
+            </svg>
+          </button>
+
+          <a class="seating logout_btn" href="./index.html" aria-label="تسجيل الخروج">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 18" fill="none">
+              <path class="logout_p-2" d="M8 12L5 9L8 6" stroke="#999999" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path class="logout_p-2" d="M5 9H19" stroke="#999999" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path class="logout_p-3"
+                d="M12 13V16C12 16.2652 11.8946 16.5196 11.7071 16.7071C11.5196 16.8946 11.2652 17 11 17H2C1.73478 17 1.48043 16.8946 1.29289 16.7071C1.10536 16.5196 1 16.2652 1 16V2C1 1.73478 1.10536 1.48043 1.29289 1.29289C1.48043 1.10536 1.73478 1 2 1H11C11.2652 1 11.5196 1.10536 11.7071 1.29289C11.8946 1.48043 12 1.73478 12 2V5"
+                stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="breadcrumb-container px-3 mt-4">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item homebread">
+              <a href="./index.html"><img alt="" src="./images/house-door.svg"> الرئيسية</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="./Cases/index.html"><img alt="" src="./images/house-door.svg"> القضايا والطلبات</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              <span class="currant__page"><img alt="" src="./images/house-door.svg"> تفاصيل الطلب</span>
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class=" container-fluid request-details-page">
+        <div class="page__title request-details-page__title">
+          <div class="request-details-page__title-copy">
+            <h3><img alt="" class="titleimg" src="./images/icon-file-earmark-text.svg"> طلب مساعدة <img alt=""
+                src="./images/arrow-left-title.svg"> 1234567890123</h3>
+          </div>
+          <div class="d-flex">
+            <a href="./index.html" class="btn moi-btn--secondaryhover" aria-label="العودة">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g opacity="0.9">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M21 13C21.5523 13 22 12.5523 22 12C22 11.4477 21.5523 11 21 11H9V13H21Z" fill-opacity="0.4" />
+                  <path d="M2 12L9 5V19L2 12Z" />
+                </g>
+              </svg>
+              عودة
+            </a>
+          </div>
+        </div>
+
+        <div class="row request-details-page__layout">
+          <div class="col-12 col-xl-4 ">
+            <div class="moi-card h-100" data-status="details">
+              <div class="moi-card__header">
+                <div class="moi-card__title-group">
+                  <span class="moi-card__icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M12.0518 2.25C14.3644 2.24999 16.1696 2.24976 17.5762 2.41992C19.0075 2.59312 20.1405 2.95379 21.0371 3.76074C21.945 4.57781 22.3608 5.62733 22.5586 6.95117C22.7499 8.23191 22.75 9.86923 22.75 11.9375V12.0625C22.75 14.1308 22.7499 15.7681 22.5586 17.0488C22.3608 18.3727 21.945 19.4222 21.0371 20.2393C20.1405 21.0462 19.0075 21.4069 17.5762 21.5801C16.1696 21.7502 14.3644 21.75 12.0518 21.75H11.9482C9.63558 21.75 7.83038 21.7502 6.42383 21.5801C4.9925 21.4069 3.85951 21.0462 2.96289 20.2393C2.05504 19.4222 1.63921 18.3727 1.44141 17.0488C1.25008 15.7681 1.24998 14.1308 1.25 12.0625V11.9375C1.24998 9.86922 1.25008 8.23192 1.44141 6.95117C1.63921 5.62733 2.05504 4.57781 2.96289 3.76074C3.85951 2.95379 4.9925 2.59312 6.42383 2.41992C7.83038 2.24976 9.63557 2.24999 11.9482 2.25H12.0518ZM12 3.75C9.62385 3.75 7.9095 3.75115 6.60352 3.90918C5.31183 4.0655 4.53364 4.36494 3.96582 4.87598C3.4096 5.37678 3.0931 6.04646 2.9248 7.17285C2.75194 8.33006 2.75 9.8552 2.75 12C2.75 14.1448 2.75194 15.6699 2.9248 16.8271C3.0931 17.9535 3.4096 18.6232 3.96582 19.124C4.53364 19.6351 5.31183 19.9345 6.60352 20.0908C7.9095 20.2488 9.62385 20.25 12 20.25C14.3762 20.25 16.0905 20.2488 17.3965 20.0908C18.6882 19.9345 19.4664 19.6351 20.0342 19.124C20.5904 18.6232 20.9069 17.9535 21.0752 16.8271C21.2481 15.6699 21.25 14.1448 21.25 12C21.25 9.8552 21.2481 8.33006 21.0752 7.17285C20.9069 6.04646 20.5904 5.37678 20.0342 4.87598C19.4664 4.36494 18.6882 4.0655 17.3965 3.90918C16.0905 3.75115 14.3762 3.75 12 3.75ZM10 15.25C10.4142 15.25 10.75 15.5858 10.75 16C10.75 16.4142 10.4142 16.75 10 16.75H6C5.58579 16.75 5.25 16.4142 5.25 16C5.25 15.5858 5.58579 15.25 6 15.25H10ZM18 15.25C18.4142 15.25 18.75 15.5858 18.75 16C18.75 16.4142 18.4142 16.75 18 16.75H14C13.5858 16.75 13.25 16.4142 13.25 16C13.25 15.5858 13.5858 15.25 14 15.25H18ZM8.44141 7.25C8.7823 7.24994 9.10943 7.25003 9.37793 7.28613C9.6789 7.32662 10.0162 7.42443 10.2959 7.7041C10.5756 7.98377 10.6734 8.32111 10.7139 8.62207C10.75 8.89057 10.7501 9.2177 10.75 9.55859V10.4414C10.7501 10.7823 10.75 11.1094 10.7139 11.3779C10.6734 11.6789 10.5756 12.0162 10.2959 12.2959C10.0162 12.5756 9.6789 12.6734 9.37793 12.7139C9.10943 12.75 8.7823 12.7501 8.44141 12.75H7.55859C7.2177 12.7501 6.89057 12.75 6.62207 12.7139C6.3211 12.6734 5.98377 12.5756 5.7041 12.2959C5.42443 12.0162 5.32662 11.6789 5.28613 11.3779C5.25003 11.1094 5.24994 10.7823 5.25 10.4414V9.55859C5.24994 9.2177 5.25003 8.89057 5.28613 8.62207C5.32662 8.3211 5.42443 7.98377 5.7041 7.7041C5.98377 7.42443 6.3211 7.32662 6.62207 7.28613C6.89057 7.25003 7.2177 7.24994 7.55859 7.25H8.44141ZM18 11.25C18.4142 11.25 18.75 11.5858 18.75 12C18.75 12.4142 18.4142 12.75 18 12.75H14C13.5858 12.75 13.25 12.4142 13.25 12C13.25 11.5858 13.5858 11.25 14 11.25H18ZM7.59961 8.75C7.20167 8.75 6.97847 8.75148 6.82227 8.77246C6.80551 8.77471 6.79119 8.77713 6.7793 8.7793C6.77713 8.79119 6.77471 8.80551 6.77246 8.82227C6.75148 8.97847 6.75 9.20167 6.75 9.59961V10.4004C6.75 10.7983 6.75148 11.0215 6.77246 11.1777C6.77471 11.1945 6.77713 11.2088 6.7793 11.2207C6.79119 11.2229 6.80551 11.2253 6.82227 11.2275C6.97847 11.2485 7.20166 11.25 7.59961 11.25H8.40039C8.79833 11.25 9.02153 11.2485 9.17773 11.2275C9.19448 11.2253 9.20881 11.2229 9.2207 11.2207C9.22287 11.2088 9.22529 11.1945 9.22754 11.1777C9.24852 11.0215 9.25 10.7983 9.25 10.4004V9.59961C9.25 9.20166 9.24852 8.97847 9.22754 8.82227C9.22529 8.80551 9.22287 8.79119 9.2207 8.7793C9.20881 8.77713 9.19448 8.77471 9.17773 8.77246C9.02153 8.75148 8.79833 8.75 8.40039 8.75H7.59961ZM18 7.25C18.4142 7.25 18.75 7.58579 18.75 8C18.75 8.41421 18.4142 8.75 18 8.75H14C13.5858 8.75 13.25 8.41421 13.25 8C13.25 7.58579 13.5858 7.25 14 7.25H18Z"
+                        fill="#14573A" />
+                    </svg>
+
+                  </span>
+                  <h4 class="moi-card__title">البيانات الأساسية</h4>
+                </div>
+              </div>
+              <div class="moi-card__body">
+                <div class="moi-card__details">
+                  <div class="moi-card__detail-column w-100">
+                    <div class="moi-card__detail-item">
+                      <label class="moi-card__detail-label">رقم الهوية</label>
+                      <div class="moi-card__detail-value">الإدارة العامة للدفاع المدني - منطقة الرياض</div>
+                    </div>
+                  </div>
+                  <div class="moi-card__detail-column w-100">
+                    <div class="moi-card__detail-item">
+                      <label class="moi-card__detail-label">رقم الهوية</label>
+                      <div class="moi-card__detail-value">إدارة تقنية المعلومات والتحول الرقمي</div>
+                    </div>
+                  </div>
+                  <div class="moi-card__detail-column w-100">
+                    <div class="moi-card__detail-item">
+                      <label class="moi-card__detail-label">رقم الهوية</label>
+                      <div class="moi-card__detail-value">م. أحمد خالد العتيبي</div>
+                    </div>
+                  </div>
+                  <div class="moi-card__detail-column w-100">
+                    <div class="moi-card__detail-item">
+                      <label class="moi-card__detail-label">رقم الهوية</label>
+                      <div class="moi-card__detail-value">ahmad.alotaibi@moi.gov.sa</div>
+                    </div>
+                  </div>
+                  <div class="moi-card__detail-column w-100">
+                    <div class="moi-card__detail-item">
+                      <label class="moi-card__detail-label">رقم الهوية</label>
+                      <div class="moi-card__detail-value">02/08/2026</div>
+                    </div>
+                  </div>
+                  <div class="moi-card__detail-column w-100">
+                    <div class="moi-card__detail-item">
+                      <label class="moi-card__detail-label">رقم الهوية</label>
+                      <div class="moi-card__detail-value">08:30 صباحًا</div>
+                    </div>
+                  </div>
+                  <div class="moi-card__detail-column w-100">
+                    <div class="moi-card__detail-item">
+                      <label class="moi-card__detail-label">رقم الهوية</label>
+                      <div class="moi-card__detail-value">10:15 صباحًا</div>
+                    </div>
+                  </div>
+                  <div class="moi-card__detail-column w-100">
+                    <div class="moi-card__detail-item">
+                      <label class="moi-card__detail-label">رقم الهوية</label>
+                      <div class="moi-card__detail-value">ساعة و45 دقيقة</div>
+                    </div>
+                  </div>
+                  <div class="moi-card__detail-column w-100">
+                    <div class="moi-card__detail-item">
+                      <label class="moi-card__detail-label">مستوى الموافقة</label>
+                      <div class="moi-card__detail-value d-flex align-items-center justify-content-end">
+                        <span class="moi-tag" data-size="md" data-status="highpriority">عاجل</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="col-12 col-xl-8 ">
+            <div class="moi-card" data-status="details">
+              <div class="moi-card__header">
+                <div class="moi-card__title-group">
+                  <span class="moi-card__icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M12.0566 1.25C13.8943 1.24998 15.3501 1.25016 16.4893 1.40332C17.6616 1.56096 18.6101 1.89329 19.3584 2.6416C20.1067 3.38991 20.439 4.33844 20.5967 5.51074C20.7498 6.6499 20.75 8.10573 20.75 9.94336V13.4639C20.7507 14.1623 20.7515 14.7153 20.541 15.2236C20.3304 15.732 19.9387 16.1228 19.4443 16.6162L14.5488 21.5127C14.1227 21.9395 13.7857 22.276 13.3584 22.4805C13.2701 22.5227 13.1792 22.5602 13.0869 22.5928C12.6401 22.7505 12.1637 22.7505 11.5605 22.75H11.4072C9.82589 22.75 8.57311 22.7496 7.58105 22.6338C6.56277 22.5149 5.72291 22.2661 5.01855 21.6982C4.75491 21.4857 4.51433 21.2451 4.30176 20.9814C3.73394 20.2771 3.4851 19.4372 3.36621 18.4189C3.2504 17.4269 3.24999 16.1741 3.25 14.5928V9.94336C3.24998 8.10571 3.25016 6.64991 3.40332 5.51074C3.56096 4.33844 3.89329 3.38991 4.6416 2.6416C5.38991 1.89329 6.33844 1.56096 7.51074 1.40332C8.64991 1.25016 10.1057 1.24998 11.9434 1.25H12.0566ZM12 2.75C10.0932 2.75 8.73859 2.7515 7.71094 2.88965C6.70485 3.02491 6.12536 3.27894 5.70215 3.70215C5.27894 4.12536 5.02491 4.70485 4.88965 5.71094C4.7515 6.73859 4.75 8.09324 4.75 10V14.5439C4.75 16.1845 4.75098 17.3501 4.85547 18.2451C4.95808 19.124 5.15161 19.6455 5.46973 20.04C5.61517 20.2204 5.77957 20.3848 5.95996 20.5303C6.35453 20.8484 6.87604 21.0419 7.75488 21.1445C8.6499 21.249 9.81549 21.25 11.4561 21.25C11.8419 21.25 12.0832 21.247 12.25 21.2363V20.9453C12.25 19.5778 12.2497 18.4753 12.3662 17.6084C12.4872 16.7083 12.7467 15.9506 13.3486 15.3486C13.9505 14.7467 14.7083 14.4872 15.6084 14.3662C16.4753 14.2497 17.5778 14.25 18.9453 14.25H19.2334C19.2468 14.0579 19.25 13.7807 19.25 13.3428V10C19.25 8.09324 19.2485 6.73859 19.1104 5.71094C18.9751 4.70485 18.7211 4.12536 18.2979 3.70215C17.8746 3.27894 17.2951 3.02491 16.2891 2.88965C15.2614 2.7515 13.9068 2.75 12 2.75ZM18.1885 15.751C17.1738 15.7546 16.4126 15.7723 15.8086 15.8535C15.0748 15.9522 14.6859 16.1324 14.4092 16.4092C14.1324 16.6859 13.9522 17.0748 13.8535 17.8086C13.7723 18.4126 13.7546 19.1738 13.751 20.1885L18.1885 15.751ZM12 10.25C12.4142 10.25 12.75 10.5858 12.75 11C12.75 11.4142 12.4142 11.75 12 11.75H8C7.58579 11.75 7.25 11.4142 7.25 11C7.25 10.5858 7.58579 10.25 8 10.25H12ZM16 6.25C16.4142 6.25 16.75 6.58579 16.75 7C16.75 7.41421 16.4142 7.75 16 7.75H8C7.58579 7.75 7.25 7.41421 7.25 7C7.25 6.58579 7.58579 6.25 8 6.25H16Z"
+                        fill="#14573A" />
+                    </svg>
+
+                  </span>
+                  <h4 class="moi-card__title">تفاصيل الطلب</h4>
+                </div>
+              </div>
+              <div class="moi-card__body">
+                <div class="moi-card__details">
+                  <div class="moi-card__detail-column w-100">
+                    <div class="moi-card__detail-item">
+                      <label class="moi-card__detail-label">اسم المستخدم</label>
+                      <div class="moi-card__detail-value">
+                        تعذر دخول المستخدم إلى النظام بسبب مشكلة في صلاحيات الحساب بعد تحديث بياناته الوظيفية، ويستلزم
+                        الأمر مراجعة الصلاحيات وإعادة تفعيل الوصول للخدمة.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="moi-card__detail-column w-100">
+                    <div class="moi-card__detail-item">
+                      <label class="moi-card__detail-label">أسباب الطلب</label>
+                      <div class="moi-card__detail-value">
+                        تم نقل الموظف إلى إدارة جديدة ولم تُحدث صلاحياته تلقائيًا، مما أدى إلى فقدان إمكانية الوصول إلى
+                        الخدمات المرتبطة بوظيفته الحالية.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="moi-card mt-3" data-status="details">
+              <div class="moi-card__header">
+                <div class="moi-card__title-group">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12.0015 1.25C15.8275 1.25016 19.4776 3.51344 21.0054 7.08496C22.4255 10.4047 21.659 13.2365 20.0582 15.6611C18.7303 17.6723 16.7866 19.4628 15.0386 21.0732C14.7283 21.3592 14.4239 21.6392 14.1304 21.9141C13.5555 22.4523 12.7918 22.7499 12.0015 22.75C11.2112 22.75 10.4467 22.4524 9.87166 21.9141L9.87068 21.9131C9.56007 21.6205 9.23653 21.3215 8.90681 21.0166C7.17779 19.4177 5.26086 17.645 3.94685 15.6592C2.34435 13.2371 1.57494 10.4086 2.99666 7.08496C4.52457 3.51331 8.17538 1.25 12.0015 1.25ZM12.0015 2.75C8.74215 2.75 5.65438 4.68544 4.37556 7.6748C3.20215 10.418 3.79551 12.7127 5.19783 14.832C6.40241 16.6525 8.15836 18.278 9.88923 19.8809C10.2278 20.1944 10.5657 20.5072 10.898 20.8203C11.1903 21.0935 11.5858 21.25 12.0015 21.25C12.4175 21.2499 12.8128 21.093 13.1051 20.8193C13.4172 20.527 13.7337 20.2345 14.0513 19.9414C15.8046 18.3238 17.5887 16.6781 18.8062 14.834C20.207 12.7121 20.7984 10.4143 19.6265 7.6748C18.3478 4.68557 15.2608 2.75016 12.0015 2.75ZM12.0006 6.75C14.3475 6.75026 16.2506 8.65295 16.2506 11C16.2506 13.347 14.3475 15.2497 12.0006 15.25C9.65335 15.25 7.75056 13.3472 7.75056 11C7.75056 8.65279 9.65335 6.75 12.0006 6.75ZM12.0006 8.25C10.4818 8.25 9.25056 9.48122 9.25056 11C9.25056 12.5188 10.4818 13.75 12.0006 13.75C13.5191 13.7497 14.7506 12.5186 14.7506 11C14.7506 9.48138 13.5191 8.25026 12.0006 8.25Z"
+                      fill="#166A45" />
+                  </svg>
+
+                  </span>
+                  <h4 class="moi-card__title">معلومات الموقع</h4>
+                </div>
+              </div>
+              <div class="moi-card__body">
+                <div class="new-custommap--mapContainer">
+                  <div class="new-custommap--mapContainer__menumap">
+                    <div class="form-check form-check-inline menumapchech checkedmenu">
+                      <input class="form-check-input" id="gm" type="radio" name="mapMode" value="GoogleMaps" checked>
+                      <label class="form-check-label" for="gm">خرائط جوجل</label>
+                    </div>
+                    <div class="form-check form-check-inline menumapchech">
+                      <input class="form-check-input" id="gshm" type="radio" name="mapMode"
+                        value="GoogleSatelliteHybrid">
+                      <label class="form-check-label" for="gshm">قمر صناعي</label>
+                    </div>
+                    <div class="form-check form-check-inline menumapchech">
+                      <input class="form-check-input" id="osm" type="radio" name="mapMode" value="OpenSteetMap">
+                      <label class="form-check-label" for="osm">خرائط الشارع</label>
+                    </div>
+                  </div>
+                  <img class="request-details-page__map-image w-100" src="./images/mapn.png" alt="خريطة الموقع">
+                </div>
+                <div class="moi-card__details">
+                  <div class="moi-card__detail-column">
+                    <div class="moi-card__detail-item">
+                      <label class="moi-card__detail-label">اسم الحي</label>
+                      <div class="moi-card__detail-value">حي الأندلس</div>
+                    </div>
+                  </div>
+                  <div class="moi-card__detail-column">
+                    <div class="moi-card__detail-item">
+                      <label class="moi-card__detail-label">المدينة</label>
+                      <div class="moi-card__detail-value">الرياض</div>
+                    </div>
+                  </div>
+                  <div class="moi-card__detail-column">
+                    <div class="moi-card__detail-item">
+                      <label class="moi-card__detail-label">المنطقة</label>
+                      <div class="moi-card__detail-value">الرياض</div>
+                    </div>
+                  </div>
+                  <div class="moi-card__detail-column">
+                    <div class="moi-card__detail-item">
+                      <label class="moi-card__detail-label">المعلم</label>
+                      <div class="moi-card__detail-value">مسجد الفاروق</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="moi-card mt-3" data-status="details">
+              <div class="moi-card__header">
+                <div class="moi-card__title-group">
+                  <span class="moi-card__icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M13.0371 1.25C14.5734 1.25485 15.8192 1.2809 16.8203 1.45215C17.8432 1.62714 18.6829 1.96511 19.3584 2.64063C20.1067 3.38894 20.439 4.33745 20.5967 5.50977C20.7498 6.64895 20.75 8.10471 20.75 9.94239V13.4629C20.7507 14.1613 20.7515 14.7143 20.541 15.2227C20.3304 15.7311 19.9387 16.1218 19.4443 16.6152L14.6221 21.4375C14.5972 21.4624 14.5731 21.4874 14.5488 21.5117C14.1228 21.9385 13.7857 22.275 13.3584 22.4795C13.2701 22.5217 13.1792 22.5592 13.0869 22.5918C12.6401 22.7495 12.1637 22.7495 11.5605 22.749H11.4072C9.8259 22.749 8.57311 22.7486 7.58105 22.6328C6.56267 22.5139 5.72296 22.2642 5.01855 21.6963C4.75501 21.4838 4.51426 21.244 4.30176 20.9805C3.73392 20.2761 3.48511 19.4363 3.36621 18.418C3.25039 17.4259 3.24999 16.1731 3.25 14.5918V11.999C3.25 11.5848 3.58579 11.249 4 11.249C4.41421 11.249 4.75 11.5848 4.75 11.999V14.543C4.75 16.1836 4.75097 17.3491 4.85547 18.2441C4.95808 19.123 5.15159 19.6445 5.46973 20.0391C5.61517 20.2195 5.77958 20.3839 5.95996 20.5293C6.35453 20.8474 6.87606 21.041 7.75488 21.1436C8.6499 21.248 9.81549 21.249 11.4561 21.249C11.8419 21.249 12.0832 21.246 12.25 21.2354V20.9443C12.25 19.5769 12.2497 18.4744 12.3662 17.6074C12.4872 16.7073 12.7467 15.9496 13.3486 15.3477C13.9505 14.7457 14.7083 14.4863 15.6084 14.3652C16.4753 14.2487 17.5778 14.249 18.9453 14.249H19.2334C19.2468 14.057 19.25 13.7797 19.25 13.3418V9.99903C19.25 8.0923 19.2485 6.73761 19.1104 5.70996C18.9751 4.7039 18.721 4.12438 18.2979 3.70118C17.9142 3.31754 17.4036 3.07372 16.5674 2.93067C15.7094 2.78389 14.5878 2.75491 13.0322 2.75C12.6182 2.7487 12.2831 2.41207 12.2842 1.99805C12.2855 1.58384 12.6229 1.2487 13.0371 1.25ZM18.1885 15.75C17.1738 15.7537 16.4126 15.7714 15.8086 15.8525C15.0748 15.9512 14.6859 16.1314 14.4092 16.4082C14.1325 16.6849 13.9522 17.0732 13.8535 17.8066C13.7723 18.4107 13.7546 19.1726 13.751 20.1875L18.1885 15.75ZM7.5 1.25C9.83938 1.25 11.75 3.12815 11.75 5.46192V9.26954C11.7498 10.6473 10.6228 11.75 9.25 11.75C7.87722 11.75 6.75016 10.6473 6.75 9.26954V5.46192C6.75 5.0477 7.08579 4.71192 7.5 4.71192C7.91421 4.71192 8.25 5.0477 8.25 5.46192V9.26954C8.25017 9.80327 8.68999 10.25 9.25 10.25C9.81001 10.25 10.2498 9.80327 10.25 9.26954V5.46192C10.25 3.97216 9.02662 2.75 7.5 2.75C5.97338 2.75 4.75 3.97216 4.75 5.46192V8.23047C4.75 8.64469 4.41421 8.98047 4 8.98047C3.58579 8.98047 3.25 8.64469 3.25 8.23047V5.46192C3.25 3.12815 5.16062 1.25 7.5 1.25Z"
+                        fill="#14573A" />
+                    </svg>
+
+                  </span>
+                  <h4 class="moi-card__title">الملفات المرفوعة</h4>
+                </div>
+                <span class="moi-file-uploader__count show">1 ملف</span>
+              </div>
+              <div class="moi-card__body">
+                <div class="moi-file-uploader__list-body">
+                  <div class="moi-file-uploader__rows">
+                    <div class="moi-file-uploader__file-row">
+                      <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--img">
+                        <img src="./images/icon-file-earmark-text.svg" alt="ملف صورة">
+                      </div>
+                      <div class="moi-file-uploader__file-meta">
+                        <div class="moi-file-uploader__file-name">الاسم الوظيفي</div>
+                        <div class="moi-file-uploader__file-details">
+                          <span class="moi-file-uploader__file-badge moi-file-uploader__file-badge--img">صورة</span>
+                          <span class="moi-file-uploader__dot-separator"></span>
+                          <span class="moi-file-uploader__file-size">250 kb</span>
+                          <span class="moi-file-uploader__dot-separator"></span>
+                          <span class="moi-file-uploader__file-original">png</span>
+                        </div>
+                      </div>
+                      <div class="moi-file-uploader__actions">
+                        <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف"
+                          title="معاينة">
+                          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M5.50008 1.83234C4.14211 1.83234 2.998 2.49875 2.05811 3.59416C1.7364 3.96862 1.45507 4.36875 1.22607 4.76842C1.08793 5.01042 1.00349 5.19741 0.953921 5.31291C0.904357 5.42795 0.904357 5.57004 0.953921 5.68508C1.00349 5.80058 1.08793 5.98758 1.22607 6.22958C1.45507 6.62924 1.7364 7.02937 2.05811 7.40383C2.998 8.49924 4.14211 9.16566 5.50008 9.16566C6.85805 9.16566 8.00217 8.49924 8.94205 7.40383C9.2633 7.02937 9.54509 6.62924 9.77364 6.22958C9.91224 5.98758 9.99668 5.80058 10.0462 5.68508C10.0958 5.57004 10.0958 5.42795 10.0462 5.31291C9.99668 5.19741 9.91224 5.01042 9.77364 4.76842C9.54509 4.36875 9.2633 3.96862 8.94205 3.59416C8.00217 2.49875 6.85805 1.83234 5.50008 1.83234ZM5.50008 2.749C6.55149 2.749 7.47256 3.28571 8.25366 4.1955C8.53452 4.52275 8.76904 4.87475 8.97051 5.22675C9.04165 5.35096 9.07239 5.41512 9.11415 5.499C9.07239 5.58287 9.04165 5.64703 8.97051 5.77124C8.76904 6.12324 8.53452 6.47524 8.25366 6.80249C7.47256 7.71228 6.55149 8.24899 5.50008 8.24899C4.44867 8.24899 3.5276 7.71228 2.7465 6.80249C2.46564 6.47524 2.23112 6.12324 2.02919 5.77124C1.95852 5.64703 1.92777 5.58287 1.88601 5.499C1.92777 5.41512 1.95852 5.35096 2.02919 5.22675C2.23112 4.87475 2.46564 4.52275 2.7465 4.1955C3.5276 3.28571 4.44867 2.749 5.50008 2.749Z" />
+                            <path
+                              d="M5.50008 3.66666C4.48762 3.66666 3.66675 4.48753 3.66675 5.49999C3.66675 6.51244 4.48762 7.33332 5.50008 7.33332C6.51254 7.33332 7.33342 6.51244 7.33342 5.49999C7.33342 5.24699 7.12808 5.04165 6.87508 5.04165C6.62208 5.04165 6.41675 5.24699 6.41675 5.49999C6.41675 6.00644 6.00608 6.41665 5.50008 6.41665C4.99362 6.41665 4.58342 6.00644 4.58342 5.49999C4.58342 4.99353 4.99362 4.58332 5.50008 4.58332C5.61237 4.58332 5.72741 4.60211 5.82962 4.64061C6.06612 4.72999 6.32738 4.60532 6.41675 4.36837C6.50613 4.13187 6.38146 3.87061 6.1445 3.78124C5.93917 3.70378 5.72329 3.66666 5.50008 3.66666Z" />
+                          </svg>
+                        </button>
+                        <button class="moi-file-uploader__action del" type="button" aria-label="حذف الملف" title="حذف">
+                          <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M7 6.16504V18.165C7 19.2696 7.89543 20.165 9 20.165H15C16.1046 20.165 17 19.2696 17 18.165V6.16504H19V18.165C19 20.3742 17.2091 22.165 15 22.165H9C6.79086 22.165 5 20.3742 5 18.165V6.16504H7Z"
+                              fill-opacity="0.4" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M11.998 2.16504C10.893 2.16504 9.99804 3.05743 9.99804 4.15921H4.99805C4.44605 4.15921 3.99805 4.6059 3.99805 5.15629C3.99805 5.70668 4.44605 6.15337 4.99805 6.15337H18.998C19.55 6.15337 19.998 5.70668 19.998 5.15629C19.998 4.6059 19.55 4.15921 18.998 4.15921H13.998C13.998 3.05743 13.103 2.16504 11.998 2.16504ZM10.0002 8.19417C10.5525 8.19417 11.0002 8.64059 11.0002 9.19126V17.168C11.0002 17.7186 10.5525 18.165 10.0002 18.165C9.44796 18.165 9.00024 17.7186 9.00024 17.168V9.19126C9.00024 8.64059 9.44796 8.19417 10.0002 8.19417ZM15.0002 9.19126C15.0002 8.64059 14.5525 8.19417 14.0002 8.19417C13.448 8.19417 13.0002 8.64059 13.0002 9.19126V17.168C13.0002 17.7186 13.448 18.165 14.0002 18.165C14.5525 18.165 15.0002 17.7186 15.0002 17.168V9.19126Z" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="moi-card mt-3" data-status="details">
+              <div class="moi-card__header">
+                <div class="moi-card__title-group">
+                  <span class="moi-card__icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M14.1045 1.2501C16.4803 1.28853 18.1829 1.45489 19.3594 2.63194C20.1075 3.38057 20.4391 4.33024 20.5967 5.50303C20.7498 6.64274 20.75 8.09897 20.75 9.9376V13.4601C20.7507 14.1589 20.7515 14.7123 20.541 15.2208C20.3304 15.7293 19.9387 16.1197 19.4443 16.6134C19.4162 16.6415 19.3882 16.6705 19.3594 16.6993L14.6221 21.4376C14.5972 21.4625 14.5731 21.4875 14.5488 21.5118C14.1227 21.9389 13.7858 22.276 13.3584 22.4806C13.2701 22.5228 13.1793 22.5603 13.0869 22.5929C12.64 22.7507 12.1636 22.7506 11.5605 22.7501H11.4072C9.82593 22.7501 8.57313 22.7498 7.58105 22.6339C6.56266 22.5149 5.72294 22.2655 5.01855 21.6974C4.75491 21.4847 4.51431 21.2443 4.30176 20.9806C3.734 20.2759 3.48509 19.4358 3.36621 18.4171C3.25041 17.4246 3.24999 16.1712 3.25 14.589V12.9952C3.25018 12.5812 3.5859 12.2452 4 12.2452C4.4141 12.2452 4.74982 12.5812 4.75 12.9952V14.5401C4.75 16.1814 4.75099 17.3478 4.85547 18.2433C4.95807 19.1224 5.15167 19.6443 5.46973 20.0392C5.61508 20.2195 5.77972 20.384 5.95996 20.5294C6.35453 20.8477 6.87607 21.042 7.75488 21.1446C8.64988 21.2492 9.81545 21.2501 11.4561 21.2501C11.842 21.2501 12.0832 21.2471 12.25 21.2364V20.9444C12.25 19.5764 12.2497 18.4738 12.3662 17.6065C12.4872 16.7061 12.7468 15.948 13.3486 15.3458C13.9505 14.7436 14.7082 14.4845 15.6084 14.3634C16.4754 14.2468 17.5778 14.2462 18.9453 14.2462H19.2334C19.2468 14.054 19.25 13.7769 19.25 13.339V9.99424C19.25 8.08648 19.2485 6.73049 19.1104 5.70225C18.9751 4.69576 18.7211 4.11592 18.2979 3.69248C17.6117 3.00595 16.5489 2.79003 14.0801 2.7501C13.6661 2.74341 13.3353 2.40236 13.3418 1.98838C13.3485 1.57422 13.6903 1.2434 14.1045 1.2501ZM18.1895 15.7472C17.1745 15.7508 16.4127 15.7685 15.8086 15.8497C15.0749 15.9484 14.686 16.1294 14.4092 16.4063C14.1325 16.6833 13.9522 17.0719 13.8535 17.8058C13.7723 18.4102 13.7546 19.1722 13.751 20.1876L18.1895 15.7472ZM8 1.2501C8.41421 1.2501 8.75 1.58589 8.75 2.0001V2.5499C9.61615 2.71898 10.3784 3.17552 10.9414 3.81553L11.6074 3.40635C11.9605 3.18972 12.422 3.30039 12.6387 3.65342C12.8553 4.00646 12.7446 4.46802 12.3916 4.68467L11.7061 5.10557C11.8641 5.54084 11.9502 6.01104 11.9502 6.5001C11.9502 6.98908 11.8641 7.45942 11.7061 7.89463L12.3926 8.31553C12.7454 8.53218 12.8561 8.99384 12.6396 9.34678C12.423 9.69982 11.9605 9.8105 11.6074 9.59385L10.9414 9.18467C10.3784 9.82477 9.61623 10.2812 8.75 10.4503V11.0001C8.75 11.4143 8.41421 11.7501 8 11.7501C7.58584 11.75 7.25 11.4143 7.25 11.0001V10.4503C6.38384 10.2812 5.62155 9.82473 5.05859 9.18467L4.39258 9.59385C4.03957 9.81048 3.578 9.69974 3.36133 9.34678C3.14475 8.99386 3.25466 8.53227 3.60742 8.31553L4.29395 7.89463C4.13592 7.45942 4.0498 6.98908 4.0498 6.5001C4.0498 6.01104 4.13587 5.54084 4.29395 5.10557L3.6084 4.68467C3.25539 4.46804 3.14476 4.00645 3.36133 3.65342C3.57794 3.30044 4.03956 3.18984 4.39258 3.40635L5.05859 3.81553C5.62154 3.17557 6.38392 2.71901 7.25 2.5499V2.0001C7.25 1.58592 7.58584 1.25016 8 1.2501ZM8 3.97764C6.66275 3.9777 5.5498 5.0909 5.5498 6.5001C5.5498 7.9093 6.66275 9.0225 8 9.02256C9.3373 9.02256 10.4502 7.90934 10.4502 6.5001C10.4502 5.09086 9.3373 3.97764 8 3.97764Z"
+                        fill="#161616" />
+                    </svg>
+
+
+                  </span>
+                  <h4 class="moi-card__title">الملاحظات</h4>
+                </div>
+              </div>
+              <div class="moi-card__body">
+                <div class="moi-card__content">
+                  <div class="moi-card__content--block">
+                    <label>نص الملاحظة</label>
+                    <span>أحمد العلي</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="moi-card mt-3" data-status="create">
+              <div class="moi-card__header">
+                <div class="moi-card__title-group">
+                  <span class="moi-card__icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12.75 2.75C12.75 2.55109 12.671 2.36032 12.5303 2.21967C12.3897 2.07902 12.1989 2 12 2C11.8011 2 11.6103 2.07902 11.4697 2.21967C11.329 2.36032 11.25 2.55109 11.25 2.75V4.5H9.27599C8.92468 4.49984 8.58146 4.60542 8.29099 4.803L6.59599 5.957C6.55438 5.98518 6.50524 6.00016 6.45499 6H2.35299C2.15407 6 1.96331 6.07902 1.82266 6.21967C1.682 6.36032 1.60299 6.55109 1.60299 6.75C1.60299 6.94891 1.682 7.13968 1.82266 7.28033C1.96331 7.42098 2.15407 7.5 2.35299 7.5H3.92999L0.562986 15.18C0.499387 15.3299 0.485463 15.4962 0.523254 15.6545C0.561045 15.8129 0.648564 15.955 0.772986 16.06C0.852986 16.124 0.933986 16.185 1.08199 16.281C1.26799 16.402 1.53399 16.559 1.87399 16.714C2.55399 17.025 3.53599 17.334 4.74999 17.334C5.74201 17.3359 6.72285 17.1245 7.62599 16.714C7.96599 16.559 8.23199 16.402 8.41799 16.281C8.56799 16.184 8.64799 16.123 8.72799 16.058C8.8534 15.9542 8.94163 15.8124 8.97933 15.654C9.01704 15.4956 9.00217 15.3292 8.93699 15.18L5.56899 7.5H6.45499C6.80599 7.5 7.14899 7.394 7.43899 7.197L9.13499 6.043C9.17631 6.01501 9.22507 6.00004 9.27499 6H11.25V20.5H6.76299C6.56407 20.5 6.37331 20.579 6.23266 20.7197C6.092 20.8603 6.01299 21.0511 6.01299 21.25C6.01299 21.4489 6.092 21.6397 6.23266 21.7803C6.37331 21.921 6.56407 22 6.76299 22H17.237C17.4359 22 17.6267 21.921 17.7673 21.7803C17.908 21.6397 17.987 21.4489 17.987 21.25C17.987 21.0511 17.908 20.8603 17.7673 20.7197C17.6267 20.579 17.4359 20.5 17.237 20.5H12.75V6H14.724C14.774 6 14.824 6.015 14.864 6.043L16.561 7.197C16.851 7.394 17.194 7.5 17.545 7.5H18.431L15.063 15.18C14.9956 15.3336 14.9817 15.5053 15.0234 15.6677C15.0651 15.8301 15.16 15.9739 15.293 16.076C15.305 16.085 15.293 16.076 15.295 16.076C15.3942 16.1507 15.4977 16.2195 15.605 16.282C15.79 16.394 16.055 16.538 16.395 16.682C17.2992 17.06 18.27 17.2531 19.25 17.25C20.2304 17.2529 21.2015 17.0594 22.106 16.681C22.444 16.538 22.71 16.394 22.896 16.282C23.0029 16.2189 23.1064 16.1501 23.206 16.076C23.339 15.9739 23.4339 15.8301 23.4756 15.6677C23.5173 15.5053 23.5033 15.3336 23.436 15.18L20.07 7.5H21.648C21.8469 7.5 22.0377 7.42098 22.1783 7.28033C22.319 7.13968 22.398 6.94891 22.398 6.75C22.398 6.55109 22.319 6.36032 22.1783 6.21967C22.0377 6.07902 21.8469 6 21.648 6H17.546C17.4961 5.99996 17.4473 5.98499 17.406 5.957L15.709 4.803C15.4188 4.60561 15.0759 4.50004 14.725 4.5H12.75V2.75ZM2.19299 15.198C2.98009 15.6168 3.85839 15.835 4.74999 15.833C5.64158 15.835 6.51989 15.6168 7.30699 15.198L4.74999 9.368L2.19299 15.198ZM16.703 15.174C16.785 15.214 16.877 15.257 16.978 15.3C17.508 15.523 18.283 15.75 19.25 15.75C20.1316 15.7525 21.0023 15.5556 21.797 15.174L19.25 9.367L16.703 15.174Z" />
+                      <rect x="6" y="20.5" width="12" height="1.5" rx="0.75" fill="currentColor" />
+                      <rect x="12.767" y="1.88287" width="19.6685" height="1.58978" rx="0.794892" fill="currentColor"
+                        transform="rotate(89.822 12.767 1.88287)" />
+                    </svg>
+                  </span>
+                  <h4 class="moi-card__title">الإجراءات</h4>
+                </div>
+              </div>
+              <hr class="moi-card__divider">
+              <div class="moi-card__footer">
+                <button class="moi-btn moi-btn--Warning--solid" type="button"><svg width="16" height="16"
+                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M6.83333 4C6.83333 3.72386 7.05719 3.5 7.33333 3.5H10.3333C12.2663 3.5 13.8333 5.067 13.8333 7C13.8333 8.933 12.2663 10.5 10.3333 10.5H3.64185C3.75164 10.6051 3.87142 10.7132 3.99447 10.8201C4.23574 11.0296 4.47847 11.2244 4.66178 11.3674C4.75317 11.4388 4.82918 11.4967 4.88208 11.5367C4.90852 11.5567 4.96117 11.5961 4.97501 11.6064C5.19732 11.7702 5.23301 12.0742 5.06926 12.2965C4.90551 12.5189 4.59242 12.5663 4.37007 12.4025C4.35462 12.391 4.30763 12.356 4.27938 12.3347C4.2229 12.292 4.14266 12.2308 4.04655 12.1558C3.85486 12.0062 3.59759 11.7998 3.33886 11.5752C3.08261 11.3527 2.81348 11.1025 2.60447 10.8659C2.50048 10.7482 2.40079 10.6221 2.32439 10.4954C2.25627 10.3824 2.16667 10.2051 2.16667 10C2.16667 9.79487 2.25627 9.6176 2.3244 9.5046C2.40079 9.37787 2.50048 9.25178 2.60448 9.13409C2.81348 8.89755 3.08261 8.6473 3.33886 8.42481C3.5976 8.20017 3.85486 7.9938 4.04655 7.84421C4.14266 7.76921 4.2229 7.708 4.27938 7.66534C4.30711 7.64439 4.3529 7.61026 4.36919 7.59813L4.37007 7.59747C4.59242 7.43371 4.90551 7.48115 5.06926 7.70349C5.22897 7.92035 5.18774 8.22343 4.97933 8.39019L4.88208 8.4633C4.82919 8.50325 4.75317 8.56124 4.66178 8.63256C4.47847 8.77562 4.23574 8.97043 3.99447 9.17991C3.87142 9.28675 3.75165 9.39491 3.64185 9.5H10.3333C11.714 9.5 12.8333 8.38071 12.8333 7C12.8333 5.61929 11.714 4.5 10.3333 4.5H7.33333C7.05719 4.5 6.83333 4.27614 6.83333 4Z"
+                      fill="#B54708" />
+                  </svg>
+                  إعادة للمنشيء
+                </button>
+                <button class="moi-btn moi-btn--Primary" type="button">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M8.65768 0.833252C9.75084 0.835803 10.6434 0.85238 11.366 0.960124C12.2487 1.09212 12.948 1.36946 13.4927 1.97479C14.0307 2.57213 14.2713 3.32746 14.3867 4.28212C14.4849 5.09448 14.498 6.10662 14.4997 7.36587V8.63304C14.498 9.89229 14.4849 10.9044 14.3867 11.7168C14.2713 12.6714 14.0307 13.4268 13.4927 14.0241C12.948 14.6294 12.2487 14.9068 11.366 15.0388C10.512 15.1661 9.42066 15.1661 8.04133 15.1661L7.64492 15.1661C6.41284 15.1654 5.42231 15.1563 4.634 15.0388C3.75166 14.9068 3.0518 14.6294 2.507 14.0241C1.96907 13.4268 1.72893 12.6714 1.61346 11.7168C1.5 10.7794 1.5 9.57612 1.5 8.03412L1.50004 7.66087C1.50051 6.26351 1.50756 5.15697 1.61346 4.28212C1.72893 3.32746 1.96907 2.57213 2.507 1.97479C3.0518 1.36946 3.75166 1.09212 4.634 0.960124C5.35661 0.85238 6.24915 0.835803 7.34232 0.833252H8.65768ZM11.1667 1.94212L11.1665 6.77472C11.1656 7.08256 11.1604 7.35646 11.1293 7.57479C11.0913 7.84279 10.9947 8.18546 10.6593 8.37946C10.3587 8.55279 10.04 8.50811 9.81133 8.43278C9.58 8.35678 9.35667 8.22345 9.16667 8.09412C8.97333 7.96212 8.78533 7.81279 8.62867 7.68679L8.62067 7.68079C8.45733 7.55012 8.34133 7.45746 8.25733 7.40279C8.12333 7.31546 8.05267 7.27011 8 7.24278C7.94733 7.27011 7.87667 7.31546 7.74267 7.40279C7.65867 7.45746 7.54267 7.55012 7.37933 7.68079L7.37133 7.68679C7.21467 7.81279 7.02667 7.96212 6.83333 8.09412C6.64333 8.22345 6.42 8.35678 6.18866 8.43278C5.96 8.50811 5.64133 8.55279 5.34067 8.37946C5.00533 8.18546 4.90867 7.84279 4.87067 7.57479C4.83333 7.31279 4.83333 6.97079 4.83333 6.58612V1.94212C4.816 1.94412 4.79933 1.94678 4.782 1.94944C4.03066 2.06144 3.58427 2.27279 3.25034 2.64345C2.9096 3.02212 2.7104 3.54079 2.6062 4.40212C2.50087 5.27279 2.5 6.41545 2.5 7.99945L2.50004 8.29132C2.50052 9.72522 2.50745 10.7805 2.6062 11.5968C2.7104 12.4581 2.9096 12.9768 3.25034 13.3554C3.58427 13.7261 4.03066 13.9375 4.782 14.0495C5.55333 14.1648 6.57 14.1661 8 14.1661L8.28054 14.1661C9.56446 14.1654 10.4981 14.1571 11.218 14.0495C11.9693 13.9375 12.416 13.7261 12.75 13.3554C13.0907 12.9768 13.2893 12.4581 13.394 11.5968C13.4862 10.8349 13.4982 9.86487 13.4998 8.5731V7.4258C13.4982 6.13403 13.4862 5.16395 13.394 4.40212C13.2893 3.54079 13.0907 3.02212 12.75 2.64345C12.416 2.27279 11.9693 2.06144 11.218 1.94944C11.2007 1.94678 11.184 1.94412 11.1667 1.94212ZM8.55117 1.83315H7.44883C6.83067 1.8343 6.29793 1.83908 5.83333 1.85879V6.55011C5.83333 6.98211 5.83467 7.25079 5.86067 7.43412C5.86333 7.45346 5.866 7.47079 5.86933 7.48545L5.87667 7.48279C5.97467 7.45079 6.10667 7.37945 6.26867 7.26878C6.42733 7.16011 6.58733 7.03344 6.74667 6.90611L6.78 6.87946C6.91933 6.76812 7.07066 6.64678 7.19733 6.56478L7.21333 6.55412C7.328 6.47945 7.44466 6.40345 7.55066 6.34945C7.67266 6.28678 7.82067 6.23145 8 6.23145C8.17933 6.23145 8.32734 6.28678 8.44934 6.34945C8.55534 6.40345 8.672 6.47945 8.78667 6.55412L8.80267 6.56478C8.92933 6.64678 9.08067 6.76812 9.22 6.87946L9.25333 6.90611C9.41266 7.03344 9.57267 7.16011 9.73133 7.26878C9.89333 7.37945 10.0253 7.45079 10.1233 7.48279L10.1307 7.48545C10.134 7.47079 10.1367 7.45346 10.1393 7.43412C10.1624 7.27116 10.1661 7.04076 10.1666 6.68817L10.1667 1.85879C9.70207 1.83908 9.16932 1.8343 8.55117 1.83315Z"
+                      fill="#F7FDF9" />
+                  </svg>
+
+
+                  حفظ</button>
+                <button class="moi-btn moi-btn--Neutral--outline" type="button">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M8 0.833008C11.958 0.833008 15.167 4.04196 15.167 8C15.167 11.958 11.958 15.167 8 15.167C4.04196 15.167 0.833008 11.958 0.833008 8C0.833008 4.04196 4.04196 0.833008 8 0.833008ZM8 1.83301C4.59424 1.83301 1.83301 4.59424 1.83301 8C1.83301 11.4058 4.59424 14.167 8 14.167C11.4058 14.167 14.167 11.4058 14.167 8C14.167 4.59424 11.4058 1.83301 8 1.83301ZM9.64648 5.64648C9.84174 5.45123 10.1582 5.45124 10.3535 5.64648C10.5488 5.84174 10.5488 6.15825 10.3535 6.35352L8.70703 8L10.3535 9.64648C10.5485 9.84169 10.5485 10.1583 10.3535 10.3535C10.1583 10.5487 9.84175 10.5486 9.64648 10.3535L8 8.70703L6.35352 10.3535C6.15825 10.5486 5.84168 10.5487 5.64648 10.3535C5.45151 10.1583 5.4515 9.84169 5.64648 9.64648L7.29297 8L5.64648 6.35352C5.45124 6.15825 5.45123 5.84174 5.64648 5.64648C5.84175 5.45124 6.15826 5.45123 6.35352 5.64648L8 7.29297L9.64648 5.64648Z"
+                      fill="#111927" />
+                  </svg>
+
+                  إغلاق
+
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <script>
+    $(".toggle").on("click", function () {
+      $(".sidebar").toggleClass("close");
+    });
+
+    $(".request-details-page .menumapchech").on("click", function () {
+      $(".request-details-page .menumapchech").removeClass("checkedmenu");
+      $(this).addClass("checkedmenu");
+      $(this).find("input").prop("checked", true);
+    });
+  </script>
+</body>
+
+</html>

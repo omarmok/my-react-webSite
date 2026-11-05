@@ -1,0 +1,726 @@
+<html lang="ar" dir="rtl">
+
+<head>
+    <title>رفع المرفقات</title>
+    <link href="./css/bootstrap-v5.css" rel="stylesheet">
+    <link href="./css/slick.css" rel="stylesheet">
+    <link href="./css/slick-theme.css" rel="stylesheet">
+    <link href="./css/animate.css" rel="stylesheet">
+    <link href="./css/font-awesome.min.css" rel="stylesheet">
+    <link href="./css/hover-min.css" rel="stylesheet">
+    <link href="./css/main.css" rel="stylesheet">
+    <script src="./js/jquery-3.6.0.min.js">
+    </script>
+    <script src="./js/popper.min.js">
+    </script>
+    <script src="./js/bootstrap.min.js">
+    </script>
+    <script src="./js/slick.min.js">
+    </script>
+    <script src="./js/slick.min.js">
+    </script>
+    <script src="./js/jquery.steps.min.js">
+    </script>
+</head>
+
+<body>
+
+
+    <div class="page__title bg-Primary-700 margin-bottom-2xl">
+        <h3 class="margin-bottom-none"><img alt="" class="titleimg" src="./images/icon-security-case.svg"> رفع المرفقات
+        </h3>
+        <p class="text-white margin-bottom-none">أدخل اسمًا وصفيًا للملف ثم ارفعه</p>
+    </div>
+
+    <div class="moi-file-uploader mx-auto">
+        <div class="moi-file-uploader__card moi-card">
+            <div class="moi-file-uploader__body">
+                <div class="moi-file-uploader__field">
+                    <label class="moi-file-uploader__label" for="nameInput">
+                        الاسم الوصفي للملف
+                        <span class="moi-file-uploader__required">*</span>
+                    </label>
+                    <div class="moi-file-uploader__input-wrap">
+                        <input class="form-control moi-file-uploader__input" type="text" id="nameInput"
+                            placeholder="مثال: صورة الهوية الوطنية" autocomplete="off" aria-describedby="nameErr nameOk"
+                            required aria-required="true" aria-invalid="false"
+                            oninput="onNameInput()" onblur="onNameBlur()">
+                        <svg class="moi-file-uploader__saved-icon" id="saveIcon" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                    </div>
+                    <div class="moi-file-uploader__hint" aria-live="polite">
+                        <span class="moi-file-uploader__hint-error" id="nameErr">هذا الحقل مطلوب — أدخل اسمًا قبل رفع
+                            الملف</span>
+                        <span class="moi-file-uploader__hint-success" id="nameOk">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" aria-hidden="true">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            تم حفظ الاسم
+                        </span>
+                    </div>
+                </div>
+
+                <div class="moi-file-uploader__dropzone off" id="dropZone" role="button" tabindex="0"
+                    aria-disabled="true" aria-labelledby="dropZoneTitle" aria-describedby="dropZoneSubtitle"
+                    onclick="onZoneClick()" onkeydown="onZoneKeydown(event)"
+                    ondragover="onDragOver(event)" ondragleave="onDragLeave()" ondrop="onDrop(event)">
+                    <svg class="moi-file-uploader__dropzone-icon" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="17 8 12 3 7 8" />
+                        <line x1="12" y1="3" x2="12" y2="15" />
+                    </svg>
+                    <p class="moi-file-uploader__dropzone-title" id="dropZoneTitle">اسحب الملف هنا أو <span
+                            class="moi-file-uploader__dropzone-link">اختر من جهازك</span></p>
+                    <p class="moi-file-uploader__dropzone-subtitle" id="dropZoneSubtitle">PDF، صور، Office، ملفات نصية — حد أقصى 5
+                        ميجابايت</p>
+                    <p class="moi-file-uploader__dropzone-blocked" id="blockedTip" role="alert" aria-hidden="true">أدخل الاسم الوصفي أولًا</p>
+                </div>
+                <input type="file" id="fileInput" class="moi-file-uploader__input-file" multiple
+                    onchange="handleFiles(this.files)" hidden>
+
+                <div class="moi-file-uploader__error" id="sizeErr" role="alert">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                    ملف تجاوز الحد الأقصى (5 ميجابايت) — لم يتم رفعه
+                </div>
+                <div class="moi-file-uploader__error" id="typeErr" role="alert">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                    نوع الملف غير مدعوم — المسموح: PDF، صور، ملفات Office، ملفات نصية
+                </div>
+            </div>
+        </div>
+
+        <div class="moi-file-uploader__card moi-file-uploader__list moi-card" id="filesSection" hidden>
+            <div class="moi-file-uploader__list-header">
+                <p class="moi-file-uploader__list-title">الملفات المرفوعة</p>
+                <span class="moi-file-uploader__count" id="countPill" aria-live="polite">0 ملف</span>
+            </div>
+            <div class="moi-file-uploader__list-body" id="fileListBody">
+                <div class="moi-file-uploader__empty" id="emptyState">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+                        <polyline points="13 2 13 9 20 9" />
+                    </svg>
+                    لا توجد ملفات مرفقة بعد
+                </div>
+                <div class="moi-file-uploader__rows" id="uploadingList"></div>
+                <div class="moi-file-uploader__rows" id="doneList"></div>
+            </div>
+        </div>
+        <div class="moi-file-uploader__sr-only" id="uploaderStatus" role="status" aria-live="polite" aria-atomic="true"></div>
+    </div>
+
+    <div class="moi-file-uploader__modal-overlay" id="previewModal" onclick="closeModalOnBg(event)">
+        <div class="moi-file-uploader__modal-dialog modal-dialog modal-lg" role="document">
+            <div class="moi-file-uploader__modal" id="modalBox" role="dialog" aria-modal="true"
+                aria-labelledby="mDisplayName" tabindex="-1">
+                <div class="moi-file-uploader__modal-header">
+                    <div class="moi-file-uploader__type-icon moi-file-uploader__modal-icon" id="mIcon"></div>
+                    <div class="moi-file-uploader__modal-name">
+                        <div class="moi-file-uploader__modal-display" id="mDisplayName"></div>
+                        <div class="moi-file-uploader__modal-original" id="mOrigName"></div>
+                    </div>
+                    <button class="moi-file-uploader__modal-close" type="button" aria-label="إغلاق"
+                        onclick="closeModal()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="moi-file-uploader__modal-body" id="mBody"></div>
+
+                <div class="moi-file-uploader__modal-footer">
+                    <button class="btn moi-btn--Neutral--outline" data-size="sm" type="button"
+                        onclick="closeModal()">إغلاق</button>
+                    <button class="btn moi-btn--Info--outline" data-size="sm" type="button" id="mDownloadBtn">تنزيل
+                        الملف</button>
+                    <button class="btn moi-btn--Error--solid" data-size="sm" type="button" id="mDeleteBtn">حذف
+                        الملف</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ─── Config ─── */
+        const MAX_SIZE = 5 * 1024 * 1024;
+        const ALLOWED = [
+            'pdf', 'jpg', 'jpeg', 'png',
+            'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx',
+            'txt', 'csv', 'json', 'xml', 'html', 'css', 'js', 'scss', 'md'
+        ];
+        const TEXT_EXTS = ['txt', 'csv', 'json', 'xml', 'html', 'css', 'js', 'scss', 'md'];
+        const OFFICE_EXTS = ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'];
+        const OFFICE_MIME = {
+            doc: 'application/msword',
+            docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            xls: 'application/vnd.ms-excel',
+            xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            ppt: 'application/vnd.ms-powerpoint',
+            pptx: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+        };
+
+        /* ─── State ─── */
+        const files = [];
+        const uploadJobs = {};
+        let savedName = '';
+        let blurred = false;
+        let previewId = null;
+        let lastTrigger = null;
+        let currentPreviewObjectUrl = null;
+
+        /* ─── Type metadata ─── */
+        const TYPE = {
+            pdf: {
+                label: 'PDF', tone: 'pdf',
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>'
+            },
+            jpg: {
+                label: 'صورة', tone: 'img',
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>'
+            },
+            jpeg: {
+                label: 'صورة', tone: 'img',
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>'
+            },
+            png: {
+                label: 'صورة', tone: 'img',
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>'
+            },
+            docx: {
+                label: 'Word', tone: 'doc',
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>'
+            },
+            doc: {
+                label: 'Word', tone: 'doc',
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>'
+            },
+            xlsx: {
+                label: 'Excel', tone: 'xls',
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>'
+            },
+            xls: {
+                label: 'Excel', tone: 'xls',
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>'
+            },
+            pptx: {
+                label: 'PowerPoint', tone: 'ppt',
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><circle cx="12" cy="15" r="2.5"/></svg>'
+            },
+            ppt: {
+                label: 'PowerPoint', tone: 'ppt',
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><circle cx="12" cy="15" r="2.5"/></svg>'
+            },
+        };
+
+        function getMeta(ext) {
+            return TYPE[ext] || {
+                label: ext.toUpperCase(), tone: 'other',
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>'
+            };
+        }
+
+        /* ─── Accessible status helpers ─── */
+        function announce(message) {
+            const el = document.getElementById('uploaderStatus');
+            el.textContent = '';
+            setTimeout(() => { el.textContent = message; }, 50);
+        }
+
+        function showDropzoneTip(message) {
+            const bt = document.getElementById('blockedTip');
+            bt.textContent = message;
+            bt.classList.add('show');
+            bt.removeAttribute('aria-hidden');
+            clearTimeout(bt._hideTimer);
+            bt._hideTimer = setTimeout(() => {
+                bt.classList.remove('show');
+                bt.setAttribute('aria-hidden', 'true');
+            }, 2200);
+        }
+
+        /* ─── Name field ─── */
+        function nameValid() { return document.getElementById('nameInput').value.trim().length > 0; }
+
+        function onNameInput() {
+            const v = document.getElementById('nameInput').value.trim();
+            savedName = v;
+            const dz = document.getElementById('dropZone');
+            const input = document.getElementById('nameInput');
+            if (v.length > 0) {
+                dz.classList.remove('off'); dz.classList.add('on');
+                dz.setAttribute('aria-disabled', 'false');
+                document.getElementById('nameErr').classList.remove('show');
+                document.getElementById('nameOk').classList.add('show');
+                document.getElementById('saveIcon').classList.add('show');
+                input.classList.remove('is-err');
+                input.classList.add('is-ok');
+                input.setAttribute('aria-invalid', 'false');
+            } else {
+                dz.classList.add('off'); dz.classList.remove('on');
+                dz.setAttribute('aria-disabled', 'true');
+                document.getElementById('nameOk').classList.remove('show');
+                document.getElementById('saveIcon').classList.remove('show');
+                input.classList.remove('is-ok');
+                if (blurred) {
+                    document.getElementById('nameErr').classList.add('show');
+                    input.classList.add('is-err');
+                    input.setAttribute('aria-invalid', 'true');
+                }
+            }
+        }
+
+        function onNameBlur() {
+            blurred = true;
+            if (!nameValid()) {
+                document.getElementById('nameErr').classList.add('show');
+                document.getElementById('nameOk').classList.remove('show');
+                document.getElementById('nameInput').classList.add('is-err');
+                document.getElementById('nameInput').setAttribute('aria-invalid', 'true');
+            }
+        }
+
+        function resetNameField() {
+            const input = document.getElementById('nameInput');
+            const dz = document.getElementById('dropZone');
+            input.value = '';
+            input.classList.remove('is-ok', 'is-err');
+            input.setAttribute('aria-invalid', 'false');
+            savedName = '';
+            blurred = false;
+            document.getElementById('nameErr').classList.remove('show');
+            document.getElementById('nameOk').classList.remove('show');
+            document.getElementById('saveIcon').classList.remove('show');
+            dz.classList.add('off');
+            dz.classList.remove('on');
+            dz.setAttribute('aria-disabled', 'true');
+        }
+
+        /* ─── Drop zone ─── */
+        function onZoneClick() {
+            if (!nameValid()) { triggerNameErr(); return; }
+            document.getElementById('fileInput').click();
+        }
+        function onZoneKeydown(e) {
+            if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                onZoneClick();
+            }
+        }
+        function onDragOver(e) {
+            e.preventDefault();
+            if (!nameValid()) { triggerNameErr(); return; }
+            document.getElementById('dropZone').classList.add('drag-over');
+        }
+        function onDragLeave() { document.getElementById('dropZone').classList.remove('drag-over'); }
+        function onDrop(e) {
+            e.preventDefault();
+            document.getElementById('dropZone').classList.remove('drag-over');
+            if (!nameValid()) { triggerNameErr(); return; }
+            handleFiles(e.dataTransfer.files);
+        }
+
+        function triggerNameErr() {
+            blurred = true; onNameInput();
+            document.getElementById('nameInput').focus();
+            showDropzoneTip('أدخل الاسم الوصفي أولًا');
+        }
+
+        /* ─── File handling ─── */
+        function handleFiles(list) {
+            document.getElementById('sizeErr').classList.remove('show');
+            document.getElementById('typeErr').classList.remove('show');
+            let hasSize = false, hasType = false, hasDuplicate = false;
+
+            Array.from(list).forEach(f => {
+                const ext = f.name.split('.').pop().toLowerCase();
+                if (f.size > MAX_SIZE) { hasSize = true; return; }
+                if (!ALLOWED.includes(ext)) { hasType = true; return; }
+
+                const count = files.filter(u => u.displayName === savedName).length;
+                if (count > 0) hasDuplicate = true;
+                const displayName = count > 0 ? `${savedName} (${count + 1})` : savedName;
+                const id = 'f' + Date.now() + Math.random().toString(36).slice(2);
+                const dataUrl = ['jpg', 'jpeg', 'png'].includes(ext) ? URL.createObjectURL(f) : null;
+
+                simulateUpload({ id, displayName, originalName: f.name, size: f.size, ext, dataUrl, file: f });
+            });
+
+            if (hasSize) document.getElementById('sizeErr').classList.add('show');
+            if (hasType) document.getElementById('typeErr').classList.add('show');
+            if (hasDuplicate) showDropzoneTip(`تم ترقيم الاسم "${savedName}" تلقائيًا لوجود ملف بنفس الاسم الوصفي`);
+            document.getElementById('fileInput').value = '';
+        }
+
+        /* ─── Simulated upload ─── */
+        function simulateUpload(fileObj) {
+            const meta = getMeta(fileObj.ext);
+            const ul = document.getElementById('uploadingList');
+            const row = document.createElement('div');
+            row.className = 'moi-file-uploader__uploading-row';
+            row.id = 'up-' + fileObj.id;
+            row.innerHTML = `
+    <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--${meta.tone}">${meta.icon}</div>
+    <div class="moi-file-uploader__progress">
+      <div class="moi-file-uploader__file-name">${fileObj.displayName}</div>
+      <div class="moi-file-uploader__progress-track" id="pt-${fileObj.id}" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="جارٍ رفع ${fileObj.displayName}"><div class="moi-file-uploader__progress-bar" id="pb-${fileObj.id}"></div></div>
+    </div>
+    <span class="moi-file-uploader__progress-percentage" id="pp-${fileObj.id}">0%</span>
+    <div class="moi-file-uploader__actions">
+      <button class="moi-file-uploader__action del" type="button" aria-label="إلغاء رفع الملف" title="إلغاء" onclick="cancelUpload('${fileObj.id}')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>`;
+            ul.appendChild(row);
+            updateEmpty();
+            announce(`بدأ رفع الملف ${fileObj.displayName}`);
+
+            let pct = 0;
+            const speed = 20 + Math.random() * 25;
+            const iv = setInterval(() => {
+                pct = Math.min(100, pct + speed * (0.6 + Math.random() * 0.8));
+                const p = Math.round(pct);
+                const pbEl = document.getElementById('pb-' + fileObj.id);
+                const ppEl = document.getElementById('pp-' + fileObj.id);
+                const ptEl = document.getElementById('pt-' + fileObj.id);
+                if (pbEl) pbEl.style.width = p + '%';
+                if (ppEl) ppEl.textContent = p + '%';
+                if (ptEl) ptEl.setAttribute('aria-valuenow', p);
+                if (pct >= 100) {
+                    clearInterval(iv);
+                    setTimeout(() => {
+                        const r = document.getElementById('up-' + fileObj.id);
+                        if (r) r.remove();
+                        delete uploadJobs[fileObj.id];
+                        files.push(fileObj);
+                        renderFiles();
+                        resetNameField();
+                        announce(`تم رفع الملف ${fileObj.displayName} بنجاح`);
+                    }, 180);
+                }
+            }, 55);
+
+            uploadJobs[fileObj.id] = { interval: iv, fileObj };
+        }
+
+        function cancelUpload(id) {
+            const job = uploadJobs[id];
+            if (!job) return;
+            clearInterval(job.interval);
+            if (job.fileObj.dataUrl) URL.revokeObjectURL(job.fileObj.dataUrl);
+            delete uploadJobs[id];
+            const row = document.getElementById('up-' + id);
+            if (row) row.remove();
+            updateEmpty();
+            announce(`تم إلغاء رفع الملف ${job.fileObj.displayName}`);
+        }
+
+        /* ─── Render done files ─── */
+        function fmtSize(b) {
+            return b < 1024 * 1024
+                ? Math.round(b / 1024) + ' KB'
+                : (b / 1024 / 1024).toFixed(1) + ' MB';
+        }
+
+        function renderFiles() {
+            const dl = document.getElementById('doneList');
+            dl.innerHTML = '';
+            updateEmpty();
+            document.getElementById('filesSection').hidden = files.length === 0;
+
+            files.forEach(f => {
+                const meta = getMeta(f.ext);
+                const d = document.createElement('div');
+                d.className = 'moi-file-uploader__file-row';
+                d.innerHTML = `
+      <div class="moi-file-uploader__type-icon moi-file-uploader__type-icon--${meta.tone}">${meta.icon}</div>
+      <div class="moi-file-uploader__file-meta">
+        <div class="moi-file-uploader__file-name">${f.displayName}</div>
+        <div class="moi-file-uploader__file-details">
+          <span class="moi-file-uploader__file-badge moi-file-uploader__file-badge--${meta.tone}">${meta.label}</span>
+          <span class="moi-file-uploader__dot-separator"></span>
+          <span class="moi-file-uploader__file-size">${fmtSize(f.size)}</span>
+          <span class="moi-file-uploader__dot-separator"></span>
+          <span class="moi-file-uploader__file-original">${f.originalName}</span>
+        </div>
+      </div>
+      <div class="moi-file-uploader__actions">
+        <button class="moi-file-uploader__action" type="button" aria-label="معاينة الملف" title="معاينة" onclick="openPreview('${f.id}', this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+        <button class="moi-file-uploader__action del" type="button" aria-label="حذف الملف" title="حذف" onclick="onDeleteClick(this, '${f.id}')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="3 6 5 6 21 6"/>
+            <path d="M19 6l-1 14H6L5 6"/>
+            <path d="M10 11v6"/><path d="M14 11v6"/>
+            <path d="M9 6V4h6v2"/>
+          </svg>
+        </button>
+      </div>`;
+                dl.appendChild(d);
+            });
+
+            const pill = document.getElementById('countPill');
+            if (files.length > 0) {
+                pill.textContent = files.length + ' ملف';
+                pill.classList.add('show');
+            } else {
+                pill.classList.remove('show');
+            }
+        }
+
+        function deleteFile(id) {
+            const i = files.findIndex(f => f.id === id);
+            if (i > -1) {
+                const [removed] = files.splice(i, 1);
+                if (removed.dataUrl) URL.revokeObjectURL(removed.dataUrl);
+                renderFiles();
+                announce(`تم حذف الملف ${removed.displayName}`);
+            }
+        }
+
+        function onDeleteClick(btn, id) {
+            if (!btn.classList.contains('armed')) {
+                btn.classList.add('armed');
+                btn.setAttribute('aria-label', 'اضغط مرة أخرى لتأكيد حذف الملف');
+                btn.title = 'اضغط للتأكيد';
+                clearTimeout(btn._armTimer);
+                btn._armTimer = setTimeout(() => {
+                    btn.classList.remove('armed');
+                    btn.setAttribute('aria-label', 'حذف الملف');
+                    btn.title = 'حذف';
+                }, 3500);
+                return;
+            }
+            clearTimeout(btn._armTimer);
+            deleteFile(id);
+        }
+
+        function updateEmpty() {
+            const hasAny = files.length > 0 || document.getElementById('uploadingList').children.length > 0;
+            document.getElementById('emptyState').style.display = hasAny ? 'none' : 'block';
+        }
+
+        /* ─── Preview modal ─── */
+        function getPreviewKind(f) {
+            const mime = (f.file && f.file.type) || '';
+            if (mime.startsWith('image/')) return 'image';
+            if (mime === 'application/pdf') return 'pdf';
+            if (mime.startsWith('text/') || mime === 'application/json' || mime === 'application/xml') return 'text';
+            if (f.dataUrl) return 'image';
+            if (f.ext === 'pdf') return 'pdf';
+            if (TEXT_EXTS.includes(f.ext)) return 'text';
+            if (OFFICE_EXTS.includes(f.ext)) return 'office';
+            return 'generic';
+        }
+
+        function downloadFile(f) {
+            const url = f.dataUrl || URL.createObjectURL(f.file);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = f.originalName;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            if (!f.dataUrl) URL.revokeObjectURL(url);
+        }
+
+        function openPreview(id, triggerEl) {
+            const f = files.find(f => f.id === id);
+            if (!f) return;
+            previewId = id;
+            lastTrigger = triggerEl || document.activeElement;
+
+            if (currentPreviewObjectUrl) {
+                URL.revokeObjectURL(currentPreviewObjectUrl);
+                currentPreviewObjectUrl = null;
+            }
+
+            const meta = getMeta(f.ext);
+            const kind = getPreviewKind(f);
+
+            const mIcon = document.getElementById('mIcon');
+            mIcon.className = 'moi-file-uploader__type-icon moi-file-uploader__modal-icon moi-file-uploader__type-icon--' + meta.tone;
+            mIcon.innerHTML = meta.icon;
+            document.getElementById('mDisplayName').textContent = f.displayName;
+            document.getElementById('mOrigName').textContent = f.originalName + '  ·  ' + fmtSize(f.size);
+
+            const body = document.getElementById('mBody');
+            if (f.dataUrl) {
+                body.innerHTML = `
+      <div class="moi-file-uploader__preview-image-wrap">
+        <img class="moi-file-uploader__preview-image" src="${f.dataUrl}" alt="${f.displayName}">
+      </div>
+      <div class="moi-file-uploader__preview-meta">
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">النوع</div><div class="moi-file-uploader__meta-value">${meta.label}</div></div>
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">الحجم</div><div class="moi-file-uploader__meta-value">${fmtSize(f.size)}</div></div>
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">الاسم الوصفي</div><div class="moi-file-uploader__meta-value">${f.displayName}</div></div>
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">اسم الملف الأصلي</div><div class="moi-file-uploader__meta-value moi-file-uploader__meta-value--compact">${f.originalName}</div></div>
+      </div>`;
+            } else if (f.ext === 'pdf' && f.file) {
+                currentPreviewObjectUrl = URL.createObjectURL(f.file);
+                const pdfPreviewSrc = `${currentPreviewObjectUrl}#view=FitH`;
+                body.innerHTML = `
+      <div class="moi-file-uploader__preview-pdf-wrap">
+        <object class="moi-file-uploader__preview-pdf" data="${pdfPreviewSrc}" type="application/pdf" aria-label="معاينة ${f.displayName}">
+          <div class="moi-file-uploader__preview-pdf-fallback">
+            <p class="moi-file-uploader__preview-generic-text">تعذر عرض معاينة PDF داخل المتصفح.</p>
+            <a class="moi-file-uploader__dropzone-link" href="${currentPreviewObjectUrl}" target="_blank" rel="noopener">فتح الملف في نافذة جديدة</a>
+          </div>
+        </object>
+      </div>
+      <div class="moi-file-uploader__preview-meta">
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">النوع</div><div class="moi-file-uploader__meta-value">${meta.label}</div></div>
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">الحجم</div><div class="moi-file-uploader__meta-value">${fmtSize(f.size)}</div></div>
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">الاسم الوصفي</div><div class="moi-file-uploader__meta-value">${f.displayName}</div></div>
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">اسم الملف الأصلي</div><div class="moi-file-uploader__meta-value moi-file-uploader__meta-value--compact">${f.originalName}</div></div>
+      </div>`;
+            } else if (kind === 'text' && f.file) {
+                body.innerHTML = `
+      <div class="moi-file-uploader__preview-text-wrap">
+        <pre class="moi-file-uploader__preview-text"><code id="textPreviewContent">جارٍ تحميل المحتوى...</code></pre>
+      </div>
+      <div class="moi-file-uploader__preview-meta">
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">النوع</div><div class="moi-file-uploader__meta-value">${meta.label}</div></div>
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">الحجم</div><div class="moi-file-uploader__meta-value">${fmtSize(f.size)}</div></div>
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">الاسم الوصفي</div><div class="moi-file-uploader__meta-value">${f.displayName}</div></div>
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">اسم الملف الأصلي</div><div class="moi-file-uploader__meta-value moi-file-uploader__meta-value--compact">${f.originalName}</div></div>
+      </div>`;
+                const reader = new FileReader();
+                const MAX_PREVIEW_CHARS = 50000;
+                reader.onload = () => {
+                    const el = document.getElementById('textPreviewContent');
+                    if (!el) return;
+                    const text = String(reader.result);
+                    el.textContent = text.length > MAX_PREVIEW_CHARS
+                        ? text.slice(0, MAX_PREVIEW_CHARS) + '\n\n… تم اقتصاص المعاينة لطول الملف'
+                        : text;
+                };
+                reader.onerror = () => {
+                    const el = document.getElementById('textPreviewContent');
+                    if (el) el.textContent = 'تعذر قراءة محتوى الملف.';
+                };
+                reader.readAsText(f.file);
+            } else if (kind === 'office' && f.file) {
+                currentPreviewObjectUrl = URL.createObjectURL(f.file);
+                const officeMime = f.file.type || OFFICE_MIME[f.ext] || 'application/octet-stream';
+                body.innerHTML = `
+      <div class="moi-file-uploader__preview-pdf-wrap">
+        <object class="moi-file-uploader__preview-pdf" data="${currentPreviewObjectUrl}" type="${officeMime}" aria-label="معاينة ${f.displayName}">
+          <div class="moi-file-uploader__preview-pdf-fallback">
+            <p class="moi-file-uploader__preview-generic-text">لا يدعم المتصفح معاينة هذا النوع من الملفات مباشرة. يمكنك تحميل الملف أو فتحه من جهازك.</p>
+          </div>
+        </object>
+      </div>
+      <div class="moi-file-uploader__preview-meta">
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">النوع</div><div class="moi-file-uploader__meta-value">${meta.label}</div></div>
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">الحجم</div><div class="moi-file-uploader__meta-value">${fmtSize(f.size)}</div></div>
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">الاسم الوصفي</div><div class="moi-file-uploader__meta-value">${f.displayName}</div></div>
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">اسم الملف الأصلي</div><div class="moi-file-uploader__meta-value moi-file-uploader__meta-value--compact">${f.originalName}</div></div>
+      </div>`;
+            } else {
+                body.innerHTML = `
+      <div class="moi-file-uploader__preview-generic">
+        <div class="moi-file-uploader__type-icon moi-file-uploader__preview-generic-icon moi-file-uploader__type-icon--${meta.tone}">${meta.icon}</div>
+        <p class="moi-file-uploader__preview-generic-title">${f.displayName}</p>
+        <p class="moi-file-uploader__preview-generic-text">لا يدعم المتصفح معاينة هذا النوع من الملفات مباشرة. يمكنك تحميل الملف أو فتحه من جهازك.</p>
+      </div>
+      <div class="moi-file-uploader__preview-meta">
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">النوع</div><div class="moi-file-uploader__meta-value">${meta.label}</div></div>
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">الحجم</div><div class="moi-file-uploader__meta-value">${fmtSize(f.size)}</div></div>
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">الاسم الوصفي</div><div class="moi-file-uploader__meta-value">${f.displayName}</div></div>
+        <div class="moi-file-uploader__meta-card"><div class="moi-file-uploader__meta-label">اسم الملف الأصلي</div><div class="moi-file-uploader__meta-value moi-file-uploader__meta-value--compact">${f.originalName}</div></div>
+      </div>`;
+            }
+
+            const delBtn = document.getElementById('mDeleteBtn');
+            delBtn.classList.remove('armed');
+            clearTimeout(delBtn._armTimer);
+            delBtn.textContent = 'حذف الملف';
+            delBtn.onclick = () => {
+                if (!delBtn.classList.contains('armed')) {
+                    delBtn.classList.add('armed');
+                    delBtn.textContent = 'تأكيد الحذف؟';
+                    delBtn._armTimer = setTimeout(() => {
+                        delBtn.classList.remove('armed');
+                        delBtn.textContent = 'حذف الملف';
+                    }, 4000);
+                    return;
+                }
+                clearTimeout(delBtn._armTimer);
+                deleteFile(id);
+                closeModal();
+            };
+
+            document.getElementById('mDownloadBtn').onclick = () => downloadFile(f);
+
+            const modal = document.getElementById('previewModal');
+            const modalBox = document.getElementById('modalBox');
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            body.scrollTop = 0;
+            modalBox.focus();
+        }
+
+        function closeModal() {
+            document.getElementById('previewModal').classList.remove('open');
+            document.body.style.overflow = '';
+            previewId = null;
+            if (currentPreviewObjectUrl) {
+                URL.revokeObjectURL(currentPreviewObjectUrl);
+                currentPreviewObjectUrl = null;
+            }
+            if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
+        }
+
+        function closeModalOnBg(e) {
+            if (e.target === document.getElementById('previewModal')) closeModal();
+        }
+
+        function getFocusable(container) {
+            return Array.from(container.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'))
+                .filter(el => !el.disabled && el.offsetParent !== null);
+        }
+
+        document.addEventListener('keydown', e => {
+            const modal = document.getElementById('previewModal');
+            const isOpen = modal.classList.contains('open');
+            if (e.key === 'Escape') { if (isOpen) closeModal(); return; }
+            if (!isOpen || e.key !== 'Tab') return;
+
+            const modalBox = document.getElementById('modalBox');
+            const focusable = getFocusable(modalBox);
+            if (!focusable.length) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault(); last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault(); first.focus();
+            } else if (!modalBox.contains(document.activeElement)) {
+                e.preventDefault(); first.focus();
+            }
+        });
+    </script>
+</body>
+</html>

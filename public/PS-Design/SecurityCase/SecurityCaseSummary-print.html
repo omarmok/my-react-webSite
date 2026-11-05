@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="../css/bootstrap-v5.css" rel="stylesheet">
+	<link href="../css/slick.css" rel="stylesheet">
+	<link href="../css/slick-theme.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+	<link href="../css/hover-min.css" rel="stylesheet">
+	<link href="../css/main.css" rel="stylesheet">
+	<script src="../js/jquery-3.6.0.min.js">
+	</script>
+	<script src="../js/popper.min.js">
+	</script>
+	<script src="../js/bootstrap.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/jquery.steps.min.js">
+	</script>
+
+	<style>
+		body{
+			background: #fff;
+			/* padding: 15px; */
+			font-size: 10px !important;
+
+		}
+		*{
+			font-size: 10px !important;
+		}
+		#watermark
+			{
+				position: fixed;
+				bottom: 25%;
+				z-index: 99;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				align-content: center;
+				flex-wrap: nowrap;
+				width: 100%;
+			
+
+			}
+			#watermark img{
+				height: 530px;
+			}
+			.printDateand-user{
+				background: #b99855;
+			    margin-right: 8%;
+                margin-left: %;
+				padding: 15px;
+				border-radius: 0 0 65px 65px;
+				border-bottom: 5px solid #886E3A;
+				justify-content: space-between;
+				padding: 15px 45px;
+				color: #fff;
+			}
+			h6{
+				font-size: 12px;
+			}
+		
+			.summary__body .content .full-width p{
+				font-weight: 500;
+			}
+			.seizures{
+				width: 45%;
+				
+
+			}
+		
+
+			.user-container{
+				width: 100%;
+				justify-content: space-between;
+			}
+
+			.summary__body .content .block-content{
+				flex: 1;
+				width: 100%!important;
+			}
+	
+
+			.summary__body .mainDetails .block-content{
+				flex: 0 0 auto;
+			    width: 32.7%!important;
+			}
+			.summary__body .content .block-content .block .val .bg-primary{
+				font-size: 6px !important;
+			}
+			.summary__body .content .block-content .block{
+				padding: 5px;
+			}
+			.personName, .seizures{
+				align-items: center;
+				padding: 15px 0;
+			}
+			.summary__body .content{
+				padding: 0 ;
+			}
+
+			label{
+				margin-bottom: 0!important;
+			}
+
+
+			.summary__body .content .block-content .block img{
+				height: 50px;
+				width: 90px;
+				-o-object-fit: cover;
+               object-fit: contain;
+			}
+			.user-container .block-content .block{
+				height: 90%;
+			}
+
+			.summary__body .content .block-content .block .val{
+				margin-top: 0;
+			}
+			.summary__body .content .block-content .block .val{
+				white-space: nowrap;
+			}
+
+			.full-width .block .val p{
+				white-space: normal;
+			}
+
+			.summary__body .content .block-content{
+				margin: 0.3%;
+				height: 100%;
+			}
+
+
+			/* .linebetween{
+				background:#B99855;
+				height: 50px;
+				width: 100%;
+				position: absolute;
+				top: 100%;
+			
+				z-index: -1;
+			}
+			.linebetween.left{
+				left: 0;
+				transform: rotate(45deg);
+			}
+			.linebetween.Right{
+			    Right: 0;
+                transform: rotate(309deg);
+			} */
+		
+	</style>
+
+</head>
+<body data-spy="scroll" data-target=".navbar" id="fullscreendiv">
+	<div id="watermark"><img src="../images/watermark.svg" alt=""></div>
+			<div class="reportPrint">
+			<div class="d-flex align-items-center justify-content-between report__header" style="margin-bottom: 20px;">
+		<div class="title" style=" width: 100%;justify-content: center;">
+		<h6 style="font-weight: 600;">وزارة الداخلية</h6>
+		<h6 style="font-weight: 600;">المديرية العامة للأمن العام</h6>
+		<h6 style="font-weight: 600;">قسم شرطة الجامعة</h6>
+		<div class="report-title" style="color:#B99855;font-weight: 600;">
+		
+			تقرير حالة أمنية/
+
+			<span>123440100100000</span>
+		</div>
+
+		</div>
+		<div class="reportlogo" style="    width: 100%;justify-content: center;display: flex;">
+				<div class="d" style="    background: #B99855;border-radius: 8px;padding: 15px;">
+					<img src="../images/printLogo.svg" alt="" style="height:75px;">
+				</div>
+		</div>
+		<div class="report__date" style="    display: flex;gap: 10px;width: 122%;justify-content: end;">
+			<div class="d-flex block">
+				<img src="../images/icon-calendar-event.svg" alt="" style="height: 24px;">
+
+			<div class="d-flex flex-column">
+				<label style="	font-size: 12px;" >تاريخ تسجيل الحالة</label>
+				<span class="font-weight">1444/07/28</span>
+			</div>
+			</div>
+
+			<div class="d-flex block">
+				<img src="../images/icon-clock.svg" alt="" style="height: 24px;">
+
+				<div class="d-flex flex-column">
+			
+					<label style="	font-size: 12px;">وقت  تسجيل الحالة</label>
+					<span class="font-weight">10:43:45 ص</span>
+				</div>
+
+			</div>
+
+		</div>
+
+			</div>
+				<div class="mainPage" style="border: 1px solid #959494; border-radius: 40px;">
+		<div class="summary__body sumaryDetails" style="padding:0;">
+			<div class="page__summary--title" style="padding-top: 0;">
+				<img alt="" src="../images/icon-folder-open-ummary.svg">
+				<h3>بيانات الحالة</h3>
+			</div>
+			<div class="content mainDetails">
+				<div class="block-content">
+					<div class="block">
+						<div class="tilte">
+							مصدر الحالة
+						</div>
+						<div class="val">
+							نشاط فرقة ميدانية
+						</div>
+					</div>
+				</div>
+				<div class="block-content">
+					<div class="block">
+						<div class="tilte">
+							الجهة
+						</div>
+						<div class="val">
+							قسم شرطة الجامعة
+						</div>
+					</div>
+				</div>
+				<div class="block-content">
+					<div class="block">
+						<div class="tilte">
+							طريقة التسجيل
+						</div>
+						<div class="val">
+							غرفة العمليات
+						</div>
+					</div>
+				</div>
+				<div class="block-content">
+					<div class="block">
+						<div class="tilte">
+							درجة الاهمية
+						</div>
+						<div class="val">
+							<span class="text-danger">عالي</span>
+						</div>
+					</div>
+				</div>
+				<div class="block-content">
+					<div class="block">
+						<div class="tilte">
+							التصنيف الرئيسي
+						</div>
+						<div class="val">
+							<span class="badge bg-primary">الأمن الخاص</span> <span class="badge bg-primary">الأمن الخاص</span> 
+						</div>
+					</div>
+				</div>
+				<div class="block-content">
+					<div class="block">
+						<div class="tilte">
+							تصنيف الحالة الأمنية
+						</div>
+						<div class="val">
+							<span class="badge bg-primary">السرقة</span> <span class="badge bg-primary">السرقة</span> 
+						</div>
+					</div>
+				</div>
+				<div class="block-content">
+					<div class="block">
+						<div class="tilte">
+							تاريخ الحالة
+						</div>
+						<div class="val">
+							1444/07/28
+						</div>
+					</div>
+				</div>
+				<div class="block-content">
+					<div class="block">
+						<div class="tilte">
+							وقت الحالة
+						</div>
+						<div class="val">
+							10:43:45 ص
+						</div>
+					</div>
+				</div>
+				<div class="block-content">
+					<div class="block">
+						<div class="tilte">
+							المعلم
+						</div>
+						<div class="val">
+						 <span class="badge bg-primary">مسجد الراجحي</span> <span class="badge bg-primary">المستشفي السعودي الالماني</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="block-content">
+					<div class="block">
+						<div class="tilte">
+							الحي
+						</div>
+						<div class="val">
+							الشهداء الشمالية			
+						</div>
+					</div>
+				</div>
+				
+				<div class="block-content">
+					<div class="block">
+						<div class="tilte">
+							المدينة
+						</div>
+						<div class="val">
+							الرياض		
+						</div>
+					</div>
+				</div>
+				<div class="block-content full-width" style="width: 100% !important;" >
+					<div class="block">
+						<div class="tilte">
+							ملخص الحالة
+						</div>
+						<div class="val">
+					<P>
+						التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.التلفظ بقول أو الإتيان بفعل في الأماكن العامة فيه إيذاء أو إخافة لمرتاديها أو تعريضهم للخطر.
+					</P>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+		<div class="summary__body sumaryDetails secondSection">
+			<div class="page__summary--title">
+				<img alt="" src="../images/icon-add-pepole.svg">
+				<h3>اطراف الحالة</h3>
+			</div>
+		
+			<div class="personName">
+				<div class="number">
+					1
+				</div>
+				سعيد محمد سعيد القحطاني
+			</div>
+			<div class="content">
+			
+				<div class="user-container">
+					<div class="block-content " >
+						<div class="block">
+							<img src="../images/person.png" alt="">
+							</div>
+						</div>
+				
+
+					<div class="block-content " >
+						<div class="block">
+							<div class="tilte">
+								نوع الهوية
+							</div>
+							<div class="val">
+								اقامة
+							</div>
+						</div>
+					</div>
+					
+					<div class="block-content " >
+						<div class="block">
+							<div class="tilte">
+								رقم الهوية
+							</div>
+							<div class="val">
+								10529867441
+							</div>
+						</div>
+					</div>
+
+					<div class="block-content " >
+						<div class="block">
+							<div class="tilte">
+								الجنسية
+							</div>
+							<div class="val">
+								سعودي
+							</div>
+						</div>
+					</div>
+
+					
+					<div class="block-content " >
+						<div class="block">
+							<div class="tilte">
+								دوره
+							</div>
+							<div class="val">
+								متهم
+							</div>
+						</div>
+					</div>
+					<div class="block-content " >
+						<div class="block">
+							<div class="tilte">
+								حالة المتهم
+							</div>
+							<div class="val">
+								مضطرب عقليا
+							</div>
+						</div>
+					</div>
+
+					<div class="block-content " >
+						<div class="block">
+							<div class="tilte">
+								حالة الشخص
+							</div>
+							<div class="val">
+								في حالة سكر
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="seizures mt-2">
+				<img src="../images/icon-bag-plus-fill.svg" alt="">
+					مضبوطات الشخص
+					<div class="total">5</div>
+				</div>
+			<div class="content">
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							التصنيف
+						</div>
+						<div class="val">
+							مخدرات
+						</div>
+					</div>
+				</div>
+				
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							نوع المادة
+						</div>
+						<div class="val">
+							----
+						</div>
+					</div>
+				</div>
+
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							وحدة القياس
+						</div>
+						<div class="val">
+				----
+						</div>
+					</div>
+				</div>
+
+				
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							الكمية
+						</div>
+						<div class="val">
+					----
+						</div>
+					</div>
+				</div>
+				<div class="block-content  full-width" >
+					<div class="block">
+						<div class="tilte">
+							الوصف
+						</div>
+						<div class="val">
+					-----
+						</div>
+					</div>
+				</div>
+
+		
+			</div>
+
+			<div class="seizures mt-2">
+				<img src="../images/icon-bag-plus-fill.svg" alt="">
+				مركبات الشخص
+					<div class="total">5</div>
+				</div>
+			<div class="content">
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							رقم اللوحة
+						</div>
+						<div class="val">
+							أ ث ق 6313
+						</div>
+					</div>
+				</div>
+				
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							الماركة
+						</div>
+						<div class="val">
+							تويوتا
+						</div>
+					</div>
+				</div>
+
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							الموديل
+						</div>
+						<div class="val">
+							2007
+						</div>
+					</div>
+				</div>
+
+				
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							اللون
+						</div>
+						<div class="val">
+							ابيض
+						</div>
+					</div>
+				</div>
+				<!-- <div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							الرقم التسلسلي	
+						</div>
+						<div class="val">
+							7211800
+						</div>
+					</div>
+				</div> -->
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							المالك
+						</div>
+						<div class="val">
+							أحمد محمد علي احمد	
+						</div>
+					</div>
+				</div>
+
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							المستخدم الفعلي	
+						</div>
+						<div class="val">
+							أحمد محمد علي احمد	
+						</div>
+					</div>
+				</div>
+				<!-- <div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							تاريخ انتهاء الرخصة	
+						</div>
+						<div class="val">
+							10/12/1444	
+						</div>
+					</div>
+				</div> -->
+			</div>
+			<div class="seizures mt-2">
+				<img src="../images/icon-bag-plus-fill.svg" alt="">
+				
+				مضبوطات المركبة 
+				<span class="">	أ ث ق 6313</span>
+					<div class="total">2</div>
+				</div>
+			<div class="content">
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							التصنيف
+						</div>
+						<div class="val">
+							مخدرات
+						</div>
+					</div>
+				</div>
+				
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							نوع المادة
+						</div>
+						<div class="val">
+							----
+						</div>
+					</div>
+				</div>
+
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							وحدة القياس
+						</div>
+						<div class="val">
+				----
+						</div>
+					</div>
+				</div>
+
+				
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							الكمية
+						</div>
+						<div class="val">
+					----
+						</div>
+					</div>
+				</div>
+				<div class="block-content full-width" >
+					<div class="block">
+						<div class="tilte">
+							الوصف
+						</div>
+						<div class="val">
+					-----
+						</div>
+					</div>
+				</div>
+
+			
+			</div>
+			<div class="personName ">
+				<div class="number">
+				2
+				</div>
+				رقم اللوحة  أ ث ق 2568
+			</div>
+			<div class="content full-width ">
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							رقم اللوحة
+						</div>
+						<div class="val">
+							أ ث ق 2568
+						</div>
+					</div>
+				</div>
+				
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							الماركة
+						</div>
+						<div class="val">
+							تويوتا
+						</div>
+					</div>
+				</div>
+
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							الموديل
+						</div>
+						<div class="val">
+							2007
+						</div>
+					</div>
+				</div>
+
+				
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							اللون
+						</div>
+						<div class="val">
+							ابيض
+						</div>
+					</div>
+				</div>
+				<!-- <div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							الرقم التسلسلي	
+						</div>
+						<div class="val">
+							7211800
+						</div>
+					</div>
+				</div> -->
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							المالك
+						</div>
+						<div class="val">
+							أحمد محمد علي احمد	
+						</div>
+					</div>
+				</div>
+
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							المستخدم الفعلي	
+						</div>
+						<div class="val">
+							أحمد محمد علي احمد	
+						</div>
+					</div>
+				</div>
+				<!-- <div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							تاريخ انتهاء الرخصة	
+						</div>
+						<div class="val">
+							10/12/1444	
+						</div>
+					</div>
+				</div> -->
+			</div>
+		
+
+			<div class="seizures mt-2 ">
+				<img src="../images/icon-bag-plus-fill.svg" alt="">
+				
+				مضبوطات المركبة 
+				<span class="">	أ ث ق 2568</span>
+					<div class="total">2</div>
+				</div>
+			<div class="content ">
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							التصنيف
+						</div>
+						<div class="val">
+							مخدرات
+						</div>
+					</div>
+				</div>
+				
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							نوع المادة
+						</div>
+						<div class="val">
+							----
+						</div>
+					</div>
+				</div>
+
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							وحدة القياس
+						</div>
+						<div class="val">
+				----
+						</div>
+					</div>
+				</div>
+
+				
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							الكمية
+						</div>
+						<div class="val">
+					----
+						</div>
+					</div>
+				</div>
+				<div class="block-content full-width" >
+					<div class="block">
+						<div class="tilte">
+							الوصف
+						</div>
+						<div class="val">
+					-----
+						</div>
+					</div>
+				</div>
+
+			
+			</div>
+
+	
+				<div class="personName">
+					<div class="number">
+				3
+					</div>
+					مضبوطات الحالة
+				</div>
+			
+		
+		
+
+			<div class="content ">
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							التصنيف
+						</div>
+						<div class="val">
+							مخدرات
+						</div>
+					</div>
+				</div>
+				
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							نوع المادة
+						</div>
+						<div class="val">
+							----
+						</div>
+					</div>
+				</div>
+
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							وحدة القياس
+						</div>
+						<div class="val">
+				----
+						</div>
+					</div>
+				</div>
+
+				
+				<div class="block-content " >
+					<div class="block">
+						<div class="tilte">
+							الكمية
+						</div>
+						<div class="val">
+					----
+						</div>
+					</div>
+				</div>
+				<div class="block-content full-width" >
+					<div class="block">
+						<div class="tilte">
+							الوصف
+						</div>
+						<div class="val">
+					-----
+						</div>
+					</div>
+				</div>
+
+			
+			</div>
+
+
+
+			</div>
+		
+		
+			<div class="summary__body secondSection" >
+				<div class="page__summary--title" >
+					<img alt="" src="../images/icon-folder-open-ummary.svg">
+					<h3>الظباط المشاركيين </h3>
+				</div>
+
+				<div class="tablecontainer">
+					<table class=" table table-striped">
+						<thead>
+							<tr>
+								<th>اسم الضابط</th>
+								<th>دور الضابط</th>
+								<th>نوع الدورية</th>
+								<th>تم تسليمة لمركز الشرطة</th>
+						
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>محمد عاطف عبدالله ابوياسين النسور</td>
+								<td>ضابط شرطة</td>
+								<td>دوريات الأمن العام</td>
+								<td>
+									<div>
+										لا
+									</div>
+								</td>
+						
+							</tr>
+
+							<tr>
+								<td>محمد عاطف عبدالله ابوياسين النسور</td>
+								<td>ضابط شرطة</td>
+								<td>دوريات الأمن العام</td>
+								<td>
+									<div>
+										لا
+									</div>
+								</td>
+						
+							</tr>
+
+							<tr>
+								<td>محمد عاطف عبدالله ابوياسين النسور</td>
+								<td>ضابط شرطة</td>
+								<td>دوريات الأمن العام</td>
+								<td>
+									<div>
+										لا
+									</div>
+								</td>
+						
+							</tr>
+
+							<tr>
+								<td>محمد عاطف عبدالله ابوياسين النسور</td>
+								<td>ضابط شرطة</td>
+								<td>دوريات الأمن العام</td>
+								<td>
+									<div>
+										لا
+									</div>
+								</td>
+						
+							</tr>
+
+							<tr>
+								<td>محمد عاطف عبدالله ابوياسين النسور</td>
+								<td>ضابط شرطة</td>
+								<td>دوريات الأمن العام</td>
+								<td>
+									<div>
+										لا
+									</div>
+								</td>
+						
+							</tr>
+							<tr>
+								<td>محمد عاطف عبدالله ابوياسين النسور</td>
+								<td>ضابط شرطة</td>
+								<td>دوريات الأمن العام</td>
+								<td>
+									<div>
+										لا
+									</div>
+								</td>
+						
+							</tr>
+						
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="d-flex printDateand-user">
+		<div class="printDate" style="font-weight: 600;">
+			تاريخ الطباعه
+			:
+			<span style="font-weight: 500;"> 20/10/1445-03/06/2023 </span>
+		</div>
+
+		<div class="printDate" style="font-weight: 600;">
+			اسم المستخدم
+			:
+		
+			<span style="font-weight: 500;"> 	أحمد محمد علي خالد </span>
+		</div>
+
+		</div>
+
+		<div class="reportFooter" style="padding: 15px;display: flex;justify-content: space-between;">
+			<img src="../images/footerLogo.svg" style="height:50px" alt="">
+			<img src="../images/qrfooter.png" style="height:50px" alt="">
+		</div>
+</div>
+<!-- 
+<div class="linebetween left"></div>
+<div class="linebetween Right"></div> -->
+    <script src="../js/app.js"></script>
+</body>
+</html>
+
+

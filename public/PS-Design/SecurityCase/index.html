@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="../css/bootstrap-v5.css" rel="stylesheet">
+	<link href="../css/slick.css" rel="stylesheet">
+	<link href="../css/slick-theme.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+	<link href="../css/hover-min.css" rel="stylesheet">
+	<link href="../css/main.css" rel="stylesheet">
+	<script src="../js/jquery-3.6.0.min.js">
+	</script>
+	<script src="../js/popper.min.js">
+	</script>
+	<script src="../js/bootstrap.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/jquery.steps.min.js">
+	</script>
+</head>
+<body data-spy="scroll" data-target=".navbar" id="fullscreendiv">
+	<section class="content">
+		<section class="wapper">
+			<div class="breadcrumb-container px-3 mt-4">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item homebread">
+							<a href="/"><img alt="" src="../images/house-door.svg"> الرئيسية</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="/"><img alt="" src="../images/house-door.svg"> الحالات الأمنية</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a class="currant__page" href="/"><img alt="" src="../images/house-door.svg"> اضافة حالة أمنية</a>
+						</li>
+					</ol>
+				</nav>
+			</div>
+			<div class="page__title">
+				<h3><img alt="" src="../images/icon-violition.svg"> حالة امنية <img alt="" src="../images/arrow-left-title.svg"> 440100100000</h3>
+			
+
+				<div class="caseTimeDate">
+					<div class="caseRegistrationWay">
+						<img alt="" src="../images/icon-pen2-title.svg">
+						<div class="block">
+							طريقة التسجيل
+							<div class="content">
+								غرفة العمليات
+							</div>
+						</div>
+					</div>
+				
+				
+				
+					<div class="caseTime">
+						<img alt="" src="../images/icon-file-text-details.svg">
+						<div class="block">
+							سجل الحالة
+							<div class="content">
+								تم التحويل
+							</div>
+						</div>
+					</div>
+				
+				
+					<div class="caseTime">
+						<img alt="" src="../images/icon-calendar-event.svg">
+						<div class="block">
+							تاريخ تسجيل الحالة
+							<div class="content">
+								1444/07/28
+							</div>
+						</div>
+					</div>
+					<div class="caseDate">
+						<img alt="" src="../images/icon-clock.svg">
+						<div class="block">
+							وقت تسجيل الحالة
+							<div class="content">
+								10:43:45 ص
+							</div>
+						</div>
+					</div>
+					<div class="caseDate">
+						<div class="block">
+							<div class="content">
+								تحويل لمركز شرطة
+							</div><button class="btn moi-btn--text-icon"><img alt="" src="../images/icon-folder-symlink.svg"></button>
+						</div>
+					</div>
+					<div class="caseDate">
+						<div class="block">
+							<div class="content">
+								حالة مدخلة بالخطأ
+							</div><button class="btn moi-btn--text-icon"><img alt="" src="../images/icon-folder-x.svg"></button>
+						</div>
+					</div>
+					
+		
+					<div class="caseDate">
+						<div class="block">
+							<div class="content">
+								تقرير الطباعة
+							</div><button class="btn moi-btn--text-icon"><img alt="" src="../images/icon-printer.svg"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="SecurityCase">
+				<div id="secuityCaseContainer">
+					<div class="wizerdlabel">
+						<div class="wizerdImage"><img src="../images/icon-folder-open-green.svg"></div>بيانات الحالة <!-- Button trigger modal -->
+						 <button class="btn moi-btn--text-icon" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button"><img alt="" class="ms-2" src="../images/icon-arrow-down-circle.svg"></button>
+					</div>
+					<div class="content">
+					
+                    
+                    
+<div class="securityCaseDetails">
+    <div class="row">
+
+
+        <div class="col-lg-4">
+
+            <div class="d-flex flex-column">
+                <label class="required">
+                    مصدر الحالة الأمنية
+                </label> <select class="form-select" required="" title="اختر نوع تسجيل لوحة المركبة">
+                    <option selected="">
+                        خاص
+                    </option>
+
+
+                </select>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="d-flex justify-content-between mt-0" style="gap:10px">
+            <div class="d-flex flex-column w-100">
+                <label class="required"> تاريخ الحالة</label>
+                <input type="text" class="form-control input-with-icon">
+      </div>
+
+                <div class="d-flex flex-column w-100">
+                <label class="required"> وقت الحالة</label>
+                <input type="time" class="form-control input-with-icon-time">
+            </div>
+
+            </div>
+        </div>
+
+      
+        <div class="col-lg-4">
+            <div class="d-flex flex-column">
+                <label class="required"> الجهة الامنية </label> <select class="form-select">
+                    <option selected="">
+                     الجهة الامنية
+                    </option>
+                    <option value="1">
+                        الجهة الامنية
+                    </option>
+
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="d-flex flex-column">
+                <label class="required"> الحي</label> <select class="form-select">
+                    <option selected="">
+                        اختر
+                    </option>
+                    <option value="1">
+                        الحي
+                    </option>
+
+                </select>
+            </div>
+        </div>
+
+    
+        <div class="col-lg-4">
+
+            <div class="d-flex flex-column">
+                <label class="required"> المعلم</label> <select class="form-select">
+                    <option selected="">
+                        اختر
+                    </option>
+                    <option value="1">
+                        المعلم
+                    </option>
+
+                </select>
+            </div>
+        </div>
+      
+        <div class="col-lg-4">
+            <div class="d-flex flex-column">
+                <label class="required"> التصنيف الرئيسي</label> <select class="form-select">
+                    <option selected="">
+                        اختر
+                    </option>
+                    <option value="1">
+                        التصنيف الرئيسي
+                    </option>
+
+                </select>
+            </div>
+        </div>
+       
+        <div class="col-lg-4">
+
+
+            <div class="d-flex flex-column">
+                <label class="required"> تصنيف الحالة الأمنية </label> <select class="form-select">
+                    <option selected="">
+                        اختر
+                    </option>
+                    <option value="1">
+                        تصنيف الحالة الأمنية
+                    </option>
+
+                </select>
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="d-flex justify-content-between mt-0" style="gap:10px">
+
+                <div class="d-flex flex-column w-100">
+                    <label class="required"> عدد الاشخاص </label> <select class="form-select">
+                        <option selected="">
+                            لايوجد
+                        </option>
+                        <option value="1">
+                            1
+                        </option>
+
+                    </select>
+                </div>
+
+                <div class="d-flex flex-column w-100">
+                    <label class="required"> عدد المركبات </label> <select class="form-select">
+                        <option selected="">
+                            لايوجد
+                        </option>
+                        <option value="1">
+                            1
+                        </option>
+
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+
+
+           <div class="col-lg-4">
+
+            <div class="d-flex flex-column">
+                <label class="required">
+                    درجة الأهمية
+                </label>
+                <div class="d-flex m-0" style="gap:10px;">
+
+
+                    <button type="button" class="btn btn-success btn-light border">عادية</button>
+                    <button type="button" class="btn btn-warning btn-light border">متوسطة</button>
+                    <button type="button" class="btn btn-danger btn-light border">عالية</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-12">
+
+            <div class="d-flex flex-column">
+                <label class="required">
+
+                    ملخص الحالة
+                </label>
+
+                <textarea class="w-100 form-control" id="exampleFormControlTextarea1" rows="3" style=" height:200px;"></textarea>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+
+            <div class="d-flex flex-column ">
+                <label class="required">
+
+                    خريطة الموقع
+                </label>
+                <img src="../images/map.png" style="width: 100%;height:300px; object-fit: cover;" alt="" srcset="">
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+                      
+
+					</div>
+					<div class="wizerdlabel">
+						<div class="wizerdImage"><img src="../images/icon-add-pepole.svg"></div>أطراف الحالة
+					</div>
+					<div class="content text-right">
+						<div class="searchAboutCaseMembers">
+							<div class="createViolitionContainer inquiryContainer">
+								<div class="createViolitionContainer--creatviolition--Inquire">
+									<!-- unknownModal -->
+									<div aria-hidden="true" aria-labelledby="personmodalLabel" class="modal fade" id="unknownModal" tabindex="-1">
+										<div class="modal-dialog modal-xl">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="personmodalLabel">إضافة شخص مجهول الهوية</h5><button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+												</div>
+												<div class="modal-body">
+													<div class="d-flex" style="gap: 10px;">
+														<div class="d-flex flex-column">
+															<label class="required">الاسم الكامل</label> <input class="form-control" type="text">
+														</div>
+														<div class="d-flex flex-column">
+															<label class="required">نوع الهوية</label> <select class="form-select">
+																<option selected>
+																	نوع الهوية
+																</option>
+																<option value="1">
+																	نوع الهوية
+																</option>
+															</select>
+														</div>
+														<div class="d-flex flex-column">
+															<label class="required">رقم الهوية</label> <input class="form-control" type="text">
+														</div>
+														<div class="d-flex flex-column">
+															<label class="required">الجنس</label> <select class="form-select">
+																<option selected>
+																	ذكر
+																</option>
+																<option value="1">
+																	انثي
+																</option>
+															</select>
+														</div>
+														<div class="d-flex flex-column">
+															<label class="required">رقم الهوية</label> <input class="form-control" type="text">
+														</div>
+														<div class="d-flex flex-column">
+															<label class="required">الجنسية</label> <select class="form-select">
+																<option selected>
+																	السعودية
+																</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button class="btn moi-btn--secondary--outline" data-bs-dismiss="modal" type="button">اغلاق</button>
+												</div>
+											</div>
+										</div>
+									</div><!-- end unknown -->
+									<!-- personmodal Modal -->
+									<div aria-hidden="true" aria-labelledby="personmodalLabel" class="modal fade" id="personmodal" tabindex="-1">
+										<div class="modal-dialog modal-xl">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="personmodalLabel">بيانات شخص</h5><button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+												</div>
+												<div class="modal-body">
+													<div class="createViolitionContainer--creatviolition--person">
+														<div class="d-flex details inquery-person-resalut">
+															<div class="block border-0">
+																<div class="user__image"><img alt="" src="../images/wanted-person.png"></div>
+																<div class=" pesonName">
+																	<span>سعيد محمد سعيد القحطاني</span>
+																</div>
+															</div>
+															<div class="main-person-details">
+																<div class="d-flex">
+																	<div class="block">
+																		رقم الهوية <span>10529867441</span>
+																	</div>
+																	<div class="block">
+																		تاريخ الأصدار <span>20/10/1444</span>
+																	</div>
+																	<div class="block">
+																		تاريخ الانتهاء <span>20/10/1444</span>
+																	</div>
+																	<div class="block">
+																		الجنسية <span>سعودي</span>
+																	</div>
+																	<div class="block">
+																		العمر <span>40</span>
+																	</div>
+																</div>
+																<div class="d-flex">
+																	<div class="block">
+																		الديانة <span>مسلم</span>
+																	</div>
+																	<div class="block">
+																		الوظيفة <span>مدير مكتب خدمة مدنية</span>
+																	</div>
+																	<div class="block">
+																		الهاتف <span>0536447585</span>
+																	</div>
+																	<div class="block">
+																		مكان العمل <span>الامن العام-الوشم</span>
+																	</div>
+																	<div class="block">
+																		<button class="btn moi-btn--green" data-bs-dismiss="modal" type="button">إدراج في حالة أمنية</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button class="btn moi-btn--secondary--outline" data-bs-dismiss="modal" type="button">اغلاق</button>
+												</div>
+											</div>
+										</div>
+									</div><!--end  personmodal Modal -->
+									<!-- vehicle Modal -->
+									<div aria-hidden="true" aria-labelledby="vehicleLabel" class="modal fade" id="vehicle" tabindex="-1">
+										<div class="modal-dialog modal-fullscreen">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="vehicleLabel">بيانات المركبة</h5><button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+												</div>
+												<div class="modal-body">
+													<div class="searchfields">
+														<div class="form-group">
+															<div class="d-flex" style="gap: 10px;">
+																<div class="d-flex flex-column">
+																	<label class="required">نوع البحث</label> <select class="form-select">
+																		<option selected>
+																			اختر نوع البحث
+																		</option>
+																		<option value="1">
+																			رقم لوحة السيارة
+																		</option>
+																		<option value="2">
+																			رقم هوية المالك
+																		</option>
+																		<option value="3">
+																			رقم هوية المستخدم
+																		</option>
+																		<option value="3">
+																			رقم الشاص
+																		</option>
+																		<option value="3">
+																			الرقم التسلسلي
+																		</option>
+																	</select>
+																</div>
+																<div class="d-flex flex-column">
+																	<label class="required">نوع التسجل</label> <select class="form-select" required="" title="اختر نوع تسجيل لوحة المركبة">
+																		<option selected>
+																			خاص
+																		</option>
+																		<option>
+																			نقل عام
+																		</option>
+																		<option>
+																			نقل خاص
+																		</option>
+																		<option>
+																			حافلة صغيرة عامة
+																		</option>
+																		<option>
+																			حافلة صغيرة خاصة
+																		</option>
+																		<option>
+																			أجرة
+																		</option>
+																		<option>
+																			أشغال عامة
+																		</option>
+																		<option>
+																			تصدير
+																		</option>
+																		<option>
+																			دبلوماسي
+																		</option>
+																		<option>
+																			دراجة آلية
+																		</option>
+																		<option>
+																			مؤقت
+																		</option>
+																		<option>
+																			اقتناء تاريخي
+																		</option>
+																	</select>
+																</div>
+																<div class="d-flex flex-column">
+																	<label class="required">الحروف بالانجليزية</label> <input class="form-control" placeholder="يرجي اضافة الرقم" type="text">
+																</div>
+																<div class="d-flex flex-column">
+																	<label class="required">الارقام بالانجليزية</label> <input class="form-control" placeholder="يرجي اضافة الرقم" type="text">
+																</div>
+																<div class="d-flex flex-column">
+																	<label class="required" style="visibility: hidden;">نوع البحث</label> <button class="btn moi-btn--secondary--outline ms-2"><img src="../images/icon-searchtitle.svg"> استعلام</button>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="relatedVecielsTableSeetings">
+														عدد المركبات المرتبطة <span>68</span>
+													</div>
+													<div class="tablecontainer">
+														<table class="mt-3 table table-hover">
+															<thead>
+																<tr>
+																	<th>رقم اللوحة</th>
+																	<th>الماركة</th>
+																	<th>الموديل</th>
+																	<th>اللون</th>
+																	<th>الرقم التسلسلي</th>
+																	<th>رقم الهيكل</th>
+																	<th>تاريخ انتهاء الرخصة</th>
+																	<th>نوع التسجيل</th>
+																	<th>المالك</th>
+																	<th>المستخدم الفعلي</th>
+																	<th>حالة المركبة</th>
+																	<th>السجل التاريخي</th>
+																	<th>إدراج في حالة أمنية</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td>2854 س ك أ</td>
+																	<td>تويوتا</td>
+																	<td>2007</td>
+																	<td>ابيض</td>
+																	<td>7211800</td>
+																	<td>MR0AX12G570009644</td>
+																	<td>10/12/1444</td>
+																	<td>نقل خاص</td>
+																	<td>أحمد محمد علي احمد</td>
+																	<td>خالد محمد الشهري</td>
+																	<td><span>غير مطلوبة</span></td>
+																	<td><button class="moi-btn--text-icon"><img alt="" src="../images/icon-folder-open-green.svg" title="السجل التاريخي"></button></td>
+																	<td><button class="moi-btn--text-icon" data-bs-dismiss="modal"><img alt="" src="../images/icon-plus-circle-green.svg" title="اضافة "></button></td>
+																</tr>
+															</tbody>
+														</table>
+														<nav aria-label="..." class="paginationContainer justify-content-between">
+															<ul class="pagination">
+																<li class="page-item">
+																	<a class="page-link"><img alt="" src="../images/icon-arrow-right-pagenation.svg"></a>
+																</li>
+																<li class="page-item">
+																	<a class="page-link" href="#">1</a>
+																</li>
+																<li class="page-item active">
+																	<a class="page-link" href="#">2</a>
+																</li>
+																<li class="page-item">
+																	<a class="page-link" href="#">3</a>
+																</li>
+																<li class="page-item">
+																	<a class="page-link" href="#">4</a>
+																</li>
+																<li class="page-item">
+																	<a class="page-link" href="#">....</a>
+																</li>
+																<li class="page-item">
+																	<a class="page-link" href="#">11</a>
+																</li>
+																<li class="page-item">
+																	<a class="page-link" href="#">12</a>
+																</li>
+																<li class="page-item">
+																	<a class="page-link" href="#"><img alt="" src="../images/icon-arrow-left-pagenation.svg"></a>
+																</li>
+															</ul>
+															<div class="d-flex leftnav">
+																<div class="d-flex align-items-center pages_number">
+																	<label class="form-label" for="exampleFormControlInput1">إظهار</label> <select>
+																		<option selected>
+																			10
+																		</option>
+																		<option value="20">
+																			20
+																		</option>
+																		<option value="50">
+																			50
+																		</option>
+																		<option value="100">
+																			100
+																		</option>
+																	</select> <label class="form-label" for="exampleFormControlInput1">من <span>68</span></label>
+																</div>
+																<div class="d-flex align-items-center goto">
+																	<label class="form-label" for="exampleFormControlInput1">الذهاب الي صفحة</label> <input class="form-control" placeholder="2" type="text"> <button class="btn moi-btn--outline" type="submit">ذهاب</button>
+																</div>
+															</div>
+														</nav>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button class="btn moi-btn--secondary--outline" data-bs-dismiss="modal" type="button">اغلاق</button>
+												</div>
+											</div>
+										</div>
+									</div><!--end  vehicle Modal -->
+									<!-- seizures Modal -->
+									<div aria-hidden="true" aria-labelledby="seizuresLabel" class="modal fade" id="seizures" tabindex="-1">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="seizuresLabel">اضافة مضبوطات</h5><button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+												</div>
+												<div class="modal-body">
+													<div class="searchfields">
+														<div class="form-group m-0 p-0 w-100">
+															<div class="d-flex w-100 mt-2" style="gap:10px">
+																<div class="d-flex flex-column w-100">
+																	<label class="required">نوع المادة</label> <select class=" w-100 form-select">
+																		<option selected>
+																			حشيش
+																		</option>
+																	</select>
+																</div>
+																<div class="d-flex flex-column w-100">
+																	<label class="required">وحدة القياس</label> <select class="w-100 form-select">
+																		<option selected>
+																			حشيش
+																		</option>
+																	</select>
+																</div>
+																<div class="d-flex flex-column w-100">
+																	<label class="required">الكمية / العدد</label> <input class="w-100 form-control" type="text">
+																</div>
+															</div>
+															<div class="d-flex w-100 mt-4" style="gap:10px">
+																<div class="d-flex flex-column w-100">
+																	<label class="required">وصف المضبوط</label>
+																	<textarea class="w-100 form-control" id="exampleFormControlTextarea1" rows="3" style=" height: 150px;"></textarea>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button class="btn moi-btn--green" type="button">حفظ</button> <button class="btn moi-btn--secondary--outline" data-bs-dismiss="modal" type="button">اغلاق</button>
+												</div>
+											</div>
+										</div>
+									</div><!--end  seizures Modal -->
+									<!-- seizuresView Modal -->
+									<div aria-hidden="true" aria-labelledby="seizuresViewLabel" class="modal fade" id="seizuresView" tabindex="-1">
+										<div class="modal-dialog modal-fullscreen">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="seizuresViewLabel">اضافة مضبوطات</h5><button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+												</div>
+												<div class="modal-body">
+													<div class="tablecontainer">
+														<table class="mt-3 table table-hover">
+															<thead>
+																<tr>
+																	<th>نوع المادة</th>
+																	<th>وحدة القياس</th>
+																	<th>الكمية / العدد</th>
+																	<th>وصف المضبوط</th>
+																	<th>حذف</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td>حشيش</td>
+																	<td>جرام</td>
+																	<td>2</td>
+																	<td>وصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوط</td>
+																	<td><img alt="" src="../images/icon-trash2.svg" title=" حذف "></td>
+																</tr>
+																<tr>
+																	<td>حشيش</td>
+																	<td>جرام</td>
+																	<td>2</td>
+																	<td>وصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوط</td>
+																	<td><img alt="" src="../images/icon-trash2.svg" title=" حذف "></td>
+																</tr>
+																<tr>
+																	<td>حشيش</td>
+																	<td>جرام</td>
+																	<td>2</td>
+																	<td>وصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوط</td>
+																	<td><img alt="" src="../images/icon-trash2.svg" title=" حذف "></td>
+																</tr>
+																<tr>
+																	<td>حشيش</td>
+																	<td>جرام</td>
+																	<td>2</td>
+																	<td>وصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوط</td>
+																	<td><img alt="" src="../images/icon-trash2.svg" title=" حذف "></td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button class="btn moi-btn--green" type="button">حفظ</button> <button class="btn moi-btn--secondary--outline" data-bs-dismiss="modal" type="button">اغلاق</button>
+												</div>
+											</div>
+										</div>
+									</div><!--end  seizuresView Modal -->
+									<ul class="nav nav-tabs" id="myTab" role="tablist">
+										<li class="nav-item" role="presentation"><button aria-controls="persons-tab-pane" aria-selected="true" class="nav-link active" data-bs-target="#persons-tab-pane" data-bs-toggle="tab" id="persons-tab" role="tab">اشخاص</button></li>
+										<li class="nav-item" role="presentation"><button aria-controls="vehicle-tab-pane" aria-selected="true" class="nav-link" data-bs-target="#vehicle-tab-pane" data-bs-toggle="tab" id="vehicle-tab" role="tab">مركبات</button></li>
+										<li class="nav-item" role="presentation"><button aria-controls="seizures-tab-pane" aria-selected="true" class="nav-link" data-bs-target="#seizures-tab-pane" data-bs-toggle="tab" id="seizures-tab" role="tab">مضبوطات</button></li>
+									</ul>
+									<div class="tab-content" id="myTabContent">
+										<div aria-labelledby="persons-tab" class="tab-pane fade show animated fadeIn active" id="persons-tab-pane" role="tabpanel" tabindex="0">
+											<div class="searchfields">
+												<div class="label-with-info">
+													<div class="form-group-info">
+														<i class="fa fa-info-circle"></i> يمكنك الاستعلام برقم الهوية الوطنية او الاقامة او رقم الحدود
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="d-flex">
+														<input class="form-control" id="personId" placeholder="يرجي اضافة الرقم" type="text"> <button class="btn moi-btn--secondary--outline ms-2" data-bs-target="#personmodal" data-bs-toggle="modal"><img src="../images/icon-searchtitle.svg"> استعلام</button> <button class="btn moi-btn--secondary ms-2 w-100" data-bs-target="#unknownModal" data-bs-toggle="modal" style="white-space: nowrap;"><img src="../images/icon-plus-circle.svg"> اضافة شخص مجهول الهوية</button>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="accordion" id="accordionExample">
+													<div class="accordion-item">
+														<div class="createViolitionContainer--creatviolition--person">
+															<div class="d-flex details inquery-person-resalut">
+																<div class="block border-0">
+																	<div class="user__image"><img alt="" src="../images/wanted-person.png"></div>
+																	<div class=" pesonName">
+																		<span>سعيد محمد سعيد القحطاني</span>
+																	</div>
+																</div>
+																<div class="main-person-details flex-row">
+																	<div class="d-flex">
+																		<div class="block d-flex flex-column">
+																			رقم الهوية <span>10529867441</span>
+																		</div>
+																		<div class="block d-flex flex-column">
+																			تاريخ الانتهاء <span>20/10/1444</span>
+																		</div>
+																		<div class="block d-flex flex-column">
+																			الجنسية <span>سعودي</span>
+																		</div>
+																		<div class="block d-flex flex-column">
+																			العمر <span>40</span>
+																		</div>
+																		<div class="block d-flex flex-column">
+																			الجنس <span>ذكر</span>
+																		</div>
+																		<div class="block d-flex flex-column">
+																			<label class="required">دوره</label> <span>
+																				<select class="form-select">
+																					<option selected>
+																						متهم
+																					</option>
+																				</select>
+																			</span>
+																		</div>
+																		<div class="block d-flex flex-column">
+																			<label class="required">حالة المتهم</label> <span>
+																				<select class="form-select">
+																					<option selected>
+																						معلوم
+																					</option>
+																					<option selected>
+																						مجهول
+																					</option>
+																				</select>
+																			</span>
+																		</div>
+																		<div class="block d-flex flex-column">
+																			<label class="required">حالة الشخص</label> <span>
+																				<select class="form-select" style="min-width: 180px;">
+																					<option selected>
+																						طبيعي
+																					</option>
+																					<option selected>
+																						يشتبه انه بحالة غير طبيعية
+																					</option>
+																				</select>
+																			</span>
+																		</div>
+																		<div class="block d-flex flex-column position-relative" style="white-space: nowrap;">
+																			اضافة مركبات الشخص <button class="moi-btn--text-icon" data-bs-target="#vehicle" data-bs-toggle="modal">
+																				<div class="counterno">
+																					10
+																				</div><img alt="" src="../images/icon-car-outl-blue.svg" title=" إضافة مرفقات">
+																			</button>
+																		</div>
+																		<div class="block d-flex flex-column position-relative" style="white-space: nowrap;">
+																			إضافة مضبوطات الشخص <button class="moi-btn--text-icon" data-bs-target="#seizures" data-bs-toggle="modal">
+																				<div class="counterno">
+																					3
+																				</div><img alt="" src="../images/icon-bag-plus-blue.svg" style="height: 25px;" title=" إضافة مضبوطات">
+																			</button>
+																		</div>
+																		<div class="block d-flex flex-column">
+																			حذف <button class="moi-btn--text-icon"><img alt="" src="../images/icon-trash2.svg" title=" حذف "></button>
+																		</div>
+																		<div class="block">
+																			<div class="accordion-header" id="headingOne">
+																				<div aria-controls="collapseOne" aria-expanded="true" class="accordion-button collapsed" data-bs-target="#collapseOne" data-bs-toggle="collapse"></div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div aria-labelledby="headingOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample" id="collapseOne">
+															<div class="accordion-body">
+																<div class="addedVeciels">
+																	<h4><img alt="" src="../images/icon-user-car.svg" srcset=""> مركبات الشخص المشتركة في الحالة</h4>
+																	<div class="tablecontainer">
+																		<table class="mt-3 table table-hover">
+																			<thead>
+																				<tr>
+																					<th>رقم اللوحة</th>
+																					<th>الماركة</th>
+																					<th>الموديل</th>
+																					<th>اللون</th>
+																					<th>الرقم التسلسلي</th>
+																					<th>تاريخ انتهاء الرخصة</th>
+																					<th>نوع التسجيل</th>
+																					<th>المالك</th>
+																					<th>المستخدم الفعلي</th>
+																					<th>حالة المركبة</th>
+																					<th>دورها</th>
+																					<th>السجل التاريخي</th>
+																					<th>إضافة مضبوطات المركبة</th>
+																					<th>عرض مضبوطات المركبة</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>2854 س ك أ</td>
+																					<td>تويوتا</td>
+																					<td>2007</td>
+																					<td>ابيض</td>
+																					<td>7211800</td>
+																					<td>10/12/1444</td>
+																					<td>نقل خاص</td>
+																					<td>أحمد محمد علي احمد</td>
+																					<td>خالد محمد الشهري</td>
+																					<td><span>غير مطلوبة</span></td>
+																					<td>
+																						<select class="form-select" style="min-width: 90px;">
+																							<option selected>
+																								متهم
+																							</option>
+																						</select>
+																					</td>
+																					<td><button class="moi-btn--text-icon"><img alt="" src="../images/icon-folder-open-green.svg" title="السجل التاريخي"></button></td>
+																					<td><button class="moi-btn--text-icon" data-bs-target="#seizures" data-bs-toggle="modal"><img alt="" src="../images/icon-bag-plus-blue.svg" title=" إضافة مضبوطات"></button></td>
+																					<td><button class="moi-btn--text-icon" data-bs-target="#seizuresView" data-bs-toggle="modal"><img alt="" src="../images/icon-eye-row.svg" title=" عرض مضبوطات"></button></td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+																<div class="addedVeciels">
+																	<h4><img alt="" src="../images/icon-bag-plus-blue.svg" srcset=""> مضبوطات الشخص المرتبطة بالحالة</h4>
+																	<div class="tablecontainer">
+																		<table class="mt-3 table table-hover">
+																			<thead>
+																				<tr>
+																					<th>نوع المادة</th>
+																					<th>وحدة القياس</th>
+																					<th>الكمية / العدد</th>
+																					<th>وصف المضبوط</th>
+																					<th>حذف</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>حشيش</td>
+																					<td>جرام</td>
+																					<td>2</td>
+																					<td>وصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوط</td>
+																					<td><img alt="" src="../images/icon-trash2.svg" title=" حذف "></td>
+																				</tr>
+																				<tr>
+																					<td>حشيش</td>
+																					<td>جرام</td>
+																					<td>2</td>
+																					<td>وصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوط</td>
+																					<td><img alt="" src="../images/icon-trash2.svg" title=" حذف "></td>
+																				</tr>
+																				<tr>
+																					<td>حشيش</td>
+																					<td>جرام</td>
+																					<td>2</td>
+																					<td>وصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوط</td>
+																					<td><img alt="" src="../images/icon-trash2.svg" title=" حذف "></td>
+																				</tr>
+																				<tr>
+																					<td>حشيش</td>
+																					<td>جرام</td>
+																					<td>2</td>
+																					<td>وصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوط</td>
+																					<td><img alt="" src="../images/icon-trash2.svg" title=" حذف "></td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="accordion-item">
+														<div class="createViolitionContainer--creatviolition--person">
+															<div class="d-flex details inquery-person-resalut">
+																<div class="block border-0">
+																	<div class="user__image securityImag"><img alt="" src="../images/icon-car-outl.svg"></div><span>قائمة مركبات الحالة</span>
+																</div>
+																<div class="main-person-details flex-row" style=" justify-content: flex-end;width: 88%;">
+																	<div class="accordion-header" id="headingThree">
+																		<div aria-controls="collapseOne" aria-expanded="true" class="accordion-button collapsed" data-bs-target="#collapseThree" data-bs-toggle="collapse"></div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div aria-labelledby="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample" id="collapseThree">
+															<div class="accordion-body">
+																<div class="addedVeciels">
+																	<div class="tablecontainer">
+																		<table class="mt-3 table table-hover">
+																			<thead>
+																				<tr>
+																					<th>رقم اللوحة</th>
+																					<th>الماركة</th>
+																					<th>الموديل</th>
+																					<th>اللون</th>
+																					<th>الرقم التسلسلي</th>
+																					<th>تاريخ انتهاء الرخصة</th>
+																					<th>نوع التسجيل</th>
+																					<th>المالك</th>
+																					<th>المستخدم الفعلي</th>
+																					<th>حالة المركبة</th>
+																					<th>دورها</th>
+																					<th>السجل التاريخي</th>
+																					<th>إضافة مضبوطات المركبة</th>
+																					<th>عرض مضبوطات المركبة</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>2854 س ك أ</td>
+																					<td>تويوتا</td>
+																					<td>2007</td>
+																					<td>ابيض</td>
+																					<td>7211800</td>
+																					<td>10/12/1444</td>
+																					<td>نقل خاص</td>
+																					<td>أحمد محمد علي احمد</td>
+																					<td>خالد محمد الشهري</td>
+																					<td><span>غير مطلوبة</span></td>
+																					<td>
+																						<select class="form-select" style=" min-width: auto;">
+																							<option selected>
+																								متهم
+																							</option>
+																						</select>
+																					</td>
+																					<td><button class="moi-btn--text-icon"><img alt="" src="../images/icon-folder-open-green.svg" title="السجل التاريخي"></button></td>
+																					<td><button class="moi-btn--text-icon" data-bs-target="#seizures" data-bs-toggle="modal"><img alt="" src="../images/icon-bag-plus-blue.svg" title=" إضافة مضبوطات"></button></td>
+																					<td><button class="moi-btn--text-icon" data-bs-target="#seizuresView" data-bs-toggle="modal"><img alt="" src="../images/icon-eye-row.svg" title=" عرض مضبوطات"></button></td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="accordion-item">
+														<div class="createViolitionContainer--creatviolition--person">
+															<div class="d-flex details inquery-person-resalut">
+																<div class="block border-0">
+																	<div class="user__image securityImag"><img alt="" src="../images//icon-bag-plus-blue.svg"></div><span>قائمة مضبوطات الحالة</span>
+																</div>
+																<div class="main-person-details flex-row" style=" justify-content: flex-end;width: 88%;">
+																	<div class="accordion-header" id="headingFour">
+																		<div aria-controls="collapseFour" aria-expanded="true" class="accordion-button collapsed" data-bs-target="#collapseFour" data-bs-toggle="collapse"></div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div aria-labelledby="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample" id="collapseFour">
+															<div class="accordion-body">
+																<div class="addedVeciels">
+																	<div class="addedVeciels">
+																		<div class="tablecontainer">
+																			<table class="mt-3 table table-hover">
+																				<thead>
+																					<tr>
+																						<th>نوع المادة</th>
+																						<th>وحدة القياس</th>
+																						<th>الكمية / العدد</th>
+																						<th>وصف المضبوط</th>
+																						<th>حذف</th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					<tr>
+																						<td>حشيش</td>
+																						<td>جرام</td>
+																						<td>2</td>
+																						<td>وصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوط</td>
+																						<td><img alt="" src="../images/icon-trash2.svg" title=" حذف "></td>
+																					</tr>
+																					<tr>
+																						<td>حشيش</td>
+																						<td>جرام</td>
+																						<td>2</td>
+																						<td>وصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوط</td>
+																						<td><img alt="" src="../images/icon-trash2.svg" title=" حذف "></td>
+																					</tr>
+																					<tr>
+																						<td>حشيش</td>
+																						<td>جرام</td>
+																						<td>2</td>
+																						<td>وصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوط</td>
+																						<td><img alt="" src="../images/icon-trash2.svg" title=" حذف "></td>
+																					</tr>
+																					<tr>
+																						<td>حشيش</td>
+																						<td>جرام</td>
+																						<td>2</td>
+																						<td>وصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوطوصف المضبوط</td>
+																						<td><img alt="" src="../images/icon-trash2.svg" title=" حذف "></td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div><!-- vehicle -->
+										<div aria-labelledby="vehicle-tab" class="tab-pane fade" id="vehicle-tab-pane" role="tabpanel" tabindex="0">
+											<div class="searchfields">
+												<div class="form-group">
+													<div class="d-flex">
+														<div class="d-flex flex-column">
+															<label class="required">نوع البحث</label> <select class="form-select">
+																<option selected>
+																	اختر نوع البحث
+																</option>
+																<option value="1">
+																	رقم لوحة السيارة
+																</option>
+																<option value="2">
+																	رقم هوية المالك
+																</option>
+																<option value="3">
+																	رقم هوية المستخدم
+																</option>
+																<option value="3">
+																	رقم الشاص
+																</option>
+																<option value="3">
+																	الرقم التسلسلي
+																</option>
+															</select>
+														</div>
+														<div class="d-flex flex-column">
+															<label class="required">نوع التسجل</label> <select class="form-select" required="" title="اختر نوع تسجيل لوحة المركبة">
+																<option selected>
+																	خاص
+																</option>
+																<option>
+																	نقل عام
+																</option>
+																<option>
+																	نقل خاص
+																</option>
+																<option>
+																	حافلة صغيرة عامة
+																</option>
+																<option>
+																	حافلة صغيرة خاصة
+																</option>
+																<option>
+																	أجرة
+																</option>
+																<option>
+																	أشغال عامة
+																</option>
+																<option>
+																	تصدير
+																</option>
+																<option>
+																	دبلوماسي
+																</option>
+																<option>
+																	دراجة آلية
+																</option>
+																<option>
+																	مؤقت
+																</option>
+																<option>
+																	اقتناء تاريخي
+																</option>
+															</select>
+														</div>
+														<div class="d-flex flex-column">
+															<label class="required">الحروف بالانجليزية</label> <input class="form-control" placeholder="يرجي اضافة الرقم" type="text">
+														</div>
+														<div class="d-flex flex-column">
+															<label class="required">الارقام بالانجليزية</label> <input class="form-control" placeholder="يرجي اضافة الرقم" type="text">
+														</div>
+														<div class="d-flex flex-column">
+															<label class="required" style="visibility: hidden;">نوع البحث</label> <button class="btn moi-btn--secondary--outline ms-2" data-bs-target="#vehicle" data-bs-toggle="modal"><img src="../images/icon-searchtitle.svg"> استعلام</button>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row animated fadeIn">
+												<div class="tablecontainer">
+													<table class="mt-3 table table-hover">
+														<thead>
+															<tr>
+																<th>رقم اللوحة</th>
+																<th>الماركة</th>
+																<th>الموديل</th>
+																<th>اللون</th>
+																<th>الرقم التسلسلي</th>
+																<th>رقم الهيكل</th>
+																<th>تاريخ انتهاء الرخصة</th>
+																<th>نوع التسجيل</th>
+																<th>المالك</th>
+																<th>المستخدم الفعلي</th>
+																<th>حالة المركبة</th>
+																<th>السجل التاريخي</th>
+																<th>إضافة مضبوطات</th>
+																<th>إضافة مرفقات</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td>2854 س ك أ</td>
+																<td>تويوتا</td>
+																<td>2007</td>
+																<td>ابيض</td>
+																<td>7211800</td>
+																<td>MR0AX12G570009644</td>
+																<td>10/12/1444</td>
+																<td>نقل خاص</td>
+																<td>أحمد محمد علي احمد</td>
+																<td>خالد محمد الشهري</td>
+																<td><span>غير مطلوبة</span></td>
+																<td><button class="moi-btn--text-icon"><img alt="" src="../images/icon-folder-open-green.svg" title="السجل التاريخي"></button></td>
+																<td><button class="moi-btn--text-icon" data-bs-target="#seizures" data-bs-toggle="modal"><img alt="" src="../images/icon-bag-plus-blue.svg" title=" إضافة مضبوطات"></button></td>
+																<td><button class="moi-btn--text-icon"><img alt="" src="../images/icon-paperclip.svg" title=" إضافة مرفقات"></button></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div><!-- end vehicle -->
+										<!-- seizures -->
+										<div aria-labelledby="seizures-tab" class="tab-pane fade" id="seizures-tab-pane" role="tabpanel" tabindex="0">
+											<div class="searchfields">
+												<div class="form-group w-100">
+													<div class="d-flex justify-content-start">
+														<div class="d-flex flex-column">
+															<label class="required">نوع المادة</label> <select class="form-select">
+																<option selected>
+																	حشيش
+																</option>
+															</select>
+														</div>
+														<div class="d-flex flex-column">
+															<label class="required">وحدة القياس</label> <select class="form-select">
+																<option selected>
+																	حشيش
+																</option>
+															</select>
+														</div>
+														<div class="d-flex flex-column">
+															<label class="required">الكمية / العدد</label> <input class="form-control" type="text">
+														</div>
+													</div>
+													<div class="d-flex flex-column mt-3">
+														<label class="required">وصف المضبوط</label>
+														<textarea class="form-control w-100" id="exampleFormControlTextarea1" rows="3" style="height:150px"></textarea>
+													</div>
+													<div class="d-flex flex-column">
+														<label class="required" style="visibility: hidden;"></label> <button class="btn moi-btn--secondary" style="width: fit-content;"><img src="../images/plus-circle.svg"> اضافة</button>
+													</div>
+												</div>
+											</div>
+											<div class="row animated fadeIn"></div>
+										</div><!--end seizures -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="wizerdlabel">
+						<div class="wizerdImage"><img src="../images/icon-police-officer-case.svg"></div>الضباط المشاركين
+					</div>
+					<div class="content">
+						3
+					</div>
+					<div class="wizerdlabel">
+						<div class="wizerdImage"><img src="../images/icon-police-officer-case.svg"></div>المرفقات
+					</div>
+					<div class="content">
+						المرفقات
+					</div>
+					<div class="wizerdlabel">
+						<div class="wizerdImage"><img src="../images/icon-file-text-details.svg"></div>الملخص
+					</div>
+					<div class="content">
+						<div class="mt-5 container">
+							<div class="row">
+								<div class="col-5 mx-auto">
+									<div class="deliveryQuestion">
+										هل انت متأكد من أضافة الحالة <button class=" btn moi-btn--primary agreeBtn">نعم</button>
+									</div>
+									<div class="succesDelivery" style="display:none">
+										<img src="../images/icon-success-modal.svg">
+										<p>تم حفظ الحالة بنجاح</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</section>
+    <!-- Modal casedetails -->
+	<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">بيانات الحالة المدخلة</h5><button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+				</div>
+				<div class="modal-body">
+					بيانات الحالة المدخلة
+				</div>
+				<div class="modal-footer">
+					<button class="btn moi-btn--outline" data-bs-dismiss="modal" type="button">اغلاق</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../js/app.js">
+	</script> 
+
+
+</body>
+</html>

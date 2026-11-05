@@ -11526,6 +11526,10 @@ input:checked + .slider::after {
   display: flex;
   gap: 6px;
 }
+.moi-vehicle-card__bulletins-tabpanel {
+  display: flex;
+  flex-direction: column;
+}
 .moi-vehicle-card__owners-timeline, .moi-vehicle-card__users-timeline {
   display: flex;
   flex-direction: column;
@@ -24916,14 +24920,6 @@ nav {
 }
 .recordCreate .searchfields .moi-btn--Primaryhover {
   margin-left: 0 !important;
-}
-.recordCreate .person__tabs .tab-content {
-  background: transparent;
-  padding: 0;
-  border: 1px solid #e9f0fc;
-  box-shadow: none;
-  border-radius: 8px;
-  margin-top: -1px;
 }
 .recordCreate .vue-treeselect__menu-container {
   z-index: 9999 !important;

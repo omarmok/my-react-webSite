@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="../css/bootstrap-v5.css" rel="stylesheet">
+	<link href="../css/slick.css" rel="stylesheet">
+	<link href="../css/slick-theme.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+	<link href="../css/hover-min.css" rel="stylesheet">
+	<link href="../css/main.css" rel="stylesheet">
+	<script src="../js/jquery-3.6.0.min.js">
+	</script>
+	<script src="../js/popper.min.js">
+	</script>
+	<script src="../js/bootstrap.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/slick.min.js">
+	</script>
+	<script src="../js/jquery.steps.min.js">
+	</script>
+	<style>
+
+
+	   body {
+	       background: #fff;
+	   }
+
+	   * {
+	       font-size: 10px !important;
+	   }
+
+	   .sidebar{
+	       display:none;
+	   }
+	   .wapper .navbar {
+	       display: none;
+	   }
+
+	   .sidebar.close ~ .wapper {
+	       right: 0;
+	       height: 100vh;
+	       width: 100%;
+	   }
+
+	   .wapper {
+	       right: 0;
+	       height: 100vh;
+	       width: 100%;
+	   }
+
+	   .breadcrumb-container {
+	       display: none;
+	   }
+	   #watermark {
+	       position: fixed;
+	       bottom: 25%;
+	       z-index: 99;
+	       display: flex;
+	       justify-content: center;
+	       align-items: center;
+	       align-content: center;
+	       flex-wrap: nowrap;
+	       width: 100%;
+	   }
+
+	       #watermark img {
+	           height: 530px;
+	       }
+
+	   .printDateand-user {
+	       background: #1C3F64;
+	       margin-right: 8%;
+	       margin-left: 8%;
+	       border-radius: 0 0 65px 65px;
+	       border-bottom: 5px solid #bea062;
+	       justify-content: space-between;
+	       padding: 15px 45px;
+	       color: #fff;
+	   }
+
+	   h6 {
+	       font-size: 10px;
+	   }
+
+	   .summary__body .content .full-width p {
+	       font-weight: 500;
+	   }
+
+
+	   .user-container {
+	       width: 100%;
+	       justify-content: space-between;
+	   }
+
+	   .summary__body .content .block-content {
+	       flex: 1;
+	       width: 100% !important;
+	   }
+
+
+	   .summary__body .mainDetails .block-content {
+	       flex: 0 0 auto;
+	       width: 100% !important;
+	   }
+
+	   .summary__body .content .block-content .block .val .bg-primary {
+	       font-size: 6px !important;
+	   }
+
+	   .summary__body .content .block-content .block {
+	       padding: 5px;
+	       background: #ffffff;
+	   }
+
+	   .personName, .seizures {
+	       align-items: center;
+	       padding: 15px 0;
+	   }
+
+	   .summary__body .content {
+	       padding: 0;
+	   }
+
+	   label {
+	       margin-bottom: 0 !important;
+	   }
+
+
+	   .summary__body .content .block-content .block img {
+	       height: 50px;
+	       width: 90px;
+	       -o-object-fit: cover;
+	       object-fit: contain;
+	   }
+
+	   .user-container .block-content .block {
+	       height: 90%;
+	   }
+
+	   .summary__body .content .block-content .block .val {
+	       margin-top: 0;
+	   }
+
+	   .summary__body .content .block-content .block .val {
+	       white-space: nowrap;
+	   }
+
+	   .full-width .block .val p {
+	       white-space: normal;
+	   }
+
+	   .summary__body .content .block-content {
+	       margin: 0.3%;
+	       height: 100%;
+	   }
+
+	       .summary__body .content .block-content .block .val {
+	           font-size: 10px;
+	       }
+	</style>
+</head>
+<body data-spy="scroll" data-target=".navbar" id="fullscreendiv">
+	<div id="watermark"><img alt="" src="../images/watermark.svg"></div>
+	<div class="reportPrint">
+		<div class="d-flex align-items-center justify-content-between report__header" style="margin-bottom: 20px;">
+			<div class="title" style=" width: 100%;justify-content: center;">
+				<h6 style="font-weight: 600;">وزارة الداخلية/ الأمن العام</h6>
+				<h6 style="font-weight: 600;">شرطة المنطقة الشرقية</h6>
+				<h6 style="font-weight: 600;">مخفر شرطة مربطبة</h6>
+				<div class="report-title" style="color:#B99855;font-weight: 600;">
+					رقم القضية/ <span>4555300003</span>
+				</div>
+			</div>
+			<div class="reportlogo" style=" width: 100%;justify-content: center;display: flex;">
+				<div class="d" ><img alt="" src="../images/Public-Security-logo.svg" style="height:85px;"></div>
+			</div>
+			<div class="report__date" style=" display: flex;width: 100%;justify-content: end;">
+				<div class="d-flex flex-column block" style=" gap: 5px;height: 68px;">
+					<div class="d-flex">
+						<img alt="" src="../images/icon-list-check-table.svg" style="height: 24px;">
+						<div class="d-flex flex-column">
+							<label>رقم الاقرار</label> <span class="font-weight">4555300003</span>
+						</div>
+					</div>
+					<div class="d-flex">
+						<img alt="" src="../images/icon-calendar-check-p.svg" style="height: 24px;">
+						<div class="d-flex flex-column">
+							<label>تاريخ - وقت الاقرار</label> <span class="font-weight">الاثنين/20/04/1444 - 10:43:45 ص</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mainPage" style="border: 1px solid #959494; border-radius: 20px;">
+			<div class="summary__body sumaryDetails" style="padding:0;">
+				<div class="page__summary--title" style="padding-top: 0;display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;margin: 0;padding: 0;">
+					<h3 style="font-weight: 600;margin-bottom: 16px;font-size: 16px !important;">إقرار المدعي بالحق الخاص</h3>
+				</div>
+				<div class="content mainDetails">
+					<div class="block-content">
+						<div class="block" style=" text-align:right;padding:5px;background: #F2F3F5;color: #000;">
+							<div class="tilte" style=" font-weight: 600; display: flex; align-items: center; gap: 10px;">
+								بيانات المدعي
+							</div>
+						</div>
+						<div class="block" style=" text-align: right; padding: 5px; background: #ffffff; color: #555555; line-height: 1.9; display: flex; justify-content: space-around;">
+							<div class="tilte w-100" style=" font-weight: 500; border: 1px solid lightgrey; padding: 10px; text-align: center;">
+								محمد عبد الظاهر محمد عبد الرحمن
+							</div>
+							<div class="tilte w-100" style=" font-weight: 500; border: 1px solid lightgrey; padding: 10px; text-align: center;">
+								بدون
+							</div>
+							<div class="tilte w-100" style=" font-weight: 500; border: 1px solid lightgrey; padding: 10px; text-align: center;">
+								0535455654
+							</div>
+							<div class="tilte w-100" style=" font-weight: 500; border: 1px solid lightgrey; padding: 10px; text-align: center;">
+								47
+							</div>
+							<div class="tilte w-100" style=" font-weight: 500; border: 1px solid lightgrey; padding: 10px; text-align: center;">
+								مصري
+							</div>
+						</div>
+					</div>
+					<div class="block-content">
+						<div class="block" style=" text-align:right;padding:5px;background: #F2F3F5;color: #000;">
+							<div class="tilte" style=" font-weight: 600; display: flex; align-items: center; gap: 10px;">
+								ملخص القضية
+							</div>
+						</div>
+						<div class="block" style=" text-align: right; padding: 5px; background: #ffffff; color: #555555; line-height: 1.9;">
+							<div class="tilte" style="font-weight: 500;">
+								كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564 كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564كلا غير صحيح حضر الي يوم الاحد الموافق 2564 كلا غير صحيح حضر الي يوم الاحد الموافقا
+							</div>
+						</div>
+					</div>
+					<div class="block-content">
+						<div class="block" style=" text-align: right;padding: 5px; background:#f8fbff;color: #003770;">
+							<div class="tilte" style="font-weight: 500;line-height:2.5;">
+								<span style="font-weight: 600;display: block;">أقر أنا الموضح هويته بعالية أني قد علمت بالأتي</span> 1 -أن تقديم الشكوي لا يترتب عليه بالضرورة ثبوت حق خاص<br>
+								2 - أنه يجوز لي في حالة توجيه الإتهام في الحق العام ورفع الدعوي الجزائية أن أطالب بحقي الخاص أمام المحكمة المنظورة أمامها الدعوي الجزائية طبقا لنص المادة (147) من نظام الإجرءات الجزائية الأتي نصها ( لمن لحقة ضرر من الجريمة - ولوارثة من بعده - ان يطالب بحقه الخاص أمام المحكمة المنظورة أمامها الدعوي الجزائية العامة في أي حال كانت عليها الدعوي . حتي لو لم يقبل طلبة أثناء التحقيق).<br>
+								3 - إن رفع الدعوى الجزائية لايعني الحكم لي بحق خاص مالم أتقدم للمحكمة للمطالبة بهذا الحق وفق ماقضي به نظام الإجراءات الجزائية في المواد (147-153)<br>
+								4 - أنه سيتم الإفراج عن المتهم ( الموقوف أو المحكوم ) أو ترحيله حسب الأحوال فور إنتهاء الإجراءات وأنه يتعين علي إبلاغ جهة التوقيف او السجن أثناء إجراءات المحاكمة في حالة وجود مطالبة بالحق الخاص لإتخاذ مايلزم بشأنه . والله الموفق
+							</div>
+						</div>
+					</div>
+					<div class="block-content d-flex" style="gap:10px">
+						<div class="block interviewer" style="background: #fff;border-style: solid;border-color: #e2e8f0;text-align: center;padding: 5px;width: 100%;display: flex;align-items: center;flex-direction: column;">
+							<span style="font-weight: 600;margin-bottom: 5px;">المقر بمافيه</span> <img alt="" class="h-50" src="../images/signature.png" srcset="">
+							<div class="tilte" style="font-weight: 500;">
+								5006868893 - محمد عبد الظاهر محمد عبد الرحمن
+							</div>
+						</div>
+					</div>
+					<div class="block-content d-flex" style="gap:10px">
+						<div class="tablecontainer">
+							<table class="table table-hover table-striped">
+								<thead>
+									<tr>
+										<th class="">الضابط</th>
+										<th class="">التوقيع</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>مدنى - محمد عاطف عبدالله ابوياسين النسور - 2397026390</td>
+										<td><img alt="" src="../images/signature.png" srcset="" style=" width: 70px;"></td>
+									</tr>
+									<tr>
+										<td>مدنى - محمد عاطف عبدالله ابوياسين النسور - 2397026390</td>
+										<td><img alt="" src="../images/signature.png" srcset="" style=" width: 70px;"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="d-flex printDateand-user">
+			<div class="printDate" style="font-weight: 600;">
+				تاريخ الطباعه : <span style="font-weight: 500;">20/10/1445-03/06/2023</span>
+			</div>
+			<div class="printDate" style="font-weight: 600;">
+				تمت الطباعة بواسطة: <span style="font-weight: 500;">أحمد محمد علي خالد</span>
+			</div>
+		</div>
+		<div class="reportFooter" style="padding: 15px;display: flex;justify-content: space-between;"><img alt="" src="./images/footerLogo.svg" style="height:50px"> <img alt="" src="./images/qrfooter.png" style="height:50px"></div>
+	</div>
+    <script src="../js/app.js"></script>
+</body>
+</html>

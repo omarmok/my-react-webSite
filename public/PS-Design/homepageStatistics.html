@@ -1,0 +1,154 @@
+
+<html >
+    <head>
+        <title></title>
+        <link href="./css/bootstrap-v5.css" rel="stylesheet">
+        <link href="./css/slick.css" rel="stylesheet">
+        <link href="./css/slick-theme.css" rel="stylesheet">
+        <link href="./css/animate.css" rel="stylesheet">
+        <link href="./css/font-awesome.min.css" rel="stylesheet">
+        <link href="./css/hover-min.css" rel="stylesheet">
+        <link href="./css/main.css" rel="stylesheet">
+        <script src="./js/jquery-3.6.0.min.js">
+        </script>
+        <script src="./js/popper.min.js">
+        </script>
+        <script src="./js/bootstrap.min.js">
+        </script>
+        <script src="./js/slick.min.js">
+        </script>
+        <script src="./js/slick.min.js">
+        </script>
+        <script src="./js/jquery.steps.min.js">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+
+        </style>
+    </head>
+
+<body>
+
+
+  
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+              
+<div class="statistics">
+
+    <div class="statistics--container m-4 animated fadeInLeft">
+     <div class="statistics--container__toparea">
+
+       <div class="statistics--container__toparea--right">
+
+<button class="btn moi-btn--blue">
+
+    <img src="../PS-Design/images/icon-building-co.svg" alt="" class="iconimg">
+    <span>احصائيات الجهه</span>
+    <img src="../PS-Design/images/arrow-down-menu.svg" alt="" style=" filter: brightness(0) invert(1);">
+</button>
+
+
+<button class="btn moi-btn--blue-b">
+
+    <img src="../PS-Design/images/icon-police-officer-case.svg" alt="" class="iconimg">
+    <span>احصائيات أحمد محمد علي خالد الشهري</span>
+</button>
+
+
+
+        </div>
+
+        <div class="statistics--container__toparea--left">
+
+            <span class="badge text-bg-light green-100 text-white p-3">يوم</span>
+            <span class="badge text-bg-light p-3">شهر</span>
+            <span class="badge text-bg-light p-3 ">سنة</span>
+        </div>
+
+
+     </div>
+     <div class="statistics--container__bottom d-flex align-items-center">
+
+      <div class="right  w-25 d-flex align-items-center flex-column">
+        عدد الحالات الأمنية
+
+        <span class="Incomingmidan">
+            12578
+        </span>
+      </div>
+
+      <div class="left w-75">
+        <canvas id="myChart"></canvas>
+      </div>
+        
+     </div>
+
+
+    </div>
+
+
+</div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ['حالات السرقة', 'حالات القتل', 'حالات الاعتداء البسيط ', 'حالات النصب', 'حالات التزوير', 'المخالفات'],
+    datasets: [{
+    //   label: '# of Votes',
+      data: [12, 19, 3, 5, 2, 3],
+      backgroundColor: [
+      'rgb(7, 0, 196)',
+      'rgb(8, 194, 141)',
+      'rgb(255, 87 , 34)',
+      'rgb(139, 195, 74)',
+      'rgb(0, 123, 255)',
+      'rgb(103, 58, 183)',
+     
+    ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+            legend: {
+                labels: {
+           
+                    font: {
+                        size: 14,
+                        family: "Helvetica Neue" ,
+                        weight:'bold'
+                    }
+                }
+            }
+        },
+    scales: {
+      y: {
+        beginAtZero: true
+      },
+      
+      
+    }
+
+  }
+});
+
+    </script>
+
+    <script src="js/app.js"></script>
+</body>
