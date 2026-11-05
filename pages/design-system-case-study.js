@@ -25,7 +25,7 @@ const getCopy = (isRTL) =>
         glanceTitle: "دراسة الحالة في 30 ثانية",
         glance: [
           ["المشكلة", "فرق داخلية وشركات خارجية تبني منصة واحدة، وتحتاج إلى مصدر مشترك للتصميم والكود."],
-          ["دوري", "أنشأت النظام في Figma وفي الكود، وأملك قراراته، وكتبت قواعد حوكمته."],
+          ["دوري", "ساهمت في تطوير أفكار الخدمات إلى تصاميم قابلة للمراجعة، وبنيت نظام التصميم في Figma والكود وكتبت قواعد حوكمته."],
           ["ما بنيته", "Tokens ومكتبة مكونات وتوثيق ثنائي اللغة من 38 صفحة ومسار تسليم للشركات المنفذة."],
           ["النطاق", "14 نظامًا على منصة واحدة، و3 منصات من شركات أخرى أعمل على ضمّها."],
         ],
@@ -35,6 +35,8 @@ const getCopy = (isRTL) =>
           "يشارك في المنصة مصممون ومطورون من الفريق الداخلي ومن شركات خارجية. ومن دون قواعد مشتركة، يحل كل فريق المشكلة نفسها بطريقته، وتبتعد النسخ المحلية عن المعيار. لذلك لم يكن المطلوب مكتبة مكونات فقط، بل طريقة عمل يلتزم بها الجميع.",
         builtLabel: "02 — ما بنيته",
         builtTitle: "نظام واحد في Figma وفي الكود",
+        builtBody:
+          "تطوّر النظام عبر جولات متتابعة من التحسين طوال المشروع. كنت أراجع المكونات والأنماط وأطوّرها استجابةً لاحتياجات الخدمات وما يظهر في الاستخدام الفعلي، بالتعاون مع المصممين والمطورين. وما يُعرض هنا يعكس حصيلة هذا التطوير المستمر.",
         built: [
           ["236", "متغيرًا في SCSS", "للألوان والخطوط والمسافات والزوايا والظلال، تطابق الـ Tokens في Figma."],
           ["+30", "ملفًا للمكونات", "مكتبة SCSS مبنية على Bootstrap، تُجمَّع في ملف أنماط واحد."],
@@ -91,7 +93,9 @@ const getCopy = (isRTL) =>
           ["الدمج والنشر", "إصدار رسمي متاح لجميع الشركات."],
         ],
         roleLabel: "05 — دوري",
-        roleTitle: "قيادة النظام وبناؤه في الوقت نفسه",
+        roleTitle: "من أفكار الخدمات إلى نظام التصميم",
+        roleBody:
+          "امتد دوري إلى العمل مع فرق الأعمال وأصحاب المصلحة قبل اكتمال المتطلبات. ساعدت في استكشاف كيف يمكن أن تتطور فكرة الخدمة، واقترحت تحسينات وإمكانات إضافية للنقاش، ثم ترجمت هذه الحوارات إلى تصاميم أولية يراجعونها. كنت أعدّل التصاميم بناءً على ملاحظاتهم، وأطوّرها إلى صورتها النهائية بعد اعتمادهم للتوجه.",
         role: [
           "مالك نظام التصميم، وصاحب الاعتماد النهائي للتغييرات والإصدارات والتغييرات الجذرية والاستثناءات",
           "أقود فريق التصميم الداخلي، وأوجّه أعمال التصميم لدى الشركات المنفذة",
@@ -125,7 +129,7 @@ const getCopy = (isRTL) =>
         glanceTitle: "This case study in 30 seconds",
         glance: [
           ["Problem", "Internal and external teams build one platform and need a shared source for design and code."],
-          ["My role", "I created the system in Figma and code, own its decisions, and wrote its governance."],
+          ["My role", "I helped develop early service concepts into reviewed designs, built the design system in Figma and code, and wrote its governance."],
           ["What I built", "Tokens, a component library, 38 pages of bilingual documentation, and a vendor handover workflow."],
           ["Scope", "14 systems on one platform, with 3 platforms from other companies being brought on."],
         ],
@@ -135,6 +139,8 @@ const getCopy = (isRTL) =>
           "Designers and developers from the internal team and from external companies all work on the platform. Without shared rules, each team solves the same problem its own way, and local copies drift from the standard. So the job wasn't only a component library; it was a way of working everyone could follow.",
         builtLabel: "02 — What I built",
         builtTitle: "One system, in Figma and in code",
+        builtBody:
+          "The system took shape through repeated rounds of improvement throughout the project. I refined components and patterns with designers and developers as service needs and practical use revealed what needed to change. The library shown here reflects that ongoing work.",
         built: [
           ["236", "SCSS variables", "For color, typography, spacing, radius, and shadows, matching the Figma tokens."],
           ["30+", "Component stylesheets", "A Bootstrap-based SCSS library compiled into one stylesheet."],
@@ -191,7 +197,9 @@ const getCopy = (isRTL) =>
           ["Merge & release", "An official release, available to every company."],
         ],
         roleLabel: "05 — My role",
-        roleTitle: "Leading the system while building it",
+        roleTitle: "From service ideas to the design system",
+        roleBody:
+          "My contribution also began before requirements were fully defined. In discussions with business teams and stakeholders, I explored how a service concept could develop and proposed improvements and additional capabilities for consideration. I made those conversations tangible through initial designs, revised them in response to stakeholder feedback, and developed the final designs once stakeholders approved the direction.",
         role: [
           "Design System Owner, with final approval on changes, releases, breaking changes, and exceptions",
           "Lead the internal design team and direct design work at vendor companies",
@@ -236,6 +244,7 @@ function DesignSystemCaseStudy() {
       </Section>
 
       <Section tone="subtle" label={copy.builtLabel} title={copy.builtTitle}>
+        <p className="cs-body">{copy.builtBody}</p>
         <div className="cs-stats">
           {copy.built.map(([value, title, body]) => (
             <article key={title}>
@@ -295,6 +304,7 @@ function DesignSystemCaseStudy() {
       </Section>
 
       <Section label={copy.roleLabel} title={copy.roleTitle}>
+        <p className="cs-body">{copy.roleBody}</p>
         <List items={copy.role} />
       </Section>
 
