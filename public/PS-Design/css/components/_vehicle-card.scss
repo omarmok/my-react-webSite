@@ -1,0 +1,317 @@
+@use "../_helpers" as *;
+
+// =========================================================================
+// moi-vehicle-card  —  mirrors the Figma component set `moi-vehicle-card`
+// (24454:8761). Class names are the Figma layer names (BEM); every value is a
+// system variable. The component only lays out the card and its panels —
+// everything inside it is an existing design-system component:
+//
+//   buttons   .moi-btn .moi-btn--Neutral--outline (open = .moi-btn--Primary--solid)
+//   fields    .Entity__card__Details--items (entity-field)
+//   tags      .moi-tag
+//   timeline  .moi-timeline__item / __date / __card (timeline-atom) + .moi-card
+//   tables    .tablecontainer > .table
+//
+// Web / App : add `.moi-vehicle-card--app` (430 wide, two columns).
+// =========================================================================
+
+.moi-vehicle-card {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-sm;
+  min-width: 0;
+  padding: $padding-lg;
+  background-color: $white-100;
+  border: 1px solid $Neutral-300;
+  border-radius: $radius-md;
+
+  // ---- header -------------------------------------------------------------
+  &__header {
+    display: flex;
+    gap: $gap-md;
+    padding: $padding-sm $padding-md;
+    background-color: $Neutral-50;
+    border: 1px solid $Neutral-200;
+    border-radius: $radius-md;
+  }
+
+  &__header-content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: $gap-md;
+    min-width: 0;
+  }
+
+  &__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $gap-md;
+  }
+
+  &__toolbar-actions {
+    display: flex;
+    gap: $gap-md;
+
+    // Figma toolbar-btn = 32 x 32
+    > .moi-btn[data-icon-only] {
+      --btn-height: 2rem; // the system button reads its height from this variable
+      width: 2rem;
+      height: 2rem;
+      min-width: 2rem;
+      min-height: 2rem;
+      padding: 0;
+    }
+  }
+
+  // the system tag centres itself with auto margins; in the toolbar it sits on the end side
+  &__toolbar > .moi-tag {
+    margin: 0;
+    // Figma status-badge = 32 high (the xl tag adds vertical padding around its line)
+    height: 2rem;
+    padding-block: 0;
+  }
+
+  &__meta {
+    display: flex;
+    gap: $gap-md;
+  }
+
+  // entity-field (Figma: padding $padding-sm, gap $gap-xs, label + value = Text sm/Medium).
+  // The value box is label-height + paddings (32), not the md-button minimum used by Entity grids.
+  .Entity__card__Details--items > label,
+  .Entity__card__Details--items > span {
+    line-height: typography-line-height(1.4285714286); // Text sm = 14 / 20
+  }
+
+  .Entity__card__Details--items > label {
+    margin: 0 !important; // the global `label { margin-bottom: 4px !important }` (form labels) would add 4px to every field
+  }
+
+  .Entity__card__Details--items > span {
+    min-height: 0;
+  }
+
+  // entity-field slots (the field look comes from .Entity__card__Details--items).
+  // Figma fill = white-100: the field must stay white on the grey header / panels
+  // (the Entity utility `.white-100` only sets a text colour).
+  &__meta-item,
+  &__detail-item,
+  &__owner-panel-item,
+  &__security-panel-item {
+    background-color: $white-100;
+  }
+
+  &__meta-item {
+    flex: 1 1 0;
+  }
+
+  &__detail-item {
+    flex: 1 1 calc((100% - #{$gap-sm} * 3) / 4);
+  }
+
+  // Figma: toggle (hug) + 5 equal fields in one row
+  &__owner-panel-item,
+  &__security-panel-item {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  // ---- body ---------------------------------------------------------------
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-sm;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap-sm;
+  }
+
+  &__detail-item--serial {
+    flex-basis: 100%;
+  }
+
+  // ---- footer / action row -----------------------------------------------
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $gap-md;
+  }
+
+  &__group-divider {
+    align-self: center;
+    width: 1px;
+    height: 1.5rem;
+    background-color: $Neutral-200;
+  }
+
+  // ---- panels (one per footer button) -------------------------------------
+  &__owner-panel,
+  &__owners-panel,
+  &__users-panel,
+  &__bulletins-panel,
+  &__history-panel,
+  &__security-panel {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-lg;
+    padding: $padding-lg;
+    background-color: $Neutral-50;
+    border: 1px solid $Neutral-200;
+    border-radius: $radius-md;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__owner-panel-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap-sm;
+  }
+
+  // «إغلاق» — hugs its content (Figma 82 × 40), never full width on the web form
+  &__owner-panel-toggle {
+    flex: 0 0 auto;
+  }
+
+  // row that holds only the close button (owners / users / circulars)
+  // Figma: these buttons are packed to the PHYSICAL left of the panel (x = 0), so in RTL we align to the end side
+  &__owners-panel-row,
+  &__users-panel-row,
+  &__bulletins-panel-row {
+    display: flex;
+    gap: $gap-lg;
+    justify-content: flex-end;
+  }
+
+  // close button + the sub-action buttons of history / security
+  &__history-panel-actions,
+  &__security-panel-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap-md;
+    justify-content: flex-end; // left-aligned like Figma (close, then the sub-actions, ending with the first one)
+  }
+
+  // security license / insurance = one row of entity fields
+  &__security-license,
+  &__security-insurance {
+    display: flex;
+    gap: $gap-sm;
+  }
+
+  // timeline-atom list: no gap between atoms (Figma owners-timeline / users-timeline)
+  &__owners-timeline,
+  &__users-timeline {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // ---- icons: inline <svg> from the Figma icon library (fill = currentColor) ----
+  &__icon {
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+  }
+
+  // «إظهار التفاصيل» trailing arrow (Figma Trail Icon arrow-down-01): points up while the details are open
+  &__icon--trail {
+    transition: transform 0.16s ease;
+  }
+
+  &__action--toggle-details[aria-expanded="true"] &__icon--trail {
+    transform: rotate(180deg);
+  }
+
+  // ---- Web (default) / App (mobile) --------------------------------------
+  &--app {
+    max-width: 26.875rem; // Figma App width 430
+
+    .moi-vehicle-card__meta,
+    .moi-vehicle-card__details,
+    .moi-vehicle-card__owner-panel-content,
+    .moi-vehicle-card__footer {
+      flex-wrap: wrap;
+    }
+
+    .moi-vehicle-card__meta-item {
+      flex: 1 1 calc((100% - #{$gap-md}) / 2); // the meta row uses $gap-md
+    }
+
+    .moi-vehicle-card__detail-item,
+    .moi-vehicle-card__owner-panel-item {
+      flex: 1 1 calc((100% - #{$gap-sm}) / 2);
+    }
+
+    .moi-vehicle-card__owner-panel-item--name,
+    .moi-vehicle-card__detail-item--serial {
+      flex-basis: 100%;
+    }
+
+    // owner panel: close, name (own row), then two fields per row — as the Figma App
+    .moi-vehicle-card__owner-panel-toggle {
+      flex-basis: 100%;
+      order: -2;
+    }
+
+    .moi-vehicle-card__owner-panel-item--name {
+      order: -1;
+    }
+
+    .moi-vehicle-card__owner-panel-item:not(.moi-vehicle-card__owner-panel-item--name) {
+      flex: 1 1 calc((100% - #{$gap-sm}) / 2);
+    }
+
+    // Figma App rows: [mobile, date] then [id, nationality]  (DOM: name, id, nationality, mobile, date)
+    .moi-vehicle-card__owner-panel-item:nth-child(4) { order: 1; }
+    .moi-vehicle-card__owner-panel-item:nth-child(5) { order: 2; }
+    .moi-vehicle-card__owner-panel-item:nth-child(2) { order: 3; }
+    .moi-vehicle-card__owner-panel-item:nth-child(3) { order: 4; }
+
+    // footer: «إظهار التفاصيل» on its own row, then the buttons in pairs
+    .moi-vehicle-card__action--toggle-details {
+      flex-basis: 100%;
+      order: -1;
+    }
+
+    .moi-vehicle-card__action--security { order: 1; }
+    .moi-vehicle-card__action--bulletins { order: 2; }
+    .moi-vehicle-card__action--users { order: 3; }
+    .moi-vehicle-card__action--history { order: 4; }
+    .moi-vehicle-card__action--owner { order: 5; }
+    .moi-vehicle-card__action--owners { order: 6; }
+
+    .moi-vehicle-card__security-license,
+    .moi-vehicle-card__security-insurance {
+      flex-wrap: wrap;
+    }
+
+    .moi-vehicle-card__security-panel-item {
+      flex: 1 1 calc((100% - #{$gap-sm}) / 2);
+    }
+
+    .moi-vehicle-card__footer > .moi-btn:not(.moi-vehicle-card__action--toggle-details) {
+      flex: 1 1 calc((100% - #{$gap-md}) / 2);
+    }
+
+    .moi-vehicle-card__group-divider {
+      display: none;
+    }
+  }
+}

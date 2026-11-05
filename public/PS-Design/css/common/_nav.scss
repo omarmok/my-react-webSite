@@ -2,6 +2,18 @@
 @use "../helpers" as *;
 .nav-tabs {
   --bs-nav-tabs-border-color: transparent;
+  border-bottom: 0; // no transparent 1px line under the tabs: the panel's own border is the line
+
+  // Bootstrap tabs written without <li class="nav-item"> (<div class="nav nav-tabs"><button class="nav-link">):
+  // each tab hugs its content instead of taking the full row.
+  > .nav-link {
+    width: auto;
+  }
+
+  // the tabs sit exactly on the panel: no Bootstrap -1px overlap on its top border
+  .nav-link {
+    margin-bottom: 0;
+  }
 
   .nav-item {
     margin: $margin-md $margin-md 0;
@@ -104,7 +116,7 @@ nav {
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
   background: $Primary-800 !important;
-  border: 1px solid $Primary-800 !important ;
+  border: 0 !important; // same height as the other tabs — a border here made the active tab 2px taller
   color: $Neutral-25 !important; // Figma active: Gray-25
 }
 

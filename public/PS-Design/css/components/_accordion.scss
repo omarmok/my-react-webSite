@@ -1,0 +1,99 @@
+// =============================================================================
+// ACCORDION  —  OPTION A: standalone component (native <details>, no JS)
+// =============================================================================
+// Sections that open in place. A heading is the toggle, so it is one tab stop
+// and the browser announces expanded / collapsed. `name="…"` on the <details>
+// makes a group exclusive (one open at a time); without it any number can be open.
+//
+//   <div class="moi-accordion">
+//     <details class="moi-accordion__item" open>
+//       <summary class="moi-accordion__header">
+//         <span class="moi-accordion__title">بيانات المالك</span>
+//         <span class="moi-accordion__count">1</span>
+//       </summary>
+//       <div class="moi-accordion__panel">…</div>
+//     </details>
+//   </div>
+//
+// Colours, radius, spacing and the focus ring come from the system tokens.
+// =============================================================================
+
+@use "sass:map";
+@use "../helpers" as *;
+@use "../common/buttons";
+
+.moi-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-md;
+  min-width: 0;
+
+  &__item {
+    background-color: $white-100;
+    border: 1px solid $Neutral-200;
+    border-radius: $radius-sm;
+    min-width: 0;
+  }
+
+  &__header {
+    @include buttons.moi-focus-ring;
+    @include font-md-700;
+    display: flex;
+    align-items: center;
+    gap: $gap-md;
+    padding: $padding-md;
+    color: $Neutral-900;
+    cursor: pointer;
+    list-style: none;
+    border-radius: $radius-sm;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    // chevron (Hugeicons arrow-down-01), turns when the item is open
+    &::after {
+      content: "";
+      flex: none;
+      margin-inline-start: auto;
+      width: map.get($moi-icon-sizes, md);
+      height: map.get($moi-icon-sizes, md);
+      background-color: currentcolor;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 9C18 9 13.5811 15 12 15C10.4188 15 6 9 6 9'/%3E%3C/svg%3E") center / contain no-repeat;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 9C18 9 13.5811 15 12 15C10.4188 15 6 9 6 9'/%3E%3C/svg%3E") center / contain no-repeat;
+      transition: transform 0.15s ease;
+    }
+
+    &:hover {
+      background-color: $Neutral-50;
+    }
+  }
+
+  &__item[open] > &__header {
+    border-bottom: 1px solid $Neutral-200;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    &::after {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__count {
+    @include font-md-600;
+    min-width: map.get($moi-icon-sizes, md);
+    padding-inline: $padding-sm;
+    text-align: center;
+    color: $Neutral-700;
+    background-color: $Neutral-100;
+    border-radius: $radius-xs;
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-lg;
+    padding: $padding-md;
+    min-width: 0;
+  }
+}

@@ -270,14 +270,8 @@
       pages: [
         { file: "index.html", en: "Introduction", ar: "نظرة عامة" },
         { file: "governance-workflow.html", en: "Governance Workflow", ar: "سير عمل الحوكمة" },
-        { file: "changelog.html", en: "Release Notes", ar: "سجل التغييرات" },
-      ],
-    },
-    {
-      en: "Guides",
-      ar: "أدلة",
-      pages: [
         { file: "StartDeveloping.html", en: "Start Developing", ar: "ابدأ التطوير" },
+        { file: "changelog.html", en: "Release Notes", ar: "سجل التغييرات" },
       ],
     },
     {
@@ -320,8 +314,9 @@
       en: "Feedback & Overlays",
       ar: "التنبيهات والنوافذ",
       pages: [
-        { file: "alert.html", en: "Alerts", ar: "التنبيهات" },
-        { file: "sweet-alert.html", en: "Sweet Alert", ar: "التنبيهات المنبثقة" },
+        { file: "alert.html", en: "Alerts", ar: "التنبيهات", children: [
+          { file: "sweet-alert.html", en: "Sweet Alert", ar: "التنبيهات المنبثقة" },
+        ] },
         { file: "modal.html", en: "Modal", ar: "النافذة" },
         { file: "tooltip.html", en: "Tooltip", ar: "التلميح" },
       ],
@@ -351,13 +346,13 @@
       ar: "مكونات الأعمال",
       pages: [
         { file: "personcard.html", en: "Person Card", ar: "بطاقة الشخص" },
-        { file: "Entity.html", en: "Entity Card", ar: "كارت المنشأة" },
         { file: "vehicle-card.html", en: "Vehicle Card", ar: "بطاقة المركبة" },
+        { file: "Entity.html", en: "Entity Card", ar: "كارت المنشأة" },
         { file: "image-card.html", en: "Image Card", ar: "بطاقة الصورة" },
       ],
     },
   ];
-  const DOC_PAGES = DOC_GROUPS.flatMap((group) => group.pages);
+  const DOC_PAGES = DOC_GROUPS.flatMap((group) => group.pages.flatMap((page) => [page].concat(page.children || [])));
 
   function getSavedLang() {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -742,6 +737,7 @@
       return;
     }
     const term = query.trim().toLowerCase();
+    nav.classList.toggle("is-searching", Boolean(term));
     let visibleTotal = 0;
     let currentTitle = null;
     let titleHasMatch = false;
@@ -822,26 +818,71 @@
     sidebarCard.scrollTop += activeBox.top - cardBox.top - cardBox.height / 3;
   }
 
+  const OPEN_KEY = "ps-sidebar-open";
+  function getOpenGroups() {
+    try { return JSON.parse(sessionStorage.getItem(OPEN_KEY) || "[]"); } catch (e) { return []; }
+  }
+  function saveOpenGroups(list) {
+    try { sessionStorage.setItem(OPEN_KEY, JSON.stringify(list)); } catch (e) { /* ignore */ }
+  }
+
+  // Groups are collapsible: the group of the current page is open, the others are folded until clicked.
+  // Related pages are nested under their parent (`children`).
   function renderSidebarNav() {
     const current = getCurrentFile();
-    const navMarkup = DOC_GROUPS.map((group) => {
+    const opened = getOpenGroups();
+    const esc = (t) => t.replace(/&/g, "&amp;");
+    const link = (page, cls) => {
+      const isActive = page.file === current;
+      const classes = [cls, isActive ? "is-active" : ""].filter(Boolean).join(" ");
+      return `<a href="./${page.file}"${classes ? ` class="${classes}"` : ""}${isActive ? ' aria-current="page"' : ""} data-i18n data-ar="${page.ar}" data-en="${page.en}">${page.en}</a>`;
+    };
+    const navMarkup = DOC_GROUPS.map((group, gi) => {
+      const hasCurrent = group.pages.some((p) => p.file === current || (p.children || []).some((c) => c.file === current));
+      const isOpen = !group.en || hasCurrent || opened.indexOf(gi) !== -1;
+      const gid = ` data-gid="${gi}"`;
       const title = group.en
-        ? `<div class="sidebar-title" data-i18n data-ar="${group.ar}" data-en="${group.en.replace(/&/g, "&amp;")}">${group.en.replace(/&/g, "&amp;")}</div>`
+        ? `<div class="sidebar-title is-toggle" role="button" tabindex="0" aria-expanded="${isOpen}"${gid} data-i18n data-ar="${group.ar}" data-en="${esc(group.en)}">${esc(group.en)}</div>`
         : "";
       const links = group.pages.map((page) => {
-        const isActive = page.file === current;
-        return `<a href="./${page.file}"${isActive ? ' class="is-active" aria-current="page"' : ""} data-i18n data-ar="${page.ar}" data-en="${page.en}">${page.en}</a>`;
+        let out = link(page, "").replace("<a ", `<a${gid} `);
+        (page.children || []).forEach((child) => { out += link(child, "sidebar-sub").replace("<a ", `<a${gid} `); });
+        return out;
       }).join("");
-      return title + links;
+      const html = title + links;
+      return isOpen ? html : html.replace(/<a data-gid/g, '<a data-folded="true" data-gid');
     }).join("");
 
     document.querySelectorAll(".sidebar-nav").forEach((nav) => {
       nav.innerHTML = navMarkup;
     });
 
+    document.querySelectorAll(".sidebar-nav").forEach(bindGroupToggle);
     document.querySelectorAll(".sidebar-card").forEach(ensureSidebarToggle);
     document.querySelectorAll(".sidebar-card").forEach(ensureSidebarSearch);
     document.querySelectorAll(".sidebar-card").forEach(scrollActiveIntoView);
+  }
+
+  function bindGroupToggle(nav) {
+    const toggle = (title) => {
+      const gid = title.dataset.gid;
+      const open = title.getAttribute("aria-expanded") !== "true";
+      title.setAttribute("aria-expanded", String(open));
+      nav.querySelectorAll(`a[data-gid="${gid}"]`).forEach((a) => {
+        if (open) { a.removeAttribute("data-folded"); } else { a.setAttribute("data-folded", "true"); }
+      });
+      const list = getOpenGroups().filter((g) => String(g) !== gid);
+      if (open) { list.push(Number(gid)); }
+      saveOpenGroups(list);
+    };
+    nav.addEventListener("click", (event) => {
+      const title = event.target.closest(".sidebar-title.is-toggle");
+      if (title) { toggle(title); }
+    });
+    nav.addEventListener("keydown", (event) => {
+      const title = event.target.closest(".sidebar-title.is-toggle");
+      if (title && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); toggle(title); }
+    });
   }
 
   function bindSidebarToggle() {

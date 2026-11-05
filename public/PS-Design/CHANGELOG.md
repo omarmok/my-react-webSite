@@ -12,8 +12,29 @@ The format follows **Keep a Changelog** and adheres to **Semantic Versioning (Se
 
 ## [Unreleased]
 
+### Fixed
+
+- Vehicle Card (2026-11-05): matched to Figma — white entity-field fields (`$padding-sm`, `$gap-xs`, Text sm/Medium), 32×32 toolbar buttons, 32-high status tag, left-aligned close / sub-tab rows, Web and App button order, `.moi-btn--Primary` open button, trailing arrow on «Show details».
+- Docs (2026-11-05): «Copy» button above the code; sidebar no longer cut off at the bottom; larger group titles; «Start Developing» as a direct link; business cards in a separate last group.
+- بطاقة المركبة (2026-11-05): مطابقة لتصميم Figma — حقول بيضاء وأزرار الشريط 32×32 ووسم 32 ومحاذاة الشمال لصفوف الإغلاق والتبويبات الفرعية وترتيب الأزرار في الويب والتطبيق وسهم «إظهار التفاصيل».
+- التوثيق (2026-11-05): زر «نسخ» فوق الكود، وحل قطع القائمة الجانبية، وتكبير عناوين المجموعات، و«ابدأ التطوير» رابط مباشر، وبطاقات الأعمال في مجموعة أخيرة منفصلة.
+- Tabs docs (2026-11-05): added the full Bootstrap 5.0 example (nav-tabs + tab-content with three panes) with a live preview and copyable code.
+- توثيق التبويبات (2026-11-05): أُضيف المثال الكامل من Bootstrap 5.0 (nav-tabs مع tab-content وثلاث لوحات) بمعاينة حية وكود قابل للنسخ.
+- Tabs (2026-11-05): design unified in `_nav.scss`; active tab same height, no 1px overlap, tabs sit exactly on the panel edge; `_tabsDesign.scss` is now a legacy name only.
+- التبويبات (2026-11-05): توحيد التصميم في `_nav.scss`؛ النشط بنفس الارتفاع، ولا تداخل 1px، والتبويبات ملاصقة لحافة اللوحة تمامًا.
+- Docs pages loaded Bootstrap / jQuery / Popper from a missing `./js/`; now `../js/` (tabs and modals work in the docs).
+- صفحات التوثيق كانت تحمّل Bootstrap وjQuery وPopper من `./js/` غير الموجود؛ صارت `../js/` فتعمل التبويبات والنوافذ.
+
 ### Changed
 
+- Docs sidebar (2026-11-05): collapsible groups (current group open, search ignores folding) with related pages nested under their parent. Tabs: removed the tab-bar background; Bootstrap `.nav-tabs .nav-link` now follow Figma `tabs-tab` (default / active / focus / disabled, `.badge` count). Rebuild `main.css`.
+- القائمة الجانبية (2026-11-05): مجموعات قابلة للطي مع صفحات فرعية، وحُذفت خلفية شريط التبويبات، وروابط `.nav-tabs .nav-link` تتبع تصميم `tabs-tab` في Figma. أعد بناء `main.css`.
+- Tabs (2026-11-05): removed the legacy `.create__tabs`; plain Bootstrap tabs (`nav-tabs` + `tab-content`) take the system look with no wrapper class (`.tabsDesign` kept as an alias; `.tab-content` is now global). Rebuild `main.css`.
+- التبويبات (2026-11-05): حُذف `.create__tabs` القديم؛ وتبويبات Bootstrap القياسية تأخذ تصميم النظام دون كلاس (بقي `.tabsDesign` اسمًا بديلًا، و`.tab-content` صار عامًا). أعد بناء `main.css`.
+- Vehicle Card (2026-11-05): new `.moi-vehicle-card` component (`css/components/_vehicle-card.scss`) matching the Figma layer names and system variables — header, details, button row, six panels, `--app` form, inline SVG icons (no image files). Docs re-written for 13 views (`default` removed, `Full` is the default) with interactive live examples and «Copy code». Rebuild `main.css`.
+- Tabs (2026-11-05): new `.moi-mobile-tab` (Figma `mobile-tab`) + «Mobile tabs» section in `tabs.html` with a live example and «Copy code».
+- بطاقة المركبة (2026-11-05): مكوّن جديد `.moi-vehicle-card` (`css/components/_vehicle-card.scss`) بأسماء طبقات Figma ومتغيرات النظام — الرأس والتفاصيل وصف الأزرار واللوحات الست ونسخة `--app` وأيقونات SVG مضمّنة بلا ملفات صور. والتوثيق لثلاث عشرة حالة (حُذفت `default` وصارت `Full` الافتراضية) بأمثلة حيّة تفاعلية وزر «نسخ الكود». أعد بناء `main.css`.
+- التبويبات (2026-11-05): فئة جديدة `.moi-mobile-tab` (من `mobile-tab` في Figma) وقسم «تبويبات الجوال» في `tabs.html` بمثال حي وزر «نسخ الكود».
 - Docs (2026-11-04): fixed language and spelling errors in the Arabic documentation pages — 80+ corrections in 14 files (dialect wording in the Release notes page and entries made formal, hamza, alif maqsura, tanween, taa marbuta, glued words, punctuation in samples, «الإسم المشأة» → «اسم المنشأة»).
 - المستندات (2026-11-04): تصحيح الأخطاء اللغوية والإملائية في صفحات التوثيق العربية — أكثر من 80 تصحيحًا في 14 ملفًا (تحويل العبارات العامية في صفحة سجل التغييرات وإدخالاته إلى الفصحى، والهمزات والألف المقصورة والتنوين والتاء المربوطة والكلمات الملتصقة، و«الإسم المشأة» ← «اسم المنشأة»).
 - Card (2026-11-03): `.moi-card__details-column` (with an s) is an alias of `.moi-card__detail-column`, and any direct child of `.moi-card__details` with `w-25` / `w-50` / `w-75` / `w-100` counts the gap (before, `w-50` + `w-50` + gap wrapped into one column per row); `.moi-card__detail-value` fills the rest of the item (min height = `.moi-btn` md), no white strip.

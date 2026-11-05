@@ -448,6 +448,8 @@ code {
   color: #e2e8f0;
   margin-top: 20px;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
   overflow: auto;
   padding: 22px;
   position: relative;
@@ -494,9 +496,14 @@ code {
   font-size: 0.82rem;
   font-weight: 800;
   padding: 7px 12px;
-  position: absolute;
-  top: 16px;
-  inset-inline-end: 16px;
+  /* own row above the code (never over it); sticky keeps it visible while the code scrolls sideways */
+  align-self: flex-end;
+  flex: 0 0 auto;
+  inset-inline-end: 0;
+  margin-bottom: 12px;
+  order: -1;
+  position: sticky;
+  z-index: 1;
   transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease, transform 0.16s ease;
 }
 
@@ -899,9 +906,9 @@ html[dir="rtl"] .sidebar-nav a[aria-current="page"]::after {
 .sidebar-nav .sidebar-title {
   border-top: 1px solid var(--docs-border);
   color: var(--docs-text-muted);
-  font-size: 0.72rem;
+  font-size: 0.88rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   margin: 10px 4px 2px;
   padding: 14px 8px 4px;
   text-transform: uppercase;
@@ -916,6 +923,7 @@ html[dir="rtl"] .sidebar-nav a[aria-current="page"]::after {
 html[lang="ar"] .sidebar-nav .sidebar-title {
   letter-spacing: 0;
   text-transform: none;
+  font-size: 1rem;
 }
 
 .sidebar-nav [hidden] {
@@ -1105,6 +1113,8 @@ html[dir="rtl"] .page-header {
 }
 
 .has-site-bridge .docs-sidebar { top: calc(var(--sb-h) + 24px); }
+/* the card must end inside the viewport: its top is pushed down by the site bar, so subtract it (otherwise the last items are cut off) */
+.has-site-bridge .sidebar-card { max-height: calc(100vh - var(--sb-h) - 48px); }
 
 .site-bridge-bottom { display: none; }
 
@@ -1191,9 +1201,56 @@ html[dir="rtl"] .page-header {
   .has-site-bridge .top-actions { bottom: calc(var(--sb-bottom-h) + 18px + env(safe-area-inset-bottom, 0px)); }
   .has-site-bridge { padding-bottom: calc(var(--sb-bottom-h) + 84px + env(safe-area-inset-bottom, 0px)); }
   .has-site-bridge .docs-sidebar { top: auto; }
+  .has-site-bridge .sidebar-card { max-height: none; }
 }
 
 @media print {
   .site-bridge,
   .site-bridge-bottom { display: none !important; }
+}
+
+
+/* Collapsible sidebar groups + nested pages (top-actions.js renderSidebarNav) */
+.sidebar-nav .sidebar-title.is-toggle {
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.sidebar-nav .sidebar-title.is-toggle::after {
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  content: "";
+  flex: 0 0 auto;
+  height: 6px;
+  opacity: 0.6;
+  transform: rotate(45deg);
+  transition: transform 0.16s ease;
+  width: 6px;
+}
+
+.sidebar-nav .sidebar-title.is-toggle[aria-expanded="false"]::after {
+  transform: rotate(-45deg);
+}
+
+html[dir="rtl"] .sidebar-nav .sidebar-title.is-toggle[aria-expanded="false"]::after {
+  transform: rotate(135deg);
+}
+
+.sidebar-nav .sidebar-title.is-toggle:focus-visible {
+  box-shadow: var(--docs-shadow-focus);
+  outline: none;
+}
+
+.sidebar-nav:not(.is-searching) a[data-folded="true"] {
+  display: none;
+}
+
+/* nested page under its parent */
+.sidebar-nav a.sidebar-sub {
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-inline-start: 18px;
+  padding-block: 8px;
 }

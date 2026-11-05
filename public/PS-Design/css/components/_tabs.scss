@@ -1,34 +1,85 @@
 @use '../helpers' as *;
-.create__tabs {
-  .nav-tabs {
-    .nav-link {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      align-content: center;
-      border-radius: 50%;
-      background: transparent;
-      border: 2px dashed #140ddc;
-      padding: $padding-14;
-      width: 80px;
-      height: 80px;
-      justify-content: center;
-      margin: 0 $padding-md;
-      @include boldfont;
+// =========================================================================
+// moi-mobile-tab  —  mobile tab bar (Figma: mobile-tab + mobile-tab-atoms)
+// Item = icon + label + count; the active item gets a Primary tint and a
+// 2px-style underline. Web uses `.nav-tabs` / `tabs` instead.
+//   <nav class="moi-mobile-tab" aria-label="…">
+//     <button class="moi-mobile-tab__item is-active" aria-current="true">
+//       <svg class="moi-mobile-tab__icon">…</svg>
+//       <span class="moi-mobile-tab__label">أشخاص</span>
+//       <span class="moi-mobile-tab__count">3</span>
+//     </button> …
+//   </nav>
+// =========================================================================
+.moi-mobile-tab {
+  display: flex;
+  gap: $gap-2;
+  padding: $padding-md;
+  overflow-x: auto;
+  background-color: $white-100;
+  border-radius: $radius-sm;
 
-      &.active {
-        background: #140ddc;
-        border: 2px solid #140ddc;
+  &__item {
+    position: relative;
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: $gap-10;
+    padding: $padding-md $padding-14;
+    background-color: transparent;
+    border: 0;
+    border-radius: $radius-xs;
+    color: $Neutral-900;
+    white-space: nowrap;
+    @include font-sm-400;
 
-        img {
-          filter: brightness(0) invert(1);
-        }
+    &.is-active {
+      background-color: $Primary-25;
+      color: $Primary-700;
+      @include font-sm-600;
+
+      // underline = Figma `Divider` (Primary-500)
+      &::after {
+        content: "";
+        position: absolute;
+        inset-inline: 0;
+        bottom: 0;
+        height: $gap-2;
+        background-color: $Primary-500;
       }
 
-      &.disabled {
-        border: 2px dashed #c8c6ff;
-        cursor: not-allowed;
+      .moi-mobile-tab__count {
+        background-color: $Primary-100;
       }
     }
+
+    &:focus-visible {
+      outline: 2px solid $Primary-500;
+      outline-offset: -2px;
+    }
+  }
+
+  &__icon {
+    flex: 0 0 auto;
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
+  }
+
+  &__label {
+    line-height: 1.25;
+  }
+
+  &__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.3125rem;
+    height: 1.3125rem;
+    padding-inline: $padding-xs;
+    background-color: $Neutral-100;
+    border-radius: $radius-10xl;
+    color: inherit;
+    @include font-xs-400;
   }
 }

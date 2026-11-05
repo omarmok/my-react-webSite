@@ -5246,6 +5246,7 @@ border colors */
 }
 .Entity__card__Details--items {
   flex: 1 1 0;
+  align-self: stretch;
   min-width: 0;
 }
 .Entity__card__Details--items > label {
@@ -5259,6 +5260,9 @@ border colors */
   align-items: center;
   justify-content: flex-start;
   overflow-wrap: anywhere;
+}
+.Entity__card__Details--items > span > .moi-tag {
+  flex: 0 0 auto;
 }
 
 @keyframes moi-file-uploader-fade-up {
@@ -6856,51 +6860,71 @@ td.ellipsistd {
   --bs-table-bg: #FEF3F2;
 }
 
-.create__tabs .nav-tabs .nav-link {
+.moi-mobile-tab {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
-  border-radius: 50%;
-  background: transparent;
-  border: 2px dashed #140ddc;
-  padding: 12px;
-  width: 80px;
-  height: 80px;
-  justify-content: center;
-  margin: 0 8px;
-  font-size: calc(0.875rem * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1)) !important;
-  font-weight: 500 !important;
-  font-weight: bold !important;
-}
-.create__tabs .nav-tabs .nav-link.active {
-  background: #140ddc;
-  border: 2px solid #140ddc;
-}
-.create__tabs .nav-tabs .nav-link.active img {
-  filter: brightness(0) invert(1);
-}
-.create__tabs .nav-tabs .nav-link.disabled {
-  border: 2px dashed #c8c6ff;
-  cursor: not-allowed;
-}
-
-.tabsDesign nav {
-  background: #f8f6f2;
-  padding: 12px;
-}
-.tabsDesign .tab-content {
-  border: 1px solid #1b8354;
+  gap: 2px;
+  padding: 8px;
+  overflow-x: auto;
+  background-color: #ffffff;
   border-radius: 6px;
-  padding: 12px;
 }
-.tabsDesign .tab-content > .active {
-  padding: 12px;
-  display: flex;
-  border-radius: 8px;
-  box-shadow: 0px 8px 30px rgba(181, 181, 181, 0.08);
-  flex-direction: column;
-  background: #ffffff;
+.moi-mobile-tab__item {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background-color: transparent;
+  border: 0;
+  border-radius: 4px;
+  color: #111927;
+  white-space: nowrap;
+  font-size: calc(0.75rem * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1)) !important;
+  font-weight: 400 !important;
+}
+.moi-mobile-tab__item.is-active {
+  background-color: #f7fdf9;
+  color: #166a45;
+  font-size: calc(0.75rem * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1)) !important;
+  font-weight: 600 !important;
+}
+.moi-mobile-tab__item.is-active::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: #25935f;
+}
+.moi-mobile-tab__item.is-active .moi-mobile-tab__count {
+  background-color: #dff6e7;
+}
+.moi-mobile-tab__item:focus-visible {
+  outline: 2px solid #25935f;
+  outline-offset: -2px;
+}
+.moi-mobile-tab__icon {
+  flex: 0 0 auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+.moi-mobile-tab__label {
+  line-height: 1.25;
+}
+.moi-mobile-tab__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.3125rem;
+  height: 1.3125rem;
+  padding-inline: 4px;
+  background-color: #f3f4f6;
+  border-radius: 128px;
+  color: inherit;
+  font-size: calc(0.625rem * var(--font-family-scale, 1) * var(--accessibility-font-scale, 1)) !important;
+  font-weight: 400 !important;
 }
 
 #vehicleModal .relatedVecielsTableSeetings {
@@ -11362,6 +11386,242 @@ input:checked + .slider::after {
   right: auto;
   margin: 0;
   flex: none;
+}
+
+.moi-vehicle-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: 12px;
+  background-color: #ffffff;
+  border: 1px solid #d2d6db;
+  border-radius: 8px;
+}
+.moi-vehicle-card__header {
+  display: flex;
+  gap: 8px;
+  padding: 6px 8px;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+.moi-vehicle-card__header-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.moi-vehicle-card__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.moi-vehicle-card__toolbar-actions {
+  display: flex;
+  gap: 8px;
+}
+.moi-vehicle-card__toolbar-actions > .moi-btn[data-icon-only] {
+  --btn-height: 2rem;
+  width: 2rem;
+  height: 2rem;
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: 0;
+}
+.moi-vehicle-card__toolbar > .moi-tag {
+  margin: 0;
+  height: 2rem;
+  padding-block: 0;
+}
+.moi-vehicle-card__meta {
+  display: flex;
+  gap: 8px;
+}
+.moi-vehicle-card .Entity__card__Details--items > label,
+.moi-vehicle-card .Entity__card__Details--items > span {
+  line-height: calc(1.4285714286 * var(--font-family-line-height, 1));
+}
+.moi-vehicle-card .Entity__card__Details--items > label {
+  margin: 0 !important;
+}
+.moi-vehicle-card .Entity__card__Details--items > span {
+  min-height: 0;
+}
+.moi-vehicle-card__meta-item, .moi-vehicle-card__detail-item, .moi-vehicle-card__owner-panel-item, .moi-vehicle-card__security-panel-item {
+  background-color: #ffffff;
+}
+.moi-vehicle-card__meta-item {
+  flex: 1 1 0;
+}
+.moi-vehicle-card__detail-item {
+  flex: 1 1 calc((100% - 6px * 3) / 4);
+}
+.moi-vehicle-card__owner-panel-item, .moi-vehicle-card__security-panel-item {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.moi-vehicle-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.moi-vehicle-card__body[hidden] {
+  display: none;
+}
+.moi-vehicle-card__details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.moi-vehicle-card__detail-item--serial {
+  flex-basis: 100%;
+}
+.moi-vehicle-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.moi-vehicle-card__group-divider {
+  align-self: center;
+  width: 1px;
+  height: 1.5rem;
+  background-color: #e5e7eb;
+}
+.moi-vehicle-card__owner-panel, .moi-vehicle-card__owners-panel, .moi-vehicle-card__users-panel, .moi-vehicle-card__bulletins-panel, .moi-vehicle-card__history-panel, .moi-vehicle-card__security-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+.moi-vehicle-card__owner-panel[hidden], .moi-vehicle-card__owners-panel[hidden], .moi-vehicle-card__users-panel[hidden], .moi-vehicle-card__bulletins-panel[hidden], .moi-vehicle-card__history-panel[hidden], .moi-vehicle-card__security-panel[hidden] {
+  display: none;
+}
+.moi-vehicle-card__owner-panel-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.moi-vehicle-card__owner-panel-toggle {
+  flex: 0 0 auto;
+}
+.moi-vehicle-card__owners-panel-row, .moi-vehicle-card__users-panel-row, .moi-vehicle-card__bulletins-panel-row {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+.moi-vehicle-card__history-panel-actions, .moi-vehicle-card__security-panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.moi-vehicle-card__security-license, .moi-vehicle-card__security-insurance {
+  display: flex;
+  gap: 6px;
+}
+.moi-vehicle-card__owners-timeline, .moi-vehicle-card__users-timeline {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.moi-vehicle-card__icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+.moi-vehicle-card__icon--trail {
+  transition: transform 0.16s ease;
+}
+.moi-vehicle-card__action--toggle-details[aria-expanded=true] .moi-vehicle-card__icon--trail {
+  transform: rotate(180deg);
+}
+.moi-vehicle-card--app {
+  max-width: 26.875rem;
+}
+.moi-vehicle-card--app .moi-vehicle-card__meta,
+.moi-vehicle-card--app .moi-vehicle-card__details,
+.moi-vehicle-card--app .moi-vehicle-card__owner-panel-content,
+.moi-vehicle-card--app .moi-vehicle-card__footer {
+  flex-wrap: wrap;
+}
+.moi-vehicle-card--app .moi-vehicle-card__meta-item {
+  flex: 1 1 calc((100% - 8px) / 2);
+}
+.moi-vehicle-card--app .moi-vehicle-card__detail-item,
+.moi-vehicle-card--app .moi-vehicle-card__owner-panel-item {
+  flex: 1 1 calc((100% - 6px) / 2);
+}
+.moi-vehicle-card--app .moi-vehicle-card__owner-panel-item--name,
+.moi-vehicle-card--app .moi-vehicle-card__detail-item--serial {
+  flex-basis: 100%;
+}
+.moi-vehicle-card--app .moi-vehicle-card__owner-panel-toggle {
+  flex-basis: 100%;
+  order: -2;
+}
+.moi-vehicle-card--app .moi-vehicle-card__owner-panel-item--name {
+  order: -1;
+}
+.moi-vehicle-card--app .moi-vehicle-card__owner-panel-item:not(.moi-vehicle-card__owner-panel-item--name) {
+  flex: 1 1 calc((100% - 6px) / 2);
+}
+.moi-vehicle-card--app .moi-vehicle-card__owner-panel-item:nth-child(4) {
+  order: 1;
+}
+.moi-vehicle-card--app .moi-vehicle-card__owner-panel-item:nth-child(5) {
+  order: 2;
+}
+.moi-vehicle-card--app .moi-vehicle-card__owner-panel-item:nth-child(2) {
+  order: 3;
+}
+.moi-vehicle-card--app .moi-vehicle-card__owner-panel-item:nth-child(3) {
+  order: 4;
+}
+.moi-vehicle-card--app .moi-vehicle-card__action--toggle-details {
+  flex-basis: 100%;
+  order: -1;
+}
+.moi-vehicle-card--app .moi-vehicle-card__action--security {
+  order: 1;
+}
+.moi-vehicle-card--app .moi-vehicle-card__action--bulletins {
+  order: 2;
+}
+.moi-vehicle-card--app .moi-vehicle-card__action--users {
+  order: 3;
+}
+.moi-vehicle-card--app .moi-vehicle-card__action--history {
+  order: 4;
+}
+.moi-vehicle-card--app .moi-vehicle-card__action--owner {
+  order: 5;
+}
+.moi-vehicle-card--app .moi-vehicle-card__action--owners {
+  order: 6;
+}
+.moi-vehicle-card--app .moi-vehicle-card__security-license,
+.moi-vehicle-card--app .moi-vehicle-card__security-insurance {
+  flex-wrap: wrap;
+}
+.moi-vehicle-card--app .moi-vehicle-card__security-panel-item {
+  flex: 1 1 calc((100% - 6px) / 2);
+}
+.moi-vehicle-card--app .moi-vehicle-card__footer > .moi-btn:not(.moi-vehicle-card__action--toggle-details) {
+  flex: 1 1 calc((100% - 8px) / 2);
+}
+.moi-vehicle-card--app .moi-vehicle-card__group-divider {
+  display: none;
 }
 
 /*  Base buttons*/
@@ -18221,6 +18481,13 @@ span.customtooltip {
 
 .nav-tabs {
   --bs-nav-tabs-border-color: transparent;
+  border-bottom: 0;
+}
+.nav-tabs > .nav-link {
+  width: auto;
+}
+.nav-tabs .nav-link {
+  margin-bottom: 0;
 }
 .nav-tabs .nav-item {
   margin: 8px 8px 0;
@@ -18317,7 +18584,7 @@ nav {
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
   background: #14573a !important;
-  border: 1px solid #14573a !important;
+  border: 0 !important;
   color: #fcfcfd !important;
 }
 

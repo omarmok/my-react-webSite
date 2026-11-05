@@ -366,6 +366,7 @@
 
   &--items {
     flex: 1 1 0;
+    align-self: stretch; // equal height in ANY flex parent (cards, vehicle card, panels)
     min-width: 0;
 
     > label {
@@ -380,6 +381,10 @@
       align-items: center;
       justify-content: flex-start;
       overflow-wrap: anywhere;
+
+      > .moi-tag {
+        flex: 0 0 auto;
+      }
     }
   }
 }
